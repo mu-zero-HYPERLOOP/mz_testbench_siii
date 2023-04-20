@@ -1,0 +1,198 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: TelemetryNode Master SENSOR
+
+
+BO_ 2 CANzero_NMT: 4 Master
+ SG_ CANzero_NMT_Node : 16|16@1+ (1,0) [0|63] ""  SENSOR
+ SG_ CANzero_NMT_State : 0|16@1+ (1,0) [0|0] ""  SENSOR
+
+BO_ 122 CANzero_Sync: 0 Master
+
+BO_ 123 CANzero_Timestamp: 0 Master
+
+BO_ 129 SENSOR_EMCY: 4 SENSOR
+
+BO_ 385 SENSOR_TX_PDO1: 0 SENSOR
+
+BO_ 449 SENSOR_RX_PDO1: 0 Vector__XXX
+
+BO_ 513 SENSOR_TX_PDO2: 0 SENSOR
+
+BO_ 577 SENSOR_RX_PDO2: 0 Vector__XXX
+
+BO_ 641 SENSOR_TX_PDO3: 0 SENSOR
+
+BO_ 705 SENSOR_RX_PDO3: 0 Vector__XXX
+
+BO_ 769 SENSOR_TX_PDO4: 0 SENSOR
+
+BO_ 833 SENSOR_RX_PDO4: 0 Vector__XXX
+
+BO_ 897 SENSOR_TX_PDO5: 0 SENSOR
+
+BO_ 961 SENSOR_TX_PDO6: 0 SENSOR
+
+BO_ 1025 SENSOR_TX_PDO7: 0 SENSOR
+
+BO_ 1089 SENSOR_TX_PDO8: 0 SENSOR
+
+BO_ 1153 SENSOR_TX_PDO9: 0 SENSOR
+
+BO_ 1217 SENSOR_TX_PDO10: 0 SENSOR
+
+BO_ 1281 SENSOR_TX_PDO11: 0 SENSOR
+
+BO_ 1345 SENSOR_TX_PDO12: 0 SENSOR
+
+BO_ 1409 SENSOR_SDO_Resp: 8 SENSOR
+ SG_ SENSOR_SDO_RespCode : 12|4@1+ (1,0) [0|0] ""  TelemetryNode
+ SG_ SENSOR_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
+
+BO_ 1473 SENSOR_SDO_Req_Up: 8 TelemetryNode
+ SG_ SENSOR_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  SENSOR
+
+BO_ 1537 SENSOR_SDO_Req_Down: 2 TelemetryNode
+ SG_ SENSOR_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  SENSOR
+
+BO_ 1793 SENSOR_Heartbeat: 1 SENSOR
+ SG_ SENSOR_NodeState : 0|8@1+ (1,0) [0|0] ""  Master,TelemetryNode
+
+BO_ 1857 SENSOR_BTL_TX: 8 SENSOR
+
+BO_ 1921 SENSOR_BTL_RX: 8 TelemetryNode
+
+
+
+
+CM_ BU_ TelemetryNode "CANzero SDO Client Node.";
+CM_ BU_ Master "CANzero NMT Master Node.";
+CM_ BU_ SENSOR "SENSOR:0x1
+Node-ID 0x1";
+CM_ BO_ 2 "CANzero NMT message sent by NMT master.";
+CM_ SG_ 2 CANzero_NMT_Node "CANzero NMT Node-ID of master request.";
+CM_ SG_ 2 CANzero_NMT_State "CANzero NMT State Request by master.";
+CM_ BO_ 122 "CANzero Sync message. Not used yet, just a placeholder for future versions.";
+CM_ BO_ 123 "CANzero Timestamp message. Not used yet, just a placeholder for future versions.";
+CM_ BO_ 129 "Emergency message of node SENSOR with Node-ID 0x1";
+CM_ BO_ 385 "Transmit PDO 1 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 449 "Receive PDO 1 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 513 "Transmit PDO 2 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 577 "Receive PDO 2 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 641 "Transmit PDO 3 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 705 "Receive PDO 3 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 769 "Transmit PDO 4 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 833 "Receive PDO 4 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 897 "Transmit PDO 5 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 961 "Transmit PDO 6 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1025 "Transmit PDO 7 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1089 "Transmit PDO 8 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1153 "Transmit PDO 9 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1217 "Transmit PDO 10 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1281 "Transmit PDO 11 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1345 "Transmit PDO 12 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1409 "DO NOT CHANGE ANYTHING HERE!
+SDO Response of node SENSOR with Node-ID 0x1";
+CM_ SG_ 1409 SENSOR_SDO_RespCode "Response code of SDO access.";
+CM_ SG_ 1409 SENSOR_SDO_ID "Specifies SDO-ID of SENSOR";
+CM_ BO_ 1473 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Upload to node SENSOR with Node-ID 0x1";
+CM_ SG_ 1473 SENSOR_SDO_ID "Specifies SDO-ID of SENSOR";
+CM_ BO_ 1537 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Download from node SENSOR with Node-ID 0x1";
+CM_ SG_ 1537 SENSOR_SDO_ID "Specifies SDO-ID of SENSOR";
+CM_ BO_ 1793 "Heartbeat of node SENSOR with Node-ID 0x1";
+CM_ SG_ 1793 SENSOR_NodeState "Heartbeat status of node SENSOR";
+CM_ BO_ 1857 "Bootloader transmit from node SENSOR with Node-ID 0x1";
+CM_ BO_ 1921 "Bootloader receive by node SENSOR with Node-ID 0x1";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","Cyclic","not_used","IfActive","NoMsgSendType";
+BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 2 50000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 1 1000;
+BA_DEF_ BO_  "GenMsgNrOfRepetitions" INT 1 999999;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 100000;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 100000000000;
+BA_DEF_  "CANzero_ProtocolVersion" STRING ;
+BA_DEF_  "CANzero_DBCVersion" INT 0 16777215;
+BA_DEF_  "CANzero_SDOClientName" STRING ;
+BA_DEF_  "CANzero_NMTMasterName" STRING ;
+BA_DEF_ BU_  "CANzero_NodeID" HEX 0 63;
+BA_DEF_ SG_  "CANzero_SDO_Group" STRING ;
+BA_DEF_ SG_  "CANzero_SDO_AccessIfOperational" ENUM  "No","Yes";
+BA_DEF_ SG_  "CANzero_SDO_AccessType" ENUM  "Read Write","Read Only","Write Only";
+BA_DEF_ SG_  "CANzero_SDO_Default" FLOAT 0 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 100;
+BA_DEF_DEF_  "GenMsgDelayTime" 1;
+BA_DEF_DEF_  "GenMsgNrOfRepetitions" 1;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "CANzero_ProtocolVersion" "";
+BA_DEF_DEF_  "CANzero_DBCVersion" 0;
+BA_DEF_DEF_  "CANzero_SDOClientName" "Master";
+BA_DEF_DEF_  "CANzero_NMTMasterName" "Master";
+BA_DEF_DEF_  "CANzero_NodeID" 0;
+BA_DEF_DEF_  "CANzero_SDO_Group" "";
+BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
+BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
+BA_DEF_DEF_  "CANzero_SDO_Default" 0;
+BA_ "BusType" "CAN";
+BA_ "DBName" "database";
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "CANzero_DBCVersion" 1;
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_NMTMasterName" "Master";
+BA_ "CANzero_NodeID" BU_ SENSOR 1;
+BA_ "GenMsgCycleTime" BO_ 2 100;
+BA_ "GenMsgCycleTime" BO_ 122 100;
+BA_ "GenMsgCycleTime" BO_ 123 100;
+VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SENSOR" ;
+VAL_ 2 CANzero_NMT_State 1 "Start Remote Node" 2 "Stop Remote Node" 128 "Enter Pre-Operational" 129 "Reset" ;
+VAL_ 1409 SENSOR_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
+VAL_ 1409 SENSOR_SDO_ID 0 "Reserved" ;
+VAL_ 1473 SENSOR_SDO_ID 0 "Reserved" ;
+VAL_ 1537 SENSOR_SDO_ID 0 "Reserved" ;
+VAL_ 1793 SENSOR_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
+
+
+
