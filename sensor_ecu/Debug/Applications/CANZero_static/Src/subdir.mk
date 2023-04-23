@@ -8,6 +8,7 @@ CPP_SRCS += \
 ../Applications/CANZero_static/Src/cz_emergency.cpp \
 ../Applications/CANZero_static/Src/cz_handles.cpp \
 ../Applications/CANZero_static/Src/cz_heartbeat.cpp \
+../Applications/CANZero_static/Src/cz_message_receiver.cpp \
 ../Applications/CANZero_static/Src/cz_processRx.cpp \
 ../Applications/CANZero_static/Src/cz_receive_queue.cpp \
 ../Applications/CANZero_static/Src/cz_receive_task.cpp \
@@ -21,6 +22,7 @@ OBJS += \
 ./Applications/CANZero_static/Src/cz_emergency.o \
 ./Applications/CANZero_static/Src/cz_handles.o \
 ./Applications/CANZero_static/Src/cz_heartbeat.o \
+./Applications/CANZero_static/Src/cz_message_receiver.o \
 ./Applications/CANZero_static/Src/cz_processRx.o \
 ./Applications/CANZero_static/Src/cz_receive_queue.o \
 ./Applications/CANZero_static/Src/cz_receive_task.o \
@@ -34,6 +36,7 @@ CPP_DEPS += \
 ./Applications/CANZero_static/Src/cz_emergency.d \
 ./Applications/CANZero_static/Src/cz_handles.d \
 ./Applications/CANZero_static/Src/cz_heartbeat.d \
+./Applications/CANZero_static/Src/cz_message_receiver.d \
 ./Applications/CANZero_static/Src/cz_processRx.d \
 ./Applications/CANZero_static/Src/cz_receive_queue.d \
 ./Applications/CANZero_static/Src/cz_receive_task.d \
@@ -51,7 +54,7 @@ Applications/CANZero_static/Src/%.o Applications/CANZero_static/Src/%.su Applica
 clean: clean-Applications-2f-CANZero_static-2f-Src
 
 clean-Applications-2f-CANZero_static-2f-Src:
-	-$(RM) ./Applications/CANZero_static/Src/cz_emergency.cyclo ./Applications/CANZero_static/Src/cz_emergency.d ./Applications/CANZero_static/Src/cz_emergency.o ./Applications/CANZero_static/Src/cz_emergency.su ./Applications/CANZero_static/Src/cz_handles.cyclo ./Applications/CANZero_static/Src/cz_handles.d ./Applications/CANZero_static/Src/cz_handles.o ./Applications/CANZero_static/Src/cz_handles.su ./Applications/CANZero_static/Src/cz_heartbeat.cyclo ./Applications/CANZero_static/Src/cz_heartbeat.d ./Applications/CANZero_static/Src/cz_heartbeat.o ./Applications/CANZero_static/Src/cz_heartbeat.su ./Applications/CANZero_static/Src/cz_processRx.cyclo ./Applications/CANZero_static/Src/cz_processRx.d ./Applications/CANZero_static/Src/cz_processRx.o ./Applications/CANZero_static/Src/cz_processRx.su ./Applications/CANZero_static/Src/cz_receive_queue.cyclo ./Applications/CANZero_static/Src/cz_receive_queue.d ./Applications/CANZero_static/Src/cz_receive_queue.o ./Applications/CANZero_static/Src/cz_receive_queue.su ./Applications/CANZero_static/Src/cz_receive_task.cyclo ./Applications/CANZero_static/Src/cz_receive_task.d ./Applications/CANZero_static/Src/cz_receive_task.o ./Applications/CANZero_static/Src/cz_receive_task.su ./Applications/CANZero_static/Src/cz_send_queue.cyclo ./Applications/CANZero_static/Src/cz_send_queue.d ./Applications/CANZero_static/Src/cz_send_queue.o ./Applications/CANZero_static/Src/cz_send_queue.su ./Applications/CANZero_static/Src/cz_send_task.cyclo ./Applications/CANZero_static/Src/cz_send_task.d ./Applications/CANZero_static/Src/cz_send_task.o ./Applications/CANZero_static/Src/cz_send_task.su ./Applications/CANZero_static/Src/cz_statemaschine.cyclo ./Applications/CANZero_static/Src/cz_statemaschine.d ./Applications/CANZero_static/Src/cz_statemaschine.o ./Applications/CANZero_static/Src/cz_statemaschine.su ./Applications/CANZero_static/Src/cz_taskmaster.cyclo ./Applications/CANZero_static/Src/cz_taskmaster.d ./Applications/CANZero_static/Src/cz_taskmaster.o ./Applications/CANZero_static/Src/cz_taskmaster.su ./Applications/CANZero_static/Src/cz_weak.cyclo ./Applications/CANZero_static/Src/cz_weak.d ./Applications/CANZero_static/Src/cz_weak.o ./Applications/CANZero_static/Src/cz_weak.su
+	-$(RM) ./Applications/CANZero_static/Src/cz_emergency.cyclo ./Applications/CANZero_static/Src/cz_emergency.d ./Applications/CANZero_static/Src/cz_emergency.o ./Applications/CANZero_static/Src/cz_emergency.su ./Applications/CANZero_static/Src/cz_handles.cyclo ./Applications/CANZero_static/Src/cz_handles.d ./Applications/CANZero_static/Src/cz_handles.o ./Applications/CANZero_static/Src/cz_handles.su ./Applications/CANZero_static/Src/cz_heartbeat.cyclo ./Applications/CANZero_static/Src/cz_heartbeat.d ./Applications/CANZero_static/Src/cz_heartbeat.o ./Applications/CANZero_static/Src/cz_heartbeat.su ./Applications/CANZero_static/Src/cz_message_receiver.cyclo ./Applications/CANZero_static/Src/cz_message_receiver.d ./Applications/CANZero_static/Src/cz_message_receiver.o ./Applications/CANZero_static/Src/cz_message_receiver.su ./Applications/CANZero_static/Src/cz_processRx.cyclo ./Applications/CANZero_static/Src/cz_processRx.d ./Applications/CANZero_static/Src/cz_processRx.o ./Applications/CANZero_static/Src/cz_processRx.su ./Applications/CANZero_static/Src/cz_receive_queue.cyclo ./Applications/CANZero_static/Src/cz_receive_queue.d ./Applications/CANZero_static/Src/cz_receive_queue.o ./Applications/CANZero_static/Src/cz_receive_queue.su ./Applications/CANZero_static/Src/cz_receive_task.cyclo ./Applications/CANZero_static/Src/cz_receive_task.d ./Applications/CANZero_static/Src/cz_receive_task.o ./Applications/CANZero_static/Src/cz_receive_task.su ./Applications/CANZero_static/Src/cz_send_queue.cyclo ./Applications/CANZero_static/Src/cz_send_queue.d ./Applications/CANZero_static/Src/cz_send_queue.o ./Applications/CANZero_static/Src/cz_send_queue.su ./Applications/CANZero_static/Src/cz_send_task.cyclo ./Applications/CANZero_static/Src/cz_send_task.d ./Applications/CANZero_static/Src/cz_send_task.o ./Applications/CANZero_static/Src/cz_send_task.su ./Applications/CANZero_static/Src/cz_statemaschine.cyclo ./Applications/CANZero_static/Src/cz_statemaschine.d ./Applications/CANZero_static/Src/cz_statemaschine.o ./Applications/CANZero_static/Src/cz_statemaschine.su ./Applications/CANZero_static/Src/cz_taskmaster.cyclo ./Applications/CANZero_static/Src/cz_taskmaster.d ./Applications/CANZero_static/Src/cz_taskmaster.o ./Applications/CANZero_static/Src/cz_taskmaster.su ./Applications/CANZero_static/Src/cz_weak.cyclo ./Applications/CANZero_static/Src/cz_weak.d ./Applications/CANZero_static/Src/cz_weak.o ./Applications/CANZero_static/Src/cz_weak.su
 
 .PHONY: clean-Applications-2f-CANZero_static-2f-Src
 

@@ -1,11 +1,9 @@
 core_cm4.h:1939:34:void __NVIC_SystemReset()	1
-core_cm4.h:2064:26:uint32_t ITM_SendChar(uint32_t)	5
-log_dep.hpp:20:13:void log(const char*)	2
-log_dep.hpp:27:13:void logln()	1
-log_dep.hpp:35:13:void logln(const char*)	1
 cz_receive_task.cpp:20:6:void cz_receive_task(void*)	6
-cz_receive_task.cpp:45:6:void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef*)	2
-cz_receive_task.cpp:62:6:void HAL_CAN_ErrorCallback(CAN_HandleTypeDef*)	1
+cz_receive_task.cpp:44:6:void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)	2
+cz_receive_task.cpp:61:6:void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef*)	2
+cz_receive_task.cpp:78:6:void HAL_CAN_ErrorCallback(CAN_HandleTypeDef*)	1
+cz_receive_task.cpp:83:6:void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef*)	1
 dbc_parser.hpp:93:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::SENSOR_BTL_RX]	2
 dbc_parser.hpp:93:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::SENSOR_SDO_Req_Up]	2
 dbc_parser.hpp:93:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::SENSOR_SDO_Req_Down]	2

@@ -69,6 +69,15 @@ private:
 
 void testbench_entry(void* argv){
 
+	can::registerMessageReceiver<can::messages::SENSOR_HELLO_WORLD>([&](RxMessage& message){
+		logln("HELLO, WORLD");
+	});
+
+	while(true){
+		osDelay(500);
+	}
+
+
 	/*
 	StateMaschineMemory<2> fmsMemory;
 	StateMaschine fms(&fmsMemory);

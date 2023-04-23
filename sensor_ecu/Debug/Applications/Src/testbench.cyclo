@@ -1,136 +1,65 @@
 core_cm4.h:2064:26:uint32_t ITM_SendChar(uint32_t)	5
-cmath:279:3:constexpr float std::fmod(float, float)	1
 log_dep.hpp:20:13:void log(const char*)	2
 log_dep.hpp:27:13:void logln()	1
 log_dep.hpp:35:13:void logln(const char*)	1
-log_dep.hpp:77:13:void logValue(const char*, float)	5
-log_dep.hpp:113:13:void loglnValue(const char*, float)	1
 new:174:33:void* operator new(std::size_t, void*)	1
 std_function.h:87:17:void* std::_Any_data::_M_access()	1
 std_function.h:88:17:const void* std::_Any_data::_M_access() const	1
 std_function.h:240:5:std::_Function_base::_Function_base()	1
 std_function.h:242:5:std::_Function_base::~_Function_base()	2
 std_function.h:248:10:bool std::_Function_base::_M_empty() const	1
-std_function.h:303:11:std::function<void(ADC_HandleTypeDef*)>::~function()	1
-AdcConvCpltCallbackHandler.hpp:41:2:AdcConvCpltCallbackHandler::AdcConvCpltCallbackHandler()	2
-AdcConvCpltCallbackHandler.hpp:14:7:AdcConvCpltCallbackHandler::~AdcConvCpltCallbackHandler()	3
-AdcConvCpltCallbackHandler.hpp:18:37:void __tcf_0()	1
-AdcConvCpltCallbackHandler.hpp:17:37:static AdcConvCpltCallbackHandler& AdcConvCpltCallbackHandler::getInstance()	3
-AdcConvCpltCallbackHandler.hpp:22:15:unsigned int AdcConvCpltCallbackHandler::registerCallback(std::function<void(ADC_HandleTypeDef*)>)	1
 std_function.h:303:11:std::function<void(short unsigned int)>::~function()	1
 GPIOExtiCallbackHandler.hpp:42:2:GPIOExtiCallbackHandler::GPIOExtiCallbackHandler()	2
 GPIOExtiCallbackHandler.hpp:14:7:GPIOExtiCallbackHandler::~GPIOExtiCallbackHandler()	3
 GPIOExtiCallbackHandler.hpp:18:34:void __tcf_1()	1
 GPIOExtiCallbackHandler.hpp:17:34:static GPIOExtiCallbackHandler& GPIOExtiCallbackHandler::getInstance()	3
-GPIOExtiCallbackHandler.hpp:22:15:unsigned int GPIOExtiCallbackHandler::registerCallback(std::function<void(short unsigned int)>)	1
 GPIOExtiCallbackHandler.hpp:35:7:void GPIOExtiCallbackHandler::notify(uint16_t)	2
 GPIOExtiCallbackHandler.hpp:52:6:void HAL_GPIO_EXTI_Callback(uint16_t)	1
-std_function.h:303:11:std::function<void(bool)>::~function()	1
-GPIOExtiController.hpp:22:5:GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>	4
-GPIOExtiController.hpp:19:11:GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)	1
-GPIOExtiController.hpp:32:7:void GPIOExtiController::setExtiCallback(std::function<void(bool)>)	1
-testbench.cpp:87:32:testbench_entry(void*)::<lambda(bool)>	1
+testbench.cpp:72:66:testbench_entry(void*)::<lambda(RxMessage&)>	1
+std_function.h:303:11:std::function<void(RxMessage&)>::~function()	1
+testbench.cpp:96:32:testbench_entry(void*)::<lambda(bool)>	1
 testbench.cpp:70:6:void testbench_entry(void*)	1
-std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
-std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {short unsigned int}]	1
-std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {short unsigned int}]	1
 std_function.h:617:5:) const [with _Res = void; _ArgTypes = {short unsigned int}]	1
-std_function.h:337:7:)>::function(std::nullptr_t) [with _Res = void; _ArgTypes = {bool}]	1
-std_function.h:699:5:)>&, std::nullptr_t) [with _Res = void; _Args = {bool}]	1
-std_function.h:617:5:) const [with _Res = void; _ArgTypes = {bool}]	1
-std_function.h:601:7:)>::function(_Functor) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {short unsigned int}]	2
-std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {bool}]	1
-AdcDmaController.hpp:23:5:AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>	2
-AdcDmaController.hpp:20:11:AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController(ADC_HandleTypeDef*) [with uintx_t = short unsigned int; unsigned int MAX_CONVERTIONS = 15]	7
+std_function.h:601:7:)>::function(_Functor) [with _Functor = testbench_entry(void*)::<lambda(RxMessage&)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {RxMessage&}]	2
+cz_message_receiver.hpp:28:13:void can::registerMessageReceiver(std::function<void(RxMessage&)>) [with MESSAGE = can::messages::SENSOR_HELLO_WORLD]	1
 std_function.h:601:7:)>::function(_Functor) [with _Functor = testbench_entry(void*)::<lambda(bool)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {bool}]	2
-AdcDmaController.hpp:52:30:Future<AdcResult<uintx_t> >* AdcDmaController<uintx_t, MAX_CONVERTIONS>::requestAdcDma() [with uintx_t = short unsigned int; unsigned int MAX_CONVERTIONS = 15]	1
-Future.hpp:56:4:T Future<T>::get() [with T = AdcResult<short unsigned int>]	1
-AdcResult.hpp:27:8:float AdcResult<uintx_t>::asVoltageF(size_t) [with uintx_t = short unsigned int]	1
-std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2
-std_function.h:481:12:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
-move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = ADC_HandleTypeDef*]	1
-std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {short unsigned int}]	2
-std_function.h:481:12:)>&) [with _Res = void; _ArgTypes = {short unsigned int}]	1
 move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = short unsigned int]	1
-std_function.h:481:12:)>&) [with _Res = void; _ArgTypes = {bool}]	1
-std_function.h:498:16:)>::operator bool() const [with _Res = void; _ArgTypes = {bool}]	1
 move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = bool]	1
-std_function.h:227:4:static bool std::_Function_base::_Base_manager<_Functor>::_M_not_empty_function(const _Tp&) [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>; _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
-move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>&]	1
-std_function.h:207:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
-std_function.h:289:7:) [with _Res = void; _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>; _ArgTypes = {short unsigned int}]	1
-std_function.h:268:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Res = void; _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>; _ArgTypes = {short unsigned int}]	2
-std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {bool}]	2
-Future.hpp:24:2:Future<T>::Future() [with T = AdcResult<short unsigned int>]	1
-AdcDmaController.hpp:60:7:void AdcDmaController<uintx_t, MAX_CONVERTIONS>::dmaCplrCallback() [with uintx_t = short unsigned int; unsigned int MAX_CONVERTIONS = 15]	1
-std_function.h:601:7:)>::function(_Functor) [with _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2
+std_function.h:227:4:static bool std::_Function_base::_Base_manager<_Functor>::_M_not_empty_function(const _Tp&) [with _Tp = testbench_entry(void*)::<lambda(RxMessage&)>; _Functor = testbench_entry(void*)::<lambda(RxMessage&)>]	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = testbench_entry(void*)::<lambda(RxMessage&)>&]	1
+std_function.h:207:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&) [with _Functor = testbench_entry(void*)::<lambda(RxMessage&)>]	1
+std_function.h:289:7:) [with _Res = void; _Functor = testbench_entry(void*)::<lambda(RxMessage&)>; _ArgTypes = {RxMessage&}]	1
+std_function.h:268:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Res = void; _Functor = testbench_entry(void*)::<lambda(RxMessage&)>; _ArgTypes = {RxMessage&}]	2
+std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {RxMessage&}]	2
 std_function.h:227:4:static bool std::_Function_base::_Base_manager<_Functor>::_M_not_empty_function(const _Tp&) [with _Tp = testbench_entry(void*)::<lambda(bool)>; _Functor = testbench_entry(void*)::<lambda(bool)>]	1
 move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = testbench_entry(void*)::<lambda(bool)>&]	1
 std_function.h:207:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&) [with _Functor = testbench_entry(void*)::<lambda(bool)>]	1
 std_function.h:289:7:) [with _Res = void; _Functor = testbench_entry(void*)::<lambda(bool)>; _ArgTypes = {bool}]	1
 std_function.h:268:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Res = void; _Functor = testbench_entry(void*)::<lambda(bool)>; _ArgTypes = {bool}]	2
-Future.hpp:69:7:void Future<T>::reset() [with T = AdcResult<short unsigned int>]	1
-AdcResult.hpp:21:17:const uintx_t& AdcResult<uintx_t>::operator[](size_t) [with uintx_t = short unsigned int]	2
-std_function.h:498:16:)>::operator bool() const [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
-move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::_Any_data&]	1
-move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = std::_Any_data]	1
-move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = bool (*&)(std::_Any_data&, const std::_Any_data&, std::_Manager_operation)]	1
-move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = bool (*)(std::_Any_data&, const std::_Any_data&, std::_Manager_operation)]	1
-move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = void (*&)(const std::_Any_data&, ADC_HandleTypeDef*&&)]	1
-move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = void (*)(const std::_Any_data&, ADC_HandleTypeDef*&&)]	1
-std_function.h:498:16:)>::operator bool() const [with _Res = void; _ArgTypes = {short unsigned int}]	1
-move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = void (*&)(const std::_Any_data&, short unsigned int&&)]	1
-move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = void (*)(const std::_Any_data&, short unsigned int&&)]	1
-move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = void (*&)(const std::_Any_data&, bool&&)]	1
-move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = void (*)(const std::_Any_data&, bool&&)]	1
-std_function.h:232:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&, std::true_type) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
-std_function.h:136:2:static _Functor* std::_Function_base::_Base_manager<_Functor>::_M_get_pointer(const std::_Any_data&) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
-invoke.h:148:5:) [with _Res = void; _Callable = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>&; _Args = {short unsigned int}]	1
-std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>*]	1
-std_function.h:181:2:static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	5
-std_function.h:337:7:)>::function(std::nullptr_t) [with _Res = void; _ArgTypes = {AdcResult<short unsigned int>&}]	1
-Future.hpp:21:3:Future<T>::optional::optional() [with T = AdcResult<short unsigned int>]	1
-AdcResult.hpp:16:11:AdcResult<uintx_t>::AdcResult(uintx_t*, size_t, unsigned int) [with uintx_t = short unsigned int]	1
-Future.hpp:45:7:void Future<T>::complete(T) [with T = AdcResult<short unsigned int>]	3
-std_function.h:227:4:static bool std::_Function_base::_Base_manager<_Functor>::_M_not_empty_function(const _Tp&) [with _Tp = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>; _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	1
-move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>&]	1
-std_function.h:207:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&) [with _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	1
-std_function.h:289:7:) [with _Res = void; _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>; _ArgTypes = {ADC_HandleTypeDef*}]	1
-std_function.h:268:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Res = void; _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>; _ArgTypes = {ADC_HandleTypeDef*}]	2
+std_function.h:232:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&, std::true_type) [with _Functor = testbench_entry(void*)::<lambda(RxMessage&)>]	1
+std_function.h:136:2:static _Functor* std::_Function_base::_Base_manager<_Functor>::_M_get_pointer(const std::_Any_data&) [with _Functor = testbench_entry(void*)::<lambda(RxMessage&)>]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = RxMessage&]	1
+invoke.h:148:5:) [with _Res = void; _Callable = testbench_entry(void*)::<lambda(RxMessage&)>&; _Args = {RxMessage&}]	1
+std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = testbench_entry(void*)::<lambda(RxMessage&)>*]	1
+std_function.h:181:2:static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = testbench_entry(void*)::<lambda(RxMessage&)>]	5
+std_function.h:498:16:)>::operator bool() const [with _Res = void; _ArgTypes = {RxMessage&}]	1
 std_function.h:232:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&, std::true_type) [with _Functor = testbench_entry(void*)::<lambda(bool)>]	1
 std_function.h:136:2:static _Functor* std::_Function_base::_Base_manager<_Functor>::_M_get_pointer(const std::_Any_data&) [with _Functor = testbench_entry(void*)::<lambda(bool)>]	1
 invoke.h:148:5:) [with _Res = void; _Callable = testbench_entry(void*)::<lambda(bool)>&; _Args = {bool}]	1
 std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = testbench_entry(void*)::<lambda(bool)>*]	1
 std_function.h:181:2:static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = testbench_entry(void*)::<lambda(bool)>]	5
-std_function.h:428:7:)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {AdcResult<short unsigned int>&}]	2
-std_function.h:97:7:const _Tp& std::_Any_data::_M_access() const [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
-move.h:49:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = const GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
-move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>&]	1
-invoke.h:59:5:) [with _Res = void; _Fn = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>&; _Args = {short unsigned int}]	1
-std_function.h:150:2:static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::true_type) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
-std_function.h:167:2:static void std::_Function_base::_Base_manager<_Functor>::_M_destroy(std::_Any_data&, std::true_type) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
-std_function.h:699:5:)>&, std::nullptr_t) [with _Res = void; _Args = {AdcResult<short unsigned int>&}]	1
-std_function.h:617:5:) const [with _Res = void; _ArgTypes = {AdcResult<short unsigned int>&}]	1
-std_function.h:232:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&, std::true_type) [with _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	1
-std_function.h:136:2:static _Functor* std::_Function_base::_Base_manager<_Functor>::_M_get_pointer(const std::_Any_data&) [with _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	1
-invoke.h:148:5:) [with _Res = void; _Callable = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>&; _Args = {ADC_HandleTypeDef*}]	1
-std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>*]	1
-std_function.h:181:2:static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	5
+std_function.h:97:7:const _Tp& std::_Any_data::_M_access() const [with _Tp = testbench_entry(void*)::<lambda(RxMessage&)>]	1
+move.h:49:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = const testbench_entry(void*)::<lambda(RxMessage&)>]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = testbench_entry(void*)::<lambda(RxMessage&)>&]	1
+invoke.h:59:5:) [with _Res = void; _Fn = testbench_entry(void*)::<lambda(RxMessage&)>&; _Args = {RxMessage&}]	1
+std_function.h:150:2:static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::true_type) [with _Functor = testbench_entry(void*)::<lambda(RxMessage&)>]	1
+std_function.h:167:2:static void std::_Function_base::_Base_manager<_Functor>::_M_destroy(std::_Any_data&, std::true_type) [with _Functor = testbench_entry(void*)::<lambda(RxMessage&)>]	1
 std_function.h:97:7:const _Tp& std::_Any_data::_M_access() const [with _Tp = testbench_entry(void*)::<lambda(bool)>]	1
 move.h:49:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = const testbench_entry(void*)::<lambda(bool)>]	1
 move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = testbench_entry(void*)::<lambda(bool)>&]	1
 invoke.h:59:5:) [with _Res = void; _Fn = testbench_entry(void*)::<lambda(bool)>&; _Args = {bool}]	1
 std_function.h:150:2:static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::true_type) [with _Functor = testbench_entry(void*)::<lambda(bool)>]	1
 std_function.h:167:2:static void std::_Function_base::_Base_manager<_Functor>::_M_destroy(std::_Any_data&, std::true_type) [with _Functor = testbench_entry(void*)::<lambda(bool)>]	1
-std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
-std_function.h:498:16:)>::operator bool() const [with _Res = void; _ArgTypes = {AdcResult<short unsigned int>&}]	1
-move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = AdcResult<short unsigned int>&]	1
-std_function.h:97:7:const _Tp& std::_Any_data::_M_access() const [with _Tp = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	1
-move.h:49:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = const AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	1
-move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>&]	1
-invoke.h:59:5:) [with _Res = void; _Fn = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>&; _Args = {ADC_HandleTypeDef*}]	1
-std_function.h:150:2:static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::true_type) [with _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	1
-std_function.h:167:2:static void std::_Function_base::_Base_manager<_Functor>::_M_destroy(std::_Any_data&, std::true_type) [with _Functor = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	1
+std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = testbench_entry(void*)::<lambda(RxMessage&)>]	1
 std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = testbench_entry(void*)::<lambda(bool)>]	1
-std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = AdcDmaController<uintx_t, MAX_CONVERTIONS>::AdcDmaController<short unsigned int, 15>::<lambda(ADC_HandleTypeDef*)>]	1

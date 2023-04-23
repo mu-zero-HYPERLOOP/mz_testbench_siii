@@ -21,7 +21,6 @@ void cz_receive_task(void* argv) {
 	RxMessage message;
 	while (1) {
 		osMessageQueueGet(czReceiveQueue, (void*) &message, NULL, osWaitForever);
-		logln("Received Message");
 
 		if (message.rxHeader.RTR == CAN_RTR_DATA) {
  			if(can::checkRxMessage<can::messages::CANZERO_BTL_RX>(message)) {
@@ -39,6 +38,23 @@ void cz_receive_task(void* argv) {
 		else if (message.rxHeader.RTR == CAN_RTR_REMOTE) {
 			printDebug("RTR must not be used!\n");
 		}
+	}
+}
+
+void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan) {
+	uint8_t RxData[8];
+	CAN_RxHeaderTypeDef RxHeader;
+
+	HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &RxHeader, RxData);
+	RxMessage m;
+	m.rxHeader = RxHeader;
+	for(int i = 0; i<8;i++)
+		m.rxBuf[i] = RxData[i];
+	//if the function hangs/does not return it might because the interrupts have invalid priorities.
+	//They have to be greater or equal to the max interrupt priority (default: 5) set in the FreeRTOS config Parameters
+	//Interrupt priority is set in HAL_CAN_MspInit in can.c
+	if(osMessageQueuePut(czReceiveQueue, &m, 0, 0) != osOK){
+
 	}
 }
 
@@ -62,4 +78,8 @@ void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
 void HAL_CAN_ErrorCallback(CAN_HandleTypeDef *hcan){
 	HAL_CAN_ResetError(hcan);
 	printDebugISR("CAN Errors got reseted!\n");
+}
+
+void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
+	//LED_RGB_Write(100, 0, 0);
 }

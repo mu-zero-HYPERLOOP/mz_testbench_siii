@@ -1,6 +1,7 @@
 "./Applications/CANZero_static/Src/cz_emergency.o"
 "./Applications/CANZero_static/Src/cz_handles.o"
 "./Applications/CANZero_static/Src/cz_heartbeat.o"
+"./Applications/CANZero_static/Src/cz_message_receiver.o"
 "./Applications/CANZero_static/Src/cz_processRx.o"
 "./Applications/CANZero_static/Src/cz_receive_queue.o"
 "./Applications/CANZero_static/Src/cz_receive_task.o"
