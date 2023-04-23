@@ -1,0 +1,186 @@
+cmath:1756:3:constexpr float std::round(float)	1
+dbc_parser.hpp:141:9:can::MessageBase::MessageBase(uint32_t, uint8_t, bool)	1
+dbc_parser.hpp:143:9:can::MessageBase::MessageBase(uint32_t, uint8_t, bool, const uint8_t*)	1
+dbc_parser.hpp:174:14:void can::MessageBase::toBuf(CAN_TxHeaderTypeDef&, uint8_t*, can::CAN_BusTypeDef) const	2
+cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	1
+dbc_parser.hpp:203:19:TxMessage can::MessageBase::getTxMessage(can::CAN_BusTypeDef) const	1
+dbc_parser.hpp:447:42:static constexpr void can::signals::SENSOR_SDO_ID::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	2
+dbc_parser.hpp:457:46:static constexpr uint16_t can::signals::SENSOR_SDO_ID::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:507:42:static constexpr void can::signals::SENSOR_SDO_RespCode::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:532:42:static constexpr void can::signals::SENSOR_OD_CAN2_DelayedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:565:42:static constexpr void can::signals::SENSOR_OD_CAN2_ErrorStatus::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:600:42:static constexpr void can::signals::SENSOR_OD_CAN2_DiscardedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:634:42:static constexpr void can::signals::SENSOR_OD_CAN2_Status::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:671:42:static constexpr void can::signals::SENSOR_OD_CAN2_Baudrate::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	3
+dbc_parser.hpp:683:46:static constexpr uint16_t can::signals::SENSOR_OD_CAN2_Baudrate::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:704:42:static constexpr void can::signals::SENSOR_OD_CAN2_autoErrorReset::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:710:45:static constexpr uint8_t can::signals::SENSOR_OD_CAN2_autoErrorReset::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:735:42:static constexpr void can::signals::SENSOR_OD_CAN2_lastErrorCode::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	1
+dbc_parser.hpp:771:42:static constexpr void can::signals::SENSOR_OD_CAN2_RxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:798:42:static constexpr void can::signals::SENSOR_OD_CAN2_TxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:827:42:static constexpr void can::signals::SENSOR_OD_CAN1_DelayedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:860:42:static constexpr void can::signals::SENSOR_OD_CAN1_ErrorStatus::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:895:42:static constexpr void can::signals::SENSOR_OD_CAN1_DiscardedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:929:42:static constexpr void can::signals::SENSOR_OD_CAN1_Status::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:966:42:static constexpr void can::signals::SENSOR_OD_CAN1_Baudrate::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	3
+dbc_parser.hpp:978:46:static constexpr uint16_t can::signals::SENSOR_OD_CAN1_Baudrate::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:999:42:static constexpr void can::signals::SENSOR_OD_CAN1_autoErrorReset::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1005:45:static constexpr uint8_t can::signals::SENSOR_OD_CAN1_autoErrorReset::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1030:42:static constexpr void can::signals::SENSOR_OD_CAN1_lastErrorCode::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	1
+dbc_parser.hpp:1066:42:static constexpr void can::signals::SENSOR_OD_CAN1_RxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1093:42:static constexpr void can::signals::SENSOR_OD_CAN1_TxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1122:42:static constexpr void can::signals::SENSOR_OD_BuildTime::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1155:42:static constexpr void can::signals::SENSOR_OD_BuildDate::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	1
+dbc_parser.hpp:1184:42:static constexpr void can::signals::SENSOR_OD_ChipUID2::set(uint64_t&, uint64_t&, uint8_t&, uint64_t)	2
+dbc_parser.hpp:1219:42:static constexpr void can::signals::SENSOR_OD_ChipUID1::set(uint64_t&, uint64_t&, uint8_t&, uint64_t)	2
+dbc_parser.hpp:1252:42:static constexpr void can::signals::SENSOR_OD_SdcOut::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1279:42:static constexpr void can::signals::SENSOR_OD_SdcIn::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1308:42:static constexpr void can::signals::SENSOR_OD_runtime::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1343:42:static constexpr void can::signals::SENSOR_OD_InputVoltage::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:1378:42:static constexpr void can::signals::SENSOR_OD_BoardTemp::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:1413:42:static constexpr void can::signals::SENSOR_OD_MemFree::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1448:42:static constexpr void can::signals::SENSOR_OD_CpuUsage::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:1481:42:static constexpr void can::signals::SENSOR_OD_OdEntrySendInterval::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:1487:46:static constexpr uint16_t can::signals::SENSOR_OD_OdEntrySendInterval::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1508:42:static constexpr void can::signals::SENSOR_OD_SendOdOnBootup::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1514:45:static constexpr uint8_t can::signals::SENSOR_OD_SendOdOnBootup::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1539:42:static constexpr void can::signals::SENSOR_OD_HeartbeatInterval::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:1545:46:static constexpr uint16_t can::signals::SENSOR_OD_HeartbeatInterval::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1566:42:static constexpr void can::signals::SENSOR_OD_DbcVersion::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:1593:42:static constexpr void can::signals::SENSOR_OD_StackVersion::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:1620:42:static constexpr void can::signals::SENSOR_OD_ProtocolVersion::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:1647:42:static constexpr void can::signals::SENSOR_OD_NodeStatus::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1681:42:static constexpr void can::signals::SENSOR_OD_NodeID::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:260:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::SENSOR_SDO_Req_Down]	2
+dbc_parser.hpp:274:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::SENSOR_SDO_Req_Down]	1
+canzero_od.cpp:100:6:void handleSDORequestDownload(const RxMessage&)	1
+dbc_parser.hpp:254:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+canzero_od.cpp:105:6:void handleSDORequestDownloadBySDOID(uint16_t)	42
+dbc_parser.hpp:260:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	2
+dbc_parser.hpp:274:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	1
+canzero_od.cpp:272:6:void handleSDORequestUpload(const RxMessage&)	46
+canzero_od.cpp:521:21:uint8_t OD_NodeID_get()	1
+canzero_od.cpp:529:18:void OD_NodeID_set(uint8_t)	1
+canzero_od.cpp:537:21:uint8_t OD_NodeStatus_get()	1
+canzero_od.cpp:545:18:void OD_NodeStatus_set(uint8_t)	1
+canzero_od.cpp:553:22:uint16_t OD_ProtocolVersion_get()	1
+canzero_od.cpp:561:18:void OD_ProtocolVersion_set(uint16_t)	1
+canzero_od.cpp:569:22:uint16_t OD_StackVersion_get()	1
+canzero_od.cpp:577:18:void OD_StackVersion_set(uint16_t)	1
+canzero_od.cpp:585:22:uint16_t OD_DbcVersion_get()	1
+canzero_od.cpp:593:18:void OD_DbcVersion_set(uint16_t)	1
+canzero_od.cpp:601:22:uint16_t OD_HeartbeatInterval_get()	1
+canzero_od.cpp:609:18:void OD_HeartbeatInterval_set(uint16_t)	1
+canzero_od.cpp:617:21:uint8_t OD_SendOdOnBootup_get()	1
+canzero_od.cpp:625:18:void OD_SendOdOnBootup_set(uint8_t)	1
+canzero_od.cpp:633:22:uint16_t OD_OdEntrySendInterval_get()	1
+canzero_od.cpp:641:18:void OD_OdEntrySendInterval_set(uint16_t)	1
+canzero_od.cpp:649:19:float OD_CpuUsage_get()	1
+canzero_od.cpp:657:18:void OD_CpuUsage_set(float)	1
+canzero_od.cpp:665:22:uint32_t OD_MemFree_get()	1
+canzero_od.cpp:673:18:void OD_MemFree_set(uint32_t)	1
+canzero_od.cpp:681:19:float OD_BoardTemp_get()	1
+canzero_od.cpp:689:18:void OD_BoardTemp_set(float)	1
+canzero_od.cpp:697:19:float OD_InputVoltage_get()	1
+canzero_od.cpp:705:18:void OD_InputVoltage_set(float)	1
+canzero_od.cpp:713:22:uint32_t OD_runtime_get()	1
+canzero_od.cpp:721:18:void OD_runtime_set(uint32_t)	1
+canzero_od.cpp:729:21:uint8_t OD_SdcIn_get()	1
+canzero_od.cpp:737:18:void OD_SdcIn_set(uint8_t)	1
+canzero_od.cpp:745:21:uint8_t OD_SdcOut_get()	1
+canzero_od.cpp:753:18:void OD_SdcOut_set(uint8_t)	1
+canzero_od.cpp:761:22:uint64_t OD_ChipUID1_get()	1
+canzero_od.cpp:769:18:void OD_ChipUID1_set(uint64_t)	1
+canzero_od.cpp:777:22:uint64_t OD_ChipUID2_get()	1
+canzero_od.cpp:785:18:void OD_ChipUID2_set(uint64_t)	1
+canzero_od.cpp:793:22:uint32_t OD_BuildDate_get()	1
+canzero_od.cpp:801:18:void OD_BuildDate_set(uint32_t)	1
+canzero_od.cpp:809:22:uint32_t OD_BuildTime_get()	1
+canzero_od.cpp:817:18:void OD_BuildTime_set(uint32_t)	1
+canzero_od.cpp:825:21:uint8_t OD_CAN1_TxErrCnt_get()	1
+canzero_od.cpp:833:18:void OD_CAN1_TxErrCnt_set(uint8_t)	1
+canzero_od.cpp:841:21:uint8_t OD_CAN1_RxErrCnt_get()	1
+canzero_od.cpp:849:18:void OD_CAN1_RxErrCnt_set(uint8_t)	1
+canzero_od.cpp:857:22:uint32_t OD_CAN1_lastErrorCode_get()	1
+canzero_od.cpp:865:18:void OD_CAN1_lastErrorCode_set(uint32_t)	1
+canzero_od.cpp:873:21:uint8_t OD_CAN1_autoErrorReset_get()	1
+canzero_od.cpp:881:18:void OD_CAN1_autoErrorReset_set(uint8_t)	1
+canzero_od.cpp:889:22:uint16_t OD_CAN1_Baudrate_get()	1
+canzero_od.cpp:897:18:void OD_CAN1_Baudrate_set(uint16_t)	1
+canzero_od.cpp:905:21:uint8_t OD_CAN1_Status_get()	1
+canzero_od.cpp:913:18:void OD_CAN1_Status_set(uint8_t)	1
+canzero_od.cpp:921:22:uint32_t OD_CAN1_DiscardedTxMessages_get()	1
+canzero_od.cpp:929:18:void OD_CAN1_DiscardedTxMessages_set(uint32_t)	1
+canzero_od.cpp:937:21:uint8_t OD_CAN1_ErrorStatus_get()	1
+canzero_od.cpp:945:18:void OD_CAN1_ErrorStatus_set(uint8_t)	1
+canzero_od.cpp:953:22:uint32_t OD_CAN1_DelayedTxMessages_get()	1
+canzero_od.cpp:961:18:void OD_CAN1_DelayedTxMessages_set(uint32_t)	1
+canzero_od.cpp:969:21:uint8_t OD_CAN2_TxErrCnt_get()	1
+canzero_od.cpp:977:18:void OD_CAN2_TxErrCnt_set(uint8_t)	1
+canzero_od.cpp:985:21:uint8_t OD_CAN2_RxErrCnt_get()	1
+canzero_od.cpp:993:18:void OD_CAN2_RxErrCnt_set(uint8_t)	1
+canzero_od.cpp:1001:22:uint32_t OD_CAN2_lastErrorCode_get()	1
+canzero_od.cpp:1009:18:void OD_CAN2_lastErrorCode_set(uint32_t)	1
+canzero_od.cpp:1017:21:uint8_t OD_CAN2_autoErrorReset_get()	1
+canzero_od.cpp:1025:18:void OD_CAN2_autoErrorReset_set(uint8_t)	1
+canzero_od.cpp:1033:22:uint16_t OD_CAN2_Baudrate_get()	1
+canzero_od.cpp:1041:18:void OD_CAN2_Baudrate_set(uint16_t)	1
+canzero_od.cpp:1049:21:uint8_t OD_CAN2_Status_get()	1
+canzero_od.cpp:1057:18:void OD_CAN2_Status_set(uint8_t)	1
+canzero_od.cpp:1065:22:uint32_t OD_CAN2_DiscardedTxMessages_get()	1
+canzero_od.cpp:1073:18:void OD_CAN2_DiscardedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1081:21:uint8_t OD_CAN2_ErrorStatus_get()	1
+canzero_od.cpp:1089:18:void OD_CAN2_ErrorStatus_set(uint8_t)	1
+canzero_od.cpp:1097:22:uint32_t OD_CAN2_DelayedTxMessages_get()	1
+canzero_od.cpp:1105:18:void OD_CAN2_DelayedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1133:6:void sendOdEntriesTask(void*)	3
+dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_SDO_ID; MESSAGE_T = can::messages::SENSOR_SDO_Req_Down]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_NodeID; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_NodeStatus; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_ProtocolVersion; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_StackVersion; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_DbcVersion; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_HeartbeatInterval; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_SendOdOnBootup; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_OdEntrySendInterval; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CpuUsage; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_MemFree; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_BoardTemp; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_InputVoltage; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_runtime; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_SdcIn; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_SdcOut; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_ChipUID1; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_ChipUID2; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_BuildDate; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_BuildTime; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_TxErrCnt; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_RxErrCnt; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_lastErrorCode; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_autoErrorReset; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_Baudrate; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_Status; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_DiscardedTxMessages; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_ErrorStatus; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_DelayedTxMessages; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_TxErrCnt; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_RxErrCnt; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_lastErrorCode; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_autoErrorReset; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_Baudrate; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_Status; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_DiscardedTxMessages; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_ErrorStatus; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_DelayedTxMessages; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_SDO_ID; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_SDO_RespCode; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	1
+dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_SDO_ID; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	1
+dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_HeartbeatInterval; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	1
+dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_SendOdOnBootup; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	1
+dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_OdEntrySendInterval; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	1
+dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_CAN1_autoErrorReset; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	1
+dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_CAN1_Baudrate; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	1
+dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_CAN2_autoErrorReset; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	1
+dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_CAN2_Baudrate; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	1
+canzero_od.cpp:1160:1:void __static_initialization_and_destruction_0(int, int)	3
+canzero_od.cpp:1160:1:cpp)	1

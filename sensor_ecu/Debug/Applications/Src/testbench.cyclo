@@ -1,0 +1,19 @@
+core_cm4.h:2064:26:uint32_t ITM_SendChar(uint32_t)	5
+log_dep.hpp:20:13:void log(const char*)	2
+log_dep.hpp:27:13:void logln()	1
+log_dep.hpp:35:13:void logln(const char*)	1
+std_function.h:240:5:std::_Function_base::_Function_base()	1
+std_function.h:242:5:std::_Function_base::~_Function_base()	2
+std_function.h:248:10:bool std::_Function_base::_M_empty() const	1
+std_function.h:303:11:std::function<void(short unsigned int)>::~function()	1
+GPIOExtiCallbackHandler.hpp:42:2:GPIOExtiCallbackHandler::GPIOExtiCallbackHandler()	2
+GPIOExtiCallbackHandler.hpp:14:7:GPIOExtiCallbackHandler::~GPIOExtiCallbackHandler()	3
+GPIOExtiCallbackHandler.hpp:18:34:void __tcf_1()	1
+GPIOExtiCallbackHandler.hpp:17:34:static GPIOExtiCallbackHandler& GPIOExtiCallbackHandler::getInstance()	3
+GPIOExtiCallbackHandler.hpp:35:7:void GPIOExtiCallbackHandler::notify(uint16_t)	2
+GPIOExtiCallbackHandler.hpp:52:6:void HAL_GPIO_EXTI_Callback(uint16_t)	1
+testbench.cpp:23:6:void testbench_entry(void*)	2
+std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {short unsigned int}]	1
+std_function.h:617:5:) const [with _Res = void; _ArgTypes = {short unsigned int}]	1
+dbc_parser.hpp:93:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::SENSOR_HELLO_WORLD]	2
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = short unsigned int]	1

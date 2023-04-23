@@ -36,6 +36,8 @@ BS_:
 BU_: TelemetryNode Master SENSOR
 
 
+BO_ 0 SENSOR_HELLO_WORLD: 1 Vector__XXX
+
 BO_ 2 CANzero_NMT: 4 Master
  SG_ CANzero_NMT_Node : 16|16@1+ (1,0) [0|63] ""  SENSOR
  SG_ CANzero_NMT_State : 0|16@1+ (1,0) [0|0] ""  SENSOR
@@ -177,15 +179,39 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_ "BusType" "CAN";
-BA_ "DBName" "database";
 BA_ "CANzero_ProtocolVersion" "V1.0";
-BA_ "CANzero_DBCVersion" 1;
+BA_ "CANzero_DBCVersion" 2;
 BA_ "CANzero_SDOClientName" "TelemetryNode";
 BA_ "CANzero_NMTMasterName" "Master";
+BA_ "DBName" "database";
 BA_ "CANzero_NodeID" BU_ SENSOR 1;
+BA_ "GenMsgCycleTime" BO_ 0 100;
 BA_ "GenMsgCycleTime" BO_ 2 100;
 BA_ "GenMsgCycleTime" BO_ 122 100;
 BA_ "GenMsgCycleTime" BO_ 123 100;
+BA_ "GenMsgCycleTime" BO_ 129 100;
+BA_ "GenMsgCycleTime" BO_ 385 100;
+BA_ "GenMsgCycleTime" BO_ 449 100;
+BA_ "GenMsgCycleTime" BO_ 513 100;
+BA_ "GenMsgCycleTime" BO_ 577 100;
+BA_ "GenMsgCycleTime" BO_ 641 100;
+BA_ "GenMsgCycleTime" BO_ 705 100;
+BA_ "GenMsgCycleTime" BO_ 769 100;
+BA_ "GenMsgCycleTime" BO_ 833 100;
+BA_ "GenMsgCycleTime" BO_ 897 100;
+BA_ "GenMsgCycleTime" BO_ 961 100;
+BA_ "GenMsgCycleTime" BO_ 1025 100;
+BA_ "GenMsgCycleTime" BO_ 1089 100;
+BA_ "GenMsgCycleTime" BO_ 1153 100;
+BA_ "GenMsgCycleTime" BO_ 1217 100;
+BA_ "GenMsgCycleTime" BO_ 1281 100;
+BA_ "GenMsgCycleTime" BO_ 1345 100;
+BA_ "GenMsgCycleTime" BO_ 1409 100;
+BA_ "GenMsgCycleTime" BO_ 1473 100;
+BA_ "GenMsgCycleTime" BO_ 1537 100;
+BA_ "GenMsgCycleTime" BO_ 1793 100;
+BA_ "GenMsgCycleTime" BO_ 1857 100;
+BA_ "GenMsgCycleTime" BO_ 1921 100;
 VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SENSOR" ;
 VAL_ 2 CANzero_NMT_State 1 "Start Remote Node" 2 "Stop Remote Node" 128 "Enter Pre-Operational" 129 "Reset" ;
 VAL_ 1409 SENSOR_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;

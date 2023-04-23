@@ -1,0 +1,774 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: TelemetryNode Master SENSOR
+
+
+BO_ 0 SENSOR_HELLO_WORLD: 1 Vector__XXX
+
+BO_ 2 CANzero_NMT: 4 Master
+ SG_ CANzero_NMT_Node : 16|16@1+ (1,0) [0|63] ""  SENSOR
+ SG_ CANzero_NMT_State : 0|16@1+ (1,0) [0|0] ""  SENSOR
+
+BO_ 122 CANzero_Sync: 0 Master
+
+BO_ 123 CANzero_Timestamp: 0 Master
+
+BO_ 129 SENSOR_EMCY: 4 SENSOR
+ SG_ SENSOR_E0_OtherError : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SENSOR_W0_OtherWarning : 0|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+
+BO_ 385 SENSOR_TX_PDO1: 0 SENSOR
+
+BO_ 449 SENSOR_RX_PDO1: 0 Vector__XXX
+
+BO_ 513 SENSOR_TX_PDO2: 0 SENSOR
+
+BO_ 577 SENSOR_RX_PDO2: 0 Vector__XXX
+
+BO_ 641 SENSOR_TX_PDO3: 0 SENSOR
+
+BO_ 705 SENSOR_RX_PDO3: 0 Vector__XXX
+
+BO_ 769 SENSOR_TX_PDO4: 0 SENSOR
+
+BO_ 833 SENSOR_RX_PDO4: 0 Vector__XXX
+
+BO_ 897 SENSOR_TX_PDO5: 0 SENSOR
+
+BO_ 961 SENSOR_TX_PDO6: 0 SENSOR
+
+BO_ 1025 SENSOR_TX_PDO7: 0 SENSOR
+
+BO_ 1089 SENSOR_TX_PDO8: 0 SENSOR
+
+BO_ 1153 SENSOR_TX_PDO9: 0 SENSOR
+
+BO_ 1217 SENSOR_TX_PDO10: 0 SENSOR
+
+BO_ 1281 SENSOR_TX_PDO11: 0 SENSOR
+
+BO_ 1345 SENSOR_TX_PDO12: 0 SENSOR
+
+BO_ 1409 SENSOR_SDO_Resp: 8 SENSOR
+ SG_ SENSOR_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN2_DiscardedTxMessag m1127 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ SENSOR_OD_CAN2_autoErrorReset m1123 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN2_lastErrorCode m1122 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN1_DelayedTxMessages m1113 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN1_ErrorStatus m1112 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN1_DiscardedTxMessag m1111 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ SENSOR_OD_CAN1_autoErrorReset m1107 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN1_lastErrorCode m1106 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ SENSOR_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ SENSOR_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ SENSOR_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ SENSOR_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  TelemetryNode
+ SG_ SENSOR_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  TelemetryNode
+ SG_ SENSOR_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  TelemetryNode
+ SG_ SENSOR_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  TelemetryNode
+ SG_ SENSOR_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  TelemetryNode
+ SG_ SENSOR_OD_OdEntrySendInterval m33 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ SENSOR_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_HeartbeatInterval m16 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ SENSOR_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ SENSOR_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ SENSOR_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ SENSOR_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SENSOR_SDO_RespCode : 12|4@1+ (1,0) [0|0] ""  TelemetryNode
+ SG_ SENSOR_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
+
+BO_ 1473 SENSOR_SDO_Req_Up: 8 TelemetryNode
+ SG_ SENSOR_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  SENSOR
+ SG_ SENSOR_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_CAN2_DiscardedTxM_0000 m1127 : 16|24@1+ (1,0) [0|16777215] ""  SENSOR
+ SG_ SENSOR_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  SENSOR
+ SG_ SENSOR_OD_CAN2_autoErrorReset m1123 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_CAN2_lastErrorCode m1122 : 16|32@1+ (1,0) [0|4294967295] ""  SENSOR
+ SG_ SENSOR_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_CAN1_DelayedTxMessages m1113 : 16|24@1+ (1,0) [0|16777215] ""  SENSOR
+ SG_ SENSOR_OD_CAN1_ErrorStatus m1112 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_CAN1_DiscardedTxM_0000 m1111 : 16|24@1+ (1,0) [0|16777215] ""  SENSOR
+ SG_ SENSOR_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  SENSOR
+ SG_ SENSOR_OD_CAN1_autoErrorReset m1107 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_CAN1_lastErrorCode m1106 : 16|32@1+ (1,0) [0|4294967295] ""  SENSOR
+ SG_ SENSOR_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  SENSOR
+ SG_ SENSOR_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  SENSOR
+ SG_ SENSOR_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  SENSOR
+ SG_ SENSOR_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  SENSOR
+ SG_ SENSOR_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  SENSOR
+ SG_ SENSOR_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  SENSOR
+ SG_ SENSOR_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  SENSOR
+ SG_ SENSOR_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  SENSOR
+ SG_ SENSOR_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  SENSOR
+ SG_ SENSOR_OD_OdEntrySendInterval m33 : 16|16@1+ (1,0) [0|65535] "ms"  SENSOR
+ SG_ SENSOR_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_HeartbeatInterval m16 : 16|16@1+ (1,0) [0|65535] "ms"  SENSOR
+ SG_ SENSOR_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  SENSOR
+ SG_ SENSOR_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  SENSOR
+ SG_ SENSOR_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  SENSOR
+ SG_ SENSOR_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  SENSOR
+ SG_ SENSOR_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  SENSOR
+
+BO_ 1537 SENSOR_SDO_Req_Down: 2 TelemetryNode
+ SG_ SENSOR_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  SENSOR
+
+BO_ 1793 SENSOR_Heartbeat: 1 SENSOR
+ SG_ SENSOR_NodeState : 0|8@1+ (1,0) [0|0] ""  Master,TelemetryNode
+
+BO_ 1857 SENSOR_BTL_TX: 8 SENSOR
+
+BO_ 1921 SENSOR_BTL_RX: 8 TelemetryNode
+
+
+
+
+CM_ BU_ TelemetryNode "CANzero SDO Client Node.";
+CM_ BU_ Master "CANzero NMT Master Node.";
+CM_ BU_ SENSOR "SENSOR:0x1
+Node-ID 0x1";
+CM_ BO_ 2 "CANzero NMT message sent by NMT master.";
+CM_ SG_ 2 CANzero_NMT_Node "CANzero NMT Node-ID of master request.";
+CM_ SG_ 2 CANzero_NMT_State "CANzero NMT State Request by master.";
+CM_ BO_ 122 "CANzero Sync message. Not used yet, just a placeholder for future versions.";
+CM_ BO_ 123 "CANzero Timestamp message. Not used yet, just a placeholder for future versions.";
+CM_ BO_ 129 "Emergency message of node SENSOR with Node-ID 0x1";
+CM_ SG_ 129 SENSOR_E0_OtherError "Other error.";
+CM_ SG_ 129 SENSOR_W0_OtherWarning "Other warning.";
+CM_ BO_ 385 "Transmit PDO 1 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 449 "Receive PDO 1 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 513 "Transmit PDO 2 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 577 "Receive PDO 2 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 641 "Transmit PDO 3 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 705 "Receive PDO 3 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 769 "Transmit PDO 4 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 833 "Receive PDO 4 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 897 "Transmit PDO 5 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 961 "Transmit PDO 6 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1025 "Transmit PDO 7 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1089 "Transmit PDO 8 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1153 "Transmit PDO 9 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1217 "Transmit PDO 10 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1281 "Transmit PDO 11 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1345 "Transmit PDO 12 of node SENSOR with Node-ID 0x1";
+CM_ BO_ 1409 "DO NOT CHANGE ANYTHING HERE!
+SDO Response of node SENSOR with Node-ID 0x1";
+CM_ SG_ 1409 SENSOR_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1409 SENSOR_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1409 SENSOR_OD_CAN2_DiscardedTxMessag "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1409 SENSOR_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1409 SENSOR_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1409 SENSOR_OD_CAN2_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1409 SENSOR_OD_CAN2_lastErrorCode "Last error code.";
+CM_ SG_ 1409 SENSOR_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1409 SENSOR_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1409 SENSOR_OD_CAN1_DelayedTxMessages "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1409 SENSOR_OD_CAN1_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1409 SENSOR_OD_CAN1_DiscardedTxMessag "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1409 SENSOR_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1409 SENSOR_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1409 SENSOR_OD_CAN1_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1409 SENSOR_OD_CAN1_lastErrorCode "Last error code.";
+CM_ SG_ 1409 SENSOR_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1409 SENSOR_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1409 SENSOR_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1409 SENSOR_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1409 SENSOR_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1409 SENSOR_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1409 SENSOR_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1409 SENSOR_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1409 SENSOR_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1409 SENSOR_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1409 SENSOR_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1409 SENSOR_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1409 SENSOR_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1409 SENSOR_OD_OdEntrySendInterval "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1409 SENSOR_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1409 SENSOR_OD_HeartbeatInterval "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1409 SENSOR_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1409 SENSOR_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1409 SENSOR_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1409 SENSOR_OD_NodeStatus "State of the node.";
+CM_ SG_ 1409 SENSOR_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1409 SENSOR_SDO_RespCode "Response code of SDO access.";
+CM_ SG_ 1409 SENSOR_SDO_ID "Specifies SDO-ID of SENSOR";
+CM_ BO_ 1473 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Upload to node SENSOR with Node-ID 0x1";
+CM_ SG_ 1473 SENSOR_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1473 SENSOR_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1473 SENSOR_OD_CAN2_DiscardedTxM_0000 "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1473 SENSOR_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1473 SENSOR_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1473 SENSOR_OD_CAN2_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1473 SENSOR_OD_CAN2_lastErrorCode "Last error code.";
+CM_ SG_ 1473 SENSOR_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1473 SENSOR_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1473 SENSOR_OD_CAN1_DelayedTxMessages "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1473 SENSOR_OD_CAN1_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1473 SENSOR_OD_CAN1_DiscardedTxM_0000 "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1473 SENSOR_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1473 SENSOR_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1473 SENSOR_OD_CAN1_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1473 SENSOR_OD_CAN1_lastErrorCode "Last error code.";
+CM_ SG_ 1473 SENSOR_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1473 SENSOR_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1473 SENSOR_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1473 SENSOR_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1473 SENSOR_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1473 SENSOR_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1473 SENSOR_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1473 SENSOR_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1473 SENSOR_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1473 SENSOR_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1473 SENSOR_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1473 SENSOR_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1473 SENSOR_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1473 SENSOR_OD_OdEntrySendInterval "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1473 SENSOR_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1473 SENSOR_OD_HeartbeatInterval "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1473 SENSOR_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1473 SENSOR_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1473 SENSOR_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1473 SENSOR_OD_NodeStatus "State of the node.";
+CM_ SG_ 1473 SENSOR_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1473 SENSOR_SDO_ID "Specifies SDO-ID of SENSOR";
+CM_ BO_ 1537 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Download from node SENSOR with Node-ID 0x1";
+CM_ SG_ 1537 SENSOR_SDO_ID "Specifies SDO-ID of SENSOR";
+CM_ BO_ 1793 "Heartbeat of node SENSOR with Node-ID 0x1";
+CM_ SG_ 1793 SENSOR_NodeState "Heartbeat status of node SENSOR";
+CM_ BO_ 1857 "Bootloader transmit from node SENSOR with Node-ID 0x1";
+CM_ BO_ 1921 "Bootloader receive by node SENSOR with Node-ID 0x1";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","Cyclic","not_used","IfActive","NoMsgSendType";
+BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 2 50000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 1 1000;
+BA_DEF_ BO_  "GenMsgNrOfRepetitions" INT 1 999999;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 100000;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 100000000000;
+BA_DEF_  "CANzero_ProtocolVersion" STRING ;
+BA_DEF_  "CANzero_DBCVersion" INT 0 16777215;
+BA_DEF_  "CANzero_SDOClientName" STRING ;
+BA_DEF_  "CANzero_NMTMasterName" STRING ;
+BA_DEF_ BU_  "CANzero_NodeID" HEX 0 63;
+BA_DEF_ SG_  "CANzero_SDO_Group" STRING ;
+BA_DEF_ SG_  "CANzero_SDO_AccessIfOperational" ENUM  "No","Yes";
+BA_DEF_ SG_  "CANzero_SDO_AccessType" ENUM  "Read Write","Read Only","Write Only";
+BA_DEF_ SG_  "CANzero_SDO_Default" FLOAT 0 0;
+BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 100;
+BA_DEF_DEF_  "GenMsgDelayTime" 1;
+BA_DEF_DEF_  "GenMsgNrOfRepetitions" 1;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "CANzero_ProtocolVersion" "";
+BA_DEF_DEF_  "CANzero_DBCVersion" 0;
+BA_DEF_DEF_  "CANzero_SDOClientName" "Master";
+BA_DEF_DEF_  "CANzero_NMTMasterName" "Master";
+BA_DEF_DEF_  "CANzero_NodeID" 0;
+BA_DEF_DEF_  "CANzero_SDO_Group" "";
+BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
+BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
+BA_DEF_DEF_  "CANzero_SDO_Default" 0;
+BA_DEF_DEF_  "SystemSignalLongSymbol" "";
+BA_ "BusType" "CAN";
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "CANzero_DBCVersion" 2;
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_NMTMasterName" "Master";
+BA_ "DBName" "database";
+BA_ "CANzero_NodeID" BU_ SENSOR 1;
+BA_ "GenMsgCycleTime" BO_ 0 100;
+BA_ "GenMsgCycleTime" BO_ 2 100;
+BA_ "GenMsgCycleTime" BO_ 122 100;
+BA_ "GenMsgCycleTime" BO_ 123 100;
+BA_ "GenMsgCycleTime" BO_ 129 100;
+BA_ "GenMsgCycleTime" BO_ 385 100;
+BA_ "GenMsgCycleTime" BO_ 449 100;
+BA_ "GenMsgCycleTime" BO_ 513 100;
+BA_ "GenMsgCycleTime" BO_ 577 100;
+BA_ "GenMsgCycleTime" BO_ 641 100;
+BA_ "GenMsgCycleTime" BO_ 705 100;
+BA_ "GenMsgCycleTime" BO_ 769 100;
+BA_ "GenMsgCycleTime" BO_ 833 100;
+BA_ "GenMsgCycleTime" BO_ 897 100;
+BA_ "GenMsgCycleTime" BO_ 961 100;
+BA_ "GenMsgCycleTime" BO_ 1025 100;
+BA_ "GenMsgCycleTime" BO_ 1089 100;
+BA_ "GenMsgCycleTime" BO_ 1153 100;
+BA_ "GenMsgCycleTime" BO_ 1217 100;
+BA_ "GenMsgCycleTime" BO_ 1281 100;
+BA_ "GenMsgCycleTime" BO_ 1345 100;
+BA_ "GenMsgCycleTime" BO_ 1409 100;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN2_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN2_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN2_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN2_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN2_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN2_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN2_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN2_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN2_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN2_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN2_DiscardedTxMessag "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN2_DiscardedTxMessag 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN2_DiscardedTxMessag 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN2_DiscardedTxMessag 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN2_DiscardedTxMessag 0;
+BA_ "SystemSignalLongSymbol" SG_ 1409 SENSOR_OD_CAN2_DiscardedTxMessag "SENSOR_OD_CAN2_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN2_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN2_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN2_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN2_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN2_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN2_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN2_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN2_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN2_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN2_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN1_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN1_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN1_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN1_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN1_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN1_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN1_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN1_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN1_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN1_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN1_DiscardedTxMessag "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN1_DiscardedTxMessag 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN1_DiscardedTxMessag 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN1_DiscardedTxMessag 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN1_DiscardedTxMessag 0;
+BA_ "SystemSignalLongSymbol" SG_ 1409 SENSOR_OD_CAN1_DiscardedTxMessag "SENSOR_OD_CAN1_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN1_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN1_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN1_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN1_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN1_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN1_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN1_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN1_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN1_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN1_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_OdEntrySendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_OdEntrySendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_OdEntrySendInterval 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_OdEntrySendInterval 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_OdEntrySendInterval 50;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_HeartbeatInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_HeartbeatInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_HeartbeatInterval 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_HeartbeatInterval 250.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_HeartbeatInterval 250;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SENSOR_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SENSOR_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SENSOR_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1409 SENSOR_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SENSOR_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1473 100;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN2_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN2_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN2_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN2_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN2_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN2_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN2_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN2_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN2_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN2_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN2_DiscardedTxM_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN2_DiscardedTxM_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN2_DiscardedTxM_0000 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN2_DiscardedTxM_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN2_DiscardedTxM_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1473 SENSOR_OD_CAN2_DiscardedTxM_0000 "SENSOR_OD_CAN2_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN2_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN2_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN2_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN2_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN2_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN2_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN2_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN2_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN2_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN2_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN1_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN1_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN1_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN1_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN1_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN1_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN1_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN1_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN1_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN1_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN1_DiscardedTxM_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN1_DiscardedTxM_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN1_DiscardedTxM_0000 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN1_DiscardedTxM_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN1_DiscardedTxM_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1473 SENSOR_OD_CAN1_DiscardedTxM_0000 "SENSOR_OD_CAN1_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN1_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN1_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN1_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN1_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN1_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN1_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN1_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN1_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN1_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN1_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_OdEntrySendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_OdEntrySendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_OdEntrySendInterval 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_OdEntrySendInterval 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_OdEntrySendInterval 50;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_HeartbeatInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_HeartbeatInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_HeartbeatInterval 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_HeartbeatInterval 250.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_HeartbeatInterval 250;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SENSOR_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SENSOR_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SENSOR_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1473 SENSOR_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SENSOR_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1537 100;
+BA_ "GenMsgCycleTime" BO_ 1793 100;
+BA_ "GenMsgCycleTime" BO_ 1857 100;
+BA_ "GenMsgCycleTime" BO_ 1921 100;
+VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SENSOR" ;
+VAL_ 2 CANzero_NMT_State 1 "Start Remote Node" 2 "Stop Remote Node" 128 "Enter Pre-Operational" 129 "Reset" ;
+VAL_ 129 SENSOR_E0_OtherError 0 "Ok" 1 "ERR" ;
+VAL_ 129 SENSOR_W0_OtherWarning 0 "Ok" 1 "WARN" ;
+VAL_ 1409 SENSOR_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1409 SENSOR_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1409 SENSOR_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1409 SENSOR_OD_CAN2_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1409 SENSOR_OD_CAN1_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1409 SENSOR_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1409 SENSOR_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1409 SENSOR_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1409 SENSOR_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1409 SENSOR_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1409 SENSOR_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
+VAL_ 1409 SENSOR_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
+VAL_ 1473 SENSOR_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1473 SENSOR_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1473 SENSOR_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1473 SENSOR_OD_CAN2_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1473 SENSOR_OD_CAN1_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1473 SENSOR_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1473 SENSOR_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1473 SENSOR_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1473 SENSOR_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1473 SENSOR_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1473 SENSOR_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
+VAL_ 1537 SENSOR_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
+VAL_ 1793 SENSOR_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
+
+
+
