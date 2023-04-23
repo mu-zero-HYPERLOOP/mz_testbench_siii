@@ -38,10 +38,8 @@ Applications/Src/testbench.o: ../Applications/Src/testbench.cpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcDmaController.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcConvCpltCallbackHandler.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/Future.hpp \
- ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/StateMaschine.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/State.hpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/FreeRTOSConfig.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
@@ -49,10 +47,16 @@ Applications/Src/testbench.o: ../Applications/Src/testbench.cpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/StateMaschineMemory.hpp \
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcDmaController.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcConvCpltCallbackHandler.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/Future.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcResult.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcDmaDoubleBufferedController.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/adc.h \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/main.h \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiController.hpp \
@@ -105,10 +109,8 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Drivers/STM3
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcDmaController.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcConvCpltCallbackHandler.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/Future.hpp:
-../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/StateMaschine.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/State.hpp:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -116,10 +118,16 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/Fre
 ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/StateMaschineMemory.hpp:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcDmaController.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcConvCpltCallbackHandler.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/Future.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcResult.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcDmaDoubleBufferedController.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/adc.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/main.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiController.hpp:

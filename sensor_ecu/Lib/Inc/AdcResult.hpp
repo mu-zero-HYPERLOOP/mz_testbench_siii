@@ -26,15 +26,7 @@ public:
 
 	float asVoltageF(size_t rank) {
 		uint32_t v = static_cast<uint32_t>((*this)[rank]);
-		return v * 3.3 / 4095.0;
-	}
-
-	//returns the voltage as a u32 in mico-Volt.
-	uint32_t asVoltageU32(size_t rank) {
-		uint64_t v = static_cast<uint32_t>((*this)[rank]);
-		v *= 3300000;
-		v /= 4095; //rounding is much slower compared to flooring, thats why we floor.
-		return (uint32_t)v;
+		return v / 4095.0;
 	}
 
 private:

@@ -12,6 +12,7 @@
 #include "FreeRTOS.h"
 #include <type_traits>
 #include "StateMaschineMemory.hpp"
+#include "cmsis_os.h"
 
 class StateMaschine {
 public:

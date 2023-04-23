@@ -67,6 +67,8 @@ inline void logValue(const char *title, uint64_t value) {
 	log(sptr);
 }
 
+
+
 inline void loglnValue(const char *title, uint64_t value) {
 	logValue(title, value);
 	logln();
@@ -110,6 +112,17 @@ inline void logValue(const char *title, float value) {
 
 inline void loglnValue(const char *title, float value) {
 	logValue(title, value);
+	logln();
+}
+
+inline void loglnValue(const char *title, uint16_t value) {
+	logValue(title, (uint64_t) value);
+	logln();
+}
+
+
+inline void loglnValue(const char *title, uint32_t value) {
+	logValue(title, (uint64_t)value);
 	logln();
 }
 

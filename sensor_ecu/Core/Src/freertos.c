@@ -67,6 +67,13 @@ const osThreadAttr_t canzero_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityAboveNormal,
 };
+/* Definitions for testbench */
+osThreadId_t testbenchHandle;
+const osThreadAttr_t testbench_attributes = {
+  .name = "testbench",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for printQueue */
 osMessageQueueId_t printQueueHandle;
 const osMessageQueueAttr_t printQueue_attributes = {
@@ -80,6 +87,7 @@ const osMessageQueueAttr_t printQueue_attributes = {
 
 void StartDefaultTask(void *argument);
 extern void canzero_start(void *argument);
+extern void testbench_entry(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -163,6 +171,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of canzero */
   canzeroHandle = osThreadNew(canzero_start, NULL, &canzero_attributes);
+
+  /* creation of testbench */
+  testbenchHandle = osThreadNew(testbench_entry, NULL, &testbench_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
