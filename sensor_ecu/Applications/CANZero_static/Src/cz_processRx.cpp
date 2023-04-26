@@ -15,7 +15,6 @@
 #include <cz_handles.hpp>
 #include "dbc_parser.hpp"
 #include "cz_message_receiver.hpp"
-#include "log_dep.hpp"
 
 static constexpr size_t MSG_BUFFER_NUM_MESSAGES = 5; // Number of messages to store in the message buffer
 static constexpr size_t MSG_BUFFER_SIZE = MSG_BUFFER_NUM_MESSAGES
@@ -38,11 +37,9 @@ void processRX(RxMessage message) {
 		if (message.rxHeader.IDE == CAN_ID_STD) {
 			printDebug("unknown/unhandled CAN Std-ID: %lu\n",
 					message.rxHeader.StdId);
-			logln("unknown/unhandled CAN Std-ID");
 		} else {
 			printDebug("unknown/unhandled CAN Ext-ID: %lu\n",
 					message.rxHeader.ExtId);
-			logln("unknown/unhandled CAN Ext-ID");
 		}
 	}
 

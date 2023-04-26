@@ -15,9 +15,6 @@
 #include "message_buffer.h"
 #include "cmsis_os.h"
 
-//TODO remove me.
-#include "log_dep.hpp"
-
 
 void cz_send_entry(void* argv){
 	TxMessage sendMessage;
@@ -59,11 +56,11 @@ void cz_send_entry(void* argv){
 		} else {	// No mailbox free on requested CAN bus
 			// Count delayed messages
 			if(hcanModule == &hcan1) {
-				logln("Failed to send: CAN1 Mailbox overflowed");
 				OD_CAN1_DelayedTxMessages++;
+				printDebug("WARNING :: can1 tx mailbox overflow.\n")
 			} else {
-				logln("Failed to send: CAN2 Mailbox overflowed");
 				OD_CAN2_DelayedTxMessages++;
+				printDebug("WARNING :: can2 tx mailbox overflow.\n")
 			}
 
 			osDelay(1);		// Use smallest delay possible

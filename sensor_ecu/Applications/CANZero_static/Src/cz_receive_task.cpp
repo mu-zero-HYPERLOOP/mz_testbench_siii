@@ -14,7 +14,6 @@
 
 #include "FreeRTOS.h"
 #include "message_buffer.h"
-#include "log_dep.hpp"
 
 
 void cz_receive_task(void* argv) {

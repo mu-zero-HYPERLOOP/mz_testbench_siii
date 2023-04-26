@@ -29,6 +29,7 @@ public:
 
 protected:
 	StateMaschine* m_stateMaschine = nullptr;
+	bool m_active = false;
 
 private:
 	static unsigned int getNextId(){

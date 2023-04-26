@@ -5,11 +5,17 @@
  *      Author: OfficeLaptop
  */
 
+
 #include "TimPeriodElapsedCallbackHandler.hpp"
 
-/*
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+void PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	TimPeriodElapsedCallbackHandler::getInstance().notify(htim);
 }
-*/
+
+#ifdef __cplusplus
+}
+#endif

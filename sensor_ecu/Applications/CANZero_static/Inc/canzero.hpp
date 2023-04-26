@@ -9,6 +9,7 @@
 #define CANZERO_STATIC_INC_CANZERO_HPP_
 
 #include "dbc_parser.hpp"
+#include "canzero_od.hpp"
 #include "cz_message_receiver.hpp"
 
 

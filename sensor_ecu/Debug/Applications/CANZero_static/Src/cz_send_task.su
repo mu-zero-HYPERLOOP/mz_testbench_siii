@@ -1,6 +1,2 @@
-../Drivers/CMSIS/Include/core_cm4.h:2064:26:uint32_t ITM_SendChar(uint32_t)	16	static,ignoring_inline_asm
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	16	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/log_dep.hpp:20:13:void log(const char*)	16	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/log_dep.hpp:27:13:void logln()	8	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/log_dep.hpp:35:13:void logln(const char*)	16	static
-../Applications/CANZero_static/Src/cz_send_task.cpp:22:6:void cz_send_entry(void*)	64	static
+../Applications/CANZero_static/Src/cz_send_task.cpp:19:6:void cz_send_entry(void*)	64	static

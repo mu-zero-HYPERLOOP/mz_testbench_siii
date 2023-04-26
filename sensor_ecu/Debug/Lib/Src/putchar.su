@@ -1,0 +1,2 @@
+../Drivers/CMSIS/Include/core_cm4.h:2064:26:uint32_t ITM_SendChar(uint32_t)	16	static,ignoring_inline_asm
+../Lib/Src/putchar.cpp:11:6:void _putchar(char)	16	static

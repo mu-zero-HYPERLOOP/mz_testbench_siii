@@ -35,6 +35,9 @@ public:
 	void resetExtiCallback() {
 		m_extiCallback = nullptr;
 	}
+	bool read() {
+		return HAL_GPIO_ReadPin(m_port, m_pin) == GPIO_PIN_SET;
+	}
 private:
 	GPIO_TypeDef *m_port;
 	uint16_t m_pin;

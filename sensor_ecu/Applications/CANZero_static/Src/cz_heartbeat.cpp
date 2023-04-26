@@ -14,8 +14,6 @@
 #include "message_buffer.h"
 
 
-//TODO remove me
-#include "log_dep.hpp"
 
 static constexpr size_t MSG_BUFFER_NUM_MESSAGES = 5;	// Number of messages to store in the message buffer
 static constexpr size_t MSG_BUFFER_SIZE = MSG_BUFFER_NUM_MESSAGES * (sizeof(RxMessage) + 4); 	// 4 bytes overhead to store the size_t

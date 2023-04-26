@@ -2,11 +2,12 @@ std_function.h:240:5:std::_Function_base::_Function_base()	1
 std_function.h:242:5:std::_Function_base::~_Function_base()	2
 std_function.h:248:10:bool std::_Function_base::_M_empty() const	1
 std_function.h:303:11:std::function<void(RxMessage&)>::~function()	1
-cz_message_receiver.cpp:13:8:canzero::receiver_t::receiver_t()	1
-cz_message_receiver.cpp:13:8:canzero::receiver_t::~receiver_t()	1
-cz_message_receiver.cpp:13:8:canzero::receiver_t& canzero::receiver_t::operator=(const canzero::receiver_t&)	1
-cz_message_receiver.cpp:22:6:void canzero::registerMessageReceiverInternal(std::function<void(RxMessage&)>, uint32_t, bool)	1
-cz_message_receiver.cpp:31:6:bool canzero::processRxMessageReceiver(RxMessage&)	8
+cz_message_receiver.cpp:17:8:canzero::receiver_t::receiver_t()	1
+cz_message_receiver.cpp:17:8:canzero::receiver_t::~receiver_t()	1
+cz_message_receiver.cpp:17:8:canzero::receiver_t& canzero::receiver_t::operator=(const canzero::receiver_t&)	1
+cz_message_receiver.cpp:27:14:unsigned int canzero::registerMessageReceiverInternal(std::function<void(RxMessage&)>, uint32_t, bool)	1
+cz_message_receiver.cpp:42:6:bool canzero::processRxMessageReceiver(RxMessage&)	8
+cz_message_receiver.cpp:68:6:void can::unregisterMessageReceiver(unsigned int)	3
 std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {RxMessage&}]	1
 std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {RxMessage&}]	2
 std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {RxMessage&}]	1
@@ -20,6 +21,6 @@ move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp
 move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = bool (*)(std::_Any_data&, const std::_Any_data&, std::_Manager_operation)]	1
 move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = void (*&)(const std::_Any_data&, RxMessage&)]	1
 move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = void (*)(const std::_Any_data&, RxMessage&)]	1
-cz_message_receiver.cpp:50:1:void __static_initialization_and_destruction_0(int, int)	7
-cz_message_receiver.cpp:50:1:cpp)	1
-cz_message_receiver.cpp:50:1:cpp)	1
+cz_message_receiver.cpp:79:1:void __static_initialization_and_destruction_0(int, int)	7
+cz_message_receiver.cpp:79:1:cpp)	1
+cz_message_receiver.cpp:79:1:cpp)	1

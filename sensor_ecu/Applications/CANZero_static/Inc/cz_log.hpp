@@ -8,7 +8,7 @@
 #ifndef INCLUDE_LOG_H_
 #define INCLUDE_LOG_H_
 
-#include <stdio.h>
+#include "estdio.hpp"
 #include "cmsis_os.h"
 
 //TODO: find a better solution for printing, because currently interrupts are disabled during printing

@@ -36,6 +36,8 @@ BS_:
 BU_: TelemetryNode Master SENSOR
 
 
+BO_ 1 SENSOR_Ready: 0 Vector__XXX
+
 BO_ 0 SENSOR_HELLO_WORLD: 1 Vector__XXX
 
 BO_ 2 CANzero_NMT: 4 Master
@@ -180,11 +182,12 @@ BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_ "BusType" "CAN";
 BA_ "CANzero_ProtocolVersion" "V1.0";
-BA_ "CANzero_DBCVersion" 2;
+BA_ "CANzero_DBCVersion" 3;
 BA_ "CANzero_SDOClientName" "TelemetryNode";
 BA_ "CANzero_NMTMasterName" "Master";
 BA_ "DBName" "database";
 BA_ "CANzero_NodeID" BU_ SENSOR 1;
+BA_ "GenMsgCycleTime" BO_ 1 100;
 BA_ "GenMsgCycleTime" BO_ 0 100;
 BA_ "GenMsgCycleTime" BO_ 2 100;
 BA_ "GenMsgCycleTime" BO_ 122 100;

@@ -49,8 +49,4 @@ private:
 	unsigned int m_size = 0;
 };
 
-void HAL_GPIO_EXTI_Callback(uint16_t pin) {
-	GPIOExtiCallbackHandler::getInstance().notify(pin);
-}
-
 #endif /* INC_GPIOEXTICALLBACKHANDLER_HPP_ */

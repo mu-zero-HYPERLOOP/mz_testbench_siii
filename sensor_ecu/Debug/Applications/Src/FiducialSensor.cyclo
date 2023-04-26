@@ -1,0 +1,123 @@
+new:174:33:void* operator new(std::size_t, void*)	1
+std_function.h:87:17:void* std::_Any_data::_M_access()	1
+std_function.h:88:17:const void* std::_Any_data::_M_access() const	1
+std_function.h:240:5:std::_Function_base::_Function_base()	1
+std_function.h:242:5:std::_Function_base::~_Function_base()	2
+std_function.h:248:10:bool std::_Function_base::_M_empty() const	1
+std_function.h:303:11:std::function<void(short unsigned int)>::~function()	1
+GPIOExtiCallbackHandler.hpp:42:2:GPIOExtiCallbackHandler::GPIOExtiCallbackHandler()	2
+GPIOExtiCallbackHandler.hpp:14:7:GPIOExtiCallbackHandler::~GPIOExtiCallbackHandler()	3
+GPIOExtiCallbackHandler.hpp:18:34:void __tcf_0()	1
+GPIOExtiCallbackHandler.hpp:17:34:static GPIOExtiCallbackHandler& GPIOExtiCallbackHandler::getInstance()	3
+GPIOExtiCallbackHandler.hpp:22:15:unsigned int GPIOExtiCallbackHandler::registerCallback(std::function<void(short unsigned int)>)	1
+GPIOExtiCallbackHandler.hpp:28:7:void GPIOExtiCallbackHandler::unregisterCallback(unsigned int)	1
+std_function.h:303:11:std::function<void(bool)>::~function()	1
+GPIOExtiController.hpp:22:5:GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>	4
+GPIOExtiController.hpp:19:11:GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)	1
+GPIOExtiController.hpp:29:2:GPIOExtiController::~GPIOExtiController()	1
+GPIOExtiController.hpp:32:7:void GPIOExtiController::setExtiCallback(std::function<void(bool)>)	1
+GPIOExtiController.hpp:35:7:void GPIOExtiController::resetExtiCallback()	1
+std_function.h:303:11:std::function<void(TIM_HandleTypeDef*)>::~function()	1
+TimPeriodElapsedCallbackHandler.hpp:41:2:TimPeriodElapsedCallbackHandler::TimPeriodElapsedCallbackHandler()	2
+TimPeriodElapsedCallbackHandler.hpp:14:7:TimPeriodElapsedCallbackHandler::~TimPeriodElapsedCallbackHandler()	3
+TimPeriodElapsedCallbackHandler.hpp:18:42:void __tcf_1()	1
+TimPeriodElapsedCallbackHandler.hpp:17:42:static TimPeriodElapsedCallbackHandler& TimPeriodElapsedCallbackHandler::getInstance()	3
+TimPeriodElapsedCallbackHandler.hpp:22:15:unsigned int TimPeriodElapsedCallbackHandler::registerCallback(std::function<void(TIM_HandleTypeDef*)>)	1
+Timer.hpp:19:79:Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>	2
+Timer.hpp:17:11:Timer::Timer(TIM_HandleTypeDef*)	1
+Timer.hpp:26:7:void Timer::start()	1
+Timer.hpp:35:7:void Timer::reset()	1
+Timer.hpp:40:32:uint16_t Timer::get()	1
+Timer.hpp:43:36:unsigned int Timer::overflow()	1
+FiducialSensor.cpp:14:25:FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>	1
+FiducialSensor.cpp:10:1:FiducialSensor::FiducialSensor(FiducialConfig)	1
+FiducialSensor.cpp:20:1:FiducialSensor::~FiducialSensor()	1
+FiducialSensor.cpp:24:6:void FiducialSensor::reset()	1
+FiducialSensor.cpp:28:7:float FiducialSensor::estimateVelocityMPS()	1
+FiducialSensor.cpp:32:6:void FiducialSensor::extiCallback(bool)	1
+std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {short unsigned int}]	1
+std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {short unsigned int}]	1
+std_function.h:428:7:)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {short unsigned int}]	2
+std_function.h:337:7:)>::function(std::nullptr_t) [with _Res = void; _ArgTypes = {bool}]	1
+std_function.h:699:5:)>&, std::nullptr_t) [with _Res = void; _Args = {bool}]	1
+std_function.h:617:5:) const [with _Res = void; _ArgTypes = {bool}]	1
+std_function.h:601:7:)>::function(_Functor) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {short unsigned int}]	2
+std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {bool}]	1
+std_function.h:428:7:)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {bool}]	2
+std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {TIM_HandleTypeDef*}]	1
+std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {TIM_HandleTypeDef*}]	1
+std_function.h:601:7:)>::function(_Functor) [with _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {TIM_HandleTypeDef*}]	2
+std_function.h:601:7:)>::function(_Functor) [with _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {bool}]	2
+std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {short unsigned int}]	2
+std_function.h:481:12:)>&) [with _Res = void; _ArgTypes = {short unsigned int}]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = short unsigned int]	1
+std_function.h:481:12:)>&) [with _Res = void; _ArgTypes = {bool}]	1
+std_function.h:498:16:)>::operator bool() const [with _Res = void; _ArgTypes = {bool}]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = bool]	1
+std_function.h:227:4:static bool std::_Function_base::_Base_manager<_Functor>::_M_not_empty_function(const _Tp&) [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>; _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>&]	1
+std_function.h:207:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
+std_function.h:289:7:) [with _Res = void; _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>; _ArgTypes = {short unsigned int}]	1
+std_function.h:268:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Res = void; _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>; _ArgTypes = {short unsigned int}]	2
+std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {bool}]	2
+std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {TIM_HandleTypeDef*}]	2
+std_function.h:481:12:)>&) [with _Res = void; _ArgTypes = {TIM_HandleTypeDef*}]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = TIM_HandleTypeDef*]	1
+std_function.h:227:4:static bool std::_Function_base::_Base_manager<_Functor>::_M_not_empty_function(const _Tp&) [with _Tp = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>; _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>&]	1
+std_function.h:207:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&) [with _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	1
+std_function.h:289:7:) [with _Res = void; _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>; _ArgTypes = {TIM_HandleTypeDef*}]	1
+std_function.h:268:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Res = void; _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>; _ArgTypes = {TIM_HandleTypeDef*}]	2
+std_function.h:227:4:static bool std::_Function_base::_Base_manager<_Functor>::_M_not_empty_function(const _Tp&) [with _Tp = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>; _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>&]	1
+std_function.h:207:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&) [with _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	1
+std_function.h:289:7:) [with _Res = void; _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>; _ArgTypes = {bool}]	1
+std_function.h:268:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Res = void; _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>; _ArgTypes = {bool}]	2
+std_function.h:498:16:)>::operator bool() const [with _Res = void; _ArgTypes = {short unsigned int}]	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::_Any_data&]	1
+move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = std::_Any_data]	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = bool (*&)(std::_Any_data&, const std::_Any_data&, std::_Manager_operation)]	1
+move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = bool (*)(std::_Any_data&, const std::_Any_data&, std::_Manager_operation)]	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = void (*&)(const std::_Any_data&, short unsigned int&&)]	1
+move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = void (*)(const std::_Any_data&, short unsigned int&&)]	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = void (*&)(const std::_Any_data&, bool&&)]	1
+move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = void (*)(const std::_Any_data&, bool&&)]	1
+std_function.h:232:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&, std::true_type) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
+std_function.h:136:2:static _Functor* std::_Function_base::_Base_manager<_Functor>::_M_get_pointer(const std::_Any_data&) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
+invoke.h:148:5:) [with _Res = void; _Callable = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>&; _Args = {short unsigned int}]	1
+std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>*]	1
+std_function.h:181:2:static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	5
+std_function.h:498:16:)>::operator bool() const [with _Res = void; _ArgTypes = {TIM_HandleTypeDef*}]	1
+move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = void (*&)(const std::_Any_data&, TIM_HandleTypeDef*&&)]	1
+move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = void (*)(const std::_Any_data&, TIM_HandleTypeDef*&&)]	1
+std_function.h:232:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&, std::true_type) [with _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	1
+std_function.h:136:2:static _Functor* std::_Function_base::_Base_manager<_Functor>::_M_get_pointer(const std::_Any_data&) [with _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	1
+invoke.h:148:5:) [with _Res = void; _Callable = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>&; _Args = {TIM_HandleTypeDef*}]	1
+std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>*]	1
+std_function.h:181:2:static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	5
+std_function.h:232:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&, std::true_type) [with _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	1
+std_function.h:136:2:static _Functor* std::_Function_base::_Base_manager<_Functor>::_M_get_pointer(const std::_Any_data&) [with _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	1
+invoke.h:148:5:) [with _Res = void; _Callable = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>&; _Args = {bool}]	1
+std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>*]	1
+std_function.h:181:2:static bool std::_Function_base::_Base_manager<_Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	5
+std_function.h:97:7:const _Tp& std::_Any_data::_M_access() const [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
+move.h:49:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = const GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>&]	1
+invoke.h:59:5:) [with _Res = void; _Fn = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>&; _Args = {short unsigned int}]	1
+std_function.h:150:2:static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::true_type) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
+std_function.h:167:2:static void std::_Function_base::_Base_manager<_Functor>::_M_destroy(std::_Any_data&, std::true_type) [with _Functor = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
+std_function.h:97:7:const _Tp& std::_Any_data::_M_access() const [with _Tp = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	1
+move.h:49:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = const Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>&]	1
+invoke.h:59:5:) [with _Res = void; _Fn = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>&; _Args = {TIM_HandleTypeDef*}]	1
+std_function.h:150:2:static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::true_type) [with _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	1
+std_function.h:167:2:static void std::_Function_base::_Base_manager<_Functor>::_M_destroy(std::_Any_data&, std::true_type) [with _Functor = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	1
+std_function.h:97:7:const _Tp& std::_Any_data::_M_access() const [with _Tp = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	1
+move.h:49:5:constexpr _Tp* std::__addressof(_Tp&) [with _Tp = const FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>&]	1
+invoke.h:59:5:) [with _Res = void; _Fn = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>&; _Args = {bool}]	1
+std_function.h:150:2:static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::true_type) [with _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	1
+std_function.h:167:2:static void std::_Function_base::_Base_manager<_Functor>::_M_destroy(std::_Any_data&, std::true_type) [with _Functor = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	1
+std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = GPIOExtiController::GPIOExtiController(GPIO_TypeDef*, uint16_t)::<lambda(uint16_t)>]	1
+std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = Timer::Timer(TIM_HandleTypeDef*)::<lambda(TIM_HandleTypeDef*)>]	1
+std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = FiducialSensor::FiducialSensor(FiducialConfig)::<lambda(bool)>]	1

@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'database_gen.dbc' on 15:35:49 23.04.2023.
+ * This header file was generated from 'database_gen.dbc' on 19:08:19 25.04.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SENSOR' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -52,16 +52,16 @@ namespace can {
         constexpr uint32_t id_ext[1] = {     // Filter ID for extended (29-bit) ID messages
         };
 
-        constexpr uint8_t num_std = 9;      // Number of used receive filters for standard (11-bit) ID messages
-        constexpr uint32_t mask_std[9] = {   // Filter mask for standard (11-bit) ID messages
+        constexpr uint8_t num_std = 10;      // Number of used receive filters for standard (11-bit) ID messages
+        constexpr uint32_t mask_std[10] = {   // Filter mask for standard (11-bit) ID messages
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF 
+            0x7FF,            0x7FF 
         };
-        constexpr uint32_t id_std[9] = {     // Filter ID for standard (11-bit) ID messages
-            0x000,            0x002,            0x1C1,            0x241, 
-            0x2C1,            0x341,            0x5C1,            0x601, 
-            0x781 
+        constexpr uint32_t id_std[10] = {     // Filter ID for standard (11-bit) ID messages
+            0x001,            0x000,            0x002,            0x1C1, 
+            0x241,            0x2C1,            0x341,            0x5C1, 
+            0x601,            0x781 
         };
     }
 
@@ -346,7 +346,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char BusType[] = "CAN";
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 2;
+    constexpr uint32_t CANzero_DBCVersion = 3;
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "database";
@@ -1725,6 +1725,15 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
+        class SENSOR_Ready {
+            public:
+            constexpr static uint32_t id = 0x1;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'SENSOR_Ready'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
         class SENSOR_HELLO_WORLD {
             public:
             constexpr static uint32_t id = 0x0;

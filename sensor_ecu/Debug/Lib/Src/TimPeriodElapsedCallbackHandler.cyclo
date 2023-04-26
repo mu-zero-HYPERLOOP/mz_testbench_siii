@@ -1,0 +1,13 @@
+std_function.h:240:5:std::_Function_base::_Function_base()	1
+std_function.h:242:5:std::_Function_base::~_Function_base()	2
+std_function.h:248:10:bool std::_Function_base::_M_empty() const	1
+std_function.h:303:11:std::function<void(TIM_HandleTypeDef*)>::~function()	1
+TimPeriodElapsedCallbackHandler.hpp:41:2:TimPeriodElapsedCallbackHandler::TimPeriodElapsedCallbackHandler()	2
+TimPeriodElapsedCallbackHandler.hpp:14:7:TimPeriodElapsedCallbackHandler::~TimPeriodElapsedCallbackHandler()	3
+TimPeriodElapsedCallbackHandler.hpp:18:42:void __tcf_0()	1
+TimPeriodElapsedCallbackHandler.hpp:17:42:static TimPeriodElapsedCallbackHandler& TimPeriodElapsedCallbackHandler::getInstance()	3
+TimPeriodElapsedCallbackHandler.hpp:34:7:void TimPeriodElapsedCallbackHandler::notify(TIM_HandleTypeDef*)	2
+TimPeriodElapsedCallbackHandler.cpp:15:6:void PeriodElapsedCallback(TIM_HandleTypeDef*)	1
+std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {TIM_HandleTypeDef*}]	1
+std_function.h:617:5:) const [with _Res = void; _ArgTypes = {TIM_HandleTypeDef*}]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = TIM_HandleTypeDef*]	1

@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'database_gen.dbc' on 15:35:49 23.04.2023.
+ * This source file was generated from 'database_gen.dbc' on 19:08:19 25.04.2023.
  * It contains the object dictionary for the node 'SENSOR'.
  *
  * Florian Keck

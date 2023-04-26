@@ -13,6 +13,7 @@
 #include <type_traits>
 #include "StateMaschineMemory.hpp"
 #include "cmsis_os.h"
+#include "main.h"
 
 class StateMaschine {
 public:
@@ -32,11 +33,15 @@ public:
 	template<typename DestState>
 	void setState() {
 		static_assert(std::is_base_of<State, DestState>::value);
+		taskENTER_CRITICAL();
+		m_states[m_currentState]->m_active = false;
 		unsigned int id = State::getId<DestState>();
 		if (m_running == false) {
 			Error_Handler();
 		}
+		m_states[id]->m_active = true;
 		m_nextState = id;
+		taskEXIT_CRITICAL();
 	}
 
 	template<typename StartState>
@@ -45,6 +50,7 @@ public:
 		if(m_running == true) Error_Handler();
 		m_currentState = State::getId<StartState>();
 		m_nextState = m_currentState;
+		m_states[m_nextState]->m_active = true;
 		m_running = true;
 		m_states[m_currentState]->setup();
 		while (m_running) {

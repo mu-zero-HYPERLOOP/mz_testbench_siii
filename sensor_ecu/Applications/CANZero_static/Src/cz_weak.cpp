@@ -30,5 +30,4 @@ void __attribute__((weak)) canzero::handle_trasmission_request_error(){
 
 
 
-
 #endif /* CANZERO_STATIC_SRC_CZ_WEAK_CPP_ */

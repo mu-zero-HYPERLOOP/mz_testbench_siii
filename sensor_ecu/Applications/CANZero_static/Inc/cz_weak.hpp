@@ -16,7 +16,6 @@ void handle_emergency_warning();
 void handle_heartbeat_miss();
 void handle_txmailbox_overflow(CAN_HandleTypeDef* hcan);
 void handle_trasmission_request_error();
-
 }
 
 
