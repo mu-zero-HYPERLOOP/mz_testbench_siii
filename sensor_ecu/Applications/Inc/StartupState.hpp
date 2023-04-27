@@ -16,10 +16,12 @@ class StartupState: public State {
 public:
 	void setup() {
 		printf("enter startup state\n");
-		m_readyReceiverId = can::registerMessageReceiver<can::messages::SENSOR_Ready>([&](RxMessage& msg){
+		m_readyReceiverId = can::registerMessageReceiver<
+				can::messages::SENSOR_Ready>([&](RxMessage &msg) {
 			onMessageReady(msg);
 		});
-		m_helloWorldReceiverId = can::registerMessageReceiver<can::messages::SENSOR_HELLO_WORLD>([&](RxMessage& msg){
+		m_helloWorldReceiverId = can::registerMessageReceiver<
+				can::messages::SENSOR_HELLO_WORLD>([&](RxMessage &msg) {
 			onMessageHelloWorld(msg);
 		});
 	}
@@ -33,6 +35,7 @@ public:
 		can::unregisterMessageReceiver(m_helloWorldReceiverId);
 	}
 
+private:
 	void onMessageReady(RxMessage &msg) {
 		printf("Received Ready\n");
 	}
@@ -40,7 +43,6 @@ public:
 		printf("Received HelloWorld!");
 	}
 
-private:
 	FiducialSensor m_fiducialRight = FiducialSensor(
 			g_peripherals.m_fiducialRightConfig);
 	FiducialSensor m_fiducialLeft = FiducialSensor(

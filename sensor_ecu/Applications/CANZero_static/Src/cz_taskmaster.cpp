@@ -6,6 +6,7 @@
  */
 
 #include "cz_send_task.hpp"
+#include "canzero_od.hpp"
 #include "cz_receive_task.hpp"
 
 #include "FreeRTOS.h"
@@ -57,6 +58,13 @@ void canzero_start(void *argv) {
 	BaseType_t emcyStatus = xTaskCreate(canzero::emergency::consumer_entry, "cz_emcy", 256, NULL,
 			osPriorityHigh, &emcyTaskHandle);
 	if(emcyStatus != pdPASS){
+		Error_Handler();
+	}
+
+	TaskHandle_t sendOdEntriesHandle = nullptr;
+	BaseType_t sendOdEntriesStatus = xTaskCreate(sendOdEntriesTask, "cz_sendod", 128, NULL,
+			osPriorityBelowNormal7, &sendOdEntriesHandle);
+	if(sendOdEntriesStatus != pdPASS){
 		Error_Handler();
 	}
 

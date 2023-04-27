@@ -1,1 +1,1 @@
-../Applications/CANZero_static/Src/cz_taskmaster.cpp:23:6:void canzero_start(void*)	64	static
+../Applications/CANZero_static/Src/cz_taskmaster.cpp:24:6:void canzero_start(void*)	72	static

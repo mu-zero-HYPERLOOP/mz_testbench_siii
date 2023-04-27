@@ -30,7 +30,7 @@ OnBoardSensors.hpp:26:8:float OnBoardSensors::getInternalTemperaturC()	1
 OnBoardSensors.hpp:32:8:float OnBoardSensors::getExternalTemperaturC()	1
 OnBoardSensors.hpp:38:8:float OnBoardSensors::getAverageTemperaturC()	1
 OnBoardSensors.hpp:43:8:float OnBoardSensors::getInputVoltage()	1
-OnBoardSensors.hpp:49:7:void OnBoardSensors::updateCAN()	1
+OnBoardSensors.hpp:49:7:void OnBoardSensors::updateODs()	1
 testbench.cpp:26:6:void testbench_entry(void*)	1
 std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
