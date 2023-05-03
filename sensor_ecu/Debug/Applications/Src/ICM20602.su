@@ -1,0 +1,10 @@
+../Applications/Src/ICM20602.cpp:12:1:ICM20602::ICM20602(const config_t&, SPI_HandleTypeDef*, GPIO_TypeDef*, uint16_t)	24	static
+../Applications/Src/ICM20602.cpp:16:1:ICM20602::~ICM20602()	16	static
+../Applications/Src/ICM20602.cpp:16:1:virtual ICM20602::~ICM20602()	16	static
+../Applications/Src/ICM20602.cpp:20:13:void ICM20602::csEnable()	16	static
+../Applications/Src/ICM20602.cpp:23:13:void ICM20602::csDisable()	16	static
+../Applications/Src/ICM20602.cpp:27:6:void ICM20602::writeReg(uint8_t, uint8_t)	16	static
+../Applications/Src/ICM20602.cpp:34:9:uint8_t ICM20602::readReg(uint8_t)	24	static
+../Applications/Src/ICM20602.cpp:44:6:bool ICM20602::start()	24	static
+../Applications/Src/ICM20602.cpp:139:6:bool ICM20602::read()	32	static
+../Applications/Src/ICM20602.cpp:174:6:void ICM20602::resetValues()	16	static

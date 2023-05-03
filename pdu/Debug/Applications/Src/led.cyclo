@@ -1,0 +1,5 @@
+led.cpp:13:6:void LED_RGB_Init()	1
+led.cpp:18:6:void LED_RGB_Write(uint8_t, uint8_t, uint8_t)	1
+led.cpp:24:6:void LED_Green_Write(uint8_t)	1
+led.cpp:27:6:void LED_Orange_Write(uint8_t)	1
+led.cpp:30:6:void LED_Red_Write(uint8_t)	1

@@ -1,0 +1,3 @@
+../Applications/Src/Watchdog.cpp:16:1:Watchdog::Watchdog(uint32_t)	16	static
+../Applications/Src/Watchdog.cpp:22:6:void Watchdog::reset()	16	static
+../Applications/Src/Watchdog.cpp:30:6:bool Watchdog::isTimedOut()	16	static

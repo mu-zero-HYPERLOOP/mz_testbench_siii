@@ -67,12 +67,26 @@ const osThreadAttr_t canzero_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityAboveNormal,
 };
-/* Definitions for testbench */
-osThreadId_t testbenchHandle;
-const osThreadAttr_t testbench_attributes = {
-  .name = "testbench",
+/* Definitions for fms */
+osThreadId_t fmsHandle;
+const osThreadAttr_t fms_attributes = {
+  .name = "fms",
   .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for main */
+osThreadId_t mainHandle;
+const osThreadAttr_t main_attributes = {
+  .name = "main",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for info_task */
+osThreadId_t info_taskHandle;
+const osThreadAttr_t info_task_attributes = {
+  .name = "info_task",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityBelowNormal,
 };
 /* Definitions for printQueue */
 osMessageQueueId_t printQueueHandle;
@@ -87,7 +101,9 @@ const osMessageQueueAttr_t printQueue_attributes = {
 
 void StartDefaultTask(void *argument);
 extern void canzero_start(void *argument);
-extern void testbench_entry(void *argument);
+extern void state_maschine_entry(void *argument);
+extern void main_entry(void *argument);
+extern void microcontroller_info_entry(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -172,8 +188,14 @@ void MX_FREERTOS_Init(void) {
   /* creation of canzero */
   canzeroHandle = osThreadNew(canzero_start, NULL, &canzero_attributes);
 
-  /* creation of testbench */
-  testbenchHandle = osThreadNew(testbench_entry, NULL, &testbench_attributes);
+  /* creation of fms */
+  fmsHandle = osThreadNew(state_maschine_entry, NULL, &fms_attributes);
+
+  /* creation of main */
+  mainHandle = osThreadNew(main_entry, NULL, &main_attributes);
+
+  /* creation of info_task */
+  info_taskHandle = osThreadNew(microcontroller_info_entry, NULL, &info_task_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

@@ -1,0 +1,2 @@
+core_cm4.h:2064:26:uint32_t ITM_SendChar(uint32_t)	5
+putchar.cpp:11:6:void _putchar(char)	1

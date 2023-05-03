@@ -1,0 +1,202 @@
+c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\cmath:1756:3:constexpr float std::round(float)	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:141:9:can::MessageBase::MessageBase(uint32_t, uint8_t, bool)	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:143:9:can::MessageBase::MessageBase(uint32_t, uint8_t, bool, const uint8_t*)	168	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:174:14:void can::MessageBase::toBuf(CAN_TxHeaderTypeDef&, uint8_t*, can::CAN_BusTypeDef) const	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:203:19:TxMessage can::MessageBase::getTxMessage(can::CAN_BusTypeDef) const	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:471:42:static constexpr void can::signals::SENSOR_SDO_ID::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:481:46:static constexpr uint16_t can::signals::SENSOR_SDO_ID::get(const uint64_t&, const uint64_t&)	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:535:42:static constexpr void can::signals::SENSOR_SDO_RespCode::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:560:42:static constexpr void can::signals::SENSOR_OD_IMU3_Temperature::set(uint64_t&, uint64_t&, uint8_t&, float)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:595:42:static constexpr void can::signals::SENSOR_OD_IMU2_Temperature::set(uint64_t&, uint64_t&, uint8_t&, float)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:630:42:static constexpr void can::signals::SENSOR_OD_IMU1_Temperature::set(uint64_t&, uint64_t&, uint8_t&, float)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:663:42:static constexpr void can::signals::SENSOR_OD_IMU_number::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:692:42:static constexpr void can::signals::SENSOR_OD_CAN2_DelayedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:725:42:static constexpr void can::signals::SENSOR_OD_CAN2_ErrorStatus::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:760:42:static constexpr void can::signals::SENSOR_OD_CAN2_DiscardedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:794:42:static constexpr void can::signals::SENSOR_OD_CAN2_Status::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:831:42:static constexpr void can::signals::SENSOR_OD_CAN2_Baudrate::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:843:46:static constexpr uint16_t can::signals::SENSOR_OD_CAN2_Baudrate::get(const uint64_t&, const uint64_t&)	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:864:42:static constexpr void can::signals::SENSOR_OD_CAN2_autoErrorReset::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:870:45:static constexpr uint8_t can::signals::SENSOR_OD_CAN2_autoErrorReset::get(const uint64_t&, const uint64_t&)	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:895:42:static constexpr void can::signals::SENSOR_OD_CAN2_lastErrorCode::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:931:42:static constexpr void can::signals::SENSOR_OD_CAN2_RxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:958:42:static constexpr void can::signals::SENSOR_OD_CAN2_TxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:987:42:static constexpr void can::signals::SENSOR_OD_CAN1_DelayedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1020:42:static constexpr void can::signals::SENSOR_OD_CAN1_ErrorStatus::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1055:42:static constexpr void can::signals::SENSOR_OD_CAN1_DiscardedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1089:42:static constexpr void can::signals::SENSOR_OD_CAN1_Status::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1126:42:static constexpr void can::signals::SENSOR_OD_CAN1_Baudrate::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1138:46:static constexpr uint16_t can::signals::SENSOR_OD_CAN1_Baudrate::get(const uint64_t&, const uint64_t&)	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1159:42:static constexpr void can::signals::SENSOR_OD_CAN1_autoErrorReset::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1165:45:static constexpr uint8_t can::signals::SENSOR_OD_CAN1_autoErrorReset::get(const uint64_t&, const uint64_t&)	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1190:42:static constexpr void can::signals::SENSOR_OD_CAN1_lastErrorCode::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1226:42:static constexpr void can::signals::SENSOR_OD_CAN1_RxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1253:42:static constexpr void can::signals::SENSOR_OD_CAN1_TxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1282:42:static constexpr void can::signals::SENSOR_OD_BuildTime::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1315:42:static constexpr void can::signals::SENSOR_OD_BuildDate::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1344:42:static constexpr void can::signals::SENSOR_OD_ChipUID2::set(uint64_t&, uint64_t&, uint8_t&, uint64_t)	48	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1379:42:static constexpr void can::signals::SENSOR_OD_ChipUID1::set(uint64_t&, uint64_t&, uint8_t&, uint64_t)	48	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1412:42:static constexpr void can::signals::SENSOR_OD_SdcOut::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1439:42:static constexpr void can::signals::SENSOR_OD_SdcIn::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1468:42:static constexpr void can::signals::SENSOR_OD_runtime::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1503:42:static constexpr void can::signals::SENSOR_OD_InputVoltage::set(uint64_t&, uint64_t&, uint8_t&, float)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1538:42:static constexpr void can::signals::SENSOR_OD_BoardTemp::set(uint64_t&, uint64_t&, uint8_t&, float)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1573:42:static constexpr void can::signals::SENSOR_OD_MemFree::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1608:42:static constexpr void can::signals::SENSOR_OD_CpuUsage::set(uint64_t&, uint64_t&, uint8_t&, float)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1641:42:static constexpr void can::signals::SENSOR_OD_OdEntrySendInterval::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1647:46:static constexpr uint16_t can::signals::SENSOR_OD_OdEntrySendInterval::get(const uint64_t&, const uint64_t&)	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1668:42:static constexpr void can::signals::SENSOR_OD_SendOdOnBootup::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1674:45:static constexpr uint8_t can::signals::SENSOR_OD_SendOdOnBootup::get(const uint64_t&, const uint64_t&)	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1699:42:static constexpr void can::signals::SENSOR_OD_HeartbeatInterval::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1705:46:static constexpr uint16_t can::signals::SENSOR_OD_HeartbeatInterval::get(const uint64_t&, const uint64_t&)	24	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1726:42:static constexpr void can::signals::SENSOR_OD_DbcVersion::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1753:42:static constexpr void can::signals::SENSOR_OD_StackVersion::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1780:42:static constexpr void can::signals::SENSOR_OD_ProtocolVersion::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	64	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1807:42:static constexpr void can::signals::SENSOR_OD_NodeStatus::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:1841:42:static constexpr void can::signals::SENSOR_OD_NodeID::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	56	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:260:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::SENSOR_SDO_Req_Down]	32	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:274:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::SENSOR_SDO_Req_Down]	16	static
+../Applications/CANzero/canzero_od.cpp:108:6:void handleSDORequestDownload(const RxMessage&)	48	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:254:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+../Applications/CANzero/canzero_od.cpp:113:6:void handleSDORequestDownloadBySDOID(uint16_t)	80	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:260:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	32	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:274:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	16	static
+../Applications/CANzero/canzero_od.cpp:296:6:void handleSDORequestUpload(const RxMessage&)	120	static
+../Applications/CANzero/canzero_od.cpp:565:21:uint8_t OD_NodeID_get()	16	static
+../Applications/CANzero/canzero_od.cpp:573:18:void OD_NodeID_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:581:21:uint8_t OD_NodeStatus_get()	16	static
+../Applications/CANzero/canzero_od.cpp:589:18:void OD_NodeStatus_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:597:22:uint16_t OD_ProtocolVersion_get()	16	static
+../Applications/CANzero/canzero_od.cpp:605:18:void OD_ProtocolVersion_set(uint16_t)	16	static
+../Applications/CANzero/canzero_od.cpp:613:22:uint16_t OD_StackVersion_get()	16	static
+../Applications/CANzero/canzero_od.cpp:621:18:void OD_StackVersion_set(uint16_t)	16	static
+../Applications/CANzero/canzero_od.cpp:629:22:uint16_t OD_DbcVersion_get()	16	static
+../Applications/CANzero/canzero_od.cpp:637:18:void OD_DbcVersion_set(uint16_t)	16	static
+../Applications/CANzero/canzero_od.cpp:645:22:uint16_t OD_HeartbeatInterval_get()	16	static
+../Applications/CANzero/canzero_od.cpp:653:18:void OD_HeartbeatInterval_set(uint16_t)	16	static
+../Applications/CANzero/canzero_od.cpp:661:21:uint8_t OD_SendOdOnBootup_get()	16	static
+../Applications/CANzero/canzero_od.cpp:669:18:void OD_SendOdOnBootup_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:677:22:uint16_t OD_OdEntrySendInterval_get()	16	static
+../Applications/CANzero/canzero_od.cpp:685:18:void OD_OdEntrySendInterval_set(uint16_t)	16	static
+../Applications/CANzero/canzero_od.cpp:693:19:float OD_CpuUsage_get()	16	static
+../Applications/CANzero/canzero_od.cpp:701:18:void OD_CpuUsage_set(float)	16	static
+../Applications/CANzero/canzero_od.cpp:709:22:uint32_t OD_MemFree_get()	16	static
+../Applications/CANzero/canzero_od.cpp:717:18:void OD_MemFree_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:725:19:float OD_BoardTemp_get()	16	static
+../Applications/CANzero/canzero_od.cpp:733:18:void OD_BoardTemp_set(float)	16	static
+../Applications/CANzero/canzero_od.cpp:741:19:float OD_InputVoltage_get()	16	static
+../Applications/CANzero/canzero_od.cpp:749:18:void OD_InputVoltage_set(float)	16	static
+../Applications/CANzero/canzero_od.cpp:757:22:uint32_t OD_runtime_get()	16	static
+../Applications/CANzero/canzero_od.cpp:765:18:void OD_runtime_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:773:21:uint8_t OD_SdcIn_get()	16	static
+../Applications/CANzero/canzero_od.cpp:781:18:void OD_SdcIn_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:789:21:uint8_t OD_SdcOut_get()	16	static
+../Applications/CANzero/canzero_od.cpp:797:18:void OD_SdcOut_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:805:22:uint64_t OD_ChipUID1_get()	16	static
+../Applications/CANzero/canzero_od.cpp:813:18:void OD_ChipUID1_set(uint64_t)	16	static
+../Applications/CANzero/canzero_od.cpp:821:22:uint64_t OD_ChipUID2_get()	16	static
+../Applications/CANzero/canzero_od.cpp:829:18:void OD_ChipUID2_set(uint64_t)	16	static
+../Applications/CANzero/canzero_od.cpp:837:22:uint32_t OD_BuildDate_get()	16	static
+../Applications/CANzero/canzero_od.cpp:845:18:void OD_BuildDate_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:853:22:uint32_t OD_BuildTime_get()	16	static
+../Applications/CANzero/canzero_od.cpp:861:18:void OD_BuildTime_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:869:21:uint8_t OD_CAN1_TxErrCnt_get()	16	static
+../Applications/CANzero/canzero_od.cpp:877:18:void OD_CAN1_TxErrCnt_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:885:21:uint8_t OD_CAN1_RxErrCnt_get()	16	static
+../Applications/CANzero/canzero_od.cpp:893:18:void OD_CAN1_RxErrCnt_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:901:22:uint32_t OD_CAN1_lastErrorCode_get()	16	static
+../Applications/CANzero/canzero_od.cpp:909:18:void OD_CAN1_lastErrorCode_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:917:21:uint8_t OD_CAN1_autoErrorReset_get()	16	static
+../Applications/CANzero/canzero_od.cpp:925:18:void OD_CAN1_autoErrorReset_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:933:22:uint16_t OD_CAN1_Baudrate_get()	16	static
+../Applications/CANzero/canzero_od.cpp:941:18:void OD_CAN1_Baudrate_set(uint16_t)	16	static
+../Applications/CANzero/canzero_od.cpp:949:21:uint8_t OD_CAN1_Status_get()	16	static
+../Applications/CANzero/canzero_od.cpp:957:18:void OD_CAN1_Status_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:965:22:uint32_t OD_CAN1_DiscardedTxMessages_get()	16	static
+../Applications/CANzero/canzero_od.cpp:973:18:void OD_CAN1_DiscardedTxMessages_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:981:21:uint8_t OD_CAN1_ErrorStatus_get()	16	static
+../Applications/CANzero/canzero_od.cpp:989:18:void OD_CAN1_ErrorStatus_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:997:22:uint32_t OD_CAN1_DelayedTxMessages_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1005:18:void OD_CAN1_DelayedTxMessages_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1013:21:uint8_t OD_CAN2_TxErrCnt_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1021:18:void OD_CAN2_TxErrCnt_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1029:21:uint8_t OD_CAN2_RxErrCnt_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1037:18:void OD_CAN2_RxErrCnt_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1045:22:uint32_t OD_CAN2_lastErrorCode_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1053:18:void OD_CAN2_lastErrorCode_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1061:21:uint8_t OD_CAN2_autoErrorReset_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1069:18:void OD_CAN2_autoErrorReset_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1077:22:uint16_t OD_CAN2_Baudrate_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1085:18:void OD_CAN2_Baudrate_set(uint16_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1093:21:uint8_t OD_CAN2_Status_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1101:18:void OD_CAN2_Status_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1109:22:uint32_t OD_CAN2_DiscardedTxMessages_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1117:18:void OD_CAN2_DiscardedTxMessages_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1125:21:uint8_t OD_CAN2_ErrorStatus_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1133:18:void OD_CAN2_ErrorStatus_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1141:22:uint32_t OD_CAN2_DelayedTxMessages_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1149:18:void OD_CAN2_DelayedTxMessages_set(uint32_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1157:21:uint8_t OD_IMU_number_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1165:18:void OD_IMU_number_set(uint8_t)	16	static
+../Applications/CANzero/canzero_od.cpp:1173:19:float OD_IMU1_Temperature_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1181:18:void OD_IMU1_Temperature_set(float)	16	static
+../Applications/CANzero/canzero_od.cpp:1189:19:float OD_IMU2_Temperature_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1197:18:void OD_IMU2_Temperature_set(float)	16	static
+../Applications/CANzero/canzero_od.cpp:1205:19:float OD_IMU3_Temperature_get()	16	static
+../Applications/CANzero/canzero_od.cpp:1213:18:void OD_IMU3_Temperature_set(float)	16	static
+../Applications/CANzero/canzero_od.cpp:1242:6:void sendOdEntriesTask(void*)	32	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_SDO_ID; MESSAGE_T = can::messages::SENSOR_SDO_Req_Down]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_NodeID; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_NodeStatus; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_ProtocolVersion; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_StackVersion; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_DbcVersion; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_HeartbeatInterval; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_SendOdOnBootup; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_OdEntrySendInterval; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CpuUsage; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_MemFree; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_BoardTemp; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_InputVoltage; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_runtime; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_SdcIn; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_SdcOut; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_ChipUID1; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	40	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_ChipUID2; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	40	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_BuildDate; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_BuildTime; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_TxErrCnt; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_RxErrCnt; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_lastErrorCode; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_autoErrorReset; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_Baudrate; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_Status; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_DiscardedTxMessages; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_ErrorStatus; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN1_DelayedTxMessages; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_TxErrCnt; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_RxErrCnt; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_lastErrorCode; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_autoErrorReset; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_Baudrate; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_Status; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_DiscardedTxMessages; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_ErrorStatus; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_CAN2_DelayedTxMessages; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_IMU_number; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_IMU1_Temperature; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_IMU2_Temperature; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_OD_IMU3_Temperature; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_SDO_ID; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SENSOR_SDO_RespCode; MESSAGE_T = can::messages::SENSOR_SDO_Resp]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_SDO_ID; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_HeartbeatInterval; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_SendOdOnBootup; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_OdEntrySendInterval; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_CAN1_autoErrorReset; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_CAN1_Baudrate; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_CAN2_autoErrorReset; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:285:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::SENSOR_OD_CAN2_Baudrate; MESSAGE_T = can::messages::SENSOR_SDO_Req_Up]	16	static
+../Applications/CANzero/canzero_od.cpp:1269:1:void __static_initialization_and_destruction_0(int, int)	16	static
+../Applications/CANzero/canzero_od.cpp:1269:1:cpp)	8	static

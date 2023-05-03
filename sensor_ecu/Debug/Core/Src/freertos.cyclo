@@ -1,6 +1,6 @@
-freertos.c:102:13:configureTimerForRunTimeStats	1
-freertos.c:107:22:getRunTimeCounterValue	1
-freertos.c:114:6:vApplicationStackOverflowHook	1
-freertos.c:123:6:vApplicationMallocFailedHook	1
-freertos.c:143:6:MX_FREERTOS_Init	1
-freertos.c:195:6:StartDefaultTask	1
+freertos.c:118:13:configureTimerForRunTimeStats	1
+freertos.c:123:22:getRunTimeCounterValue	1
+freertos.c:130:6:vApplicationStackOverflowHook	1
+freertos.c:139:6:vApplicationMallocFailedHook	1
+freertos.c:159:6:MX_FREERTOS_Init	1
+freertos.c:217:6:StartDefaultTask	1

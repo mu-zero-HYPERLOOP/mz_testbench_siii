@@ -1,0 +1,2 @@
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	16	static
+../Applications/CANZero_static/Src/cz_send_task.cpp:19:6:void cz_send_entry(void*)	64	static

@@ -1,0 +1,20 @@
+../Lib/Src/estdio.cpp:133:20:void _out_buffer(char, void*, size_t, size_t)	24	static
+../Lib/Src/estdio.cpp:142:20:void _out_null(char, void*, size_t, size_t)	24	static
+../Lib/Src/estdio.cpp:149:20:void _out_char(char, void*, size_t, size_t)	24	static
+../Lib/Src/estdio.cpp:159:20:void _out_fct(char, void*, size_t, size_t)	24	static
+../Lib/Src/estdio.cpp:171:28:unsigned int _strnlen_s(const char*, size_t)	24	static
+../Lib/Src/estdio.cpp:181:20:bool _is_digit(char)	16	static
+../Lib/Src/estdio.cpp:188:21:unsigned int _atoi(const char**)	24	static
+../Lib/Src/estdio.cpp:199:15:size_t _out_rev(out_fct_type, char*, size_t, size_t, const char*, size_t, unsigned int, unsigned int)	40	static
+../Lib/Src/estdio.cpp:227:15:size_t _ntoa_format(out_fct_type, char*, size_t, size_t, char*, size_t, bool, unsigned int, unsigned int, unsigned int, unsigned int)	40	static
+../Lib/Src/estdio.cpp:281:15:size_t _ntoa_long(out_fct_type, char*, size_t, size_t, long unsigned int, bool, long unsigned int, unsigned int, unsigned int, unsigned int)	96	static
+../Lib/Src/estdio.cpp:306:15:size_t _ntoa_long_long(out_fct_type, char*, size_t, size_t, long long unsigned int, bool, long long unsigned int, unsigned int, unsigned int, unsigned int)	96	static
+../Lib/Src/estdio.cpp:339:15:size_t _ftoa(out_fct_type, char*, size_t, size_t, double, unsigned int, unsigned int, unsigned int)	128	static
+../Lib/Src/estdio.cpp:467:15:size_t _etoa(out_fct_type, char*, size_t, size_t, double, unsigned int, unsigned int, unsigned int)	160	static
+../Lib/Src/estdio.cpp:577:12:int _vsnprintf(out_fct_type, char*, size_t, const char*, va_list)	168	static
+../Lib/Src/estdio.cpp:862:5:)	32	static
+../Lib/Src/estdio.cpp:873:5:)	36	static
+../Lib/Src/estdio.cpp:883:5:)	32	static
+../Lib/Src/estdio.cpp:893:5:int vprintf_(const char*, va_list)	32	static
+../Lib/Src/estdio.cpp:900:5:int vsnprintf_(char*, size_t, const char*, va_list)	32	static
+../Lib/Src/estdio.cpp:906:5:)	40	static

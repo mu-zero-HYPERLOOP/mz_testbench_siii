@@ -1,0 +1,9 @@
+State.hpp:14:7:constexpr State::State()	1
+State.hpp:24:10:State::~State()	1
+State.hpp:24:10:virtual State::~State()	1
+PodStartupState.cpp:10:1:PodStartupState::PodStartupState()	1
+PodStartupState.cpp:14:6:virtual void PodStartupState::setup()	1
+PodStartupState.cpp:18:6:virtual void PodStartupState::update()	1
+PodStartupState.cpp:22:6:virtual void PodStartupState::dispose()	1
+PodStartupState.hpp:13:7:PodStartupState::~PodStartupState()	1
+PodStartupState.hpp:13:7:virtual PodStartupState::~PodStartupState()	1

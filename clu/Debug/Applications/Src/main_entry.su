@@ -1,0 +1,5 @@
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/Inc/ExternalMdbDistanceSensor.hpp:14:11:ExternalMdbDistanceSensor::ExternalMdbDistanceSensor(const ExternalMdbDistanceConfig&)	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/Inc/GlobalPeripheralRegistry.hpp:15:2:GlobalPeripheralRegistry::GlobalPeripheralRegistry()	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/Inc/GlobalPeripheralRegistry.hpp:37:56:static GlobalPeripheralRegistry& GlobalPeripheralRegistry::getInstance()	8	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/Inc/GlobalPeripheralRegistry.hpp:42:28:SDC& GlobalPeripheralRegistry::getSDC()	16	static
+../Applications/Src/main_entry.cpp:15:6:void main_entry(void*)	24	static

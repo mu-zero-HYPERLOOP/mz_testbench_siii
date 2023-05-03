@@ -10,8 +10,77 @@ ndf:
 
 ## Add your signals for the object-dictionary below
 object_dictionary:
+  # ICM20602 IMU
+  0xA20:
+    name: IMU_number
+    length: 8
+    comment: Number of IMUs that are online.
+    access: ro
+  0xA25:
+    name: IMU1_Temperature
+    length: 16
+    comment: Internal temperature of IMU1.
+    access: ro
+    conversion: {scale: 0.01, offset: -100}
+  0xA26:
+    name: IMU2_Temperature
+    length: 16
+    comment: Internal temperature of IMU2.
+    access: ro
+    conversion: {scale: 0.01, offset: -100}
+  0xA27:
+    name: IMU3_Temperature
+    length: 16
+    comment: Internal temperature of IMU3.
+    access: ro
+    conversion: {scale: 0.01, offset: -100}
 
 ## Add your emergency codes below
 emergency:
-  warnings:
   errors:
+    E1: 
+      name: StateTransitionError
+      comment: "Error while transitioning states"
+    E2: 
+      name: BRAKE_Timeout
+      comment: "BRAKE didn't respose to request"
+    E3: 
+      name: PDU_Timeout
+      comment: "PDU didn't respond to request"
+    E4: 
+      name: CLU_Timeout
+      comment: "CLU didn't respond to request"
+    E5: 
+      name: MLU1_Timeout
+      comment: "MLU1 didn't respond to request"
+    E6:
+      name: MLU2_Timeout
+      comment: "MLU2 didn't respond to request"
+    E7:
+      name: MLU3_Timeout
+      comment: "MLU3 didn't respond to request"
+    E8:
+      name: MLU4_Timeout
+      comment: "MLU4 didn't respond to request"
+    E9: 
+      name: MLU5_Timeout
+      comment: "MLU5 didn't respond to request"
+    E10:
+      name: MLU6_Timeout
+      comment: "MLU6 didn't respond to request"
+    E11:
+      name: ANY_MLU_Timeout
+      comment: "a MLU didn't respond to request"
+  warnings:
+    W1:
+      name: "OnBoardOverheat"
+      comment: "The Microcontroller is overheating"
+    W2: 
+      name: "OnBoardOvervoltage"
+      comment: "The Microcontroller is getting suppiled with to much voltage"
+    W3:
+      name: "TemperaturSensorPlausibilityCheckFailed"
+      comment: "The Temperatur Sensor readings are not plausible"
+    W4:
+      name: "PressureSensorPlausibilityCheckFailed"
+      comment: "The Pressure sensor readings are not plausible"

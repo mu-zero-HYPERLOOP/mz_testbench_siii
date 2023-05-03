@@ -116,6 +116,7 @@ public:
 
 	/**
 	 * Read the data (acceleration, gyro and temperature) from the IMU and update data variables
+	 * in a synchronus way (meaning that the thread will yield during the request).
 	 * @return True if read was successful
 	 */
 	bool read();

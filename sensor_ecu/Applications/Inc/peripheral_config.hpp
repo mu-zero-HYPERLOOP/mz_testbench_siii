@@ -52,7 +52,9 @@ struct PeripheralConfig {
 	FiducialConfig m_fiducialLeftConfig;
 	SDCConfig m_sdcConfig;
 	NTCTemperaturSensorConfig m_coolingReservoirTemperaturSensorConfig;
+	NTCTemperaturSensorConfig m_eboxTemperaturConfig;
 	OnBoardTemperaturConfig m_onBoardTemperaturConfig;
+	AdcConfig m_pressureConfig;
 };
 
 constexpr PeripheralConfig g_peripherals = {
@@ -88,6 +90,17 @@ constexpr PeripheralConfig g_peripherals = {
 			.m_r25 = 0,
 			.m_beta = 0,
 	},
+	.m_eboxTemperaturConfig = {
+				.m_adc = {
+					.m_module = ADC_MODULE2,
+					.m_rank = 0, //TODO fix rank.
+				},
+				//TODO set values correctly.
+				.m_U0 = 0,
+				.m_R = 0,
+				.m_r25 = 0,
+				.m_beta = 0,
+	},
 	.m_onBoardTemperaturConfig = {
 			.m_internalNTCConfig = {
 				.m_adc = {
@@ -113,6 +126,10 @@ constexpr PeripheralConfig g_peripherals = {
 				.m_module = ADC_MODULE1	,
 				.m_rank = 1
 			},
+	},
+	.m_pressureConfig = {
+		.m_module = ADC_MODULE2,
+		.m_rank = 2 //TODO fix rank.
 	},
 };
 

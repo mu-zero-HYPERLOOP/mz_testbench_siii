@@ -1,0 +1,13 @@
+std_function.h:240:5:std::_Function_base::_Function_base()	1
+std_function.h:242:5:std::_Function_base::~_Function_base()	2
+std_function.h:248:10:bool std::_Function_base::_M_empty() const	1
+std_function.h:303:11:std::function<void(ADC_HandleTypeDef*)>::~function()	1
+AdcConvCpltCallbackHandler.hpp:41:2:AdcConvCpltCallbackHandler::AdcConvCpltCallbackHandler()	2
+AdcConvCpltCallbackHandler.hpp:14:7:AdcConvCpltCallbackHandler::~AdcConvCpltCallbackHandler()	3
+AdcConvCpltCallbackHandler.hpp:18:37:void __tcf_0()	1
+AdcConvCpltCallbackHandler.hpp:17:37:static AdcConvCpltCallbackHandler& AdcConvCpltCallbackHandler::getInstance()	3
+AdcConvCpltCallbackHandler.hpp:34:7:void AdcConvCpltCallbackHandler::notify(ADC_HandleTypeDef*)	2
+AdcConvCpltCallbackHandler.cpp:10:6:void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef*)	1
+std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
+std_function.h:617:5:) const [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
+move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = ADC_HandleTypeDef*]	1

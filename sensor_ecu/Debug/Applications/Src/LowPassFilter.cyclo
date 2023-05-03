@@ -1,0 +1,5 @@
+LowPassFilter.cpp:13:1:LowPassFilter::LowPassFilter()	1
+LowPassFilter.cpp:17:1:LowPassFilter::LowPassFilter(float, float)	1
+LowPassFilter.cpp:33:7:float LowPassFilter::update(float)	1
+LowPassFilter.cpp:37:7:float LowPassFilter::update(float, float, float)	1
+LowPassFilter.cpp:42:6:void LowPassFilter::reconfigureFilter(float, float)	1

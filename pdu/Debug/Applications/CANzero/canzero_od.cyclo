@@ -1,0 +1,252 @@
+cmath:1756:3:constexpr float std::round(float)	1
+dbc_parser.hpp:139:9:can::MessageBase::MessageBase(uint32_t, uint8_t, bool)	1
+dbc_parser.hpp:141:9:can::MessageBase::MessageBase(uint32_t, uint8_t, bool, const uint8_t*)	1
+dbc_parser.hpp:172:14:void can::MessageBase::toBuf(CAN_TxHeaderTypeDef&, uint8_t*, can::CAN_BusTypeDef) const	2
+cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	1
+dbc_parser.hpp:201:19:TxMessage can::MessageBase::getTxMessage(can::CAN_BusTypeDef) const	1
+dbc_parser.hpp:616:42:static constexpr void can::signals::PDU_SDO_ID::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	2
+dbc_parser.hpp:626:46:static constexpr uint16_t can::signals::PDU_SDO_ID::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:687:42:static constexpr void can::signals::PDU_SDO_RespCode::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:710:42:static constexpr void can::signals::PDU_OD_CoolingPumpEnabled::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:716:45:static constexpr uint8_t can::signals::PDU_OD_CoolingPumpEnabled::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:741:42:static constexpr void can::signals::PDU_OD_LedCommands::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:747:46:static constexpr uint16_t can::signals::PDU_OD_LedCommands::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:779:42:static constexpr void can::signals::PDU_OD_projectXXEnabled::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:785:45:static constexpr uint8_t can::signals::PDU_OD_projectXXEnabled::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:810:42:static constexpr void can::signals::PDU_OD_watchdogTimeout::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:816:46:static constexpr uint16_t can::signals::PDU_OD_watchdogTimeout::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:837:42:static constexpr void can::signals::PDU_OD_statusSendInterval::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:843:46:static constexpr uint16_t can::signals::PDU_OD_statusSendInterval::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:864:42:static constexpr void can::signals::PDU_OD_currentReadInterval::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:870:46:static constexpr uint16_t can::signals::PDU_OD_currentReadInterval::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:893:42:static constexpr void can::signals::PDU_OD_batteryOvercurrent::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:905:43:static constexpr float can::signals::PDU_OD_batteryOvercurrent::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:928:42:static constexpr void can::signals::PDU_OD_overTempCritical::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:940:43:static constexpr float can::signals::PDU_OD_overTempCritical::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:963:42:static constexpr void can::signals::PDU_OD_overTempWarn::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:975:43:static constexpr float can::signals::PDU_OD_overTempWarn::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:998:42:static constexpr void can::signals::PDU_OD_batterVoltageCritical::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:1010:43:static constexpr float can::signals::PDU_OD_batterVoltageCritical::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1033:42:static constexpr void can::signals::PDU_OD_batterVoltageLow::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:1045:43:static constexpr float can::signals::PDU_OD_batterVoltageLow::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1068:42:static constexpr void can::signals::PDU_OD_CAN2_DelayedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1101:42:static constexpr void can::signals::PDU_OD_CAN2_ErrorStatus::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1136:42:static constexpr void can::signals::PDU_OD_CAN2_DiscardedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1169:42:static constexpr void can::signals::PDU_OD_CAN2_Status::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1206:42:static constexpr void can::signals::PDU_OD_CAN2_Baudrate::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	3
+dbc_parser.hpp:1218:46:static constexpr uint16_t can::signals::PDU_OD_CAN2_Baudrate::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1239:42:static constexpr void can::signals::PDU_OD_CAN2_autoErrorReset::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1245:45:static constexpr uint8_t can::signals::PDU_OD_CAN2_autoErrorReset::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1270:42:static constexpr void can::signals::PDU_OD_CAN2_lastErrorCode::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	1
+dbc_parser.hpp:1306:42:static constexpr void can::signals::PDU_OD_CAN2_RxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1333:42:static constexpr void can::signals::PDU_OD_CAN2_TxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1362:42:static constexpr void can::signals::PDU_OD_CAN1_DelayedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1395:42:static constexpr void can::signals::PDU_OD_CAN1_ErrorStatus::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1430:42:static constexpr void can::signals::PDU_OD_CAN1_DiscardedTxMessages::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1463:42:static constexpr void can::signals::PDU_OD_CAN1_Status::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1500:42:static constexpr void can::signals::PDU_OD_CAN1_Baudrate::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	3
+dbc_parser.hpp:1512:46:static constexpr uint16_t can::signals::PDU_OD_CAN1_Baudrate::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1533:42:static constexpr void can::signals::PDU_OD_CAN1_autoErrorReset::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1539:45:static constexpr uint8_t can::signals::PDU_OD_CAN1_autoErrorReset::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:1564:42:static constexpr void can::signals::PDU_OD_CAN1_lastErrorCode::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	1
+dbc_parser.hpp:1600:42:static constexpr void can::signals::PDU_OD_CAN1_RxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1627:42:static constexpr void can::signals::PDU_OD_CAN1_TxErrCnt::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1656:42:static constexpr void can::signals::PDU_OD_BuildTime::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1689:42:static constexpr void can::signals::PDU_OD_BuildDate::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	1
+dbc_parser.hpp:1718:42:static constexpr void can::signals::PDU_OD_ChipUID2::set(uint64_t&, uint64_t&, uint8_t&, uint64_t)	2
+dbc_parser.hpp:1753:42:static constexpr void can::signals::PDU_OD_ChipUID1::set(uint64_t&, uint64_t&, uint8_t&, uint64_t)	2
+dbc_parser.hpp:1786:42:static constexpr void can::signals::PDU_OD_SdcOut::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1813:42:static constexpr void can::signals::PDU_OD_SdcIn::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1842:42:static constexpr void can::signals::PDU_OD_runtime::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1877:42:static constexpr void can::signals::PDU_OD_InputVoltage::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:1912:42:static constexpr void can::signals::PDU_OD_BoardTemp::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:1947:42:static constexpr void can::signals::PDU_OD_MemFree::set(uint64_t&, uint64_t&, uint8_t&, uint32_t)	2
+dbc_parser.hpp:1982:42:static constexpr void can::signals::PDU_OD_CpuUsage::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:2015:42:static constexpr void can::signals::PDU_OD_OdEntrySendInterval::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:2021:46:static constexpr uint16_t can::signals::PDU_OD_OdEntrySendInterval::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:2042:42:static constexpr void can::signals::PDU_OD_SendOdOnBootup::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:2048:45:static constexpr uint8_t can::signals::PDU_OD_SendOdOnBootup::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:2073:42:static constexpr void can::signals::PDU_OD_HeartbeatInterval::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:2079:46:static constexpr uint16_t can::signals::PDU_OD_HeartbeatInterval::get(const uint64_t&, const uint64_t&)	2
+dbc_parser.hpp:2100:42:static constexpr void can::signals::PDU_OD_DbcVersion::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:2127:42:static constexpr void can::signals::PDU_OD_StackVersion::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:2154:42:static constexpr void can::signals::PDU_OD_ProtocolVersion::set(uint64_t&, uint64_t&, uint8_t&, uint16_t)	1
+dbc_parser.hpp:2181:42:static constexpr void can::signals::PDU_OD_NodeStatus::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:2215:42:static constexpr void can::signals::PDU_OD_NodeID::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:258:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::PDU_SDO_Req_Down]	2
+dbc_parser.hpp:272:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::PDU_SDO_Req_Down]	1
+canzero_od.cpp:122:6:void handleSDORequestDownload(const RxMessage&)	1
+dbc_parser.hpp:252:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+canzero_od.cpp:127:6:void handleSDORequestDownloadBySDOID(uint16_t)	62
+dbc_parser.hpp:258:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::PDU_SDO_Req_Up]	2
+dbc_parser.hpp:272:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+canzero_od.cpp:338:6:void handleSDORequestUpload(const RxMessage&)	76
+canzero_od.cpp:689:21:uint8_t OD_NodeID_get()	1
+canzero_od.cpp:697:18:void OD_NodeID_set(uint8_t)	1
+canzero_od.cpp:705:21:uint8_t OD_NodeStatus_get()	1
+canzero_od.cpp:713:18:void OD_NodeStatus_set(uint8_t)	1
+canzero_od.cpp:721:22:uint16_t OD_ProtocolVersion_get()	1
+canzero_od.cpp:729:18:void OD_ProtocolVersion_set(uint16_t)	1
+canzero_od.cpp:737:22:uint16_t OD_StackVersion_get()	1
+canzero_od.cpp:745:18:void OD_StackVersion_set(uint16_t)	1
+canzero_od.cpp:753:22:uint16_t OD_DbcVersion_get()	1
+canzero_od.cpp:761:18:void OD_DbcVersion_set(uint16_t)	1
+canzero_od.cpp:769:22:uint16_t OD_HeartbeatInterval_get()	1
+canzero_od.cpp:777:18:void OD_HeartbeatInterval_set(uint16_t)	1
+canzero_od.cpp:785:21:uint8_t OD_SendOdOnBootup_get()	1
+canzero_od.cpp:793:18:void OD_SendOdOnBootup_set(uint8_t)	1
+canzero_od.cpp:801:22:uint16_t OD_OdEntrySendInterval_get()	1
+canzero_od.cpp:809:18:void OD_OdEntrySendInterval_set(uint16_t)	1
+canzero_od.cpp:817:19:float OD_CpuUsage_get()	1
+canzero_od.cpp:825:18:void OD_CpuUsage_set(float)	1
+canzero_od.cpp:833:22:uint32_t OD_MemFree_get()	1
+canzero_od.cpp:841:18:void OD_MemFree_set(uint32_t)	1
+canzero_od.cpp:849:19:float OD_BoardTemp_get()	1
+canzero_od.cpp:857:18:void OD_BoardTemp_set(float)	1
+canzero_od.cpp:865:19:float OD_InputVoltage_get()	1
+canzero_od.cpp:873:18:void OD_InputVoltage_set(float)	1
+canzero_od.cpp:881:22:uint32_t OD_runtime_get()	1
+canzero_od.cpp:889:18:void OD_runtime_set(uint32_t)	1
+canzero_od.cpp:897:21:uint8_t OD_SdcIn_get()	1
+canzero_od.cpp:905:18:void OD_SdcIn_set(uint8_t)	1
+canzero_od.cpp:913:21:uint8_t OD_SdcOut_get()	1
+canzero_od.cpp:921:18:void OD_SdcOut_set(uint8_t)	1
+canzero_od.cpp:929:22:uint64_t OD_ChipUID1_get()	1
+canzero_od.cpp:937:18:void OD_ChipUID1_set(uint64_t)	1
+canzero_od.cpp:945:22:uint64_t OD_ChipUID2_get()	1
+canzero_od.cpp:953:18:void OD_ChipUID2_set(uint64_t)	1
+canzero_od.cpp:961:22:uint32_t OD_BuildDate_get()	1
+canzero_od.cpp:969:18:void OD_BuildDate_set(uint32_t)	1
+canzero_od.cpp:977:22:uint32_t OD_BuildTime_get()	1
+canzero_od.cpp:985:18:void OD_BuildTime_set(uint32_t)	1
+canzero_od.cpp:993:21:uint8_t OD_CAN1_TxErrCnt_get()	1
+canzero_od.cpp:1001:18:void OD_CAN1_TxErrCnt_set(uint8_t)	1
+canzero_od.cpp:1009:21:uint8_t OD_CAN1_RxErrCnt_get()	1
+canzero_od.cpp:1017:18:void OD_CAN1_RxErrCnt_set(uint8_t)	1
+canzero_od.cpp:1025:22:uint32_t OD_CAN1_lastErrorCode_get()	1
+canzero_od.cpp:1033:18:void OD_CAN1_lastErrorCode_set(uint32_t)	1
+canzero_od.cpp:1041:21:uint8_t OD_CAN1_autoErrorReset_get()	1
+canzero_od.cpp:1049:18:void OD_CAN1_autoErrorReset_set(uint8_t)	1
+canzero_od.cpp:1057:22:uint16_t OD_CAN1_Baudrate_get()	1
+canzero_od.cpp:1065:18:void OD_CAN1_Baudrate_set(uint16_t)	1
+canzero_od.cpp:1073:21:uint8_t OD_CAN1_Status_get()	1
+canzero_od.cpp:1081:18:void OD_CAN1_Status_set(uint8_t)	1
+canzero_od.cpp:1089:22:uint32_t OD_CAN1_DiscardedTxMessages_get()	1
+canzero_od.cpp:1097:18:void OD_CAN1_DiscardedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1105:21:uint8_t OD_CAN1_ErrorStatus_get()	1
+canzero_od.cpp:1113:18:void OD_CAN1_ErrorStatus_set(uint8_t)	1
+canzero_od.cpp:1121:22:uint32_t OD_CAN1_DelayedTxMessages_get()	1
+canzero_od.cpp:1129:18:void OD_CAN1_DelayedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1137:21:uint8_t OD_CAN2_TxErrCnt_get()	1
+canzero_od.cpp:1145:18:void OD_CAN2_TxErrCnt_set(uint8_t)	1
+canzero_od.cpp:1153:21:uint8_t OD_CAN2_RxErrCnt_get()	1
+canzero_od.cpp:1161:18:void OD_CAN2_RxErrCnt_set(uint8_t)	1
+canzero_od.cpp:1169:22:uint32_t OD_CAN2_lastErrorCode_get()	1
+canzero_od.cpp:1177:18:void OD_CAN2_lastErrorCode_set(uint32_t)	1
+canzero_od.cpp:1185:21:uint8_t OD_CAN2_autoErrorReset_get()	1
+canzero_od.cpp:1193:18:void OD_CAN2_autoErrorReset_set(uint8_t)	1
+canzero_od.cpp:1201:22:uint16_t OD_CAN2_Baudrate_get()	1
+canzero_od.cpp:1209:18:void OD_CAN2_Baudrate_set(uint16_t)	1
+canzero_od.cpp:1217:21:uint8_t OD_CAN2_Status_get()	1
+canzero_od.cpp:1225:18:void OD_CAN2_Status_set(uint8_t)	1
+canzero_od.cpp:1233:22:uint32_t OD_CAN2_DiscardedTxMessages_get()	1
+canzero_od.cpp:1241:18:void OD_CAN2_DiscardedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1249:21:uint8_t OD_CAN2_ErrorStatus_get()	1
+canzero_od.cpp:1257:18:void OD_CAN2_ErrorStatus_set(uint8_t)	1
+canzero_od.cpp:1265:22:uint32_t OD_CAN2_DelayedTxMessages_get()	1
+canzero_od.cpp:1273:18:void OD_CAN2_DelayedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1281:19:float OD_batterVoltageLow_get()	1
+canzero_od.cpp:1289:18:void OD_batterVoltageLow_set(float)	1
+canzero_od.cpp:1297:19:float OD_batterVoltageCritical_get()	1
+canzero_od.cpp:1305:18:void OD_batterVoltageCritical_set(float)	1
+canzero_od.cpp:1313:19:float OD_overTempWarn_get()	1
+canzero_od.cpp:1321:18:void OD_overTempWarn_set(float)	1
+canzero_od.cpp:1329:19:float OD_overTempCritical_get()	1
+canzero_od.cpp:1337:18:void OD_overTempCritical_set(float)	1
+canzero_od.cpp:1345:19:float OD_batteryOvercurrent_get()	1
+canzero_od.cpp:1353:18:void OD_batteryOvercurrent_set(float)	1
+canzero_od.cpp:1361:22:uint16_t OD_currentReadInterval_get()	1
+canzero_od.cpp:1369:18:void OD_currentReadInterval_set(uint16_t)	1
+canzero_od.cpp:1377:22:uint16_t OD_statusSendInterval_get()	1
+canzero_od.cpp:1385:18:void OD_statusSendInterval_set(uint16_t)	1
+canzero_od.cpp:1393:22:uint16_t OD_watchdogTimeout_get()	1
+canzero_od.cpp:1401:18:void OD_watchdogTimeout_set(uint16_t)	1
+canzero_od.cpp:1409:21:uint8_t OD_projectXXEnabled_get()	1
+canzero_od.cpp:1417:18:void OD_projectXXEnabled_set(uint8_t)	1
+canzero_od.cpp:1425:22:uint16_t OD_LedCommands_get()	1
+canzero_od.cpp:1433:18:void OD_LedCommands_set(uint16_t)	1
+canzero_od.cpp:1441:21:uint8_t OD_CoolingPumpEnabled_get()	1
+canzero_od.cpp:1449:18:void OD_CoolingPumpEnabled_set(uint8_t)	1
+canzero_od.cpp:1479:6:void sendOdEntriesTask(void*)	3
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_SDO_ID; MESSAGE_T = can::messages::PDU_SDO_Req_Down]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_NodeID; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_NodeStatus; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_ProtocolVersion; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_StackVersion; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_DbcVersion; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_HeartbeatInterval; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_SendOdOnBootup; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_OdEntrySendInterval; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CpuUsage; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_MemFree; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_BoardTemp; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_InputVoltage; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_runtime; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_SdcIn; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_SdcOut; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_ChipUID1; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_ChipUID2; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_BuildDate; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_BuildTime; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN1_TxErrCnt; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN1_RxErrCnt; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN1_lastErrorCode; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN1_autoErrorReset; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN1_Baudrate; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN1_Status; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN1_DiscardedTxMessages; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN1_ErrorStatus; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN1_DelayedTxMessages; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN2_TxErrCnt; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN2_RxErrCnt; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN2_lastErrorCode; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN2_autoErrorReset; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN2_Baudrate; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN2_Status; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN2_DiscardedTxMessages; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN2_ErrorStatus; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CAN2_DelayedTxMessages; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_batterVoltageLow; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_batterVoltageCritical; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_overTempWarn; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_overTempCritical; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_batteryOvercurrent; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_currentReadInterval; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_statusSendInterval; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_watchdogTimeout; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_projectXXEnabled; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_LedCommands; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_CoolingPumpEnabled; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_SDO_ID; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:276:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_SDO_RespCode; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_SDO_ID; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_HeartbeatInterval; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_SendOdOnBootup; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_OdEntrySendInterval; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_CAN1_autoErrorReset; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_CAN1_Baudrate; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_CAN2_autoErrorReset; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_CAN2_Baudrate; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_batterVoltageLow; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_batterVoltageCritical; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_overTempWarn; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_overTempCritical; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_batteryOvercurrent; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_currentReadInterval; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_statusSendInterval; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_watchdogTimeout; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_projectXXEnabled; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_LedCommands; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+dbc_parser.hpp:283:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_CoolingPumpEnabled; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
+canzero_od.cpp:1506:1:void __static_initialization_and_destruction_0(int, int)	3
+canzero_od.cpp:1506:1:cpp)	1

@@ -6,23 +6,68 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../Applications/Src/FiducialSensor.cpp \
+../Applications/Src/GlobalSensorRegister.cpp \
+../Applications/Src/ICM20602.cpp \
+../Applications/Src/ImuMaster.cpp \
+../Applications/Src/LowPassFilter.cpp \
 ../Applications/Src/NTCSensor.cpp \
+../Applications/Src/PodEmergencyState.cpp \
+../Applications/Src/PodIdleState.cpp \
+../Applications/Src/PodLaunchPreparationState.cpp \
+../Applications/Src/PodLaunchingState.cpp \
+../Applications/Src/PodPushableState.cpp \
+../Applications/Src/PodReadyToLaunchState.cpp \
+../Applications/Src/PodRunStopState.cpp \
+../Applications/Src/PodSafeToApproach.cpp \
+../Applications/Src/PodStartupState.cpp \
 ../Applications/Src/SDC.cpp \
-../Applications/Src/StartupState.cpp \
+../Applications/Src/main_entry.cpp \
+../Applications/Src/micocontroller_info_task.cpp \
+../Applications/Src/state_maschine_task.cpp \
 ../Applications/Src/testbench.cpp 
 
 OBJS += \
 ./Applications/Src/FiducialSensor.o \
+./Applications/Src/GlobalSensorRegister.o \
+./Applications/Src/ICM20602.o \
+./Applications/Src/ImuMaster.o \
+./Applications/Src/LowPassFilter.o \
 ./Applications/Src/NTCSensor.o \
+./Applications/Src/PodEmergencyState.o \
+./Applications/Src/PodIdleState.o \
+./Applications/Src/PodLaunchPreparationState.o \
+./Applications/Src/PodLaunchingState.o \
+./Applications/Src/PodPushableState.o \
+./Applications/Src/PodReadyToLaunchState.o \
+./Applications/Src/PodRunStopState.o \
+./Applications/Src/PodSafeToApproach.o \
+./Applications/Src/PodStartupState.o \
 ./Applications/Src/SDC.o \
-./Applications/Src/StartupState.o \
+./Applications/Src/main_entry.o \
+./Applications/Src/micocontroller_info_task.o \
+./Applications/Src/state_maschine_task.o \
 ./Applications/Src/testbench.o 
 
 CPP_DEPS += \
 ./Applications/Src/FiducialSensor.d \
+./Applications/Src/GlobalSensorRegister.d \
+./Applications/Src/ICM20602.d \
+./Applications/Src/ImuMaster.d \
+./Applications/Src/LowPassFilter.d \
 ./Applications/Src/NTCSensor.d \
+./Applications/Src/PodEmergencyState.d \
+./Applications/Src/PodIdleState.d \
+./Applications/Src/PodLaunchPreparationState.d \
+./Applications/Src/PodLaunchingState.d \
+./Applications/Src/PodPushableState.d \
+./Applications/Src/PodReadyToLaunchState.d \
+./Applications/Src/PodRunStopState.d \
+./Applications/Src/PodSafeToApproach.d \
+./Applications/Src/PodStartupState.d \
 ./Applications/Src/SDC.d \
-./Applications/Src/StartupState.d \
+./Applications/Src/main_entry.d \
+./Applications/Src/micocontroller_info_task.d \
+./Applications/Src/state_maschine_task.d \
 ./Applications/Src/testbench.d 
 
 
@@ -33,7 +78,7 @@ Applications/Src/%.o Applications/Src/%.su Applications/Src/%.cyclo: ../Applicat
 clean: clean-Applications-2f-Src
 
 clean-Applications-2f-Src:
-	-$(RM) ./Applications/Src/FiducialSensor.cyclo ./Applications/Src/FiducialSensor.d ./Applications/Src/FiducialSensor.o ./Applications/Src/FiducialSensor.su ./Applications/Src/NTCSensor.cyclo ./Applications/Src/NTCSensor.d ./Applications/Src/NTCSensor.o ./Applications/Src/NTCSensor.su ./Applications/Src/SDC.cyclo ./Applications/Src/SDC.d ./Applications/Src/SDC.o ./Applications/Src/SDC.su ./Applications/Src/StartupState.cyclo ./Applications/Src/StartupState.d ./Applications/Src/StartupState.o ./Applications/Src/StartupState.su ./Applications/Src/testbench.cyclo ./Applications/Src/testbench.d ./Applications/Src/testbench.o ./Applications/Src/testbench.su
+	-$(RM) ./Applications/Src/FiducialSensor.cyclo ./Applications/Src/FiducialSensor.d ./Applications/Src/FiducialSensor.o ./Applications/Src/FiducialSensor.su ./Applications/Src/GlobalSensorRegister.cyclo ./Applications/Src/GlobalSensorRegister.d ./Applications/Src/GlobalSensorRegister.o ./Applications/Src/GlobalSensorRegister.su ./Applications/Src/ICM20602.cyclo ./Applications/Src/ICM20602.d ./Applications/Src/ICM20602.o ./Applications/Src/ICM20602.su ./Applications/Src/ImuMaster.cyclo ./Applications/Src/ImuMaster.d ./Applications/Src/ImuMaster.o ./Applications/Src/ImuMaster.su ./Applications/Src/LowPassFilter.cyclo ./Applications/Src/LowPassFilter.d ./Applications/Src/LowPassFilter.o ./Applications/Src/LowPassFilter.su ./Applications/Src/NTCSensor.cyclo ./Applications/Src/NTCSensor.d ./Applications/Src/NTCSensor.o ./Applications/Src/NTCSensor.su ./Applications/Src/PodEmergencyState.cyclo ./Applications/Src/PodEmergencyState.d ./Applications/Src/PodEmergencyState.o ./Applications/Src/PodEmergencyState.su ./Applications/Src/PodIdleState.cyclo ./Applications/Src/PodIdleState.d ./Applications/Src/PodIdleState.o ./Applications/Src/PodIdleState.su ./Applications/Src/PodLaunchPreparationState.cyclo ./Applications/Src/PodLaunchPreparationState.d ./Applications/Src/PodLaunchPreparationState.o ./Applications/Src/PodLaunchPreparationState.su ./Applications/Src/PodLaunchingState.cyclo ./Applications/Src/PodLaunchingState.d ./Applications/Src/PodLaunchingState.o ./Applications/Src/PodLaunchingState.su ./Applications/Src/PodPushableState.cyclo ./Applications/Src/PodPushableState.d ./Applications/Src/PodPushableState.o ./Applications/Src/PodPushableState.su ./Applications/Src/PodReadyToLaunchState.cyclo ./Applications/Src/PodReadyToLaunchState.d ./Applications/Src/PodReadyToLaunchState.o ./Applications/Src/PodReadyToLaunchState.su ./Applications/Src/PodRunStopState.cyclo ./Applications/Src/PodRunStopState.d ./Applications/Src/PodRunStopState.o ./Applications/Src/PodRunStopState.su ./Applications/Src/PodSafeToApproach.cyclo ./Applications/Src/PodSafeToApproach.d ./Applications/Src/PodSafeToApproach.o ./Applications/Src/PodSafeToApproach.su ./Applications/Src/PodStartupState.cyclo ./Applications/Src/PodStartupState.d ./Applications/Src/PodStartupState.o ./Applications/Src/PodStartupState.su ./Applications/Src/SDC.cyclo ./Applications/Src/SDC.d ./Applications/Src/SDC.o ./Applications/Src/SDC.su ./Applications/Src/main_entry.cyclo ./Applications/Src/main_entry.d ./Applications/Src/main_entry.o ./Applications/Src/main_entry.su ./Applications/Src/micocontroller_info_task.cyclo ./Applications/Src/micocontroller_info_task.d ./Applications/Src/micocontroller_info_task.o ./Applications/Src/micocontroller_info_task.su ./Applications/Src/state_maschine_task.cyclo ./Applications/Src/state_maschine_task.d ./Applications/Src/state_maschine_task.o ./Applications/Src/state_maschine_task.su ./Applications/Src/testbench.cyclo ./Applications/Src/testbench.d ./Applications/Src/testbench.o ./Applications/Src/testbench.su
 
 .PHONY: clean-Applications-2f-Src
 

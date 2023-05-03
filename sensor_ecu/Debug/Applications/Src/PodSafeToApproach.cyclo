@@ -1,0 +1,9 @@
+State.hpp:14:7:constexpr State::State()	1
+State.hpp:24:10:State::~State()	1
+State.hpp:24:10:virtual State::~State()	1
+PodSafeToApproach.cpp:10:1:PodSafeToApproach::PodSafeToApproach()	1
+PodSafeToApproach.cpp:15:6:virtual void PodSafeToApproach::setup()	1
+PodSafeToApproach.cpp:19:6:virtual void PodSafeToApproach::update()	1
+PodSafeToApproach.cpp:23:6:virtual void PodSafeToApproach::dispose()	1
+PodSafeToApproach.hpp:13:7:PodSafeToApproach::~PodSafeToApproach()	1
+PodSafeToApproach.hpp:13:7:virtual PodSafeToApproach::~PodSafeToApproach()	1

@@ -1,0 +1,7 @@
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/clu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	16	static
+../Applications/CANZero_static/Src/cz_heartbeat.cpp:23:6:void canzero::heartbeat::producer_entry(void*)	56	static
+../Applications/CANZero_static/Src/cz_heartbeat.cpp:38:6:void canzero::heartbeat::consumer_entry(void*)	64	static
+../Applications/CANZero_static/Src/cz_heartbeat.cpp:52:6:void canzero::heartbeat::setInterval(uint16_t)	16	static
+../Applications/CANZero_static/Src/cz_heartbeat.cpp:56:10:uint16_t canzero::heartbeat::getInterval()	8	static
+../Applications/CANZero_static/Src/cz_heartbeat.cpp:58:1:void __static_initialization_and_destruction_0(int, int)	16	static
+../Applications/CANZero_static/Src/cz_heartbeat.cpp:58:1:cpp)	8	static
