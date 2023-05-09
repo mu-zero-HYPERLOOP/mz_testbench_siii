@@ -25,7 +25,7 @@ class RxMessageQueue {
 private:
 	static constexpr unsigned int INVALID_ID = std::numeric_limits<unsigned int>::max();
 public:
-	RxMessageQueue() {
+	RxMessageQueue() : m_messageBuffer(xMessageBufferCreate(MSG_BUFFER_SIZE)){
 
 	}
 	~RxMessageQueue() {
@@ -34,7 +34,7 @@ public:
 
 	void enable(){
 		if(m_receiverId == INVALID_ID){
-			m_receiverId = registerMessageReceiver([this](RxMessage& msg){
+			m_receiverId = registerMessageReceiver<MESSAGE>([this](RxMessage& msg){
 				this->receiveCallback(msg);
 			});
 		}
@@ -47,15 +47,15 @@ public:
 		}
 	}
 
-	inline bool isEmpty(){
+	[[nodiscard]] inline bool isEmpty(){
 		return xMessageBufferIsEmpty(m_messageBuffer) == pdTRUE;
 	}
 
-	inline bool isFull(){
+	[[nodiscard]] inline bool isFull(){
 		return xMessageBufferIsFull(m_messageBuffer) == pdTRUE;
 	}
 
-	inline bool hasAny(){
+	[[nodiscard]] inline bool hasAny(){
 		return not isEmpty();
 	}
 
@@ -68,7 +68,7 @@ public:
 
 private:
 
-	inline void receiveCallback(RxMessage &msg) {
+	void receiveCallback(RxMessage &msg) {
 		xMessageBufferSend(m_messageBuffer, &msg, sizeof(RxMessage), 10);
 	}
 

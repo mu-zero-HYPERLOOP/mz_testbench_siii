@@ -1,0 +1,600 @@
+## CANzero Node description file V1.1
+# mu-zero HYPERLOOP e.V.
+
+## NDF description
+ndf:
+  name: SensorR
+  node_id: 0x2
+  comment: Sensor ECU rear
+  parent_ndfs: [Sensor]
+
+## Add your signals for the object-dictionary below
+object_dictionary:
+  
+  # Wheel Encoder
+  0xA10:
+    name: EncoderWheelDiameter
+    length: 16
+    comment: Diameter of the encoder wheel in mm.
+    unit: mm
+    conversion: {scale: 0.005}
+    default: 75
+    range: [1, 300]
+  0xA1A:
+    name: EncoderResetPosition
+    length: 8
+    comment: Reset the position of the encoder to zero.
+    access: wo
+    choices: {0: "None", 1: "Reset"}
+
+  # ICM20602 IMU
+  0xA20:
+    name: IMU_number
+    length: 8
+    comment: Number of IMUs that are online.
+    access: ro
+  0xA25:
+    name: IMU1_Temperature
+    length: 16
+    comment: Internal temperature of IMU1.
+    access: ro
+    conversion: {scale: 0.01, offset: -100}
+  0xA26:
+    name: IMU2_Temperature
+    length: 16
+    comment: Internal temperature of IMU2.
+    access: ro
+    conversion: {scale: 0.01, offset: -100}
+  0xA27:
+    name: IMU3_Temperature
+    length: 16
+    comment: Internal temperature of IMU3.
+    access: ro
+    conversion: {scale: 0.01, offset: -100}
+  
+  # Execution time measuerment
+  0xA30:
+    name: ExecTimeOverall
+    length: 16
+    comment: Execution time of the whole TrajectoryControl task.
+    unit: ms
+    conversion: {scale: 0.01}
+  0xA31:
+    name: ExecTimeStateEst
+    length: 16
+    comment: Execution time of the State Estimation in milliseconds.
+    unit: ms
+    conversion: {scale: 0.01}
+  0xA32:
+    name: ExecTimeControl
+    length: 16
+    comment: Execution time of the control in milliseconds.
+    unit: ms
+    conversion: {scale: 0.01}
+  0xA33:
+    name: ExecTimeReadSensors
+    length: 16
+    comment: Execution time of the sensor readings in milliseconds.
+    unit: ms
+    conversion: {scale: 0.01}
+
+  # OPC
+  0xA40:
+    name: OpcKp
+    length: 16
+    comment: Product gain for OPC.
+    conversion: {scale: 0.01}
+    default: 6.0
+  0xA41:
+    name: OpcKi
+    length: 16
+    comment: Integrator gain for OPC.
+    conversion: {scale: 0.01}
+    default: 0.5
+  0xA42:
+    name: CtrlMode
+    length: 8
+    comment: Whether to use V-control (0) or I-control (1).
+    default: 1
+  0xA43:
+    name: CurrentReq
+    length: 16
+    comment: Required current for LIM (AC RMS coil current controlled by current controller).
+    unit: A
+    conversion: {scale: 0.1}
+    default: 105.0
+  0xA44:
+    name: PodMass
+    length: 16
+    comment: Mass of pod.
+    unit: kg
+    conversion: {scale: 0.1}
+    default: 230.0
+  0xA45:
+    name: FmaxCtrl
+    length: 16
+    comment: Force saturation in OPC (upper boundary). 1004 is maximum.
+    unit: N
+    conversion: {scale: 1.0}
+    default: 1004
+  0xA46:
+    name: FminCtrl
+    length: 16
+    comment: Force saturation in OPC (lower boundary). Scaled by (-1). 922 is maximum.
+    unit: N
+    conversion: {scale: 1.0}
+    default: 922
+  0xA47:
+    name: MaxCtrlError
+    length: 16
+    comment: Maximum deviation from the required velocity for a specified time. (Done by high level control.) FIXME
+    unit: m/s
+    conversion: {scale: 0.01}
+    default: 1.5
+  0xA48:
+    name: MaxCtrlErrorDuration
+    length: 16
+    comment: Time where deviation from the required velocity is considered. (Done by high level control.) FIXME
+    unit: s
+    conversion: {scale: 0.01}
+    default: 0.5
+  0xA49:
+    name: WarningThreshholdForLimModelOutOfBoundaries
+    length: 16
+    comment: Time where deviation from the required velocity is considered.
+    unit: s
+    conversion: {scale: 0.001}
+    default: 0.9
+  0xA4A:
+    name: MaxRequiredVelocity
+    length: 16
+    comment: Maximum required velocity the OPC accepts.
+    unit: m/s
+    conversion: {scale: 0.1}
+    default: 19
+  0xA4B:
+    name: VdcReduceFactor
+    length: 16
+    comment: Factor to tune Vdc.
+    conversion: {scale: 0.1}
+    default: 0.95
+  0xA4C:
+    name: RunMode
+    length: 8
+    comment: Whether to do dynamic run (0), levitation (1) or manual control (2).
+    choices: {0: Dynamic, 1: Levitation, 2: Manual}
+    default: 0
+  0xA4D:
+    name: SetFinish
+    length: 8
+    comment: Manual setting of finished flag.
+    choices: {0: None, 1: Finish}
+    default: 0
+    
+  0xB00:
+    name: RunProfile_T0
+    length: 16
+    comment: Time for the first point in the velocity profile.
+    unit: ms
+    conversion: {scale: 10}
+    default: 0
+  0xB01:
+    name: RunProfile_V0
+    length: 16
+    comment: Velocity for the first point in the velocity profile.
+    conversion: {scale: 0.01, offset: -327}
+    unit: m/s
+    default: 0
+  0xB02:
+    name: RunProfile_T1
+    length: 16
+    comment: Time for the second point in the velocity profile.
+    unit: ms
+    conversion: {scale: 10}
+    default: 1000
+  0xB03:
+    name: RunProfile_V1
+    length: 16
+    comment: Velocity for the second point in the velocity profile.
+    conversion: {scale: 0.01, offset: -327}
+    unit: m/s
+    default: 0.05 
+  0xB04:
+    name: RunProfile_T2
+    length: 16
+    comment: Time for the third point in the velocity profile.
+    unit: ms
+    conversion: {scale: 10}
+    default: 3000
+  0xB05:
+    name: RunProfile_V2
+    length: 16
+    comment: Velocity for the third point in the velocity profile.
+    conversion: {scale: 0.01, offset: -327}
+    unit: m/s
+    default: 1
+  0xB06:
+    name: RunProfile_T3
+    length: 16
+    comment: Time for the forth point in the velocity profile.
+    unit: ms
+    conversion: {scale: 10}
+    default: 3500
+  0xB07:
+    name: RunProfile_V3
+    length: 16
+    comment: Velocity for the forth point in the velocity profile.
+    conversion: {scale: 0.01, offset: -327}
+    unit: m/s
+    default: 1
+  0xB08:
+    name: RunProfile_T4
+    length: 16
+    comment: Time for the fith point in the velocity profile.
+    unit: ms
+    conversion: {scale: 10}
+    default: 4500
+  0xB09:
+    name: RunProfile_V4
+    length: 16
+    comment: Velocity for the fith point in the velocity profile.
+    conversion: {scale: 0.01, offset: -327}
+    unit: m/s
+    default: 0
+  0xB0A:
+    name: EstimatedRunLength
+    length: 16
+    comment: Estimated run length based on the velocity profile.
+    conversion: {scale: 0.05, offset: -1600}
+    unit: m
+    access: ro
+
+  0xC00:
+    name: TC_I
+    length: 16
+    comment: Time constant for the required current.
+    unit: ms
+    default: 150
+  0xC01:
+    name: TC_f
+    length: 16
+    comment: Time constant for the required frequency.
+    unit: ms
+    default: 150
+  0xC02:
+    name: VelocityController
+    length: 8
+    comment: Select which velocity controller to choose (CC ConstantCurrent, CVFF CurrentVariedFeedForward, CVFB VariedCurrentFeedBack, CAS Cascaded)
+    choices: {0: CC, 1: CVFF, 2: CVFB, 3: CAS, 4: FAST}
+    default: 0
+  0xC03:
+    name: CVOPCImax
+    length: 16
+    comment: Maximum current for current varied OPC.
+    default: 200
+  0xC04:
+    name: CVOPCTcf
+    length: 16
+    comment: Lowpass filter constant of frequency.
+    unit: ms
+    default: 1000
+  0xC05:
+    name: CVOPCTcI
+    length: 16
+    comment: Lowpass filter constant of current (for CVOPC and FFCVOPC).
+    unit: ms
+    default: 300
+  0xC06:
+    name: CVOPCSmoothingDeltaVelocity
+    length: 16
+    comment: Specify at which velocity deviation stronger low pass filtering should end. FIXME Do not use a hard boundary.
+    unit: m/s
+    conversion: {scale: 0.01}
+    default: 0.05
+  0xC07:
+    name: CVOPCDeltaVelHigherCurrent
+    length: 16
+    comment: Specify at which absolute velocity error the higher current should be selected (although v_req = const).
+    unit: m/s
+    conversion: {scale: 0.01}
+    default: 0.3
+  0xC08:
+    name: CVOPCReduceCurrentWhileCruising
+    length: 16
+    comment: Specify by which factor to reduce the const current while cruising with const current control.
+    conversion: {scale: 0.01}
+    default: 0.9
+  0xC09:
+    name: CVOPCHystereseF
+    length: 16
+    comment: Specify the Hysterese amplitude when to change for acc or dec.
+    unit: Newton
+    conversion: {scale: 0.1}
+    default: 400
+  0xC10:
+    name: AccAtCurrentMeasured
+    length: 16
+    comment: Acceleration with a specified constant current (Default 230 / 3=76.7) (FFCVOPC).
+    unit: m/s^2
+    conversion: {scale: 0.01}
+    default: 77.0
+  0xC11:
+    name: CurrentForConstantVelocity
+    length: 16
+    comment: Current for cruising (in FFCC).
+    unit: A
+    conversion: {scale: 0.01}
+    default: 80.0
+  0xC12:
+    name: CascadedMaxSetForceDelta
+    length: 16
+    comment: Specify the max force delta when no current is modified.
+    unit: Newton
+    conversion: {scale: 0.1}
+    default: 100
+  0xC13:
+    name: CascadedFreqCurUpdate
+    length: 16
+    comment: Specify how often to update the required current in the cascaded control.
+    unit: s
+    conversion: {scale: 0.001}
+    default: 0.1
+  0xC14:
+    name: CascadedKpIncreaseCurrent
+    length: 16
+    comment: Specify the factor to increase current (in A/s).
+    unit: A/s
+    conversion: {scale: 0.1}
+    default: 40.0
+  0xC15:
+    name: CascadedKpDecreaseCurrent
+    length: 16
+    comment: Specify the factor to decreae current (in A/s).
+    unit: A/s
+    conversion: {scale: 0.1}
+    default: 40.0
+  0xC16:
+    name: CVOPCImin
+    length: 16
+    comment: Minimum current for current varied OPC.
+    default: 50
+  0xC17:
+    name: CVOPCTcFreq
+    length: 16
+    comment: Lowpass filter constant of F_req.
+    unit: ms
+    default: 100
+  0xC18:
+    name: AdaptModelByCurrent
+    length: 8
+    comment: Select whether to use the measured current to adapt the model.
+    choices: {0: Const, 1: UseCurrent}
+    default: 0
+  0xC19:
+    name: Current4Stopping
+    length: 16
+    comment: Current set for stopping (in A).
+    unit: A
+    conversion: {scale: 0.1}
+    default: 50.0
+  0xC20:
+    name: FinishedDelay
+    length: 16
+    comment: Time to stay in launching mode after end of trajectory..
+    unit: ms
+    default: 2500
+  0xC21:
+    name: maxRunDistance
+    length: 16
+    comment: Estimated run length based on the velocity profile.
+    conversion: {scale: 0.05, offset: -1600}
+    unit: m
+    default: 300
+  0xC22:
+    name: opc_ratelimiter_f
+    length: 16
+    comment: Rate Limiter Freq.
+    conversion: {scale: 0.1, offset: -3200}
+    default: 500
+  0xC23:
+    name: DebugCascadedIreq
+    length: 16
+    comment: Debugging
+    conversion: {scale: 0.1, offset: -3200}
+    default: 0
+  0xC24:
+    name: DebugCVOPCfreq
+    length: 16
+    comment: Debugging
+    conversion: {scale: 0.1, offset: -3200}
+    default: 0
+  0xC25:
+    name: opc_brakeFlag
+    length: 8
+    comment: Manual setting of brakes flag.
+    choices: {0: None, 1: Braked}
+    default: 0
+  0xC26:
+    name: opc_t_run_max
+    length: 16
+    comment: Max time to check the flip flop 
+    unit: s
+    conversion: {scale: 0.1}
+    default: 4.0
+  0xC27:
+    name: opc_F_max
+    length: 16
+    comment: Maximum force to set for acceleration. (Is internally used as a maximum current.)
+    unit: N
+    default: 90
+  0xC28:
+    name: opc_T_acc
+    length: 16
+    comment: Time to accelerate.
+    unit: s
+    conversion: {scale: 0.1}
+    default: 2.0
+  0xC29:
+    name: opc_v_max
+    length: 16
+    comment: Velocity when to stop accelerating.
+    unit: m/s
+    conversion: {scale: 0.01}
+    default: 2.0
+  0xC30:
+    name: opc_v_threshold
+    length: 16
+    comment: Velocity when to reduce to current. FIXME Add parameter how much to reduce the current.
+    unit: m/s
+    conversion: {scale: 0.01}
+    default: 0.25
+  0xC31:
+    name: opc_F_decrease
+    length: 16
+    comment: parameter of how quickly force is decreased while breaking
+    unit: F/s
+    conversion: {scale: 0.01}
+    default: 0.25
+  0xC32:
+    name: opc_lowpass_Tcf
+    length: 16
+    comment: timeconstant of PT1 for frequency adjustment of OPC
+    unit: s
+    conversion: {scale: 0.01}
+    default: 0.02
+  0xC33:
+    name: opc_lowpass_TcI
+    length: 16
+    comment: timeconstant of PT1 for current adjustment of OPC
+    unit: s
+    conversion: {scale: 0.01}
+    default: 0.02
+
+  # NPC
+  0xD01:
+    name: StripeMode
+    length: 8
+    comment: 0 means left, 1 means right, 2 means both
+    choices: {0: Left, 1: Right, 2: Both}
+    default: 1 
+  0xD02:
+    name: ReflectorDistance
+    length: 16
+    comment: distance between 2 reflectors in m
+    conversion: {scale: 0.1}
+    default: 20
+  0xD03:
+    name: PositionGlitch
+    length: 16
+    comment: allowed difference in m between estimated pod position and stripe position
+    conversion: {scale: 0.1}
+    default: 5
+  0xD04:
+    name: EnableSignalGeneration
+    length: 8
+    comment: enable signalgeneration for testing SE
+    default: 0
+
+  # StateEstimation
+  0xE01:
+    name: accDeviation
+    length: 16
+    comment: allowed deviation of IMUs
+    conversion: {scale: 0.1}
+    default: 4 
+  0xE02:
+    name: velDeviationEncoder
+    length: 16
+    comment: allowed deviation of velocity measurment of encoders
+    conversion: {scale: 0.1}
+    default: 2
+  0xE03:
+    name: velDeviationOptic
+    length: 16
+    comment: allowed deviation of velocity measurment of optical sensor
+    conversion: {scale: 0.1}
+    default: 2
+  0xE04:
+    name: posDeviationEncoder
+    length: 16
+    comment: allowed deviation of position measurment of encoders
+    conversion: {scale: 0.1}
+    default: 4
+  0xE05:
+    name: posDeviationOptic
+    length: 16
+    comment: allowed deviation of position measurment of optical sensor
+    conversion: {scale: 0.1}
+    default: 4
+
+    
+## Add your emergency codes below
+emergency:
+  warnings:
+    W1:
+      name: stripeWarning
+      comment: Warning when the measured position is not within the half allowed distance of the two nearest stripes
+    W2: 
+      name: stateEstimationVelWarning
+      comment: One velocity measurement is out of range
+    W3: 
+      name: stateEstimationPosWarning
+      comment: One position measurement is out of range
+    W4: 
+      name: stateEstimationAccWarning
+      comment: One acceleration measurement is out of range
+    W5:
+      name: sciMoPEwarning069CPUtemp
+      comment: High temperature of PE controller CPU. 
+    W6:
+      name: sciMoPEwarning104FETtemp
+      comment: High temperature of FETs. 
+    W7:
+      name: highOscillations
+      comment: Warning when high oscillations occur. FIXME
+    W8:
+      name: outOfLimModelBoundaries
+      comment: Warning when required thrust force is large and acceleration has a different sign. FIXME
+    W9:
+      name: restrictingVelocity
+      comment: Warning when required velocity is higher than allowed. FIXME
+    W10:
+      name: highLIMTemperature
+      comment: Warning when motor temperature is too high. FIXME
+  errors:
+    E1:
+      name: trajectoryError
+      comment: Error when they Trajectory differs to much from the setpoint.
+    E2:
+      name: stripeEmergencyStop
+      comment: PlausibilitxCheck goes wrong, the position is not wiithin the range of the stripes
+    E3:
+      name: posEmergencyStop
+      comment: The position can not be measured directly by any sensor
+    E4:
+      name: velEmergencyStop
+      comment: The velocity can not be measured directly by any sensor
+    E5:
+      name: accEmergencyStop
+      comment: The acceleration can not be measured directly by any sensor
+    E6:
+      name: scimoPEerror009Pulslock
+      comment: Error if hardware enable not given.
+    E7:
+      name: scimoPEerror020uZKmin
+      comment: Error if intermediate circuit voltage too low.
+    E8:
+      name: scimoPEerror024motTemp
+      comment: Error if motor temperature too high.
+    E9:
+      name: scimoPEerror102overcurrent
+      comment: Current of a single phase too high (for more than 4 samples).
+    E10:
+      name: scimoPEerror103sumcurrent
+      comment: Sum of the phase current too high.
+    E11:
+      name: scimoPEerror101overcurrent
+      comment: Current of a single phase too high (for more than 4 samples).
+    E12:
+      name: highLIMTemperature
+      comment: Error when motor temperature is too high.

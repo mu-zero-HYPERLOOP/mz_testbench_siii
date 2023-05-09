@@ -6,19 +6,23 @@
  */
 
 #include <PodLaunchingState.hpp>
+#include "estdio.hpp"
+#include "EstimatedStateRegistry.hpp"
+#include "GlobalState.hpp"
+#include "PodStopLevitationState.hpp"
 
-PodLaunchingState::PodLaunchingState() {
-
-}
 
 void PodLaunchingState::setup() {
-
+	printf("enter launching state\n");
 }
 
 void PodLaunchingState::update() {
-
+	if(EstimatedStateRegistry::getInstance().getPosition() > 2){
+		GlobalState::getInstance().setState<PodStopLevitationState>();
+	}
 }
 
 void PodLaunchingState::dispose() {
+	printf("exit launching state\n");
 
 }

@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'database_gen.dbc' on 15:24:08 03.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 22:14:09 08.05.2023.
  * It contains the object dictionary for the node 'PDU'.
  *
  * Florian Keck

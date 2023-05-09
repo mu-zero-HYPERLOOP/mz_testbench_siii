@@ -8,12 +8,16 @@
 #ifndef INC_STATE_HPP_
 #define INC_STATE_HPP_
 #include <type_traits>
+#include "PodState.hpp"
 
 class StateMaschine;
 
 class State{
 public:
 	friend class StateMaschine;
+
+	State(PodState podState) : m_podState(podState){}
+
 	template<typename StateImplementation>
 	static unsigned int getId(){
 		static_assert(std::is_base_of<State, StateImplementation>());
@@ -29,6 +33,10 @@ public:
 
 	virtual void dispose() = 0;
 
+	[[nodiscard]] PodState getPodState() const{
+		return m_podState;
+	}
+
 protected:
 	StateMaschine* m_stateMaschine = nullptr;
 	bool m_active = false;
@@ -38,6 +46,9 @@ private:
 		static unsigned int stateIdAcc;
 		return stateIdAcc++;
 	}
+	PodState m_podState;
+
+
 };
 
 

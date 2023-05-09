@@ -58,7 +58,7 @@ const osThreadAttr_t defaultTask_attributes = {
   .cb_size = sizeof(defaultTaskControlBlock),
   .stack_mem = &defaultTaskBuffer[0],
   .stack_size = sizeof(defaultTaskBuffer),
-  .priority = (osPriority_t) osPriorityBelowNormal7,
+  .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for canzero */
 osThreadId_t canzeroHandle;
@@ -71,7 +71,7 @@ const osThreadAttr_t canzero_attributes = {
 osThreadId_t mainHandle;
 const osThreadAttr_t main_attributes = {
   .name = "main",
-  .stack_size = 128 * 4,
+  .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for info_task */

@@ -63,7 +63,8 @@ Applications/CANZero_static/Src/cz_heartbeat.o: \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_send_queue.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_log.hpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_weak.hpp
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_heartbeat.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANzero/include/canzero_od.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_interface.hpp:
@@ -128,3 +129,4 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_log.hpp:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_weak.hpp:

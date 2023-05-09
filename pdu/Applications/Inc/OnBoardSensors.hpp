@@ -31,7 +31,7 @@ public:
 
 	float getExternalTemperaturC(){
 		uint16_t avalue = m_externalNTC.get();
-		float ntcTemperature = 1.0f / (1.0f / 298.15f + 1.0f / 3380.0f * log(1.0f / (4095.0f / (float) avalue - 1.0f) )) - 273.15f;
+		float ntcTemperature = (1.0f / (1.0f / 298.15f + 1.0f / 3380.0f * log(1.0f / (4095.0f / (float) avalue - 1.0f) ))) - 273.15f;
 		return ntcTemperature;
 	}
 

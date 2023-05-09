@@ -9,6 +9,7 @@
 #define CANZERO_STATIC_SRC_CZ_WEAK_CPP_
 
 #include "cz_weak.hpp"
+#include "GlobalState.hpp"
 
 
 void __attribute__((weak)) canzero::handle_emergency_warning(){

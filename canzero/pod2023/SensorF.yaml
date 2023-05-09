@@ -1,0 +1,154 @@
+## CANzero Node description file V1.1
+# mu-zero HYPERLOOP e.V.
+
+## NDF description
+ndf:
+  name: SensorF
+  node_id: 0x1
+  comment: Sensor ECU front
+  parent_ndfs: [Sensor]
+
+object_dictionary:
+   # This shows all attributes of a OD entry with their default values.
+   # Only name, length and comment is required; rest is optional.
+  0x900:
+    name: TelemetryCommands               # Required to put a name in.
+    length: 8                     # Required to put a length in bit in. Should be 8, 16, 24, 32, 40 or 48 bit.
+    comment: Commands from Telemetry to State Machine
+    default: 0                    # Default value
+    choices: 
+      0: "None"
+      1: "Launch Preparation"
+      2: "HV Activation"
+      3: "Pushing Start"
+      4: "Pushing End"
+      5: "Launch Start"
+      6: "Launch Abort"
+      7: "Idle"
+      8: "Error Resolved"
+      9: "Emergency"
+  0x901:
+    name: StateMachineInterval
+    length: 8
+    comment: Interval in milliseconds for the state machine execution.
+    unit: ms
+    default: 10
+    range: [5, 100]
+
+  0x902:
+    name: StateMachineActivate
+    length: 8
+    comment: If it is deactivated, then no signals are sent by stateMachine
+    choices: 
+      0: "Activate"
+      1: "Deactivate"
+  
+  0x903:
+    name: HVBatteryMode
+    length: 8
+    comment: Switch the HV Battery from discharging to charging mode.
+    choices:
+      0: Discharging
+      1: Charging
+    default: 0
+
+     # Wheel Encoder
+  0x904:
+    name: EncoderWheelDiameter
+    length: 16
+    comment: Diameter of the encoder wheel in mm.
+    unit: mm
+    conversion: {scale: 0.005}
+    default: 75
+    range: [1, 300]
+  0x905:
+    name: EncoderResetPosition
+    length: 8
+    comment: Reset the position of the encoder to zero.
+    access: wo
+    choices: {0: "None", 1: "Reset"}
+
+  # ICM20602 IMU
+  0xA20:
+    name: IMU_number
+    length: 8
+    comment: Number of IMUs that are online.
+    access: ro
+  0xA25:
+    name: IMU1_Temperature
+    length: 16
+    comment: Internal temperature of IMU1.
+    access: ro
+    conversion: {scale: 0.01, offset: -100}
+  0xA26:
+    name: IMU2_Temperature
+    length: 16
+    comment: Internal temperature of IMU2.
+    access: ro
+    conversion: {scale: 0.01, offset: -100}
+  0xA27:
+    name: IMU3_Temperature
+    length: 16
+    comment: Internal temperature of IMU3.
+    access: ro
+    conversion: {scale: 0.01, offset: -100}
+
+  0x910:
+    name: SetReset
+    length: 8
+    comment: Reset the position of the encoder and IMU to zero.
+    access: wo
+    choices: {0: "None", 1: "Reset"}
+
+## Add your emergency codes below
+emergency:
+  errors:
+    E1:
+      name: StateMTransitionE
+      comment: Something went wrong with a transition
+    E2:
+      name: BrakeFTimeout
+      comment: Did not respond in set max time
+    E3:
+      name: BrakeRTimeout
+      comment: Did not respond in set max time
+    E4:
+      name: PDUTimeout
+      comment: Did not respond in set max time
+    E5:
+      name: HVCUTimeout
+      comment: Did not respond in set max time
+    E6:
+      name: SensorRTimeout
+      comment: Did not respond in set max time
+    E7:
+      name: TelemetryTimeout
+      comment: Did not respond in set max time
+    E8:
+      name: NodeErrorFlag
+      comment: A nodes error flag was active
+    E9:
+      name: SWError
+      comment: State machine plausibility check failed
+    E10:
+      name: TelemEmergency
+      comment: Telemtry sent emergency command
+    E12:
+      name: encoderError
+      comment: Error when something fails in the Wheel encoder.
+    E13:
+      name: encoderSpeedError
+      comment: Error when the meassured speed is prohibited
+    E14:
+      name: fiducialHighOffset
+      comment: Fiducial position estimation derived from kistler estimation
+
+  warnings:
+    W1:
+      name: StateMTransitionW
+      comment: Some transition is about to time out
+    W2: 
+      name: encoderOORWarning
+      comment: the position form the wheelencoder is outside the track limits
+
+

@@ -26,21 +26,21 @@ void canzero_start(void *argv) {
 
 	TaskHandle_t sendTaskHandle = nullptr;
 	BaseType_t sendStatus = xTaskCreate(cz_send_entry, "cz_send", 256, NULL,
-			osPriorityNormal, &sendTaskHandle);
+			osPriorityAboveNormal, &sendTaskHandle);
 	if (sendStatus != pdPASS) {
 		printDebug("Failed to start canzero send task");
 	}
 
 	TaskHandle_t recvTaskHandle = nullptr;
 	BaseType_t recvStatus = xTaskCreate(cz_receive_task, "cz_receive", 256, NULL,
-			osPriorityNormal, &recvTaskHandle);
+			osPriorityAboveNormal, &recvTaskHandle);
 	if (recvStatus != pdPASS) {
 		printDebug("Failed to start canzero receive task");
 	}
 	TaskHandle_t heartbeatConsumerTaskHandle = nullptr;
 	BaseType_t heartbeatConsumerStatus = xTaskCreate(
 			canzero::heartbeat::consumer_entry, "cz_ht_con", 256, NULL,
-			osPriorityNormal, &heartbeatConsumerTaskHandle);
+			osPriorityNormal1, &heartbeatConsumerTaskHandle);
 	if(heartbeatConsumerStatus != pdPASS){
 		printDebug("Failed to start canzero heartbeat consumer task");
 	}

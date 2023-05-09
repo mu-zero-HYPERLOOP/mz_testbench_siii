@@ -8,23 +8,21 @@
 #include <PodReadyToLaunchState.hpp>
 #include "StateMaschine.hpp"
 #include "peripheral_config.hpp"
-
-PodReadyToLaunchState::PodReadyToLaunchState() :
-	m_coolingTemperatur(g_peripherals.m_coolingReservoirTemperaturSensorConfig),
-	m_eboxTemperatur(g_peripherals.m_eboxTemperaturConfig){
-	// TODO Auto-generated constructor stub
-
-}
+#include "GlobalState.hpp"
+#include "estdio.hpp"
+#include "GroundStationReceiver.hpp"
 
 
 void PodReadyToLaunchState::setup() {
-
+	printf("enter pod ready to launch\n");
 }
 
 void PodReadyToLaunchState::update() {
-
+	if(GroundStationReceiver::getInstance().getLastCommand() == COMMAND_LAUNCH){
+		GlobalState::getInstance().setState<PodStartLevitation>();
+	}
 }
 
 void PodReadyToLaunchState::dispose() {
-
+	printf("exit pod ready to launch\n");
 }

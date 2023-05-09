@@ -32,7 +32,6 @@ Applications/CANZero_static/Src/cz_receive_task.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h \
@@ -55,6 +54,7 @@ Applications/CANZero_static/Src/cz_receive_task.o: \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_processRx.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_od.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_interface.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_emergency.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/typedefinitions.h \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp \
@@ -95,7 +95,6 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZer
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h:
@@ -118,6 +117,7 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZer
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_processRx.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_od.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_interface.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_emergency.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/typedefinitions.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:

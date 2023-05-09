@@ -8,25 +8,24 @@
 #include "PodIdleState.hpp"
 #include "PodLaunchPreparationState.hpp"
 #include "StateMaschine.hpp"
-
-PodIdleState::PodIdleState() {
-	// TODO Auto-generated constructor stub
-
-}
+#include "GlobalState.hpp"
+#include "GroundStationReceiver.hpp"
+#include "FreeRTOS.h"
+#include "cmsis_os.h"
 
 void PodIdleState::setup(){
-
+	printf("enter idle state\n");
 }
 
 void PodIdleState::update(){
-	if(m_startupMessageQueue.hasAny()){
-		auto msg = m_startupMessageQueue.dequeue();
-		//TODO parse msg.
-		m_stateMaschine->setState<PodLaunchPreparationState>();
+	//TODO check that all ecus are connected using either a improved heartbeat or a custom method.
+	if(GroundStationReceiver::getInstance().getLastCommand() == COMMAND_ENTER_LAUNCH_PREP){
+		GlobalState::getInstance().setState<PodLaunchPreparationState>();
 	}
+	osDelay(50);
 }
 
 void PodIdleState::dispose(){
-
+	printf("exit idle state\n");
 }
 

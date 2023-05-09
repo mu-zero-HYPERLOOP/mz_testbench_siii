@@ -21,9 +21,9 @@ static inline size_t estimateFreeMemory() {
 
 
 static inline float estimateCPUusage() {
+	/*
 	static float g_oldIdleTick = 0;
 	static float g_oldTotalTick = 0;
-	/*
 	float cpuUsage = 100.0f
 			* (1.0f
 					- ((float) (xTaskGetIdleRunTimeCounter() - g_oldIdleTick)
@@ -38,7 +38,7 @@ static inline float estimateCPUusage() {
 	g_oldTotalTick = portGET_RUN_TIME_COUNTER_VALUE();
 	return cpuUsage;
 	*/
-	return 100.0;
+	return 80.0;
 }
 
 #ifdef __cplusplus

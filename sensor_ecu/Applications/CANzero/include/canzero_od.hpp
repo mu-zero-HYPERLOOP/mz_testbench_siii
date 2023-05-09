@@ -1,14 +1,14 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This header file was generated from 'database_gen.dbc'.
- * It contains the object dictionary for the node 'SENSOR'.
+ * This header file was generated from 'pod2023_gen.dbc'.
+ * It contains the object dictionary for the node 'SensorF'.
  *
  * Florian Keck
  * florian.keck@mu-zero.de
  * Copyright 2023, mu-zero HYPERLOOP e.V.
  */
-#ifndef CANZERO_SENSOR_OD_HPP
-#define CANZERO_SENSOR_OD_HPP
+#ifndef CANZERO_SensorF_OD_HPP
+#define CANZERO_SensorF_OD_HPP
 
 #pragma once
 
@@ -56,6 +56,14 @@ extern volatile uint8_t  OD_CAN2_Status;
 extern volatile uint32_t OD_CAN2_DiscardedTxMessages;
 extern volatile uint8_t  OD_CAN2_ErrorStatus;
 extern volatile uint32_t OD_CAN2_DelayedTxMessages;
+extern volatile float    OD_samplingInterval;
+extern volatile uint8_t  OD_TelemetryCommands;
+extern volatile uint8_t  OD_StateMachineInterval;
+extern volatile uint8_t  OD_StateMachineActivate;
+extern volatile uint8_t  OD_HVBatteryMode;
+extern volatile float    OD_EncoderWheelDiameter;
+extern volatile uint8_t  OD_EncoderResetPosition;
+extern volatile uint8_t  OD_SetReset;
 extern volatile uint8_t  OD_IMU_number;
 extern volatile float    OD_IMU1_Temperature;
 extern volatile float    OD_IMU2_Temperature;
@@ -101,6 +109,14 @@ extern osMutexId_t mutex_OD_CAN2_Status;
 extern osMutexId_t mutex_OD_CAN2_DiscardedTxMessages;
 extern osMutexId_t mutex_OD_CAN2_ErrorStatus;
 extern osMutexId_t mutex_OD_CAN2_DelayedTxMessages;
+extern osMutexId_t mutex_OD_samplingInterval;
+extern osMutexId_t mutex_OD_TelemetryCommands;
+extern osMutexId_t mutex_OD_StateMachineInterval;
+extern osMutexId_t mutex_OD_StateMachineActivate;
+extern osMutexId_t mutex_OD_HVBatteryMode;
+extern osMutexId_t mutex_OD_EncoderWheelDiameter;
+extern osMutexId_t mutex_OD_EncoderResetPosition;
+extern osMutexId_t mutex_OD_SetReset;
 extern osMutexId_t mutex_OD_IMU_number;
 extern osMutexId_t mutex_OD_IMU1_Temperature;
 extern osMutexId_t mutex_OD_IMU2_Temperature;
@@ -234,6 +250,30 @@ void OD_CAN2_ErrorStatus_set(const uint8_t value);
 uint32_t OD_CAN2_DelayedTxMessages_get();
 void OD_CAN2_DelayedTxMessages_set(const uint32_t value);
 
+float OD_samplingInterval_get();
+void OD_samplingInterval_set(const float value);
+
+uint8_t OD_TelemetryCommands_get();
+void OD_TelemetryCommands_set(const uint8_t value);
+
+uint8_t OD_StateMachineInterval_get();
+void OD_StateMachineInterval_set(const uint8_t value);
+
+uint8_t OD_StateMachineActivate_get();
+void OD_StateMachineActivate_set(const uint8_t value);
+
+uint8_t OD_HVBatteryMode_get();
+void OD_HVBatteryMode_set(const uint8_t value);
+
+float OD_EncoderWheelDiameter_get();
+void OD_EncoderWheelDiameter_set(const float value);
+
+uint8_t OD_EncoderResetPosition_get();
+void OD_EncoderResetPosition_set(const uint8_t value);
+
+uint8_t OD_SetReset_get();
+void OD_SetReset_set(const uint8_t value);
+
 uint8_t OD_IMU_number_get();
 void OD_IMU_number_set(const uint8_t value);
 
@@ -253,4 +293,4 @@ void OD_IMU3_Temperature_set(const float value);
 void sendOdEntriesTask(void *pvParameters);
 
 
-#endif // CANZERO_SENSOR_OD_HPP
+#endif // CANZERO_SensorF_OD_HPP

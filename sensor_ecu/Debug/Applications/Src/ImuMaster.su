@@ -9,5 +9,5 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications
 ../Applications/Src/ImuMaster.cpp:22:1:ImuMaster::~ImuMaster()	16	static
 ../Applications/Src/ImuMaster.cpp:22:1:virtual ImuMaster::~ImuMaster()	16	static
 ../Applications/Src/ImuMaster.cpp:26:6:bool ImuMaster::start()	16	static
-../Applications/Src/ImuMaster.cpp:59:6:void ImuMaster::resetValues()	16	static
-../Applications/Src/ImuMaster.cpp:65:6:bool ImuMaster::syncRead()	16	static
+../Applications/Src/ImuMaster.cpp:58:6:void ImuMaster::resetValues()	16	static
+../Applications/Src/ImuMaster.cpp:64:6:bool ImuMaster::syncRead()	16	static

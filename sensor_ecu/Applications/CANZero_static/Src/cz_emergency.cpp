@@ -12,12 +12,17 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+TaskHandle_t emergencyTaskHandle;
+
 
 void canzero::emergency::consumer_entry(void* argv){
+	emergencyTaskHandle = xTaskGetCurrentTaskHandle();
+
 	// Timeout for waiting for an emergency notification
 	constexpr uint32_t EMERGENCY_WAIT_TIMEOUT_MS = 500;
 
 	can::Message<can::messages::CANZERO_EMCY> emcyMessage;
+
 
 	uint32_t emergencyBuffer = 0;
 	uint32_t lastEmergencyBuffer = 0;

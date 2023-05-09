@@ -13,9 +13,13 @@
 #include "task.h"
 
 
+osThreadId_t emergencyTaskHandle;
+
+
 void canzero::emergency::consumer_entry(void* argv){
 	// Timeout for waiting for an emergency notification
 	constexpr uint32_t EMERGENCY_WAIT_TIMEOUT_MS = 500;
+	emergencyTaskHandle = xTaskGetCurrentTaskHandle();
 
 	can::Message<can::messages::CANZERO_EMCY> emcyMessage;
 

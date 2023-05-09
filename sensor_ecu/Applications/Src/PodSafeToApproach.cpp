@@ -7,11 +7,6 @@
 
 #include <PodSafeToApproach.hpp>
 
-PodSafeToApproach::PodSafeToApproach() {
-	// TODO Auto-generated constructor stub
-
-}
-
 void PodSafeToApproach::setup() {
 
 }

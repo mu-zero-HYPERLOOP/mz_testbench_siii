@@ -61,6 +61,7 @@ void Error_Handler(void);
 #define ADC_IN10_Board_Temp_GPIO_Port GPIOC
 #define DIN1_Pin GPIO_PIN_1
 #define DIN1_GPIO_Port GPIOC
+#define DIN1_EXTI_IRQn EXTI1_IRQn
 #define ADC_IN12_Board_VCC_Pin GPIO_PIN_2
 #define ADC_IN12_Board_VCC_GPIO_Port GPIOC
 #define DIN2_Pin GPIO_PIN_3

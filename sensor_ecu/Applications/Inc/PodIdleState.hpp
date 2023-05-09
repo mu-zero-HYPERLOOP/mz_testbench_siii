@@ -11,9 +11,11 @@
 #include "State.hpp"
 #include "canzero.hpp"
 
+#include "estdio.hpp"
+
 class PodIdleState : public State{
 public:
-	PodIdleState();
+	PodIdleState() : State(POD_IDLE) {}
 
 	void setup() override;
 
@@ -21,8 +23,6 @@ public:
 
 	void dispose() override;
 private:
-	can::RxMessageQueue<can::messages::SENSOR_HELLO_WORLD> m_startupMessageQueue;
-
 };
 
 #endif /* INC_PODIDLESTATE_HPP_ */

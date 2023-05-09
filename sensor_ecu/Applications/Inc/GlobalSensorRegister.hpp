@@ -41,7 +41,7 @@ public:
 	}
 
 	[[nodiscard]] inline NTCSensor& getCoolingReservoirTemperaturSensor(){
-		return m_coolingReservoirTemperaturSensor;
+		return m_coolingReservoirTemperatur;
 	}
 
 	[[nodiscard]] inline PressureSensor& getCoolingPressureSensor() {
@@ -52,11 +52,16 @@ public:
 		return m_kistlerController;
 	}
 
+	[[nodiscard]] inline ImuMaster& getImuMaster() {
+		return m_imuMaster;
+	}
+
 private:
 	FiducialSensor m_fiducialSensorRight;
 	FiducialSensor m_fiducialSensorLeft;
 	NTCSensor m_coolingReservoirTemperatur;
 	PressureSensor m_coolingPressure;
 	KistlerController m_kistlerController;
+	ImuMaster m_imuMaster;
 };
 

@@ -14,6 +14,7 @@
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
 #include "task.h"
+#include "estdio.hpp"
 
 static inline size_t estimateFreeMemory() {
 	return xPortGetFreeHeapSize();

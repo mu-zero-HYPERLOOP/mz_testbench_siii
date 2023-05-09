@@ -30,11 +30,19 @@ public:
 		m_states[id] = &state;
 	}
 
+	template<typename STATE>
+	bool wasPreviousState(){
+		static_assert(std::is_base_of<State, STATE>::value);
+		unsigned int id = State::getId<STATE>();
+		return m_prevState == id;
+	}
+
 	template<typename DestState>
 	void setState() {
 		static_assert(std::is_base_of<State, DestState>::value);
 		taskENTER_CRITICAL();
 		m_states[m_currentState]->m_active = false;
+		m_prevState = m_currentState;
 		unsigned int id = State::getId<DestState>();
 		if (m_running == false) {
 			Error_Handler();
@@ -44,12 +52,19 @@ public:
 		taskEXIT_CRITICAL();
 	}
 
+	template<typename STATE>
+	const State& getState(){
+		static_assert(std::is_base_of<State, STATE>::value);
+		return *(m_states[State::getId<STATE>()]);
+	}
+
 	template<typename StartState>
 	void start() {
 		static_assert(std::is_base_of<State, StartState>::value);
 		if(m_running == true) Error_Handler();
 		m_currentState = State::getId<StartState>();
 		m_nextState = m_currentState;
+		m_prevState = m_currentState;
 		m_states[m_nextState]->m_active = true;
 		m_running = true;
 		m_states[m_currentState]->setup();
@@ -70,6 +85,7 @@ public:
 private:
 	State **m_states = nullptr;
 	size_t m_statesSize;
+	unsigned int m_prevState = 0;
 	unsigned int m_currentState = 0;
 	unsigned int m_nextState = 0;
 	bool m_running = false;

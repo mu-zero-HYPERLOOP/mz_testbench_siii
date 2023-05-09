@@ -13,6 +13,9 @@
 #include "cz_message_receiver.hpp"
 #include "cz_RxMessageQueue.hpp"
 #include "cz_statemachine.hpp"
+#include "cz_emergency.hpp"
+#include "canzero_emcy.hpp"
+#include "canzero_defines.h"
 
 
 

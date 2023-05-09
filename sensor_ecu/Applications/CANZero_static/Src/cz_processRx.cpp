@@ -22,6 +22,7 @@ static constexpr size_t MSG_BUFFER_SIZE = MSG_BUFFER_NUM_MESSAGES
 MessageBufferHandle_t handlePDO1MessageBuffer = xMessageBufferCreate(
 		MSG_BUFFER_SIZE);
 
+
 /**
  * @brief function that process all node specific messages
  *

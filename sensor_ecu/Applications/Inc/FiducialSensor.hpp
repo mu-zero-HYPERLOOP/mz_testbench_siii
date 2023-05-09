@@ -23,6 +23,10 @@ public:
 
 	[[nodiscard]] float estimateVelocityMPS();
 
+	[[nodiscard]] float estimatedPosition(){
+		return (m_count * m_distanceBetweenInterrupts) / 1000.0;
+	}
+
 	[[nodiscard]] inline unsigned int getCount() {
 		return m_count;
 	}

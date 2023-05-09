@@ -32,7 +32,7 @@ OnBoardSensors.hpp:38:8:float OnBoardSensors::getAverageTemperaturC()	1
 OnBoardSensors.hpp:43:8:float OnBoardSensors::getInputVoltage()	1
 OnBoardSensors.hpp:49:7:void OnBoardSensors::updateODs()	1
 micocontroller_info_task.cpp:18:22:size_t estimateFreeMemory()	1
-micocontroller_info_task.cpp:25:21:float estimateCPUusage()	1
+micocontroller_info_task.cpp:23:21:float estimateCPUusage()	1
 micocontroller_info_task.cpp:48:6:void microcontroller_info_entry(void*)	2
 std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1

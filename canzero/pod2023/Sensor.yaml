@@ -1,0 +1,25 @@
+## CANzero Node description file V1.1
+# mu-zero HYPERLOOP e.V.
+
+## NDF description
+ndf:
+  name: Sensor
+  node_id: 0x00
+  comment: Parent for both Sensor ECUs
+  parent_ndfs: [mu-zero]
+
+## Add your signals for the object-dictionary below
+object_dictionary:
+  0x800:
+    name: samplingInterval
+    length: 16
+    comment: Sensor sampling interval in ms.
+    conversion: {scale: 0.01}
+    range: [0.01, 100]
+    unit: ms
+    default: 10
+
+## Add your emergency codes below
+emergency:
+  warnings:
+  errors:

@@ -32,7 +32,6 @@ Applications/Src/micocontroller_info_task.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h \
@@ -71,13 +70,16 @@ Applications/Src/micocontroller_info_task.o: \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Lib/Inc/estdio.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_od.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_interface.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_emergency.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_message_receiver.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_RxMessageQueue.hpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_statemachine.hpp
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_statemachine.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_emcy.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_defines.h
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/Inc/OnBoardSensors.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/Inc/peripheral_config.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Lib/Inc/AdcModule.hpp:
@@ -111,7 +113,6 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Lib/Inc/AdcModule.h
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h:
@@ -150,6 +151,7 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZer
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Lib/Inc/estdio.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_od.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_interface.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_emergency.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_message_receiver.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_RxMessageQueue.hpp:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h:
@@ -157,3 +159,5 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZer
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_statemachine.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_emcy.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_defines.h:

@@ -12,6 +12,7 @@
 #include "cmsis_os.h"
 #include "FreeRTOS.h"
 #include "message_buffer.h"
+#include "cz_weak.hpp"
 
 
 
@@ -43,6 +44,7 @@ void canzero::heartbeat::consumer_entry(void* argv){
 			canzero::setStatus((cz_status)message.rxBuf[0]);
 		}
 		else{
+			canzero::handle_heartbeat_miss();
 			//currently no HB receiving
 			//printDebug("Heartbeat timeout!\n");
 		}

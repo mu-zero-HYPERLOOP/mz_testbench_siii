@@ -32,7 +32,7 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/OnBoardSensors.hpp:43:8:float OnBoardSensors::getInputVoltage()	24	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/OnBoardSensors.hpp:49:7:void OnBoardSensors::updateODs()	24	static
 ../Applications/Src/micocontroller_info_task.cpp:18:22:size_t estimateFreeMemory()	8	static
-../Applications/Src/micocontroller_info_task.cpp:25:21:float estimateCPUusage()	4	static
+../Applications/Src/micocontroller_info_task.cpp:23:21:float estimateCPUusage()	4	static
 ../Applications/Src/micocontroller_info_task.cpp:48:6:void microcontroller_info_entry(void*)	176	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	16	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	32	static

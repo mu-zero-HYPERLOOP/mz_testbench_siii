@@ -1,0 +1,114 @@
+## CANzero Node description file V1.1
+# mu-zero HYPERLOOP e.V.
+
+## NDF description
+ndf:
+  name: Brake
+  node_id: 0x00
+  comment: Parent NDF for Brake ECUs
+  parent_ndfs: [mu-zero]
+
+## Add your signals for the object-dictionary below
+object_dictionary:
+  # Overwrite the default HeartbeatInterval specified in CANzero.yaml
+  0x010:
+    name: HeartbeatInterval
+    default: 100
+
+  0x800:
+    name: tankLowerControlLimit
+    length: 16
+    comment: Minimum pressure of tank in bar.
+    conversion: {scale: 0.005}
+    unit: bar
+    default: 7
+    
+  0x801:
+    name: tankUpperControlLimit 
+    length: 16
+    comment: Maximum pressure of tank in bar.
+    conversion: {scale: 0.005}
+    unit: bar
+    default: 19
+    
+  0x802:
+    name: delay
+    length: 8
+    comment: Delay used in every cycle of the loop.
+    conversion: {scale: 0.5}
+    unit: ms
+    default: 5
+    
+  0x803:
+    name: counterLimit
+    length: 8
+    comment: Number of cycles in the loop to measure pressure once
+    conversion: {scale: 1}
+    default: 5
+    
+  0x804:
+    name: commWatchdog
+    length: 16
+    comment: Max. number of ms to receive a new message
+    conversion: {scale: 1}
+    unit: ms
+    default: 60
+    
+  0x805:
+    name: valveUpperTolerance
+    length: 16
+    comment: Tolerance of the lower pressure pneumatic circuit
+    conversion: {scale: 0.005}
+    unit: bar
+    default: 10
+
+ 
+
+## Add your emergency codes below
+emergency:
+  warnings:
+   W0: 
+      name: highPressureActingChamber
+      comment: Pressure higher than desired was measured in the acting chamber
+      
+   W1: 
+      name: highPressureRetractingChamber
+      comment: Pressure higher than desired was measured in the acting chamber
+      
+     
+   W2:
+     name: enableWithAnError
+     comment: The ECU was enabled with an error flag
+     
+   W3:
+      name: externalError
+      comment: SDC reading indicates it's open, but there's no internal error in the ECU
+   
+      
+  errors:
+    E0:
+      name: pressureTooHigh
+      comment: Pressure tank has a higher value than the provided UpperControlLimit
+      
+    E1:
+      name: pressureTooLow
+      comment: Pressure tank has a lower value than the provided LowerControlLimit
+      
+    E2:
+      name: commWatchdogTimeout
+      comment: Communication Watchdog timeout. It took more than the time set to receive a new message from the state machine
+      
+    E3:
+     name: retractUnsuccesful_errorFlag
+     comment: Instruction to retract was received, but an error flag inhibited retraction
+      
+    E4:
+     name: retractUnsuccesful_notEnabled
+     comment: Instruction to retract was received, but the ECU is not enabled
+     
+    E5:
+     name: retractUnsuccesful_openSDC
+     comment: Instruction to retract was received, but the SDC is detected to be open 
+      
+      
+    

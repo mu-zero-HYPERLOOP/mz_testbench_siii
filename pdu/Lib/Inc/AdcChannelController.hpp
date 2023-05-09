@@ -29,16 +29,18 @@ static AdcModuleController& _getChannelAdcModuleControllerRuntime(AdcModule modu
 
 class AdcChannelController {
 public:
+	AdcChannelController() : m_module(nullptr), m_channel(nullptr){
+	}
 	explicit AdcChannelController(AdcModule module, unsigned int rank) :
-			m_module(_getChannelAdcModuleControllerRuntime(module)),
-			m_channel(m_module.getChannelByRank(rank)) {
+			m_module(&_getChannelAdcModuleControllerRuntime(module)),
+			m_channel(m_module->getChannelByRank(rank)) {
 	}
 
 	uint16_t get() {
-		m_module.weakUpdate();
+		m_module->weakUpdate();
 		return m_channel->get();
 	}
 private:
-	AdcModuleController& m_module;
+	AdcModuleController* m_module;
 	AdcChannel *m_channel;
 };

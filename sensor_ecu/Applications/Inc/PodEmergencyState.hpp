@@ -10,9 +10,11 @@
 
 #include "State.hpp"
 
+#include "estdio.hpp"
+
 class PodEmergencyState : public State {
 public:
-	PodEmergencyState();
+	PodEmergencyState() : State(POD_EMERGENCY) {}
 
 	void setup() override;
 

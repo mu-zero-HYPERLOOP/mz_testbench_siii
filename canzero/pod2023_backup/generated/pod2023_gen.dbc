@@ -1,0 +1,2944 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: OpticalSensor SCIMO_PE TelemetryNode Master Sensor Brake PDU TestBench
+
+
+BO_ 386 Sensor_TX_StatePod_Broadcast: 2 Vector__XXX
+ SG_ Sensor_TX_PodState_Target : 8|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_PodState_Last : 3|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_PodState : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1026 Sensor_TX_GapHeight: 4 Vector__XXX
+ SG_ Sensor_TX_GapHeight_Right : 12|12@1- (0.0125,0) [-25.6|25.5875] "mm" Vector__XXX
+ SG_ Sensor_TX_GapHeight_Left : 0|12@1- (0.0125,0) [-25.6|25.5875] "mm" Vector__XXX
+
+BO_ 450 Sensor_RX_POD1: 8 Vector__XXX
+
+BO_ 2684354555 OpticalSensor_TX_DetailData: 6 OpticalSensor
+ SG_ OpticalSensor_TX_Angle : 32|16@1- (0.01,0) [-45|45] "ï¿½" Vector__XXX
+ SG_ OpticalSensor_TX_VelTrans : 16|16@1- (0.036,0) [-200|200] "km/h" Vector__XXX
+ SG_ OpticalSensor_TX_VelLong : 0|16@1+ (0.036,0) [0|400] "km/h" Vector__XXX
+
+BO_ 2684354554 OpticalSensor_TX_MainData: 8 OpticalSensor
+ SG_ OpticalSensor_TX_Distance : 32|32@1+ (0.001,0) [0|4294970] "m" Vector__XXX
+ SG_ OpticalSensor_TX_Vel : 16|16@1+ (0.036,0) [0|400] "km/h" Vector__XXX
+ SG_ OpticalSensor_TX_Timestamp : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 2684354556 OpticalSensor_TX_Status: 8 OpticalSensor
+ SG_ OpticalSensor_TX_VddOK : 62|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_VeeOK : 61|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_V33OK : 60|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_V25OK : 59|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_LEDStatus : 57|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_LED_Cal : 56|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_PowerOK : 55|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_CurrentOK : 54|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_CurrentLowHigh : 53|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_OpticOK : 52|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_TempOK : 51|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_SensorOK : 50|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_SelfTest : 49|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_STST : 48|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_LEDCurrent : 40|8@1+ (0.01,0) [0|2.55] "A" Vector__XXX
+ SG_ OpticalSensor_TX_Temp : 32|8@1- (1,0) [-128|127] "ï¿½C" Vector__XXX
+ SG_ OpticalSensor_TX_SensorNo : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OpticalSensor_TX_SerialNo : 0|24@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2 CANzero_NMT: 4 Master
+ SG_ CANzero_NMT_Node : 16|16@1+ (1,0) [0|63] ""  Sensor,Brake,PDU,TelemetryNode
+ SG_ CANzero_NMT_State : 0|16@1+ (1,0) [0|0] ""  Sensor,Brake,PDU,TelemetryNode
+
+BO_ 122 CANzero_Sync: 0 Master
+
+BO_ 123 CANzero_Timestamp: 0 Master
+
+BO_ 129 Sensor_EMCY: 4 Sensor
+
+BO_ 385 Sensor_TX_StatePod: 2 Sensor
+ SG_ Sensor_TX_PodState_Target : 8|3@1+ (1,0) [0|0] ""  PDU
+ SG_ Sensor_TX_PodState_Last : 3|3@1+ (1,0) [0|0] ""  PDU
+ SG_ Sensor_TX_PodState : 0|3@1+ (1,0) [0|0] ""  PDU
+
+BO_ 449 Sensor_RX_PDO1: 0 Vector__XXX
+
+BO_ 513 Sensor_TX_FSMTransitions: 4 Sensor
+ SG_ Sensor_TX_PreopHVCUT : 24|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_PreopPDUT : 16|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_PreopBrakeRT : 15|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_PreopBrakeFT : 14|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_PreopSensorRT : 13|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_EnableSensorRT : 12|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_EnablePDUT : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_EnableHVCUT : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_EnableBrakeRT : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_EnableBrakeFT : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_SetHVTransition : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_PreopTransition : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_LaunchStartTransition : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_LaunchSetupTransition : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_HWEnableTransition : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_ErrorResetTransition : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_EnableTransition : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_BrakesTransition : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 577 Sensor_RX_PDO2: 0 Vector__XXX
+
+BO_ 641 Sensor_TX_PDO3: 0 Sensor
+
+BO_ 705 Sensor_RX_PDO3: 0 Vector__XXX
+
+BO_ 769 Sensor_TX_PDO4: 0 Sensor
+
+BO_ 833 Sensor_RX_PDO4: 0 Vector__XXX
+
+BO_ 897 Sensor_TX_PDO5: 0 Sensor
+
+BO_ 961 Sensor_TX_PDO6: 0 Sensor
+
+BO_ 1025 Sensor_TX_EncoderFront: 7 Sensor
+ SG_ Sensor_GyroFront_X : 40|16@1- (0.017,0) [-557.056|557.039] "Â°/s" Vector__XXX
+ SG_ Sensor_Vel_EncoderFront : 24|16@1- (0.002,0) [-65.536|65.534] "m/s" Vector__XXX
+ SG_ Sensor_Pos_EncoderFront : 0|18@1- (0.005,0) [-655.36|655.355] "m" Vector__XXX
+
+BO_ 1089 Sensor_TX_BMS: 2 Sensor
+ SG_ Sensor_TX_BatteryTemp : 0|12@1+ (0.05,-30) [-30|174.75] "C"  PDU
+
+BO_ 1153 Sensor_TX_Temperature: 8 Sensor
+ SG_ Sensor_Cooling_Temp : 48|12@1+ (0.05,-30) [-30|174.75] "C"  PDU
+ SG_ Sensor_LIMT_Stator_4 : 36|12@1+ (0.075,-20) [-20|287.125] "ï¿½C" Vector__XXX
+ SG_ Sensor_LIMT_Stator_3 : 24|12@1+ (0.075,-20) [-20|287.125] "ï¿½C" Vector__XXX
+ SG_ Sensor_LIMT_Stator_2 : 12|12@1+ (0.075,-20) [-20|287.125] "ï¿½C" Vector__XXX
+ SG_ Sensor_LIMT_Stator_1 : 0|12@1+ (0.075,-20) [-20|287.125] "ï¿½C" Vector__XXX
+
+BO_ 1217 Sensor_TX_AccFront: 8 Sensor
+ SG_ Sensor_GyroFront_Z : 48|16@1- (0.017,0) [-557.056|557.039] "Â°/s" Vector__XXX
+ SG_ Sensor_AccFront_Z : 32|16@1- (0.00125,0) [-40.96|40.95875] "m/s^2" Vector__XXX
+ SG_ Sensor_AccFront_Y : 16|16@1- (0.00125,0) [-40.96|40.95875] "m/s^2" Vector__XXX
+ SG_ Sensor_AccFront_X : 0|16@1- (0.00125,0) [-40.96|40.95875] "m/s^2" Vector__XXX
+
+BO_ 1281 Sensor_TX_PDO11: 0 Sensor
+
+BO_ 1345 Sensor_TX_PDO12: 0 Sensor
+
+BO_ 1409 Sensor_SDO_Resp: 8 Sensor
+ SG_ Sensor_SDO_RespCode : 12|4@1+ (1,0) [0|0] ""  TelemetryNode
+ SG_ Sensor_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
+
+BO_ 1473 Sensor_SDO_Req_Up: 8 TelemetryNode
+ SG_ Sensor_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  Sensor
+
+BO_ 1537 Sensor_SDO_Req_Down: 2 TelemetryNode
+ SG_ Sensor_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  Sensor
+
+BO_ 1793 Sensor_Heartbeat: 1 Sensor
+ SG_ Sensor_NodeState : 0|8@1+ (1,0) [0|0] ""  Sensor,Master,TelemetryNode
+
+BO_ 1857 Sensor_BTL_TX: 8 Sensor
+
+BO_ 1921 Sensor_BTL_RX: 8 TelemetryNode
+
+BO_ 514 Sensor_TX_RunStatus: 1 Vector__XXX
+ SG_ Sensor_TX_ErrorFlag : 6|1@1+ (1,0) [0|0] ""  Sensor
+ SG_ Sensor_TX_Enabled : 5|1@1+ (1,0) [0|0] ""  Sensor
+ SG_ Sensor_TX_TrajectorySet : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_TX_RunState : 0|2@1+ (1,0) [0|0] ""  PDU,Sensor
+
+BO_ 642 Sensor_TX_SE: 7 Vector__XXX
+ SG_ Sensor_TX_Pos : 32|20@1- (0.001,0) [-524.288|524.287] "m"  PDU,TelemetryNode
+ SG_ Sensor_TX_Vel : 16|16@1- (0.002,0) [-65.536|65.534] "m/s"  PDU,TelemetryNode
+ SG_ Sensor_TX_Acc : 0|16@1- (0.00125,0) [-40.96|40.95875] "m/s^2"  PDU,TelemetryNode
+
+BO_ 706 Sensor_RX_RunControl: 1 Sensor
+ SG_ Sensor_RX_ErrorReset : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_RX_Enable : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sensor_RX_LaunchComm : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 770 Sensor_TX_Vel: 6 Vector__XXX
+ SG_ Sensor_TX_Vel_Optical : 32|16@1- (0.002,0) [-65.536|65.534] "m/s" Vector__XXX
+ SG_ Sensor_TX_Vel_EncoderRear : 16|16@1- (0.002,0) [-65.536|65.534] "m/s" Vector__XXX
+ SG_ Sensor_TX_Vel_EncoderFront : 0|16@1- (0.002,0) [-65.536|65.534] "m/s" Vector__XXX
+
+BO_ 898 Sensor_TX_Gyro_XY: 8 Vector__XXX
+ SG_ Sensor_TX_GyroRear_Y : 48|16@1- (0.017,0) [-557.056|557.039] "Â°/s" Vector__XXX
+ SG_ Sensor_TX_GyroRear_X : 32|16@1- (0.017,0) [-557.056|557.039] "Â°/s" Vector__XXX
+ SG_ Sensor_TX_GyroFront_Y : 16|16@1- (0.017,0) [-557.056|557.039] "Â°/s" Vector__XXX
+ SG_ Sensor_TX_GyroFront_X : 0|16@1- (0.017,0) [-557.056|557.039] "Â°/s" Vector__XXX
+
+BO_ 962 Sensor_TX_TargetValues: 2 Vector__XXX
+ SG_ Sensor_TX_TargetVelocity : 0|14@1- (0.01,0) [-81.92|81.91] "m/s" Vector__XXX
+
+BO_ 1090 Sensor_TX_PDO8: 0 Vector__XXX
+
+BO_ 1218 Sensor_TX_AccRear: 8 Vector__XXX
+ SG_ Sensor_TX_GyroRear_Z : 48|16@1- (0.017,0) [-557.056|557.039] "Â°/s" Vector__XXX
+ SG_ Sensor_TX_AccRear_Z : 32|16@1- (0.00125,0) [-40.96|40.95875] "m/s^2" Vector__XXX
+ SG_ Sensor_TX_AccRear_Y : 16|16@1- (0.00125,0) [-40.96|40.95875] "m/s^2" Vector__XXX
+ SG_ Sensor_TX_AccRear_X : 0|16@1- (0.00125,0) [-40.96|40.95875] "m/s^2" Vector__XXX
+
+BO_ 1282 Sensor_TX_Pos: 8 Vector__XXX
+ SG_ Sensor_TX_StripeCounter_Right : 59|5@1+ (1,0) [0|31] "" Vector__XXX
+ SG_ Sensor_TX_StripeCounter_Left : 54|5@1+ (1,0) [0|31] "" Vector__XXX
+ SG_ Sensor_TX_Pos_Optical : 36|18@1- (0.005,0) [-655.36|655.355] "m" Vector__XXX
+ SG_ Sensor_TX_Pos_EncoderRear : 18|18@1- (0.005,0) [-655.36|655.355] "m" Vector__XXX
+ SG_ Sensor_TX_Pos_EncoderFront : 0|18@1- (0.005,0) [-655.36|655.355] "m" Vector__XXX
+
+BO_ 145 Brake_EMCY: 4 Brake
+ SG_ Brake_E5_retractUnsuccesful_open : 17|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Brake_E4_retractUnsuccesful_notE : 16|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Brake_E3_retractUnsuccesful_erro : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Brake_E2_commWatchdogTimeout : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Brake_E1_pressureTooLow : 13|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Brake_E0_pressureTooHigh : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Brake_W3_externalError : 3|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Brake_W2_enableWithAnError : 2|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Brake_W1_highPressureRetractingC : 1|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Brake_W0_highPressureActingChamb : 0|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+
+BO_ 401 Brake_TX_Status: 3 Brake
+ SG_ Brake_TX_MaxDeltaTime_Control : 16|8@1+ (1,0) [0|255] "ms" Vector__XXX
+ SG_ Brake_TX_DeltaTime_Control : 8|8@1+ (1,0) [0|255] "ms" Vector__XXX
+ SG_ Brake_TX_SDC_Input : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Brake_TX_ErrorFlag : 3|1@1+ (1,0) [0|0] ""  Sensor
+ SG_ Brake_TX_Enabled : 2|1@1+ (1,0) [0|0] ""  Sensor
+ SG_ Brake_TX_Status : 0|2@1+ (1,0) [0|0] ""  Sensor
+
+BO_ 465 Brake_RX_Control: 1 Sensor
+ SG_ Brake_RX_Engage : 2|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Brake_RX_Enable : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Brake_RX_ErrorReset : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 529 Brake_TX_PDO2: 0 Brake
+
+BO_ 593 Brake_RX_PDO2: 0 Vector__XXX
+
+BO_ 657 Brake_TX_PDO3: 0 Brake
+
+BO_ 721 Brake_RX_PDO3: 0 Vector__XXX
+
+BO_ 785 Brake_TX_PDO4: 0 Brake
+
+BO_ 849 Brake_RX_PDO4: 0 Vector__XXX
+
+BO_ 913 Brake_TX_PDO5: 0 Brake
+
+BO_ 977 Brake_TX_PDO6: 0 Brake
+
+BO_ 1041 Brake_TX_Pressure: 6 Brake
+ SG_ Brake_TX_Pressure_Tank : 32|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
+ SG_ Brake_TX_Pressure_Retract : 16|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
+ SG_ Brake_TX_Pressure_Act : 0|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
+
+BO_ 1105 Brake_TX_PDO8: 0 Brake
+
+BO_ 1169 Brake_TX_PDO9: 0 Brake
+
+BO_ 1233 Brake_TX_PDO10: 0 Brake
+
+BO_ 1297 Brake_TX_PDO11: 0 Brake
+
+BO_ 1361 Brake_TX_PDO12: 0 Brake
+
+BO_ 1425 Brake_SDO_Resp: 8 Brake
+ SG_ Brake_OD_valveUpperTolerance m2053 : 16|16@1+ (0.005,0) [0|327.675] "bar"  TelemetryNode
+ SG_ Brake_OD_commWatchdog m2052 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ Brake_OD_counterLimit m2051 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_delay m2050 : 16|8@1+ (0.5,0) [0|127.5] "ms"  TelemetryNode
+ SG_ Brake_OD_tankUpperControlLimit m2049 : 16|16@1+ (0.005,0) [0|327.675] "bar"  TelemetryNode
+ SG_ Brake_OD_tankLowerControlLimit m2048 : 16|16@1+ (0.005,0) [0|327.675] "bar"  TelemetryNode
+ SG_ Brake_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ Brake_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_CAN2_DiscardedTxMessage m1127 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ Brake_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ Brake_OD_CAN2_autoErrorReset m1123 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_CAN2_lastErrorCode m1122 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ Brake_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_CAN1_DelayedTxMessages m1113 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ Brake_OD_CAN1_ErrorStatus m1112 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_CAN1_DiscardedTxMessage m1111 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ Brake_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ Brake_OD_CAN1_autoErrorReset m1107 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_CAN1_lastErrorCode m1106 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ Brake_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ Brake_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ Brake_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ Brake_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ Brake_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  TelemetryNode
+ SG_ Brake_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  TelemetryNode
+ SG_ Brake_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  TelemetryNode
+ SG_ Brake_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  TelemetryNode
+ SG_ Brake_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  TelemetryNode
+ SG_ Brake_OD_OdEntrySendInterval m33 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ Brake_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_HeartbeatInterval m16 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ Brake_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ Brake_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ Brake_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ Brake_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ Brake_SDO_RespCode : 12|4@1+ (1,0) [0|0] ""  TelemetryNode
+ SG_ Brake_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
+
+BO_ 1489 Brake_SDO_Req_Up: 8 TelemetryNode
+ SG_ Brake_OD_valveUpperTolerance m2053 : 16|16@1+ (0.005,0) [0|327.675] "bar"  Brake
+ SG_ Brake_OD_commWatchdog m2052 : 16|16@1+ (1,0) [0|65535] "ms"  Brake
+ SG_ Brake_OD_counterLimit m2051 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_delay m2050 : 16|8@1+ (0.5,0) [0|127.5] "ms"  Brake
+ SG_ Brake_OD_tankUpperControlLimit m2049 : 16|16@1+ (0.005,0) [0|327.675] "bar"  Brake
+ SG_ Brake_OD_tankLowerControlLimit m2048 : 16|16@1+ (0.005,0) [0|327.675] "bar"  Brake
+ SG_ Brake_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  Brake
+ SG_ Brake_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_CAN2_DiscardedTxMe_0000 m1127 : 16|24@1+ (1,0) [0|16777215] ""  Brake
+ SG_ Brake_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  Brake
+ SG_ Brake_OD_CAN2_autoErrorReset m1123 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_CAN2_lastErrorCode m1122 : 16|32@1+ (1,0) [0|4294967295] ""  Brake
+ SG_ Brake_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_CAN1_DelayedTxMessages m1113 : 16|24@1+ (1,0) [0|16777215] ""  Brake
+ SG_ Brake_OD_CAN1_ErrorStatus m1112 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_CAN1_DiscardedTxMe_0000 m1111 : 16|24@1+ (1,0) [0|16777215] ""  Brake
+ SG_ Brake_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  Brake
+ SG_ Brake_OD_CAN1_autoErrorReset m1107 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_CAN1_lastErrorCode m1106 : 16|32@1+ (1,0) [0|4294967295] ""  Brake
+ SG_ Brake_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  Brake
+ SG_ Brake_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  Brake
+ SG_ Brake_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  Brake
+ SG_ Brake_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  Brake
+ SG_ Brake_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  Brake
+ SG_ Brake_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  Brake
+ SG_ Brake_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  Brake
+ SG_ Brake_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  Brake
+ SG_ Brake_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  Brake
+ SG_ Brake_OD_OdEntrySendInterval m33 : 16|16@1+ (1,0) [0|65535] "ms"  Brake
+ SG_ Brake_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_HeartbeatInterval m16 : 16|16@1+ (1,0) [0|65535] "ms"  Brake
+ SG_ Brake_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  Brake
+ SG_ Brake_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  Brake
+ SG_ Brake_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  Brake
+ SG_ Brake_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  Brake
+ SG_ Brake_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  Brake
+
+BO_ 1553 Brake_SDO_Req_Down: 2 TelemetryNode
+ SG_ Brake_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  Brake
+
+BO_ 1809 Brake_Heartbeat: 1 Brake
+ SG_ Brake_NodeState : 0|8@1+ (1,0) [0|0] ""  Sensor,Master,TelemetryNode
+
+BO_ 1873 Brake_BTL_TX: 8 Brake
+
+BO_ 1937 Brake_BTL_RX: 8 TelemetryNode
+
+BO_ 154 PDU_EMCY: 4 PDU
+ SG_ PDU_E4_watchdogStateMachine : 16|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_E3_batterTempCritical : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_E2_batteryOvercurrent : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_E1_batterVoltageCritical : 13|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_E0_OtherError : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_W2_batterTempHigh : 2|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_W1_batterVoltageLow : 1|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_W0_OtherWarning : 0|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+
+BO_ 410 PDU_TX_Status: 1 PDU
+ SG_ PDU_TX_PEHWEnabled : 2|1@1+ (1,0) [0|0] ""  Sensor
+ SG_ PDU_TX_ErrorFlag : 1|1@1+ (1,0) [0|0] ""  Sensor
+ SG_ PDU_TX_Enabled : 0|1@1+ (1,0) [0|0] ""  Sensor
+
+BO_ 474 PDU_RX_Control: 1 Sensor
+ SG_ PDU_RX_PEHWEnable : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PDU_RX_ErrorReset : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PDU_RX_Enable : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 538 PDU_TX_HP_Current: 8 PDU
+ SG_ PDU_HPCh4_Current : 48|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
+ SG_ PDU_HPCh3_Current : 32|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
+ SG_ PDU_HPCh2_Current : 16|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
+ SG_ PDU_HPCh1_Current : 0|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
+
+BO_ 602 PDU_RX_LP_Dutycycle: 6 Vector__XXX
+ SG_ PDU_LPCh9_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_LPCh8_Dutycycle : 32|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_LPCh3_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_LPCh2_Dutycycle : 16|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_LPCh10_Dutycycle : 8|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_LPCh1_Dutycycle : 0|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+
+BO_ 666 PDU_TX_HP_Short_Circuit_Debug: 3 PDU
+ SG_ PDU_HPCh4_State : 22|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_HPCh4_ShortCnt : 18|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_HPCh3_State : 16|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_HPCh3_ShortCnt : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_HPCh2_ShortCnt : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_HPCh2_State : 6|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_HPCh1_State : 4|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_HPCh1_ShortCnt : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 730 PDU_RX_HP_D_Dutycycle: 6 Vector__XXX
+ SG_ PDU_D4_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_D3_Dutycycle : 32|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_D2_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_D1_Dutycycle : 16|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_HPCh2_Dutycycle : 8|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_HPCh1_Dutycycle : 0|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+
+BO_ 794 PDU_TX_PDO4: 0 PDU
+
+BO_ 858 PDU_RX_Manual_Control: 3 Vector__XXX
+ SG_ PDU_SDC_Enable : 18|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PDU_D4_Enable : 17|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_D3_Enable : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_D2_Enable : 15|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_D1_Enable : 14|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_HPCh4_Enable : 13|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_HPCh3_Enable : 12|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_HPCh2_Enable : 11|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_HPCh1_Enable : 10|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh10_Enable : 9|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh9_Enable : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh8_Enable : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh7_Enable : 6|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh6_Enable : 5|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh5_Enable : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh4_Enable : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh3_Enable : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh2_Enable : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PDU_LPCh1_Enable : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 922 PDU_TX_PDO5: 0 PDU
+
+BO_ 986 PDU_TX_PDO6: 0 PDU
+
+BO_ 1050 PDU_TX_PDO7: 0 PDU
+
+BO_ 1114 PDU_TX_PDO8: 0 PDU
+
+BO_ 1178 PDU_TX_LP_Short_Circuit_Debug: 8 PDU
+ SG_ PDU_LPCh9_State : 58|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh8_State : 56|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh7_State : 54|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh6_State : 52|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh5_State : 50|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh4_State : 48|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh3_State : 46|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh2_State : 44|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh1_State : 42|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh10_State : 40|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ PDU_LPCh9_ShortCnt : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_LPCh8_ShortCnt : 32|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_LPCh7_ShortCnt : 28|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_LPCh6_ShortCnt : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_LPCh5_ShortCnt : 20|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_LPCh4_ShortCnt : 16|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_LPCh3_ShortCnt : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_LPCh2_ShortCnt : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_LPCh1_ShortCnt : 4|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PDU_LPCh10_ShortCnt : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 1242 PDU_TX_LV_BMS: 4 PDU
+ SG_ PDU_LV_SOC : 24|8@1- (1,0) [0|100] "%" Vector__XXX
+ SG_ PDU_LV_Voltage : 12|12@1+ (0.01,0) [0|40.95] "V" Vector__XXX
+ SG_ PDU_LV_Current : 0|12@1+ (0.01,0) [0|40.95] "A" Vector__XXX
+
+BO_ 1306 PDU_TX_LP_Current1: 8 PDU
+ SG_ PDU_LPCh5_Current : 48|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh4_Current : 36|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh3_Current : 24|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh2_Current : 12|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh1_Current : 0|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+
+BO_ 1370 PDU_TX_LP_Current2: 8 PDU
+ SG_ PDU_LPCh9_Current : 48|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh8_Current : 36|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh7_Current : 24|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh6_Current : 12|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh10_Current : 0|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+
+BO_ 1434 PDU_SDO_Resp: 8 PDU
+ SG_ PDU_OD_CoolingPumpEnabled m2816 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_LedCommands m2562 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ PDU_OD_projectXXEnabled m2560 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_watchdogTimeout m2306 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ PDU_OD_statusSendInterval m2305 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ PDU_OD_currentReadInterval m2304 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ PDU_OD_batteryOvercurrent m2128 : 16|16@1+ (0.01,0) [0|655.35] "A"  TelemetryNode
+ SG_ PDU_OD_overTempCritical m2051 : 16|16@1+ (0.1,0) [0|6553.5] "degrees"  TelemetryNode
+ SG_ PDU_OD_overTempWarn m2050 : 16|16@1+ (0.1,0) [0|6553.5] "degrees"  TelemetryNode
+ SG_ PDU_OD_batterVoltageCritical m2049 : 16|16@1+ (0.01,0) [0|655.35] "V"  TelemetryNode
+ SG_ PDU_OD_batterVoltageLow m2048 : 16|16@1+ (0.01,0) [0|655.35] "V"  TelemetryNode
+ SG_ PDU_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ PDU_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_CAN2_DiscardedTxMessages m1127 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ PDU_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ PDU_OD_CAN2_autoErrorReset m1123 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_CAN2_lastErrorCode m1122 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ PDU_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_CAN1_DelayedTxMessages m1113 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ PDU_OD_CAN1_ErrorStatus m1112 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_CAN1_DiscardedTxMessages m1111 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ PDU_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ PDU_OD_CAN1_autoErrorReset m1107 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_CAN1_lastErrorCode m1106 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ PDU_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ PDU_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ PDU_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ PDU_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ PDU_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  TelemetryNode
+ SG_ PDU_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  TelemetryNode
+ SG_ PDU_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  TelemetryNode
+ SG_ PDU_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  TelemetryNode
+ SG_ PDU_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  TelemetryNode
+ SG_ PDU_OD_OdEntrySendInterval m33 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ PDU_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_HeartbeatInterval m16 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ PDU_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ PDU_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ PDU_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ PDU_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ PDU_SDO_RespCode : 12|4@1+ (1,0) [0|0] ""  TelemetryNode
+ SG_ PDU_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
+
+BO_ 1498 PDU_SDO_Req_Up: 8 TelemetryNode
+ SG_ PDU_OD_CoolingPumpEnabled m2816 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_LedCommands m2562 : 16|16@1+ (1,0) [0|65535] ""  PDU
+ SG_ PDU_OD_projectXXEnabled m2560 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_watchdogTimeout m2306 : 16|16@1+ (1,0) [0|65535] "ms"  PDU
+ SG_ PDU_OD_statusSendInterval m2305 : 16|16@1+ (1,0) [0|65535] "ms"  PDU
+ SG_ PDU_OD_currentReadInterval m2304 : 16|16@1+ (1,0) [0|65535] "ms"  PDU
+ SG_ PDU_OD_batteryOvercurrent m2128 : 16|16@1+ (0.01,0) [0|655.35] "A"  PDU
+ SG_ PDU_OD_overTempCritical m2051 : 16|16@1+ (0.1,0) [0|6553.5] "degrees"  PDU
+ SG_ PDU_OD_overTempWarn m2050 : 16|16@1+ (0.1,0) [0|6553.5] "degrees"  PDU
+ SG_ PDU_OD_batterVoltageCritical m2049 : 16|16@1+ (0.01,0) [0|655.35] "V"  PDU
+ SG_ PDU_OD_batterVoltageLow m2048 : 16|16@1+ (0.01,0) [0|655.35] "V"  PDU
+ SG_ PDU_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  PDU
+ SG_ PDU_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_CAN2_DiscardedTxMessages m1127 : 16|24@1+ (1,0) [0|16777215] ""  PDU
+ SG_ PDU_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  PDU
+ SG_ PDU_OD_CAN2_autoErrorReset m1123 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_CAN2_lastErrorCode m1122 : 16|32@1+ (1,0) [0|4294967295] ""  PDU
+ SG_ PDU_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_CAN1_DelayedTxMessages m1113 : 16|24@1+ (1,0) [0|16777215] ""  PDU
+ SG_ PDU_OD_CAN1_ErrorStatus m1112 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_CAN1_DiscardedTxMessages m1111 : 16|24@1+ (1,0) [0|16777215] ""  PDU
+ SG_ PDU_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  PDU
+ SG_ PDU_OD_CAN1_autoErrorReset m1107 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_CAN1_lastErrorCode m1106 : 16|32@1+ (1,0) [0|4294967295] ""  PDU
+ SG_ PDU_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  PDU
+ SG_ PDU_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  PDU
+ SG_ PDU_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  PDU
+ SG_ PDU_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  PDU
+ SG_ PDU_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  PDU
+ SG_ PDU_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  PDU
+ SG_ PDU_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  PDU
+ SG_ PDU_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  PDU
+ SG_ PDU_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  PDU
+ SG_ PDU_OD_OdEntrySendInterval m33 : 16|16@1+ (1,0) [0|65535] "ms"  PDU
+ SG_ PDU_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_HeartbeatInterval m16 : 16|16@1+ (1,0) [0|65535] "ms"  PDU
+ SG_ PDU_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  PDU
+ SG_ PDU_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  PDU
+ SG_ PDU_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  PDU
+ SG_ PDU_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  PDU
+ SG_ PDU_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  PDU
+
+BO_ 1562 PDU_SDO_Req_Down: 2 TelemetryNode
+ SG_ PDU_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  PDU
+
+BO_ 1818 PDU_Heartbeat: 1 PDU
+ SG_ PDU_NodeState : 0|8@1+ (1,0) [0|0] ""  Sensor,Master,TelemetryNode
+
+BO_ 1882 PDU_BTL_TX: 8 PDU
+
+BO_ 1946 PDU_BTL_RX: 8 TelemetryNode
+
+BO_ 162 TelemetryNode_EMCY: 4 TelemetryNode
+ SG_ TelemetryNode_E0_OtherError : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ TelemetryNode_W0_OtherWarning : 0|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+
+BO_ 418 TelemetryNode_TX_PDO1: 0 TelemetryNode
+
+BO_ 482 TelemetryNode_RX_Shutdown: 1 Vector__XXX
+ SG_ TelemetryNode_RX_Shutdown : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 546 TelemetryNode_TX_PDO2: 0 TelemetryNode
+
+BO_ 610 TelemetryNode_RX_PDO2: 0 Vector__XXX
+
+BO_ 674 TelemetryNode_TX_PDO3: 0 TelemetryNode
+
+BO_ 738 TelemetryNode_RX_PDO3: 0 Vector__XXX
+
+BO_ 802 TelemetryNode_TX_PDO4: 0 TelemetryNode
+
+BO_ 866 TelemetryNode_RX_PDO4: 0 Vector__XXX
+
+BO_ 930 TelemetryNode_TX_PDO5: 0 TelemetryNode
+
+BO_ 994 TelemetryNode_TX_PDO6: 0 TelemetryNode
+
+BO_ 1058 TelemetryNode_TX_PDO7: 0 TelemetryNode
+
+BO_ 1122 TelemetryNode_TX_PDO8: 0 TelemetryNode
+
+BO_ 1186 TelemetryNode_TX_PDO9: 0 TelemetryNode
+
+BO_ 1250 TelemetryNode_TX_PDO10: 0 TelemetryNode
+
+BO_ 1314 TelemetryNode_TX_CAN_Error: 6 TelemetryNode
+ SG_ TelemetryNode_CAN2_TxErrors : 38|10@1+ (1,0) [0|4095] "" Vector__XXX
+ SG_ TelemetryNode_CAN2_RxErrors : 24|14@1+ (1,0) [0|16383] "" Vector__XXX
+ SG_ TelemetryNode_CAN1_TxErrors : 14|10@1+ (1,0) [0|4095] "" Vector__XXX
+ SG_ TelemetryNode_CAN1_RxErrors : 0|14@1+ (1,0) [0|16383] "" Vector__XXX
+
+BO_ 1378 TelemetryNode_TX_Info: 7 TelemetryNode
+ SG_ TelemetryNode_Date : 36|18@1+ (1,20200000) [20200000|20462143] "" Vector__XXX
+ SG_ TelemetryNode_Time : 18|18@1+ (1,0) [0|262143] "" Vector__XXX
+ SG_ TelemetryNode_Temperature : 10|8@1+ (0.4,-10) [-10|92] "Â°C" Vector__XXX
+ SG_ TelemetryNode_CpuUsage : 0|10@1+ (0.1,0) [0|102.3] "%" Vector__XXX
+
+BO_ 1442 TelemetryNode_SDO_Resp: 8 TelemetryNode
+ SG_ TelemetryNode_OD_CanRestart m2050 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_Reboot m2049 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_Shutdown m2048 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_DelayedTxM m1129 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_ErrorStatu m1128 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_DiscardedT m1127 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_autoErrorR m1123 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_lastErrorC m1122 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_DelayedTxM m1113 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_ErrorStatu m1112 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_DiscardedT m1111 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_autoErrorR m1107 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_lastErrorC m1106 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ TelemetryNode_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ TelemetryNode_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ TelemetryNode_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  TelemetryNode
+ SG_ TelemetryNode_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  TelemetryNode
+ SG_ TelemetryNode_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  TelemetryNode
+ SG_ TelemetryNode_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  TelemetryNode
+ SG_ TelemetryNode_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  TelemetryNode
+ SG_ TelemetryNode_OD_OdEntrySendInte m33 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ TelemetryNode_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_HeartbeatInterv m16 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ TelemetryNode_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ TelemetryNode_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ TelemetryNode_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ TelemetryNode_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_SDO_RespCode : 12|4@1+ (1,0) [0|0] ""  TelemetryNode
+ SG_ TelemetryNode_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
+
+BO_ 1506 TelemetryNode_SDO_Req_Up: 8 TelemetryNode
+ SG_ TelemetryNode_OD_CanRestart m2050 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_Reboot m2049 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_Shutdown m2048 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_Delay_0000 m1129 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_Error_0000 m1128 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_Disca_0000 m1127 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_autoE_0000 m1123 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_lastE_0000 m1122 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_Delay_0000 m1113 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_Error_0000 m1112 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_Disca_0000 m1111 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_autoE_0000 m1107 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_lastE_0000 m1106 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ TelemetryNode_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ TelemetryNode_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ TelemetryNode_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ TelemetryNode_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  TelemetryNode
+ SG_ TelemetryNode_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  TelemetryNode
+ SG_ TelemetryNode_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  TelemetryNode
+ SG_ TelemetryNode_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  TelemetryNode
+ SG_ TelemetryNode_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  TelemetryNode
+ SG_ TelemetryNode_OD_OdEntrySen_0000 m33 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ TelemetryNode_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_HeartbeatI_0000 m16 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ TelemetryNode_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ TelemetryNode_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ TelemetryNode_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ TelemetryNode_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ TelemetryNode_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
+
+BO_ 1570 TelemetryNode_SDO_Req_Down: 2 TelemetryNode
+ SG_ TelemetryNode_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
+
+BO_ 1826 TelemetryNode_Heartbeat: 1 TelemetryNode
+ SG_ TelemetryNode_NodeState : 0|8@1+ (1,0) [0|0] ""  Sensor,Master,TelemetryNode
+
+BO_ 1890 TelemetryNode_BTL_TX: 8 TelemetryNode
+
+BO_ 1954 TelemetryNode_BTL_RX: 8 TelemetryNode
+
+
+
+
+CM_ BU_ OpticalSensor "Kistler SFP-II optical Sensor.";
+CM_ BU_ TelemetryNode "Gateway between Pod and Telemetry
+Node-ID 0x22Gateway between Pod and Telemetry
+Node-ID 0x22";
+CM_ BU_ Master "CANzero NMT Master Node.";
+CM_ BU_ Sensor "SensorECU
+Node-ID 0x1";
+CM_ BU_ Brake "BrakeECU
+Node-ID 0x11";
+CM_ BU_ PDU "PowerD
+Node-ID 0x1A";
+CM_ BO_ 386 "Transmit PDO 1 of node SensorF with Node-ID 0x1";
+CM_ SG_ 386 Sensor_TX_PodState_Target "Target PodState by State Machine.";
+CM_ SG_ 386 Sensor_TX_PodState_Last "Last PodState by State Machine.";
+CM_ SG_ 386 Sensor_TX_PodState "PodState by State Machine.";
+CM_ BO_ 1026 "Transmit PDO 7 of node SensorR with Node-ID 0x2. Gap Height of left and right sensor.";
+CM_ SG_ 1026 Sensor_TX_GapHeight_Right "Gap height of LIM right.";
+CM_ SG_ 1026 Sensor_TX_GapHeight_Left "Gap height of LIM left.";
+CM_ BO_ 2684354555 "longitudinal and transverse velocity, angle between them";
+CM_ SG_ 2684354555 OpticalSensor_TX_Angle "Angle between longitudianl and transverse direction.";
+CM_ SG_ 2684354555 OpticalSensor_TX_VelTrans "Velocity in transverse direction.";
+CM_ SG_ 2684354555 OpticalSensor_TX_VelLong "Velocity in longitudinal direction.";
+CM_ BO_ 2684354554 "Timestamp, Veocity, Distance";
+CM_ SG_ 2684354554 OpticalSensor_TX_Distance "Traveled distance";
+CM_ SG_ 2684354554 OpticalSensor_TX_Vel "Absolute velocity";
+CM_ BO_ 2684354556 "Timestamp, Veocity, Distance";
+CM_ SG_ 2684354556 OpticalSensor_TX_Temp "Temperature of the sensor";
+CM_ SG_ 2684354556 OpticalSensor_TX_SerialNo "Serialnumber of the sensor";
+CM_ BO_ 2 "CANzero NMT message sent by NMT master.";
+CM_ SG_ 2 CANzero_NMT_Node "CANzero NMT Node-ID of master request.";
+CM_ SG_ 2 CANzero_NMT_State "CANzero NMT State Request by master.";
+CM_ BO_ 122 "CANzero Sync message. Not used yet, just a placeholder for future versions.";
+CM_ BO_ 123 "CANzero Timestamp message. Not used yet, just a placeholder for future versions.";
+CM_ BO_ 129 "Emergency message of node SensorF with Node-ID 0x1";
+CM_ BO_ 385 "Transmit PDO 1 of node SensorF with Node-ID 0x1";
+CM_ SG_ 385 Sensor_TX_PodState_Target "Target PodState by State Machine.";
+CM_ SG_ 385 Sensor_TX_PodState_Last "Last PodState by State Machine.";
+CM_ SG_ 385 Sensor_TX_PodState "PodState by State Machine.";
+CM_ BO_ 449 "Receive PDO 1 of node SensorF with Node-ID 0x1";
+CM_ BO_ 513 "Data from Encoder front (PDO10)";
+CM_ BO_ 577 "Receive PDO 2 of node SensorF with Node-ID 0x1.";
+CM_ BO_ 641 "Transmit PDO 3 of node SensorF with Node-ID 0x1";
+CM_ BO_ 705 "Receive PDO 3 of node SensorF with Node-ID 0x1.";
+CM_ BO_ 769 "Transmit PDO 4 of node SensorF with Node-ID 0x1";
+CM_ BO_ 833 "Receive PDO 4 of node SensorF with Node-ID 0x1.";
+CM_ BO_ 897 "Transmit PDO 5 of node SensorF with Node-ID 0x1";
+CM_ BO_ 961 "Transmit PDO 6 of node SensorF with Node-ID 0x1";
+CM_ BO_ 1025 "Transmit PDO 7 of node SensorF with Node-ID 0x1";
+CM_ SG_ 1025 Sensor_GyroFront_X "Slope of front IMU in X direction.";
+CM_ SG_ 1025 Sensor_Vel_EncoderFront "Velocity of Wheel Encoder front.";
+CM_ SG_ 1025 Sensor_Pos_EncoderFront "Position of Wheel Encoder front.";
+CM_ BO_ 1089 "Transmit PDO 8 of node SensorF with Node-ID 0x1";
+CM_ BO_ 1153 "Transmit PDO 9 of node SensorF with Node-ID 0x1";
+CM_ BO_ 1217 "Transmit Acc_X, Acc_Y, Acc_Z and Gyro_Z of front IMU of node SensorF.";
+CM_ SG_ 1217 Sensor_GyroFront_Z "Slope of front IMU in Z direction.";
+CM_ SG_ 1217 Sensor_AccFront_Z "Acceleration of front IMU in Z direction.";
+CM_ SG_ 1217 Sensor_AccFront_Y "Acceleration of front IMU in Y direction.";
+CM_ SG_ 1217 Sensor_AccFront_X "Acceleration of front IMU in X direction.";
+CM_ BO_ 1281 "SensorF with Node-ID 0x1 (PDO11).";
+CM_ BO_ 1345 "Transmit PDO 12 of node SensorF with Node-ID 0x1.";
+CM_ BO_ 1409 "DO NOT CHANGE ANYTHING HERE!
+SDO Response of node SensorF with Node-ID 0x1";
+CM_ SG_ 1409 Sensor_SDO_RespCode "Response code of SDO access.";
+CM_ SG_ 1409 Sensor_SDO_ID "Specifies SDO-ID of SensorF";
+CM_ BO_ 1473 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Upload to node SensorF with Node-ID 0x1";
+CM_ SG_ 1473 Sensor_SDO_ID "Specifies SDO-ID of SensorF";
+CM_ BO_ 1537 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Download from node SensorF with Node-ID 0x1";
+CM_ SG_ 1537 Sensor_SDO_ID "Specifies SDO-ID of SensorF";
+CM_ BO_ 1793 "Heartbeat of node SensorF with Node-ID 0x1";
+CM_ SG_ 1793 Sensor_NodeState "Heartbeat status of node SensorF";
+CM_ BO_ 1857 "Bootloader transmit from node SensorF with Node-ID 0x1";
+CM_ BO_ 1921 "Bootloader receive by node SensorF with Node-ID 0x1";
+CM_ BO_ 514 "Transmit PDO 2 of node SensorR with Node-ID 0x2. RunState, Enabled, ErrorFlag, TrajectorySet";
+CM_ SG_ 514 Sensor_TX_ErrorFlag "Error status of SensorR.";
+CM_ SG_ 514 Sensor_TX_Enabled "Enable status of SensorR.";
+CM_ SG_ 514 Sensor_TX_TrajectorySet "Flag for trajectorySet";
+CM_ SG_ 514 Sensor_TX_RunState "State of run of SensorR.";
+CM_ BO_ 642 "Transmit PDO 3 of node SensorR with Node-ID 0x2. Filtered data after StateEstimation";
+CM_ SG_ 642 Sensor_TX_Pos "Filtered position by StateEstimation.";
+CM_ SG_ 642 Sensor_TX_Vel "Filtered velocity by StateEstimation.";
+CM_ SG_ 642 Sensor_TX_Acc "Filtered acceleration by StateEstimation.";
+CM_ BO_ 706 "Receive PDO 3 of node SensorR with Node-ID 0x2";
+CM_ SG_ 706 Sensor_RX_ErrorReset "Error reset signal for SensorR.";
+CM_ SG_ 706 Sensor_RX_Enable "Enable signal for SensorR.";
+CM_ SG_ 706 Sensor_RX_LaunchComm "Launch Command of SensorR.";
+CM_ BO_ 770 "Transmit PDO 4 of node SensorR with Node-ID 0x2. Velocity of EncoderFront, rear and optical, Stripes";
+CM_ SG_ 770 Sensor_TX_Vel_Optical "Velocity of optical Sensor.";
+CM_ SG_ 770 Sensor_TX_Vel_EncoderRear "Velocity of Wheel Encoder rear.";
+CM_ SG_ 770 Sensor_TX_Vel_EncoderFront "Velocity of Wheel Encoder front.";
+CM_ BO_ 898 "Transmit PDO 5 of node SensorR with Node-ID 0x2. Gyroscope data of IMU front and rear in X and Y direction.";
+CM_ SG_ 898 Sensor_TX_GyroRear_Y "Slope of rear IMU in Y direction.";
+CM_ SG_ 898 Sensor_TX_GyroRear_X "Slope of rear IMU in X direction.";
+CM_ SG_ 898 Sensor_TX_GyroFront_Y "Slope of front IMU in Y direction.";
+CM_ SG_ 898 Sensor_TX_GyroFront_X "Slope of front IMU in X direction.";
+CM_ BO_ 962 "Transmit PDO 6 of node SensorR with Node-ID 0x2";
+CM_ BO_ 1090 "Transmit PDO 8 of node SensorR with Node-ID 0x2";
+CM_ BO_ 1218 "Transmit PDO 10 of node SensorR with Node-ID 0x2. Send acceleration of IMU Rear.";
+CM_ SG_ 1218 Sensor_TX_GyroRear_Z "Slope of rear IMU in Z direction.";
+CM_ SG_ 1218 Sensor_TX_AccRear_Z "Acceleration of rear IMU in Z direction.";
+CM_ SG_ 1218 Sensor_TX_AccRear_Y "Acceleration of rear IMU in Y direction.";
+CM_ SG_ 1218 Sensor_TX_AccRear_X "Acceleration of rear IMU in X direction.";
+CM_ BO_ 1282 "Transmit PDO 11 of node SensorR with Node-ID 0x2. Send position data of Encoder front, rear and optical and Stripes.";
+CM_ SG_ 1282 Sensor_TX_StripeCounter_Right "Counting reflectors on the right site.";
+CM_ SG_ 1282 Sensor_TX_StripeCounter_Left "Counting reflectors on the left site.";
+CM_ SG_ 1282 Sensor_TX_Pos_Optical "Position of optical Sensor.";
+CM_ SG_ 1282 Sensor_TX_Pos_EncoderRear "Position of Wheel Encoder rear.";
+CM_ SG_ 1282 Sensor_TX_Pos_EncoderFront "Position of Wheel Encoder front.";
+CM_ BO_ 145 "Emergency message of node BrakeF with Node-ID 0x11";
+CM_ SG_ 145 Brake_E5_retractUnsuccesful_open "Instruction to retract was received, but the SDC is detected to be open";
+CM_ SG_ 145 Brake_E4_retractUnsuccesful_notE "Instruction to retract was received, but the ECU is not enabled";
+CM_ SG_ 145 Brake_E3_retractUnsuccesful_erro "Instruction to retract was received, but an error flag inhibited retraction";
+CM_ SG_ 145 Brake_E2_commWatchdogTimeout "Communication Watchdog timeout. It took more than the time set to receive a new message from the state machine";
+CM_ SG_ 145 Brake_E1_pressureTooLow "Pressure tank has a lower value than the provided LowerControlLimit";
+CM_ SG_ 145 Brake_E0_pressureTooHigh "Pressure tank has a higher value than the provided UpperControlLimit";
+CM_ SG_ 145 Brake_W3_externalError "SDC reading indicates it's open, but there's no internal error in the ECU";
+CM_ SG_ 145 Brake_W2_enableWithAnError "The ECU was enabled with an error flag";
+CM_ SG_ 145 Brake_W1_highPressureRetractingC "Pressure higher than desired was measured in the acting chamber";
+CM_ SG_ 145 Brake_W0_highPressureActingChamb "Pressure higher than desired was measured in the acting chamber";
+CM_ BO_ 401 "Transmit PDO 1 of node BrakeF with Node-ID 0x11";
+CM_ SG_ 401 Brake_TX_SDC_Input "Sends the current value of the SDC received by BrakeF.
+";
+CM_ SG_ 401 Brake_TX_ErrorFlag "Error status of BrakeF.";
+CM_ SG_ 401 Brake_TX_Enabled "Enable status of BrakeF.";
+CM_ SG_ 401 Brake_TX_Status "Status signal of BrakeF.";
+CM_ BO_ 465 "Receive PDO 1 of node BrakeF with Node-ID 0x11";
+CM_ SG_ 465 Brake_RX_Engage "Engage signal for BrakeF.";
+CM_ SG_ 465 Brake_RX_Enable "Enable signal for BrakeF.";
+CM_ SG_ 465 Brake_RX_ErrorReset "Error reset signal for BrakeF.";
+CM_ BO_ 529 "Transmit PDO 2 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 593 "Receive PDO 2 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 657 "Transmit PDO 3 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 721 "Receive PDO 3 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 785 "Transmit PDO 4 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 849 "Receive PDO 4 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 913 "Transmit PDO 5 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 977 "Transmit PDO 6 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 1041 "Transmit PDO 7 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 1105 "Transmit PDO 8 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 1169 "Transmit PDO 9 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 1233 "Transmit PDO 10 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 1297 "Transmit PDO 11 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 1361 "Transmit PDO 12 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 1425 "DO NOT CHANGE ANYTHING HERE!
+SDO Response of node BrakeF with Node-ID 0x11";
+CM_ SG_ 1425 Brake_OD_valveUpperTolerance "Tolerance of the lower pressure pneumatic circuit";
+CM_ SG_ 1425 Brake_OD_commWatchdog "Max. number of ms to receive a new message";
+CM_ SG_ 1425 Brake_OD_counterLimit "Number of cycles in the loop to measure pressure once";
+CM_ SG_ 1425 Brake_OD_delay "Delay used in every cycle of the loop.";
+CM_ SG_ 1425 Brake_OD_tankUpperControlLimit "Maximum pressure of tank in bar.";
+CM_ SG_ 1425 Brake_OD_tankLowerControlLimit "Minimum pressure of tank in bar.";
+CM_ SG_ 1425 Brake_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1425 Brake_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1425 Brake_OD_CAN2_DiscardedTxMessage "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1425 Brake_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1425 Brake_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1425 Brake_OD_CAN2_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1425 Brake_OD_CAN2_lastErrorCode "Last error code.";
+CM_ SG_ 1425 Brake_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1425 Brake_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1425 Brake_OD_CAN1_DelayedTxMessages "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1425 Brake_OD_CAN1_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1425 Brake_OD_CAN1_DiscardedTxMessage "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1425 Brake_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1425 Brake_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1425 Brake_OD_CAN1_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1425 Brake_OD_CAN1_lastErrorCode "Last error code.";
+CM_ SG_ 1425 Brake_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1425 Brake_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1425 Brake_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1425 Brake_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1425 Brake_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1425 Brake_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1425 Brake_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1425 Brake_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1425 Brake_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1425 Brake_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1425 Brake_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1425 Brake_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1425 Brake_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1425 Brake_OD_OdEntrySendInterval "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1425 Brake_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1425 Brake_OD_HeartbeatInterval "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1425 Brake_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1425 Brake_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1425 Brake_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1425 Brake_OD_NodeStatus "State of the node.";
+CM_ SG_ 1425 Brake_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1425 Brake_SDO_RespCode "Response code of SDO access.";
+CM_ SG_ 1425 Brake_SDO_ID "Specifies SDO-ID of BrakeF";
+CM_ BO_ 1489 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Upload to node BrakeF with Node-ID 0x11";
+CM_ SG_ 1489 Brake_OD_valveUpperTolerance "Tolerance of the lower pressure pneumatic circuit";
+CM_ SG_ 1489 Brake_OD_commWatchdog "Max. number of ms to receive a new message";
+CM_ SG_ 1489 Brake_OD_counterLimit "Number of cycles in the loop to measure pressure once";
+CM_ SG_ 1489 Brake_OD_delay "Delay used in every cycle of the loop.";
+CM_ SG_ 1489 Brake_OD_tankUpperControlLimit "Maximum pressure of tank in bar.";
+CM_ SG_ 1489 Brake_OD_tankLowerControlLimit "Minimum pressure of tank in bar.";
+CM_ SG_ 1489 Brake_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1489 Brake_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1489 Brake_OD_CAN2_DiscardedTxMe_0000 "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1489 Brake_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1489 Brake_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1489 Brake_OD_CAN2_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1489 Brake_OD_CAN2_lastErrorCode "Last error code.";
+CM_ SG_ 1489 Brake_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1489 Brake_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1489 Brake_OD_CAN1_DelayedTxMessages "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1489 Brake_OD_CAN1_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1489 Brake_OD_CAN1_DiscardedTxMe_0000 "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1489 Brake_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1489 Brake_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1489 Brake_OD_CAN1_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1489 Brake_OD_CAN1_lastErrorCode "Last error code.";
+CM_ SG_ 1489 Brake_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1489 Brake_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1489 Brake_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1489 Brake_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1489 Brake_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1489 Brake_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1489 Brake_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1489 Brake_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1489 Brake_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1489 Brake_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1489 Brake_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1489 Brake_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1489 Brake_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1489 Brake_OD_OdEntrySendInterval "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1489 Brake_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1489 Brake_OD_HeartbeatInterval "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1489 Brake_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1489 Brake_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1489 Brake_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1489 Brake_OD_NodeStatus "State of the node.";
+CM_ SG_ 1489 Brake_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1489 Brake_SDO_ID "Specifies SDO-ID of BrakeF";
+CM_ BO_ 1553 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Download from node BrakeF with Node-ID 0x11";
+CM_ SG_ 1553 Brake_SDO_ID "Specifies SDO-ID of BrakeF";
+CM_ BO_ 1809 "Heartbeat of node BrakeF with Node-ID 0x11";
+CM_ SG_ 1809 Brake_NodeState "Heartbeat status of node BrakeF";
+CM_ BO_ 1873 "Bootloader transmit from node BrakeF with Node-ID 0x11";
+CM_ BO_ 1937 "Bootloader receive by node BrakeF with Node-ID 0x11";
+CM_ BO_ 154 "Emergency message of node PDU with Node-ID 0x1A";
+CM_ SG_ 154 PDU_E4_watchdogStateMachine "The watchdog for the state machine timed out.";
+CM_ SG_ 154 PDU_E3_batterTempCritical "Temperature limit of the battery reached.";
+CM_ SG_ 154 PDU_E2_batteryOvercurrent "Overcurrent limit of the battery reached.";
+CM_ SG_ 154 PDU_E1_batterVoltageCritical "Error when battery voltage is getting critical low. Pod will be shut down";
+CM_ SG_ 154 PDU_E0_OtherError "Other error.";
+CM_ SG_ 154 PDU_W2_batterTempHigh "Warning when battery temperature is rising high";
+CM_ SG_ 154 PDU_W1_batterVoltageLow "Warning when battery voltage is getting low";
+CM_ SG_ 154 PDU_W0_OtherWarning "Other warning.";
+CM_ BO_ 410 "Transmit PDO 1 of node PDU with Node-ID 0x1A";
+CM_ SG_ 410 PDU_TX_PEHWEnabled "PE Hardware Enable status signal of PDU.";
+CM_ SG_ 410 PDU_TX_ErrorFlag "Error status of PDU.";
+CM_ SG_ 410 PDU_TX_Enabled "Enable status of PDU.";
+CM_ BO_ 474 "Control message of the PDU sent by the State Machine.";
+CM_ SG_ 474 PDU_RX_PEHWEnable "PE Hardware Enable signal of PDU.";
+CM_ SG_ 474 PDU_RX_ErrorReset "Error reset signal for PDU.";
+CM_ SG_ 474 PDU_RX_Enable "Enable signal for PDU.";
+CM_ BO_ 538 "Transmit PDO 2 of node PDU with Node-ID 0x1A";
+CM_ BO_ 602 "Dutycycle for the channels of the PDU that support PWM.";
+CM_ BO_ 666 "Transmit PDO 3 of node PDU with Node-ID 0x1A";
+CM_ BO_ 730 "Receive PDO 3 of node PDU with Node-ID 0x1A";
+CM_ BO_ 794 "Transmit PDO 4 of node PDU with Node-ID 0x1A";
+CM_ BO_ 858 "Receive PDO 4 of node PDU with Node-ID 0x1A";
+CM_ BO_ 922 "Transmit PDO 5 of node PDU with Node-ID 0x1A";
+CM_ BO_ 986 "Transmit PDO 6 of node PDU with Node-ID 0x1A";
+CM_ BO_ 1050 "Transmit PDO 7 of node PDU with Node-ID 0x1A";
+CM_ BO_ 1114 "Transmit PDO 8 of node PDU with Node-ID 0x1A";
+CM_ BO_ 1178 "Transmit PDO 9 of node PDU with Node-ID 0x1A";
+CM_ BO_ 1242 "Transmit PDO 10 of node PDU with Node-ID 0x1A";
+CM_ BO_ 1306 "Transmit PDO 11 of node PDU with Node-ID 0x1A";
+CM_ BO_ 1370 "Transmit PDO 12 of node PDU with Node-ID 0x1A";
+CM_ BO_ 1434 "DO NOT CHANGE ANYTHING HERE!
+SDO Response of node PDU with Node-ID 0x1A";
+CM_ SG_ 1434 PDU_OD_CoolingPumpEnabled "Enable the Cooling Pump.";
+CM_ SG_ 1434 PDU_OD_LedCommands "Commands from Telemetry to leds";
+CM_ SG_ 1434 PDU_OD_projectXXEnabled "Enable the Project XX leds.";
+CM_ SG_ 1434 PDU_OD_watchdogTimeout "Timeout for the state machine watchdog in milliseconds.";
+CM_ SG_ 1434 PDU_OD_statusSendInterval "Sending intervall for the status in milliseconds.";
+CM_ SG_ 1434 PDU_OD_currentReadInterval "Sampling time in millisecconds for reading the currents.";
+CM_ SG_ 1434 PDU_OD_batteryOvercurrent "Overcurrent limit in ampere of the low voltage battery.";
+CM_ SG_ 1434 PDU_OD_overTempCritical "Error when battery temperature is getting critical high. Pod will be shut down";
+CM_ SG_ 1434 PDU_OD_overTempWarn "Warning when battery temperature is getting high";
+CM_ SG_ 1434 PDU_OD_batterVoltageCritical "Error when battery voltage is getting critical low. Pod will be shut down";
+CM_ SG_ 1434 PDU_OD_batterVoltageLow "Warning when battery voltage is getting low";
+CM_ SG_ 1434 PDU_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1434 PDU_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1434 PDU_OD_CAN2_DiscardedTxMessages "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1434 PDU_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1434 PDU_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1434 PDU_OD_CAN2_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1434 PDU_OD_CAN2_lastErrorCode "Last error code.";
+CM_ SG_ 1434 PDU_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1434 PDU_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1434 PDU_OD_CAN1_DelayedTxMessages "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1434 PDU_OD_CAN1_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1434 PDU_OD_CAN1_DiscardedTxMessages "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1434 PDU_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1434 PDU_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1434 PDU_OD_CAN1_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1434 PDU_OD_CAN1_lastErrorCode "Last error code.";
+CM_ SG_ 1434 PDU_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1434 PDU_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1434 PDU_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1434 PDU_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1434 PDU_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1434 PDU_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1434 PDU_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1434 PDU_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1434 PDU_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1434 PDU_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1434 PDU_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1434 PDU_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1434 PDU_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1434 PDU_OD_OdEntrySendInterval "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1434 PDU_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1434 PDU_OD_HeartbeatInterval "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1434 PDU_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1434 PDU_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1434 PDU_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1434 PDU_OD_NodeStatus "State of the node.";
+CM_ SG_ 1434 PDU_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1434 PDU_SDO_RespCode "Response code of SDO access.";
+CM_ SG_ 1434 PDU_SDO_ID "Specifies SDO-ID of PDU";
+CM_ BO_ 1498 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Upload to node PDU with Node-ID 0x1A";
+CM_ SG_ 1498 PDU_OD_CoolingPumpEnabled "Enable the Cooling Pump.";
+CM_ SG_ 1498 PDU_OD_LedCommands "Commands from Telemetry to leds";
+CM_ SG_ 1498 PDU_OD_projectXXEnabled "Enable the Project XX leds.";
+CM_ SG_ 1498 PDU_OD_watchdogTimeout "Timeout for the state machine watchdog in milliseconds.";
+CM_ SG_ 1498 PDU_OD_statusSendInterval "Sending intervall for the status in milliseconds.";
+CM_ SG_ 1498 PDU_OD_currentReadInterval "Sampling time in millisecconds for reading the currents.";
+CM_ SG_ 1498 PDU_OD_batteryOvercurrent "Overcurrent limit in ampere of the low voltage battery.";
+CM_ SG_ 1498 PDU_OD_overTempCritical "Error when battery temperature is getting critical high. Pod will be shut down";
+CM_ SG_ 1498 PDU_OD_overTempWarn "Warning when battery temperature is getting high";
+CM_ SG_ 1498 PDU_OD_batterVoltageCritical "Error when battery voltage is getting critical low. Pod will be shut down";
+CM_ SG_ 1498 PDU_OD_batterVoltageLow "Warning when battery voltage is getting low";
+CM_ SG_ 1498 PDU_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1498 PDU_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1498 PDU_OD_CAN2_DiscardedTxMessages "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1498 PDU_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1498 PDU_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1498 PDU_OD_CAN2_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1498 PDU_OD_CAN2_lastErrorCode "Last error code.";
+CM_ SG_ 1498 PDU_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1498 PDU_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1498 PDU_OD_CAN1_DelayedTxMessages "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1498 PDU_OD_CAN1_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1498 PDU_OD_CAN1_DiscardedTxMessages "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1498 PDU_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1498 PDU_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1498 PDU_OD_CAN1_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1498 PDU_OD_CAN1_lastErrorCode "Last error code.";
+CM_ SG_ 1498 PDU_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1498 PDU_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1498 PDU_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1498 PDU_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1498 PDU_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1498 PDU_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1498 PDU_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1498 PDU_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1498 PDU_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1498 PDU_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1498 PDU_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1498 PDU_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1498 PDU_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1498 PDU_OD_OdEntrySendInterval "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1498 PDU_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1498 PDU_OD_HeartbeatInterval "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1498 PDU_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1498 PDU_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1498 PDU_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1498 PDU_OD_NodeStatus "State of the node.";
+CM_ SG_ 1498 PDU_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1498 PDU_SDO_ID "Specifies SDO-ID of PDU";
+CM_ BO_ 1562 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Download from node PDU with Node-ID 0x1A";
+CM_ SG_ 1562 PDU_SDO_ID "Specifies SDO-ID of PDU";
+CM_ BO_ 1818 "Heartbeat of node PDU with Node-ID 0x1A";
+CM_ SG_ 1818 PDU_NodeState "Heartbeat status of node PDU";
+CM_ BO_ 1882 "Bootloader transmit from node PDU with Node-ID 0x1A";
+CM_ BO_ 1946 "Bootloader receive by node PDU with Node-ID 0x1A";
+CM_ BO_ 162 "Emergency message of node TelemetryNode with Node-ID 0x22";
+CM_ SG_ 162 TelemetryNode_E0_OtherError "Other error.";
+CM_ SG_ 162 TelemetryNode_W0_OtherWarning "Other warning.";
+CM_ BO_ 418 "Transmit PDO 1 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 482 "Receive PDO 1 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 546 "Transmit PDO 2 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 610 "Receive PDO 2 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 674 "Transmit PDO 3 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 738 "Receive PDO 3 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 802 "Transmit PDO 4 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 866 "Receive PDO 4 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 930 "Transmit PDO 5 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 994 "Transmit PDO 6 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 1058 "Transmit PDO 7 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 1122 "Transmit PDO 8 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 1186 "Transmit PDO 9 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 1250 "Transmit PDO 10 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 1314 "Transmit PDO 11 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 1378 "Transmit PDO 12 of node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 1442 "DO NOT CHANGE ANYTHING HERE!
+SDO Response of node TelemetryNode with Node-ID 0x22";
+CM_ SG_ 1442 TelemetryNode_OD_CanRestart "Restart CAN interfaces.";
+CM_ SG_ 1442 TelemetryNode_OD_Reboot "Reboot the Telemetry Node.";
+CM_ SG_ 1442 TelemetryNode_OD_Shutdown "Shutdown the Telemetry Node.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN2_DelayedTxM "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN2_ErrorStatu "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1442 TelemetryNode_OD_CAN2_DiscardedT "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1442 TelemetryNode_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN2_autoErrorR "Automatic reset of errors.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN2_lastErrorC "Last error code.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN1_DelayedTxM "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN1_ErrorStatu "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1442 TelemetryNode_OD_CAN1_DiscardedT "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1442 TelemetryNode_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN1_autoErrorR "Automatic reset of errors.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN1_lastErrorC "Last error code.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1442 TelemetryNode_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1442 TelemetryNode_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1442 TelemetryNode_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1442 TelemetryNode_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1442 TelemetryNode_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1442 TelemetryNode_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1442 TelemetryNode_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1442 TelemetryNode_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1442 TelemetryNode_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1442 TelemetryNode_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1442 TelemetryNode_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1442 TelemetryNode_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1442 TelemetryNode_OD_OdEntrySendInte "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1442 TelemetryNode_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1442 TelemetryNode_OD_HeartbeatInterv "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1442 TelemetryNode_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1442 TelemetryNode_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1442 TelemetryNode_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1442 TelemetryNode_OD_NodeStatus "State of the node.";
+CM_ SG_ 1442 TelemetryNode_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1442 TelemetryNode_SDO_RespCode "Response code of SDO access.";
+CM_ SG_ 1442 TelemetryNode_SDO_ID "Specifies SDO-ID of TelemetryNode";
+CM_ BO_ 1506 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Upload to node TelemetryNode with Node-ID 0x22";
+CM_ SG_ 1506 TelemetryNode_OD_CanRestart "Restart CAN interfaces.";
+CM_ SG_ 1506 TelemetryNode_OD_Reboot "Reboot the Telemetry Node.";
+CM_ SG_ 1506 TelemetryNode_OD_Shutdown "Shutdown the Telemetry Node.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN2_Delay_0000 "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN2_Error_0000 "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1506 TelemetryNode_OD_CAN2_Disca_0000 "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1506 TelemetryNode_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN2_autoE_0000 "Automatic reset of errors.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN2_lastE_0000 "Last error code.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN1_Delay_0000 "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN1_Error_0000 "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1506 TelemetryNode_OD_CAN1_Disca_0000 "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1506 TelemetryNode_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN1_autoE_0000 "Automatic reset of errors.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN1_lastE_0000 "Last error code.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1506 TelemetryNode_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1506 TelemetryNode_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1506 TelemetryNode_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1506 TelemetryNode_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1506 TelemetryNode_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1506 TelemetryNode_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1506 TelemetryNode_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1506 TelemetryNode_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1506 TelemetryNode_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1506 TelemetryNode_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1506 TelemetryNode_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1506 TelemetryNode_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1506 TelemetryNode_OD_OdEntrySen_0000 "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1506 TelemetryNode_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1506 TelemetryNode_OD_HeartbeatI_0000 "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1506 TelemetryNode_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1506 TelemetryNode_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1506 TelemetryNode_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1506 TelemetryNode_OD_NodeStatus "State of the node.";
+CM_ SG_ 1506 TelemetryNode_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1506 TelemetryNode_SDO_ID "Specifies SDO-ID of TelemetryNode";
+CM_ BO_ 1570 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Download from node TelemetryNode with Node-ID 0x22";
+CM_ SG_ 1570 TelemetryNode_SDO_ID "Specifies SDO-ID of TelemetryNode";
+CM_ BO_ 1826 "Heartbeat of node TelemetryNode with Node-ID 0x22";
+CM_ SG_ 1826 TelemetryNode_NodeState "Heartbeat status of node TelemetryNode";
+CM_ BO_ 1890 "Bootloader transmit from node TelemetryNode with Node-ID 0x22";
+CM_ BO_ 1954 "Bootloader receive by node TelemetryNode with Node-ID 0x22";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","Cyclic","not_used","IfActive","NoMsgSendType";
+BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 2 50000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 1 1000;
+BA_DEF_ BO_  "GenMsgNrOfRepetitions" INT 1 999999;
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 100000;
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 100000000000;
+BA_DEF_  "CANzero_ProtocolVersion" STRING ;
+BA_DEF_  "CANzero_DBCVersion" INT 0 16777215;
+BA_DEF_  "CANzero_SDOClientName" STRING ;
+BA_DEF_  "CANzero_NMTMasterName" STRING ;
+BA_DEF_ BU_  "CANzero_NodeID" HEX 0 63;
+BA_DEF_ SG_  "CANzero_SDO_Group" STRING ;
+BA_DEF_ SG_  "CANzero_SDO_AccessIfOperational" ENUM  "No","Yes";
+BA_DEF_ SG_  "CANzero_SDO_AccessType" ENUM  "Read Write","Read Only","Write Only";
+BA_DEF_ SG_  "CANzero_SDO_Default" FLOAT 0 0;
+BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 100;
+BA_DEF_DEF_  "GenMsgDelayTime" 1;
+BA_DEF_DEF_  "GenMsgNrOfRepetitions" 1;
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "CANzero_ProtocolVersion" "";
+BA_DEF_DEF_  "CANzero_DBCVersion" 0;
+BA_DEF_DEF_  "CANzero_SDOClientName" "Master";
+BA_DEF_DEF_  "CANzero_NMTMasterName" "Master";
+BA_DEF_DEF_  "CANzero_NodeID" 0;
+BA_DEF_DEF_  "CANzero_SDO_Group" "";
+BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
+BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
+BA_DEF_DEF_  "CANzero_SDO_Default" 0;
+BA_DEF_DEF_  "SystemSignalLongSymbol" "";
+BA_ "CANzero_NMTMasterName" "Master";
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_DBCVersion" 149;
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "BusType" "CAN";
+BA_ "DBName" "pod2022";
+BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
+BA_ "CANzero_NodeID" BU_ Sensor 1;
+BA_ "CANzero_NodeID" BU_ Brake 17;
+BA_ "CANzero_NodeID" BU_ PDU 26;
+BA_ "GenMsgCycleTime" BO_ 386 100;
+BA_ "GenMsgCycleTime" BO_ 1026 100;
+BA_ "GenMsgCycleTime" BO_ 450 100;
+BA_ "GenMsgCycleTime" BO_ 2684354555 100;
+BA_ "GenMsgCycleTime" BO_ 2684354554 100;
+BA_ "GenMsgCycleTime" BO_ 2684354556 100;
+BA_ "GenMsgCycleTime" BO_ 2 100;
+BA_ "GenMsgCycleTime" BO_ 122 100;
+BA_ "GenMsgCycleTime" BO_ 123 100;
+BA_ "GenMsgCycleTime" BO_ 129 100;
+BA_ "GenMsgCycleTime" BO_ 385 100;
+BA_ "GenMsgCycleTime" BO_ 449 100;
+BA_ "GenMsgCycleTime" BO_ 513 100;
+BA_ "GenMsgCycleTime" BO_ 577 100;
+BA_ "GenMsgCycleTime" BO_ 641 100;
+BA_ "GenMsgCycleTime" BO_ 705 100;
+BA_ "GenMsgCycleTime" BO_ 769 100;
+BA_ "GenMsgCycleTime" BO_ 833 100;
+BA_ "GenMsgCycleTime" BO_ 897 100;
+BA_ "GenMsgCycleTime" BO_ 961 100;
+BA_ "GenMsgCycleTime" BO_ 1025 100;
+BA_ "GenMsgCycleTime" BO_ 1089 100;
+BA_ "GenSigStartValue" SG_ 1089 Sensor_TX_BatteryTemp 600;
+BA_ "GenMsgCycleTime" BO_ 1153 100;
+BA_ "GenSigStartValue" SG_ 1153 Sensor_Cooling_Temp 600;
+BA_ "GenSigStartValue" SG_ 1153 Sensor_LIMT_Stator_4 266.666666666667;
+BA_ "GenSigStartValue" SG_ 1153 Sensor_LIMT_Stator_3 266.666666666667;
+BA_ "GenSigStartValue" SG_ 1153 Sensor_LIMT_Stator_2 266.666666666667;
+BA_ "GenSigStartValue" SG_ 1153 Sensor_LIMT_Stator_1 266.666666666667;
+BA_ "GenMsgCycleTime" BO_ 1217 100;
+BA_ "GenMsgCycleTime" BO_ 1281 100;
+BA_ "GenMsgCycleTime" BO_ 1345 100;
+BA_ "GenMsgCycleTime" BO_ 1409 100;
+BA_ "GenMsgCycleTime" BO_ 1473 100;
+BA_ "GenMsgCycleTime" BO_ 1537 100;
+BA_ "GenMsgCycleTime" BO_ 1793 100;
+BA_ "GenMsgCycleTime" BO_ 1857 100;
+BA_ "GenMsgCycleTime" BO_ 1921 100;
+BA_ "GenMsgCycleTime" BO_ 514 100;
+BA_ "GenMsgCycleTime" BO_ 642 100;
+BA_ "GenMsgCycleTime" BO_ 706 100;
+BA_ "GenMsgCycleTime" BO_ 770 100;
+BA_ "GenMsgCycleTime" BO_ 898 100;
+BA_ "GenMsgCycleTime" BO_ 962 100;
+BA_ "GenMsgCycleTime" BO_ 1090 100;
+BA_ "GenMsgCycleTime" BO_ 1218 100;
+BA_ "GenMsgCycleTime" BO_ 1282 100;
+BA_ "GenMsgCycleTime" BO_ 145 100;
+BA_ "SystemSignalLongSymbol" SG_ 145 Brake_E5_retractUnsuccesful_open "Brake_E5_retractUnsuccesful_openSDC";
+BA_ "SystemSignalLongSymbol" SG_ 145 Brake_E4_retractUnsuccesful_notE "Brake_E4_retractUnsuccesful_notEnabled";
+BA_ "SystemSignalLongSymbol" SG_ 145 Brake_E3_retractUnsuccesful_erro "Brake_E3_retractUnsuccesful_errorFlag";
+BA_ "SystemSignalLongSymbol" SG_ 145 Brake_W1_highPressureRetractingC "Brake_W1_highPressureRetractingChamber";
+BA_ "SystemSignalLongSymbol" SG_ 145 Brake_W0_highPressureActingChamb "Brake_W0_highPressureActingChamber";
+BA_ "GenMsgCycleTime" BO_ 401 100;
+BA_ "GenMsgCycleTime" BO_ 465 100;
+BA_ "GenMsgCycleTime" BO_ 529 100;
+BA_ "GenMsgCycleTime" BO_ 593 100;
+BA_ "GenMsgCycleTime" BO_ 657 100;
+BA_ "GenMsgCycleTime" BO_ 721 100;
+BA_ "GenMsgCycleTime" BO_ 785 100;
+BA_ "GenMsgCycleTime" BO_ 849 100;
+BA_ "GenMsgCycleTime" BO_ 913 100;
+BA_ "GenMsgCycleTime" BO_ 977 100;
+BA_ "GenMsgCycleTime" BO_ 1041 100;
+BA_ "GenSigStartValue" SG_ 1041 Brake_TX_Pressure_Tank 400;
+BA_ "GenSigStartValue" SG_ 1041 Brake_TX_Pressure_Retract 400;
+BA_ "GenSigStartValue" SG_ 1041 Brake_TX_Pressure_Act 400;
+BA_ "GenMsgCycleTime" BO_ 1105 100;
+BA_ "GenMsgCycleTime" BO_ 1169 100;
+BA_ "GenMsgCycleTime" BO_ 1233 100;
+BA_ "GenMsgCycleTime" BO_ 1297 100;
+BA_ "GenMsgCycleTime" BO_ 1361 100;
+BA_ "GenMsgCycleTime" BO_ 1425 100;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_valveUpperTolerance "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_valveUpperTolerance 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_valveUpperTolerance 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_valveUpperTolerance 2000.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_valveUpperTolerance 10;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_commWatchdog "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_commWatchdog 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_commWatchdog 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_commWatchdog 60.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_commWatchdog 60;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_counterLimit "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_counterLimit 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_counterLimit 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_counterLimit 5.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_counterLimit 5;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_delay "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_delay 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_delay 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_delay 10.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_delay 5;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_tankUpperControlLimit "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_tankUpperControlLimit 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_tankUpperControlLimit 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_tankUpperControlLimit 3800.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_tankUpperControlLimit 19;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_tankLowerControlLimit "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_tankLowerControlLimit 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_tankLowerControlLimit 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_tankLowerControlLimit 1400.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_tankLowerControlLimit 7;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN2_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN2_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN2_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN2_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN2_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN2_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN2_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN2_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN2_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN2_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN2_DiscardedTxMessage "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN2_DiscardedTxMessage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN2_DiscardedTxMessage 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN2_DiscardedTxMessage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN2_DiscardedTxMessage 0;
+BA_ "SystemSignalLongSymbol" SG_ 1425 Brake_OD_CAN2_DiscardedTxMessage "Brake_OD_CAN2_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN2_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN2_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN2_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN2_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN2_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN2_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN2_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN2_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN2_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN2_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN1_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN1_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN1_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN1_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN1_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN1_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN1_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN1_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN1_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN1_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN1_DiscardedTxMessage "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN1_DiscardedTxMessage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN1_DiscardedTxMessage 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN1_DiscardedTxMessage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN1_DiscardedTxMessage 0;
+BA_ "SystemSignalLongSymbol" SG_ 1425 Brake_OD_CAN1_DiscardedTxMessage "Brake_OD_CAN1_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN1_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN1_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN1_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN1_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN1_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN1_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN1_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN1_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN1_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN1_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_OdEntrySendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_OdEntrySendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_OdEntrySendInterval 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_OdEntrySendInterval 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_OdEntrySendInterval 50;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_HeartbeatInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_HeartbeatInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_HeartbeatInterval 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_HeartbeatInterval 100.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_HeartbeatInterval 100;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 Brake_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 Brake_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 Brake_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1425 Brake_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 Brake_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1489 100;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_valveUpperTolerance "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_valveUpperTolerance 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_valveUpperTolerance 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_valveUpperTolerance 2000.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_valveUpperTolerance 10;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_commWatchdog "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_commWatchdog 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_commWatchdog 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_commWatchdog 60.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_commWatchdog 60;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_counterLimit "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_counterLimit 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_counterLimit 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_counterLimit 5.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_counterLimit 5;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_delay "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_delay 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_delay 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_delay 10.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_delay 5;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_tankUpperControlLimit "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_tankUpperControlLimit 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_tankUpperControlLimit 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_tankUpperControlLimit 3800.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_tankUpperControlLimit 19;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_tankLowerControlLimit "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_tankLowerControlLimit 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_tankLowerControlLimit 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_tankLowerControlLimit 1400.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_tankLowerControlLimit 7;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN2_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN2_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN2_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN2_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN2_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN2_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN2_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN2_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN2_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN2_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN2_DiscardedTxMe_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN2_DiscardedTxMe_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN2_DiscardedTxMe_0000 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN2_DiscardedTxMe_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN2_DiscardedTxMe_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1489 Brake_OD_CAN2_DiscardedTxMe_0000 "Brake_OD_CAN2_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN2_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN2_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN2_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN2_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN2_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN2_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN2_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN2_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN2_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN2_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN1_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN1_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN1_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN1_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN1_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN1_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN1_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN1_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN1_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN1_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN1_DiscardedTxMe_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN1_DiscardedTxMe_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN1_DiscardedTxMe_0000 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN1_DiscardedTxMe_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN1_DiscardedTxMe_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1489 Brake_OD_CAN1_DiscardedTxMe_0000 "Brake_OD_CAN1_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN1_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN1_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN1_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN1_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN1_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN1_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN1_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN1_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN1_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN1_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_OdEntrySendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_OdEntrySendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_OdEntrySendInterval 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_OdEntrySendInterval 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_OdEntrySendInterval 50;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_HeartbeatInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_HeartbeatInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_HeartbeatInterval 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_HeartbeatInterval 100.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_HeartbeatInterval 100;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 Brake_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 Brake_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 Brake_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1489 Brake_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 Brake_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1553 100;
+BA_ "GenMsgCycleTime" BO_ 1809 100;
+BA_ "GenMsgCycleTime" BO_ 1873 100;
+BA_ "GenMsgCycleTime" BO_ 1937 100;
+BA_ "GenMsgCycleTime" BO_ 154 100;
+BA_ "GenMsgCycleTime" BO_ 410 100;
+BA_ "GenMsgCycleTime" BO_ 474 100;
+BA_ "GenMsgCycleTime" BO_ 538 100;
+BA_ "GenMsgCycleTime" BO_ 602 100;
+BA_ "GenSigStartValue" SG_ 602 PDU_LPCh9_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 602 PDU_LPCh8_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 602 PDU_LPCh3_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 602 PDU_LPCh2_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 602 PDU_LPCh10_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 602 PDU_LPCh1_Dutycycle 200;
+BA_ "GenMsgCycleTime" BO_ 666 100;
+BA_ "GenMsgCycleTime" BO_ 730 100;
+BA_ "GenSigStartValue" SG_ 730 PDU_D4_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 730 PDU_D3_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 730 PDU_D2_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 730 PDU_D1_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 730 PDU_HPCh2_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 730 PDU_HPCh1_Dutycycle 200;
+BA_ "GenMsgCycleTime" BO_ 794 100;
+BA_ "GenMsgCycleTime" BO_ 858 100;
+BA_ "GenMsgCycleTime" BO_ 922 100;
+BA_ "GenMsgCycleTime" BO_ 986 100;
+BA_ "GenMsgCycleTime" BO_ 1050 100;
+BA_ "GenMsgCycleTime" BO_ 1114 100;
+BA_ "GenMsgCycleTime" BO_ 1178 100;
+BA_ "GenMsgCycleTime" BO_ 1242 100;
+BA_ "GenMsgCycleTime" BO_ 1306 100;
+BA_ "GenMsgCycleTime" BO_ 1370 100;
+BA_ "GenMsgCycleTime" BO_ 1434 100;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CoolingPumpEnabled "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CoolingPumpEnabled 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CoolingPumpEnabled 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CoolingPumpEnabled 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CoolingPumpEnabled 1;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_LedCommands "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_LedCommands 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_LedCommands 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_LedCommands 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_LedCommands 1;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_projectXXEnabled "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_projectXXEnabled 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_projectXXEnabled 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_projectXXEnabled 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_projectXXEnabled 1;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_watchdogTimeout "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_watchdogTimeout 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_watchdogTimeout 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_watchdogTimeout 25.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_watchdogTimeout 25;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_statusSendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_statusSendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_statusSendInterval 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_statusSendInterval 20.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_statusSendInterval 20;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_currentReadInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_currentReadInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_currentReadInterval 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_currentReadInterval 100.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_currentReadInterval 100;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_batteryOvercurrent "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_batteryOvercurrent 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_batteryOvercurrent 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_batteryOvercurrent 1500.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_batteryOvercurrent 15;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_overTempCritical "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_overTempCritical 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_overTempCritical 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_overTempCritical 700.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_overTempCritical 70;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_overTempWarn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_overTempWarn 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_overTempWarn 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_overTempWarn 400.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_overTempWarn 40;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_batterVoltageCritical "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_batterVoltageCritical 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_batterVoltageCritical 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_batterVoltageCritical 2100.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_batterVoltageCritical 21.0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_batterVoltageLow "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_batterVoltageLow 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_batterVoltageLow 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_batterVoltageLow 2220.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_batterVoltageLow 22.2;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN2_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN2_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN2_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN2_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN2_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN2_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN2_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN2_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN2_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN2_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN2_DiscardedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN2_DiscardedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN2_DiscardedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN2_DiscardedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN2_DiscardedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN2_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN2_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN2_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN2_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN2_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN2_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN2_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN2_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN2_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN2_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN1_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN1_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN1_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN1_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN1_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN1_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN1_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN1_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN1_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN1_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN1_DiscardedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN1_DiscardedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN1_DiscardedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN1_DiscardedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN1_DiscardedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN1_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN1_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN1_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN1_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN1_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN1_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN1_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN1_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN1_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN1_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_OdEntrySendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_OdEntrySendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_OdEntrySendInterval 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_OdEntrySendInterval 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_OdEntrySendInterval 50;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_HeartbeatInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_HeartbeatInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_HeartbeatInterval 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_HeartbeatInterval 250.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_HeartbeatInterval 250;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1434 PDU_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1434 PDU_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1434 PDU_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1434 PDU_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1434 PDU_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1498 100;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CoolingPumpEnabled "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CoolingPumpEnabled 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CoolingPumpEnabled 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CoolingPumpEnabled 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CoolingPumpEnabled 1;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_LedCommands "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_LedCommands 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_LedCommands 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_LedCommands 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_LedCommands 1;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_projectXXEnabled "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_projectXXEnabled 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_projectXXEnabled 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_projectXXEnabled 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_projectXXEnabled 1;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_watchdogTimeout "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_watchdogTimeout 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_watchdogTimeout 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_watchdogTimeout 25.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_watchdogTimeout 25;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_statusSendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_statusSendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_statusSendInterval 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_statusSendInterval 20.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_statusSendInterval 20;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_currentReadInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_currentReadInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_currentReadInterval 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_currentReadInterval 100.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_currentReadInterval 100;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_batteryOvercurrent "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_batteryOvercurrent 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_batteryOvercurrent 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_batteryOvercurrent 1500.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_batteryOvercurrent 15;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_overTempCritical "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_overTempCritical 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_overTempCritical 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_overTempCritical 700.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_overTempCritical 70;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_overTempWarn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_overTempWarn 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_overTempWarn 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_overTempWarn 400.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_overTempWarn 40;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_batterVoltageCritical "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_batterVoltageCritical 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_batterVoltageCritical 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_batterVoltageCritical 2100.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_batterVoltageCritical 21.0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_batterVoltageLow "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_batterVoltageLow 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_batterVoltageLow 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_batterVoltageLow 2220.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_batterVoltageLow 22.2;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN2_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN2_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN2_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN2_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN2_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN2_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN2_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN2_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN2_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN2_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN2_DiscardedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN2_DiscardedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN2_DiscardedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN2_DiscardedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN2_DiscardedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN2_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN2_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN2_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN2_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN2_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN2_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN2_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN2_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN2_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN2_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN1_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN1_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN1_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN1_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN1_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN1_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN1_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN1_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN1_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN1_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN1_DiscardedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN1_DiscardedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN1_DiscardedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN1_DiscardedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN1_DiscardedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN1_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN1_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN1_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN1_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN1_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN1_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN1_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN1_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN1_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN1_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_OdEntrySendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_OdEntrySendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_OdEntrySendInterval 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_OdEntrySendInterval 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_OdEntrySendInterval 50;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_HeartbeatInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_HeartbeatInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_HeartbeatInterval 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_HeartbeatInterval 250.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_HeartbeatInterval 250;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1498 PDU_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1498 PDU_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1498 PDU_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1498 PDU_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1498 PDU_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1562 100;
+BA_ "GenMsgCycleTime" BO_ 1818 100;
+BA_ "GenMsgCycleTime" BO_ 1882 100;
+BA_ "GenMsgCycleTime" BO_ 1946 100;
+BA_ "GenMsgCycleTime" BO_ 162 100;
+BA_ "GenMsgCycleTime" BO_ 418 100;
+BA_ "GenMsgCycleTime" BO_ 482 100;
+BA_ "GenMsgCycleTime" BO_ 546 100;
+BA_ "GenMsgCycleTime" BO_ 610 100;
+BA_ "GenMsgCycleTime" BO_ 674 100;
+BA_ "GenMsgCycleTime" BO_ 738 100;
+BA_ "GenMsgCycleTime" BO_ 802 100;
+BA_ "GenMsgCycleTime" BO_ 866 100;
+BA_ "GenMsgCycleTime" BO_ 930 100;
+BA_ "GenMsgCycleTime" BO_ 994 100;
+BA_ "GenMsgCycleTime" BO_ 1058 100;
+BA_ "GenMsgCycleTime" BO_ 1122 100;
+BA_ "GenMsgCycleTime" BO_ 1186 100;
+BA_ "GenMsgCycleTime" BO_ 1250 100;
+BA_ "GenMsgCycleTime" BO_ 1314 100;
+BA_ "GenMsgCycleTime" BO_ 1378 100;
+BA_ "GenMsgCycleTime" BO_ 1442 100;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CanRestart "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CanRestart 2;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CanRestart 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CanRestart 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CanRestart 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_Reboot "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_Reboot 2;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_Reboot 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_Reboot 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_Reboot 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_Shutdown "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_Shutdown 2;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_Shutdown 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_Shutdown 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_Shutdown 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN2_DelayedTxM "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN2_DelayedTxM 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN2_DelayedTxM 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN2_DelayedTxM 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN2_DelayedTxM 0;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN2_DelayedTxM "TelemetryNode_OD_CAN2_DelayedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN2_ErrorStatu "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN2_ErrorStatu 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN2_ErrorStatu 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN2_ErrorStatu 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN2_ErrorStatu 0;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN2_ErrorStatu "TelemetryNode_OD_CAN2_ErrorStatus";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN2_DiscardedT "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN2_DiscardedT 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN2_DiscardedT 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN2_DiscardedT 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN2_DiscardedT 0;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN2_DiscardedT "TelemetryNode_OD_CAN2_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN2_autoErrorR "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN2_autoErrorR 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN2_autoErrorR 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN2_autoErrorR 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN2_autoErrorR 1;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN2_autoErrorR "TelemetryNode_OD_CAN2_autoErrorReset";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN2_lastErrorC "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN2_lastErrorC 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN2_lastErrorC 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN2_lastErrorC 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN2_lastErrorC 0;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN2_lastErrorC "TelemetryNode_OD_CAN2_lastErrorCode";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN1_DelayedTxM "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN1_DelayedTxM 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN1_DelayedTxM 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN1_DelayedTxM 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN1_DelayedTxM 0;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN1_DelayedTxM "TelemetryNode_OD_CAN1_DelayedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN1_ErrorStatu "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN1_ErrorStatu 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN1_ErrorStatu 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN1_ErrorStatu 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN1_ErrorStatu 0;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN1_ErrorStatu "TelemetryNode_OD_CAN1_ErrorStatus";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN1_DiscardedT "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN1_DiscardedT 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN1_DiscardedT 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN1_DiscardedT 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN1_DiscardedT 0;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN1_DiscardedT "TelemetryNode_OD_CAN1_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN1_autoErrorR "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN1_autoErrorR 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN1_autoErrorR 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN1_autoErrorR 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN1_autoErrorR 1;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN1_autoErrorR "TelemetryNode_OD_CAN1_autoErrorReset";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN1_lastErrorC "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN1_lastErrorC 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN1_lastErrorC 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN1_lastErrorC 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN1_lastErrorC 0;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_CAN1_lastErrorC "TelemetryNode_OD_CAN1_lastErrorCode";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_OdEntrySendInte "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_OdEntrySendInte 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_OdEntrySendInte 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_OdEntrySendInte 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_OdEntrySendInte 50;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_OdEntrySendInte "TelemetryNode_OD_OdEntrySendInterval";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_HeartbeatInterv "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_HeartbeatInterv 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_HeartbeatInterv 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_HeartbeatInterv 250.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_HeartbeatInterv 250;
+BA_ "SystemSignalLongSymbol" SG_ 1442 TelemetryNode_OD_HeartbeatInterv "TelemetryNode_OD_HeartbeatInterval";
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1442 TelemetryNode_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1442 TelemetryNode_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1442 TelemetryNode_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1442 TelemetryNode_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1442 TelemetryNode_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1506 100;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CanRestart "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CanRestart 2;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CanRestart 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CanRestart 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CanRestart 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_Reboot "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_Reboot 2;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_Reboot 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_Reboot 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_Reboot 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_Shutdown "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_Shutdown 2;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_Shutdown 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_Shutdown 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_Shutdown 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN2_Delay_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN2_Delay_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN2_Delay_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN2_Delay_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN2_Delay_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN2_Delay_0000 "TelemetryNode_OD_CAN2_DelayedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN2_Error_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN2_Error_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN2_Error_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN2_Error_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN2_Error_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN2_Error_0000 "TelemetryNode_OD_CAN2_ErrorStatus";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN2_Disca_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN2_Disca_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN2_Disca_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN2_Disca_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN2_Disca_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN2_Disca_0000 "TelemetryNode_OD_CAN2_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN2_autoE_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN2_autoE_0000 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN2_autoE_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN2_autoE_0000 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN2_autoE_0000 1;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN2_autoE_0000 "TelemetryNode_OD_CAN2_autoErrorReset";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN2_lastE_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN2_lastE_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN2_lastE_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN2_lastE_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN2_lastE_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN2_lastE_0000 "TelemetryNode_OD_CAN2_lastErrorCode";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN1_Delay_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN1_Delay_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN1_Delay_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN1_Delay_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN1_Delay_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN1_Delay_0000 "TelemetryNode_OD_CAN1_DelayedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN1_Error_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN1_Error_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN1_Error_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN1_Error_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN1_Error_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN1_Error_0000 "TelemetryNode_OD_CAN1_ErrorStatus";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN1_Disca_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN1_Disca_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN1_Disca_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN1_Disca_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN1_Disca_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN1_Disca_0000 "TelemetryNode_OD_CAN1_DiscardedTxMessages";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN1_autoE_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN1_autoE_0000 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN1_autoE_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN1_autoE_0000 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN1_autoE_0000 1;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN1_autoE_0000 "TelemetryNode_OD_CAN1_autoErrorReset";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN1_lastE_0000 "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN1_lastE_0000 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN1_lastE_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN1_lastE_0000 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN1_lastE_0000 0;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_CAN1_lastE_0000 "TelemetryNode_OD_CAN1_lastErrorCode";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_OdEntrySen_0000 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_OdEntrySen_0000 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_OdEntrySen_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_OdEntrySen_0000 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_OdEntrySen_0000 50;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_OdEntrySen_0000 "TelemetryNode_OD_OdEntrySendInterval";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_HeartbeatI_0000 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_HeartbeatI_0000 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_HeartbeatI_0000 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_HeartbeatI_0000 250.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_HeartbeatI_0000 250;
+BA_ "SystemSignalLongSymbol" SG_ 1506 TelemetryNode_OD_HeartbeatI_0000 "TelemetryNode_OD_HeartbeatInterval";
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1506 TelemetryNode_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1506 TelemetryNode_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1506 TelemetryNode_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1506 TelemetryNode_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1506 TelemetryNode_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1570 100;
+BA_ "GenMsgCycleTime" BO_ 1826 100;
+BA_ "GenMsgCycleTime" BO_ 1890 100;
+BA_ "GenMsgCycleTime" BO_ 1954 100;
+VAL_ 386 Sensor_TX_PodState_Target 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
+VAL_ 386 Sensor_TX_PodState_Last 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
+VAL_ 386 Sensor_TX_PodState 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
+VAL_ 2684354556 OpticalSensor_TX_LEDStatus 2 "FLASH" 1 "ON" 0 "OFF" ;
+VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SensorF" 2 "SensorR" 17 "BrakeF" 18 "BrakeR" 26 "PDU" 10 "HVCU" 25 "HVTU" 34 "TelemetryNode" ;
+VAL_ 2 CANzero_NMT_State 1 "Start Remote Node" 2 "Stop Remote Node" 128 "Enter Pre-Operational" 129 "Reset" ;
+VAL_ 385 Sensor_TX_PodState_Target 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
+VAL_ 385 Sensor_TX_PodState_Last 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
+VAL_ 385 Sensor_TX_PodState 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
+VAL_ 513 Sensor_TX_PreopHVCUT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_PreopPDUT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_PreopBrakeRT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_PreopBrakeFT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_PreopSensorRT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_EnableSensorRT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_EnablePDUT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_EnableHVCUT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_EnableBrakeRT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_EnableBrakeFT 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_SetHVTransition 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_PreopTransition 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_LaunchStartTransition 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_LaunchSetupTransition 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_HWEnableTransition 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_ErrorResetTransition 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_EnableTransition 1 "Transition" 0 "No Transitions" ;
+VAL_ 513 Sensor_TX_BrakesTransition 1 "Transition" 0 "No Transitions" ;
+VAL_ 1409 Sensor_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
+VAL_ 1409 Sensor_SDO_ID 0 "Reserved" ;
+VAL_ 1473 Sensor_SDO_ID 0 "Reserved" ;
+VAL_ 1537 Sensor_SDO_ID 0 "Reserved" ;
+VAL_ 1793 Sensor_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
+VAL_ 514 Sensor_TX_ErrorFlag 1 "Error" 0 "No Error" ;
+VAL_ 514 Sensor_TX_Enabled 1 "Enabled" 0 "Disabled" ;
+VAL_ 514 Sensor_TX_TrajectorySet 2 "Invalid set" 1 "Set" 0 "Not set" ;
+VAL_ 514 Sensor_TX_RunState 4 "Idle not ready" 3 "Launch Abort" 2 "Finished" 1 "Ready to Launch" 0 "Launching" ;
+VAL_ 706 Sensor_RX_ErrorReset 1 "Reset" 0 "No Reset" ;
+VAL_ 706 Sensor_RX_Enable 1 "Enable" 0 "Disable" ;
+VAL_ 706 Sensor_RX_LaunchComm 2 "No Start" 1 "Abort Launch" 0 "Start Launch" ;
+VAL_ 145 Brake_E5_retractUnsuccesful_open 0 "Ok" 1 "ERR" ;
+VAL_ 145 Brake_E4_retractUnsuccesful_notE 0 "Ok" 1 "ERR" ;
+VAL_ 145 Brake_E3_retractUnsuccesful_erro 0 "Ok" 1 "ERR" ;
+VAL_ 145 Brake_E2_commWatchdogTimeout 0 "Ok" 1 "ERR" ;
+VAL_ 145 Brake_E1_pressureTooLow 0 "Ok" 1 "ERR" ;
+VAL_ 145 Brake_E0_pressureTooHigh 0 "Ok" 1 "ERR" ;
+VAL_ 145 Brake_W3_externalError 0 "Ok" 1 "WARN" ;
+VAL_ 145 Brake_W2_enableWithAnError 0 "Ok" 1 "WARN" ;
+VAL_ 145 Brake_W1_highPressureRetractingC 0 "Ok" 1 "WARN" ;
+VAL_ 145 Brake_W0_highPressureActingChamb 0 "Ok" 1 "WARN" ;
+VAL_ 401 Brake_TX_SDC_Input 1 "Closed" 0 "Open" ;
+VAL_ 401 Brake_TX_ErrorFlag 1 "Error" 0 "No Error" ;
+VAL_ 401 Brake_TX_Enabled 1 "Enabled" 0 "Disabled" ;
+VAL_ 401 Brake_TX_Status 2 "EngagedService" 1 "EngagedEmergency" 0 "Disengaged" ;
+VAL_ 465 Brake_RX_Engage 2 "EngageService" 1 "EngageEmergency" 0 "Disengage" ;
+VAL_ 465 Brake_RX_Enable 1 "Enable" 0 "Disable" ;
+VAL_ 465 Brake_RX_ErrorReset 1 "Reset" 0 "No Reset" ;
+VAL_ 1425 Brake_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1425 Brake_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1425 Brake_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1425 Brake_OD_CAN2_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1425 Brake_OD_CAN1_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1425 Brake_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1425 Brake_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1425 Brake_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1425 Brake_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1425 Brake_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1425 Brake_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
+VAL_ 1425 Brake_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" ;
+VAL_ 1489 Brake_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1489 Brake_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1489 Brake_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1489 Brake_OD_CAN2_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1489 Brake_OD_CAN1_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1489 Brake_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1489 Brake_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1489 Brake_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1489 Brake_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1489 Brake_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1489 Brake_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" ;
+VAL_ 1553 Brake_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" ;
+VAL_ 1809 Brake_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
+VAL_ 154 PDU_E4_watchdogStateMachine 0 "Ok" 1 "ERR" ;
+VAL_ 154 PDU_E3_batterTempCritical 0 "Ok" 1 "ERR" ;
+VAL_ 154 PDU_E2_batteryOvercurrent 0 "Ok" 1 "ERR" ;
+VAL_ 154 PDU_E1_batterVoltageCritical 0 "Ok" 1 "ERR" ;
+VAL_ 154 PDU_E0_OtherError 0 "Ok" 1 "ERR" ;
+VAL_ 154 PDU_W2_batterTempHigh 0 "Ok" 1 "WARN" ;
+VAL_ 154 PDU_W1_batterVoltageLow 0 "Ok" 1 "WARN" ;
+VAL_ 154 PDU_W0_OtherWarning 0 "Ok" 1 "WARN" ;
+VAL_ 410 PDU_TX_PEHWEnabled 1 "Enabled" 0 "Disabled" ;
+VAL_ 410 PDU_TX_ErrorFlag 1 "Error" 0 "No Error" ;
+VAL_ 410 PDU_TX_Enabled 1 "Enabled" 0 "Disabled" ;
+VAL_ 474 PDU_RX_PEHWEnable 1 "Enable" 0 "Disable" ;
+VAL_ 474 PDU_RX_ErrorReset 1 "Reset" 0 "No Reset" ;
+VAL_ 474 PDU_RX_Enable 1 "Enable" 0 "Disable" ;
+VAL_ 1178 PDU_LPCh1_State 3 "External Voltage" 2 "Output Short Circuit" 1 "Status Change Pending" 0 "OK" ;
+VAL_ 1434 PDU_OD_CoolingPumpEnabled 0 "Disable" 1 "Enable" ;
+VAL_ 1434 PDU_OD_LedCommands 0 "None" 1 "whipeanimation" 2 "mugreenanimation" 3 "rainbowanimation" 4 "flashlights" 5 "snakeanimation" 6 "blinkpink" 7 "multiwhipe" 8 "Emergency" ;
+VAL_ 1434 PDU_OD_projectXXEnabled 0 "Disable" 1 "Enable" ;
+VAL_ 1434 PDU_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1434 PDU_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1434 PDU_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1434 PDU_OD_CAN2_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1434 PDU_OD_CAN1_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1434 PDU_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1434 PDU_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1434 PDU_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1434 PDU_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1434 PDU_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1434 PDU_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
+VAL_ 1434 PDU_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "batterVoltageLow" 2049 "batterVoltageCritical" 2050 "overTempWarn" 2051 "overTempCritical" 2128 "batteryOvercurrent" 2304 "currentReadInterval" 2305 "statusSendInterval" 2306 "watchdogTimeout" 2560 "projectXXEnabled" 2562 "LedCommands" 2816 "CoolingPumpEnabled" ;
+VAL_ 1498 PDU_OD_CoolingPumpEnabled 0 "Disable" 1 "Enable" ;
+VAL_ 1498 PDU_OD_LedCommands 0 "None" 1 "whipeanimation" 2 "mugreenanimation" 3 "rainbowanimation" 4 "flashlights" 5 "snakeanimation" 6 "blinkpink" 7 "multiwhipe" 8 "Emergency" ;
+VAL_ 1498 PDU_OD_projectXXEnabled 0 "Disable" 1 "Enable" ;
+VAL_ 1498 PDU_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1498 PDU_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1498 PDU_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1498 PDU_OD_CAN2_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1498 PDU_OD_CAN1_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1498 PDU_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1498 PDU_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1498 PDU_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1498 PDU_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1498 PDU_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1498 PDU_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "batterVoltageLow" 2049 "batterVoltageCritical" 2050 "overTempWarn" 2051 "overTempCritical" 2128 "batteryOvercurrent" 2304 "currentReadInterval" 2305 "statusSendInterval" 2306 "watchdogTimeout" 2560 "projectXXEnabled" 2562 "LedCommands" 2816 "CoolingPumpEnabled" ;
+VAL_ 1562 PDU_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "batterVoltageLow" 2049 "batterVoltageCritical" 2050 "overTempWarn" 2051 "overTempCritical" 2128 "batteryOvercurrent" 2304 "currentReadInterval" 2305 "statusSendInterval" 2306 "watchdogTimeout" 2560 "projectXXEnabled" 2562 "LedCommands" 2816 "CoolingPumpEnabled" ;
+VAL_ 1818 PDU_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
+VAL_ 162 TelemetryNode_E0_OtherError 0 "Ok" 1 "ERR" ;
+VAL_ 162 TelemetryNode_W0_OtherWarning 0 "Ok" 1 "WARN" ;
+VAL_ 482 TelemetryNode_RX_Shutdown 2 "Reboot" 1 "Shutdown" 0 "None" ;
+VAL_ 1442 TelemetryNode_OD_CanRestart 0 "None" 1 "Restart CAN" ;
+VAL_ 1442 TelemetryNode_OD_Reboot 0 "None" 1 "Reboot" ;
+VAL_ 1442 TelemetryNode_OD_Shutdown 0 "None" 1 "Shutdown" ;
+VAL_ 1442 TelemetryNode_OD_CAN2_ErrorStatu 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1442 TelemetryNode_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1442 TelemetryNode_OD_CAN2_autoErrorR 0 "Disabled" 1 "Enabled" ;
+VAL_ 1442 TelemetryNode_OD_CAN2_lastErrorC 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1442 TelemetryNode_OD_CAN1_ErrorStatu 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1442 TelemetryNode_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1442 TelemetryNode_OD_CAN1_autoErrorR 0 "Disabled" 1 "Enabled" ;
+VAL_ 1442 TelemetryNode_OD_CAN1_lastErrorC 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1442 TelemetryNode_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1442 TelemetryNode_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1442 TelemetryNode_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
+VAL_ 1442 TelemetryNode_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "Shutdown" 2049 "Reboot" 2050 "CanRestart" ;
+VAL_ 1506 TelemetryNode_OD_CanRestart 0 "None" 1 "Restart CAN" ;
+VAL_ 1506 TelemetryNode_OD_Reboot 0 "None" 1 "Reboot" ;
+VAL_ 1506 TelemetryNode_OD_Shutdown 0 "None" 1 "Shutdown" ;
+VAL_ 1506 TelemetryNode_OD_CAN2_Error_0000 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1506 TelemetryNode_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1506 TelemetryNode_OD_CAN2_autoE_0000 0 "Disabled" 1 "Enabled" ;
+VAL_ 1506 TelemetryNode_OD_CAN2_lastE_0000 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1506 TelemetryNode_OD_CAN1_Error_0000 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1506 TelemetryNode_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1506 TelemetryNode_OD_CAN1_autoE_0000 0 "Disabled" 1 "Enabled" ;
+VAL_ 1506 TelemetryNode_OD_CAN1_lastE_0000 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1506 TelemetryNode_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1506 TelemetryNode_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1506 TelemetryNode_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "Shutdown" 2049 "Reboot" 2050 "CanRestart" ;
+VAL_ 1570 TelemetryNode_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "Shutdown" 2049 "Reboot" 2050 "CanRestart" ;
+VAL_ 1826 TelemetryNode_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
+
+
+

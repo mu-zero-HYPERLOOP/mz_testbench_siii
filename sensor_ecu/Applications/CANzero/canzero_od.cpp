@@ -1,7 +1,7 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'database_gen.dbc' on 14:21:06 28.04.2023.
- * It contains the object dictionary for the node 'SENSOR'.
+ * This source file was generated from 'pod2023_gen.dbc' on 18:12:39 04.05.2023.
+ * It contains the object dictionary for the node 'SensorF'.
  *
  * Florian Keck
  * florian.keck@mu-zero.de
@@ -13,47 +13,55 @@
 /**************************************************************************
 * Definition of all OD variables with default values from database.       *
 ***************************************************************************/
-volatile uint8_t  OD_NodeID                   = can::signals::SENSOR_OD_NodeID::CANzero_SDO_Default;
-volatile uint8_t  OD_NodeStatus               = can::signals::SENSOR_OD_NodeStatus::CANzero_SDO_Default;
-volatile uint16_t OD_ProtocolVersion          = can::signals::SENSOR_OD_ProtocolVersion::CANzero_SDO_Default;
-volatile uint16_t OD_StackVersion             = can::signals::SENSOR_OD_StackVersion::CANzero_SDO_Default;
-volatile uint16_t OD_DbcVersion               = can::signals::SENSOR_OD_DbcVersion::CANzero_SDO_Default;
-volatile uint16_t OD_HeartbeatInterval        = can::signals::SENSOR_OD_HeartbeatInterval::CANzero_SDO_Default;
-volatile uint8_t  OD_SendOdOnBootup           = can::signals::SENSOR_OD_SendOdOnBootup::CANzero_SDO_Default;
-volatile uint16_t OD_OdEntrySendInterval      = can::signals::SENSOR_OD_OdEntrySendInterval::CANzero_SDO_Default;
-volatile float    OD_CpuUsage                 = can::signals::SENSOR_OD_CpuUsage::CANzero_SDO_Default;
-volatile uint32_t OD_MemFree                  = can::signals::SENSOR_OD_MemFree::CANzero_SDO_Default;
-volatile float    OD_BoardTemp                = can::signals::SENSOR_OD_BoardTemp::CANzero_SDO_Default;
-volatile float    OD_InputVoltage             = can::signals::SENSOR_OD_InputVoltage::CANzero_SDO_Default;
-volatile uint32_t OD_runtime                  = can::signals::SENSOR_OD_runtime::CANzero_SDO_Default;
-volatile uint8_t  OD_SdcIn                    = can::signals::SENSOR_OD_SdcIn::CANzero_SDO_Default;
-volatile uint8_t  OD_SdcOut                   = can::signals::SENSOR_OD_SdcOut::CANzero_SDO_Default;
-volatile uint64_t OD_ChipUID1                 = can::signals::SENSOR_OD_ChipUID1::CANzero_SDO_Default;
-volatile uint64_t OD_ChipUID2                 = can::signals::SENSOR_OD_ChipUID2::CANzero_SDO_Default;
-volatile uint32_t OD_BuildDate                = can::signals::SENSOR_OD_BuildDate::CANzero_SDO_Default;
-volatile uint32_t OD_BuildTime                = can::signals::SENSOR_OD_BuildTime::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN1_TxErrCnt            = can::signals::SENSOR_OD_CAN1_TxErrCnt::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN1_RxErrCnt            = can::signals::SENSOR_OD_CAN1_RxErrCnt::CANzero_SDO_Default;
-volatile uint32_t OD_CAN1_lastErrorCode       = can::signals::SENSOR_OD_CAN1_lastErrorCode::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN1_autoErrorReset      = can::signals::SENSOR_OD_CAN1_autoErrorReset::CANzero_SDO_Default;
-volatile uint16_t OD_CAN1_Baudrate            = can::signals::SENSOR_OD_CAN1_Baudrate::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN1_Status              = can::signals::SENSOR_OD_CAN1_Status::CANzero_SDO_Default;
-volatile uint32_t OD_CAN1_DiscardedTxMessages = can::signals::SENSOR_OD_CAN1_DiscardedTxMessages::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN1_ErrorStatus         = can::signals::SENSOR_OD_CAN1_ErrorStatus::CANzero_SDO_Default;
-volatile uint32_t OD_CAN1_DelayedTxMessages   = can::signals::SENSOR_OD_CAN1_DelayedTxMessages::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN2_TxErrCnt            = can::signals::SENSOR_OD_CAN2_TxErrCnt::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN2_RxErrCnt            = can::signals::SENSOR_OD_CAN2_RxErrCnt::CANzero_SDO_Default;
-volatile uint32_t OD_CAN2_lastErrorCode       = can::signals::SENSOR_OD_CAN2_lastErrorCode::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN2_autoErrorReset      = can::signals::SENSOR_OD_CAN2_autoErrorReset::CANzero_SDO_Default;
-volatile uint16_t OD_CAN2_Baudrate            = can::signals::SENSOR_OD_CAN2_Baudrate::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN2_Status              = can::signals::SENSOR_OD_CAN2_Status::CANzero_SDO_Default;
-volatile uint32_t OD_CAN2_DiscardedTxMessages = can::signals::SENSOR_OD_CAN2_DiscardedTxMessages::CANzero_SDO_Default;
-volatile uint8_t  OD_CAN2_ErrorStatus         = can::signals::SENSOR_OD_CAN2_ErrorStatus::CANzero_SDO_Default;
-volatile uint32_t OD_CAN2_DelayedTxMessages   = can::signals::SENSOR_OD_CAN2_DelayedTxMessages::CANzero_SDO_Default;
-volatile uint8_t  OD_IMU_number               = can::signals::SENSOR_OD_IMU_number::CANzero_SDO_Default;
-volatile float    OD_IMU1_Temperature         = can::signals::SENSOR_OD_IMU1_Temperature::CANzero_SDO_Default;
-volatile float    OD_IMU2_Temperature         = can::signals::SENSOR_OD_IMU2_Temperature::CANzero_SDO_Default;
-volatile float    OD_IMU3_Temperature         = can::signals::SENSOR_OD_IMU3_Temperature::CANzero_SDO_Default;
+volatile uint8_t  OD_NodeID                   = can::signals::SensorF_OD_NodeID::CANzero_SDO_Default;
+volatile uint8_t  OD_NodeStatus               = can::signals::SensorF_OD_NodeStatus::CANzero_SDO_Default;
+volatile uint16_t OD_ProtocolVersion          = can::signals::SensorF_OD_ProtocolVersion::CANzero_SDO_Default;
+volatile uint16_t OD_StackVersion             = can::signals::SensorF_OD_StackVersion::CANzero_SDO_Default;
+volatile uint16_t OD_DbcVersion               = can::signals::SensorF_OD_DbcVersion::CANzero_SDO_Default;
+volatile uint16_t OD_HeartbeatInterval        = can::signals::SensorF_OD_HeartbeatInterval::CANzero_SDO_Default;
+volatile uint8_t  OD_SendOdOnBootup           = can::signals::SensorF_OD_SendOdOnBootup::CANzero_SDO_Default;
+volatile uint16_t OD_OdEntrySendInterval      = can::signals::SensorF_OD_OdEntrySendInterval::CANzero_SDO_Default;
+volatile float    OD_CpuUsage                 = can::signals::SensorF_OD_CpuUsage::CANzero_SDO_Default;
+volatile uint32_t OD_MemFree                  = can::signals::SensorF_OD_MemFree::CANzero_SDO_Default;
+volatile float    OD_BoardTemp                = can::signals::SensorF_OD_BoardTemp::CANzero_SDO_Default;
+volatile float    OD_InputVoltage             = can::signals::SensorF_OD_InputVoltage::CANzero_SDO_Default;
+volatile uint32_t OD_runtime                  = can::signals::SensorF_OD_runtime::CANzero_SDO_Default;
+volatile uint8_t  OD_SdcIn                    = can::signals::SensorF_OD_SdcIn::CANzero_SDO_Default;
+volatile uint8_t  OD_SdcOut                   = can::signals::SensorF_OD_SdcOut::CANzero_SDO_Default;
+volatile uint64_t OD_ChipUID1                 = can::signals::SensorF_OD_ChipUID1::CANzero_SDO_Default;
+volatile uint64_t OD_ChipUID2                 = can::signals::SensorF_OD_ChipUID2::CANzero_SDO_Default;
+volatile uint32_t OD_BuildDate                = can::signals::SensorF_OD_BuildDate::CANzero_SDO_Default;
+volatile uint32_t OD_BuildTime                = can::signals::SensorF_OD_BuildTime::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN1_TxErrCnt            = can::signals::SensorF_OD_CAN1_TxErrCnt::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN1_RxErrCnt            = can::signals::SensorF_OD_CAN1_RxErrCnt::CANzero_SDO_Default;
+volatile uint32_t OD_CAN1_lastErrorCode       = can::signals::SensorF_OD_CAN1_lastErrorCode::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN1_autoErrorReset      = can::signals::SensorF_OD_CAN1_autoErrorReset::CANzero_SDO_Default;
+volatile uint16_t OD_CAN1_Baudrate            = can::signals::SensorF_OD_CAN1_Baudrate::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN1_Status              = can::signals::SensorF_OD_CAN1_Status::CANzero_SDO_Default;
+volatile uint32_t OD_CAN1_DiscardedTxMessages = can::signals::SensorF_OD_CAN1_DiscardedTxMessages::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN1_ErrorStatus         = can::signals::SensorF_OD_CAN1_ErrorStatus::CANzero_SDO_Default;
+volatile uint32_t OD_CAN1_DelayedTxMessages   = can::signals::SensorF_OD_CAN1_DelayedTxMessages::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN2_TxErrCnt            = can::signals::SensorF_OD_CAN2_TxErrCnt::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN2_RxErrCnt            = can::signals::SensorF_OD_CAN2_RxErrCnt::CANzero_SDO_Default;
+volatile uint32_t OD_CAN2_lastErrorCode       = can::signals::SensorF_OD_CAN2_lastErrorCode::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN2_autoErrorReset      = can::signals::SensorF_OD_CAN2_autoErrorReset::CANzero_SDO_Default;
+volatile uint16_t OD_CAN2_Baudrate            = can::signals::SensorF_OD_CAN2_Baudrate::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN2_Status              = can::signals::SensorF_OD_CAN2_Status::CANzero_SDO_Default;
+volatile uint32_t OD_CAN2_DiscardedTxMessages = can::signals::SensorF_OD_CAN2_DiscardedTxMessages::CANzero_SDO_Default;
+volatile uint8_t  OD_CAN2_ErrorStatus         = can::signals::SensorF_OD_CAN2_ErrorStatus::CANzero_SDO_Default;
+volatile uint32_t OD_CAN2_DelayedTxMessages   = can::signals::SensorF_OD_CAN2_DelayedTxMessages::CANzero_SDO_Default;
+volatile float    OD_samplingInterval         = can::signals::SensorF_OD_samplingInterval::CANzero_SDO_Default;
+volatile uint8_t  OD_TelemetryCommands        = can::signals::SensorF_OD_TelemetryCommands::CANzero_SDO_Default;
+volatile uint8_t  OD_StateMachineInterval     = can::signals::SensorF_OD_StateMachineInterval::CANzero_SDO_Default;
+volatile uint8_t  OD_StateMachineActivate     = can::signals::SensorF_OD_StateMachineActivate::CANzero_SDO_Default;
+volatile uint8_t  OD_HVBatteryMode            = can::signals::SensorF_OD_HVBatteryMode::CANzero_SDO_Default;
+volatile float    OD_EncoderWheelDiameter     = can::signals::SensorF_OD_EncoderWheelDiameter::CANzero_SDO_Default;
+volatile uint8_t  OD_EncoderResetPosition     = can::signals::SensorF_OD_EncoderResetPosition::CANzero_SDO_Default;
+volatile uint8_t  OD_SetReset                 = can::signals::SensorF_OD_SetReset::CANzero_SDO_Default;
+volatile uint8_t  OD_IMU_number               = can::signals::SensorF_OD_IMU_number::CANzero_SDO_Default;
+volatile float    OD_IMU1_Temperature         = can::signals::SensorF_OD_IMU1_Temperature::CANzero_SDO_Default;
+volatile float    OD_IMU2_Temperature         = can::signals::SensorF_OD_IMU2_Temperature::CANzero_SDO_Default;
+volatile float    OD_IMU3_Temperature         = can::signals::SensorF_OD_IMU3_Temperature::CANzero_SDO_Default;
 
 
 /**************************************************************************
@@ -96,6 +104,14 @@ osMutexId_t mutex_OD_CAN2_Status              = osMutexNew(NULL);
 osMutexId_t mutex_OD_CAN2_DiscardedTxMessages = osMutexNew(NULL);
 osMutexId_t mutex_OD_CAN2_ErrorStatus         = osMutexNew(NULL);
 osMutexId_t mutex_OD_CAN2_DelayedTxMessages   = osMutexNew(NULL);
+osMutexId_t mutex_OD_samplingInterval         = osMutexNew(NULL);
+osMutexId_t mutex_OD_TelemetryCommands        = osMutexNew(NULL);
+osMutexId_t mutex_OD_StateMachineInterval     = osMutexNew(NULL);
+osMutexId_t mutex_OD_StateMachineActivate     = osMutexNew(NULL);
+osMutexId_t mutex_OD_HVBatteryMode            = osMutexNew(NULL);
+osMutexId_t mutex_OD_EncoderWheelDiameter     = osMutexNew(NULL);
+osMutexId_t mutex_OD_EncoderResetPosition     = osMutexNew(NULL);
+osMutexId_t mutex_OD_SetReset                 = osMutexNew(NULL);
 osMutexId_t mutex_OD_IMU_number               = osMutexNew(NULL);
 osMutexId_t mutex_OD_IMU1_Temperature         = osMutexNew(NULL);
 osMutexId_t mutex_OD_IMU2_Temperature         = osMutexNew(NULL);
@@ -106,186 +122,218 @@ osMutexId_t mutex_OD_IMU3_Temperature         = osMutexNew(NULL);
 * Functions to handle a SDO download and upload request.                  *
 ***************************************************************************/
 void handleSDORequestDownload(const RxMessage& rxMsgSdoReq) {
-    can::Message<can::messages::SENSOR_SDO_Req_Down> msgSdoReq(rxMsgSdoReq);
-    uint16_t sdoId = msgSdoReq.get<can::signals::SENSOR_SDO_ID>();
+    can::Message<can::messages::SensorF_SDO_Req_Down> msgSdoReq(rxMsgSdoReq);
+    uint16_t sdoId = msgSdoReq.get<can::signals::SensorF_SDO_ID>();
     handleSDORequestDownloadBySDOID(sdoId);
 }
 void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {    
-    can::Message<can::messages::SENSOR_SDO_Resp> msgSdoResp;
-    uint8_t respCode = can::signals::SENSOR_SDO_RespCode::ERR_NON_EXISTING_OBJECT;
+    can::Message<can::messages::SensorF_SDO_Resp> msgSdoResp;
+    uint8_t respCode = can::signals::SensorF_SDO_RespCode::ERR_NON_EXISTING_OBJECT;
 
     switch (sdoId) {
         case 0x1:    // OD_NodeID
-            msgSdoResp.set<can::signals::SENSOR_OD_NodeID>(OD_NodeID_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_NodeID>(OD_NodeID_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x2:    // OD_NodeStatus
-            msgSdoResp.set<can::signals::SENSOR_OD_NodeStatus>(OD_NodeStatus_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_NodeStatus>(OD_NodeStatus_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x3:    // OD_ProtocolVersion
-            msgSdoResp.set<can::signals::SENSOR_OD_ProtocolVersion>(OD_ProtocolVersion_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_ProtocolVersion>(OD_ProtocolVersion_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x4:    // OD_StackVersion
-            msgSdoResp.set<can::signals::SENSOR_OD_StackVersion>(OD_StackVersion_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_StackVersion>(OD_StackVersion_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x5:    // OD_DbcVersion
-            msgSdoResp.set<can::signals::SENSOR_OD_DbcVersion>(OD_DbcVersion_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_DbcVersion>(OD_DbcVersion_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x10:    // OD_HeartbeatInterval
-            msgSdoResp.set<can::signals::SENSOR_OD_HeartbeatInterval>(OD_HeartbeatInterval_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_HeartbeatInterval>(OD_HeartbeatInterval_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x20:    // OD_SendOdOnBootup
-            msgSdoResp.set<can::signals::SENSOR_OD_SendOdOnBootup>(OD_SendOdOnBootup_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_SendOdOnBootup>(OD_SendOdOnBootup_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x21:    // OD_OdEntrySendInterval
-            msgSdoResp.set<can::signals::SENSOR_OD_OdEntrySendInterval>(OD_OdEntrySendInterval_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_OdEntrySendInterval>(OD_OdEntrySendInterval_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x410:    // OD_CpuUsage
-            msgSdoResp.set<can::signals::SENSOR_OD_CpuUsage>(OD_CpuUsage_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CpuUsage>(OD_CpuUsage_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x411:    // OD_MemFree
-            msgSdoResp.set<can::signals::SENSOR_OD_MemFree>(OD_MemFree_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_MemFree>(OD_MemFree_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x412:    // OD_BoardTemp
-            msgSdoResp.set<can::signals::SENSOR_OD_BoardTemp>(OD_BoardTemp_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_BoardTemp>(OD_BoardTemp_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x413:    // OD_InputVoltage
-            msgSdoResp.set<can::signals::SENSOR_OD_InputVoltage>(OD_InputVoltage_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_InputVoltage>(OD_InputVoltage_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x414:    // OD_runtime
-            msgSdoResp.set<can::signals::SENSOR_OD_runtime>(OD_runtime_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_runtime>(OD_runtime_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x415:    // OD_SdcIn
-            msgSdoResp.set<can::signals::SENSOR_OD_SdcIn>(OD_SdcIn_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_SdcIn>(OD_SdcIn_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x416:    // OD_SdcOut
-            msgSdoResp.set<can::signals::SENSOR_OD_SdcOut>(OD_SdcOut_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_SdcOut>(OD_SdcOut_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x420:    // OD_ChipUID1
-            msgSdoResp.set<can::signals::SENSOR_OD_ChipUID1>(OD_ChipUID1_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_ChipUID1>(OD_ChipUID1_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x421:    // OD_ChipUID2
-            msgSdoResp.set<can::signals::SENSOR_OD_ChipUID2>(OD_ChipUID2_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_ChipUID2>(OD_ChipUID2_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x430:    // OD_BuildDate
-            msgSdoResp.set<can::signals::SENSOR_OD_BuildDate>(OD_BuildDate_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_BuildDate>(OD_BuildDate_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x431:    // OD_BuildTime
-            msgSdoResp.set<can::signals::SENSOR_OD_BuildTime>(OD_BuildTime_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_BuildTime>(OD_BuildTime_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x450:    // OD_CAN1_TxErrCnt
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_TxErrCnt>(OD_CAN1_TxErrCnt_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_TxErrCnt>(OD_CAN1_TxErrCnt_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x451:    // OD_CAN1_RxErrCnt
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_RxErrCnt>(OD_CAN1_RxErrCnt_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_RxErrCnt>(OD_CAN1_RxErrCnt_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x452:    // OD_CAN1_lastErrorCode
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_lastErrorCode>(OD_CAN1_lastErrorCode_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_lastErrorCode>(OD_CAN1_lastErrorCode_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x453:    // OD_CAN1_autoErrorReset
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_autoErrorReset>(OD_CAN1_autoErrorReset_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_autoErrorReset>(OD_CAN1_autoErrorReset_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x454:    // OD_CAN1_Baudrate
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_Baudrate>(OD_CAN1_Baudrate_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_Baudrate>(OD_CAN1_Baudrate_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x456:    // OD_CAN1_Status
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_Status>(OD_CAN1_Status_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_Status>(OD_CAN1_Status_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x457:    // OD_CAN1_DiscardedTxMessages
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_DiscardedTxMessages>(OD_CAN1_DiscardedTxMessages_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_DiscardedTxMessages>(OD_CAN1_DiscardedTxMessages_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x458:    // OD_CAN1_ErrorStatus
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_ErrorStatus>(OD_CAN1_ErrorStatus_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_ErrorStatus>(OD_CAN1_ErrorStatus_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x459:    // OD_CAN1_DelayedTxMessages
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_DelayedTxMessages>(OD_CAN1_DelayedTxMessages_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_DelayedTxMessages>(OD_CAN1_DelayedTxMessages_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x460:    // OD_CAN2_TxErrCnt
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_TxErrCnt>(OD_CAN2_TxErrCnt_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_TxErrCnt>(OD_CAN2_TxErrCnt_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x461:    // OD_CAN2_RxErrCnt
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_RxErrCnt>(OD_CAN2_RxErrCnt_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_RxErrCnt>(OD_CAN2_RxErrCnt_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x462:    // OD_CAN2_lastErrorCode
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_lastErrorCode>(OD_CAN2_lastErrorCode_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_lastErrorCode>(OD_CAN2_lastErrorCode_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x463:    // OD_CAN2_autoErrorReset
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_autoErrorReset>(OD_CAN2_autoErrorReset_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_autoErrorReset>(OD_CAN2_autoErrorReset_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x464:    // OD_CAN2_Baudrate
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_Baudrate>(OD_CAN2_Baudrate_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_Baudrate>(OD_CAN2_Baudrate_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x466:    // OD_CAN2_Status
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_Status>(OD_CAN2_Status_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_Status>(OD_CAN2_Status_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x467:    // OD_CAN2_DiscardedTxMessages
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_DiscardedTxMessages>(OD_CAN2_DiscardedTxMessages_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_DiscardedTxMessages>(OD_CAN2_DiscardedTxMessages_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x468:    // OD_CAN2_ErrorStatus
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_ErrorStatus>(OD_CAN2_ErrorStatus_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_ErrorStatus>(OD_CAN2_ErrorStatus_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0x469:    // OD_CAN2_DelayedTxMessages
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_DelayedTxMessages>(OD_CAN2_DelayedTxMessages_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_DelayedTxMessages>(OD_CAN2_DelayedTxMessages_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0x800:    // OD_samplingInterval
+            msgSdoResp.set<can::signals::SensorF_OD_samplingInterval>(OD_samplingInterval_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0x900:    // OD_TelemetryCommands
+            msgSdoResp.set<can::signals::SensorF_OD_TelemetryCommands>(OD_TelemetryCommands_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0x901:    // OD_StateMachineInterval
+            msgSdoResp.set<can::signals::SensorF_OD_StateMachineInterval>(OD_StateMachineInterval_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0x902:    // OD_StateMachineActivate
+            msgSdoResp.set<can::signals::SensorF_OD_StateMachineActivate>(OD_StateMachineActivate_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0x903:    // OD_HVBatteryMode
+            msgSdoResp.set<can::signals::SensorF_OD_HVBatteryMode>(OD_HVBatteryMode_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0x904:    // OD_EncoderWheelDiameter
+            msgSdoResp.set<can::signals::SensorF_OD_EncoderWheelDiameter>(OD_EncoderWheelDiameter_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0x905:    // OD_EncoderResetPosition
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_WRITE_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_SDO_ID>(0x905);
+            break;
+        case 0x910:    // OD_SetReset
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_WRITE_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_SDO_ID>(0x910);
             break;
         case 0xA20:    // OD_IMU_number
-            msgSdoResp.set<can::signals::SENSOR_OD_IMU_number>(OD_IMU_number_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_number>(OD_IMU_number_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0xA25:    // OD_IMU1_Temperature
-            msgSdoResp.set<can::signals::SENSOR_OD_IMU1_Temperature>(OD_IMU1_Temperature_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU1_Temperature>(OD_IMU1_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0xA26:    // OD_IMU2_Temperature
-            msgSdoResp.set<can::signals::SENSOR_OD_IMU2_Temperature>(OD_IMU2_Temperature_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU2_Temperature>(OD_IMU2_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0xA27:    // OD_IMU3_Temperature
-            msgSdoResp.set<can::signals::SENSOR_OD_IMU3_Temperature>(OD_IMU3_Temperature_get());
-            respCode = can::signals::SENSOR_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU3_Temperature>(OD_IMU3_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         default:
             // Unknown SDO-ID, just reply unknown ID
-            msgSdoResp.set<can::signals::SENSOR_SDO_ID>(sdoId);
+            msgSdoResp.set<can::signals::SensorF_SDO_ID>(sdoId);
             break;
     }
 
-    msgSdoResp.set<can::signals::SENSOR_SDO_RespCode>(respCode);
+    msgSdoResp.set<can::signals::SensorF_SDO_RespCode>(respCode);
 
     // Send response message
     extern osMessageQueueId_t czSendQueue;
@@ -294,248 +342,319 @@ void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {
 }
 
 void handleSDORequestUpload(const RxMessage& rxMsgSdoReq) {
-    can::Message<can::messages::SENSOR_SDO_Req_Up> msgSdoReq(rxMsgSdoReq);
-    can::Message<can::messages::SENSOR_SDO_Resp> msgSdoResp;
-    uint8_t respCode = can::signals::SENSOR_SDO_RespCode::ERR_NON_EXISTING_OBJECT;
-    uint16_t sdoId = msgSdoReq.get<can::signals::SENSOR_SDO_ID>();
+    can::Message<can::messages::SensorF_SDO_Req_Up> msgSdoReq(rxMsgSdoReq);
+    can::Message<can::messages::SensorF_SDO_Resp> msgSdoResp;
+    uint8_t respCode = can::signals::SensorF_SDO_RespCode::ERR_NON_EXISTING_OBJECT;
+    uint16_t sdoId = msgSdoReq.get<can::signals::SensorF_SDO_ID>();
 
     switch (sdoId) {
         case 0x1: {   // OD_NodeID
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_NodeID>(OD_NodeID_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_NodeID>(OD_NodeID_get());
             break;
         }
         case 0x2: {   // OD_NodeStatus
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_NodeStatus>(OD_NodeStatus_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_NodeStatus>(OD_NodeStatus_get());
             break;
         }
         case 0x3: {   // OD_ProtocolVersion
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_ProtocolVersion>(OD_ProtocolVersion_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_ProtocolVersion>(OD_ProtocolVersion_get());
             break;
         }
         case 0x4: {   // OD_StackVersion
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_StackVersion>(OD_StackVersion_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_StackVersion>(OD_StackVersion_get());
             break;
         }
         case 0x5: {   // OD_DbcVersion
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_DbcVersion>(OD_DbcVersion_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_DbcVersion>(OD_DbcVersion_get());
             break;
         }
         case 0x10: {   // OD_HeartbeatInterval
-            uint16_t value = msgSdoReq.get<can::signals::SENSOR_OD_HeartbeatInterval>();
+            uint16_t value = msgSdoReq.get<can::signals::SensorF_OD_HeartbeatInterval>();
                 OD_HeartbeatInterval_set(value);
-                respCode = can::signals::SENSOR_SDO_RespCode::OK;
-            msgSdoResp.set<can::signals::SENSOR_OD_HeartbeatInterval>(OD_HeartbeatInterval_get());
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_HeartbeatInterval>(OD_HeartbeatInterval_get());
             break;
         }
         case 0x20: {   // OD_SendOdOnBootup
-            uint8_t value = msgSdoReq.get<can::signals::SENSOR_OD_SendOdOnBootup>();
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_SendOdOnBootup>();
                 OD_SendOdOnBootup_set(value);
-                respCode = can::signals::SENSOR_SDO_RespCode::OK;
-            msgSdoResp.set<can::signals::SENSOR_OD_SendOdOnBootup>(OD_SendOdOnBootup_get());
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_SendOdOnBootup>(OD_SendOdOnBootup_get());
             break;
         }
         case 0x21: {   // OD_OdEntrySendInterval
-            uint16_t value = msgSdoReq.get<can::signals::SENSOR_OD_OdEntrySendInterval>();
+            uint16_t value = msgSdoReq.get<can::signals::SensorF_OD_OdEntrySendInterval>();
                 OD_OdEntrySendInterval_set(value);
-                respCode = can::signals::SENSOR_SDO_RespCode::OK;
-            msgSdoResp.set<can::signals::SENSOR_OD_OdEntrySendInterval>(OD_OdEntrySendInterval_get());
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_OdEntrySendInterval>(OD_OdEntrySendInterval_get());
             break;
         }
         case 0x410: {   // OD_CpuUsage
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CpuUsage>(OD_CpuUsage_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CpuUsage>(OD_CpuUsage_get());
             break;
         }
         case 0x411: {   // OD_MemFree
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_MemFree>(OD_MemFree_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_MemFree>(OD_MemFree_get());
             break;
         }
         case 0x412: {   // OD_BoardTemp
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_BoardTemp>(OD_BoardTemp_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_BoardTemp>(OD_BoardTemp_get());
             break;
         }
         case 0x413: {   // OD_InputVoltage
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_InputVoltage>(OD_InputVoltage_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_InputVoltage>(OD_InputVoltage_get());
             break;
         }
         case 0x414: {   // OD_runtime
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_runtime>(OD_runtime_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_runtime>(OD_runtime_get());
             break;
         }
         case 0x415: {   // OD_SdcIn
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_SdcIn>(OD_SdcIn_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_SdcIn>(OD_SdcIn_get());
             break;
         }
         case 0x416: {   // OD_SdcOut
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_SdcOut>(OD_SdcOut_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_SdcOut>(OD_SdcOut_get());
             break;
         }
         case 0x420: {   // OD_ChipUID1
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_ChipUID1>(OD_ChipUID1_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_ChipUID1>(OD_ChipUID1_get());
             break;
         }
         case 0x421: {   // OD_ChipUID2
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_ChipUID2>(OD_ChipUID2_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_ChipUID2>(OD_ChipUID2_get());
             break;
         }
         case 0x430: {   // OD_BuildDate
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_BuildDate>(OD_BuildDate_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_BuildDate>(OD_BuildDate_get());
             break;
         }
         case 0x431: {   // OD_BuildTime
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_BuildTime>(OD_BuildTime_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_BuildTime>(OD_BuildTime_get());
             break;
         }
         case 0x450: {   // OD_CAN1_TxErrCnt
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_TxErrCnt>(OD_CAN1_TxErrCnt_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_TxErrCnt>(OD_CAN1_TxErrCnt_get());
             break;
         }
         case 0x451: {   // OD_CAN1_RxErrCnt
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_RxErrCnt>(OD_CAN1_RxErrCnt_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_RxErrCnt>(OD_CAN1_RxErrCnt_get());
             break;
         }
         case 0x452: {   // OD_CAN1_lastErrorCode
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_lastErrorCode>(OD_CAN1_lastErrorCode_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_lastErrorCode>(OD_CAN1_lastErrorCode_get());
             break;
         }
         case 0x453: {   // OD_CAN1_autoErrorReset
-            uint8_t value = msgSdoReq.get<can::signals::SENSOR_OD_CAN1_autoErrorReset>();
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_CAN1_autoErrorReset>();
                 OD_CAN1_autoErrorReset_set(value);
-                respCode = can::signals::SENSOR_SDO_RespCode::OK;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_autoErrorReset>(OD_CAN1_autoErrorReset_get());
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_autoErrorReset>(OD_CAN1_autoErrorReset_get());
             break;
         }
         case 0x454: {   // OD_CAN1_Baudrate
-            uint16_t value = msgSdoReq.get<can::signals::SENSOR_OD_CAN1_Baudrate>();
+            uint16_t value = msgSdoReq.get<can::signals::SensorF_OD_CAN1_Baudrate>();
 if (value < 125 || value > 1000) {
-                respCode = can::signals::SENSOR_SDO_RespCode::ERR_OUT_OF_RANGE;
+                respCode = can::signals::SensorF_SDO_RespCode::ERR_OUT_OF_RANGE;
             }
             else {
                 OD_CAN1_Baudrate_set(value);
-                respCode = can::signals::SENSOR_SDO_RespCode::OK;
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
             }
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_Baudrate>(OD_CAN1_Baudrate_get());
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_Baudrate>(OD_CAN1_Baudrate_get());
             break;
         }
         case 0x456: {   // OD_CAN1_Status
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_Status>(OD_CAN1_Status_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_Status>(OD_CAN1_Status_get());
             break;
         }
         case 0x457: {   // OD_CAN1_DiscardedTxMessages
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_DiscardedTxMessages>(OD_CAN1_DiscardedTxMessages_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_DiscardedTxMessages>(OD_CAN1_DiscardedTxMessages_get());
             break;
         }
         case 0x458: {   // OD_CAN1_ErrorStatus
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_ErrorStatus>(OD_CAN1_ErrorStatus_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_ErrorStatus>(OD_CAN1_ErrorStatus_get());
             break;
         }
         case 0x459: {   // OD_CAN1_DelayedTxMessages
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN1_DelayedTxMessages>(OD_CAN1_DelayedTxMessages_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN1_DelayedTxMessages>(OD_CAN1_DelayedTxMessages_get());
             break;
         }
         case 0x460: {   // OD_CAN2_TxErrCnt
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_TxErrCnt>(OD_CAN2_TxErrCnt_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_TxErrCnt>(OD_CAN2_TxErrCnt_get());
             break;
         }
         case 0x461: {   // OD_CAN2_RxErrCnt
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_RxErrCnt>(OD_CAN2_RxErrCnt_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_RxErrCnt>(OD_CAN2_RxErrCnt_get());
             break;
         }
         case 0x462: {   // OD_CAN2_lastErrorCode
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_lastErrorCode>(OD_CAN2_lastErrorCode_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_lastErrorCode>(OD_CAN2_lastErrorCode_get());
             break;
         }
         case 0x463: {   // OD_CAN2_autoErrorReset
-            uint8_t value = msgSdoReq.get<can::signals::SENSOR_OD_CAN2_autoErrorReset>();
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_CAN2_autoErrorReset>();
                 OD_CAN2_autoErrorReset_set(value);
-                respCode = can::signals::SENSOR_SDO_RespCode::OK;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_autoErrorReset>(OD_CAN2_autoErrorReset_get());
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_autoErrorReset>(OD_CAN2_autoErrorReset_get());
             break;
         }
         case 0x464: {   // OD_CAN2_Baudrate
-            uint16_t value = msgSdoReq.get<can::signals::SENSOR_OD_CAN2_Baudrate>();
+            uint16_t value = msgSdoReq.get<can::signals::SensorF_OD_CAN2_Baudrate>();
 if (value < 125 || value > 1000) {
-                respCode = can::signals::SENSOR_SDO_RespCode::ERR_OUT_OF_RANGE;
+                respCode = can::signals::SensorF_SDO_RespCode::ERR_OUT_OF_RANGE;
             }
             else {
                 OD_CAN2_Baudrate_set(value);
-                respCode = can::signals::SENSOR_SDO_RespCode::OK;
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
             }
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_Baudrate>(OD_CAN2_Baudrate_get());
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_Baudrate>(OD_CAN2_Baudrate_get());
             break;
         }
         case 0x466: {   // OD_CAN2_Status
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_Status>(OD_CAN2_Status_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_Status>(OD_CAN2_Status_get());
             break;
         }
         case 0x467: {   // OD_CAN2_DiscardedTxMessages
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_DiscardedTxMessages>(OD_CAN2_DiscardedTxMessages_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_DiscardedTxMessages>(OD_CAN2_DiscardedTxMessages_get());
             break;
         }
         case 0x468: {   // OD_CAN2_ErrorStatus
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_ErrorStatus>(OD_CAN2_ErrorStatus_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_ErrorStatus>(OD_CAN2_ErrorStatus_get());
             break;
         }
         case 0x469: {   // OD_CAN2_DelayedTxMessages
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_CAN2_DelayedTxMessages>(OD_CAN2_DelayedTxMessages_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CAN2_DelayedTxMessages>(OD_CAN2_DelayedTxMessages_get());
+            break;
+        }
+        case 0x800: {   // OD_samplingInterval
+            float value = msgSdoReq.get<can::signals::SensorF_OD_samplingInterval>();
+if (value < 0.01f || value > 100.0f) {
+                respCode = can::signals::SensorF_SDO_RespCode::ERR_OUT_OF_RANGE;
+            }
+            else {
+                OD_samplingInterval_set(value);
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            }
+            msgSdoResp.set<can::signals::SensorF_OD_samplingInterval>(OD_samplingInterval_get());
+            break;
+        }
+        case 0x900: {   // OD_TelemetryCommands
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_TelemetryCommands>();
+                OD_TelemetryCommands_set(value);
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_TelemetryCommands>(OD_TelemetryCommands_get());
+            break;
+        }
+        case 0x901: {   // OD_StateMachineInterval
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_StateMachineInterval>();
+if (value < 5 || value > 100) {
+                respCode = can::signals::SensorF_SDO_RespCode::ERR_OUT_OF_RANGE;
+            }
+            else {
+                OD_StateMachineInterval_set(value);
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            }
+            msgSdoResp.set<can::signals::SensorF_OD_StateMachineInterval>(OD_StateMachineInterval_get());
+            break;
+        }
+        case 0x902: {   // OD_StateMachineActivate
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_StateMachineActivate>();
+                OD_StateMachineActivate_set(value);
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_StateMachineActivate>(OD_StateMachineActivate_get());
+            break;
+        }
+        case 0x903: {   // OD_HVBatteryMode
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_HVBatteryMode>();
+                OD_HVBatteryMode_set(value);
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_HVBatteryMode>(OD_HVBatteryMode_get());
+            break;
+        }
+        case 0x904: {   // OD_EncoderWheelDiameter
+            float value = msgSdoReq.get<can::signals::SensorF_OD_EncoderWheelDiameter>();
+if (value < 1.0f || value > 300.0f) {
+                respCode = can::signals::SensorF_SDO_RespCode::ERR_OUT_OF_RANGE;
+            }
+            else {
+                OD_EncoderWheelDiameter_set(value);
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            }
+            msgSdoResp.set<can::signals::SensorF_OD_EncoderWheelDiameter>(OD_EncoderWheelDiameter_get());
+            break;
+        }
+        case 0x905: {   // OD_EncoderResetPosition
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_EncoderResetPosition>();
+                OD_EncoderResetPosition_set(value);
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_SDO_ID>(0x905);
+            break;
+        }
+        case 0x910: {   // OD_SetReset
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_SetReset>();
+                OD_SetReset_set(value);
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_SDO_ID>(0x910);
             break;
         }
         case 0xA20: {   // OD_IMU_number
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_IMU_number>(OD_IMU_number_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_number>(OD_IMU_number_get());
             break;
         }
         case 0xA25: {   // OD_IMU1_Temperature
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_IMU1_Temperature>(OD_IMU1_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU1_Temperature>(OD_IMU1_Temperature_get());
             break;
         }
         case 0xA26: {   // OD_IMU2_Temperature
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_IMU2_Temperature>(OD_IMU2_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU2_Temperature>(OD_IMU2_Temperature_get());
             break;
         }
         case 0xA27: {   // OD_IMU3_Temperature
-            respCode = can::signals::SENSOR_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SENSOR_OD_IMU3_Temperature>(OD_IMU3_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU3_Temperature>(OD_IMU3_Temperature_get());
             break;
         }
         default:
             // Unknown SDO-ID, just reply unknown ID
-            msgSdoResp.set<can::signals::SENSOR_SDO_ID>(sdoId);
+            msgSdoResp.set<can::signals::SensorF_SDO_ID>(sdoId);
             break;
     }
 
-    msgSdoResp.set<can::signals::SENSOR_SDO_RespCode>(respCode);
+    msgSdoResp.set<can::signals::SensorF_SDO_RespCode>(respCode);
 
     // Send response message
     extern osMessageQueueId_t czSendQueue;
@@ -1153,6 +1272,134 @@ void WEAK_SYMBOL OD_CAN2_DelayedTxMessages_set(const uint32_t value) {
 }
 #endif
 
+#ifndef OD_samplingInterval_GET_OVERWRITE
+float WEAK_SYMBOL OD_samplingInterval_get() {
+    osMutexAcquire(mutex_OD_samplingInterval, portMAX_DELAY);
+    float value = OD_samplingInterval;
+    osMutexRelease(mutex_OD_samplingInterval);
+    return value;
+}
+#endif
+#ifndef OD_samplingInterval_SET_OVERWRITE
+void WEAK_SYMBOL OD_samplingInterval_set(const float value) {
+    osMutexAcquire(mutex_OD_samplingInterval, portMAX_DELAY);
+    OD_samplingInterval = value;
+    osMutexRelease(mutex_OD_samplingInterval);
+}
+#endif
+
+#ifndef OD_TelemetryCommands_GET_OVERWRITE
+uint8_t WEAK_SYMBOL OD_TelemetryCommands_get() {
+    osMutexAcquire(mutex_OD_TelemetryCommands, portMAX_DELAY);
+    uint8_t value = OD_TelemetryCommands;
+    osMutexRelease(mutex_OD_TelemetryCommands);
+    return value;
+}
+#endif
+#ifndef OD_TelemetryCommands_SET_OVERWRITE
+void WEAK_SYMBOL OD_TelemetryCommands_set(const uint8_t value) {
+    osMutexAcquire(mutex_OD_TelemetryCommands, portMAX_DELAY);
+    OD_TelemetryCommands = value;
+    osMutexRelease(mutex_OD_TelemetryCommands);
+}
+#endif
+
+#ifndef OD_StateMachineInterval_GET_OVERWRITE
+uint8_t WEAK_SYMBOL OD_StateMachineInterval_get() {
+    osMutexAcquire(mutex_OD_StateMachineInterval, portMAX_DELAY);
+    uint8_t value = OD_StateMachineInterval;
+    osMutexRelease(mutex_OD_StateMachineInterval);
+    return value;
+}
+#endif
+#ifndef OD_StateMachineInterval_SET_OVERWRITE
+void WEAK_SYMBOL OD_StateMachineInterval_set(const uint8_t value) {
+    osMutexAcquire(mutex_OD_StateMachineInterval, portMAX_DELAY);
+    OD_StateMachineInterval = value;
+    osMutexRelease(mutex_OD_StateMachineInterval);
+}
+#endif
+
+#ifndef OD_StateMachineActivate_GET_OVERWRITE
+uint8_t WEAK_SYMBOL OD_StateMachineActivate_get() {
+    osMutexAcquire(mutex_OD_StateMachineActivate, portMAX_DELAY);
+    uint8_t value = OD_StateMachineActivate;
+    osMutexRelease(mutex_OD_StateMachineActivate);
+    return value;
+}
+#endif
+#ifndef OD_StateMachineActivate_SET_OVERWRITE
+void WEAK_SYMBOL OD_StateMachineActivate_set(const uint8_t value) {
+    osMutexAcquire(mutex_OD_StateMachineActivate, portMAX_DELAY);
+    OD_StateMachineActivate = value;
+    osMutexRelease(mutex_OD_StateMachineActivate);
+}
+#endif
+
+#ifndef OD_HVBatteryMode_GET_OVERWRITE
+uint8_t WEAK_SYMBOL OD_HVBatteryMode_get() {
+    osMutexAcquire(mutex_OD_HVBatteryMode, portMAX_DELAY);
+    uint8_t value = OD_HVBatteryMode;
+    osMutexRelease(mutex_OD_HVBatteryMode);
+    return value;
+}
+#endif
+#ifndef OD_HVBatteryMode_SET_OVERWRITE
+void WEAK_SYMBOL OD_HVBatteryMode_set(const uint8_t value) {
+    osMutexAcquire(mutex_OD_HVBatteryMode, portMAX_DELAY);
+    OD_HVBatteryMode = value;
+    osMutexRelease(mutex_OD_HVBatteryMode);
+}
+#endif
+
+#ifndef OD_EncoderWheelDiameter_GET_OVERWRITE
+float WEAK_SYMBOL OD_EncoderWheelDiameter_get() {
+    osMutexAcquire(mutex_OD_EncoderWheelDiameter, portMAX_DELAY);
+    float value = OD_EncoderWheelDiameter;
+    osMutexRelease(mutex_OD_EncoderWheelDiameter);
+    return value;
+}
+#endif
+#ifndef OD_EncoderWheelDiameter_SET_OVERWRITE
+void WEAK_SYMBOL OD_EncoderWheelDiameter_set(const float value) {
+    osMutexAcquire(mutex_OD_EncoderWheelDiameter, portMAX_DELAY);
+    OD_EncoderWheelDiameter = value;
+    osMutexRelease(mutex_OD_EncoderWheelDiameter);
+}
+#endif
+
+#ifndef OD_EncoderResetPosition_GET_OVERWRITE
+uint8_t WEAK_SYMBOL OD_EncoderResetPosition_get() {
+    osMutexAcquire(mutex_OD_EncoderResetPosition, portMAX_DELAY);
+    uint8_t value = OD_EncoderResetPosition;
+    osMutexRelease(mutex_OD_EncoderResetPosition);
+    return value;
+}
+#endif
+#ifndef OD_EncoderResetPosition_SET_OVERWRITE
+void WEAK_SYMBOL OD_EncoderResetPosition_set(const uint8_t value) {
+    osMutexAcquire(mutex_OD_EncoderResetPosition, portMAX_DELAY);
+    OD_EncoderResetPosition = value;
+    osMutexRelease(mutex_OD_EncoderResetPosition);
+}
+#endif
+
+#ifndef OD_SetReset_GET_OVERWRITE
+uint8_t WEAK_SYMBOL OD_SetReset_get() {
+    osMutexAcquire(mutex_OD_SetReset, portMAX_DELAY);
+    uint8_t value = OD_SetReset;
+    osMutexRelease(mutex_OD_SetReset);
+    return value;
+}
+#endif
+#ifndef OD_SetReset_SET_OVERWRITE
+void WEAK_SYMBOL OD_SetReset_set(const uint8_t value) {
+    osMutexAcquire(mutex_OD_SetReset, portMAX_DELAY);
+    OD_SetReset = value;
+    osMutexRelease(mutex_OD_SetReset);
+}
+#endif
+
 #ifndef OD_IMU_number_GET_OVERWRITE
 uint8_t WEAK_SYMBOL OD_IMU_number_get() {
     osMutexAcquire(mutex_OD_IMU_number, portMAX_DELAY);
@@ -1233,10 +1480,11 @@ constexpr uint16_t READABLE_SDO_IDS[] = {
     0x456,    0x457,    0x458,    0x459, 
     0x460,    0x461,    0x462,    0x463, 
     0x464,    0x466,    0x467,    0x468, 
-    0x469,    0xA20,    0xA25,    0xA26, 
-    0xA27 
+    0x469,    0x800,    0x900,    0x901, 
+    0x902,    0x903,    0x904,    0xA20, 
+    0xA25,    0xA26,    0xA27 
 };
-constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 41;
+constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 47;
 extern RNG_HandleTypeDef hrng;
 
 void sendOdEntriesTask(void *pvParameters) {

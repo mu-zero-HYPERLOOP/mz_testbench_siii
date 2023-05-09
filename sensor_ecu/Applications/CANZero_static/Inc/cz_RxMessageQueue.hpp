@@ -9,6 +9,7 @@
 #define CANZERO_STATIC_INC_CZ_RXMESSAGEQUEUE_HPP_
 
 #include "cz_message_receiver.hpp"
+#include "dbc_parser.hpp"
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
 #include "message_buffer.h"

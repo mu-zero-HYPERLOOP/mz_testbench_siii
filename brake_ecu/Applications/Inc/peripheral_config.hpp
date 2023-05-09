@@ -86,6 +86,8 @@ constexpr PeripheralConfig  g_peripherals = {
 		},
 		.m_solenoidConfig = {
 				.m_gpio = {
+						SOLENOID_GPIO_Port,
+						SOLENOID_Pin
 				},
 		},
 };

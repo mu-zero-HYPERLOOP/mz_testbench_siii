@@ -6,7 +6,7 @@
  */
 
 
-#include "GlobalPeripheralRegistry.hpp"
+#include "NewPDU.hpp"
 #include "PDU.hpp"
 
 #ifdef __cplusplus
@@ -15,6 +15,8 @@ extern "C" {
 
 
 void main_entry(void *argv) {
+	pduAppFunction(argv);
+
 }
 
 #ifdef __cplusplus

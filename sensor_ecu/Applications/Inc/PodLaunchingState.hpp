@@ -12,7 +12,7 @@
 
 class PodLaunchingState : public State{
 public:
-	PodLaunchingState();
+	PodLaunchingState() : State(POD_LAUNCHING) {}
 
 	void setup() override;
 

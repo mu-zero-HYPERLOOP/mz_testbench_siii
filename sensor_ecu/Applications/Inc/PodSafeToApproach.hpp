@@ -12,7 +12,7 @@
 
 class PodSafeToApproach: public State {
 public:
-	PodSafeToApproach();
+	PodSafeToApproach() : State(POD_SAFE_TO_APPROACH) {}
 
 	void setup() override;
 

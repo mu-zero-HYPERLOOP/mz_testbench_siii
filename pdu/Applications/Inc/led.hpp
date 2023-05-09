@@ -6,10 +6,7 @@
  */
 
 #pragma once
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include <cinttypes>
 
 void LED_RGB_Init();
 void LED_RGB_Write(uint8_t green, uint8_t orange, uint8_t red);

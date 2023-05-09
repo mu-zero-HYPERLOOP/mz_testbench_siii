@@ -1,8 +1,8 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'database_gen.dbc' on 14:21:06 28.04.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 21:25:10 03.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
- * Only messages and signals received or sent from node 'SENSOR' were parsed.
+ * Only messages and signals received or sent from node 'BrakeF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
  *
  * Florian Keck
@@ -52,16 +52,16 @@ namespace can {
         constexpr uint32_t id_ext[1] = {     // Filter ID for extended (29-bit) ID messages
         };
 
-        constexpr uint8_t num_std = 10;      // Number of used receive filters for standard (11-bit) ID messages
-        constexpr uint32_t mask_std[10] = {   // Filter mask for standard (11-bit) ID messages
+        constexpr uint8_t num_std = 9;      // Number of used receive filters for standard (11-bit) ID messages
+        constexpr uint32_t mask_std[9] = {   // Filter mask for standard (11-bit) ID messages
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF 
+            0x7FF 
         };
-        constexpr uint32_t id_std[10] = {     // Filter ID for standard (11-bit) ID messages
-            0x001,            0x000,            0x002,            0x1C1, 
-            0x241,            0x2C1,            0x341,            0x5C1, 
-            0x601,            0x781 
+        constexpr uint32_t id_std[9] = {     // Filter ID for standard (11-bit) ID messages
+            0x002,            0x181,            0x1D1,            0x251, 
+            0x2D1,            0x351,            0x5D1,            0x611, 
+            0x791 
         };
     }
 
@@ -289,27 +289,71 @@ namespace can {
     };
 
     /**********************************************************************************************
-    * Signed converters for converting signed signals.                                            *
-    ***********************************************************************************************/
-    struct SignedConverter32Bits {
-        int32_t value : 32;
-    };
-
-    /**********************************************************************************************
     * Network nodes with attributes                                                               *
     ***********************************************************************************************/
     namespace nodes {
+        namespace OpticalSensor {
+            constexpr char comment[] = "Kistler SFP-II optical Sensor.";
+        }
+        namespace EMUS_BMS {
+            constexpr char comment[] = "HV BMS ";
+        }
+        namespace SCIMO_PE {
+            constexpr char comment[] = "";
+        }
         namespace TelemetryNode {
-            constexpr char comment[] = "CANzero SDO Client Node.";
+            constexpr char comment[] = "Gateway between Pod and Telemetry Node-ID 0x22Gateway between Pod and Telemetry Node-ID 0x22";
+
+            // Attributes of node 'TelemetryNode'
+            constexpr uint8_t CANzero_NodeID = 34;
         }
         namespace Master {
             constexpr char comment[] = "CANzero NMT Master Node.";
         }
-        namespace SENSOR {
-            constexpr char comment[] = "SENSOR:0x1 Node-ID 0x1";
+        namespace SensorF {
+            constexpr char comment[] = "SensorECU Node-ID 0x1";
 
-            // Attributes of node 'SENSOR'
+            // Attributes of node 'SensorF'
             constexpr uint8_t CANzero_NodeID = 1;
+        }
+        namespace SensorR {
+            constexpr char comment[] = "SensorECUR Node-ID 0x2";
+
+            // Attributes of node 'SensorR'
+            constexpr uint8_t CANzero_NodeID = 2;
+        }
+        namespace BrakeF {
+            constexpr char comment[] = "BrakeECU Front Node-ID 0x11";
+
+            // Attributes of node 'BrakeF'
+            constexpr uint8_t CANzero_NodeID = 17;
+        }
+        namespace BrakeR {
+            constexpr char comment[] = "BrakeECUR Node-ID 0x12";
+
+            // Attributes of node 'BrakeR'
+            constexpr uint8_t CANzero_NodeID = 18;
+        }
+        namespace PDU {
+            constexpr char comment[] = "PowerD Node-ID 0x1A";
+
+            // Attributes of node 'PDU'
+            constexpr uint8_t CANzero_NodeID = 26;
+        }
+        namespace HVCU {
+            constexpr char comment[] = "HVController Node-ID 0xA";
+
+            // Attributes of node 'HVCU'
+            constexpr uint8_t CANzero_NodeID = 10;
+        }
+        namespace HVTU {
+            constexpr char comment[] = "High Voltage CAN Translation Unit between BMS and Pod Node-ID 0x19";
+
+            // Attributes of node 'HVTU'
+            constexpr uint8_t CANzero_NodeID = 25;
+        }
+        namespace TestBench {
+            constexpr char comment[] = "";
         }
     }
     
@@ -351,34 +395,17 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char CANzero_NMTMasterName[] = "Master";
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
-    constexpr uint32_t CANzero_DBCVersion = 5;
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
     constexpr char BusType[] = "CAN";
-    constexpr char DBName[] = "database";
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr uint32_t CANzero_DBCVersion = 145;
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr char CANzero_NMTMasterName[] = "Master";
+    constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
-        class SENSOR_IMU_ACCEL_Y_SIGNAL {
-            public:
-            using dataType = int32_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x3 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, int32_t value) noexcept {
-                int32_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
-            }
-            constexpr static inline int32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
-                // Convert raw bits to signed value
-                SignedConverter32Bits signedConverter{value};
-                value = signedConverter.value;
-                return value;
-            }
-        };
         class CANzero_NMT_State {
             public:
             using dataType = uint16_t;
@@ -423,13 +450,92 @@ namespace can {
 
             // Value table of signal 'CANzero_NMT_Node'
             constexpr static uint16_t ALL = 0;
-            constexpr static uint16_t SENSOR = 1;
+            constexpr static uint16_t SENSORF = 1;
+            constexpr static uint16_t SENSORR = 2;
+            constexpr static uint16_t HVCU = 10;
+            constexpr static uint16_t BRAKEF = 17;
+            constexpr static uint16_t BRAKER = 18;
+            constexpr static uint16_t HVTU = 25;
+            constexpr static uint16_t PDU = 26;
+            constexpr static uint16_t TELEMETRYNODE = 34;
         };
-        class SENSOR_W0_OtherWarning {
+        class SensorF_TX_PodState {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x181 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0x7ull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0x7ull));
+                return value;
+            }
+
+            // Value table of signal 'SensorF_TX_PodState'
+            constexpr static uint8_t POD_OFF = 0;
+            constexpr static uint8_t POD_IDLE = 1;
+            constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
+            constexpr static uint8_t POD_FAULT = 3;
+            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
+            constexpr static uint8_t POD_LAUNCHING = 5;
+            constexpr static uint8_t POD_PUSHABLE = 6;
+            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
+        };
+        class SensorF_TX_PodState_Last {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x181 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x38ull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0x38ull) >> 3);
+                return value;
+            }
+
+            // Value table of signal 'SensorF_TX_PodState_Last'
+            constexpr static uint8_t POD_OFF = 0;
+            constexpr static uint8_t POD_IDLE = 1;
+            constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
+            constexpr static uint8_t POD_FAULT = 3;
+            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
+            constexpr static uint8_t POD_LAUNCHING = 5;
+            constexpr static uint8_t POD_PUSHABLE = 6;
+            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
+        };
+        class SensorF_TX_PodState_Target {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x181 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 8) & 0x700ull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0x700ull) >> 8);
+                return value;
+            }
+
+            // Value table of signal 'SensorF_TX_PodState_Target'
+            constexpr static uint8_t POD_OFF = 0;
+            constexpr static uint8_t POD_IDLE = 1;
+            constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
+            constexpr static uint8_t POD_FAULT = 3;
+            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
+            constexpr static uint8_t POD_LAUNCHING = 5;
+            constexpr static uint8_t POD_PUSHABLE = 6;
+            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
+        };
+        class BrakeF_W0_highPressureActingChamber {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x81 };
+            constexpr static uint32_t ids[] = { 0x91 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
@@ -439,15 +545,75 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'SENSOR_W0_OtherWarning'
+            // Value table of signal 'BrakeF_W0_highPressureActingChamber'
             constexpr static bool OK = 0;
             constexpr static bool WARN = 1;
+
+            // Attributes of signal 'BrakeF_W0_highPressureActingChamber'
+            constexpr static char SystemSignalLongSymbol[] = "BrakeF_W0_highPressureActingChamber";
         };
-        class SENSOR_E0_OtherError {
+        class BrakeF_W1_highPressureRetractingChamber {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x81 };
+            constexpr static uint32_t ids[] = { 0x91 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x2ull) >> 1);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_W1_highPressureRetractingChamber'
+            constexpr static bool OK = 0;
+            constexpr static bool WARN = 1;
+
+            // Attributes of signal 'BrakeF_W1_highPressureRetractingChamber'
+            constexpr static char SystemSignalLongSymbol[] = "BrakeF_W1_highPressureRetractingChamber";
+        };
+        class BrakeF_W2_enableWithAnError {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x91 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x4ull) >> 2);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_W2_enableWithAnError'
+            constexpr static bool OK = 0;
+            constexpr static bool WARN = 1;
+        };
+        class BrakeF_W3_externalError {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x91 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x8ull) >> 3);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_W3_externalError'
+            constexpr static bool OK = 0;
+            constexpr static bool WARN = 1;
+        };
+        class BrakeF_E0_pressureTooHigh {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x91 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 12) & 0x1000ull;
@@ -457,15 +623,345 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'SENSOR_E0_OtherError'
+            // Value table of signal 'BrakeF_E0_pressureTooHigh'
             constexpr static bool OK = 0;
             constexpr static bool ERR = 1;
         };
-        class SENSOR_SDO_ID {
+        class BrakeF_E1_pressureTooLow {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x91 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 13) & 0x2000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x2000ull) >> 13);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_E1_pressureTooLow'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+        };
+        class BrakeF_E2_commWatchdogTimeout {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x91 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 14) & 0x4000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x4000ull) >> 14);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_E2_commWatchdogTimeout'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+        };
+        class BrakeF_E3_retractUnsuccesful_errorFlag {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x91 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 15) & 0x8000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x8000ull) >> 15);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_E3_retractUnsuccesful_errorFlag'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+
+            // Attributes of signal 'BrakeF_E3_retractUnsuccesful_errorFlag'
+            constexpr static char SystemSignalLongSymbol[] = "BrakeF_E3_retractUnsuccesful_errorFlag";
+        };
+        class BrakeF_E4_retractUnsuccesful_notEnabled {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x91 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0x10000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x10000ull) >> 16);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_E4_retractUnsuccesful_notEnabled'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+
+            // Attributes of signal 'BrakeF_E4_retractUnsuccesful_notEnabled'
+            constexpr static char SystemSignalLongSymbol[] = "BrakeF_E4_retractUnsuccesful_notEnabled";
+        };
+        class BrakeF_E5_retractUnsuccesful_openSDC {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x91 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 17) & 0x20000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x20000ull) >> 17);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_E5_retractUnsuccesful_openSDC'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+
+            // Attributes of signal 'BrakeF_E5_retractUnsuccesful_openSDC'
+            constexpr static char SystemSignalLongSymbol[] = "BrakeF_E5_retractUnsuccesful_openSDC";
+        };
+        class BrakeF_TX_Status {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x191 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0x3ull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0x3ull));
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_TX_Status'
+            constexpr static uint8_t DISENGAGED = 0;
+            constexpr static uint8_t ENGAGEDEMERGENCY = 1;
+            constexpr static uint8_t ENGAGEDSERVICE = 2;
+        };
+        class BrakeF_TX_Enabled {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x191 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x4ull) >> 2);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_TX_Enabled'
+            constexpr static bool DISABLED = 0;
+            constexpr static bool ENABLED = 1;
+        };
+        class BrakeF_TX_ErrorFlag {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x191 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x8ull) >> 3);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_TX_ErrorFlag'
+            constexpr static bool NO_ERROR = 0;
+            constexpr static bool ERROR = 1;
+        };
+        class BrakeF_TX_SDC_Input {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x191 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 4) & 0x10ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x10ull) >> 4);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_TX_SDC_Input'
+            constexpr static bool OPEN = 0;
+            constexpr static bool CLOSED = 1;
+        };
+        class BrakeF_TX_DeltaTime_Control {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x191 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 8) & 0xFF00ull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF00ull) >> 8);
+                return value;
+            }
+        };
+        class BrakeF_TX_MaxDeltaTime_Control {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x191 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
+                return value;
+            }
+        };
+        class BrakeF_RX_ErrorReset {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1D1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x1ull));
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_RX_ErrorReset'
+            constexpr static bool NO_RESET = 0;
+            constexpr static bool RESET = 1;
+        };
+        class BrakeF_RX_Enable {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1D1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x2ull) >> 1);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_RX_Enable'
+            constexpr static bool DISABLE = 0;
+            constexpr static bool ENABLE = 1;
+        };
+        class BrakeF_RX_Engage {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1D1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 2) & 0xCull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xCull) >> 2);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_RX_Engage'
+            constexpr static uint8_t DISENGAGE = 0;
+            constexpr static uint8_t ENGAGEEMERGENCY = 1;
+            constexpr static uint8_t ENGAGESERVICE = 2;
+        };
+        class BrakeF_TX_Pressure_Act {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x411 };
+            constexpr static float min = static_cast<float>(-2);
+            constexpr static float max = static_cast<float>(18.475);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFull));
+                return value * (0.005f) + (-2.0f);
+            }
+
+            // Attributes of signal 'BrakeF_TX_Pressure_Act'
+            constexpr static float GenSigStartValue = 400.0f;
+        };
+        class BrakeF_TX_Pressure_Retract {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x411 };
+            constexpr static float min = static_cast<float>(-2);
+            constexpr static float max = static_cast<float>(18.475);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFF0000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF0000ull) >> 16);
+                return value * (0.005f) + (-2.0f);
+            }
+
+            // Attributes of signal 'BrakeF_TX_Pressure_Retract'
+            constexpr static float GenSigStartValue = 400.0f;
+        };
+        class BrakeF_TX_Pressure_Tank {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x411 };
+            constexpr static float min = static_cast<float>(-2);
+            constexpr static float max = static_cast<float>(18.475);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 32) & 0xFFF00000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF00000000ull) >> 32);
+                return value * (0.005f) + (-2.0f);
+            }
+
+            // Attributes of signal 'BrakeF_TX_Pressure_Tank'
+            constexpr static float GenSigStartValue = 400.0f;
+        };
+        class BrakeF_SDO_ID {
             public:
             using dataType = uint16_t;
             constexpr static uint8_t numIds = 3;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1, 0x601 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1, 0x611 };
             constexpr static uint16_t min = static_cast<uint16_t>(0);
             constexpr static uint16_t max = static_cast<uint16_t>(4095);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
@@ -483,7 +979,7 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'SENSOR_SDO_ID'
+            // Value table of signal 'BrakeF_SDO_ID'
             constexpr static uint16_t RESERVED = 0;
             constexpr static uint16_t NODEID = 1;
             constexpr static uint16_t NODESTATUS = 2;
@@ -522,16 +1018,18 @@ namespace can {
             constexpr static uint16_t CAN2_DISCARDEDTXMESSAGES = 1127;
             constexpr static uint16_t CAN2_ERRORSTATUS = 1128;
             constexpr static uint16_t CAN2_DELAYEDTXMESSAGES = 1129;
-            constexpr static uint16_t IMU_NUMBER = 2592;
-            constexpr static uint16_t IMU1_TEMPERATURE = 2597;
-            constexpr static uint16_t IMU2_TEMPERATURE = 2598;
-            constexpr static uint16_t IMU3_TEMPERATURE = 2599;
+            constexpr static uint16_t TANKLOWERCONTROLLIMIT = 2048;
+            constexpr static uint16_t TANKUPPERCONTROLLIMIT = 2049;
+            constexpr static uint16_t DELAY = 2050;
+            constexpr static uint16_t COUNTERLIMIT = 2051;
+            constexpr static uint16_t COMMWATCHDOG = 2052;
+            constexpr static uint16_t VALVEUPPERTOLERANCE = 2053;
         };
-        class SENSOR_SDO_RespCode {
+        class BrakeF_SDO_RespCode {
             public:
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x581 };
+            constexpr static uint32_t ids[] = { 0x591 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 12) & 0xF000ull;
@@ -541,7 +1039,7 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'SENSOR_SDO_RespCode'
+            // Value table of signal 'BrakeF_SDO_RespCode'
             constexpr static uint8_t OK = 0;
             constexpr static uint8_t ERR_NON_EXISTING_OBJECT = 1;
             constexpr static uint8_t ERR_WRITE_ONLY_OBJECT = 2;
@@ -549,14 +1047,14 @@ namespace can {
             constexpr static uint8_t ERR_NO_ACCESS_IN_THIS_STATE = 4;
             constexpr static uint8_t ERR_OUT_OF_RANGE = 5;
         };
-        class SENSOR_OD_IMU3_Temperature {
+        class BrakeF_OD_valveUpperTolerance {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 2599            
+            // This signal is multiplexed by BrakeF_SDO_ID == 2053            
             using dataType = float;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
-            constexpr static float min = static_cast<float>(-100);
-            constexpr static float max = static_cast<float>(555.35);
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(327.675);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
                 if (value > max) {
                     value = max;
@@ -564,129 +1062,191 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 2599);
-                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2053);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.005f)));
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 2599) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2053) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
-                return value * (0.01f) + (-100.0f);
+                return value * (0.005f);
             }
 
-            // Attributes of signal 'SENSOR_OD_IMU3_Temperature'
+            // Attributes of signal 'BrakeF_OD_valveUpperTolerance'
             constexpr static char CANzero_SDO_Group[] = "";
-            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 2000.0f;
+            constexpr static float CANzero_SDO_Default = 10.0f;
         };
-        class SENSOR_OD_IMU2_Temperature {
+        class BrakeF_OD_commWatchdog {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 2598            
-            using dataType = float;
+            // This signal is multiplexed by BrakeF_SDO_ID == 2052            
+            using dataType = uint16_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
-            constexpr static float min = static_cast<float>(-100);
-            constexpr static float max = static_cast<float>(555.35);
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
-                if (value > max) {
-                    value = max;
-                }
-                if (value < min) {
-                    value = min;
-                }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 2598);
-                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2052);
+                uint16_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
-            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 2598) {
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2052) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
-                return value * (0.01f) + (-100.0f);
+                return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_IMU2_Temperature'
+            // Attributes of signal 'BrakeF_OD_commWatchdog'
             constexpr static char CANzero_SDO_Group[] = "";
-            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 60.0f;
+            constexpr static float CANzero_SDO_Default = 60.0f;
         };
-        class SENSOR_OD_IMU1_Temperature {
+        class BrakeF_OD_counterLimit {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 2597            
-            using dataType = float;
-            constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
-            constexpr static float min = static_cast<float>(-100);
-            constexpr static float max = static_cast<float>(555.35);
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
-                if (value > max) {
-                    value = max;
-                }
-                if (value < min) {
-                    value = min;
-                }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 2597);
-                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
-                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
-                dlc = 4;
-            }
-            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 2597) {
-                    while(1);
-                }
-                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
-                return value * (0.01f) + (-100.0f);
-            }
-
-            // Attributes of signal 'SENSOR_OD_IMU1_Temperature'
-            constexpr static char CANzero_SDO_Group[] = "";
-            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
-            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
-        };
-        class SENSOR_OD_IMU_number {
-            public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 2592            
+            // This signal is multiplexed by BrakeF_SDO_ID == 2051            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 2592);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2051);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 2592) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2051) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_IMU_number'
+            // Attributes of signal 'BrakeF_OD_counterLimit'
             constexpr static char CANzero_SDO_Group[] = "";
-            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 0.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 5.0f;
+            constexpr static float CANzero_SDO_Default = 5.0f;
         };
-        class SENSOR_OD_CAN2_DelayedTxMessages {
+        class BrakeF_OD_delay {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1129            
+            // This signal is multiplexed by BrakeF_SDO_ID == 2050            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(127.5);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2050);
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
+                dlc = 3;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2050) {
+                    while(1);
+                }
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'BrakeF_OD_delay'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10.0f;
+            constexpr static float CANzero_SDO_Default = 5.0f;
+        };
+        class BrakeF_OD_tankUpperControlLimit {
+            public:
+            // This signal is multiplexed by BrakeF_SDO_ID == 2049            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(327.675);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2049);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2049) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.005f);
+            }
+
+            // Attributes of signal 'BrakeF_OD_tankUpperControlLimit'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 3800.0f;
+            constexpr static float CANzero_SDO_Default = 19.0f;
+        };
+        class BrakeF_OD_tankLowerControlLimit {
+            public:
+            // This signal is multiplexed by BrakeF_SDO_ID == 2048            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(327.675);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2048);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2048) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.005f);
+            }
+
+            // Attributes of signal 'BrakeF_OD_tankLowerControlLimit'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 1400.0f;
+            constexpr static float CANzero_SDO_Default = 7.0f;
+        };
+        class BrakeF_OD_CAN2_DelayedTxMessages {
+            public:
+            // This signal is multiplexed by BrakeF_SDO_ID == 1129            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint32_t min = static_cast<uint32_t>(0);
             constexpr static uint32_t max = static_cast<uint32_t>(16777215);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
@@ -696,65 +1256,65 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1129);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1129);
                 uint32_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFF0000ull;
                 dlc = 5;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1129) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1129) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN2_DelayedTxMessages'
+            // Attributes of signal 'BrakeF_OD_CAN2_DelayedTxMessages'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN2_ErrorStatus {
+        class BrakeF_OD_CAN2_ErrorStatus {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1128            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1128            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1128);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1128);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1128) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1128) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_CAN2_ErrorStatus'
+            // Value table of signal 'BrakeF_OD_CAN2_ErrorStatus'
             constexpr static uint8_t OK = 0;
             constexpr static uint8_t WARN = 1;
             constexpr static uint8_t ERROR_PASSIVE = 2;
             constexpr static uint8_t BUS_OFF = 3;
 
-            // Attributes of signal 'SENSOR_OD_CAN2_ErrorStatus'
+            // Attributes of signal 'BrakeF_OD_CAN2_ErrorStatus'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN2_DiscardedTxMessages {
+        class BrakeF_OD_CAN2_DiscardedTxMessages {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1127            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1127            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint32_t min = static_cast<uint32_t>(0);
             constexpr static uint32_t max = static_cast<uint32_t>(16777215);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
@@ -764,48 +1324,48 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1127);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1127);
                 uint32_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFF0000ull;
                 dlc = 5;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1127) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1127) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN2_DiscardedTxMessages'
+            // Attributes of signal 'BrakeF_OD_CAN2_DiscardedTxMessages'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
-            constexpr static char SystemSignalLongSymbol[] = "SENSOR_OD_CAN2_DiscardedTxMessages";
+            constexpr static char SystemSignalLongSymbol[] = "BrakeF_OD_CAN2_DiscardedTxMessages";
         };
-        class SENSOR_OD_CAN2_Status {
+        class BrakeF_OD_CAN2_Status {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1126            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1126            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1126);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1126);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1126) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1126) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_CAN2_Status'
+            // Value table of signal 'BrakeF_OD_CAN2_Status'
             constexpr static uint8_t RESET = 0;
             constexpr static uint8_t READY = 1;
             constexpr static uint8_t LISTENING = 2;
@@ -813,19 +1373,19 @@ namespace can {
             constexpr static uint8_t SLEEP_ACTIVE = 4;
             constexpr static uint8_t ERROR = 5;
 
-            // Attributes of signal 'SENSOR_OD_CAN2_Status'
+            // Attributes of signal 'BrakeF_OD_CAN2_Status'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN2_Baudrate {
+        class BrakeF_OD_CAN2_Baudrate {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1124            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1124            
             using dataType = uint16_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint16_t min = static_cast<uint16_t>(125);
             constexpr static uint16_t max = static_cast<uint16_t>(1000);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
@@ -835,78 +1395,78 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1124);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1124);
                 uint16_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1124) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1124) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN2_Baudrate'
+            // Attributes of signal 'BrakeF_OD_CAN2_Baudrate'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 1000.0f;
             constexpr static float CANzero_SDO_Default = 1000.0f;
         };
-        class SENSOR_OD_CAN2_autoErrorReset {
+        class BrakeF_OD_CAN2_autoErrorReset {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1123            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1123            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1123);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1123);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1123) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1123) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_CAN2_autoErrorReset'
+            // Value table of signal 'BrakeF_OD_CAN2_autoErrorReset'
             constexpr static uint8_t DISABLED = 0;
             constexpr static uint8_t ENABLED = 1;
 
-            // Attributes of signal 'SENSOR_OD_CAN2_autoErrorReset'
+            // Attributes of signal 'BrakeF_OD_CAN2_autoErrorReset'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 1.0f;
             constexpr static float CANzero_SDO_Default = 1.0f;
         };
-        class SENSOR_OD_CAN2_lastErrorCode {
+        class BrakeF_OD_CAN2_lastErrorCode {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1122            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1122            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1122);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1122);
                 uint32_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFFFF0000ull;
                 dlc = 6;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1122) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1122) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_CAN2_lastErrorCode'
+            // Value table of signal 'BrakeF_OD_CAN2_lastErrorCode'
             constexpr static uint32_t NO_ERROR = 0;
             constexpr static uint32_t STUFF_ERROR = 1;
             constexpr static uint32_t FORM_ERROR = 2;
@@ -915,73 +1475,73 @@ namespace can {
             constexpr static uint32_t BIT_DOMINANT_ERROR = 5;
             constexpr static uint32_t CRC_ERROR = 6;
 
-            // Attributes of signal 'SENSOR_OD_CAN2_lastErrorCode'
+            // Attributes of signal 'BrakeF_OD_CAN2_lastErrorCode'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN2_RxErrCnt {
+        class BrakeF_OD_CAN2_RxErrCnt {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1121            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1121            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1121);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1121);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1121) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1121) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN2_RxErrCnt'
+            // Attributes of signal 'BrakeF_OD_CAN2_RxErrCnt'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN2_TxErrCnt {
+        class BrakeF_OD_CAN2_TxErrCnt {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1120            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1120            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1120);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1120);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1120) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1120) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN2_TxErrCnt'
+            // Attributes of signal 'BrakeF_OD_CAN2_TxErrCnt'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN1_DelayedTxMessages {
+        class BrakeF_OD_CAN1_DelayedTxMessages {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1113            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1113            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint32_t min = static_cast<uint32_t>(0);
             constexpr static uint32_t max = static_cast<uint32_t>(16777215);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
@@ -991,65 +1551,65 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1113);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1113);
                 uint32_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFF0000ull;
                 dlc = 5;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1113) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1113) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN1_DelayedTxMessages'
+            // Attributes of signal 'BrakeF_OD_CAN1_DelayedTxMessages'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN1_ErrorStatus {
+        class BrakeF_OD_CAN1_ErrorStatus {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1112            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1112            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1112);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1112);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1112) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1112) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_CAN1_ErrorStatus'
+            // Value table of signal 'BrakeF_OD_CAN1_ErrorStatus'
             constexpr static uint8_t OK = 0;
             constexpr static uint8_t WARN = 1;
             constexpr static uint8_t ERROR_PASSIVE = 2;
             constexpr static uint8_t BUS_OFF = 3;
 
-            // Attributes of signal 'SENSOR_OD_CAN1_ErrorStatus'
+            // Attributes of signal 'BrakeF_OD_CAN1_ErrorStatus'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN1_DiscardedTxMessages {
+        class BrakeF_OD_CAN1_DiscardedTxMessages {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1111            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1111            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint32_t min = static_cast<uint32_t>(0);
             constexpr static uint32_t max = static_cast<uint32_t>(16777215);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
@@ -1059,48 +1619,48 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1111);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1111);
                 uint32_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFF0000ull;
                 dlc = 5;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1111) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1111) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN1_DiscardedTxMessages'
+            // Attributes of signal 'BrakeF_OD_CAN1_DiscardedTxMessages'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
-            constexpr static char SystemSignalLongSymbol[] = "SENSOR_OD_CAN1_DiscardedTxMessages";
+            constexpr static char SystemSignalLongSymbol[] = "BrakeF_OD_CAN1_DiscardedTxMessages";
         };
-        class SENSOR_OD_CAN1_Status {
+        class BrakeF_OD_CAN1_Status {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1110            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1110            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1110);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1110);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1110) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1110) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_CAN1_Status'
+            // Value table of signal 'BrakeF_OD_CAN1_Status'
             constexpr static uint8_t RESET = 0;
             constexpr static uint8_t READY = 1;
             constexpr static uint8_t LISTENING = 2;
@@ -1108,19 +1668,19 @@ namespace can {
             constexpr static uint8_t SLEEP_ACTIVE = 4;
             constexpr static uint8_t ERROR = 5;
 
-            // Attributes of signal 'SENSOR_OD_CAN1_Status'
+            // Attributes of signal 'BrakeF_OD_CAN1_Status'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN1_Baudrate {
+        class BrakeF_OD_CAN1_Baudrate {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1108            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1108            
             using dataType = uint16_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint16_t min = static_cast<uint16_t>(125);
             constexpr static uint16_t max = static_cast<uint16_t>(1000);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
@@ -1130,78 +1690,78 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1108);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1108);
                 uint16_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1108) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1108) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN1_Baudrate'
+            // Attributes of signal 'BrakeF_OD_CAN1_Baudrate'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 1000.0f;
             constexpr static float CANzero_SDO_Default = 1000.0f;
         };
-        class SENSOR_OD_CAN1_autoErrorReset {
+        class BrakeF_OD_CAN1_autoErrorReset {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1107            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1107            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1107);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1107);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1107) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1107) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_CAN1_autoErrorReset'
+            // Value table of signal 'BrakeF_OD_CAN1_autoErrorReset'
             constexpr static uint8_t DISABLED = 0;
             constexpr static uint8_t ENABLED = 1;
 
-            // Attributes of signal 'SENSOR_OD_CAN1_autoErrorReset'
+            // Attributes of signal 'BrakeF_OD_CAN1_autoErrorReset'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 1.0f;
             constexpr static float CANzero_SDO_Default = 1.0f;
         };
-        class SENSOR_OD_CAN1_lastErrorCode {
+        class BrakeF_OD_CAN1_lastErrorCode {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1106            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1106            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1106);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1106);
                 uint32_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFFFF0000ull;
                 dlc = 6;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1106) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1106) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_CAN1_lastErrorCode'
+            // Value table of signal 'BrakeF_OD_CAN1_lastErrorCode'
             constexpr static uint32_t NO_ERROR = 0;
             constexpr static uint32_t STUFF_ERROR = 1;
             constexpr static uint32_t FORM_ERROR = 2;
@@ -1210,73 +1770,73 @@ namespace can {
             constexpr static uint32_t BIT_DOMINANT_ERROR = 5;
             constexpr static uint32_t CRC_ERROR = 6;
 
-            // Attributes of signal 'SENSOR_OD_CAN1_lastErrorCode'
+            // Attributes of signal 'BrakeF_OD_CAN1_lastErrorCode'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN1_RxErrCnt {
+        class BrakeF_OD_CAN1_RxErrCnt {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1105            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1105            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1105);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1105);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1105) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1105) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN1_RxErrCnt'
+            // Attributes of signal 'BrakeF_OD_CAN1_RxErrCnt'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CAN1_TxErrCnt {
+        class BrakeF_OD_CAN1_TxErrCnt {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1104            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1104            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1104);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1104);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1104) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1104) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_CAN1_TxErrCnt'
+            // Attributes of signal 'BrakeF_OD_CAN1_TxErrCnt'
             constexpr static char CANzero_SDO_Group[] = "CAN";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_BuildTime {
+        class BrakeF_OD_BuildTime {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1073            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1073            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint32_t min = static_cast<uint32_t>(0);
             constexpr static uint32_t max = static_cast<uint32_t>(16777215);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
@@ -1286,59 +1846,59 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1073);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1073);
                 uint32_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFF0000ull;
                 dlc = 5;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1073) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1073) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_BuildTime'
+            // Attributes of signal 'BrakeF_OD_BuildTime'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_BuildDate {
+        class BrakeF_OD_BuildDate {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1072            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1072            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1072);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1072);
                 uint32_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFFFF0000ull;
                 dlc = 6;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1072) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1072) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_BuildDate'
+            // Attributes of signal 'BrakeF_OD_BuildDate'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_ChipUID2 {
+        class BrakeF_OD_ChipUID2 {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1057            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1057            
             using dataType = uint64_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint64_t min = static_cast<uint64_t>(0);
             constexpr static uint64_t max = static_cast<uint64_t>(281474976710655);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint64_t value) noexcept {
@@ -1348,32 +1908,32 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1057);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1057);
                 uint64_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFFFFFFFF0000ull;
                 dlc = 8;
             }
             constexpr static inline uint64_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1057) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1057) {
                     while(1);
                 }
                 uint64_t value = static_cast<uint64_t>((intel & 0xFFFFFFFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_ChipUID2'
+            // Attributes of signal 'BrakeF_OD_ChipUID2'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_ChipUID1 {
+        class BrakeF_OD_ChipUID1 {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1056            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1056            
             using dataType = uint64_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint64_t min = static_cast<uint64_t>(0);
             constexpr static uint64_t max = static_cast<uint64_t>(281474976710655);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint64_t value) noexcept {
@@ -1383,86 +1943,86 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1056);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1056);
                 uint64_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFFFFFFFF0000ull;
                 dlc = 8;
             }
             constexpr static inline uint64_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1056) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1056) {
                     while(1);
                 }
                 uint64_t value = static_cast<uint64_t>((intel & 0xFFFFFFFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_ChipUID1'
+            // Attributes of signal 'BrakeF_OD_ChipUID1'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_SdcOut {
+        class BrakeF_OD_SdcOut {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1046            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1046            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1046);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1046);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1046) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1046) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_SdcOut'
+            // Attributes of signal 'BrakeF_OD_SdcOut'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_SdcIn {
+        class BrakeF_OD_SdcIn {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1045            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1045            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1045);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1045);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1045) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1045) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_SdcIn'
+            // Attributes of signal 'BrakeF_OD_SdcIn'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_runtime {
+        class BrakeF_OD_runtime {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1044            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1044            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint32_t min = static_cast<uint32_t>(0);
             constexpr static uint32_t max = static_cast<uint32_t>(16777215);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
@@ -1472,32 +2032,32 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1044);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1044);
                 uint32_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFFFF0000ull;
                 dlc = 5;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1044) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1044) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_runtime'
+            // Attributes of signal 'BrakeF_OD_runtime'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_InputVoltage {
+        class BrakeF_OD_InputVoltage {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1043            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1043            
             using dataType = float;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static float min = static_cast<float>(0);
             constexpr static float max = static_cast<float>(65.535);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
@@ -1507,32 +2067,32 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1043);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1043);
                 uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1043) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1043) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value * (0.001f);
             }
 
-            // Attributes of signal 'SENSOR_OD_InputVoltage'
+            // Attributes of signal 'BrakeF_OD_InputVoltage'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_BoardTemp {
+        class BrakeF_OD_BoardTemp {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1042            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1042            
             using dataType = float;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static float min = static_cast<float>(-30);
             constexpr static float max = static_cast<float>(625.35);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
@@ -1542,32 +2102,32 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1042);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1042);
                 uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-30.0f)) / (0.01f)));
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1042) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1042) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value * (0.01f) + (-30.0f);
             }
 
-            // Attributes of signal 'SENSOR_OD_BoardTemp'
+            // Attributes of signal 'BrakeF_OD_BoardTemp'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 3000.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_MemFree {
+        class BrakeF_OD_MemFree {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1041            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1041            
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static uint32_t min = static_cast<uint32_t>(0);
             constexpr static uint32_t max = static_cast<uint32_t>(262140);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
@@ -1577,32 +2137,32 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1041);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1041);
                 uint32_t rawValue = static_cast<uint32_t>((value) / (4));
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1041) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1041) {
                     while(1);
                 }
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFF0000ull) >> 16);
                 return value * (4);
             }
 
-            // Attributes of signal 'SENSOR_OD_MemFree'
+            // Attributes of signal 'BrakeF_OD_MemFree'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_CpuUsage {
+        class BrakeF_OD_CpuUsage {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1040            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1040            
             using dataType = float;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static float min = static_cast<float>(0);
             constexpr static float max = static_cast<float>(100);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
@@ -1612,258 +2172,258 @@ namespace can {
                 if (value < min) {
                     value = min;
                 }
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1040);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1040);
                 uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1040) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1040) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value * (0.5f);
             }
 
-            // Attributes of signal 'SENSOR_OD_CpuUsage'
+            // Attributes of signal 'BrakeF_OD_CpuUsage'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_OdEntrySendInterval {
+        class BrakeF_OD_OdEntrySendInterval {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 33            
+            // This signal is multiplexed by BrakeF_SDO_ID == 33            
             using dataType = uint16_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 33);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 33);
                 uint16_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 33) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 33) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_OdEntrySendInterval'
+            // Attributes of signal 'BrakeF_OD_OdEntrySendInterval'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 50.0f;
             constexpr static float CANzero_SDO_Default = 50.0f;
         };
-        class SENSOR_OD_SendOdOnBootup {
+        class BrakeF_OD_SendOdOnBootup {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 32            
+            // This signal is multiplexed by BrakeF_SDO_ID == 32            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 32);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 32);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 32) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 32) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_SendOdOnBootup'
+            // Value table of signal 'BrakeF_OD_SendOdOnBootup'
             constexpr static uint8_t DISABLED = 0;
             constexpr static uint8_t ENABLED = 1;
 
-            // Attributes of signal 'SENSOR_OD_SendOdOnBootup'
+            // Attributes of signal 'BrakeF_OD_SendOdOnBootup'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_HeartbeatInterval {
+        class BrakeF_OD_HeartbeatInterval {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 16            
+            // This signal is multiplexed by BrakeF_SDO_ID == 16            
             using dataType = uint16_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 16);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 16);
                 uint16_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 16) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 16) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_HeartbeatInterval'
+            // Attributes of signal 'BrakeF_OD_HeartbeatInterval'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 250.0f;
-            constexpr static float CANzero_SDO_Default = 250.0f;
+            constexpr static float GenSigStartValue = 100.0f;
+            constexpr static float CANzero_SDO_Default = 100.0f;
         };
-        class SENSOR_OD_DbcVersion {
+        class BrakeF_OD_DbcVersion {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 5            
+            // This signal is multiplexed by BrakeF_SDO_ID == 5            
             using dataType = uint16_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 5);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 5);
                 uint16_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 5) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 5) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_DbcVersion'
+            // Attributes of signal 'BrakeF_OD_DbcVersion'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_StackVersion {
+        class BrakeF_OD_StackVersion {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 4            
+            // This signal is multiplexed by BrakeF_SDO_ID == 4            
             using dataType = uint16_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 4);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 4);
                 uint16_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 4) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 4) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_StackVersion'
+            // Attributes of signal 'BrakeF_OD_StackVersion'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_ProtocolVersion {
+        class BrakeF_OD_ProtocolVersion {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 3            
+            // This signal is multiplexed by BrakeF_SDO_ID == 3            
             using dataType = uint16_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 3);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 3);
                 uint16_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
                 dlc = 4;
             }
             constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 3) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 3) {
                     while(1);
                 }
                 uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_ProtocolVersion'
+            // Attributes of signal 'BrakeF_OD_ProtocolVersion'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 1.0f;
             constexpr static float CANzero_SDO_Default = 1.0f;
         };
-        class SENSOR_OD_NodeStatus {
+        class BrakeF_OD_NodeStatus {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 2            
+            // This signal is multiplexed by BrakeF_SDO_ID == 2            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 2);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 2) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'SENSOR_OD_NodeStatus'
+            // Value table of signal 'BrakeF_OD_NodeStatus'
             constexpr static uint8_t BOOTUP = 0;
             constexpr static uint8_t STOPPED = 4;
             constexpr static uint8_t OPERATIONAL = 5;
             constexpr static uint8_t PREOPERATIONAL = 127;
             constexpr static uint8_t RESET = 128;
 
-            // Attributes of signal 'SENSOR_OD_NodeStatus'
+            // Attributes of signal 'BrakeF_OD_NodeStatus'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_OD_NodeID {
+        class BrakeF_OD_NodeID {
             public:
-            // This signal is multiplexed by SENSOR_SDO_ID == 1            
+            // This signal is multiplexed by BrakeF_SDO_ID == 1            
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                SENSOR_SDO_ID::set(intel, motorola, dlc, 1);
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 1);
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
                 dlc = 3;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                if (SENSOR_SDO_ID::get(intel, motorola) != 1) {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 1) {
                     while(1);
                 }
                 uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
                 return value;
             }
 
-            // Attributes of signal 'SENSOR_OD_NodeID'
+            // Attributes of signal 'BrakeF_OD_NodeID'
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
-        class SENSOR_NodeState {
+        class BrakeF_NodeState {
             public:
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x701 };
+            constexpr static uint32_t ids[] = { 0x711 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
                 uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
@@ -1873,7 +2433,7 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'SENSOR_NodeState'
+            // Value table of signal 'BrakeF_NodeState'
             constexpr static uint8_t BOOTUP = 0;
             constexpr static uint8_t STOPPED = 4;
             constexpr static uint8_t OPERATIONAL = 5;
@@ -1885,36 +2445,6 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
-        class SENSOR_IMU_ACCEL_Y {
-            public:
-            constexpr static uint32_t id = 0x3;
-            constexpr static uint8_t dlc = 4;
-            constexpr static bool isExtendedId = false;
-
-            // Signals
-            using SENSOR_IMU_ACCEL_Y_SIGNAL = signals::SENSOR_IMU_ACCEL_Y_SIGNAL;
-
-            // Attributes of message 'SENSOR_IMU_ACCEL_Y'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_Ready {
-            public:
-            constexpr static uint32_t id = 0x1;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_Ready'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_HELLO_WORLD {
-            public:
-            constexpr static uint32_t id = 0x0;
-            constexpr static uint8_t dlc = 1;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_HELLO_WORLD'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
         class CANzero_NMT {
             public:
             constexpr static uint32_t id = 0x2;
@@ -1928,339 +2458,383 @@ namespace can {
             // Attributes of message 'CANzero_NMT'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class SENSOR_EMCY {
-            public:
-            constexpr static uint32_t id = 0x81;
-            constexpr static uint8_t dlc = 4;
-            constexpr static bool isExtendedId = false;
-
-            // Signals
-            using SENSOR_W0_OtherWarning = signals::SENSOR_W0_OtherWarning;
-            using SENSOR_E0_OtherError = signals::SENSOR_E0_OtherError;
-
-            // Attributes of message 'SENSOR_EMCY'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO1 {
+        class SensorF_TX_StatePod {
             public:
             constexpr static uint32_t id = 0x181;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO1'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_RX_PDO1 {
-            public:
-            constexpr static uint32_t id = 0x1C1;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_RX_PDO1'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO2 {
-            public:
-            constexpr static uint32_t id = 0x201;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO2'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_RX_PDO2 {
-            public:
-            constexpr static uint32_t id = 0x241;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_RX_PDO2'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO3 {
-            public:
-            constexpr static uint32_t id = 0x281;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO3'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_RX_PDO3 {
-            public:
-            constexpr static uint32_t id = 0x2C1;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_RX_PDO3'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO4 {
-            public:
-            constexpr static uint32_t id = 0x301;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO4'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_RX_PDO4 {
-            public:
-            constexpr static uint32_t id = 0x341;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_RX_PDO4'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO5 {
-            public:
-            constexpr static uint32_t id = 0x381;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO5'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO6 {
-            public:
-            constexpr static uint32_t id = 0x3C1;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO6'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO7 {
-            public:
-            constexpr static uint32_t id = 0x401;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO7'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO8 {
-            public:
-            constexpr static uint32_t id = 0x441;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO8'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO9 {
-            public:
-            constexpr static uint32_t id = 0x481;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO9'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO10 {
-            public:
-            constexpr static uint32_t id = 0x4C1;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO10'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO11 {
-            public:
-            constexpr static uint32_t id = 0x501;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO11'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_TX_PDO12 {
-            public:
-            constexpr static uint32_t id = 0x541;
-            constexpr static uint8_t dlc = 0;
-            constexpr static bool isExtendedId = false;
-
-            // Attributes of message 'SENSOR_TX_PDO12'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_SDO_Resp {
-            public:
-            constexpr static uint32_t id = 0x581;
-            constexpr static uint8_t dlc = 8;
-            constexpr static bool isExtendedId = false;
-
-            // Signals
-            using SENSOR_SDO_ID = signals::SENSOR_SDO_ID;
-            using SENSOR_SDO_RespCode = signals::SENSOR_SDO_RespCode;
-            using SENSOR_OD_IMU3_Temperature = signals::SENSOR_OD_IMU3_Temperature;
-            using SENSOR_OD_IMU2_Temperature = signals::SENSOR_OD_IMU2_Temperature;
-            using SENSOR_OD_IMU1_Temperature = signals::SENSOR_OD_IMU1_Temperature;
-            using SENSOR_OD_IMU_number = signals::SENSOR_OD_IMU_number;
-            using SENSOR_OD_CAN2_DelayedTxMessages = signals::SENSOR_OD_CAN2_DelayedTxMessages;
-            using SENSOR_OD_CAN2_ErrorStatus = signals::SENSOR_OD_CAN2_ErrorStatus;
-            using SENSOR_OD_CAN2_DiscardedTxMessages = signals::SENSOR_OD_CAN2_DiscardedTxMessages;
-            using SENSOR_OD_CAN2_Status = signals::SENSOR_OD_CAN2_Status;
-            using SENSOR_OD_CAN2_Baudrate = signals::SENSOR_OD_CAN2_Baudrate;
-            using SENSOR_OD_CAN2_autoErrorReset = signals::SENSOR_OD_CAN2_autoErrorReset;
-            using SENSOR_OD_CAN2_lastErrorCode = signals::SENSOR_OD_CAN2_lastErrorCode;
-            using SENSOR_OD_CAN2_RxErrCnt = signals::SENSOR_OD_CAN2_RxErrCnt;
-            using SENSOR_OD_CAN2_TxErrCnt = signals::SENSOR_OD_CAN2_TxErrCnt;
-            using SENSOR_OD_CAN1_DelayedTxMessages = signals::SENSOR_OD_CAN1_DelayedTxMessages;
-            using SENSOR_OD_CAN1_ErrorStatus = signals::SENSOR_OD_CAN1_ErrorStatus;
-            using SENSOR_OD_CAN1_DiscardedTxMessages = signals::SENSOR_OD_CAN1_DiscardedTxMessages;
-            using SENSOR_OD_CAN1_Status = signals::SENSOR_OD_CAN1_Status;
-            using SENSOR_OD_CAN1_Baudrate = signals::SENSOR_OD_CAN1_Baudrate;
-            using SENSOR_OD_CAN1_autoErrorReset = signals::SENSOR_OD_CAN1_autoErrorReset;
-            using SENSOR_OD_CAN1_lastErrorCode = signals::SENSOR_OD_CAN1_lastErrorCode;
-            using SENSOR_OD_CAN1_RxErrCnt = signals::SENSOR_OD_CAN1_RxErrCnt;
-            using SENSOR_OD_CAN1_TxErrCnt = signals::SENSOR_OD_CAN1_TxErrCnt;
-            using SENSOR_OD_BuildTime = signals::SENSOR_OD_BuildTime;
-            using SENSOR_OD_BuildDate = signals::SENSOR_OD_BuildDate;
-            using SENSOR_OD_ChipUID2 = signals::SENSOR_OD_ChipUID2;
-            using SENSOR_OD_ChipUID1 = signals::SENSOR_OD_ChipUID1;
-            using SENSOR_OD_SdcOut = signals::SENSOR_OD_SdcOut;
-            using SENSOR_OD_SdcIn = signals::SENSOR_OD_SdcIn;
-            using SENSOR_OD_runtime = signals::SENSOR_OD_runtime;
-            using SENSOR_OD_InputVoltage = signals::SENSOR_OD_InputVoltage;
-            using SENSOR_OD_BoardTemp = signals::SENSOR_OD_BoardTemp;
-            using SENSOR_OD_MemFree = signals::SENSOR_OD_MemFree;
-            using SENSOR_OD_CpuUsage = signals::SENSOR_OD_CpuUsage;
-            using SENSOR_OD_OdEntrySendInterval = signals::SENSOR_OD_OdEntrySendInterval;
-            using SENSOR_OD_SendOdOnBootup = signals::SENSOR_OD_SendOdOnBootup;
-            using SENSOR_OD_HeartbeatInterval = signals::SENSOR_OD_HeartbeatInterval;
-            using SENSOR_OD_DbcVersion = signals::SENSOR_OD_DbcVersion;
-            using SENSOR_OD_StackVersion = signals::SENSOR_OD_StackVersion;
-            using SENSOR_OD_ProtocolVersion = signals::SENSOR_OD_ProtocolVersion;
-            using SENSOR_OD_NodeStatus = signals::SENSOR_OD_NodeStatus;
-            using SENSOR_OD_NodeID = signals::SENSOR_OD_NodeID;
-
-            // Attributes of message 'SENSOR_SDO_Resp'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_SDO_Req_Up {
-            public:
-            constexpr static uint32_t id = 0x5C1;
-            constexpr static uint8_t dlc = 8;
-            constexpr static bool isExtendedId = false;
-
-            // Signals
-            using SENSOR_SDO_ID = signals::SENSOR_SDO_ID;
-            using SENSOR_OD_IMU3_Temperature = signals::SENSOR_OD_IMU3_Temperature;
-            using SENSOR_OD_IMU2_Temperature = signals::SENSOR_OD_IMU2_Temperature;
-            using SENSOR_OD_IMU1_Temperature = signals::SENSOR_OD_IMU1_Temperature;
-            using SENSOR_OD_IMU_number = signals::SENSOR_OD_IMU_number;
-            using SENSOR_OD_CAN2_DelayedTxMessages = signals::SENSOR_OD_CAN2_DelayedTxMessages;
-            using SENSOR_OD_CAN2_ErrorStatus = signals::SENSOR_OD_CAN2_ErrorStatus;
-            using SENSOR_OD_CAN2_DiscardedTxMessages = signals::SENSOR_OD_CAN2_DiscardedTxMessages;
-            using SENSOR_OD_CAN2_Status = signals::SENSOR_OD_CAN2_Status;
-            using SENSOR_OD_CAN2_Baudrate = signals::SENSOR_OD_CAN2_Baudrate;
-            using SENSOR_OD_CAN2_autoErrorReset = signals::SENSOR_OD_CAN2_autoErrorReset;
-            using SENSOR_OD_CAN2_lastErrorCode = signals::SENSOR_OD_CAN2_lastErrorCode;
-            using SENSOR_OD_CAN2_RxErrCnt = signals::SENSOR_OD_CAN2_RxErrCnt;
-            using SENSOR_OD_CAN2_TxErrCnt = signals::SENSOR_OD_CAN2_TxErrCnt;
-            using SENSOR_OD_CAN1_DelayedTxMessages = signals::SENSOR_OD_CAN1_DelayedTxMessages;
-            using SENSOR_OD_CAN1_ErrorStatus = signals::SENSOR_OD_CAN1_ErrorStatus;
-            using SENSOR_OD_CAN1_DiscardedTxMessages = signals::SENSOR_OD_CAN1_DiscardedTxMessages;
-            using SENSOR_OD_CAN1_Status = signals::SENSOR_OD_CAN1_Status;
-            using SENSOR_OD_CAN1_Baudrate = signals::SENSOR_OD_CAN1_Baudrate;
-            using SENSOR_OD_CAN1_autoErrorReset = signals::SENSOR_OD_CAN1_autoErrorReset;
-            using SENSOR_OD_CAN1_lastErrorCode = signals::SENSOR_OD_CAN1_lastErrorCode;
-            using SENSOR_OD_CAN1_RxErrCnt = signals::SENSOR_OD_CAN1_RxErrCnt;
-            using SENSOR_OD_CAN1_TxErrCnt = signals::SENSOR_OD_CAN1_TxErrCnt;
-            using SENSOR_OD_BuildTime = signals::SENSOR_OD_BuildTime;
-            using SENSOR_OD_BuildDate = signals::SENSOR_OD_BuildDate;
-            using SENSOR_OD_ChipUID2 = signals::SENSOR_OD_ChipUID2;
-            using SENSOR_OD_ChipUID1 = signals::SENSOR_OD_ChipUID1;
-            using SENSOR_OD_SdcOut = signals::SENSOR_OD_SdcOut;
-            using SENSOR_OD_SdcIn = signals::SENSOR_OD_SdcIn;
-            using SENSOR_OD_runtime = signals::SENSOR_OD_runtime;
-            using SENSOR_OD_InputVoltage = signals::SENSOR_OD_InputVoltage;
-            using SENSOR_OD_BoardTemp = signals::SENSOR_OD_BoardTemp;
-            using SENSOR_OD_MemFree = signals::SENSOR_OD_MemFree;
-            using SENSOR_OD_CpuUsage = signals::SENSOR_OD_CpuUsage;
-            using SENSOR_OD_OdEntrySendInterval = signals::SENSOR_OD_OdEntrySendInterval;
-            using SENSOR_OD_SendOdOnBootup = signals::SENSOR_OD_SendOdOnBootup;
-            using SENSOR_OD_HeartbeatInterval = signals::SENSOR_OD_HeartbeatInterval;
-            using SENSOR_OD_DbcVersion = signals::SENSOR_OD_DbcVersion;
-            using SENSOR_OD_StackVersion = signals::SENSOR_OD_StackVersion;
-            using SENSOR_OD_ProtocolVersion = signals::SENSOR_OD_ProtocolVersion;
-            using SENSOR_OD_NodeStatus = signals::SENSOR_OD_NodeStatus;
-            using SENSOR_OD_NodeID = signals::SENSOR_OD_NodeID;
-
-            // Attributes of message 'SENSOR_SDO_Req_Up'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class SENSOR_SDO_Req_Down {
-            public:
-            constexpr static uint32_t id = 0x601;
             constexpr static uint8_t dlc = 2;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using SENSOR_SDO_ID = signals::SENSOR_SDO_ID;
+            using SensorF_TX_PodState = signals::SensorF_TX_PodState;
+            using SensorF_TX_PodState_Last = signals::SensorF_TX_PodState_Last;
+            using SensorF_TX_PodState_Target = signals::SensorF_TX_PodState_Target;
 
-            // Attributes of message 'SENSOR_SDO_Req_Down'
+            // Attributes of message 'SensorF_TX_StatePod'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class SENSOR_Heartbeat {
+        class BrakeF_EMCY {
             public:
-            constexpr static uint32_t id = 0x701;
+            constexpr static uint32_t id = 0x91;
+            constexpr static uint8_t dlc = 4;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using BrakeF_W0_highPressureActingChamber = signals::BrakeF_W0_highPressureActingChamber;
+            using BrakeF_W1_highPressureRetractingChamber = signals::BrakeF_W1_highPressureRetractingChamber;
+            using BrakeF_W2_enableWithAnError = signals::BrakeF_W2_enableWithAnError;
+            using BrakeF_W3_externalError = signals::BrakeF_W3_externalError;
+            using BrakeF_E0_pressureTooHigh = signals::BrakeF_E0_pressureTooHigh;
+            using BrakeF_E1_pressureTooLow = signals::BrakeF_E1_pressureTooLow;
+            using BrakeF_E2_commWatchdogTimeout = signals::BrakeF_E2_commWatchdogTimeout;
+            using BrakeF_E3_retractUnsuccesful_errorFlag = signals::BrakeF_E3_retractUnsuccesful_errorFlag;
+            using BrakeF_E4_retractUnsuccesful_notEnabled = signals::BrakeF_E4_retractUnsuccesful_notEnabled;
+            using BrakeF_E5_retractUnsuccesful_openSDC = signals::BrakeF_E5_retractUnsuccesful_openSDC;
+
+            // Attributes of message 'BrakeF_EMCY'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_Status {
+            public:
+            constexpr static uint32_t id = 0x191;
+            constexpr static uint8_t dlc = 3;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using BrakeF_TX_Status_ = signals::BrakeF_TX_Status;
+            using BrakeF_TX_Enabled = signals::BrakeF_TX_Enabled;
+            using BrakeF_TX_ErrorFlag = signals::BrakeF_TX_ErrorFlag;
+            using BrakeF_TX_SDC_Input = signals::BrakeF_TX_SDC_Input;
+            using BrakeF_TX_DeltaTime_Control = signals::BrakeF_TX_DeltaTime_Control;
+            using BrakeF_TX_MaxDeltaTime_Control = signals::BrakeF_TX_MaxDeltaTime_Control;
+
+            // Attributes of message 'BrakeF_TX_Status'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_RX_Control {
+            public:
+            constexpr static uint32_t id = 0x1D1;
             constexpr static uint8_t dlc = 1;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using SENSOR_NodeState = signals::SENSOR_NodeState;
+            using BrakeF_RX_ErrorReset = signals::BrakeF_RX_ErrorReset;
+            using BrakeF_RX_Enable = signals::BrakeF_RX_Enable;
+            using BrakeF_RX_Engage = signals::BrakeF_RX_Engage;
 
-            // Attributes of message 'SENSOR_Heartbeat'
+            // Attributes of message 'BrakeF_RX_Control'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class SENSOR_BTL_TX {
+        class BrakeF_TX_PDO2 {
             public:
-            constexpr static uint32_t id = 0x741;
+            constexpr static uint32_t id = 0x211;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO2'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_RX_PDO2 {
+            public:
+            constexpr static uint32_t id = 0x251;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_RX_PDO2'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PDO3 {
+            public:
+            constexpr static uint32_t id = 0x291;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO3'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_RX_PDO3 {
+            public:
+            constexpr static uint32_t id = 0x2D1;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_RX_PDO3'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PDO4 {
+            public:
+            constexpr static uint32_t id = 0x311;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO4'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_RX_PDO4 {
+            public:
+            constexpr static uint32_t id = 0x351;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_RX_PDO4'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PDO5 {
+            public:
+            constexpr static uint32_t id = 0x391;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO5'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PDO6 {
+            public:
+            constexpr static uint32_t id = 0x3D1;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO6'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_Pressure {
+            public:
+            constexpr static uint32_t id = 0x411;
+            constexpr static uint8_t dlc = 6;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using BrakeF_TX_Pressure_Act = signals::BrakeF_TX_Pressure_Act;
+            using BrakeF_TX_Pressure_Retract = signals::BrakeF_TX_Pressure_Retract;
+            using BrakeF_TX_Pressure_Tank = signals::BrakeF_TX_Pressure_Tank;
+
+            // Attributes of message 'BrakeF_TX_Pressure'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PDO8 {
+            public:
+            constexpr static uint32_t id = 0x451;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO8'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PDO9 {
+            public:
+            constexpr static uint32_t id = 0x491;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO9'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PDO10 {
+            public:
+            constexpr static uint32_t id = 0x4D1;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO10'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PDO11 {
+            public:
+            constexpr static uint32_t id = 0x511;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO11'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PDO12 {
+            public:
+            constexpr static uint32_t id = 0x551;
+            constexpr static uint8_t dlc = 0;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_TX_PDO12'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_SDO_Resp {
+            public:
+            constexpr static uint32_t id = 0x591;
             constexpr static uint8_t dlc = 8;
             constexpr static bool isExtendedId = false;
 
-            // Attributes of message 'SENSOR_BTL_TX'
+            // Signals
+            using BrakeF_SDO_ID = signals::BrakeF_SDO_ID;
+            using BrakeF_SDO_RespCode = signals::BrakeF_SDO_RespCode;
+            using BrakeF_OD_valveUpperTolerance = signals::BrakeF_OD_valveUpperTolerance;
+            using BrakeF_OD_commWatchdog = signals::BrakeF_OD_commWatchdog;
+            using BrakeF_OD_counterLimit = signals::BrakeF_OD_counterLimit;
+            using BrakeF_OD_delay = signals::BrakeF_OD_delay;
+            using BrakeF_OD_tankUpperControlLimit = signals::BrakeF_OD_tankUpperControlLimit;
+            using BrakeF_OD_tankLowerControlLimit = signals::BrakeF_OD_tankLowerControlLimit;
+            using BrakeF_OD_CAN2_DelayedTxMessages = signals::BrakeF_OD_CAN2_DelayedTxMessages;
+            using BrakeF_OD_CAN2_ErrorStatus = signals::BrakeF_OD_CAN2_ErrorStatus;
+            using BrakeF_OD_CAN2_DiscardedTxMessages = signals::BrakeF_OD_CAN2_DiscardedTxMessages;
+            using BrakeF_OD_CAN2_Status = signals::BrakeF_OD_CAN2_Status;
+            using BrakeF_OD_CAN2_Baudrate = signals::BrakeF_OD_CAN2_Baudrate;
+            using BrakeF_OD_CAN2_autoErrorReset = signals::BrakeF_OD_CAN2_autoErrorReset;
+            using BrakeF_OD_CAN2_lastErrorCode = signals::BrakeF_OD_CAN2_lastErrorCode;
+            using BrakeF_OD_CAN2_RxErrCnt = signals::BrakeF_OD_CAN2_RxErrCnt;
+            using BrakeF_OD_CAN2_TxErrCnt = signals::BrakeF_OD_CAN2_TxErrCnt;
+            using BrakeF_OD_CAN1_DelayedTxMessages = signals::BrakeF_OD_CAN1_DelayedTxMessages;
+            using BrakeF_OD_CAN1_ErrorStatus = signals::BrakeF_OD_CAN1_ErrorStatus;
+            using BrakeF_OD_CAN1_DiscardedTxMessages = signals::BrakeF_OD_CAN1_DiscardedTxMessages;
+            using BrakeF_OD_CAN1_Status = signals::BrakeF_OD_CAN1_Status;
+            using BrakeF_OD_CAN1_Baudrate = signals::BrakeF_OD_CAN1_Baudrate;
+            using BrakeF_OD_CAN1_autoErrorReset = signals::BrakeF_OD_CAN1_autoErrorReset;
+            using BrakeF_OD_CAN1_lastErrorCode = signals::BrakeF_OD_CAN1_lastErrorCode;
+            using BrakeF_OD_CAN1_RxErrCnt = signals::BrakeF_OD_CAN1_RxErrCnt;
+            using BrakeF_OD_CAN1_TxErrCnt = signals::BrakeF_OD_CAN1_TxErrCnt;
+            using BrakeF_OD_BuildTime = signals::BrakeF_OD_BuildTime;
+            using BrakeF_OD_BuildDate = signals::BrakeF_OD_BuildDate;
+            using BrakeF_OD_ChipUID2 = signals::BrakeF_OD_ChipUID2;
+            using BrakeF_OD_ChipUID1 = signals::BrakeF_OD_ChipUID1;
+            using BrakeF_OD_SdcOut = signals::BrakeF_OD_SdcOut;
+            using BrakeF_OD_SdcIn = signals::BrakeF_OD_SdcIn;
+            using BrakeF_OD_runtime = signals::BrakeF_OD_runtime;
+            using BrakeF_OD_InputVoltage = signals::BrakeF_OD_InputVoltage;
+            using BrakeF_OD_BoardTemp = signals::BrakeF_OD_BoardTemp;
+            using BrakeF_OD_MemFree = signals::BrakeF_OD_MemFree;
+            using BrakeF_OD_CpuUsage = signals::BrakeF_OD_CpuUsage;
+            using BrakeF_OD_OdEntrySendInterval = signals::BrakeF_OD_OdEntrySendInterval;
+            using BrakeF_OD_SendOdOnBootup = signals::BrakeF_OD_SendOdOnBootup;
+            using BrakeF_OD_HeartbeatInterval = signals::BrakeF_OD_HeartbeatInterval;
+            using BrakeF_OD_DbcVersion = signals::BrakeF_OD_DbcVersion;
+            using BrakeF_OD_StackVersion = signals::BrakeF_OD_StackVersion;
+            using BrakeF_OD_ProtocolVersion = signals::BrakeF_OD_ProtocolVersion;
+            using BrakeF_OD_NodeStatus = signals::BrakeF_OD_NodeStatus;
+            using BrakeF_OD_NodeID = signals::BrakeF_OD_NodeID;
+
+            // Attributes of message 'BrakeF_SDO_Resp'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class SENSOR_BTL_RX {
+        class BrakeF_SDO_Req_Up {
             public:
-            constexpr static uint32_t id = 0x781;
+            constexpr static uint32_t id = 0x5D1;
             constexpr static uint8_t dlc = 8;
             constexpr static bool isExtendedId = false;
 
-            // Attributes of message 'SENSOR_BTL_RX'
+            // Signals
+            using BrakeF_SDO_ID = signals::BrakeF_SDO_ID;
+            using BrakeF_OD_valveUpperTolerance = signals::BrakeF_OD_valveUpperTolerance;
+            using BrakeF_OD_commWatchdog = signals::BrakeF_OD_commWatchdog;
+            using BrakeF_OD_counterLimit = signals::BrakeF_OD_counterLimit;
+            using BrakeF_OD_delay = signals::BrakeF_OD_delay;
+            using BrakeF_OD_tankUpperControlLimit = signals::BrakeF_OD_tankUpperControlLimit;
+            using BrakeF_OD_tankLowerControlLimit = signals::BrakeF_OD_tankLowerControlLimit;
+            using BrakeF_OD_CAN2_DelayedTxMessages = signals::BrakeF_OD_CAN2_DelayedTxMessages;
+            using BrakeF_OD_CAN2_ErrorStatus = signals::BrakeF_OD_CAN2_ErrorStatus;
+            using BrakeF_OD_CAN2_DiscardedTxMessages = signals::BrakeF_OD_CAN2_DiscardedTxMessages;
+            using BrakeF_OD_CAN2_Status = signals::BrakeF_OD_CAN2_Status;
+            using BrakeF_OD_CAN2_Baudrate = signals::BrakeF_OD_CAN2_Baudrate;
+            using BrakeF_OD_CAN2_autoErrorReset = signals::BrakeF_OD_CAN2_autoErrorReset;
+            using BrakeF_OD_CAN2_lastErrorCode = signals::BrakeF_OD_CAN2_lastErrorCode;
+            using BrakeF_OD_CAN2_RxErrCnt = signals::BrakeF_OD_CAN2_RxErrCnt;
+            using BrakeF_OD_CAN2_TxErrCnt = signals::BrakeF_OD_CAN2_TxErrCnt;
+            using BrakeF_OD_CAN1_DelayedTxMessages = signals::BrakeF_OD_CAN1_DelayedTxMessages;
+            using BrakeF_OD_CAN1_ErrorStatus = signals::BrakeF_OD_CAN1_ErrorStatus;
+            using BrakeF_OD_CAN1_DiscardedTxMessages = signals::BrakeF_OD_CAN1_DiscardedTxMessages;
+            using BrakeF_OD_CAN1_Status = signals::BrakeF_OD_CAN1_Status;
+            using BrakeF_OD_CAN1_Baudrate = signals::BrakeF_OD_CAN1_Baudrate;
+            using BrakeF_OD_CAN1_autoErrorReset = signals::BrakeF_OD_CAN1_autoErrorReset;
+            using BrakeF_OD_CAN1_lastErrorCode = signals::BrakeF_OD_CAN1_lastErrorCode;
+            using BrakeF_OD_CAN1_RxErrCnt = signals::BrakeF_OD_CAN1_RxErrCnt;
+            using BrakeF_OD_CAN1_TxErrCnt = signals::BrakeF_OD_CAN1_TxErrCnt;
+            using BrakeF_OD_BuildTime = signals::BrakeF_OD_BuildTime;
+            using BrakeF_OD_BuildDate = signals::BrakeF_OD_BuildDate;
+            using BrakeF_OD_ChipUID2 = signals::BrakeF_OD_ChipUID2;
+            using BrakeF_OD_ChipUID1 = signals::BrakeF_OD_ChipUID1;
+            using BrakeF_OD_SdcOut = signals::BrakeF_OD_SdcOut;
+            using BrakeF_OD_SdcIn = signals::BrakeF_OD_SdcIn;
+            using BrakeF_OD_runtime = signals::BrakeF_OD_runtime;
+            using BrakeF_OD_InputVoltage = signals::BrakeF_OD_InputVoltage;
+            using BrakeF_OD_BoardTemp = signals::BrakeF_OD_BoardTemp;
+            using BrakeF_OD_MemFree = signals::BrakeF_OD_MemFree;
+            using BrakeF_OD_CpuUsage = signals::BrakeF_OD_CpuUsage;
+            using BrakeF_OD_OdEntrySendInterval = signals::BrakeF_OD_OdEntrySendInterval;
+            using BrakeF_OD_SendOdOnBootup = signals::BrakeF_OD_SendOdOnBootup;
+            using BrakeF_OD_HeartbeatInterval = signals::BrakeF_OD_HeartbeatInterval;
+            using BrakeF_OD_DbcVersion = signals::BrakeF_OD_DbcVersion;
+            using BrakeF_OD_StackVersion = signals::BrakeF_OD_StackVersion;
+            using BrakeF_OD_ProtocolVersion = signals::BrakeF_OD_ProtocolVersion;
+            using BrakeF_OD_NodeStatus = signals::BrakeF_OD_NodeStatus;
+            using BrakeF_OD_NodeID = signals::BrakeF_OD_NodeID;
+
+            // Attributes of message 'BrakeF_SDO_Req_Up'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_SDO_Req_Down {
+            public:
+            constexpr static uint32_t id = 0x611;
+            constexpr static uint8_t dlc = 2;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using BrakeF_SDO_ID = signals::BrakeF_SDO_ID;
+
+            // Attributes of message 'BrakeF_SDO_Req_Down'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_Heartbeat {
+            public:
+            constexpr static uint32_t id = 0x711;
+            constexpr static uint8_t dlc = 1;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using BrakeF_NodeState = signals::BrakeF_NodeState;
+
+            // Attributes of message 'BrakeF_Heartbeat'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_BTL_TX {
+            public:
+            constexpr static uint32_t id = 0x751;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_BTL_TX'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_BTL_RX {
+            public:
+            constexpr static uint32_t id = 0x791;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = false;
+
+            // Attributes of message 'BrakeF_BTL_RX'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
 
         // Aliases for all CANzero messages of the current node, excluding the node name in the message name
         // This allows writing node independent code by using e.g. can::messages::CANZERO_BTL_RX instead of can::messages::PDU_BTL_RX
         // Also if the user renamed a PDO (e.g. PDU_TX_PDO1 to PDU_TX_Current) the alias will still be TX_PDO1
-        using CANZERO_EMCY = SENSOR_EMCY;
-        using CANZERO_TX_PDO1 = SENSOR_TX_PDO1;
-        using CANZERO_RX_PDO1 = SENSOR_RX_PDO1;
-        using CANZERO_TX_PDO2 = SENSOR_TX_PDO2;
-        using CANZERO_RX_PDO2 = SENSOR_RX_PDO2;
-        using CANZERO_TX_PDO3 = SENSOR_TX_PDO3;
-        using CANZERO_RX_PDO3 = SENSOR_RX_PDO3;
-        using CANZERO_TX_PDO4 = SENSOR_TX_PDO4;
-        using CANZERO_RX_PDO4 = SENSOR_RX_PDO4;
-        using CANZERO_TX_PDO5 = SENSOR_TX_PDO5;
-        using CANZERO_TX_PDO6 = SENSOR_TX_PDO6;
-        using CANZERO_TX_PDO7 = SENSOR_TX_PDO7;
-        using CANZERO_TX_PDO8 = SENSOR_TX_PDO8;
-        using CANZERO_TX_PDO9 = SENSOR_TX_PDO9;
-        using CANZERO_TX_PDO10 = SENSOR_TX_PDO10;
-        using CANZERO_TX_PDO11 = SENSOR_TX_PDO11;
-        using CANZERO_TX_PDO12 = SENSOR_TX_PDO12;
-        using CANZERO_SDO_Resp = SENSOR_SDO_Resp;
-        using CANZERO_SDO_Req_Up = SENSOR_SDO_Req_Up;
-        using CANZERO_SDO_Req_Down = SENSOR_SDO_Req_Down;
-        using CANZERO_Heartbeat = SENSOR_Heartbeat;
-        using CANZERO_BTL_TX = SENSOR_BTL_TX;
-        using CANZERO_BTL_RX = SENSOR_BTL_RX;
+        using CANZERO_EMCY = BrakeF_EMCY;
+        using CANZERO_TX_PDO1 = BrakeF_TX_Status;
+        using CANZERO_RX_PDO1 = BrakeF_RX_Control;
+        using CANZERO_TX_PDO2 = BrakeF_TX_PDO2;
+        using CANZERO_RX_PDO2 = BrakeF_RX_PDO2;
+        using CANZERO_TX_PDO3 = BrakeF_TX_PDO3;
+        using CANZERO_RX_PDO3 = BrakeF_RX_PDO3;
+        using CANZERO_TX_PDO4 = BrakeF_TX_PDO4;
+        using CANZERO_RX_PDO4 = BrakeF_RX_PDO4;
+        using CANZERO_TX_PDO5 = BrakeF_TX_PDO5;
+        using CANZERO_TX_PDO6 = BrakeF_TX_PDO6;
+        using CANZERO_TX_PDO7 = BrakeF_TX_Pressure;
+        using CANZERO_TX_PDO8 = BrakeF_TX_PDO8;
+        using CANZERO_TX_PDO9 = BrakeF_TX_PDO9;
+        using CANZERO_TX_PDO10 = BrakeF_TX_PDO10;
+        using CANZERO_TX_PDO11 = BrakeF_TX_PDO11;
+        using CANZERO_TX_PDO12 = BrakeF_TX_PDO12;
+        using CANZERO_SDO_Resp = BrakeF_SDO_Resp;
+        using CANZERO_SDO_Req_Up = BrakeF_SDO_Req_Up;
+        using CANZERO_SDO_Req_Down = BrakeF_SDO_Req_Down;
+        using CANZERO_Heartbeat = BrakeF_Heartbeat;
+        using CANZERO_BTL_TX = BrakeF_BTL_TX;
+        using CANZERO_BTL_RX = BrakeF_BTL_RX;
         
     }
 }

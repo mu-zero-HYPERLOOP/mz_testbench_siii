@@ -15,7 +15,7 @@
 
 class PodReadyToLaunchState : public State{
 public:
-	PodReadyToLaunchState();
+	PodReadyToLaunchState() : State(POD_READY_TO_LAUNCH) {}
 
 
 	void setup() override;
@@ -23,12 +23,6 @@ public:
 	void update() override;
 
 	void dispose() override;
-private:
-	can::RxMessageQueue<can::messages::SENSOR_HELLO_WORLD> m_groundStationReadyToLaunchQueue; //TODO would be bette as a PDO request.
-	can::RxMessageQueue<can::messages::SENSOR_HELLO_WORLD> m_mdbReadyToLaunchQueue; //TODO would be better as a PDO request.
-	can::RxMessageQueue<can::messages::SENSOR_HELLO_WORLD> m_brakeEcuReadyToLaunchQueue;
-	NTCSensor m_coolingTemperatur;
-	NTCSensor m_eboxTemperatur;
 };
 
 #endif /* INC_PODREADYTOLAUNCHSTATE_HPP_ */

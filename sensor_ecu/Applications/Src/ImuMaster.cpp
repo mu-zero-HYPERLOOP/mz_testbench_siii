@@ -48,7 +48,6 @@ bool ImuMaster::start() {
 		m_numOfImusOnline++;
 	}
 	OD_IMU_number = m_numOfImusOnline;
-	printf("IMU-Number = %i\n", m_numOfImusOnline);
 
 	// The internal filters of the IMU need some time to swing in
 	osDelay(pdMS_TO_TICKS(100));

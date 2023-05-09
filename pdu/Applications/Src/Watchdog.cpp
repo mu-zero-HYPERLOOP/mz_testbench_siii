@@ -28,6 +28,8 @@ void Watchdog::reset() {
  * @return true if there was a timeout
  */
 bool Watchdog::isTimedOut() {
+	//TODO remove me later.
+	return false;
 	if(xTaskGetTickCount() - m_lastWatchdogReset > m_timeoutMs) {
 		return true;
 	} else {

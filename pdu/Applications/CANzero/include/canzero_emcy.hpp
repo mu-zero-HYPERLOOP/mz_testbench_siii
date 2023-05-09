@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This header file was generated from 'database_gen.dbc'.
+ * This header file was generated from 'pod2023_gen.dbc'.
  * It contains the errors and warnings for the node 'PDU'.
  *
  * Florian Keck

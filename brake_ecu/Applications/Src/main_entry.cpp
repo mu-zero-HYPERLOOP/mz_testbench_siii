@@ -8,6 +8,8 @@
 #include "GlobalPeripheralRegistry.hpp"
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
+#include "GlobalStateReceiver.hpp"
+#include "estdio.hpp"
 
 
 #ifdef __cplusplus
@@ -16,14 +18,9 @@ extern "C" {
 
 
 void main_entry(void *argv) {
-	SolenoidController& solenoid = GlobalPeripheralRegistry::getInstance().getSolenoidController();
-	SDC& sdc = GlobalPeripheralRegistry::getInstance().getSDC();
 	while(true){
-		//solenoid.activate();
-		//solenoid.deactivate();
-		//sdc.open();
-		//sdc.close();
-		osDelay(pdMS_TO_TICKS(50));
+		osDelay(pdMS_TO_TICKS(1000));
+
 	}
 }
 

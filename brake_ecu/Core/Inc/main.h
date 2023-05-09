@@ -61,8 +61,12 @@ void Error_Handler(void);
 #define ADC_IN10_Board_Temp_GPIO_Port GPIOC
 #define ADC_IN12_Board_VCC_Pin GPIO_PIN_2
 #define ADC_IN12_Board_VCC_GPIO_Port GPIOC
-#define SDC_Pin GPIO_PIN_0
+#define SOLENOID_Pin GPIO_PIN_0
+#define SOLENOID_GPIO_Port GPIOB
+#define SDC_Pin GPIO_PIN_1
 #define SDC_GPIO_Port GPIOB
+#define DOUT2_Pin GPIO_PIN_11
+#define DOUT2_GPIO_Port GPIOB
 #define LED_GREEN_Pin GPIO_PIN_12
 #define LED_GREEN_GPIO_Port GPIOD
 #define LED_ORANGE_Pin GPIO_PIN_13

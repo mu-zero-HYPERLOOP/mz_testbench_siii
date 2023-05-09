@@ -5,24 +5,36 @@
  *      Author: OfficeLaptop
  */
 
+#include <BrakeECUController.hpp>
 #include <PodLaunchPreparationState.hpp>
+#include "GlobalState.hpp"
 #include "peripheral_config.hpp"
-
-PodLaunchPreparationState::PodLaunchPreparationState() :
-		m_coolingPressure(g_peripherals.m_pressureConfig.m_module, g_peripherals.m_pressureConfig.m_rank),
-		m_coolingTemperatur( g_peripherals.m_coolingReservoirTemperaturSensorConfig),
-		m_sdc(g_peripherals.m_sdcConfig) {
-}
+#include "FreeRTOS.h"
+#include "PodStartLevitationState.hpp"
+#include "cmsis_os.h"
+#include "estdio.hpp"
+#include "MergedMdbState.hpp"
+#include "PDUController.hpp"
 
 void PodLaunchPreparationState::setup() {
-
+	printf("enter launch prep\n");
+	PDUController::getInstance().enable();
+	PDUController::getInstance().enableHV();
+	BrakeECUController::getInstance().disengageBrakes();
+	SDC::getInstance().close();
 }
 
 void PodLaunchPreparationState::update() {
-	//TODO implement sensor value checking
-	//TODO implement checking of received messages
+	if (MergedMdbState::getInstance().getState() == MDB_STATE_PRECHARGE_DONE
+			&& PDUController::getInstance().isEnabled()
+			&& PDUController::getInstance().isHVEnabled()
+			&& not PDUController::getInstance().hasError()
+			&& BrakeECUController::getInstance().getBrakeState() == BRAKE_DISENGAGED) {
+		GlobalState::getInstance().setState<PodReadyToLaunchState>();
+	}
+	osDelay(50);
 }
 
 void PodLaunchPreparationState::dispose() {
-
+	printf("exit launch prep\n");
 }

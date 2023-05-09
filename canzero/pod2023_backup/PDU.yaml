@@ -1,0 +1,110 @@
+## CANzero Node description file V1.1
+# mu-zero HYPERLOOP e.V.
+
+## NDF description
+ndf:
+  name: PDU
+  node_id: 0x1A
+  comment: Power Distribution Unit
+  parent_ndfs: [mu-zero]
+
+## Add your signals for the object-dictionary below
+object_dictionary:
+  0x800:
+    name: batterVoltageLow
+    length: 16
+    comment: Warning when battery voltage is getting low
+    unit: V
+    conversion: {scale: 0.01}
+    default: 22.2
+  0x801:
+    name: batterVoltageCritical
+    length: 16
+    comment: Error when battery voltage is getting critical low. Pod will be shut down
+    unit: V
+    conversion: {scale: 0.01}
+    default: 21.0
+  0x802:
+    name: overTempWarn
+    length: 16
+    comment: Warning when battery temperature is getting high
+    unit: degrees
+    conversion: {scale: 0.1}
+    default: 40
+  0x803:
+    name: overTempCritical
+    length: 16
+    comment: Error when battery temperature is getting critical high. Pod will be shut down
+    unit: degrees
+    conversion: {scale: 0.1}
+    default: 70
+  0x850:
+    name: batteryOvercurrent
+    length: 16
+    comment: Overcurrent limit in ampere of the low voltage battery.
+    unit: A
+    conversion: {scale: 0.01}
+    default: 15
+
+  0x900:
+    name: currentReadInterval
+    length: 16
+    comment: Sampling time in millisecconds for reading the currents.
+    unit: ms
+    default: 100
+  0x901:
+    name: statusSendInterval
+    length: 16
+    comment: Sending intervall for the status in milliseconds.
+    unit: ms
+    default: 20
+  0x902:
+    name: watchdogTimeout
+    length: 16
+    comment: Timeout for the state machine watchdog in milliseconds.
+    unit: ms
+    default: 25
+
+  0xA00:
+    name: projectXXEnabled
+    length: 8
+    comment: Enable the Project XX leds.
+    default: 1
+    choices: {0: Disable, 1: Enable}
+  0xA02:
+    name: LedCommands              # Required to put a name in.
+    length: 16                     # Required to put a length in bit in. Should be 8, 16, 24, 32, 40 or 48 bit.
+    comment: Commands from Telemetry to leds
+    default: 1                    # Default value
+    choices: { 0: "None", 1: "whipeanimation", 2: "mugreenanimation", 3: "rainbowanimation", 4: "flashlights", 5: "snakeanimation", 6: "blinkpink", 7: "multiwhipe", 8: "Emergency"}
+
+  0xB00:
+    name: CoolingPumpEnabled
+    length: 8
+    comment: Enable the Cooling Pump.
+    default: 1
+    choices: {0: Disable, 1: Enable}
+
+
+## Add your emergency codes below
+emergency:
+  warnings:
+    W1:
+      name: batterVoltageLow
+      comment: Warning when battery voltage is getting low
+    W2:
+       name: batterTempHigh
+       comment: Warning when battery temperature is rising high
+  errors:
+    E1:
+      name: batterVoltageCritical
+      comment: Error when battery voltage is getting critical low. Pod will be shut down
+    E2:
+      name: batteryOvercurrent
+      comment: Overcurrent limit of the battery reached.
+    E3:
+      name: batterTempCritical
+      comment: Temperature limit of the battery reached.
+    E4:
+      name: watchdogStateMachine
+      comment: The watchdog for the state machine timed out.

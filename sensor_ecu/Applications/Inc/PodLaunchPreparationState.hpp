@@ -17,21 +17,13 @@
 
 class PodLaunchPreparationState : public State{
 public:
-	PodLaunchPreparationState();
+	PodLaunchPreparationState() : State(POD_LAUNCH_PREPARATION){}
 
 	void setup() override;
 
 	void update() override;
 
 	void dispose() override;
-private:
-	//TODO fix queue duplication (maybe by changing the RxMessageQueue)
-	can::RxMessageQueue<can::messages::SENSOR_HELLO_WORLD> m_mdbCapacitorPrechargeDoneQueue;
-	can::RxMessageQueue<can::messages::SENSOR_HELLO_WORLD> m_trackDistanceOkQueue;
-	AdcChannelController m_coolingPressure;
-	NTCSensor m_coolingTemperatur;
-	ImuMaster m_imuMaster;
-	SDC m_sdc;
 };
 
 #endif /* INC_PODLAUNCHPREPARATIONSTATE_HPP_ */

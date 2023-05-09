@@ -11,6 +11,8 @@
 #include <cz_typedefinitions.hpp>
 #include "FreeRTOS.h"
 #include "message_buffer.h"
+#include "cz_RxMessageQueue.hpp"
+
 
 
 extern MessageBufferHandle_t handlePDO1MessageBuffer;

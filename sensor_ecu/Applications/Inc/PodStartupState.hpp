@@ -9,10 +9,11 @@
 #define INC_PODSTARTUPSTATE_HPP_
 
 #include <State.hpp>
+#include "estdio.hpp"
 
 class PodStartupState: public State {
 public:
-	PodStartupState();
+	PodStartupState() : State(POD_OFF) {}
 
 	void setup() override;
 

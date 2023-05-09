@@ -1,10 +1,25 @@
-State.hpp:37:22:static unsigned int State::getNextId()	1
+State.hpp:19:2:State::State(PodState)	1
+State.hpp:36:25:PodState State::getPodState() const	1
+State.hpp:45:22:static unsigned int State::getNextId()	1
+State.hpp:28:10:State::~State()	1
+State.hpp:28:10:virtual State::~State()	1
+PodStopLevitationState.hpp:15:2:PodStopLevitationState::PodStopLevitationState()	1
+dbc_parser.hpp:149:9:can::MessageBase::MessageBase(uint32_t, uint8_t, bool)	1
+dbc_parser.hpp:182:14:void can::MessageBase::toBuf(CAN_TxHeaderTypeDef&, uint8_t*, can::CAN_BusTypeDef) const	2
+cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	1
+dbc_parser.hpp:211:19:TxMessage can::MessageBase::getTxMessage(can::CAN_BusTypeDef) const	1
+dbc_parser.hpp:218:14:void can::MessageBase::send(can::CAN_BusTypeDef) const	2
+dbc_parser.hpp:968:42:static constexpr void can::signals::SensorF_TX_PodState::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:992:42:static constexpr void can::signals::SensorF_TX_PodState_Last::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
+dbc_parser.hpp:1016:42:static constexpr void can::signals::SensorF_TX_PodState_Target::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
 new:174:33:void* operator new(std::size_t, void*)	1
 std_function.h:87:17:void* std::_Any_data::_M_access()	1
 std_function.h:88:17:const void* std::_Any_data::_M_access() const	1
 std_function.h:240:5:std::_Function_base::_Function_base()	1
 std_function.h:242:5:std::_Function_base::~_Function_base()	2
 std_function.h:248:10:bool std::_Function_base::_M_empty() const	1
+PodEmergencyState.hpp:17:2:PodEmergencyState::PodEmergencyState()	1
+PodIdleState.hpp:18:2:PodIdleState::PodIdleState()	1
 AdcChannel.hpp:15:11:AdcChannel::AdcChannel()	1
 AdcChannel.hpp:23:7:void AdcChannel::setValue(uint16_t)	1
 std_function.h:303:11:std::function<void(ADC_HandleTypeDef*)>::~function()	1
@@ -21,27 +36,45 @@ AdcModuleController.hpp:39:2:AdcModuleController::~AdcModuleController()	4
 AdcModuleController.hpp:57:7:void AdcModuleController::update()	2
 AdcModuleController.hpp:79:7:void AdcModuleController::dmaCplrCallback()	1
 AdcChannelController.hpp:18:29:AdcModuleController& _getChannelAdcModuleControllerRuntime(AdcModule)	3
-state_maschine_task.cpp:27:6:void state_maschine_entry(void*)	1
+PodLaunchPreparationState.hpp:20:2:PodLaunchPreparationState::PodLaunchPreparationState()	1
+PodLaunchingState.hpp:15:2:PodLaunchingState::PodLaunchingState()	1
+PodReadyToLaunchState.hpp:18:2:PodReadyToLaunchState::PodReadyToLaunchState()	1
+PodStartLevitationState.hpp:16:2:PodStartLevitation::PodStartLevitation()	1
+PodSafeToApproach.hpp:15:2:PodSafeToApproach::PodSafeToApproach()	1
+PodStartupState.hpp:16:2:PodStartupState::PodStartupState()	1
+PodBreakState.hpp:15:2:PodBreakState::PodBreakState()	1
+GlobalState.hpp:46:2:GlobalState::~GlobalState()	1
+GlobalState.hpp:30:22:void __tcf_1()	1
+GlobalState.hpp:29:22:static GlobalState& GlobalState::getInstance()	3
+GlobalState.hpp:41:7:void GlobalState::start()	1
+dbc_parser.hpp:262:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::SensorF_TX_StatePod]	1
+GlobalState.hpp:54:7:void GlobalState::broadcastState(PodState)	1
+GlobalState.hpp:62:11:GlobalState::GlobalState()	1
+state_maschine_task.cpp:16:6:void state_maschine_entry(void*)	1
 std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:428:7:)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2
 std_function.h:601:7:)>::function(_Functor) [with _Functor = AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2
-AdcChannelController.hpp:14:29:void __tcf_1()	1
-AdcChannelController.hpp:13:29:AdcModuleController& _getChannelAdcModuleControllerCompiletime() [with AdcModule ADC_MODULE = ADC_MODULE1]	3
 AdcChannelController.hpp:14:29:void __tcf_2()	1
+AdcChannelController.hpp:13:29:AdcModuleController& _getChannelAdcModuleControllerCompiletime() [with AdcModule ADC_MODULE = ADC_MODULE1]	3
+AdcChannelController.hpp:14:29:void __tcf_3()	1
 AdcChannelController.hpp:13:29:AdcModuleController& _getChannelAdcModuleControllerCompiletime() [with AdcModule ADC_MODULE = ADC_MODULE2]	3
-StateMaschineMemory.hpp:17:11:StateMaschineMemory<NUMBER_OF_STATES>::StateMaschineMemory() [with unsigned int NUMBER_OF_STATES = 8]	1
-StateMaschine.hpp:21:11:StateMaschine::StateMaschine(StateMaschineMemory_t*) [with StateMaschineMemory_t = StateMaschineMemory<8>]	1
-StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodEmergencyState]	1
-StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodIdleState]	1
-StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodLaunchingState]	1
-StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodLaunchPreparationState]	1
-StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodPushableState]	1
-StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodReadyToLaunchState]	1
-StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodRunStopState]	1
-StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodSafeToApproach]	1
+StateMaschine.hpp:62:7:void StateMaschine::start() [with StartState = PodStartupState]	4
+dbc_parser.hpp:286:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SensorF_TX_PodState; MESSAGE_T = can::messages::SensorF_TX_StatePod]	1
+dbc_parser.hpp:286:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SensorF_TX_PodState_Last; MESSAGE_T = can::messages::SensorF_TX_StatePod]	1
+dbc_parser.hpp:286:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::SensorF_TX_PodState_Target; MESSAGE_T = can::messages::SensorF_TX_StatePod]	1
+StateMaschineMemory.hpp:17:11:StateMaschineMemory<NUMBER_OF_STATES>::StateMaschineMemory() [with unsigned int NUMBER_OF_STATES = 15]	1
+StateMaschine.hpp:21:11:StateMaschine::StateMaschine(StateMaschineMemory_t*) [with StateMaschineMemory_t = StateMaschineMemory<15>]	1
 StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodStartupState]	1
-StateMaschine.hpp:48:7:void StateMaschine::start() [with StartState = PodStartupState]	4
+StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodIdleState]	1
+StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodReadyToLaunchState]	1
+StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodLaunchPreparationState]	1
+StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodStartLevitation]	1
+StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodLaunchingState]	1
+StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodStopLevitationState]	1
+StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodBreakState]	1
+StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodSafeToApproach]	1
+StateMaschine.hpp:26:7:void StateMaschine::registerState(StateImplementation&) [with StateImplementation = PodEmergencyState]	1
 std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2
 std_function.h:481:12:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = ADC_HandleTypeDef*]	1
@@ -50,16 +83,17 @@ move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp
 std_function.h:207:2:static void std::_Function_base::_Base_manager<_Functor>::_M_init_functor(std::_Any_data&, _Functor&&) [with _Functor = AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>]	1
 std_function.h:289:7:) [with _Res = void; _Functor = AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:268:7:), _Functor>::_M_manager(std::_Any_data&, const std::_Any_data&, std::_Manager_operation) [with _Res = void; _Functor = AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>; _ArgTypes = {ADC_HandleTypeDef*}]	2
-StateMaschineMemory.hpp:19:19:constexpr size_t StateMaschineMemory<NUMBER_OF_STATES>::size() const [with unsigned int NUMBER_OF_STATES = 8]	1
-State.hpp:18:22:static unsigned int State::getId() [with StateImplementation = PodEmergencyState]	3
-State.hpp:18:22:static unsigned int State::getId() [with StateImplementation = PodIdleState]	3
-State.hpp:18:22:static unsigned int State::getId() [with StateImplementation = PodLaunchingState]	3
-State.hpp:18:22:static unsigned int State::getId() [with StateImplementation = PodLaunchPreparationState]	3
-State.hpp:18:22:static unsigned int State::getId() [with StateImplementation = PodPushableState]	3
-State.hpp:18:22:static unsigned int State::getId() [with StateImplementation = PodReadyToLaunchState]	3
-State.hpp:18:22:static unsigned int State::getId() [with StateImplementation = PodRunStopState]	3
-State.hpp:18:22:static unsigned int State::getId() [with StateImplementation = PodSafeToApproach]	3
-State.hpp:18:22:static unsigned int State::getId() [with StateImplementation = PodStartupState]	3
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodStartupState]	3
+StateMaschineMemory.hpp:19:19:constexpr size_t StateMaschineMemory<NUMBER_OF_STATES>::size() const [with unsigned int NUMBER_OF_STATES = 15]	1
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodIdleState]	3
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodReadyToLaunchState]	3
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodLaunchPreparationState]	3
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodStartLevitation]	3
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodLaunchingState]	3
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodStopLevitationState]	3
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodBreakState]	3
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodSafeToApproach]	3
+State.hpp:22:22:static unsigned int State::getId() [with StateImplementation = PodEmergencyState]	3
 std_function.h:498:16:)>::operator bool() const [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 move.h:101:5:constexpr typename std::remove_reference<_Tp>::type&& std::move(_Tp&&) [with _Tp = std::_Any_data&]	1
 move.h:189:5:std::_Require<std::__not_<std::__is_tuple_like<_Tp> >, std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> > std::swap(_Tp&, _Tp&) [with _Tp = std::_Any_data]	1
@@ -79,25 +113,23 @@ invoke.h:59:5:) [with _Res = void; _Fn = AdcModuleController::AdcModuleControlle
 std_function.h:150:2:static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::true_type) [with _Functor = AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>]	1
 std_function.h:167:2:static void std::_Function_base::_Base_manager<_Functor>::_M_destroy(std::_Any_data&, std::true_type) [with _Functor = AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>]	1
 std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>]	1
-State.hpp:24:10:State::~State()	1
-State.hpp:24:10:virtual State::~State()	1
-PodEmergencyState.hpp:13:7:PodEmergencyState::~PodEmergencyState()	1
-PodEmergencyState.hpp:13:7:virtual PodEmergencyState::~PodEmergencyState()	1
-PodIdleState.hpp:14:7:PodIdleState::~PodIdleState()	1
-PodIdleState.hpp:14:7:virtual PodIdleState::~PodIdleState()	1
-PodLaunchingState.hpp:13:7:PodLaunchingState::~PodLaunchingState()	1
-PodLaunchingState.hpp:13:7:virtual PodLaunchingState::~PodLaunchingState()	1
-PodLaunchPreparationState.hpp:18:7:PodLaunchPreparationState::~PodLaunchPreparationState()	1
-PodLaunchPreparationState.hpp:18:7:virtual PodLaunchPreparationState::~PodLaunchPreparationState()	1
-PodPushableState.h:13:7:PodPushableState::~PodPushableState()	1
-PodPushableState.h:13:7:virtual PodPushableState::~PodPushableState()	1
+PodStartupState.hpp:14:7:PodStartupState::~PodStartupState()	1
+PodStartupState.hpp:14:7:virtual PodStartupState::~PodStartupState()	1
+PodIdleState.hpp:16:7:PodIdleState::~PodIdleState()	1
+PodIdleState.hpp:16:7:virtual PodIdleState::~PodIdleState()	1
 PodReadyToLaunchState.hpp:16:7:PodReadyToLaunchState::~PodReadyToLaunchState()	1
 PodReadyToLaunchState.hpp:16:7:virtual PodReadyToLaunchState::~PodReadyToLaunchState()	1
-PodRunStopState.hpp:13:7:PodRunStopState::~PodRunStopState()	1
-PodRunStopState.hpp:13:7:virtual PodRunStopState::~PodRunStopState()	1
+PodLaunchPreparationState.hpp:18:7:PodLaunchPreparationState::~PodLaunchPreparationState()	1
+PodLaunchPreparationState.hpp:18:7:virtual PodLaunchPreparationState::~PodLaunchPreparationState()	1
+PodStartLevitationState.hpp:14:7:PodStartLevitation::~PodStartLevitation()	1
+PodStartLevitationState.hpp:14:7:virtual PodStartLevitation::~PodStartLevitation()	1
+PodLaunchingState.hpp:13:7:PodLaunchingState::~PodLaunchingState()	1
+PodLaunchingState.hpp:13:7:virtual PodLaunchingState::~PodLaunchingState()	1
+PodStopLevitationState.hpp:13:7:PodStopLevitationState::~PodStopLevitationState()	1
+PodStopLevitationState.hpp:13:7:virtual PodStopLevitationState::~PodStopLevitationState()	1
+PodBreakState.hpp:13:7:PodBreakState::~PodBreakState()	1
+PodBreakState.hpp:13:7:virtual PodBreakState::~PodBreakState()	1
 PodSafeToApproach.hpp:13:7:PodSafeToApproach::~PodSafeToApproach()	1
 PodSafeToApproach.hpp:13:7:virtual PodSafeToApproach::~PodSafeToApproach()	1
-PodStartupState.hpp:13:7:PodStartupState::~PodStartupState()	1
-PodStartupState.hpp:13:7:virtual PodStartupState::~PodStartupState()	1
-cz_RxMessageQueue.hpp:31:2:can::RxMessageQueue<MESSAGE>::~RxMessageQueue() [with MESSAGE = can::messages::SENSOR_HELLO_WORLD]	1
-cz_RxMessageQueue.hpp:44:7:void can::RxMessageQueue<MESSAGE>::disable() [with MESSAGE = can::messages::SENSOR_HELLO_WORLD]	2
+PodEmergencyState.hpp:15:7:PodEmergencyState::~PodEmergencyState()	1
+PodEmergencyState.hpp:15:7:virtual PodEmergencyState::~PodEmergencyState()	1

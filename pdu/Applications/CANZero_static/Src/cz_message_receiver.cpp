@@ -25,7 +25,7 @@ static receiver_t g_receivers[MAX_REGISTERD_RECEIVERS];
 uint32_t g_size = 0;
 
 unsigned int registerMessageReceiverInternal(std::function<void(RxMessage&)> receiver, uint32_t msgId, bool extendedId){
-	printf("registered Message receiver for id = %ul\n", msgId);
+	printf("registered Message receiver for id = %u\n", msgId);
 	taskENTER_CRITICAL();
 	const unsigned int id = receiverIdAcc++;
 	const receiver_t recv = {
