@@ -14,7 +14,10 @@ extern "C" {
 
 
 void state_maschine_entry(void *argv) {
-	GlobalState::getInstance().start();
+	//GlobalState::getInstance().start();
+	while(true){
+		osDelay(osWaitForever);
+	}
 
 }
 

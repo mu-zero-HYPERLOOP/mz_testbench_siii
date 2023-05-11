@@ -1,5 +1,0 @@
-cz_statemaschine.cpp:18:6:void canzero::init()	21
-cz_statemaschine.cpp:133:6:void canzero::setStatus(cz_status)	1
-cz_statemaschine.cpp:140:11:cz_status canzero::getStatus()	1
-cz_statemaschine.cpp:145:1:void __static_initialization_and_destruction_0(int, int)	3
-cz_statemaschine.cpp:145:1:cpp)	1

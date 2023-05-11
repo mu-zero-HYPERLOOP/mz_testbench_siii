@@ -13,10 +13,10 @@ NTCSensor::NTCSensor(NTCTemperaturSensorConfig config) :
 }
 
 float NTCSensor::getTemperaturC(){
-	return getTemperaturF() - 273.15;
+	return getTemperaturK() - 273.15;
 }
 
-float NTCSensor::getTemperaturF(){
+float NTCSensor::getTemperaturK(){
 	uint16_t avalue = m_analogInput.get();
 	float voltage = avalue * 3.3 / 4095;
 	float U_NTC = voltage; //test this with the actual shield.

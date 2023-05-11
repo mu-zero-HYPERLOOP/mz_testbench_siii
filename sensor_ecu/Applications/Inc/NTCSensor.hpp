@@ -16,7 +16,7 @@ public:
 
 	float getTemperaturC();
 
-	float getTemperaturF();
+	float getTemperaturK();
 
 private:
 	AdcChannelController m_analogInput;

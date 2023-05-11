@@ -15,7 +15,9 @@ extern "C" {
 
 
 void main_entry(void *argv) {
-	pduAppFunction(argv);
+	while(true){
+		osDelay(osWaitForever);
+	}
 
 }
 

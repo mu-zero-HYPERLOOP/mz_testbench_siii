@@ -8,7 +8,6 @@
 #include "PodBreakState.hpp"
 #include "BrakeECUController.hpp"
 #include "EstimatedStateRegistry.hpp"
-#include "SensorValueRegistry.hpp"
 
 #include "estdio.hpp"
 

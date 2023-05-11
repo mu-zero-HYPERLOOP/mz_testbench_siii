@@ -73,7 +73,6 @@ Applications/Src/main_entry.o: ../Applications/Src/main_entry.cpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcModule.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/adc.h \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/PressureSensor.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/peripheral_config.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcChannelController.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcModuleController.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcChannel.hpp \
@@ -86,12 +85,12 @@ Applications/Src/main_entry.o: ../Applications/Src/main_entry.cpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/ImuMaster.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/ICM20602.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/NTCSensor.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/peripheral_config.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/FiducialSensor.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiController.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiCallbackHandler.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/Timer.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/TimPeriodElapsedCallbackHandler.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/SensorValueRegistry.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/KistlerController.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/EstimatedStateRegistry.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/GroundStationReceiver.hpp
@@ -169,7 +168,6 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/tim
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcModule.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/adc.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/PressureSensor.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/peripheral_config.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcChannelController.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcModuleController.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcChannel.hpp:
@@ -182,12 +180,12 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/estd
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/ImuMaster.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/ICM20602.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/NTCSensor.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/peripheral_config.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/FiducialSensor.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiController.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiCallbackHandler.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/Timer.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/TimPeriodElapsedCallbackHandler.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/SensorValueRegistry.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/KistlerController.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/EstimatedStateRegistry.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/GroundStationReceiver.hpp:

@@ -11,7 +11,6 @@
 #include "ImuMaster.hpp"
 #include "NTCSensor.hpp"
 #include "FiducialSensor.hpp"
-#include "SensorValueRegistry.hpp"
 #include "KistlerController.hpp"
 #include "EstimatedStateRegistry.hpp"
 #include "GroundStationReceiver.hpp"
@@ -22,11 +21,11 @@ extern "C" {
 #endif
 
 void main_entry(void *argv) {
-	PressureSensor pressureSensor = PressureSensor(
-			g_peripherals.m_pressureConfig);
+	//TODO initalize peripherals.
 	ImuMaster imuMaster;
-	NTCSensor coolingReservoirTemperatur = NTCSensor(
-			g_peripherals.m_coolingReservoirTemperaturSensorConfig);
+
+	PressureSensor pressureSensor(ADC_MODULE2, 3);
+
 	FiducialSensor fiducialRight = FiducialSensor(
 			g_peripherals.m_fiducialRightConfig);
 	FiducialSensor fiducialLeft = FiducialSensor(
@@ -36,64 +35,32 @@ void main_entry(void *argv) {
 	imuMaster.start();
 
 	while (true) {
+		//TODO read sensor data.
 		imuMaster.syncRead();
+		OD_IMU_AccelX_set(imuMaster.getAccelX());
+		OD_IMU_AccelY_set(imuMaster.getAccelY());
+		OD_IMU_AccelZ_set(imuMaster.getAccelZ());
 
-		SensorValueRegistry::getInstance().setGyro(imuMaster.getGyroX(),
-				imuMaster.getGyroY(), imuMaster.getGyroZ());
+		OD_IMU_GyroX_set(imuMaster.getGyroX());
+		OD_IMU_GyroY_set(imuMaster.getGyroY());
+		OD_IMU_GyroZ_set(imuMaster.getGyroZ());
 
-		SensorValueRegistry::getInstance().setAccel(imuMaster.getAccelX(),
-				imuMaster.getAccelY(), imuMaster.getAccelZ());
-
-		float coolingReservoirTemp =
-				coolingReservoirTemperatur.getTemperaturC();
-		SensorValueRegistry::getInstance().setCoolingReservoirTemperatur(
-				coolingReservoirTemp);
-
-		float pressure = pressureSensor.getPressure();
-		SensorValueRegistry::getInstance().setCoolingPressure(pressure);
+		OD_CoolingPressure_set(pressureSensor.get());
 
 		unsigned int fiducialLeftCounter = fiducialLeft.getCount();
-		uint32_t fiducialLeftDeltaTime = fiducialLeft.getDeltaTime();
-		float fiducialLeftVel = fiducialLeft.estimateVelocityMPS();
-		float fiducialLeftPos = fiducialLeft.estimatedPosition();
-
-		SensorValueRegistry::getInstance().setFiducialLeftValues(
-				fiducialLeftCounter, fiducialLeftDeltaTime, fiducialLeftVel, fiducialLeftPos);
+		OD_FiducialLeftCounter_set((uint16_t)fiducialLeftCounter);
 
 		unsigned int fiducialRightCounter = fiducialRight.getCount();
-		uint32_t fiducialRightDeltaTime = fiducialRight.getDeltaTime();
-		float fiducialRightVel = fiducialRight.estimateVelocityMPS();
-		float fiducialRightPos = fiducialRight.estimatedPosition();
-
-		SensorValueRegistry::getInstance().setFiducialRightValues(
-				fiducialRightCounter, fiducialRightDeltaTime, fiducialRightVel, fiducialRightPos);
+		OD_FiducialRightCounter_set((uint16_t)fiducialRightCounter);
 
 		float kistlerVel = kistlerController.getVelocity();
 		float kistlerPos = kistlerController.getPosition();
-		SensorValueRegistry::getInstance().setKistlerValues(kistlerVel,
-				kistlerPos);
 
-		// =========== UPDATE-CAN ===========
-		SensorValueRegistry::getInstance().updateCAN();
+		OD_Position_set(kistlerPos);
+		OD_Velocity_set(kistlerVel);
 
 		// ======= POSITION-ESTIMATION ======
-		// compare fiducial left to optical Sensor.
-		constexpr float FIDUCIAL_THRESHOLD = 0.1;
-		if (	(std::abs(
-					SensorValueRegistry::getInstance().getFiducialLeftPosition() - SensorValueRegistry::getInstance().getKistlerPosition())
-					> FIDUCIAL_THRESHOLD)
-			|| (std::abs(
-					SensorValueRegistry::getInstance().getFiducialRightPosition() - SensorValueRegistry::getInstance().getKistlerPosition())
-					> FIDUCIAL_THRESHOLD)) {
-			//ERR_fiducialHighOffset_set();
-			//printf("fiducial position estimation derived from kistler\n");
-		}
-
-		EstimatedStateRegistry::getInstance().setPosition(kistlerPos);
-
-		printf("Fiducial Counter : %d\n", SensorValueRegistry::getInstance().getFiducialLeftCount());
-
-		osDelay(pdMS_TO_TICKS(1000));
+		osDelay(pdMS_TO_TICKS(50));
 
 	}
 }

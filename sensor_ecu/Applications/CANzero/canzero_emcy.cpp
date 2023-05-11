@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 18:12:39 04.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 14:13:00 11.05.2023.
  * It contains the errors and warnings for the node 'SensorF'.
  *
  * Florian Keck

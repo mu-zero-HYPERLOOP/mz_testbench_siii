@@ -68,6 +68,17 @@ extern volatile uint8_t  OD_IMU_number;
 extern volatile float    OD_IMU1_Temperature;
 extern volatile float    OD_IMU2_Temperature;
 extern volatile float    OD_IMU3_Temperature;
+extern volatile float    OD_IMU_AccelX;
+extern volatile float    OD_IMU_AccelY;
+extern volatile float    OD_IMU_AccelZ;
+extern volatile float    OD_IMU_GyroX;
+extern volatile float    OD_IMU_GyroY;
+extern volatile float    OD_IMU_GyroZ;
+extern volatile float    OD_CoolingPressure;
+extern volatile uint16_t OD_FiducialRightCounter;
+extern volatile uint16_t OD_FiducialLeftCounter;
+extern volatile float    OD_Position;
+extern volatile float    OD_Velocity;
 
 /**************************************************************************
 * Semaphores for access to OD values                                      *
@@ -121,6 +132,17 @@ extern osMutexId_t mutex_OD_IMU_number;
 extern osMutexId_t mutex_OD_IMU1_Temperature;
 extern osMutexId_t mutex_OD_IMU2_Temperature;
 extern osMutexId_t mutex_OD_IMU3_Temperature;
+extern osMutexId_t mutex_OD_IMU_AccelX;
+extern osMutexId_t mutex_OD_IMU_AccelY;
+extern osMutexId_t mutex_OD_IMU_AccelZ;
+extern osMutexId_t mutex_OD_IMU_GyroX;
+extern osMutexId_t mutex_OD_IMU_GyroY;
+extern osMutexId_t mutex_OD_IMU_GyroZ;
+extern osMutexId_t mutex_OD_CoolingPressure;
+extern osMutexId_t mutex_OD_FiducialRightCounter;
+extern osMutexId_t mutex_OD_FiducialLeftCounter;
+extern osMutexId_t mutex_OD_Position;
+extern osMutexId_t mutex_OD_Velocity;
 
 
 /**************************************************************************
@@ -285,6 +307,39 @@ void OD_IMU2_Temperature_set(const float value);
 
 float OD_IMU3_Temperature_get();
 void OD_IMU3_Temperature_set(const float value);
+
+float OD_IMU_AccelX_get();
+void OD_IMU_AccelX_set(const float value);
+
+float OD_IMU_AccelY_get();
+void OD_IMU_AccelY_set(const float value);
+
+float OD_IMU_AccelZ_get();
+void OD_IMU_AccelZ_set(const float value);
+
+float OD_IMU_GyroX_get();
+void OD_IMU_GyroX_set(const float value);
+
+float OD_IMU_GyroY_get();
+void OD_IMU_GyroY_set(const float value);
+
+float OD_IMU_GyroZ_get();
+void OD_IMU_GyroZ_set(const float value);
+
+float OD_CoolingPressure_get();
+void OD_CoolingPressure_set(const float value);
+
+uint16_t OD_FiducialRightCounter_get();
+void OD_FiducialRightCounter_set(const uint16_t value);
+
+uint16_t OD_FiducialLeftCounter_get();
+void OD_FiducialLeftCounter_set(const uint16_t value);
+
+float OD_Position_get();
+void OD_Position_set(const float value);
+
+float OD_Velocity_get();
+void OD_Velocity_set(const float value);
 
 
 /**************************************************************************

@@ -92,6 +92,86 @@ object_dictionary:
     comment: Internal temperature of IMU3.
     access: ro
     conversion: {scale: 0.01, offset: -100}
+  0xA28: 
+    name: IMU_AccelX
+    length: 16
+    comment: IMU accel X
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xA29: 
+    name: IMU_AccelY
+    length: 16
+    comment: IMU accel y
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xA30: 
+    name: IMU_AccelZ
+    length: 16
+    comment: IMU accel z
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xA31: 
+    name: IMU_GyroX
+    length: 16
+    comment: IMU gyro X
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xA32: 
+    name: IMU_GyroY
+    length: 16
+    comment: IMU gyro y
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xA33: 
+    name: IMU_GyroZ
+    length: 16
+    comment: IMU gyro z
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+
+  0xB00:
+    name: CoolingPressure
+    length: 16
+    comment: IMU cooling pressure.
+    access: ro
+    default: -1.9
+    conversion: {scale: 0.01, offset: -100}
+  
+  0xC00:
+    name: FiducialRightCounter
+    length: 16
+    comment: Fiducial right stripe counter
+    access: ro
+    default: 0
+  0xC01:
+    name: FiducialLeftCounter
+    length: 16
+    comment: Fiducial left stripe counter
+    access: ro
+    default: 0
+
+  0xD00:
+    name: Position
+    length: 16
+    comment: Estimated Pod position
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+
+  0xD01:
+    name: Velocity
+    length: 16
+    comment: Estimated Pod velocity
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+
 
   0x910:
     name: SetReset

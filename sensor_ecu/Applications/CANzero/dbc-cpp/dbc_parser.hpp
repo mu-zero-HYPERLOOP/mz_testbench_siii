@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 18:12:38 04.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 14:12:59 11.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -310,6 +310,9 @@ namespace can {
     * Network nodes with attributes                                                               *
     ***********************************************************************************************/
     namespace nodes {
+        namespace Bat1 {
+            constexpr char comment[] = "";
+        }
         namespace OpticalSensor {
             constexpr char comment[] = "Kistler SFP-II optical Sensor.";
         }
@@ -455,11 +458,11 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char BusType[] = "CAN";
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 156;
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr uint32_t CANzero_DBCVersion = 172;
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
@@ -983,6 +986,11 @@ namespace can {
             constexpr static uint8_t POD_LAUNCHING = 5;
             constexpr static uint8_t POD_PUSHABLE = 6;
             constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
+            constexpr static uint8_t POD_START_LEVITATION = 8;
+            constexpr static uint8_t POD_STOP_LEVITATION = 9;
+            constexpr static uint8_t POD_LEVITATING = 10;
+            constexpr static uint8_t POD_BREAKING = 11;
+            constexpr static uint8_t POD_STOP = 12;
         };
         class SensorF_TX_PodState_Last {
             public:
@@ -1754,6 +1762,17 @@ namespace can {
             constexpr static uint16_t IMU1_TEMPERATURE = 2597;
             constexpr static uint16_t IMU2_TEMPERATURE = 2598;
             constexpr static uint16_t IMU3_TEMPERATURE = 2599;
+            constexpr static uint16_t IMU_ACCELX = 2600;
+            constexpr static uint16_t IMU_ACCELY = 2601;
+            constexpr static uint16_t IMU_ACCELZ = 2608;
+            constexpr static uint16_t IMU_GYROX = 2609;
+            constexpr static uint16_t IMU_GYROY = 2610;
+            constexpr static uint16_t IMU_GYROZ = 2611;
+            constexpr static uint16_t COOLINGPRESSURE = 2816;
+            constexpr static uint16_t FIDUCIALRIGHTCOUNTER = 3072;
+            constexpr static uint16_t FIDUCIALLEFTCOUNTER = 3073;
+            constexpr static uint16_t POSITION = 3328;
+            constexpr static uint16_t VELOCITY = 3329;
         };
         class SensorF_SDO_RespCode {
             public:
@@ -1806,6 +1825,375 @@ namespace can {
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::WRITE_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_Velocity {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 3329            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 3329);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 3329) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_Velocity'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_Position {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 3328            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 3328);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 3328) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_Position'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_FiducialLeftCounter {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 3073            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                SensorF_SDO_ID::set(intel, motorola, dlc, 3073);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 3073) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'SensorF_OD_FiducialLeftCounter'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_FiducialRightCounter {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 3072            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                SensorF_SDO_ID::set(intel, motorola, dlc, 3072);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 3072) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'SensorF_OD_FiducialRightCounter'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_CoolingPressure {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2816            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2816);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2816) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_CoolingPressure'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 9810.0f;
+            constexpr static float CANzero_SDO_Default = -1.9f;
+        };
+        class SensorF_OD_IMU_GyroZ {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2611            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2611);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2611) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_IMU_GyroZ'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_IMU_GyroY {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2610            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2610);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2610) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_IMU_GyroY'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_IMU_GyroX {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2609            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2609);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2609) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_IMU_GyroX'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_IMU_AccelZ {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2608            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2608);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2608) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_IMU_AccelZ'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_IMU_AccelY {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2601            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2601);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2601) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_IMU_AccelY'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_IMU_AccelX {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2600            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2600);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2600) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_IMU_AccelX'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
         class SensorF_OD_IMU3_Temperature {
@@ -4511,6 +4899,17 @@ namespace can {
             using SensorF_SDO_ID = signals::SensorF_SDO_ID;
             using SensorF_SDO_RespCode = signals::SensorF_SDO_RespCode;
             using SensorF_OD_SetReset = signals::SensorF_OD_SetReset;
+            using SensorF_OD_Velocity = signals::SensorF_OD_Velocity;
+            using SensorF_OD_Position = signals::SensorF_OD_Position;
+            using SensorF_OD_FiducialLeftCounter = signals::SensorF_OD_FiducialLeftCounter;
+            using SensorF_OD_FiducialRightCounter = signals::SensorF_OD_FiducialRightCounter;
+            using SensorF_OD_CoolingPressure = signals::SensorF_OD_CoolingPressure;
+            using SensorF_OD_IMU_GyroZ = signals::SensorF_OD_IMU_GyroZ;
+            using SensorF_OD_IMU_GyroY = signals::SensorF_OD_IMU_GyroY;
+            using SensorF_OD_IMU_GyroX = signals::SensorF_OD_IMU_GyroX;
+            using SensorF_OD_IMU_AccelZ = signals::SensorF_OD_IMU_AccelZ;
+            using SensorF_OD_IMU_AccelY = signals::SensorF_OD_IMU_AccelY;
+            using SensorF_OD_IMU_AccelX = signals::SensorF_OD_IMU_AccelX;
             using SensorF_OD_IMU3_Temperature = signals::SensorF_OD_IMU3_Temperature;
             using SensorF_OD_IMU2_Temperature = signals::SensorF_OD_IMU2_Temperature;
             using SensorF_OD_IMU1_Temperature = signals::SensorF_OD_IMU1_Temperature;
@@ -4572,6 +4971,17 @@ namespace can {
             // Signals
             using SensorF_SDO_ID = signals::SensorF_SDO_ID;
             using SensorF_OD_SetReset = signals::SensorF_OD_SetReset;
+            using SensorF_OD_Velocity = signals::SensorF_OD_Velocity;
+            using SensorF_OD_Position = signals::SensorF_OD_Position;
+            using SensorF_OD_FiducialLeftCounter = signals::SensorF_OD_FiducialLeftCounter;
+            using SensorF_OD_FiducialRightCounter = signals::SensorF_OD_FiducialRightCounter;
+            using SensorF_OD_CoolingPressure = signals::SensorF_OD_CoolingPressure;
+            using SensorF_OD_IMU_GyroZ = signals::SensorF_OD_IMU_GyroZ;
+            using SensorF_OD_IMU_GyroY = signals::SensorF_OD_IMU_GyroY;
+            using SensorF_OD_IMU_GyroX = signals::SensorF_OD_IMU_GyroX;
+            using SensorF_OD_IMU_AccelZ = signals::SensorF_OD_IMU_AccelZ;
+            using SensorF_OD_IMU_AccelY = signals::SensorF_OD_IMU_AccelY;
+            using SensorF_OD_IMU_AccelX = signals::SensorF_OD_IMU_AccelX;
             using SensorF_OD_IMU3_Temperature = signals::SensorF_OD_IMU3_Temperature;
             using SensorF_OD_IMU2_Temperature = signals::SensorF_OD_IMU2_Temperature;
             using SensorF_OD_IMU1_Temperature = signals::SensorF_OD_IMU1_Temperature;

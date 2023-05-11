@@ -33,8 +33,10 @@ NS_ :
 
 BS_:
 
-BU_: OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track
+BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track
 
+
+BO_ 2148592864 BMS_Frame: 8 Bat1
 
 BO_ 603 PDU_RX_LP_Dutycycle_NoOD: 6 Vector__XXX
  SG_ PDU_LPCh9_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%"  PDU
@@ -2763,7 +2765,7 @@ BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
 BA_ "CANzero_NMTMasterName" "Master";
 BA_ "CANzero_SDOClientName" "TelemetryNode";
-BA_ "CANzero_DBCVersion" 159;
+BA_ "CANzero_DBCVersion" 172;
 BA_ "CANzero_ProtocolVersion" "V1.0";
 BA_ "BusType" "CAN";
 BA_ "DBName" "pod2022";
@@ -2782,6 +2784,7 @@ BA_ "CANzero_NodeID" BU_ MDB4 40;
 BA_ "CANzero_NodeID" BU_ MDB5 41;
 BA_ "CANzero_NodeID" BU_ MDB6 49;
 BA_ "CANzero_NodeID" BU_ Track 50;
+BA_ "GenMsgCycleTime" BO_ 2148592864 100;
 BA_ "GenMsgCycleTime" BO_ 603 100;
 BA_ "GenSigStartValue" SG_ 603 PDU_LPCh9_Dutycycle 200;
 BA_ "GenSigStartValue" SG_ 603 PDU_LPCh8_Dutycycle 200;
@@ -3343,7 +3346,7 @@ VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SensorF" 2 "SensorR" 17 "BrakeF" 18 "BrakeR" 
 VAL_ 2 CANzero_NMT_State 1 "Start Remote Node" 2 "Stop Remote Node" 128 "Enter Pre-Operational" 129 "Reset" ;
 VAL_ 385 SensorF_TX_PodState_Target 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
 VAL_ 385 SensorF_TX_PodState_Last 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
-VAL_ 385 SensorF_TX_PodState 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
+VAL_ 385 SensorF_TX_PodState 12 "Pod Stop" 11 "Pod Breaking" 10 "Pod Levitating" 9 "Pod Stop Levitation" 8 "Pod Start Levitation" 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
 VAL_ 513 SensorF_TX_PreopHVCUT 1 "Transition" 0 "No Transitions" ;
 VAL_ 513 SensorF_TX_PreopPDUT 1 "Transition" 0 "No Transitions" ;
 VAL_ 513 SensorF_TX_PreopBrakeRT 1 "Transition" 0 "No Transitions" ;

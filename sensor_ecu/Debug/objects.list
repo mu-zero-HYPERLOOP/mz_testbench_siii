@@ -32,6 +32,7 @@
 "./Applications/Src/SDC.o"
 "./Applications/Src/main_entry.o"
 "./Applications/Src/micocontroller_info_task.o"
+"./Applications/Src/state_maschine.o"
 "./Applications/Src/state_maschine_task.o"
 "./Applications/Src/testbench.o"
 "./Core/Src/adc.o"

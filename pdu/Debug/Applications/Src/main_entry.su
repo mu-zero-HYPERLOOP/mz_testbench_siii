@@ -381,7 +381,7 @@ c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.external
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = can::RxMessageQueue<MESSAGE>::enable<can::messages::PDU_RX_LP_Dutycycle_NoOD>::<lambda(RxMessage&)>]	16	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = can::RxMessageQueue<MESSAGE>::enable<can::messages::PDU_RX_HP_D_Dutycycle_NoOD>::<lambda(RxMessage&)>]	16	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = can::RxMessageQueue<MESSAGE>::enable<can::messages::PDU_RX_Manual_Control>::<lambda(RxMessage&)>]	16	static
-../Applications/Src/main_entry.cpp:23:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../Applications/Src/main_entry.cpp:25:1:void __static_initialization_and_destruction_0(int, int)	24	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_RxMessageQueue.hpp:31:2:can::RxMessageQueue<MESSAGE>::~RxMessageQueue() [with MESSAGE = can::messages::PDU_RX_LP_Dutycycle_NoOD]	16	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_RxMessageQueue.hpp:31:2:can::RxMessageQueue<MESSAGE>::~RxMessageQueue() [with MESSAGE = can::messages::PDU_RX_HP_D_Dutycycle_NoOD]	16	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_RxMessageQueue.hpp:31:2:can::RxMessageQueue<MESSAGE>::~RxMessageQueue() [with MESSAGE = can::messages::PDU_RX_Manual_Control]	16	static
@@ -390,5 +390,5 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZer
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_RxMessageQueue.hpp:44:7:void can::RxMessageQueue<MESSAGE>::disable() [with MESSAGE = can::messages::PDU_RX_HP_D_Dutycycle_NoOD]	16	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_RxMessageQueue.hpp:44:7:void can::RxMessageQueue<MESSAGE>::disable() [with MESSAGE = can::messages::PDU_RX_Manual_Control]	16	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANZero_static/Inc/cz_RxMessageQueue.hpp:44:7:void can::RxMessageQueue<MESSAGE>::disable() [with MESSAGE = can::messages::PDU_RX_Control_NoOD]	16	static
-../Applications/Src/main_entry.cpp:23:1:cpp)	8	static
-../Applications/Src/main_entry.cpp:23:1:cpp)	8	static
+../Applications/Src/main_entry.cpp:25:1:cpp)	8	static
+../Applications/Src/main_entry.cpp:25:1:cpp)	8	static

@@ -10,6 +10,7 @@
 #include "canzero.hpp"
 
 void canzero::handle_emergency_warning(){
+	//TODO prevent overwriting of emergency states.
 	GlobalState::getInstance().setState<PodEmergencyState>();
 }
 

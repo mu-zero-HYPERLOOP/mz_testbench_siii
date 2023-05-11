@@ -20,6 +20,7 @@ void PodLaunchingState::update() {
 	if(EstimatedStateRegistry::getInstance().getPosition() > 2){
 		GlobalState::getInstance().setState<PodStopLevitationState>();
 	}
+	osDelay(pdMS_TO_TICKS(5));
 }
 
 void PodLaunchingState::dispose() {

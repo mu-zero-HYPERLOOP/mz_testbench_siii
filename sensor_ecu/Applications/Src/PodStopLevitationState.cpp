@@ -14,7 +14,7 @@
 
 void PodStopLevitationState::setup() {
 	printf("enter stop levitation\n");
-	SDC::getInstance();
+	SDC::getInstance().open();
 }
 
 void PodStopLevitationState::update() {

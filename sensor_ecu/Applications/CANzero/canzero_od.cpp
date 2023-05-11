@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 18:12:39 04.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 14:13:00 11.05.2023.
  * It contains the object dictionary for the node 'SensorF'.
  *
  * Florian Keck
@@ -8,6 +8,7 @@
  * Copyright 2023, mu-zero HYPERLOOP e.V.
  */
 #include "canzero_od.hpp"
+#include "estdio.hpp"
 
 
 /**************************************************************************
@@ -62,6 +63,17 @@ volatile uint8_t  OD_IMU_number               = can::signals::SensorF_OD_IMU_num
 volatile float    OD_IMU1_Temperature         = can::signals::SensorF_OD_IMU1_Temperature::CANzero_SDO_Default;
 volatile float    OD_IMU2_Temperature         = can::signals::SensorF_OD_IMU2_Temperature::CANzero_SDO_Default;
 volatile float    OD_IMU3_Temperature         = can::signals::SensorF_OD_IMU3_Temperature::CANzero_SDO_Default;
+volatile float    OD_IMU_AccelX               = can::signals::SensorF_OD_IMU_AccelX::CANzero_SDO_Default;
+volatile float    OD_IMU_AccelY               = can::signals::SensorF_OD_IMU_AccelY::CANzero_SDO_Default;
+volatile float    OD_IMU_AccelZ               = can::signals::SensorF_OD_IMU_AccelZ::CANzero_SDO_Default;
+volatile float    OD_IMU_GyroX                = can::signals::SensorF_OD_IMU_GyroX::CANzero_SDO_Default;
+volatile float    OD_IMU_GyroY                = can::signals::SensorF_OD_IMU_GyroY::CANzero_SDO_Default;
+volatile float    OD_IMU_GyroZ                = can::signals::SensorF_OD_IMU_GyroZ::CANzero_SDO_Default;
+volatile float    OD_CoolingPressure          = can::signals::SensorF_OD_CoolingPressure::CANzero_SDO_Default;
+volatile uint16_t OD_FiducialRightCounter     = can::signals::SensorF_OD_FiducialRightCounter::CANzero_SDO_Default;
+volatile uint16_t OD_FiducialLeftCounter      = can::signals::SensorF_OD_FiducialLeftCounter::CANzero_SDO_Default;
+volatile float    OD_Position                 = can::signals::SensorF_OD_Position::CANzero_SDO_Default;
+volatile float    OD_Velocity                 = can::signals::SensorF_OD_Velocity::CANzero_SDO_Default;
 
 
 /**************************************************************************
@@ -116,6 +128,17 @@ osMutexId_t mutex_OD_IMU_number               = osMutexNew(NULL);
 osMutexId_t mutex_OD_IMU1_Temperature         = osMutexNew(NULL);
 osMutexId_t mutex_OD_IMU2_Temperature         = osMutexNew(NULL);
 osMutexId_t mutex_OD_IMU3_Temperature         = osMutexNew(NULL);
+osMutexId_t mutex_OD_IMU_AccelX               = osMutexNew(NULL);
+osMutexId_t mutex_OD_IMU_AccelY               = osMutexNew(NULL);
+osMutexId_t mutex_OD_IMU_AccelZ               = osMutexNew(NULL);
+osMutexId_t mutex_OD_IMU_GyroX                = osMutexNew(NULL);
+osMutexId_t mutex_OD_IMU_GyroY                = osMutexNew(NULL);
+osMutexId_t mutex_OD_IMU_GyroZ                = osMutexNew(NULL);
+osMutexId_t mutex_OD_CoolingPressure          = osMutexNew(NULL);
+osMutexId_t mutex_OD_FiducialRightCounter     = osMutexNew(NULL);
+osMutexId_t mutex_OD_FiducialLeftCounter      = osMutexNew(NULL);
+osMutexId_t mutex_OD_Position                 = osMutexNew(NULL);
+osMutexId_t mutex_OD_Velocity                 = osMutexNew(NULL);
 
 
 /**************************************************************************
@@ -325,6 +348,51 @@ void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {
             break;
         case 0xA27:    // OD_IMU3_Temperature
             msgSdoResp.set<can::signals::SensorF_OD_IMU3_Temperature>(OD_IMU3_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xA28:    // OD_IMU_AccelX
+        	printf("send imu accelX\n");
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_AccelX>(OD_IMU_AccelX_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xA29:    // OD_IMU_AccelY
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_AccelY>(OD_IMU_AccelY_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xA30:    // OD_IMU_AccelZ
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_AccelZ>(OD_IMU_AccelZ_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xA31:    // OD_IMU_GyroX
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_GyroX>(OD_IMU_GyroX_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xA32:    // OD_IMU_GyroY
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_GyroY>(OD_IMU_GyroY_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xA33:    // OD_IMU_GyroZ
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_GyroZ>(OD_IMU_GyroZ_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xB00:    // OD_CoolingPressure
+            msgSdoResp.set<can::signals::SensorF_OD_CoolingPressure>(OD_CoolingPressure_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xC00:    // OD_FiducialRightCounter
+            msgSdoResp.set<can::signals::SensorF_OD_FiducialRightCounter>(OD_FiducialRightCounter_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xC01:    // OD_FiducialLeftCounter
+            msgSdoResp.set<can::signals::SensorF_OD_FiducialLeftCounter>(OD_FiducialLeftCounter_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xD00:    // OD_Position
+            msgSdoResp.set<can::signals::SensorF_OD_Position>(OD_Position_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xD01:    // OD_Velocity
+            msgSdoResp.set<can::signals::SensorF_OD_Velocity>(OD_Velocity_get());
             respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         default:
@@ -646,6 +714,61 @@ if (value < 1.0f || value > 300.0f) {
         case 0xA27: {   // OD_IMU3_Temperature
             respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
             msgSdoResp.set<can::signals::SensorF_OD_IMU3_Temperature>(OD_IMU3_Temperature_get());
+            break;
+        }
+        case 0xA28: {   // OD_IMU_AccelX
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_AccelX>(OD_IMU_AccelX_get());
+            break;
+        }
+        case 0xA29: {   // OD_IMU_AccelY
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_AccelY>(OD_IMU_AccelY_get());
+            break;
+        }
+        case 0xA30: {   // OD_IMU_AccelZ
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_AccelZ>(OD_IMU_AccelZ_get());
+            break;
+        }
+        case 0xA31: {   // OD_IMU_GyroX
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_GyroX>(OD_IMU_GyroX_get());
+            break;
+        }
+        case 0xA32: {   // OD_IMU_GyroY
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_GyroY>(OD_IMU_GyroY_get());
+            break;
+        }
+        case 0xA33: {   // OD_IMU_GyroZ
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_IMU_GyroZ>(OD_IMU_GyroZ_get());
+            break;
+        }
+        case 0xB00: {   // OD_CoolingPressure
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_CoolingPressure>(OD_CoolingPressure_get());
+            break;
+        }
+        case 0xC00: {   // OD_FiducialRightCounter
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_FiducialRightCounter>(OD_FiducialRightCounter_get());
+            break;
+        }
+        case 0xC01: {   // OD_FiducialLeftCounter
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_FiducialLeftCounter>(OD_FiducialLeftCounter_get());
+            break;
+        }
+        case 0xD00: {   // OD_Position
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_Position>(OD_Position_get());
+            break;
+        }
+        case 0xD01: {   // OD_Velocity
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_Velocity>(OD_Velocity_get());
             break;
         }
         default:
@@ -1464,6 +1587,182 @@ void WEAK_SYMBOL OD_IMU3_Temperature_set(const float value) {
 }
 #endif
 
+#ifndef OD_IMU_AccelX_GET_OVERWRITE
+float WEAK_SYMBOL OD_IMU_AccelX_get() {
+    osMutexAcquire(mutex_OD_IMU_AccelX, portMAX_DELAY);
+    float value = OD_IMU_AccelX;
+    osMutexRelease(mutex_OD_IMU_AccelX);
+    return value;
+}
+#endif
+#ifndef OD_IMU_AccelX_SET_OVERWRITE
+void WEAK_SYMBOL OD_IMU_AccelX_set(const float value) {
+    osMutexAcquire(mutex_OD_IMU_AccelX, portMAX_DELAY);
+    OD_IMU_AccelX = value;
+    osMutexRelease(mutex_OD_IMU_AccelX);
+}
+#endif
+
+#ifndef OD_IMU_AccelY_GET_OVERWRITE
+float WEAK_SYMBOL OD_IMU_AccelY_get() {
+    osMutexAcquire(mutex_OD_IMU_AccelY, portMAX_DELAY);
+    float value = OD_IMU_AccelY;
+    osMutexRelease(mutex_OD_IMU_AccelY);
+    return value;
+}
+#endif
+#ifndef OD_IMU_AccelY_SET_OVERWRITE
+void WEAK_SYMBOL OD_IMU_AccelY_set(const float value) {
+    osMutexAcquire(mutex_OD_IMU_AccelY, portMAX_DELAY);
+    OD_IMU_AccelY = value;
+    osMutexRelease(mutex_OD_IMU_AccelY);
+}
+#endif
+
+#ifndef OD_IMU_AccelZ_GET_OVERWRITE
+float WEAK_SYMBOL OD_IMU_AccelZ_get() {
+    osMutexAcquire(mutex_OD_IMU_AccelZ, portMAX_DELAY);
+    float value = OD_IMU_AccelZ;
+    osMutexRelease(mutex_OD_IMU_AccelZ);
+    return value;
+}
+#endif
+#ifndef OD_IMU_AccelZ_SET_OVERWRITE
+void WEAK_SYMBOL OD_IMU_AccelZ_set(const float value) {
+    osMutexAcquire(mutex_OD_IMU_AccelZ, portMAX_DELAY);
+    OD_IMU_AccelZ = value;
+    osMutexRelease(mutex_OD_IMU_AccelZ);
+}
+#endif
+
+#ifndef OD_IMU_GyroX_GET_OVERWRITE
+float WEAK_SYMBOL OD_IMU_GyroX_get() {
+    osMutexAcquire(mutex_OD_IMU_GyroX, portMAX_DELAY);
+    float value = OD_IMU_GyroX;
+    osMutexRelease(mutex_OD_IMU_GyroX);
+    return value;
+}
+#endif
+#ifndef OD_IMU_GyroX_SET_OVERWRITE
+void WEAK_SYMBOL OD_IMU_GyroX_set(const float value) {
+    osMutexAcquire(mutex_OD_IMU_GyroX, portMAX_DELAY);
+    OD_IMU_GyroX = value;
+    osMutexRelease(mutex_OD_IMU_GyroX);
+}
+#endif
+
+#ifndef OD_IMU_GyroY_GET_OVERWRITE
+float WEAK_SYMBOL OD_IMU_GyroY_get() {
+    osMutexAcquire(mutex_OD_IMU_GyroY, portMAX_DELAY);
+    float value = OD_IMU_GyroY;
+    osMutexRelease(mutex_OD_IMU_GyroY);
+    return value;
+}
+#endif
+#ifndef OD_IMU_GyroY_SET_OVERWRITE
+void WEAK_SYMBOL OD_IMU_GyroY_set(const float value) {
+    osMutexAcquire(mutex_OD_IMU_GyroY, portMAX_DELAY);
+    OD_IMU_GyroY = value;
+    osMutexRelease(mutex_OD_IMU_GyroY);
+}
+#endif
+
+#ifndef OD_IMU_GyroZ_GET_OVERWRITE
+float WEAK_SYMBOL OD_IMU_GyroZ_get() {
+    osMutexAcquire(mutex_OD_IMU_GyroZ, portMAX_DELAY);
+    float value = OD_IMU_GyroZ;
+    osMutexRelease(mutex_OD_IMU_GyroZ);
+    return value;
+}
+#endif
+#ifndef OD_IMU_GyroZ_SET_OVERWRITE
+void WEAK_SYMBOL OD_IMU_GyroZ_set(const float value) {
+    osMutexAcquire(mutex_OD_IMU_GyroZ, portMAX_DELAY);
+    OD_IMU_GyroZ = value;
+    osMutexRelease(mutex_OD_IMU_GyroZ);
+}
+#endif
+
+#ifndef OD_CoolingPressure_GET_OVERWRITE
+float WEAK_SYMBOL OD_CoolingPressure_get() {
+    osMutexAcquire(mutex_OD_CoolingPressure, portMAX_DELAY);
+    float value = OD_CoolingPressure;
+    osMutexRelease(mutex_OD_CoolingPressure);
+    return value;
+}
+#endif
+#ifndef OD_CoolingPressure_SET_OVERWRITE
+void WEAK_SYMBOL OD_CoolingPressure_set(const float value) {
+    osMutexAcquire(mutex_OD_CoolingPressure, portMAX_DELAY);
+    OD_CoolingPressure = value;
+    osMutexRelease(mutex_OD_CoolingPressure);
+}
+#endif
+
+#ifndef OD_FiducialRightCounter_GET_OVERWRITE
+uint16_t WEAK_SYMBOL OD_FiducialRightCounter_get() {
+    osMutexAcquire(mutex_OD_FiducialRightCounter, portMAX_DELAY);
+    uint16_t value = OD_FiducialRightCounter;
+    osMutexRelease(mutex_OD_FiducialRightCounter);
+    return value;
+}
+#endif
+#ifndef OD_FiducialRightCounter_SET_OVERWRITE
+void WEAK_SYMBOL OD_FiducialRightCounter_set(const uint16_t value) {
+    osMutexAcquire(mutex_OD_FiducialRightCounter, portMAX_DELAY);
+    OD_FiducialRightCounter = value;
+    osMutexRelease(mutex_OD_FiducialRightCounter);
+}
+#endif
+
+#ifndef OD_FiducialLeftCounter_GET_OVERWRITE
+uint16_t WEAK_SYMBOL OD_FiducialLeftCounter_get() {
+    osMutexAcquire(mutex_OD_FiducialLeftCounter, portMAX_DELAY);
+    uint16_t value = OD_FiducialLeftCounter;
+    osMutexRelease(mutex_OD_FiducialLeftCounter);
+    return value;
+}
+#endif
+#ifndef OD_FiducialLeftCounter_SET_OVERWRITE
+void WEAK_SYMBOL OD_FiducialLeftCounter_set(const uint16_t value) {
+    osMutexAcquire(mutex_OD_FiducialLeftCounter, portMAX_DELAY);
+    OD_FiducialLeftCounter = value;
+    osMutexRelease(mutex_OD_FiducialLeftCounter);
+}
+#endif
+
+#ifndef OD_Position_GET_OVERWRITE
+float WEAK_SYMBOL OD_Position_get() {
+    osMutexAcquire(mutex_OD_Position, portMAX_DELAY);
+    float value = OD_Position;
+    osMutexRelease(mutex_OD_Position);
+    return value;
+}
+#endif
+#ifndef OD_Position_SET_OVERWRITE
+void WEAK_SYMBOL OD_Position_set(const float value) {
+    osMutexAcquire(mutex_OD_Position, portMAX_DELAY);
+    OD_Position = value;
+    osMutexRelease(mutex_OD_Position);
+}
+#endif
+
+#ifndef OD_Velocity_GET_OVERWRITE
+float WEAK_SYMBOL OD_Velocity_get() {
+    osMutexAcquire(mutex_OD_Velocity, portMAX_DELAY);
+    float value = OD_Velocity;
+    osMutexRelease(mutex_OD_Velocity);
+    return value;
+}
+#endif
+#ifndef OD_Velocity_SET_OVERWRITE
+void WEAK_SYMBOL OD_Velocity_set(const float value) {
+    osMutexAcquire(mutex_OD_Velocity, portMAX_DELAY);
+    OD_Velocity = value;
+    osMutexRelease(mutex_OD_Velocity);
+}
+#endif
+
 
 /**************************************************************************
 * FreeRTOS task that will send out periodically all readable OD entries   *
@@ -1482,9 +1781,12 @@ constexpr uint16_t READABLE_SDO_IDS[] = {
     0x464,    0x466,    0x467,    0x468, 
     0x469,    0x800,    0x900,    0x901, 
     0x902,    0x903,    0x904,    0xA20, 
-    0xA25,    0xA26,    0xA27 
+    0xA25,    0xA26,    0xA27,    0xA28, 
+    0xA29,    0xA30,    0xA31,    0xA32, 
+    0xA33,    0xB00,    0xC00,    0xC01, 
+    0xD00,    0xD01 
 };
-constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 47;
+constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 58;
 extern RNG_HandleTypeDef hrng;
 
 void sendOdEntriesTask(void *pvParameters) {
