@@ -1,7 +1,0 @@
-State.hpp:28:10:State::~State()	1
-State.hpp:28:10:virtual State::~State()	1
-PodSafeToApproach.cpp:10:6:virtual void PodSafeToApproach::setup()	1
-PodSafeToApproach.cpp:14:6:virtual void PodSafeToApproach::update()	1
-PodSafeToApproach.cpp:18:6:virtual void PodSafeToApproach::dispose()	1
-PodSafeToApproach.hpp:13:7:PodSafeToApproach::~PodSafeToApproach()	1
-PodSafeToApproach.hpp:13:7:virtual PodSafeToApproach::~PodSafeToApproach()	1

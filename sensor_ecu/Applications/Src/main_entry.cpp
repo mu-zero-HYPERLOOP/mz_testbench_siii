@@ -12,15 +12,16 @@
 #include "NTCSensor.hpp"
 #include "FiducialSensor.hpp"
 #include "KistlerController.hpp"
-#include "EstimatedStateRegistry.hpp"
-#include "GroundStationReceiver.hpp"
 #include <cmath>
+#include "pdu_control.hpp"
+#include "cooling_controll.hpp"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 void main_entry(void *argv) {
+	pdu::init();
 	//TODO initalize peripherals.
 	ImuMaster imuMaster;
 
@@ -59,6 +60,9 @@ void main_entry(void *argv) {
 		OD_Position_set(kistlerPos);
 		OD_Velocity_set(kistlerVel);
 
+
+		cooling::update();
+		pdu::update();
 		// ======= POSITION-ESTIMATION ======
 		osDelay(pdMS_TO_TICKS(50));
 

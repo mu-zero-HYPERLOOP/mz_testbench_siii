@@ -50,9 +50,9 @@ std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTy
 std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:428:7:)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2
 std_function.h:601:7:)>::function(_Functor) [with _Functor = AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2
-AdcChannelController.hpp:14:29:void __tcf_4()	1
+AdcChannelController.hpp:14:29:void __tcf_3()	1
 AdcChannelController.hpp:13:29:AdcModuleController& _getChannelAdcModuleControllerCompiletime() [with AdcModule ADC_MODULE = ADC_MODULE1]	3
-AdcChannelController.hpp:14:29:void __tcf_5()	1
+AdcChannelController.hpp:14:29:void __tcf_4()	1
 AdcChannelController.hpp:13:29:AdcModuleController& _getChannelAdcModuleControllerCompiletime() [with AdcModule ADC_MODULE = ADC_MODULE2]	3
 std_function.h:601:7:)>::function(_Functor) [with _Functor = KistlerController::KistlerController()::<lambda(RxMessage&)>; <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {RxMessage&}]	2
 cz_message_receiver.hpp:30:21:unsigned int can::registerMessageReceiver(std::function<void(RxMessage&)>) [with MESSAGE = can::messages::OpticalSensor_TX_MainData]	1

@@ -60,6 +60,11 @@ void start(){
 	s_lastState = s_nextState;
 	while(true){
 		update();
+		can::Message<can::messages::SensorF_TX_StatePod> stateMsg;
+		stateMsg.set<can::signals::SensorF_TX_PodState>(s_state);
+		stateMsg.set<can::signals::SensorF_TX_PodState_Target>(s_nextState);
+		stateMsg.set<can::signals::SensorF_TX_PodState_Last>(s_lastState);
+		stateMsg.send();
 	}
 }
 

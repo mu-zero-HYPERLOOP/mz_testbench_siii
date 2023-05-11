@@ -1,0 +1,4 @@
+cooling_control.cpp:21:6:void cooling::setMode(cooling::MODE)	1
+cooling_control.cpp:27:6:void cooling::update()	4
+cooling_control.cpp:45:1:void __static_initialization_and_destruction_0(int, int)	3
+cooling_control.cpp:45:1:cpp)	1

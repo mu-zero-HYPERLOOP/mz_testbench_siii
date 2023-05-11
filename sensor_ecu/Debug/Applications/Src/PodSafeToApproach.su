@@ -1,7 +1,0 @@
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/State.hpp:28:10:State::~State()	16	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/State.hpp:28:10:virtual State::~State()	16	static
-../Applications/Src/PodSafeToApproach.cpp:10:6:virtual void PodSafeToApproach::setup()	16	static
-../Applications/Src/PodSafeToApproach.cpp:14:6:virtual void PodSafeToApproach::update()	16	static
-../Applications/Src/PodSafeToApproach.cpp:18:6:virtual void PodSafeToApproach::dispose()	16	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/PodSafeToApproach.hpp:13:7:PodSafeToApproach::~PodSafeToApproach()	16	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/PodSafeToApproach.hpp:13:7:virtual PodSafeToApproach::~PodSafeToApproach()	16	static

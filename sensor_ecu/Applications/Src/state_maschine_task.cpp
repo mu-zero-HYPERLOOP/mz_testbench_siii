@@ -5,8 +5,7 @@
  *      Author: OfficeLaptop
  */
 
-#include "GlobalState.hpp"
-
+#include "state_maschine.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,10 +13,8 @@ extern "C" {
 
 
 void state_maschine_entry(void *argv) {
-	//GlobalState::getInstance().start();
-	while(true){
-		osDelay(osWaitForever);
-	}
+	fms::setState(fms::STATE::POD_IDLE);
+	fms::start();
 
 }
 
