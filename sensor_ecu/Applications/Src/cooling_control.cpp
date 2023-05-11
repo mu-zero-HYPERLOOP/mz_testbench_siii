@@ -16,14 +16,19 @@ namespace cooling {
 constexpr float THRESHOLD = 30;
 
 static MODE s_mode;
-static MODE s_nextMode;
+static MODE s_nextMode = MODE::DYNAMIC;
 static osMutexId_t s_modeMutex = osMutexNew(NULL);
+
+
+pdu::HpChannel COOLING_PUMP_CHANNEL = pdu::HP_CHANNEL1;
 
 void setMode(MODE mode) {
 	osMutexAcquire(s_modeMutex, osWaitForever);
 	s_nextMode = mode;
 	osMutexRelease(s_modeMutex);
 }
+
+bool toggle = true;
 
 void update(){
 	osMutexAcquire(s_modeMutex, osWaitForever);
@@ -32,15 +37,20 @@ void update(){
 
 	switch(s_mode){
 	case MODE::ON:
-		pdu::
+		pdu::enableChannel(COOLING_PUMP_CHANNEL);
 		break;
 	case MODE::DYNAMIC:
+		if(toggle){
+			pdu::enableChannel(COOLING_PUMP_CHANNEL);
+		}else{
+			pdu::disableChannel(COOLING_PUMP_CHANNEL);
+		}
+		toggle = !toggle;
 		break;
 	case MODE::OFF:
+		pdu::disableChannel(COOLING_PUMP_CHANNEL);
 		break;
 	}
-
-	float temperature = 0; // TODO get temperatur values.
 
 }
 

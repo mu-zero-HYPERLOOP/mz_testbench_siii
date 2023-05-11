@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 14:13:00 11.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 19:56:49 11.05.2023.
  * It contains the object dictionary for the node 'SensorF'.
  *
  * Florian Keck
@@ -8,7 +8,6 @@
  * Copyright 2023, mu-zero HYPERLOOP e.V.
  */
 #include "canzero_od.hpp"
-#include "estdio.hpp"
 
 
 /**************************************************************************
@@ -351,7 +350,6 @@ void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {
             respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0xA28:    // OD_IMU_AccelX
-        	printf("send imu accelX\n");
             msgSdoResp.set<can::signals::SensorF_OD_IMU_AccelX>(OD_IMU_AccelX_get());
             respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;

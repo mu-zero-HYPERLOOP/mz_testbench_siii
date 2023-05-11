@@ -64,7 +64,7 @@ void main_entry(void *argv) {
 		cooling::update();
 		pdu::update();
 		// ======= POSITION-ESTIMATION ======
-		osDelay(pdMS_TO_TICKS(50));
+		osDelay(pdMS_TO_TICKS(1000));
 
 	}
 }

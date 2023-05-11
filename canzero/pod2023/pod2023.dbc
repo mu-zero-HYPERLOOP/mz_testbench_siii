@@ -38,27 +38,6 @@ BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR B
 
 BO_ 2148592864 BMS_Frame: 8 Bat1
 
-BO_ 603 PDU_RX_LP_Dutycycle_NoOD: 6 Vector__XXX
- SG_ PDU_LPCh9_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_LPCh8_Dutycycle : 32|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_LPCh3_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_LPCh2_Dutycycle : 16|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_LPCh10_Dutycycle : 8|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_LPCh1_Dutycycle : 0|8@1+ (0.5,0) [0|100] "%"  PDU
-
-BO_ 731 PDU_RX_HP_D_Dutycycle_NoOD: 6 Vector__XXX
- SG_ PDU_D4_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_D3_Dutycycle : 32|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_D2_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_D1_Dutycycle : 16|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_HPCh2_Dutycycle : 8|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_HPCh1_Dutycycle : 0|8@1+ (0.5,0) [0|100] "%"  PDU
-
-BO_ 479 PDU_RX_Control_NoOD: 1 Vector__XXX
- SG_ PDU_RX_PEHWEnable : 2|1@1+ (1,0) [0|0] ""  PDU
- SG_ PDU_RX_ErrorReset : 1|1@1+ (1,0) [0|0] ""  PDU
- SG_ PDU_RX_Enable : 0|1@1+ (1,0) [0|0] ""  PDU
-
 BO_ 1 Track_TX_Respond: 1 Track
  SG_ Track_TX_Response : 0|8@1+ (1,0) [0|255] ""  SensorF
 
@@ -421,12 +400,12 @@ BO_ 474 PDU_RX_Control: 1 SensorF
  SG_ PDU_RX_Enable : 0|1@1+ (1,0) [0|0] ""  PDU
 
 BO_ 538 PDU_TX_HP_Current: 8 PDU
- SG_ PDU_HPCh4_Current : 48|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
- SG_ PDU_HPCh3_Current : 32|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
- SG_ PDU_HPCh2_Current : 16|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
- SG_ PDU_HPCh1_Current : 0|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
+ SG_ PDU_HPCh4_Current : 48|12@1+ (0.004,0) [0|16.38] "A"  SensorF
+ SG_ PDU_HPCh3_Current : 32|12@1+ (0.004,0) [0|16.38] "A"  SensorF
+ SG_ PDU_HPCh2_Current : 16|12@1+ (0.004,0) [0|16.38] "A"  SensorF
+ SG_ PDU_HPCh1_Current : 0|12@1+ (0.004,0) [0|16.38] "A"  SensorF
 
-BO_ 602 PDU_RX_LP_Dutycycle: 6 Vector__XXX
+BO_ 602 PDU_RX_LP_Dutycycle: 6 SensorF
  SG_ PDU_LPCh9_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%" Vector__XXX
  SG_ PDU_LPCh8_Dutycycle : 32|8@1+ (0.5,0) [0|100] "%" Vector__XXX
  SG_ PDU_LPCh3_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%" Vector__XXX
@@ -444,7 +423,7 @@ BO_ 666 PDU_TX_HP_Short_Circuit_Debug: 3 PDU
  SG_ PDU_HPCh1_State : 4|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ PDU_HPCh1_ShortCnt : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
-BO_ 730 PDU_RX_HP_D_Dutycycle: 6 Vector__XXX
+BO_ 730 PDU_RX_HP_D_Dutycycle: 6 SensorF
  SG_ PDU_D4_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%" Vector__XXX
  SG_ PDU_D3_Dutycycle : 32|8@1+ (0.5,0) [0|100] "%" Vector__XXX
  SG_ PDU_D2_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%" Vector__XXX
@@ -511,18 +490,18 @@ BO_ 1242 PDU_TX_LV_BMS: 4 PDU
  SG_ PDU_LV_Current : 0|12@1+ (0.01,0) [0|40.95] "A" Vector__XXX
 
 BO_ 1306 PDU_TX_LP_Current1: 8 PDU
- SG_ PDU_LPCh5_Current : 48|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
- SG_ PDU_LPCh4_Current : 36|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
- SG_ PDU_LPCh3_Current : 24|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
- SG_ PDU_LPCh2_Current : 12|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
- SG_ PDU_LPCh1_Current : 0|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh5_Current : 48|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh4_Current : 36|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh3_Current : 24|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh2_Current : 12|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh1_Current : 0|12@1+ (0.002,0) [0|8.19] "A"  SensorF
 
 BO_ 1370 PDU_TX_LP_Current2: 8 PDU
- SG_ PDU_LPCh9_Current : 48|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
- SG_ PDU_LPCh8_Current : 36|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
- SG_ PDU_LPCh7_Current : 24|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
- SG_ PDU_LPCh6_Current : 12|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
- SG_ PDU_LPCh10_Current : 0|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh9_Current : 48|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh8_Current : 36|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh7_Current : 24|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh6_Current : 12|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh10_Current : 0|12@1+ (0.002,0) [0|8.19] "A"  SensorF
 
 BO_ 1434 PDU_SDO_Resp: 8 PDU
  SG_ PDU_SDO_RespCode : 12|4@1+ (1,0) [0|0] ""  TelemetryNode
@@ -2163,12 +2142,6 @@ CM_ BU_ MDB6 "ModularLevitationUnit-6
 Node-ID 0x31";
 CM_ BU_ Track "TrackECU
 Node-ID 0x32";
-CM_ BO_ 603 "Dutycycle for the channels of the PDU that support PWM.";
-CM_ BO_ 731 "Receive PDO 3 of node PDU with Node-ID 0x1A";
-CM_ BO_ 479 "Control message of the PDU sent by the State Machine.";
-CM_ SG_ 479 PDU_RX_PEHWEnable "PE Hardware Enable signal of PDU.";
-CM_ SG_ 479 PDU_RX_ErrorReset "Error reset signal for PDU.";
-CM_ SG_ 479 PDU_RX_Enable "Enable signal for PDU.";
 CM_ BO_ 2684354555 "longitudinal and transverse velocity, angle between them";
 CM_ SG_ 2684354555 OpticalSensor_TX_Angle "Angle between longitudianl and transverse direction.";
 CM_ SG_ 2684354555 OpticalSensor_TX_VelTrans "Velocity in transverse direction.";
@@ -2763,11 +2736,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "CANzero_NMTMasterName" "Master";
-BA_ "CANzero_SDOClientName" "TelemetryNode";
-BA_ "CANzero_DBCVersion" 172;
-BA_ "CANzero_ProtocolVersion" "V1.0";
 BA_ "BusType" "CAN";
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "CANzero_DBCVersion" 173;
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_NMTMasterName" "Master";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -2785,21 +2758,6 @@ BA_ "CANzero_NodeID" BU_ MDB5 41;
 BA_ "CANzero_NodeID" BU_ MDB6 49;
 BA_ "CANzero_NodeID" BU_ Track 50;
 BA_ "GenMsgCycleTime" BO_ 2148592864 100;
-BA_ "GenMsgCycleTime" BO_ 603 100;
-BA_ "GenSigStartValue" SG_ 603 PDU_LPCh9_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 603 PDU_LPCh8_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 603 PDU_LPCh3_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 603 PDU_LPCh2_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 603 PDU_LPCh10_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 603 PDU_LPCh1_Dutycycle 200;
-BA_ "GenMsgCycleTime" BO_ 731 100;
-BA_ "GenSigStartValue" SG_ 731 PDU_D4_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 731 PDU_D3_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 731 PDU_D2_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 731 PDU_D1_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 731 PDU_HPCh2_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 731 PDU_HPCh1_Dutycycle 200;
-BA_ "GenMsgCycleTime" BO_ 479 100;
 BA_ "GenMsgCycleTime" BO_ 1 100;
 BA_ "GenMsgCycleTime" BO_ 0 100;
 BA_ "GenMsgCycleTime" BO_ 512 100;
@@ -3028,8 +2986,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1456 10;
+BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -3044,10 +3002,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgCycleTime" BO_ 1280 10;
-BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1296 10;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;
@@ -3338,9 +3296,6 @@ BA_ "GenMsgCycleTime" BO_ 1586 100;
 BA_ "GenMsgCycleTime" BO_ 1842 100;
 BA_ "GenMsgCycleTime" BO_ 1906 100;
 BA_ "GenMsgCycleTime" BO_ 1970 100;
-VAL_ 479 PDU_RX_PEHWEnable 1 "Enable" 0 "Disable" ;
-VAL_ 479 PDU_RX_ErrorReset 1 "Reset" 0 "No Reset" ;
-VAL_ 479 PDU_RX_Enable 1 "Enable" 0 "Disable" ;
 VAL_ 2684354556 OpticalSensor_TX_LEDStatus 2 "FLASH" 1 "ON" 0 "OFF" ;
 VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SensorF" 2 "SensorR" 17 "BrakeF" 18 "BrakeR" 26 "PDU" 10 "HVCU" 25 "HVTU" 34 "TelemetryNode" 33 "MDB1" 35 "MDB2" 39 "MDB3" 40 "MDB4" 41 "MDB5" 49 "MDB6" 50 "Track" ;
 VAL_ 2 CANzero_NMT_State 1 "Start Remote Node" 2 "Stop Remote Node" 128 "Enter Pre-Operational" 129 "Reset" ;

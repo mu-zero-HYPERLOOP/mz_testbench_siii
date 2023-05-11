@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 14:12:59 11.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 19:56:48 11.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -54,22 +54,24 @@ namespace can {
             0x1FFFFFFA 
         };
 
-        constexpr uint8_t num_std = 23;      // Number of used receive filters for standard (11-bit) ID messages
-        constexpr uint32_t mask_std[23] = {   // Filter mask for standard (11-bit) ID messages
+        constexpr uint8_t num_std = 26;      // Number of used receive filters for standard (11-bit) ID messages
+        constexpr uint32_t mask_std[26] = {   // Filter mask for standard (11-bit) ID messages
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF,            0x7FF 
+            0x7FF,            0x7FF,            0x7FF,            0x7FF, 
+            0x7FF,            0x7FF 
         };
-        constexpr uint32_t id_std[23] = {     // Filter ID for standard (11-bit) ID messages
+        constexpr uint32_t id_std[26] = {     // Filter ID for standard (11-bit) ID messages
             0x001,            0x200,            0x100,            0x002, 
             0x1C1,            0x241,            0x2C1,            0x341, 
             0x5C1,            0x601,            0x701,            0x781, 
             0x202,            0x702,            0x191,            0x711, 
-            0x192,            0x712,            0x19A,            0x71A, 
-            0x18A,            0x70A,            0x722 
+            0x192,            0x712,            0x19A,            0x21A, 
+            0x51A,            0x55A,            0x71A,            0x18A, 
+            0x70A,            0x722 
         };
     }
 
@@ -458,11 +460,11 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char CANzero_NMTMasterName[] = "Master";
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
-    constexpr uint32_t CANzero_DBCVersion = 172;
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
     constexpr char BusType[] = "CAN";
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr uint32_t CANzero_DBCVersion = 173;
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
@@ -4376,6 +4378,614 @@ namespace can {
             constexpr static bool DISABLE = 0;
             constexpr static bool ENABLE = 1;
         };
+        class PDU_HPCh1_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x21A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(16.38);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.004f)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFull));
+                return value * (0.004f);
+            }
+        };
+        class PDU_HPCh2_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x21A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(16.38);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.004f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFF0000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF0000ull) >> 16);
+                return value * (0.004f);
+            }
+        };
+        class PDU_HPCh3_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x21A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(16.38);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.004f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 32) & 0xFFF00000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF00000000ull) >> 32);
+                return value * (0.004f);
+            }
+        };
+        class PDU_HPCh4_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x21A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(16.38);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.004f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 48) & 0xFFF000000000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF000000000000ull) >> 48);
+                return value * (0.004f);
+            }
+        };
+        class PDU_LPCh1_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_LPCh1_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_LPCh10_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 8) & 0xFF00ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF00ull) >> 8);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_LPCh10_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_LPCh2_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_LPCh2_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_LPCh3_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 24) & 0xFF000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF000000ull) >> 24);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_LPCh3_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_LPCh8_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 32) & 0xFF00000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF00000000ull) >> 32);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_LPCh8_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_LPCh9_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 40) & 0xFF0000000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000000000ull) >> 40);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_LPCh9_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_HPCh1_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x2DA };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_HPCh1_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_HPCh2_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x2DA };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 8) & 0xFF00ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF00ull) >> 8);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_HPCh2_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_D1_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x2DA };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_D1_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_D2_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x2DA };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 24) & 0xFF000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF000000ull) >> 24);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_D2_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_D3_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x2DA };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 32) & 0xFF00000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF00000000ull) >> 32);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_D3_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_D4_Dutycycle {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x2DA };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(100);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 40) & 0xFF0000000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000000000ull) >> 40);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'PDU_D4_Dutycycle'
+            constexpr static float GenSigStartValue = 200.0f;
+        };
+        class PDU_LPCh1_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x51A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFull));
+                return value * (0.002f);
+            }
+        };
+        class PDU_LPCh2_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x51A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 12) & 0xFFF000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF000ull) >> 12);
+                return value * (0.002f);
+            }
+        };
+        class PDU_LPCh3_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x51A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 24) & 0xFFF000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF000000ull) >> 24);
+                return value * (0.002f);
+            }
+        };
+        class PDU_LPCh4_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x51A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 36) & 0xFFF000000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF000000000ull) >> 36);
+                return value * (0.002f);
+            }
+        };
+        class PDU_LPCh5_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x51A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 48) & 0xFFF000000000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF000000000000ull) >> 48);
+                return value * (0.002f);
+            }
+        };
+        class PDU_LPCh10_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x55A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFull));
+                return value * (0.002f);
+            }
+        };
+        class PDU_LPCh6_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x55A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 12) & 0xFFF000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF000ull) >> 12);
+                return value * (0.002f);
+            }
+        };
+        class PDU_LPCh7_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x55A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 24) & 0xFFF000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF000000ull) >> 24);
+                return value * (0.002f);
+            }
+        };
+        class PDU_LPCh8_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x55A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 36) & 0xFFF000000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF000000000ull) >> 36);
+                return value * (0.002f);
+            }
+        };
+        class PDU_LPCh9_Current {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x55A };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(8.19);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.002f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 48) & 0xFFF000000000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF000000000000ull) >> 48);
+                return value * (0.002f);
+            }
+        };
         class PDU_NodeState {
             public:
             using dataType = uint8_t;
@@ -5229,6 +5839,87 @@ namespace can {
             using PDU_RX_PEHWEnable = signals::PDU_RX_PEHWEnable;
 
             // Attributes of message 'PDU_RX_Control'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class PDU_TX_HP_Current {
+            public:
+            constexpr static uint32_t id = 0x21A;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using PDU_HPCh1_Current = signals::PDU_HPCh1_Current;
+            using PDU_HPCh2_Current = signals::PDU_HPCh2_Current;
+            using PDU_HPCh3_Current = signals::PDU_HPCh3_Current;
+            using PDU_HPCh4_Current = signals::PDU_HPCh4_Current;
+
+            // Attributes of message 'PDU_TX_HP_Current'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class PDU_RX_LP_Dutycycle {
+            public:
+            constexpr static uint32_t id = 0x25A;
+            constexpr static uint8_t dlc = 6;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using PDU_LPCh1_Dutycycle = signals::PDU_LPCh1_Dutycycle;
+            using PDU_LPCh10_Dutycycle = signals::PDU_LPCh10_Dutycycle;
+            using PDU_LPCh2_Dutycycle = signals::PDU_LPCh2_Dutycycle;
+            using PDU_LPCh3_Dutycycle = signals::PDU_LPCh3_Dutycycle;
+            using PDU_LPCh8_Dutycycle = signals::PDU_LPCh8_Dutycycle;
+            using PDU_LPCh9_Dutycycle = signals::PDU_LPCh9_Dutycycle;
+
+            // Attributes of message 'PDU_RX_LP_Dutycycle'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class PDU_RX_HP_D_Dutycycle {
+            public:
+            constexpr static uint32_t id = 0x2DA;
+            constexpr static uint8_t dlc = 6;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using PDU_HPCh1_Dutycycle = signals::PDU_HPCh1_Dutycycle;
+            using PDU_HPCh2_Dutycycle = signals::PDU_HPCh2_Dutycycle;
+            using PDU_D1_Dutycycle = signals::PDU_D1_Dutycycle;
+            using PDU_D2_Dutycycle = signals::PDU_D2_Dutycycle;
+            using PDU_D3_Dutycycle = signals::PDU_D3_Dutycycle;
+            using PDU_D4_Dutycycle = signals::PDU_D4_Dutycycle;
+
+            // Attributes of message 'PDU_RX_HP_D_Dutycycle'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class PDU_TX_LP_Current1 {
+            public:
+            constexpr static uint32_t id = 0x51A;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using PDU_LPCh1_Current = signals::PDU_LPCh1_Current;
+            using PDU_LPCh2_Current = signals::PDU_LPCh2_Current;
+            using PDU_LPCh3_Current = signals::PDU_LPCh3_Current;
+            using PDU_LPCh4_Current = signals::PDU_LPCh4_Current;
+            using PDU_LPCh5_Current = signals::PDU_LPCh5_Current;
+
+            // Attributes of message 'PDU_TX_LP_Current1'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class PDU_TX_LP_Current2 {
+            public:
+            constexpr static uint32_t id = 0x55A;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using PDU_LPCh10_Current = signals::PDU_LPCh10_Current;
+            using PDU_LPCh6_Current = signals::PDU_LPCh6_Current;
+            using PDU_LPCh7_Current = signals::PDU_LPCh7_Current;
+            using PDU_LPCh8_Current = signals::PDU_LPCh8_Current;
+            using PDU_LPCh9_Current = signals::PDU_LPCh9_Current;
+
+            // Attributes of message 'PDU_TX_LP_Current2'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class PDU_Heartbeat {

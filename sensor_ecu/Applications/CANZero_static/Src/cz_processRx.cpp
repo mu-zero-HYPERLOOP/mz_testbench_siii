@@ -36,11 +36,15 @@ void processRX(RxMessage message) {
 		//successfully handled message
 	} else {
 		if (message.rxHeader.IDE == CAN_ID_STD) {
+			/*
 			printDebug("unknown/unhandled CAN Std-ID: %lu\n",
 					message.rxHeader.StdId);
+					*/
 		} else {
+			/*
 			printDebug("unknown/unhandled CAN Ext-ID: %lu\n",
 					message.rxHeader.ExtId);
+					*/
 		}
 	}
 

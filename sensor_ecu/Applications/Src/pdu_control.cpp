@@ -9,6 +9,7 @@
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
 #include "canzero.hpp"
+#include "estdio.hpp"
 
 namespace pdu {
 
@@ -25,21 +26,27 @@ struct PduStatus {
 	}
 };
 
-static PduStatus s_status;
-static PduStatus s_confirmed_status;
+static PduStatus s_status = {
+		.m_enabled = true,
+		.m_pehwEnabled = false,
+};
+static PduStatus s_confirmed_status = {
+		.m_enabled = false,
+		.m_pehwEnabled = false,
+};
 
-static bool m_error;
-static bool m_resetError;
+static bool m_error = false;
+static bool m_resetError = false;
 
 
 struct LpChannelConfig {
 	static constexpr size_t NUMBER_OF_CHANNELS = 10;
-	float m_duty[NUMBER_OF_CHANNELS];
+	bool m_status[NUMBER_OF_CHANNELS];
 
 
 	bool operator==(const LpChannelConfig& other) const {
 		for(size_t i=0;i<NUMBER_OF_CHANNELS;i++){
-			if(m_duty[i] != other.m_duty[i])return false;
+			if(m_status[i] != other.m_status[i])return false;
 		}
 		return true;
 	}
@@ -49,16 +56,18 @@ struct LpChannelConfig {
 	}
 };
 
-static LpChannelConfig s_lpChannelConfig;
+static LpChannelConfig s_lpChannelConfig = {
+		.m_status = {false, false, false, false, false, false, false, false, false, false}
+};
 static LpChannelConfig s_confirmed_lpChannelConfig;
 
 struct HpChannelConfig {
 	static constexpr size_t NUMBER_OF_CHANNELS = 4;
-	float m_duty[NUMBER_OF_CHANNELS];
+	bool m_status[NUMBER_OF_CHANNELS];
 
 	bool operator==(const HpChannelConfig& other)const{
 		for(size_t i=0;i<NUMBER_OF_CHANNELS;i++){
-			if(m_duty[i] != other.m_duty[i])return false;
+			if(m_status[i] != other.m_status[i])return false;
 		}
 		return false;
 	}
@@ -67,37 +76,38 @@ struct HpChannelConfig {
 	}
 };
 
-static HpChannelConfig s_hpChannelConfig;
+static HpChannelConfig s_hpChannelConfig = {
+		.m_status = {false, false, false, false}
+};
 static HpChannelConfig s_confirmed_hpChannelConfig;
 
-
 void enableChannel(HpChannel channel){
-	s_hpChannelConfig.m_duty[static_cast<uint16_t>(channel)] = 100;
+	s_hpChannelConfig.m_status[static_cast<uint16_t>(channel)] = true;
 }
 
 void disableChannel(HpChannel channel){
-	s_hpChannelConfig.m_duty[static_cast<uint16_t>(channel)] = 0;
+	s_hpChannelConfig.m_status[static_cast<uint16_t>(channel)] = false;
 }
 
 void enableChannel(LpChannel channel){
-	s_lpChannelConfig.m_duty[static_cast<uint16_t>(channel)] = 100;
+	s_lpChannelConfig.m_status[static_cast<uint16_t>(channel)] = true;;
 }
 
 void disableChannel(LpChannel channel){
-	s_lpChannelConfig.m_duty[static_cast<uint16_t>(channel)] = 0;
+	s_lpChannelConfig.m_status[static_cast<uint16_t>(channel)] = false;
 }
 
 ChannelStatus getChannelStatus(LpChannel channel){
-	float target = s_lpChannelConfig.m_duty[static_cast<uint16_t>(channel)];
-	float real = s_confirmed_lpChannelConfig.m_duty[static_cast<uint16_t>(channel)];
+	bool target = s_lpChannelConfig.m_status[static_cast<uint16_t>(channel)];
+	bool real = s_confirmed_lpChannelConfig.m_status[static_cast<uint16_t>(channel)];
 	if(target == real){
-		if(target != 0) {
+		if(target) {
 			return CHANNEL_STATUS_ON;
 		}else{
 			return CHANNEL_STATUS_OFF;
 		}
 	}else {
-		if(target != 0){
+		if(target){
 			return CHANNEL_STATUS_PENDING_ON;
 		}else {
 			return CHANNEL_STATUS_PENDING_OFF;
@@ -105,16 +115,16 @@ ChannelStatus getChannelStatus(LpChannel channel){
 	}
 }
 ChannelStatus getChannelStatus(HpChannel channel){
-	float target = s_hpChannelConfig.m_duty[static_cast<uint16_t>(channel)];
-	float real = s_confirmed_hpChannelConfig.m_duty[static_cast<uint16_t>(channel)];
+	bool target = s_hpChannelConfig.m_status[static_cast<uint16_t>(channel)];
+	bool real = s_confirmed_hpChannelConfig.m_status[static_cast<uint16_t>(channel)];
 	if(target == real){
-		if(target != 0) {
+		if(target) {
 			return CHANNEL_STATUS_ON;
 		}else{
 			return CHANNEL_STATUS_OFF;
 		}
 	}else {
-		if(target != 0){
+		if(target){
 			return CHANNEL_STATUS_PENDING_ON;
 		}else {
 			return CHANNEL_STATUS_PENDING_OFF;
@@ -124,34 +134,75 @@ ChannelStatus getChannelStatus(HpChannel channel){
 
 
 void receiveTxStatus(RxMessage& raw) {
-	can::Message<can::messages::PDU_TX_Status> msg;
-	s_confirmed_status.m_enabled = msg.get<can::signals::PDU_TX_Enabled>();
+	can::Message<can::messages::PDU_TX_Status> msg {raw};
+	s_confirmed_status.m_enabled = msg.get<can::signals::PDU_TX_Enabled>() == 1;
 	s_confirmed_status.m_pehwEnabled = msg.get<can::signals::PDU_TX_PEHWEnabled>();
+}
+
+void receiveHpDutycycle(RxMessage& raw){
+	can::Message<can::messages::PDU_TX_HP_Current> msg {raw};
+	s_confirmed_hpChannelConfig.m_status[0] = msg.get<can::signals::PDU_HPCh1_Current>() != 0;
+	s_confirmed_hpChannelConfig.m_status[1] = msg.get<can::signals::PDU_HPCh2_Current>() != 0;
+	s_confirmed_hpChannelConfig.m_status[2] = msg.get<can::signals::PDU_HPCh3_Current>() != 0;
+	s_confirmed_hpChannelConfig.m_status[3] = msg.get<can::signals::PDU_HPCh4_Current>() != 0;
+}
+
+void receiveLp1to5Dutycycle(RxMessage& raw){
+	can::Message<can::messages::PDU_TX_LP_Current1> msg {raw};
+	s_confirmed_lpChannelConfig.m_status[0] = msg.get<can::signals::PDU_LPCh1_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[1] = msg.get<can::signals::PDU_LPCh2_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[2] = msg.get<can::signals::PDU_LPCh3_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[3] = msg.get<can::signals::PDU_LPCh4_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[4] = msg.get<can::signals::PDU_LPCh5_Current>() != 0;
+}
+
+void receiveLp6to10Dutycycle(RxMessage& raw){
+	can::Message<can::messages::PDU_TX_LP_Current2> msg {raw};
+	s_confirmed_lpChannelConfig.m_status[5] = msg.get<can::signals::PDU_LPCh6_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[6] = msg.get<can::signals::PDU_LPCh7_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[7] = msg.get<can::signals::PDU_LPCh8_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[8] = msg.get<can::signals::PDU_LPCh9_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[9] = msg.get<can::signals::PDU_LPCh10_Current>() != 0;
+
 }
 
 void init(){
 	can::registerMessageReceiver<can::messages::PDU_TX_Status>(receiveTxStatus);
+	can::registerMessageReceiver<can::messages::PDU_TX_HP_Current>(receiveHpDutycycle);
+	can::registerMessageReceiver<can::messages::PDU_TX_LP_Current1>(receiveLp1to5Dutycycle);
+	can::registerMessageReceiver<can::messages::PDU_TX_LP_Current2>(receiveLp6to10Dutycycle);
+
 }
 
 
 void update(){
 	if(s_status != s_confirmed_status){
 		can::Message<can::messages::PDU_RX_Control> controlMsg;
-		controlMsg.set<can::signals::PDU_RX_Enable>(s_confirmed_status.m_pehwEnabled);
+		controlMsg.set<can::signals::PDU_RX_Enable>(s_status.m_enabled);
 		//controlMsg.set<can::signals::PDU_RX_ErrorReset>(s_confirmed_status.m_error);
-		controlMsg.set<can::signals::PDU_RX_PEHWEnable>(s_confirmed_status.m_pehwEnabled);
+		controlMsg.set<can::signals::PDU_RX_PEHWEnable>(s_status.m_pehwEnabled);
 		controlMsg.send();
 	}
 	if(s_lpChannelConfig != s_confirmed_lpChannelConfig){
+		can::Message<can::messages::PDU_RX_LP_Dutycycle> lpMsg;
+		lpMsg.set<can::signals::PDU_LPCh1_Dutycycle>(s_lpChannelConfig.m_status[0] ? 100.0 : 0.0);
+		lpMsg.set<can::signals::PDU_LPCh2_Dutycycle>(s_lpChannelConfig.m_status[1] ? 100.0 : 0.0);
+		lpMsg.set<can::signals::PDU_LPCh3_Dutycycle>(s_lpChannelConfig.m_status[2] ? 100.0 : 0.0);
+		lpMsg.set<can::signals::PDU_LPCh8_Dutycycle>(s_lpChannelConfig.m_status[7] ? 100.0 : 0.0);
+		lpMsg.set<can::signals::PDU_LPCh9_Dutycycle>(s_lpChannelConfig.m_status[8] ? 100.0 : 0.0);
+		lpMsg.set<can::signals::PDU_LPCh10_Dutycycle>(s_lpChannelConfig.m_status[9] ? 100.0 : 0.0);
+		lpMsg.send();
 		//update lp channel config.
 		//can::message<can::messages::PDU_LP_Duty> lpDutyMsg;
 		//TODO ...
-
 	}
 
 	if(s_hpChannelConfig != s_confirmed_hpChannelConfig){
+		can::Message<can::messages::PDU_RX_HP_D_Dutycycle> hpMsg;
+		hpMsg.set<can::signals::PDU_HPCh1_Dutycycle>(s_hpChannelConfig.m_status[0] ? 100.0 : 0.0);
+		hpMsg.set<can::signals::PDU_HPCh2_Dutycycle>(s_hpChannelConfig.m_status[1] ? 100.0 : 0.0);
 		// update hp channel config.
-		//can::message<can::messages::PDU_HP_D_Duty> lpDutyMsg;
+		hpMsg.send();
 	}
 }
 

@@ -14,6 +14,9 @@ extern "C" {
 
 void state_maschine_entry(void *argv) {
 	fms::setState(fms::STATE::POD_IDLE);
+	while(true){
+		osDelay(osWaitForever);
+	}
 	fms::start();
 
 }
