@@ -14,13 +14,13 @@
 
 #include "FreeRTOS.h"
 #include "message_buffer.h"
+#include "estdio.hpp"
 
 
 void cz_receive_task(void* argv) {
 	RxMessage message;
 	while (1) {
 		osMessageQueueGet(czReceiveQueue, (void*) &message, NULL, osWaitForever);
-
 		if (message.rxHeader.RTR == CAN_RTR_DATA) {
  			if(can::checkRxMessage<can::messages::CANZERO_BTL_RX>(message)) {
 				if(message.rxBuf[0]==0xff) {

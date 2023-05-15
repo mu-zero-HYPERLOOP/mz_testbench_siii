@@ -131,8 +131,8 @@ void MX_ADC2_Init(void)
   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc2.Init.NbrOfConversion = 2;
-  hadc2.Init.DMAContinuousRequests = ENABLE;
+  hadc2.Init.NbrOfConversion = 4;
+  hadc2.Init.DMAContinuousRequests = DISABLE;
   hadc2.Init.EOCSelection = ADC_EOC_SEQ_CONV;
   if (HAL_ADC_Init(&hadc2) != HAL_OK)
   {
@@ -141,7 +141,7 @@ void MX_ADC2_Init(void)
 
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
-  sConfig.Channel = ADC_CHANNEL_0;
+  sConfig.Channel = ADC_CHANNEL_1;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_28CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
@@ -151,7 +151,27 @@ void MX_ADC2_Init(void)
 
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
+  sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 2;
+  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_7;
+  sConfig.Rank = 3;
+  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_5;
+  sConfig.Rank = 4;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -222,13 +242,15 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
     PC2     ------> ADC2_IN12
     PA0-WKUP     ------> ADC2_IN0
     PA1     ------> ADC2_IN1
+    PA5     ------> ADC2_IN5
+    PA7     ------> ADC2_IN7
     */
     GPIO_InitStruct.Pin = ADC_IN10_Board_Temp_Pin|ADC_IN12_Board_VCC_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
+    GPIO_InitStruct.Pin = PRESSURE2_Pin|PRESSURE1_Pin|PRESSURE4_Pin|PRESSURE3_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -294,10 +316,12 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
     PC2     ------> ADC2_IN12
     PA0-WKUP     ------> ADC2_IN0
     PA1     ------> ADC2_IN1
+    PA5     ------> ADC2_IN5
+    PA7     ------> ADC2_IN7
     */
     HAL_GPIO_DeInit(GPIOC, ADC_IN10_Board_Temp_Pin|ADC_IN12_Board_VCC_Pin);
 
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_0|GPIO_PIN_1);
+    HAL_GPIO_DeInit(GPIOA, PRESSURE2_Pin|PRESSURE1_Pin|PRESSURE4_Pin|PRESSURE3_Pin);
 
     /* ADC2 DMA DeInit */
     HAL_DMA_DeInit(adcHandle->DMA_Handle);

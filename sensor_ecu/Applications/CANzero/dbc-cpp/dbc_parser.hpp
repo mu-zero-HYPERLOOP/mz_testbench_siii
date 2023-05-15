@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 19:56:48 11.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 14:38:46 15.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -48,10 +48,10 @@ namespace can {
     namespace filters {
         constexpr uint8_t num_ext = 1;      // Number of used receive filters for extended (29-bit) ID messages
         constexpr uint32_t mask_ext[1] = {   // Filter mask for extended (29-bit) ID messages
-            0x1FFFFFFF 
+            0x1109213 
         };
         constexpr uint32_t id_ext[1] = {     // Filter ID for extended (29-bit) ID messages
-            0x1FFFFFFA 
+            0x1109212 
         };
 
         constexpr uint8_t num_std = 26;      // Number of used receive filters for standard (11-bit) ID messages
@@ -460,17 +460,39 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char BusType[] = "CAN";
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 173;
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr uint32_t CANzero_DBCVersion = 174;
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
+        class BMS_Status_Frame {
+            public:
+            using dataType = uint64_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1109216 };
+            constexpr static uint64_t min = static_cast<uint64_t>(0);
+            constexpr static uint64_t max = static_cast<uint64_t>(255);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint64_t value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint64_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFFFFFFFFFull;
+            }
+            constexpr static inline uint64_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint64_t value = static_cast<uint64_t>((intel & 0xFFFFFFFFFFFFFFFFull));
+                return value;
+            }
+        };
         class Track_TX_Response {
             public:
             using dataType = uint8_t;
@@ -5205,6 +5227,18 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
+        class BMS_TX_Status {
+            public:
+            constexpr static uint32_t id = 0x1109216;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = true;
+
+            // Signals
+            using BMS_Status_Frame = signals::BMS_Status_Frame;
+
+            // Attributes of message 'BMS_TX_Status'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
         class Track_TX_Respond {
             public:
             constexpr static uint32_t id = 0x1;

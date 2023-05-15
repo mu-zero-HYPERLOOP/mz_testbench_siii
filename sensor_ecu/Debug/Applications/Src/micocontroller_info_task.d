@@ -65,6 +65,8 @@ Applications/Src/micocontroller_info_task.o: \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcResult.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/estdio.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/NTCSensor.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/AnalogInput.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/estdio.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/canzero.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/typedefinitions.h \
@@ -72,7 +74,6 @@ Applications/Src/micocontroller_info_task.o: \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/can.h \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/log.h \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_log.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/estdio.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANzero/include/canzero_od.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_interface.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_message_receiver.hpp \
@@ -150,6 +151,8 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/Futu
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/AdcResult.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/estdio.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/NTCSensor.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/AnalogInput.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/estdio.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/canzero.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/typedefinitions.h:
@@ -157,7 +160,6 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Core/Inc/can.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/log.h:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_log.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/estdio.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANzero/include/canzero_od.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_interface.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_message_receiver.hpp:

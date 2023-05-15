@@ -44,7 +44,7 @@ private:
 	AdcConvCpltCallbackHandler& operator=(AdcConvCpltCallbackHandler&) = delete;
 	AdcConvCpltCallbackHandler& operator=(AdcConvCpltCallbackHandler&&) = delete;
 
-	std::function<void(ADC_HandleTypeDef*)> m_listeners[16];
+	std::function<void(ADC_HandleTypeDef*)> m_listeners[14];
 	unsigned int m_size = 0;
 };
 

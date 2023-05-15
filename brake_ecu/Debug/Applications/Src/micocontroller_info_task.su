@@ -17,14 +17,13 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcCo
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcConvCpltCallbackHandler.hpp:28:7:void AdcConvCpltCallbackHandler::unregisterCallback(unsigned int)	16	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:26:8:AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>	16	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:20:11:AdcModuleController::AdcModuleController(AdcModule)	48	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:39:2:AdcModuleController::~AdcModuleController()	16	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:50:14:AdcChannel* AdcModuleController::getChannelByRank(size_t)	16	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:57:7:void AdcModuleController::update()	24	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:70:7:void AdcModuleController::weakUpdate()	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:40:2:AdcModuleController::~AdcModuleController()	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:51:14:AdcChannel* AdcModuleController::getChannelByRank(size_t)	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:58:7:void AdcModuleController::update(bool)	24	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:79:7:void AdcModuleController::dmaCplrCallback()	16	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcChannelController.hpp:18:29:AdcModuleController& _getChannelAdcModuleControllerRuntime(AdcModule)	16	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcChannelController.hpp:32:11:AdcChannelController::AdcChannelController(AdcModule, unsigned int)	24	static
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcChannelController.hpp:37:11:uint16_t AdcChannelController::get()	16	static
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcChannelController.hpp:37:11:uint16_t AdcChannelController::get(bool)	16	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/OnBoardSensors.hpp:17:11:OnBoardSensors::OnBoardSensors(OnBoardTemperaturConfig)	24	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/OnBoardSensors.hpp:26:8:float OnBoardSensors::getInternalTemperaturC()	24	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/OnBoardSensors.hpp:32:8:float OnBoardSensors::getExternalTemperaturC()	24	static

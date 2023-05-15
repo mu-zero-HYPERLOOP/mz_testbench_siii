@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 21:25:10 03.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 22:02:40 14.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'BrakeF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -292,6 +292,9 @@ namespace can {
     * Network nodes with attributes                                                               *
     ***********************************************************************************************/
     namespace nodes {
+        namespace Bat1 {
+            constexpr char comment[] = "";
+        }
         namespace OpticalSensor {
             constexpr char comment[] = "Kistler SFP-II optical Sensor.";
         }
@@ -355,6 +358,48 @@ namespace can {
         namespace TestBench {
             constexpr char comment[] = "";
         }
+        namespace MDB1 {
+            constexpr char comment[] = "ModularLevitationUnit-1 Node-ID 0x21";
+
+            // Attributes of node 'MDB1'
+            constexpr uint8_t CANzero_NodeID = 33;
+        }
+        namespace MDB2 {
+            constexpr char comment[] = "ModularLevitationUnit-2 Node-ID 0x23";
+
+            // Attributes of node 'MDB2'
+            constexpr uint8_t CANzero_NodeID = 35;
+        }
+        namespace MDB3 {
+            constexpr char comment[] = "ModularLevitationUnit-3 Node-ID 0x27";
+
+            // Attributes of node 'MDB3'
+            constexpr uint8_t CANzero_NodeID = 39;
+        }
+        namespace MDB4 {
+            constexpr char comment[] = "ModularLevitationUnit-4 Node-ID 0x28";
+
+            // Attributes of node 'MDB4'
+            constexpr uint8_t CANzero_NodeID = 40;
+        }
+        namespace MDB5 {
+            constexpr char comment[] = "ModularLevitationUnit-5 Node-ID 0x29";
+
+            // Attributes of node 'MDB5'
+            constexpr uint8_t CANzero_NodeID = 41;
+        }
+        namespace MDB6 {
+            constexpr char comment[] = "ModularLevitationUnit-6 Node-ID 0x31";
+
+            // Attributes of node 'MDB6'
+            constexpr uint8_t CANzero_NodeID = 49;
+        }
+        namespace Track {
+            constexpr char comment[] = "TrackECU Node-ID 0x32";
+
+            // Attributes of node 'Track'
+            constexpr uint8_t CANzero_NodeID = 50;
+        }
     }
     
     /**********************************************************************************************
@@ -397,7 +442,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char BusType[] = "CAN";
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 145;
+    constexpr uint32_t CANzero_DBCVersion = 177;
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
@@ -457,7 +502,14 @@ namespace can {
             constexpr static uint16_t BRAKER = 18;
             constexpr static uint16_t HVTU = 25;
             constexpr static uint16_t PDU = 26;
+            constexpr static uint16_t MDB1 = 33;
             constexpr static uint16_t TELEMETRYNODE = 34;
+            constexpr static uint16_t MDB2 = 35;
+            constexpr static uint16_t MDB3 = 39;
+            constexpr static uint16_t MDB4 = 40;
+            constexpr static uint16_t MDB5 = 41;
+            constexpr static uint16_t MDB6 = 49;
+            constexpr static uint16_t TRACK = 50;
         };
         class SensorF_TX_PodState {
             public:
@@ -482,6 +534,11 @@ namespace can {
             constexpr static uint8_t POD_LAUNCHING = 5;
             constexpr static uint8_t POD_PUSHABLE = 6;
             constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
+            constexpr static uint8_t POD_START_LEVITATION = 8;
+            constexpr static uint8_t POD_STOP_LEVITATION = 9;
+            constexpr static uint8_t POD_LEVITATING = 10;
+            constexpr static uint8_t POD_BREAKING = 11;
+            constexpr static uint8_t POD_STOP = 12;
         };
         class SensorF_TX_PodState_Last {
             public:
@@ -1024,6 +1081,10 @@ namespace can {
             constexpr static uint16_t COUNTERLIMIT = 2051;
             constexpr static uint16_t COMMWATCHDOG = 2052;
             constexpr static uint16_t VALVEUPPERTOLERANCE = 2053;
+            constexpr static uint16_t PRESSURE1 = 2560;
+            constexpr static uint16_t PRESSURE2 = 2561;
+            constexpr static uint16_t PRESSURE3 = 2562;
+            constexpr static uint16_t PRESSURE4 = 2563;
         };
         class BrakeF_SDO_RespCode {
             public:
@@ -1046,6 +1107,114 @@ namespace can {
             constexpr static uint8_t ERR_READ_ONLY_OBJECT = 3;
             constexpr static uint8_t ERR_NO_ACCESS_IN_THIS_STATE = 4;
             constexpr static uint8_t ERR_OUT_OF_RANGE = 5;
+        };
+        class BrakeF_OD_Pressure4 {
+            public:
+            // This signal is multiplexed by BrakeF_SDO_ID == 2563            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2563);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2563) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'BrakeF_OD_Pressure4'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class BrakeF_OD_Pressure3 {
+            public:
+            // This signal is multiplexed by BrakeF_SDO_ID == 2562            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2562);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2562) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'BrakeF_OD_Pressure3'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class BrakeF_OD_Pressure2 {
+            public:
+            // This signal is multiplexed by BrakeF_SDO_ID == 2561            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2561);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2561) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'BrakeF_OD_Pressure2'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class BrakeF_OD_Pressure1 {
+            public:
+            // This signal is multiplexed by BrakeF_SDO_ID == 2560            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2560);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2560) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'BrakeF_OD_Pressure1'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
         };
         class BrakeF_OD_valveUpperTolerance {
             public:
@@ -2664,6 +2833,10 @@ namespace can {
             // Signals
             using BrakeF_SDO_ID = signals::BrakeF_SDO_ID;
             using BrakeF_SDO_RespCode = signals::BrakeF_SDO_RespCode;
+            using BrakeF_OD_Pressure4 = signals::BrakeF_OD_Pressure4;
+            using BrakeF_OD_Pressure3 = signals::BrakeF_OD_Pressure3;
+            using BrakeF_OD_Pressure2 = signals::BrakeF_OD_Pressure2;
+            using BrakeF_OD_Pressure1 = signals::BrakeF_OD_Pressure1;
             using BrakeF_OD_valveUpperTolerance = signals::BrakeF_OD_valveUpperTolerance;
             using BrakeF_OD_commWatchdog = signals::BrakeF_OD_commWatchdog;
             using BrakeF_OD_counterLimit = signals::BrakeF_OD_counterLimit;
@@ -2719,6 +2892,10 @@ namespace can {
 
             // Signals
             using BrakeF_SDO_ID = signals::BrakeF_SDO_ID;
+            using BrakeF_OD_Pressure4 = signals::BrakeF_OD_Pressure4;
+            using BrakeF_OD_Pressure3 = signals::BrakeF_OD_Pressure3;
+            using BrakeF_OD_Pressure2 = signals::BrakeF_OD_Pressure2;
+            using BrakeF_OD_Pressure1 = signals::BrakeF_OD_Pressure1;
             using BrakeF_OD_valveUpperTolerance = signals::BrakeF_OD_valveUpperTolerance;
             using BrakeF_OD_commWatchdog = signals::BrakeF_OD_commWatchdog;
             using BrakeF_OD_counterLimit = signals::BrakeF_OD_counterLimit;

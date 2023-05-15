@@ -1,5 +1,5 @@
 ../Drivers/CMSIS/Include/core_cm4.h:1939:34:void __NVIC_SystemReset()	4	static,ignoring_inline_asm
-../Applications/CANZero_static/Src/cz_receive_task.cpp:19:6:void cz_receive_task(void*)	88	static
+../Applications/CANZero_static/Src/cz_receive_task.cpp:20:6:void cz_receive_task(void*)	88	static
 ../Applications/CANZero_static/Src/cz_receive_task.cpp:43:6:void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)	104	static
 ../Applications/CANZero_static/Src/cz_receive_task.cpp:60:6:void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef*)	104	static
 ../Applications/CANZero_static/Src/cz_receive_task.cpp:77:6:void HAL_CAN_ErrorCallback(CAN_HandleTypeDef*)	32	static,ignoring_inline_asm

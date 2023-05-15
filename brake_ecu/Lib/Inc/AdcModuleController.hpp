@@ -30,6 +30,7 @@ public:
 							}
 					)) {
 		m_semaphore = osSemaphoreNew(1, 0, NULL);
+		m_mutex = osMutexNew(NULL);
 		m_bussy = true;
 		HAL_ADC_Start_DMA(m_hadc, reinterpret_cast<uint32_t*>(m_buffer),
 				m_nbrConvertions);
@@ -54,24 +55,23 @@ public:
 		return m_channels + rank;
 	}
 
-	void update() {
-		//wait for previous convertion.
+	void update(bool force = false) {
+		if(!force && m_bussy)return;
+		osMutexAcquire(m_mutex, osWaitForever);
+		m_bussy = true;
+
+		HAL_ADC_Start_DMA(m_hadc, reinterpret_cast<uint32_t*>(m_buffer),
+				m_nbrConvertions);
 		osSemaphoreAcquire(m_semaphore, osWaitForever);
+
 		//update channels.
 		for (size_t i = 0; i < m_nbrConvertions; i++) {
 			m_channels[i].setValue(m_buffer[i]);
 		}
-		//start next convertion
-		m_bussy = true;
-		HAL_ADC_Start_DMA(m_hadc, reinterpret_cast<uint32_t*>(m_buffer),
-				m_nbrConvertions);
-	}
 
-	void weakUpdate() {
-		if (m_bussy)
-			return;
-		else
-			update();
+
+		m_bussy = false;
+		osMutexRelease(m_mutex);
 	}
 
 private:
@@ -87,6 +87,7 @@ private:
 	uint16_t *m_buffer;
 	bool m_bussy = false;
 	osSemaphoreId_t m_semaphore;
+	osMutexId_t m_mutex;
 
 	unsigned int m_dmaIsrId;
 };

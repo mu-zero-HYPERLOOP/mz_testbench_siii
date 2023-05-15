@@ -61,10 +61,10 @@ void cz_send_entry(void* argv){
 			// Count delayed messages
 			if(hcanModule == &hcan1) {
 				OD_CAN1_DelayedTxMessages++;
-				printDebug("WARNING :: can1 tx mailbox overflow.\n")
+				//printDebug("WARNING :: can1 tx mailbox overflow.\n")
 			} else {
 				OD_CAN2_DelayedTxMessages++;
-				printDebug("WARNING :: can2 tx mailbox overflow.\n")
+				//printDebug("WARNING :: can2 tx mailbox overflow.\n")
 			}
 
 			osDelay(1);		// Use smallest delay possible

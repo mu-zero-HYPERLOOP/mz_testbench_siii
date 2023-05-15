@@ -17,14 +17,13 @@ AdcConvCpltCallbackHandler.hpp:22:15:unsigned int AdcConvCpltCallbackHandler::re
 AdcConvCpltCallbackHandler.hpp:28:7:void AdcConvCpltCallbackHandler::unregisterCallback(unsigned int)	1
 AdcModuleController.hpp:26:8:AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>	2
 AdcModuleController.hpp:20:11:AdcModuleController::AdcModuleController(AdcModule)	4
-AdcModuleController.hpp:39:2:AdcModuleController::~AdcModuleController()	4
-AdcModuleController.hpp:50:14:AdcChannel* AdcModuleController::getChannelByRank(size_t)	2
-AdcModuleController.hpp:57:7:void AdcModuleController::update()	2
-AdcModuleController.hpp:70:7:void AdcModuleController::weakUpdate()	2
+AdcModuleController.hpp:40:2:AdcModuleController::~AdcModuleController()	4
+AdcModuleController.hpp:51:14:AdcChannel* AdcModuleController::getChannelByRank(size_t)	2
+AdcModuleController.hpp:58:7:void AdcModuleController::update(bool)	4
 AdcModuleController.hpp:79:7:void AdcModuleController::dmaCplrCallback()	1
 AdcChannelController.hpp:18:29:AdcModuleController& _getChannelAdcModuleControllerRuntime(AdcModule)	3
 AdcChannelController.hpp:32:11:AdcChannelController::AdcChannelController(AdcModule, unsigned int)	1
-AdcChannelController.hpp:37:11:uint16_t AdcChannelController::get()	1
+AdcChannelController.hpp:37:11:uint16_t AdcChannelController::get(bool)	1
 cmath:338:3:constexpr float std::log(float)	1
 NTCSensor.cpp:11:1:NTCSensor::NTCSensor(NTCTemperaturSensorConfig)	1
 NTCSensor.cpp:15:7:float NTCSensor::getTemperaturC()	1

@@ -68,7 +68,18 @@ Applications/Src/main_entry.o: ../Applications/Src/main_entry.cpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/PressureSensor.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcChannelController.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcChannel.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcDmaController.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcConvCpltCallbackHandler.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/Future.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcResult.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/AnalogInput.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/MovingAverageFilter.hpp
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/GlobalPeripheralRegistry.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/SolenoidController.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/GPIOWriteController.hpp:
@@ -142,3 +153,14 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/
 ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/PressureSensor.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcChannelController.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModuleController.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcChannel.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcDmaController.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcConvCpltCallbackHandler.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/Future.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcResult.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/AnalogInput.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/MovingAverageFilter.hpp:

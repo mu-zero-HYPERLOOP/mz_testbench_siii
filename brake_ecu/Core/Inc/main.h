@@ -61,6 +61,14 @@ void Error_Handler(void);
 #define ADC_IN10_Board_Temp_GPIO_Port GPIOC
 #define ADC_IN12_Board_VCC_Pin GPIO_PIN_2
 #define ADC_IN12_Board_VCC_GPIO_Port GPIOC
+#define PRESSURE2_Pin GPIO_PIN_0
+#define PRESSURE2_GPIO_Port GPIOA
+#define PRESSURE1_Pin GPIO_PIN_1
+#define PRESSURE1_GPIO_Port GPIOA
+#define PRESSURE4_Pin GPIO_PIN_5
+#define PRESSURE4_GPIO_Port GPIOA
+#define PRESSURE3_Pin GPIO_PIN_7
+#define PRESSURE3_GPIO_Port GPIOA
 #define SOLENOID_Pin GPIO_PIN_0
 #define SOLENOID_GPIO_Port GPIOB
 #define SDC_Pin GPIO_PIN_1

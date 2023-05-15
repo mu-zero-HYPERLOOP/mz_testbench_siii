@@ -15,17 +15,21 @@
 #include <cmath>
 #include "pdu_control.hpp"
 #include "cooling_controll.hpp"
+#include "bms44_receiver.hpp"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 void main_entry(void *argv) {
-	pdu::init();
+	bms44::init();
+
+	//PressureSensor pressureSensor(ADC_MODULE2, 3);
+	//pdu::init();
 	//TODO initalize peripherals.
+	/*
 	ImuMaster imuMaster;
 
-	PressureSensor pressureSensor(ADC_MODULE2, 3);
 
 	FiducialSensor fiducialRight = FiducialSensor(
 			g_peripherals.m_fiducialRightConfig);
@@ -34,9 +38,13 @@ void main_entry(void *argv) {
 	KistlerController kistlerController;
 
 	imuMaster.start();
+	*/
+
 
 	while (true) {
+		bms44::update();
 		//TODO read sensor data.
+		/*
 		imuMaster.syncRead();
 		OD_IMU_AccelX_set(imuMaster.getAccelX());
 		OD_IMU_AccelY_set(imuMaster.getAccelY());
@@ -63,6 +71,7 @@ void main_entry(void *argv) {
 
 		cooling::update();
 		pdu::update();
+		*/
 		// ======= POSITION-ESTIMATION ======
 		osDelay(pdMS_TO_TICKS(1000));
 

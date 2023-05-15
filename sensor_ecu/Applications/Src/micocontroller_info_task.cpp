@@ -46,6 +46,7 @@ extern "C" {
 #endif
 
 void microcontroller_info_entry(void *argv) {
+	/*
 	OnBoardSensors onBoardSensors(g_peripherals.m_onBoardTemperaturConfig);
 	unsigned int frameCounter;
 	while (true) {
@@ -59,6 +60,10 @@ void microcontroller_info_entry(void *argv) {
 		}
 		frameCounter++;
 		osDelay(pdMS_TO_TICKS(50));	//update every 50ms because some nodes (i.e. PDU) need high frequency voltage data
+	}
+	*/
+	while(true){
+		osDelay(osWaitForever);
 	}
 }
 

@@ -85,15 +85,17 @@ Applications/Src/main_entry.o: ../Applications/Src/main_entry.cpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/ImuMaster.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/ICM20602.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/NTCSensor.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/peripheral_config.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/AnalogInput.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/FiducialSensor.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiController.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiCallbackHandler.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/Timer.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/TimPeriodElapsedCallbackHandler.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/peripheral_config.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/KistlerController.hpp \
  C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/pdu_control.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/cooling_controll.hpp
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/cooling_controll.hpp \
+ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/bms44_receiver.hpp
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/canzero.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -180,12 +182,14 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/estd
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/ImuMaster.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/ICM20602.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/NTCSensor.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/peripheral_config.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/AnalogInput.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/FiducialSensor.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiController.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/GPIOExtiCallbackHandler.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/Timer.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Lib/Inc/TimPeriodElapsedCallbackHandler.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/peripheral_config.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/KistlerController.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/pdu_control.hpp:
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/cooling_controll.hpp:
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/Inc/bms44_receiver.hpp:

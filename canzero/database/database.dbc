@@ -95,7 +95,7 @@ BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_ "BusType" "CAN";
 BA_ "DBName" "database";
 BA_ "CANzero_ProtocolVersion" "V1.0";
-BA_ "CANzero_DBCVersion" 2;
+BA_ "CANzero_DBCVersion" 3;
 BA_ "CANzero_SDOClientName" "TelemetryNode";
 BA_ "CANzero_NMTMasterName" "Master";
 BA_ "GenMsgCycleTime" BO_ 2 100;

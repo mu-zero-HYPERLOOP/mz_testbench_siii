@@ -32,7 +32,7 @@ void canzero_start(void *argv) {
 	}
 
 	TaskHandle_t recvTaskHandle = nullptr;
-	BaseType_t recvStatus = xTaskCreate(cz_receive_task, "cz_receive", 256, NULL,
+	BaseType_t recvStatus = xTaskCreate(cz_receive_task, "cz_receive", 512, NULL,
 			osPriorityNormal, &recvTaskHandle);
 	if (recvStatus != pdPASS) {
 		printDebug("Failed to start canzero receive task");

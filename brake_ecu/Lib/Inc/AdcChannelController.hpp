@@ -34,8 +34,8 @@ public:
 			m_channel(m_module.getChannelByRank(rank)) {
 	}
 
-	uint16_t get() {
-		m_module.weakUpdate();
+	uint16_t get(bool force = false) {
+		m_module.update(force);
 		return m_channel->get();
 	}
 private:
