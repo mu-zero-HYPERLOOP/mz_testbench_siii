@@ -22,10 +22,12 @@ extern "C" {
 #endif
 
 void main_entry(void *argv) {
-	bms44::init();
+	//bms44::init();
 
 	//PressureSensor pressureSensor(ADC_MODULE2, 3);
-	//pdu::init();
+	pdu::init();
+	bool toggle = true;
+	pdu::enableChannel(pdu::LP_CHANNEL3);
 	//TODO initalize peripherals.
 	/*
 	ImuMaster imuMaster;
@@ -42,7 +44,15 @@ void main_entry(void *argv) {
 
 
 	while (true) {
-		bms44::update();
+		pdu::enableChannel(pdu::LP_CHANNEL3);
+		osDelay(pdMS_TO_TICKS(1000));
+		pdu::update();
+		osDelay(pdMS_TO_TICKS(1000));
+		pdu::disableChannel(pdu::LP_CHANNEL3);
+		osDelay(pdMS_TO_TICKS(1000));
+		pdu::update();
+		osDelay(pdMS_TO_TICKS(1000));
+		//bms44::update();
 		//TODO read sensor data.
 		/*
 		imuMaster.syncRead();
@@ -70,10 +80,8 @@ void main_entry(void *argv) {
 
 
 		cooling::update();
-		pdu::update();
 		*/
 		// ======= POSITION-ESTIMATION ======
-		osDelay(pdMS_TO_TICKS(1000));
 
 	}
 }

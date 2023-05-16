@@ -1,0 +1,9 @@
+C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/typedefinitions.h:18:8:TxMessage::TxMessage()	16	static
+../Applications/CANzero/Heartbeat.cpp:16:1:Heartbeat::Heartbeat()	16	static
+../Applications/CANzero/Heartbeat.cpp:19:1:Heartbeat::~Heartbeat()	16	static
+../Applications/CANzero/Heartbeat.cpp:19:1:virtual Heartbeat::~Heartbeat()	16	static
+../Applications/CANzero/Heartbeat.cpp:23:6:static void Heartbeat::sendHeartbeat(void*)	48	static
+../Applications/CANzero/Heartbeat.cpp:35:6:static void Heartbeat::consumeHeartbeat(void*)	64	static
+../Applications/CANzero/Heartbeat.cpp:50:6:void Heartbeat::OD_HeartbeatInterval_set(uint16_t)	16	static
+../Applications/CANzero/Heartbeat.cpp:57:10:uint16_t Heartbeat::OD_HeartbeatInterval_get()	24	static
+../Applications/CANzero/Heartbeat.cpp:65:12:static Heartbeat* Heartbeat::getHeartbeatInstance()	16	static

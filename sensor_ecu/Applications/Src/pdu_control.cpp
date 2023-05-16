@@ -57,7 +57,7 @@ struct LpChannelConfig {
 };
 
 static LpChannelConfig s_lpChannelConfig = {
-		.m_status = {false, false, false, false, false, false, false, false, false, false}
+		.m_status = {false, false, false, false, false, false, false, true, true, false}
 };
 static LpChannelConfig s_confirmed_lpChannelConfig;
 
@@ -69,7 +69,7 @@ struct HpChannelConfig {
 		for(size_t i=0;i<NUMBER_OF_CHANNELS;i++){
 			if(m_status[i] != other.m_status[i])return false;
 		}
-		return false;
+		return true;
 	}
 	bool operator!=(const HpChannelConfig& other)const{
 		return not (*this == other);
@@ -90,10 +90,22 @@ void disableChannel(HpChannel channel){
 }
 
 void enableChannel(LpChannel channel){
+	if(channel == LP_CHANNEL8){
+		printf("WARNING: Channel 8 might not work please use another channel!");
+	}
+	if(channel == LP_CHANNEL9){
+		printf("WARNING: Channel 9 might not work please use another channel!");
+	}
 	s_lpChannelConfig.m_status[static_cast<uint16_t>(channel)] = true;;
 }
 
 void disableChannel(LpChannel channel){
+	if(channel == LP_CHANNEL8){
+		printf("WARNING: Channel 8 might not work please use another channel!");
+	}
+	if(channel == LP_CHANNEL9){
+		printf("WARNING: Channel 9 might not work please use another channel!");
+	}
 	s_lpChannelConfig.m_status[static_cast<uint16_t>(channel)] = false;
 }
 
@@ -149,20 +161,20 @@ void receiveHpDutycycle(RxMessage& raw){
 
 void receiveLp1to5Dutycycle(RxMessage& raw){
 	can::Message<can::messages::PDU_TX_LP_Current1> msg {raw};
-	s_confirmed_lpChannelConfig.m_status[0] = msg.get<can::signals::PDU_LPCh1_Current>() != 0;
-	s_confirmed_lpChannelConfig.m_status[1] = msg.get<can::signals::PDU_LPCh2_Current>() != 0;
-	s_confirmed_lpChannelConfig.m_status[2] = msg.get<can::signals::PDU_LPCh3_Current>() != 0;
-	s_confirmed_lpChannelConfig.m_status[3] = msg.get<can::signals::PDU_LPCh4_Current>() != 0;
-	s_confirmed_lpChannelConfig.m_status[4] = msg.get<can::signals::PDU_LPCh5_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[0] = msg.get<can::signals::PDU_LPCh1_Current>() > 0.1;
+	s_confirmed_lpChannelConfig.m_status[1] = msg.get<can::signals::PDU_LPCh2_Current>() > 0.1;
+	s_confirmed_lpChannelConfig.m_status[2] = msg.get<can::signals::PDU_LPCh3_Current>() > 0.1;
+	s_confirmed_lpChannelConfig.m_status[3] = msg.get<can::signals::PDU_LPCh4_Current>() > 0.1;
+	s_confirmed_lpChannelConfig.m_status[4] = msg.get<can::signals::PDU_LPCh5_Current>() > 0.1;
 }
 
 void receiveLp6to10Dutycycle(RxMessage& raw){
 	can::Message<can::messages::PDU_TX_LP_Current2> msg {raw};
-	s_confirmed_lpChannelConfig.m_status[5] = msg.get<can::signals::PDU_LPCh6_Current>() != 0;
-	s_confirmed_lpChannelConfig.m_status[6] = msg.get<can::signals::PDU_LPCh7_Current>() != 0;
-	s_confirmed_lpChannelConfig.m_status[7] = msg.get<can::signals::PDU_LPCh8_Current>() != 0;
-	s_confirmed_lpChannelConfig.m_status[8] = msg.get<can::signals::PDU_LPCh9_Current>() != 0;
-	s_confirmed_lpChannelConfig.m_status[9] = msg.get<can::signals::PDU_LPCh10_Current>() != 0;
+	s_confirmed_lpChannelConfig.m_status[5] = msg.get<can::signals::PDU_LPCh6_Current>() > 0.1;
+	s_confirmed_lpChannelConfig.m_status[6] = msg.get<can::signals::PDU_LPCh7_Current>() > 0.1;
+	s_confirmed_lpChannelConfig.m_status[7] = msg.get<can::signals::PDU_LPCh8_Current>() > 0.1;
+	s_confirmed_lpChannelConfig.m_status[8] = msg.get<can::signals::PDU_LPCh9_Current>() > 0.1;
+	s_confirmed_lpChannelConfig.m_status[9] = msg.get<can::signals::PDU_LPCh10_Current>() > 0.1;
 
 }
 
@@ -183,7 +195,7 @@ void update(){
 		controlMsg.set<can::signals::PDU_RX_PEHWEnable>(s_status.m_pehwEnabled);
 		controlMsg.send();
 	}
-	if(s_lpChannelConfig != s_confirmed_lpChannelConfig){
+	//if(s_lpChannelConfig != s_confirmed_lpChannelConfig){
 		can::Message<can::messages::PDU_RX_LP_Dutycycle> lpMsg;
 		lpMsg.set<can::signals::PDU_LPCh1_Dutycycle>(s_lpChannelConfig.m_status[0] ? 100.0 : 0.0);
 		lpMsg.set<can::signals::PDU_LPCh2_Dutycycle>(s_lpChannelConfig.m_status[1] ? 100.0 : 0.0);
@@ -192,10 +204,16 @@ void update(){
 		lpMsg.set<can::signals::PDU_LPCh9_Dutycycle>(s_lpChannelConfig.m_status[8] ? 100.0 : 0.0);
 		lpMsg.set<can::signals::PDU_LPCh10_Dutycycle>(s_lpChannelConfig.m_status[9] ? 100.0 : 0.0);
 		lpMsg.send();
+		can::Message<can::messages::PDU_RX_LP_Enable> lpEnableMsg;
+		lpEnableMsg.set<can::signals::PDU_RX_LPCh4_Enable>(s_lpChannelConfig.m_status[3]);
+		lpEnableMsg.set<can::signals::PDU_RX_LPCh5_Enable>(s_lpChannelConfig.m_status[4]);
+		lpEnableMsg.set<can::signals::PDU_RX_LPCh6_Enable>(s_lpChannelConfig.m_status[5]);
+		lpEnableMsg.set<can::signals::PDU_RX_LPCh7_Enable>(s_lpChannelConfig.m_status[6]);
+		lpEnableMsg.send();
 		//update lp channel config.
 		//can::message<can::messages::PDU_LP_Duty> lpDutyMsg;
 		//TODO ...
-	}
+	//}
 
 	if(s_hpChannelConfig != s_confirmed_hpChannelConfig){
 		can::Message<can::messages::PDU_RX_HP_D_Dutycycle> hpMsg;

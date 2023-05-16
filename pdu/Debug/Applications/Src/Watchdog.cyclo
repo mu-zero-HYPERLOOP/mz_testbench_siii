@@ -1,3 +1,0 @@
-Watchdog.cpp:16:1:Watchdog::Watchdog(uint32_t)	1
-Watchdog.cpp:22:6:void Watchdog::reset()	1
-Watchdog.cpp:30:6:bool Watchdog::isTimedOut()	1

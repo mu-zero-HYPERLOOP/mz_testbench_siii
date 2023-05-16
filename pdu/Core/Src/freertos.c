@@ -6,12 +6,13 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
+  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * This software component is licensed by ST under Ultimate Liberty license
+  * SLA0044, the "License"; You may not use this file except in compliance with
+  * the License. You may obtain a copy of the License at:
+  *                             www.st.com/SLA0044
   *
   ******************************************************************************
   */
@@ -58,28 +59,7 @@ const osThreadAttr_t defaultTask_attributes = {
   .cb_size = sizeof(defaultTaskControlBlock),
   .stack_mem = &defaultTaskBuffer[0],
   .stack_size = sizeof(defaultTaskBuffer),
-  .priority = (osPriority_t) osPriorityLow,
-};
-/* Definitions for canzero */
-osThreadId_t canzeroHandle;
-const osThreadAttr_t canzero_attributes = {
-  .name = "canzero",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityHigh,
-};
-/* Definitions for main */
-osThreadId_t mainHandle;
-const osThreadAttr_t main_attributes = {
-  .name = "main",
-  .stack_size = 256 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for info_task */
-osThreadId_t info_taskHandle;
-const osThreadAttr_t info_task_attributes = {
-  .name = "info_task",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityBelowNormal,
+  .priority = (osPriority_t) osPriorityBelowNormal7,
 };
 /* Definitions for printQueue */
 osMessageQueueId_t printQueueHandle;
@@ -93,9 +73,6 @@ const osMessageQueueAttr_t printQueue_attributes = {
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
-extern void canzero_start(void *argument);
-extern void main_entry(void *argument);
-extern void microcontroller_info_entry(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -176,15 +153,6 @@ void MX_FREERTOS_Init(void) {
   /* Create the thread(s) */
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
-
-  /* creation of canzero */
-  canzeroHandle = osThreadNew(canzero_start, NULL, &canzero_attributes);
-
-  /* creation of main */
-  mainHandle = osThreadNew(main_entry, NULL, &main_attributes);
-
-  /* creation of info_task */
-  info_taskHandle = osThreadNew(microcontroller_info_entry, NULL, &info_task_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

@@ -1,0 +1,6 @@
+cz_processRx.cpp:21:6:void processRX(RxMessage)	8
+dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_Control]	2
+dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_Manual_Control]	2
+dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_HP_D_Dutycycle]	2
+dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_LP_Dutycycle]	2
+dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_LP_Enable]	2

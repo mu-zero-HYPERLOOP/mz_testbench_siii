@@ -1,0 +1,5 @@
+../Applications/Watchdog.cpp:16:1:Watchdog::Watchdog(uint32_t)	16	static
+../Applications/Watchdog.cpp:19:1:Watchdog::~Watchdog()	16	static
+../Applications/Watchdog.cpp:19:1:virtual Watchdog::~Watchdog()	16	static
+../Applications/Watchdog.cpp:26:6:void Watchdog::reset()	16	static
+../Applications/Watchdog.cpp:34:6:bool Watchdog::isTimedOut()	16	static

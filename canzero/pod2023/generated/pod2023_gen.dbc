@@ -36,6 +36,12 @@ BS_:
 BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track
 
 
+BO_ 603 PDU_RX_LP_Enable: 1 PDU
+ SG_ PDU_RX_LPCh7_Enable : 3|1@1+ (1,0) [0|1] ""  SensorF
+ SG_ PDU_RX_LPCh6_Enable : 2|1@1+ (1,0) [0|1] ""  SensorF
+ SG_ PDU_RX_LPCh5_Enable : 1|1@1+ (1,0) [0|1] ""  SensorF
+ SG_ PDU_RX_LPCh4_Enable : 0|1@1+ (1,0) [0|1] ""  SensorF
+
 BO_ 2165346838 BMS_TX_Status: 8 Vector__XXX
  SG_ BMS_Status_Frame : 0|64@1+ (1,0) [0|255] ""  SensorF
 
@@ -5714,11 +5720,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "CANzero_NMTMasterName" "Master";
-BA_ "CANzero_SDOClientName" "TelemetryNode";
-BA_ "CANzero_DBCVersion" 174;
-BA_ "CANzero_ProtocolVersion" "V1.0";
 BA_ "BusType" "CAN";
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "CANzero_DBCVersion" 180;
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_NMTMasterName" "Master";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -5735,6 +5741,7 @@ BA_ "CANzero_NodeID" BU_ MDB4 40;
 BA_ "CANzero_NodeID" BU_ MDB5 41;
 BA_ "CANzero_NodeID" BU_ MDB6 49;
 BA_ "CANzero_NodeID" BU_ Track 50;
+BA_ "GenMsgCycleTime" BO_ 603 100;
 BA_ "GenMsgCycleTime" BO_ 2165346838 100;
 BA_ "GenMsgCycleTime" BO_ 3 100;
 BA_ "GenMsgCycleTime" BO_ 1 100;
@@ -9534,8 +9541,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1456 10;
+BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -9550,10 +9557,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgCycleTime" BO_ 1280 10;
-BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1296 10;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;

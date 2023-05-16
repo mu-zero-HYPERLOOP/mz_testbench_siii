@@ -22,6 +22,7 @@ tasks.c:2319:12:xTaskGetTickCountFromISR	1
 tasks.c:2350:13:uxTaskGetNumberOfTasks	1
 tasks.c:2358:7:pcTaskGetName	3
 tasks.c:2505:14:uxTaskGetSystemState	4
+tasks.c:2579:15:xTaskGetIdleTaskHandle	2
 tasks.c:2609:12:xTaskCatchUpTicks	2
 tasks.c:2707:12:xTaskIncrementTick	12
 tasks.c:2989:6:vTaskSwitchContext	7
@@ -62,4 +63,5 @@ tasks.c:4897:13:xTaskGenericNotifyFromISR	16
 tasks.c:5026:7:vTaskNotifyGiveFromISR	8
 tasks.c:5112:13:xTaskNotifyStateClear	3
 tasks.c:5143:11:ulTaskNotifyValueClear	2
+tasks.c:5169:11:ulTaskGetIdleRunTimeCounter	1
 tasks.c:5177:13:prvAddCurrentTaskToDelayedList	5

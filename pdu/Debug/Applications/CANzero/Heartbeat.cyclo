@@ -1,0 +1,9 @@
+typedefinitions.h:18:8:TxMessage::TxMessage()	1
+Heartbeat.cpp:16:1:Heartbeat::Heartbeat()	1
+Heartbeat.cpp:19:1:Heartbeat::~Heartbeat()	1
+Heartbeat.cpp:19:1:virtual Heartbeat::~Heartbeat()	1
+Heartbeat.cpp:23:6:static void Heartbeat::sendHeartbeat(void*)	1
+Heartbeat.cpp:35:6:static void Heartbeat::consumeHeartbeat(void*)	2
+Heartbeat.cpp:50:6:void Heartbeat::OD_HeartbeatInterval_set(uint16_t)	1
+Heartbeat.cpp:57:10:uint16_t Heartbeat::OD_HeartbeatInterval_get()	1
+Heartbeat.cpp:65:12:static Heartbeat* Heartbeat::getHeartbeatInstance()	2

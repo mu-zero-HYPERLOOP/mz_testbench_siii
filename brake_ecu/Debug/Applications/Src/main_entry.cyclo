@@ -1,4 +1,13 @@
 AdcModule.hpp:16:34:ADC_HandleTypeDef* AdcModuleToHandle(AdcModule)	3
+cmath:1756:3:constexpr float std::round(float)	1
+dbc_parser.hpp:141:9:can::MessageBase::MessageBase(uint32_t, uint8_t, bool)	1
+dbc_parser.hpp:174:14:void can::MessageBase::toBuf(CAN_TxHeaderTypeDef&, uint8_t*, can::CAN_BusTypeDef) const	2
+cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	1
+dbc_parser.hpp:203:19:TxMessage can::MessageBase::getTxMessage(can::CAN_BusTypeDef) const	1
+dbc_parser.hpp:210:14:void can::MessageBase::send(can::CAN_BusTypeDef) const	2
+dbc_parser.hpp:949:42:static constexpr void can::signals::BrakeF_TX_Pressure_Act::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:974:42:static constexpr void can::signals::BrakeF_TX_Pressure_Retract::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:999:42:static constexpr void can::signals::BrakeF_TX_Pressure_Tank::set(uint64_t&, uint64_t&, uint8_t&, float)	3
 new:174:33:void* operator new(std::size_t, void*)	1
 std_function.h:87:17:void* std::_Any_data::_M_access()	1
 std_function.h:88:17:const void* std::_Any_data::_M_access() const	1
@@ -28,6 +37,7 @@ AnalogInput.hpp:17:2:AnalogInput::AnalogInput(AdcModule, uint16_t, float, float)
 AnalogInput.hpp:24:8:float AnalogInput::readCurrent(bool)	1
 PressureSensor.hpp:16:11:PressureSensor::PressureSensor(AdcModule, uint16_t, float, float)	1
 PressureSensor.hpp:23:8:float PressureSensor::get(bool)	1
+dbc_parser.hpp:254:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::BrakeF_TX_Pressure]	1
 main_entry.cpp:23:6:void main_entry(void*)	1
 std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
@@ -40,6 +50,9 @@ AdcChannelController.hpp:13:29:AdcModuleController& _getChannelAdcModuleControll
 MovingAverageFilter.hpp:17:11:MovingAverageFilter<N>::MovingAverageFilter() [with unsigned int N = 32]	1
 MovingAverageFilter.hpp:43:7:void MovingAverageFilter<N>::push(float) [with unsigned int N = 32]	1
 MovingAverageFilter.hpp:36:8:float MovingAverageFilter<N>::average() [with unsigned int N = 32]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::BrakeF_TX_Pressure_Act; MESSAGE_T = can::messages::BrakeF_TX_Pressure]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::BrakeF_TX_Pressure_Retract; MESSAGE_T = can::messages::BrakeF_TX_Pressure]	1
+dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::BrakeF_TX_Pressure_Tank; MESSAGE_T = can::messages::BrakeF_TX_Pressure]	1
 std_function.h:587:5:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2
 std_function.h:481:12:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 move.h:76:5:constexpr _Tp&& std::forward(typename std::remove_reference<_Tp>::type&) [with _Tp = ADC_HandleTypeDef*]	1

@@ -4,21 +4,22 @@ c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.external
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:240:5:std::_Function_base::_Function_base()	16	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:242:5:std::_Function_base::~_Function_base()	16	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:248:10:bool std::_Function_base::_M_empty() const	16	static
-../Applications/Src/bms44_receiver.cpp:29:11:bms44::bms_frame_fragment::bms_frame_fragment(RxMessage&)	32	static
-../Applications/Src/bms44_receiver.cpp:42:11:uint32_t bms44::bms_frame_fragment::size() const	16	static
-../Applications/Src/bms44_receiver.cpp:46:10:uint8_t bms44::bms_frame_fragment::operator[](uint32_t) const	16	static
-../Applications/Src/bms44_receiver.cpp:50:7:bool bms44::bms_frame_fragment::sofFlag() const	16	static
-../Applications/Src/bms44_receiver.cpp:54:7:bool bms44::bms_frame_fragment::eofFlag() const	16	static
-../Applications/Src/bms44_receiver.cpp:58:7:bool bms44::bms_frame_fragment::toggleFlag() const	16	static
-../Applications/Src/bms44_receiver.cpp:77:7:void bms44::bms_frame_builder::append_fragment(const bms44::bms_frame_fragment&)	32	static
-../Applications/Src/bms44_receiver.cpp:104:7:bool bms44::bms_frame_builder::isComplete()	16	static
-../Applications/Src/bms44_receiver.cpp:108:7:bool bms44::bms_frame_builder::reset()	16	static
-../Applications/Src/bms44_receiver.cpp:116:12:bms44::bms_frame bms44::bms_frame_builder::build()	16	static
-../Applications/Src/bms44_receiver.cpp:76:8:bms44::bms_frame_builder::bms_frame_builder()	16	static
-../Applications/Src/bms44_receiver.cpp:135:6:void bms44::bmsFrameReceiver(RxMessage&)	112	static
+../Applications/Src/bms44_receiver.cpp:31:11:bms44::bms_frame_fragment::bms_frame_fragment(RxMessage&)	32	static
+../Applications/Src/bms44_receiver.cpp:44:11:uint32_t bms44::bms_frame_fragment::size() const	16	static
+../Applications/Src/bms44_receiver.cpp:48:10:uint8_t bms44::bms_frame_fragment::operator[](uint32_t) const	16	static
+../Applications/Src/bms44_receiver.cpp:52:7:bool bms44::bms_frame_fragment::sofFlag() const	16	static
+../Applications/Src/bms44_receiver.cpp:56:7:bool bms44::bms_frame_fragment::eofFlag() const	16	static
+../Applications/Src/bms44_receiver.cpp:60:7:bool bms44::bms_frame_fragment::toggleFlag() const	16	static
+../Applications/Src/bms44_receiver.cpp:79:7:void bms44::bms_frame_builder::append_fragment(const bms44::bms_frame_fragment&)	32	static
+../Applications/Src/bms44_receiver.cpp:106:7:bool bms44::bms_frame_builder::isComplete()	16	static
+../Applications/Src/bms44_receiver.cpp:110:7:void bms44::bms_frame_builder::reset()	16	static
+../Applications/Src/bms44_receiver.cpp:118:8:float bms44::bms_frame_builder::parsef16(uint16_t)	40	static
+../Applications/Src/bms44_receiver.cpp:136:12:bms44::bms_frame bms44::bms_frame_builder::build()	24	static
+../Applications/Src/bms44_receiver.cpp:78:8:bms44::bms_frame_builder::bms_frame_builder()	16	static
+../Applications/Src/bms44_receiver.cpp:167:6:void bms44::bmsFrameReceiver(RxMessage&)	128	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:303:11:std::function<void(RxMessage&)>::~function()	16	static
-../Applications/Src/bms44_receiver.cpp:143:6:void bms44::init()	24	static
-../Applications/Src/bms44_receiver.cpp:147:6:void bms44::update()	8	static
+../Applications/Src/bms44_receiver.cpp:175:6:void bms44::init()	24	static
+../Applications/Src/bms44_receiver.cpp:179:6:void bms44::update()	8	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:601:7:)>::function(_Functor) [with _Functor = void (*)(RxMessage&); <template-parameter-2-2> = void; <template-parameter-2-3> = void; _Res = void; _ArgTypes = {RxMessage&}]	24	static
 C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_message_receiver.hpp:30:21:unsigned int can::registerMessageReceiver(std::function<void(RxMessage&)>) [with MESSAGE = can::messages::BMS_TX_Status]	40	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:217:4:static bool std::_Function_base::_Base_manager<_Functor>::_M_not_empty_function(_Tp*) [with _Tp = void(RxMessage&); _Functor = void (*)(RxMessage&)]	16	static
@@ -41,5 +42,5 @@ c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.external
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:150:2:static void std::_Function_base::_Base_manager<_Functor>::_M_clone(std::_Any_data&, const std::_Any_data&, std::true_type) [with _Functor = void (*)(RxMessage&)]	32	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:167:2:static void std::_Function_base::_Base_manager<_Functor>::_M_destroy(std::_Any_data&, std::true_type) [with _Functor = void (*)(RxMessage&)]	16	static
 c:\st\stm32cubeide_1.12.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.200.202301161003\tools\arm-none-eabi\include\c++\10.3.1\bits\std_function.h:92:7:_Tp& std::_Any_data::_M_access() [with _Tp = void (*)(RxMessage&)]	16	static
-../Applications/Src/bms44_receiver.cpp:151:1:void __static_initialization_and_destruction_0(int, int)	16	static
-../Applications/Src/bms44_receiver.cpp:151:1:cpp)	8	static
+../Applications/Src/bms44_receiver.cpp:192:1:void __static_initialization_and_destruction_0(int, int)	16	static
+../Applications/Src/bms44_receiver.cpp:192:1:cpp)	8	static

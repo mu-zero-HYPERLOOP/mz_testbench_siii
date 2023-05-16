@@ -107,7 +107,7 @@ struct bms_frame_builder {
 		return m_complete;
 	}
 
-	bool reset(){
+	void reset(){
 		m_empty = true;
 		m_complete = false;
 		m_end = 0;
@@ -115,33 +115,38 @@ struct bms_frame_builder {
 		m_toggle = false;
 	}
 
-	float parsef16(uint8_t b1, uint8_t b2){
-		uint16_t data = b1 | b2 << sizeof(8);
-
+	float parsef16(uint16_t data){
 		//represents 16 bit float
 		uint16_t sign = (data & (0x1 << 15)) >> 15;
 		int16_t exponent = (data & 0x7C00) >> 10;
 		int16_t mantisse = (data & 0x3FF);
 
-		int8_t u8_mantisse = exponent & 0xF;
-		if(exponent & (0x1 << 4)){
-			sum -= (0x1 << 4);
-		}
+		uint8_t u8_exponent = exponent & 0x1F;
+		u8_exponent -= (0x1 << 4) - 1;
+		u8_exponent += (0x1 << 7) - 1;
 
-		int16_t mantisse = exponent & 0x1FF;
-		if(mantisse & (0x1 << 9)){
-			mantisse -= (0x1 << 9);
-		}
+		int32_t u23_mantisse = (mantisse & 0x3FF) << 13;
 
-		//convert to 32 bit float.
-
-
+		uint32_t f32u32 = (sign << 31) | (u8_exponent << 23) | u23_mantisse;
+		float * f32p = (float*)(&f32u32);
+		float f32 = *f32p;
+		return f32;
 	}
 
 	bms_frame build(){
-		m_currentFrame.m_crcLow = m_buffer[0];
-		m_currentFrame.m_crcHigh = m_buffer[1];
-		m_currentFrame.m_temperature = parsef16(m_buffer[1], m_buffer[1]);
+		bms_frame frame;
+		frame.m_crcLow = m_buffer[0];
+		frame.m_crcHigh = m_buffer[1];
+		frame.m_temperature = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[2])));
+		frame.m_voltage = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[4])));
+		frame.m_current = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[6])));
+		frame.m_average_power_10sec = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[8])));
+		frame.m_remaining_capacity_wh = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[10])));
+		frame.m_full_charge_capacity_wh = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[12])));
+		frame.m_hours_to_full_charge = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[14])));
+
+		float temperature = *reinterpret_cast<float*>(&(m_buffer[2]));
+		printf("other temperature = %f\n", temperature);
 
 		reset();
 		return frame;
@@ -172,7 +177,16 @@ void init(){
 }
 
 void update(){
-	printf("temperature = %u\n", m_currentFrame.m_temperature);
+	printf("======= FRAME ======\n");
+	printf("temperature          = %f\n", m_currentFrame.m_temperature);
+	printf("voltage              = %f\n", m_currentFrame.m_voltage);
+	printf("current              = %f\n", m_currentFrame.m_current);
+	printf("average pow          = %f\n", m_currentFrame.m_average_power_10sec);
+	printf("remaining capacity   = %f\n", m_currentFrame.m_remaining_capacity_wh);
+	printf("full charge cap      = %f\n", m_currentFrame.m_full_charge_capacity_wh);
+	printf("hours to full charge = %f\n", m_currentFrame.m_hours_to_full_charge);
+
+
 }
 
 }

@@ -5,32 +5,36 @@ dbc_parser.hpp:184:14:void can::MessageBase::toBuf(CAN_TxHeaderTypeDef&, uint8_t
 cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	1
 dbc_parser.hpp:213:19:TxMessage can::MessageBase::getTxMessage(can::CAN_BusTypeDef) const	1
 dbc_parser.hpp:220:14:void can::MessageBase::send(can::CAN_BusTypeDef) const	2
-dbc_parser.hpp:4304:42:static constexpr bool can::signals::PDU_TX_Enabled::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4340:42:static constexpr bool can::signals::PDU_TX_PEHWEnabled::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4354:42:static constexpr void can::signals::PDU_RX_Enable::set(uint64_t&, uint64_t&, uint8_t&, bool)	1
-dbc_parser.hpp:4390:42:static constexpr void can::signals::PDU_RX_PEHWEnable::set(uint64_t&, uint64_t&, uint8_t&, bool)	1
-dbc_parser.hpp:4420:43:static constexpr float can::signals::PDU_HPCh1_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4442:43:static constexpr float can::signals::PDU_HPCh2_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4464:43:static constexpr float can::signals::PDU_HPCh3_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4486:43:static constexpr float can::signals::PDU_HPCh4_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4498:42:static constexpr void can::signals::PDU_LPCh1_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
-dbc_parser.hpp:4523:42:static constexpr void can::signals::PDU_LPCh10_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
-dbc_parser.hpp:4548:42:static constexpr void can::signals::PDU_LPCh2_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
-dbc_parser.hpp:4573:42:static constexpr void can::signals::PDU_LPCh3_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
-dbc_parser.hpp:4598:42:static constexpr void can::signals::PDU_LPCh8_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
-dbc_parser.hpp:4623:42:static constexpr void can::signals::PDU_LPCh9_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
-dbc_parser.hpp:4648:42:static constexpr void can::signals::PDU_HPCh1_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
-dbc_parser.hpp:4673:42:static constexpr void can::signals::PDU_HPCh2_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
-dbc_parser.hpp:4808:43:static constexpr float can::signals::PDU_LPCh1_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4830:43:static constexpr float can::signals::PDU_LPCh2_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4852:43:static constexpr float can::signals::PDU_LPCh3_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4874:43:static constexpr float can::signals::PDU_LPCh4_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4896:43:static constexpr float can::signals::PDU_LPCh5_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4918:43:static constexpr float can::signals::PDU_LPCh10_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4940:43:static constexpr float can::signals::PDU_LPCh6_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4962:43:static constexpr float can::signals::PDU_LPCh7_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:4984:43:static constexpr float can::signals::PDU_LPCh8_Current::get(const uint64_t&, const uint64_t&)	1
-dbc_parser.hpp:5006:43:static constexpr float can::signals::PDU_LPCh9_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:479:42:static constexpr void can::signals::PDU_RX_LPCh4_Enable::set(uint64_t&, uint64_t&, uint8_t&, bool)	1
+dbc_parser.hpp:493:42:static constexpr void can::signals::PDU_RX_LPCh5_Enable::set(uint64_t&, uint64_t&, uint8_t&, bool)	1
+dbc_parser.hpp:507:42:static constexpr void can::signals::PDU_RX_LPCh6_Enable::set(uint64_t&, uint64_t&, uint8_t&, bool)	1
+dbc_parser.hpp:521:42:static constexpr void can::signals::PDU_RX_LPCh7_Enable::set(uint64_t&, uint64_t&, uint8_t&, bool)	1
+dbc_parser.hpp:4360:42:static constexpr bool can::signals::PDU_TX_Enabled::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4396:42:static constexpr bool can::signals::PDU_TX_PEHWEnabled::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4410:42:static constexpr void can::signals::PDU_RX_Enable::set(uint64_t&, uint64_t&, uint8_t&, bool)	1
+dbc_parser.hpp:4446:42:static constexpr void can::signals::PDU_RX_PEHWEnable::set(uint64_t&, uint64_t&, uint8_t&, bool)	1
+dbc_parser.hpp:4476:43:static constexpr float can::signals::PDU_HPCh1_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4498:43:static constexpr float can::signals::PDU_HPCh2_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4520:43:static constexpr float can::signals::PDU_HPCh3_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4542:43:static constexpr float can::signals::PDU_HPCh4_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4554:42:static constexpr void can::signals::PDU_LPCh1_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:4579:42:static constexpr void can::signals::PDU_LPCh10_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:4604:42:static constexpr void can::signals::PDU_LPCh2_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:4629:42:static constexpr void can::signals::PDU_LPCh3_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:4654:42:static constexpr void can::signals::PDU_LPCh8_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:4679:42:static constexpr void can::signals::PDU_LPCh9_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:4704:42:static constexpr void can::signals::PDU_HPCh1_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:4729:42:static constexpr void can::signals::PDU_HPCh2_Dutycycle::set(uint64_t&, uint64_t&, uint8_t&, float)	3
+dbc_parser.hpp:4864:43:static constexpr float can::signals::PDU_LPCh1_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4886:43:static constexpr float can::signals::PDU_LPCh2_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4908:43:static constexpr float can::signals::PDU_LPCh3_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4930:43:static constexpr float can::signals::PDU_LPCh4_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4952:43:static constexpr float can::signals::PDU_LPCh5_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4974:43:static constexpr float can::signals::PDU_LPCh10_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:4996:43:static constexpr float can::signals::PDU_LPCh6_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:5018:43:static constexpr float can::signals::PDU_LPCh7_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:5040:43:static constexpr float can::signals::PDU_LPCh8_Current::get(const uint64_t&, const uint64_t&)	1
+dbc_parser.hpp:5062:43:static constexpr float can::signals::PDU_LPCh9_Current::get(const uint64_t&, const uint64_t&)	1
 new:174:33:void* operator new(std::size_t, void*)	1
 std_function.h:87:17:void* std::_Any_data::_M_access()	1
 std_function.h:88:17:const void* std::_Any_data::_M_access() const	1
@@ -39,34 +43,33 @@ std_function.h:242:5:std::_Function_base::~_Function_base()	2
 std_function.h:248:10:bool std::_Function_base::_M_empty() const	1
 pdu_control.cpp:20:7:bool pdu::PduStatus::operator==(const pdu::PduStatus&) const	3
 pdu_control.cpp:24:7:bool pdu::PduStatus::operator!=(const pdu::PduStatus&) const	1
-pdu_control.cpp:47:7:bool pdu::LpChannelConfig::operator==(const pdu::LpChannelConfig&) const	3
-pdu_control.cpp:54:7:bool pdu::LpChannelConfig::operator!=(const pdu::LpChannelConfig&) const	1
 pdu_control.cpp:68:7:bool pdu::HpChannelConfig::operator==(const pdu::HpChannelConfig&) const	3
 pdu_control.cpp:74:7:bool pdu::HpChannelConfig::operator!=(const pdu::HpChannelConfig&) const	1
 pdu_control.cpp:84:6:void pdu::enableChannel(pdu::HpChannel)	1
 pdu_control.cpp:88:6:void pdu::disableChannel(pdu::HpChannel)	1
-pdu_control.cpp:92:6:void pdu::enableChannel(pdu::LpChannel)	1
-pdu_control.cpp:96:6:void pdu::disableChannel(pdu::LpChannel)	1
-pdu_control.cpp:100:15:pdu::ChannelStatus pdu::getChannelStatus(pdu::LpChannel)	4
-pdu_control.cpp:117:15:pdu::ChannelStatus pdu::getChannelStatus(pdu::HpChannel)	4
+pdu_control.cpp:92:6:void pdu::enableChannel(pdu::LpChannel)	3
+pdu_control.cpp:102:6:void pdu::disableChannel(pdu::LpChannel)	3
+pdu_control.cpp:112:15:pdu::ChannelStatus pdu::getChannelStatus(pdu::LpChannel)	4
+pdu_control.cpp:129:15:pdu::ChannelStatus pdu::getChannelStatus(pdu::HpChannel)	4
 dbc_parser.hpp:270:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::PDU_TX_Status]	2
 dbc_parser.hpp:284:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::PDU_TX_Status]	1
-pdu_control.cpp:136:6:void pdu::receiveTxStatus(RxMessage&)	1
+pdu_control.cpp:148:6:void pdu::receiveTxStatus(RxMessage&)	1
 dbc_parser.hpp:270:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::PDU_TX_HP_Current]	2
 dbc_parser.hpp:284:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::PDU_TX_HP_Current]	1
-pdu_control.cpp:142:6:void pdu::receiveHpDutycycle(RxMessage&)	1
+pdu_control.cpp:154:6:void pdu::receiveHpDutycycle(RxMessage&)	1
 dbc_parser.hpp:270:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::PDU_TX_LP_Current1]	2
 dbc_parser.hpp:284:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::PDU_TX_LP_Current1]	1
-pdu_control.cpp:150:6:void pdu::receiveLp1to5Dutycycle(RxMessage&)	1
+pdu_control.cpp:162:6:void pdu::receiveLp1to5Dutycycle(RxMessage&)	6
 dbc_parser.hpp:270:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::PDU_TX_LP_Current2]	2
 dbc_parser.hpp:284:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::PDU_TX_LP_Current2]	1
-pdu_control.cpp:159:6:void pdu::receiveLp6to10Dutycycle(RxMessage&)	1
+pdu_control.cpp:171:6:void pdu::receiveLp6to10Dutycycle(RxMessage&)	6
 std_function.h:303:11:std::function<void(RxMessage&)>::~function()	1
-pdu_control.cpp:169:6:void pdu::init()	1
+pdu_control.cpp:181:6:void pdu::init()	1
 dbc_parser.hpp:264:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::PDU_RX_Control]	1
 dbc_parser.hpp:264:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::PDU_RX_LP_Dutycycle]	1
+dbc_parser.hpp:264:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::PDU_RX_LP_Enable]	1
 dbc_parser.hpp:264:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::PDU_RX_HP_D_Dutycycle]	1
-pdu_control.cpp:178:6:void pdu::update()	12
+pdu_control.cpp:190:6:void pdu::update()	11
 dbc_parser.hpp:295:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_TX_Enabled; MESSAGE_T = can::messages::PDU_TX_Status]	1
 dbc_parser.hpp:295:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_TX_PEHWEnabled; MESSAGE_T = can::messages::PDU_TX_Status]	1
 dbc_parser.hpp:295:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_HPCh1_Current; MESSAGE_T = can::messages::PDU_TX_HP_Current]	1
@@ -96,6 +99,10 @@ dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [w
 dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_LPCh8_Dutycycle; MESSAGE_T = can::messages::PDU_RX_LP_Dutycycle]	1
 dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_LPCh9_Dutycycle; MESSAGE_T = can::messages::PDU_RX_LP_Dutycycle]	1
 dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_LPCh10_Dutycycle; MESSAGE_T = can::messages::PDU_RX_LP_Dutycycle]	1
+dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_RX_LPCh4_Enable; MESSAGE_T = can::messages::PDU_RX_LP_Enable]	1
+dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_RX_LPCh5_Enable; MESSAGE_T = can::messages::PDU_RX_LP_Enable]	1
+dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_RX_LPCh6_Enable; MESSAGE_T = can::messages::PDU_RX_LP_Enable]	1
+dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_RX_LPCh7_Enable; MESSAGE_T = can::messages::PDU_RX_LP_Enable]	1
 dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_HPCh1_Dutycycle; MESSAGE_T = can::messages::PDU_RX_HP_D_Dutycycle]	1
 dbc_parser.hpp:288:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_HPCh2_Dutycycle; MESSAGE_T = can::messages::PDU_RX_HP_D_Dutycycle]	1
 std_function.h:217:4:static bool std::_Function_base::_Base_manager<_Functor>::_M_not_empty_function(_Tp*) [with _Tp = void(RxMessage&); _Functor = void (*)(RxMessage&)]	1

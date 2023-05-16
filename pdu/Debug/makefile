@@ -13,13 +13,11 @@ RM := rm -rf
 -include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/subdir.mk
 -include Middlewares/Third_Party/FreeRTOS/Source/subdir.mk
--include Lib/Src/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
--include Applications/Src/subdir.mk
 -include Applications/CANzero/subdir.mk
--include Applications/CANZero_static/Src/subdir.mk
+-include Applications/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -84,7 +82,7 @@ main-build: pdu.elf secondary-outputs
 
 # Tool invocations
 pdu.elf pdu.map: $(OBJS) $(USER_OBJS) C:\Users\OfficeLaptop\Documents\GitHub\mz_testbench_siii\pdu\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "pdu.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\OfficeLaptop\Documents\GitHub\mz_testbench_siii\pdu\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="pdu.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+	arm-none-eabi-g++ -o "pdu.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\OfficeLaptop\Documents\GitHub\mz_testbench_siii\pdu\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="pdu.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,6 +1,6 @@
 /* USER CODE BEGIN Header */
 /*
- * FreeRTOS Kernel V10.3.1
+ * FreeRTOS Kernel V10.2.1
  * Portion Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  * Portion Copyright (C) 2019 StMicroelectronics, Inc.  All Rights Reserved.
  *
@@ -89,6 +89,8 @@
 /* Defaults to size_t for backward compatibility, but can be changed
    if lengths will always be less than the number of bytes in a size_t. */
 #define configMESSAGE_BUFFER_LENGTH_TYPE         size_t
+
+#define configRECORD_STACK_HIGH_ADDRESS			 1
 /* USER CODE END MESSAGE_BUFFER_LENGTH_TYPE */
 
 /* Co-routine definitions. */
@@ -182,6 +184,8 @@ standard names. */
 
 /* USER CODE BEGIN Defines */
 /* Section where parameter definitions can be added (for instance, to override default ones in FreeRTOS.h) */
+#define traceTASK_CREATE(x) printf("Task created: %s\n",x->pcTaskName)
+#define INCLUDE_xTaskGetIdleTaskHandle 1
 /* USER CODE END Defines */
 
 #endif /* FREERTOS_CONFIG_H */
