@@ -75,109 +75,109 @@ dbc_parser.hpp:8425:42:static constexpr void can::signals::PDU_OD_NodeStatus::se
 dbc_parser.hpp:8459:42:static constexpr void can::signals::PDU_OD_NodeID::set(uint64_t&, uint64_t&, uint8_t&, uint8_t)	1
 dbc_parser.hpp:262:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::PDU_SDO_Req_Down]	2
 dbc_parser.hpp:276:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::PDU_SDO_Req_Down]	1
-CANZERO_OD.cpp:122:6:void handleSDORequestDownload(const RxMessage&)	1
+canzero_od.cpp:122:6:void handleSDORequestDownload(const RxMessage&)	1
 dbc_parser.hpp:256:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::PDU_SDO_Resp]	1
-CANZERO_OD.cpp:127:6:void handleSDORequestDownloadBySDOID(uint16_t)	62
+canzero_od.cpp:127:6:void handleSDORequestDownloadBySDOID(uint16_t)	62
 dbc_parser.hpp:262:19:constexpr can::Message<MESSAGE_T>::Message(const CAN_RxHeaderTypeDef&, const uint8_t*) [with MESSAGE_T = can::messages::PDU_SDO_Req_Up]	2
 dbc_parser.hpp:276:19:constexpr can::Message<MESSAGE_T>::Message(const RxMessage&) [with MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
-CANZERO_OD.cpp:338:6:void handleSDORequestUpload(const RxMessage&)	76
-CANZERO_OD.cpp:689:21:uint8_t OD_NodeID_get()	1
-CANZERO_OD.cpp:697:18:void OD_NodeID_set(uint8_t)	1
-CANZERO_OD.cpp:705:21:uint8_t OD_NodeStatus_get()	1
-CANZERO_OD.cpp:713:18:void OD_NodeStatus_set(uint8_t)	1
-CANZERO_OD.cpp:721:22:uint16_t OD_ProtocolVersion_get()	1
-CANZERO_OD.cpp:729:18:void OD_ProtocolVersion_set(uint16_t)	1
-CANZERO_OD.cpp:737:22:uint16_t OD_StackVersion_get()	1
-CANZERO_OD.cpp:745:18:void OD_StackVersion_set(uint16_t)	1
-CANZERO_OD.cpp:753:22:uint16_t OD_DbcVersion_get()	1
-CANZERO_OD.cpp:761:18:void OD_DbcVersion_set(uint16_t)	1
-CANZERO_OD.cpp:769:22:uint16_t OD_HeartbeatInterval_get()	1
-CANZERO_OD.cpp:777:18:void OD_HeartbeatInterval_set(uint16_t)	1
-CANZERO_OD.cpp:785:21:uint8_t OD_SendOdOnBootup_get()	1
-CANZERO_OD.cpp:793:18:void OD_SendOdOnBootup_set(uint8_t)	1
-CANZERO_OD.cpp:801:22:uint16_t OD_OdEntrySendInterval_get()	1
-CANZERO_OD.cpp:809:18:void OD_OdEntrySendInterval_set(uint16_t)	1
-CANZERO_OD.cpp:817:19:float OD_CpuUsage_get()	1
-CANZERO_OD.cpp:825:18:void OD_CpuUsage_set(float)	1
-CANZERO_OD.cpp:833:22:uint32_t OD_MemFree_get()	1
-CANZERO_OD.cpp:841:18:void OD_MemFree_set(uint32_t)	1
-CANZERO_OD.cpp:849:19:float OD_BoardTemp_get()	1
-CANZERO_OD.cpp:857:18:void OD_BoardTemp_set(float)	1
-CANZERO_OD.cpp:865:19:float OD_InputVoltage_get()	1
-CANZERO_OD.cpp:873:18:void OD_InputVoltage_set(float)	1
-CANZERO_OD.cpp:881:22:uint32_t OD_runtime_get()	1
-CANZERO_OD.cpp:889:18:void OD_runtime_set(uint32_t)	1
-CANZERO_OD.cpp:897:21:uint8_t OD_SdcIn_get()	1
-CANZERO_OD.cpp:905:18:void OD_SdcIn_set(uint8_t)	1
-CANZERO_OD.cpp:913:21:uint8_t OD_SdcOut_get()	1
-CANZERO_OD.cpp:921:18:void OD_SdcOut_set(uint8_t)	1
-CANZERO_OD.cpp:929:22:uint64_t OD_ChipUID1_get()	1
-CANZERO_OD.cpp:937:18:void OD_ChipUID1_set(uint64_t)	1
-CANZERO_OD.cpp:945:22:uint64_t OD_ChipUID2_get()	1
-CANZERO_OD.cpp:953:18:void OD_ChipUID2_set(uint64_t)	1
-CANZERO_OD.cpp:961:22:uint32_t OD_BuildDate_get()	1
-CANZERO_OD.cpp:969:18:void OD_BuildDate_set(uint32_t)	1
-CANZERO_OD.cpp:977:22:uint32_t OD_BuildTime_get()	1
-CANZERO_OD.cpp:985:18:void OD_BuildTime_set(uint32_t)	1
-CANZERO_OD.cpp:993:21:uint8_t OD_CAN1_TxErrCnt_get()	1
-CANZERO_OD.cpp:1001:18:void OD_CAN1_TxErrCnt_set(uint8_t)	1
-CANZERO_OD.cpp:1009:21:uint8_t OD_CAN1_RxErrCnt_get()	1
-CANZERO_OD.cpp:1017:18:void OD_CAN1_RxErrCnt_set(uint8_t)	1
-CANZERO_OD.cpp:1025:22:uint32_t OD_CAN1_lastErrorCode_get()	1
-CANZERO_OD.cpp:1033:18:void OD_CAN1_lastErrorCode_set(uint32_t)	1
-CANZERO_OD.cpp:1041:21:uint8_t OD_CAN1_autoErrorReset_get()	1
-CANZERO_OD.cpp:1049:18:void OD_CAN1_autoErrorReset_set(uint8_t)	1
-CANZERO_OD.cpp:1057:22:uint16_t OD_CAN1_Baudrate_get()	1
-CANZERO_OD.cpp:1065:18:void OD_CAN1_Baudrate_set(uint16_t)	1
-CANZERO_OD.cpp:1073:21:uint8_t OD_CAN1_Status_get()	1
-CANZERO_OD.cpp:1081:18:void OD_CAN1_Status_set(uint8_t)	1
-CANZERO_OD.cpp:1089:22:uint32_t OD_CAN1_DiscardedTxMessages_get()	1
-CANZERO_OD.cpp:1097:18:void OD_CAN1_DiscardedTxMessages_set(uint32_t)	1
-CANZERO_OD.cpp:1105:21:uint8_t OD_CAN1_ErrorStatus_get()	1
-CANZERO_OD.cpp:1113:18:void OD_CAN1_ErrorStatus_set(uint8_t)	1
-CANZERO_OD.cpp:1121:22:uint32_t OD_CAN1_DelayedTxMessages_get()	1
-CANZERO_OD.cpp:1129:18:void OD_CAN1_DelayedTxMessages_set(uint32_t)	1
-CANZERO_OD.cpp:1137:21:uint8_t OD_CAN2_TxErrCnt_get()	1
-CANZERO_OD.cpp:1145:18:void OD_CAN2_TxErrCnt_set(uint8_t)	1
-CANZERO_OD.cpp:1153:21:uint8_t OD_CAN2_RxErrCnt_get()	1
-CANZERO_OD.cpp:1161:18:void OD_CAN2_RxErrCnt_set(uint8_t)	1
-CANZERO_OD.cpp:1169:22:uint32_t OD_CAN2_lastErrorCode_get()	1
-CANZERO_OD.cpp:1177:18:void OD_CAN2_lastErrorCode_set(uint32_t)	1
-CANZERO_OD.cpp:1185:21:uint8_t OD_CAN2_autoErrorReset_get()	1
-CANZERO_OD.cpp:1193:18:void OD_CAN2_autoErrorReset_set(uint8_t)	1
-CANZERO_OD.cpp:1201:22:uint16_t OD_CAN2_Baudrate_get()	1
-CANZERO_OD.cpp:1209:18:void OD_CAN2_Baudrate_set(uint16_t)	1
-CANZERO_OD.cpp:1217:21:uint8_t OD_CAN2_Status_get()	1
-CANZERO_OD.cpp:1225:18:void OD_CAN2_Status_set(uint8_t)	1
-CANZERO_OD.cpp:1233:22:uint32_t OD_CAN2_DiscardedTxMessages_get()	1
-CANZERO_OD.cpp:1241:18:void OD_CAN2_DiscardedTxMessages_set(uint32_t)	1
-CANZERO_OD.cpp:1249:21:uint8_t OD_CAN2_ErrorStatus_get()	1
-CANZERO_OD.cpp:1257:18:void OD_CAN2_ErrorStatus_set(uint8_t)	1
-CANZERO_OD.cpp:1265:22:uint32_t OD_CAN2_DelayedTxMessages_get()	1
-CANZERO_OD.cpp:1273:18:void OD_CAN2_DelayedTxMessages_set(uint32_t)	1
-CANZERO_OD.cpp:1281:19:float OD_batterVoltageLow_get()	1
-CANZERO_OD.cpp:1289:18:void OD_batterVoltageLow_set(float)	1
-CANZERO_OD.cpp:1297:19:float OD_batterVoltageCritical_get()	1
-CANZERO_OD.cpp:1305:18:void OD_batterVoltageCritical_set(float)	1
-CANZERO_OD.cpp:1313:19:float OD_overTempWarn_get()	1
-CANZERO_OD.cpp:1321:18:void OD_overTempWarn_set(float)	1
-CANZERO_OD.cpp:1329:19:float OD_overTempCritical_get()	1
-CANZERO_OD.cpp:1337:18:void OD_overTempCritical_set(float)	1
-CANZERO_OD.cpp:1345:19:float OD_batteryOvercurrent_get()	1
-CANZERO_OD.cpp:1353:18:void OD_batteryOvercurrent_set(float)	1
-CANZERO_OD.cpp:1361:22:uint16_t OD_currentReadInterval_get()	1
-CANZERO_OD.cpp:1369:18:void OD_currentReadInterval_set(uint16_t)	1
-CANZERO_OD.cpp:1377:22:uint16_t OD_statusSendInterval_get()	1
-CANZERO_OD.cpp:1385:18:void OD_statusSendInterval_set(uint16_t)	1
-CANZERO_OD.cpp:1393:22:uint16_t OD_watchdogTimeout_get()	1
-CANZERO_OD.cpp:1401:18:void OD_watchdogTimeout_set(uint16_t)	1
-CANZERO_OD.cpp:1409:21:uint8_t OD_projectXXEnabled_get()	1
-CANZERO_OD.cpp:1417:18:void OD_projectXXEnabled_set(uint8_t)	1
-CANZERO_OD.cpp:1425:22:uint16_t OD_LedCommands_get()	1
-CANZERO_OD.cpp:1433:18:void OD_LedCommands_set(uint16_t)	1
-CANZERO_OD.cpp:1441:21:uint8_t OD_CoolingPumpEnabled_get()	1
-CANZERO_OD.cpp:1449:18:void OD_CoolingPumpEnabled_set(uint8_t)	1
-CANZERO_OD.cpp:1479:6:void sendOdEntriesTask(void*)	3
+canzero_od.cpp:338:6:void handleSDORequestUpload(const RxMessage&)	76
+canzero_od.cpp:689:21:uint8_t OD_NodeID_get()	1
+canzero_od.cpp:697:18:void OD_NodeID_set(uint8_t)	1
+canzero_od.cpp:705:21:uint8_t OD_NodeStatus_get()	1
+canzero_od.cpp:713:18:void OD_NodeStatus_set(uint8_t)	1
+canzero_od.cpp:721:22:uint16_t OD_ProtocolVersion_get()	1
+canzero_od.cpp:729:18:void OD_ProtocolVersion_set(uint16_t)	1
+canzero_od.cpp:737:22:uint16_t OD_StackVersion_get()	1
+canzero_od.cpp:745:18:void OD_StackVersion_set(uint16_t)	1
+canzero_od.cpp:753:22:uint16_t OD_DbcVersion_get()	1
+canzero_od.cpp:761:18:void OD_DbcVersion_set(uint16_t)	1
+canzero_od.cpp:769:22:uint16_t OD_HeartbeatInterval_get()	1
+canzero_od.cpp:777:18:void OD_HeartbeatInterval_set(uint16_t)	1
+canzero_od.cpp:785:21:uint8_t OD_SendOdOnBootup_get()	1
+canzero_od.cpp:793:18:void OD_SendOdOnBootup_set(uint8_t)	1
+canzero_od.cpp:801:22:uint16_t OD_OdEntrySendInterval_get()	1
+canzero_od.cpp:809:18:void OD_OdEntrySendInterval_set(uint16_t)	1
+canzero_od.cpp:817:19:float OD_CpuUsage_get()	1
+canzero_od.cpp:825:18:void OD_CpuUsage_set(float)	1
+canzero_od.cpp:833:22:uint32_t OD_MemFree_get()	1
+canzero_od.cpp:841:18:void OD_MemFree_set(uint32_t)	1
+canzero_od.cpp:849:19:float OD_BoardTemp_get()	1
+canzero_od.cpp:857:18:void OD_BoardTemp_set(float)	1
+canzero_od.cpp:865:19:float OD_InputVoltage_get()	1
+canzero_od.cpp:873:18:void OD_InputVoltage_set(float)	1
+canzero_od.cpp:881:22:uint32_t OD_runtime_get()	1
+canzero_od.cpp:889:18:void OD_runtime_set(uint32_t)	1
+canzero_od.cpp:897:21:uint8_t OD_SdcIn_get()	1
+canzero_od.cpp:905:18:void OD_SdcIn_set(uint8_t)	1
+canzero_od.cpp:913:21:uint8_t OD_SdcOut_get()	1
+canzero_od.cpp:921:18:void OD_SdcOut_set(uint8_t)	1
+canzero_od.cpp:929:22:uint64_t OD_ChipUID1_get()	1
+canzero_od.cpp:937:18:void OD_ChipUID1_set(uint64_t)	1
+canzero_od.cpp:945:22:uint64_t OD_ChipUID2_get()	1
+canzero_od.cpp:953:18:void OD_ChipUID2_set(uint64_t)	1
+canzero_od.cpp:961:22:uint32_t OD_BuildDate_get()	1
+canzero_od.cpp:969:18:void OD_BuildDate_set(uint32_t)	1
+canzero_od.cpp:977:22:uint32_t OD_BuildTime_get()	1
+canzero_od.cpp:985:18:void OD_BuildTime_set(uint32_t)	1
+canzero_od.cpp:993:21:uint8_t OD_CAN1_TxErrCnt_get()	1
+canzero_od.cpp:1001:18:void OD_CAN1_TxErrCnt_set(uint8_t)	1
+canzero_od.cpp:1009:21:uint8_t OD_CAN1_RxErrCnt_get()	1
+canzero_od.cpp:1017:18:void OD_CAN1_RxErrCnt_set(uint8_t)	1
+canzero_od.cpp:1025:22:uint32_t OD_CAN1_lastErrorCode_get()	1
+canzero_od.cpp:1033:18:void OD_CAN1_lastErrorCode_set(uint32_t)	1
+canzero_od.cpp:1041:21:uint8_t OD_CAN1_autoErrorReset_get()	1
+canzero_od.cpp:1049:18:void OD_CAN1_autoErrorReset_set(uint8_t)	1
+canzero_od.cpp:1057:22:uint16_t OD_CAN1_Baudrate_get()	1
+canzero_od.cpp:1065:18:void OD_CAN1_Baudrate_set(uint16_t)	1
+canzero_od.cpp:1073:21:uint8_t OD_CAN1_Status_get()	1
+canzero_od.cpp:1081:18:void OD_CAN1_Status_set(uint8_t)	1
+canzero_od.cpp:1089:22:uint32_t OD_CAN1_DiscardedTxMessages_get()	1
+canzero_od.cpp:1097:18:void OD_CAN1_DiscardedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1105:21:uint8_t OD_CAN1_ErrorStatus_get()	1
+canzero_od.cpp:1113:18:void OD_CAN1_ErrorStatus_set(uint8_t)	1
+canzero_od.cpp:1121:22:uint32_t OD_CAN1_DelayedTxMessages_get()	1
+canzero_od.cpp:1129:18:void OD_CAN1_DelayedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1137:21:uint8_t OD_CAN2_TxErrCnt_get()	1
+canzero_od.cpp:1145:18:void OD_CAN2_TxErrCnt_set(uint8_t)	1
+canzero_od.cpp:1153:21:uint8_t OD_CAN2_RxErrCnt_get()	1
+canzero_od.cpp:1161:18:void OD_CAN2_RxErrCnt_set(uint8_t)	1
+canzero_od.cpp:1169:22:uint32_t OD_CAN2_lastErrorCode_get()	1
+canzero_od.cpp:1177:18:void OD_CAN2_lastErrorCode_set(uint32_t)	1
+canzero_od.cpp:1185:21:uint8_t OD_CAN2_autoErrorReset_get()	1
+canzero_od.cpp:1193:18:void OD_CAN2_autoErrorReset_set(uint8_t)	1
+canzero_od.cpp:1201:22:uint16_t OD_CAN2_Baudrate_get()	1
+canzero_od.cpp:1209:18:void OD_CAN2_Baudrate_set(uint16_t)	1
+canzero_od.cpp:1217:21:uint8_t OD_CAN2_Status_get()	1
+canzero_od.cpp:1225:18:void OD_CAN2_Status_set(uint8_t)	1
+canzero_od.cpp:1233:22:uint32_t OD_CAN2_DiscardedTxMessages_get()	1
+canzero_od.cpp:1241:18:void OD_CAN2_DiscardedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1249:21:uint8_t OD_CAN2_ErrorStatus_get()	1
+canzero_od.cpp:1257:18:void OD_CAN2_ErrorStatus_set(uint8_t)	1
+canzero_od.cpp:1265:22:uint32_t OD_CAN2_DelayedTxMessages_get()	1
+canzero_od.cpp:1273:18:void OD_CAN2_DelayedTxMessages_set(uint32_t)	1
+canzero_od.cpp:1281:19:float OD_batterVoltageLow_get()	1
+canzero_od.cpp:1289:18:void OD_batterVoltageLow_set(float)	1
+canzero_od.cpp:1297:19:float OD_batterVoltageCritical_get()	1
+canzero_od.cpp:1305:18:void OD_batterVoltageCritical_set(float)	1
+canzero_od.cpp:1313:19:float OD_overTempWarn_get()	1
+canzero_od.cpp:1321:18:void OD_overTempWarn_set(float)	1
+canzero_od.cpp:1329:19:float OD_overTempCritical_get()	1
+canzero_od.cpp:1337:18:void OD_overTempCritical_set(float)	1
+canzero_od.cpp:1345:19:float OD_batteryOvercurrent_get()	1
+canzero_od.cpp:1353:18:void OD_batteryOvercurrent_set(float)	1
+canzero_od.cpp:1361:22:uint16_t OD_currentReadInterval_get()	1
+canzero_od.cpp:1369:18:void OD_currentReadInterval_set(uint16_t)	1
+canzero_od.cpp:1377:22:uint16_t OD_statusSendInterval_get()	1
+canzero_od.cpp:1385:18:void OD_statusSendInterval_set(uint16_t)	1
+canzero_od.cpp:1393:22:uint16_t OD_watchdogTimeout_get()	1
+canzero_od.cpp:1401:18:void OD_watchdogTimeout_set(uint16_t)	1
+canzero_od.cpp:1409:21:uint8_t OD_projectXXEnabled_get()	1
+canzero_od.cpp:1417:18:void OD_projectXXEnabled_set(uint8_t)	1
+canzero_od.cpp:1425:22:uint16_t OD_LedCommands_get()	1
+canzero_od.cpp:1433:18:void OD_LedCommands_set(uint16_t)	1
+canzero_od.cpp:1441:21:uint8_t OD_CoolingPumpEnabled_get()	1
+canzero_od.cpp:1449:18:void OD_CoolingPumpEnabled_set(uint8_t)	1
+canzero_od.cpp:1479:6:void sendOdEntriesTask(void*)	3
 dbc_parser.hpp:287:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_SDO_ID; MESSAGE_T = can::messages::PDU_SDO_Req_Down]	1
 dbc_parser.hpp:280:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_NodeID; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
 dbc_parser.hpp:280:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::PDU_OD_NodeStatus; MESSAGE_T = can::messages::PDU_SDO_Resp]	1
@@ -248,5 +248,5 @@ dbc_parser.hpp:287:30:typename T::dataType can::Message<MESSAGE_T>::get() [with 
 dbc_parser.hpp:287:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_projectXXEnabled; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
 dbc_parser.hpp:287:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_LedCommands; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
 dbc_parser.hpp:287:30:typename T::dataType can::Message<MESSAGE_T>::get() [with T = can::signals::PDU_OD_CoolingPumpEnabled; MESSAGE_T = can::messages::PDU_SDO_Req_Up]	1
-CANZERO_OD.cpp:1506:1:void __static_initialization_and_destruction_0(int, int)	3
-CANZERO_OD.cpp:1506:1:cpp)	1
+canzero_od.cpp:1506:1:void __static_initialization_and_destruction_0(int, int)	3
+canzero_od.cpp:1506:1:cpp)	1

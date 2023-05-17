@@ -1,8 +1,8 @@
 Applications/CANzero/canzero_emcy.o: \
  ../Applications/CANzero/canzero_emcy.cpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANzero/include/canzero_emcy.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_interface.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANzero/include/canzero_emcy.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_interface.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -38,12 +38,12 @@ Applications/CANzero/canzero_emcy.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/typedefinitions.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/typedefinitions.h \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp \
  ../Core/Inc/can.h ../Core/Inc/main.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/log.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_log.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/log.h \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_log.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
@@ -55,9 +55,9 @@ Applications/CANzero/canzero_emcy.o: \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANzero/include/canzero_emcy.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_interface.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANzero/include/canzero_emcy.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_interface.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
@@ -93,13 +93,13 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/typedefinitions.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/typedefinitions.h:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:
 ../Core/Inc/can.h:
 ../Core/Inc/main.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/log.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_log.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/log.h:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_log.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:

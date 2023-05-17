@@ -8,7 +8,6 @@
 #pragma once
 #include "peripheral_config.hpp"
 #include "AdcChannelController.hpp"
-#include "NTCSensor.hpp"
 #include <cmath>
 #include "canzero.hpp"
 

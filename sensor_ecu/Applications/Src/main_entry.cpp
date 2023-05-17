@@ -16,18 +16,20 @@
 #include "pdu_control.hpp"
 #include "cooling_controll.hpp"
 #include "bms44_receiver.hpp"
+#include "NTCSensor.hpp"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 void main_entry(void *argv) {
+
+
+
 	//bms44::init();
 
 	//PressureSensor pressureSensor(ADC_MODULE2, 3);
 	pdu::init();
-	bool toggle = true;
-	pdu::enableChannel(pdu::LP_CHANNEL3);
 	//TODO initalize peripherals.
 	/*
 	ImuMaster imuMaster;
@@ -41,17 +43,20 @@ void main_entry(void *argv) {
 
 	imuMaster.start();
 	*/
+	//MODULE | RANK | R2 | U0 | BETA | R25
+	NTCSensor ntc(ADC_MODULE2, 0, 20000, 3.3, 3950, 10000);
+	NTCSensor ntc2(ADC_MODULE2, 1, 20000, 3.3, 3977, 10000);
+	AdcChannelController ain2(ADC_MODULE2, 1);
 
 
 	while (true) {
-		pdu::enableChannel(pdu::LP_CHANNEL3);
-		osDelay(pdMS_TO_TICKS(1000));
-		pdu::update();
-		osDelay(pdMS_TO_TICKS(1000));
-		pdu::disableChannel(pdu::LP_CHANNEL3);
-		osDelay(pdMS_TO_TICKS(1000));
-		pdu::update();
-		osDelay(pdMS_TO_TICKS(1000));
+		uint16_t avalue = ain2.get(true);
+		printf("avalue = %u/4095\n", avalue);
+		float r = 1000 * (1.0 / ((4095.0 / avalue) - 1));
+		printf("r = %f\n", r);
+
+		//ntc2.configure(287.15);
+
 		//bms44::update();
 		//TODO read sensor data.
 		/*
@@ -79,8 +84,10 @@ void main_entry(void *argv) {
 		OD_Velocity_set(kistlerVel);
 
 
-		cooling::update();
 		*/
+		//cooling::update();
+		//pdu::update();
+		osDelay(pdMS_TO_TICKS(1000));
 		// ======= POSITION-ESTIMATION ======
 
 	}

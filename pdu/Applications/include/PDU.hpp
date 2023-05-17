@@ -152,8 +152,8 @@ public:
 typedef struct PduOutputState {
 	OutputChannelPwm 	LPCh1_opticalSensor		{false, 100.0f};
 	OutputChannelPwm 	LPCh2					{false, 100.0f};
-	OutputChannelPwm	LPCh3_HVCU				{false, 100.0f};
-	OutputChannel 		LPCh4_eboxECUs			{true};
+	OutputChannelPwm	LPCh3_HVCU				{true, 100.0f};
+	OutputChannel 		LPCh4_eboxECUs			{false};
 	OutputChannel 		LPCh5_powerElectronics	{false};
 	OutputChannel 		LPCh6   				{false}; //hw
 	OutputChannel 		LPCh7_rearECU			{false};

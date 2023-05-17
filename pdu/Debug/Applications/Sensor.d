@@ -1,5 +1,5 @@
 Applications/Sensor.o: ../Applications/Sensor.cpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/Sensor.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/Sensor.hpp \
  ../Core/Inc/gpio.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -37,7 +37,7 @@ Applications/Sensor.o: ../Applications/Sensor.cpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/adc.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/log.h \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/log.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
@@ -49,7 +49,7 @@ Applications/Sensor.o: ../Applications/Sensor.cpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/Sensor.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/Sensor.hpp:
 ../Core/Inc/gpio.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -88,7 +88,7 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/includ
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/adc.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/log.h:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/log.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:

@@ -1,5 +1,5 @@
 Applications/Watchdog.o: ../Applications/Watchdog.cpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/Watchdog.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/Watchdog.hpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
@@ -11,7 +11,7 @@ Applications/Watchdog.o: ../Applications/Watchdog.cpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/Watchdog.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/Watchdog.hpp:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:

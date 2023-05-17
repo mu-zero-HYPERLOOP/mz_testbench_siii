@@ -1,5 +1,5 @@
 Applications/Src/SDC.o: ../Applications/Src/SDC.cpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/SDC.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/Inc/SDC.hpp \
  ../Core/Inc/gpio.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -36,12 +36,12 @@ Applications/Src/SDC.o: ../Applications/Src/SDC.cpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/peripheral_config.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModule.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/Inc/peripheral_config.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModule.hpp \
  ../Core/Inc/adc.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/GPIOWriteController.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Lib/Inc/GPIOWriteController.hpp \
  ../Core/Inc/main.h
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/SDC.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/Inc/SDC.hpp:
 ../Core/Inc/gpio.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -79,8 +79,8 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/Inc/peripheral_config.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModule.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/Inc/peripheral_config.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Lib/Inc/AdcModule.hpp:
 ../Core/Inc/adc.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/GPIOWriteController.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Lib/Inc/GPIOWriteController.hpp:
 ../Core/Inc/main.h:

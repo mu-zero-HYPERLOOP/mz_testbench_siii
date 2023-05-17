@@ -6,6 +6,7 @@ std_function.h:242:5:std::_Function_base::~_Function_base()	2
 std_function.h:248:10:bool std::_Function_base::_M_empty() const	1
 AdcModule.hpp:16:34:ADC_HandleTypeDef* AdcModuleToHandle(AdcModule)	3
 AdcChannel.hpp:15:11:AdcChannel::AdcChannel()	1
+AdcChannel.hpp:19:11:uint16_t AdcChannel::get()	1
 AdcChannel.hpp:23:7:void AdcChannel::setValue(uint16_t)	1
 std_function.h:303:11:std::function<void(ADC_HandleTypeDef*)>::~function()	1
 AdcConvCpltCallbackHandler.hpp:41:2:AdcConvCpltCallbackHandler::AdcConvCpltCallbackHandler()	2
@@ -17,10 +18,14 @@ AdcConvCpltCallbackHandler.hpp:28:7:void AdcConvCpltCallbackHandler::unregisterC
 AdcModuleController.hpp:26:8:AdcModuleController::AdcModuleController(AdcModule)::<lambda(ADC_HandleTypeDef*)>	2
 AdcModuleController.hpp:20:11:AdcModuleController::AdcModuleController(AdcModule)	4
 AdcModuleController.hpp:40:2:AdcModuleController::~AdcModuleController()	4
+AdcModuleController.hpp:51:14:AdcChannel* AdcModuleController::getChannelByRank(size_t)	2
 AdcModuleController.hpp:58:7:void AdcModuleController::update(bool)	4
 AdcModuleController.hpp:79:7:void AdcModuleController::dmaCplrCallback()	1
 AdcChannelController.hpp:18:29:AdcModuleController& _getChannelAdcModuleControllerRuntime(AdcModule)	3
-main_entry.cpp:24:6:void main_entry(void*)	1
+AdcChannelController.hpp:32:11:AdcChannelController::AdcChannelController(AdcModule, unsigned int)	1
+AdcChannelController.hpp:37:11:uint16_t AdcChannelController::get(bool)	1
+NTCSensor.hpp:18:11:NTCSensor::NTCSensor(AdcModule, uint16_t, float, float, float, float)	1
+main_entry.cpp:25:6:void main_entry(void*)	1
 std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:428:7:)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2

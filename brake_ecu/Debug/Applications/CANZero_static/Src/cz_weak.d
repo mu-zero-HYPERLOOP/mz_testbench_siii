@@ -1,6 +1,6 @@
 Applications/CANZero_static/Src/cz_weak.o: \
  ../Applications/CANZero_static/Src/cz_weak.cpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_weak.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_weak.hpp \
  ../Core/Inc/can.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -37,7 +37,7 @@ Applications/CANZero_static/Src/cz_weak.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_weak.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_weak.hpp:
 ../Core/Inc/can.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:

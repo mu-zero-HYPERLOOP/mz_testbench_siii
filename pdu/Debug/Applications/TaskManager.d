@@ -1,18 +1,17 @@
 Applications/TaskManager.o: ../Applications/TaskManager.cpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/TaskManager.hpp \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/TaskManager.hpp \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/log.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/log.h \
  ../Core/Inc/adc.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -49,32 +48,31 @@ Applications/TaskManager.o: ../Applications/TaskManager.cpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/AdcDma.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/log.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/CANZERO_OD.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/cz_interface.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/Heartbeat.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/cz_interface.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/AdcDma.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/log.h \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_od.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/cz_interface.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/Heartbeat.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/cz_interface.hpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h \
  ../Core/Inc/can.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_emcy.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/typedefinitions.h
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/TaskManager.hpp:
-../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h:
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_emcy.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/typedefinitions.h
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/TaskManager.hpp:
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/log.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
-../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/log.h:
 ../Core/Inc/adc.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -112,15 +110,15 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/includ
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/AdcDma.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/log.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/CANZERO_OD.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/cz_interface.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/Heartbeat.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/cz_interface.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/AdcDma.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/log.h:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_od.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/cz_interface.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/Heartbeat.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/cz_interface.hpp:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h:
 ../Core/Inc/can.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_emcy.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/typedefinitions.h:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/include/canzero_emcy.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/typedefinitions.h:

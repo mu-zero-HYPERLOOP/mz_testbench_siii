@@ -7,7 +7,7 @@
 #include "log.h"
 #include "adc.h"
 #include "AdcDma.hpp"
-#include "CANZERO_OD.hpp"
+#include "canzero_od.hpp"
 
 // ADC1 reads the four analog inputs on the BCU (Board temperature (IN10), Input voltage (IN12), Temperature Sensor, Vrefint)
 AdcDma<4> adc1{&hadc1};

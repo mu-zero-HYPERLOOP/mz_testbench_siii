@@ -36,9 +36,9 @@ AdcChannelController.hpp:37:11:uint16_t AdcChannelController::get(bool)	1
 AnalogInput.hpp:17:2:AnalogInput::AnalogInput(AdcModule, uint16_t, float, float)	1
 AnalogInput.hpp:24:8:float AnalogInput::readCurrent(bool)	1
 PressureSensor.hpp:16:11:PressureSensor::PressureSensor(AdcModule, uint16_t, float, float)	1
-PressureSensor.hpp:23:8:float PressureSensor::get(bool)	1
+PressureSensor.hpp:24:8:float PressureSensor::get(bool)	3
 dbc_parser.hpp:254:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::BrakeF_TX_Pressure]	1
-main_entry.cpp:23:6:void main_entry(void*)	1
+main_entry.cpp:22:6:void main_entry(void*)	1
 std_function.h:330:7:)>::function() [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:396:7:)>&) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	1
 std_function.h:428:7:)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {ADC_HandleTypeDef*}]	2
@@ -49,7 +49,6 @@ AdcChannelController.hpp:14:29:void __tcf_3()	1
 AdcChannelController.hpp:13:29:AdcModuleController& _getChannelAdcModuleControllerCompiletime() [with AdcModule ADC_MODULE = ADC_MODULE2]	3
 MovingAverageFilter.hpp:17:11:MovingAverageFilter<N>::MovingAverageFilter() [with unsigned int N = 32]	1
 MovingAverageFilter.hpp:43:7:void MovingAverageFilter<N>::push(float) [with unsigned int N = 32]	1
-MovingAverageFilter.hpp:36:8:float MovingAverageFilter<N>::average() [with unsigned int N = 32]	1
 dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::BrakeF_TX_Pressure_Act; MESSAGE_T = can::messages::BrakeF_TX_Pressure]	1
 dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::BrakeF_TX_Pressure_Retract; MESSAGE_T = can::messages::BrakeF_TX_Pressure]	1
 dbc_parser.hpp:278:14:void can::Message<MESSAGE_T>::set(typename T::dataType) [with T = can::signals::BrakeF_TX_Pressure_Tank; MESSAGE_T = can::messages::BrakeF_TX_Pressure]	1

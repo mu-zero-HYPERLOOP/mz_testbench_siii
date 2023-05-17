@@ -15,7 +15,7 @@
 #include "cmsis_os.h"
 
 #include "can.h"
-#include "CANZERO_OD.hpp"
+#include "canzero_od.hpp"
 #include "canzero_emcy.hpp"
 #include "typedefinitions.h"
 #include "log.h"

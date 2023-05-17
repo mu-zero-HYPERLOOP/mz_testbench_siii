@@ -57,7 +57,7 @@ struct LpChannelConfig {
 };
 
 static LpChannelConfig s_lpChannelConfig = {
-		.m_status = {false, false, false, false, false, false, false, true, true, false}
+		.m_status = {false, false, true, false, false, false, false, true, true, false}
 };
 static LpChannelConfig s_confirmed_lpChannelConfig;
 

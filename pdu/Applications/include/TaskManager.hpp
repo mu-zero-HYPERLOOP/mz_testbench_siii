@@ -6,7 +6,8 @@
 #ifndef _TaskManager_
 #define _TaskManager_
 
-#include "freertos.h"
+#include "FreeRTOS.h"
+#include "cmsis_os.h"
 
 /**
  * @namespace stats

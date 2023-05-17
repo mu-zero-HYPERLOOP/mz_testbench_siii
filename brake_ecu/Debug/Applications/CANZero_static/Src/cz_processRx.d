@@ -1,7 +1,7 @@
 Applications/CANZero_static/Src/cz_processRx.o: \
  ../Applications/CANZero_static/Src/cz_processRx.cpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_processRx.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_processRx.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp \
  ../Core/Inc/can.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
@@ -47,21 +47,21 @@ Applications/CANZero_static/Src/cz_processRx.o: \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANzero/include/canzero_defines.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_handles.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANzero/include/canzero_defines.h \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_handles.hpp \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/typedefinitions.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/log.h \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_log.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_message_receiver.hpp
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_processRx.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/typedefinitions.h \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/log.h \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_log.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_message_receiver.hpp
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_processRx.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:
 ../Core/Inc/can.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -108,16 +108,16 @@ C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/
 ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANzero/include/canzero_defines.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_handles.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANzero/include/canzero_defines.h:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_handles.hpp:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/typedefinitions.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/log.h:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_log.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp:
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_message_receiver.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/typedefinitions.h:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/log.h:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_log.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Lib/Inc/estdio.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/brake_ecu/Applications/CANZero_static/Inc/cz_message_receiver.hpp:

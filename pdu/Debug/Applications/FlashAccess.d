@@ -1,5 +1,5 @@
 Applications/FlashAccess.o: ../Applications/FlashAccess.cpp \
- C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/FlashAccess.hpp \
+ /home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/FlashAccess.hpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -35,7 +35,7 @@ Applications/FlashAccess.o: ../Applications/FlashAccess.cpp \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-C:/Users/OfficeLaptop/Documents/GitHub/mz_testbench_siii/pdu/Applications/include/FlashAccess.hpp:
+/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/include/FlashAccess.hpp:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
