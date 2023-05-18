@@ -18,12 +18,16 @@ extern "C" {
 
 
 void main_entry(void *argv) {
-	GPIOWriteController piston(VALVE_GPIO_Port, VALVE_Pin);
-	PressureSensor pressure(ADC_MODULE2, 0);
+	GPIOWriteController piston(DOUT2_GPIO_Port, DOUT2_Pin);
+	GPIOWriteController pistonOpt(VALVE_GPIO_Port, VALVE_Pin);
+	PressureSensor pressure(ADC_MODULE2, 3, -0.015);
 	piston.set();
 	while(true){
-		float bar = pressure.get();
+		float bar = pressure.get(true);
 		printf("pressure = %f\n",bar);
+		piston.toggle();
+		pistonOpt.toggle();
+
 		osDelay(1000);
 	}
 

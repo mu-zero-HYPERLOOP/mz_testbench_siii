@@ -26,6 +26,8 @@ void main_entry(void *argv) {
 	while(true){
 		float reservoirPressure = reservoirPressureSensor.get(true);
 
+		printf("reservoirPressure = %f\n" , reservoirPressure);
+
 		// SEND CAN MESSAGES
 
 		can::Message<can::messages::BrakeF_TX_PressureCooling> pressureCoolingMsg;
