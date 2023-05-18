@@ -69,6 +69,8 @@ void Error_Handler(void);
 #define PRESSURE_4_GPIO_Port GPIOA
 #define PRESSURE_3_Pin GPIO_PIN_7
 #define PRESSURE_3_GPIO_Port GPIOA
+#define DOUT1_Pin GPIO_PIN_0
+#define DOUT1_GPIO_Port GPIOB
 #define SDC_Pin GPIO_PIN_1
 #define SDC_GPIO_Port GPIOB
 #define DOUT2_Pin GPIO_PIN_11
