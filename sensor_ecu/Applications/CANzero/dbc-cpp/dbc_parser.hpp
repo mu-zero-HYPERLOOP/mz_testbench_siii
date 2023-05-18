@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 14:29:06 18.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 15:03:09 18.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -46,12 +46,12 @@ namespace can {
     * Calculated mask and id for receive fiter.                               *
     ***************************************************************************/
     namespace filters {
-        constexpr uint8_t num_ext = 1;      // Number of used receive filters for extended (29-bit) ID messages
-        constexpr uint32_t mask_ext[1] = {   // Filter mask for extended (29-bit) ID messages
-            0x1FFFFFFF 
+        constexpr uint8_t num_ext = 2;      // Number of used receive filters for extended (29-bit) ID messages
+        constexpr uint32_t mask_ext[2] = {   // Filter mask for extended (29-bit) ID messages
+            0x1FFFFFFF,            0x1FFFFFFF 
         };
-        constexpr uint32_t id_ext[1] = {     // Filter ID for extended (29-bit) ID messages
-            0x1FFFFFFA 
+        constexpr uint32_t id_ext[2] = {     // Filter ID for extended (29-bit) ID messages
+            0x1109216,            0x1FFFFFFA 
         };
 
         constexpr uint8_t num_std = 21;      // Number of used receive filters for standard (11-bit) ID messages
@@ -64,10 +64,10 @@ namespace can {
             0x7FF 
         };
         constexpr uint32_t id_std[21] = {     // Filter ID for standard (11-bit) ID messages
-            0x001,            0x200,            0x100,            0x002, 
-            0x1C1,            0x241,            0x2C1,            0x341, 
-            0x5C1,            0x601,            0x701,            0x781, 
-            0x191,            0x411,            0x711,            0x19A, 
+            0x25B,            0x001,            0x200,            0x100, 
+            0x002,            0x1C1,            0x241,            0x2C1, 
+            0x341,            0x5C1,            0x601,            0x701, 
+            0x781,            0x191,            0x711,            0x19A, 
             0x21A,            0x51A,            0x55A,            0x71A, 
             0x722 
         };
@@ -460,7 +460,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char BusType[] = "CAN";
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 179;
+    constexpr uint32_t CANzero_DBCVersion = 181;
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
@@ -469,6 +469,84 @@ namespace can {
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
+        class PDU_RX_LPCh4_Enable {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x1ull));
+                return value;
+            }
+        };
+        class PDU_RX_LPCh5_Enable {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x2ull) >> 1);
+                return value;
+            }
+        };
+        class PDU_RX_LPCh6_Enable {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x4ull) >> 2);
+                return value;
+            }
+        };
+        class PDU_RX_LPCh7_Enable {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x8ull) >> 3);
+                return value;
+            }
+        };
+        class BMS_Status_Frame {
+            public:
+            using dataType = uint64_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1109216 };
+            constexpr static uint64_t min = static_cast<uint64_t>(0);
+            constexpr static uint64_t max = static_cast<uint64_t>(255);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint64_t value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint64_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFFFFFFFFFull;
+            }
+            constexpr static inline uint64_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint64_t value = static_cast<uint64_t>((intel & 0xFFFFFFFFFFFFFFFFull));
+                return value;
+            }
+        };
         class Track_TX_Response {
             public:
             using dataType = uint8_t;
@@ -3976,81 +4054,6 @@ namespace can {
             constexpr static uint8_t ENGAGEEMERGENCY = 1;
             constexpr static uint8_t ENGAGESERVICE = 2;
         };
-        class BrakeF_TX_Pressure_Act {
-            public:
-            using dataType = float;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x411 };
-            constexpr static float min = static_cast<float>(-2);
-            constexpr static float max = static_cast<float>(18.475);
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
-                if (value > max) {
-                    value = max;
-                }
-                if (value < min) {
-                    value = min;
-                }
-                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
-                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFull;
-            }
-            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint16_t value = static_cast<uint16_t>((intel & 0xFFFFull));
-                return value * (0.005f) + (-2.0f);
-            }
-
-            // Attributes of signal 'BrakeF_TX_Pressure_Act'
-            constexpr static float GenSigStartValue = 400.0f;
-        };
-        class BrakeF_TX_Pressure_Retract {
-            public:
-            using dataType = float;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x411 };
-            constexpr static float min = static_cast<float>(-2);
-            constexpr static float max = static_cast<float>(18.475);
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
-                if (value > max) {
-                    value = max;
-                }
-                if (value < min) {
-                    value = min;
-                }
-                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
-                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
-            }
-            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
-                return value * (0.005f) + (-2.0f);
-            }
-
-            // Attributes of signal 'BrakeF_TX_Pressure_Retract'
-            constexpr static float GenSigStartValue = 400.0f;
-        };
-        class BrakeF_TX_Pressure_Tank {
-            public:
-            using dataType = float;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x411 };
-            constexpr static float min = static_cast<float>(-2);
-            constexpr static float max = static_cast<float>(18.475);
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
-                if (value > max) {
-                    value = max;
-                }
-                if (value < min) {
-                    value = min;
-                }
-                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
-                intel |= (static_cast<uint64_t>(rawValue) << 32) & 0xFFFF00000000ull;
-            }
-            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF00000000ull) >> 32);
-                return value * (0.005f) + (-2.0f);
-            }
-
-            // Attributes of signal 'BrakeF_TX_Pressure_Tank'
-            constexpr static float GenSigStartValue = 400.0f;
-        };
         class BrakeF_NodeState {
             public:
             using dataType = uint8_t;
@@ -4960,6 +4963,33 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
+        class PDU_RX_LP_Enable {
+            public:
+            constexpr static uint32_t id = 0x25B;
+            constexpr static uint8_t dlc = 1;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using PDU_RX_LPCh4_Enable = signals::PDU_RX_LPCh4_Enable;
+            using PDU_RX_LPCh5_Enable = signals::PDU_RX_LPCh5_Enable;
+            using PDU_RX_LPCh6_Enable = signals::PDU_RX_LPCh6_Enable;
+            using PDU_RX_LPCh7_Enable = signals::PDU_RX_LPCh7_Enable;
+
+            // Attributes of message 'PDU_RX_LP_Enable'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BMS_TX_Status {
+            public:
+            constexpr static uint32_t id = 0x1109216;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = true;
+
+            // Signals
+            using BMS_Status_Frame = signals::BMS_Status_Frame;
+
+            // Attributes of message 'BMS_TX_Status'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
         class Track_TX_Respond {
             public:
             constexpr static uint32_t id = 0x1;
@@ -5484,20 +5514,6 @@ namespace can {
             using BrakeF_RX_Engage = signals::BrakeF_RX_Engage;
 
             // Attributes of message 'BrakeF_RX_Control'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class BrakeF_TX_Pressure {
-            public:
-            constexpr static uint32_t id = 0x411;
-            constexpr static uint8_t dlc = 8;
-            constexpr static bool isExtendedId = false;
-
-            // Signals
-            using BrakeF_TX_Pressure_Act = signals::BrakeF_TX_Pressure_Act;
-            using BrakeF_TX_Pressure_Retract = signals::BrakeF_TX_Pressure_Retract;
-            using BrakeF_TX_Pressure_Tank = signals::BrakeF_TX_Pressure_Tank;
-
-            // Attributes of message 'BrakeF_TX_Pressure'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class BrakeF_Heartbeat {
