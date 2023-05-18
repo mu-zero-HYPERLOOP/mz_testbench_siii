@@ -43,7 +43,7 @@ BO_ 2148592864 BMS_Frame: 8 Bat1
 BO_ 1 Track_TX_Respond: 1 Track
  SG_ Track_TX_Response : 0|8@1+ (1,0) [0|255] ""  SensorF
 
-BO_ 0 Track_RX_Controll: 1 SensorF
+BO_ 0 Track_RX_Controll: 1 Vector__XXX
  SG_ Track_RX_Command : 0|8@1+ (1,0) [0|255] "" Vector__XXX
 
 BO_ 512 TEST_GROUND_STATION_CONTROLL: 1 Vector__XXX
@@ -402,10 +402,10 @@ BO_ 474 PDU_RX_Control: 1 SensorF
  SG_ PDU_RX_Enable : 0|1@1+ (1,0) [0|0] ""  PDU
 
 BO_ 538 PDU_TX_HP_Current: 8 PDU
- SG_ PDU_HPCh4_Current : 48|12@1+ (0.004,0) [0|16.38] "A"  SensorF
- SG_ PDU_HPCh3_Current : 32|12@1+ (0.004,0) [0|16.38] "A"  SensorF
- SG_ PDU_HPCh2_Current : 16|12@1+ (0.004,0) [0|16.38] "A"  SensorF
- SG_ PDU_HPCh1_Current : 0|12@1+ (0.004,0) [0|16.38] "A"  SensorF
+ SG_ PDU_HPCh4_Current : 48|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
+ SG_ PDU_HPCh3_Current : 32|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
+ SG_ PDU_HPCh2_Current : 16|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
+ SG_ PDU_HPCh1_Current : 0|12@1+ (0.004,0) [0|16.38] "A" Vector__XXX
 
 BO_ 602 PDU_RX_LP_Dutycycle: 6 SensorF
  SG_ PDU_LPCh9_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%" Vector__XXX
@@ -492,18 +492,18 @@ BO_ 1242 PDU_TX_LV_BMS: 4 PDU
  SG_ PDU_LV_Current : 0|12@1+ (0.01,0) [0|40.95] "A" Vector__XXX
 
 BO_ 1306 PDU_TX_LP_Current1: 8 PDU
- SG_ PDU_LPCh5_Current : 48|12@1+ (0.002,0) [0|8.19] "A"  SensorF
- SG_ PDU_LPCh4_Current : 36|12@1+ (0.002,0) [0|8.19] "A"  SensorF
- SG_ PDU_LPCh3_Current : 24|12@1+ (0.002,0) [0|8.19] "A"  SensorF
- SG_ PDU_LPCh2_Current : 12|12@1+ (0.002,0) [0|8.19] "A"  SensorF
- SG_ PDU_LPCh1_Current : 0|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh5_Current : 48|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh4_Current : 36|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh3_Current : 24|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh2_Current : 12|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh1_Current : 0|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
 
 BO_ 1370 PDU_TX_LP_Current2: 8 PDU
- SG_ PDU_LPCh9_Current : 48|12@1+ (0.002,0) [0|8.19] "A"  SensorF
- SG_ PDU_LPCh8_Current : 36|12@1+ (0.002,0) [0|8.19] "A"  SensorF
- SG_ PDU_LPCh7_Current : 24|12@1+ (0.002,0) [0|8.19] "A"  SensorF
- SG_ PDU_LPCh6_Current : 12|12@1+ (0.002,0) [0|8.19] "A"  SensorF
- SG_ PDU_LPCh10_Current : 0|12@1+ (0.002,0) [0|8.19] "A"  SensorF
+ SG_ PDU_LPCh9_Current : 48|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh8_Current : 36|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh7_Current : 24|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh6_Current : 12|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
+ SG_ PDU_LPCh10_Current : 0|12@1+ (0.002,0) [0|8.19] "A" Vector__XXX
 
 BO_ 1434 PDU_SDO_Resp: 8 PDU
  SG_ PDU_SDO_RespCode : 12|4@1+ (1,0) [0|0] ""  TelemetryNode
@@ -2108,6 +2108,7 @@ BO_ 1906 Track_BTL_TX: 8 Track
 BO_ 1970 Track_BTL_RX: 8 TelemetryNode
 
 BO_TX_BU_ 256 : MDB6,MDB1,MDB2,MDB3,MDB4,MDB5;
+BO_TX_BU_ 1041 : BrakeF,SensorF;
 
 
 CM_ BU_ OpticalSensor "Kistler SFP-II optical Sensor.";
@@ -2740,10 +2741,10 @@ BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
 BA_ "CANzero_NMTMasterName" "Master";
 BA_ "CANzero_SDOClientName" "TelemetryNode";
-BA_ "CANzero_DBCVersion" 176;
+BA_ "CANzero_DBCVersion" 184;
 BA_ "CANzero_ProtocolVersion" "V1.0";
 BA_ "BusType" "CAN";
-BA_ "DBName" "pod2022";
+BA_ "DBName" "pod2023";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
 BA_ "CANzero_NodeID" BU_ SensorR 2;
