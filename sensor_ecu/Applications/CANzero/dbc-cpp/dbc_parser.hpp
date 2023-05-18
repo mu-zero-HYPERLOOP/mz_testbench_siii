@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 15:12:59 16.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 14:06:28 18.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -48,10 +48,10 @@ namespace can {
     namespace filters {
         constexpr uint8_t num_ext = 1;      // Number of used receive filters for extended (29-bit) ID messages
         constexpr uint32_t mask_ext[1] = {   // Filter mask for extended (29-bit) ID messages
-            0x1109213 
+            0x1FFFFFFF 
         };
         constexpr uint32_t id_ext[1] = {     // Filter ID for extended (29-bit) ID messages
-            0x1109212 
+            0x1FFFFFFA 
         };
 
         constexpr uint8_t num_std = 26;      // Number of used receive filters for standard (11-bit) ID messages
@@ -62,16 +62,16 @@ namespace can {
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x77F 
+            0x7FF,            0x7FF 
         };
         constexpr uint32_t id_std[26] = {     // Filter ID for standard (11-bit) ID messages
-            0x25B,            0x001,            0x200,            0x100, 
-            0x002,            0x1C1,            0x341,            0x5C1, 
-            0x601,            0x701,            0x781,            0x202, 
-            0x702,            0x191,            0x711,            0x192, 
-            0x712,            0x19A,            0x21A,            0x51A, 
-            0x55A,            0x71A,            0x18A,            0x70A, 
-            0x722,            0x241 
+            0x001,            0x200,            0x100,            0x002, 
+            0x1C1,            0x241,            0x2C1,            0x341, 
+            0x5C1,            0x601,            0x701,            0x781, 
+            0x202,            0x702,            0x191,            0x711, 
+            0x192,            0x712,            0x19A,            0x21A, 
+            0x51A,            0x55A,            0x71A,            0x18A, 
+            0x70A,            0x722 
         };
     }
 
@@ -460,95 +460,17 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char BusType[] = "CAN";
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 179;
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr uint32_t CANzero_DBCVersion = 175;
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
-        class PDU_RX_LPCh4_Enable {
-            public:
-            using dataType = bool;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
-                bool rawValue = value;
-                intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
-            }
-            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                bool value = static_cast<bool>((intel & 0x1ull));
-                return value;
-            }
-        };
-        class PDU_RX_LPCh5_Enable {
-            public:
-            using dataType = bool;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
-                bool rawValue = value;
-                intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
-            }
-            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                bool value = static_cast<bool>((intel & 0x2ull) >> 1);
-                return value;
-            }
-        };
-        class PDU_RX_LPCh6_Enable {
-            public:
-            using dataType = bool;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
-                bool rawValue = value;
-                intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
-            }
-            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                bool value = static_cast<bool>((intel & 0x4ull) >> 2);
-                return value;
-            }
-        };
-        class PDU_RX_LPCh7_Enable {
-            public:
-            using dataType = bool;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
-                bool rawValue = value;
-                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
-            }
-            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                bool value = static_cast<bool>((intel & 0x8ull) >> 3);
-                return value;
-            }
-        };
-        class BMS_Status_Frame {
-            public:
-            using dataType = uint64_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x1109216 };
-            constexpr static uint64_t min = static_cast<uint64_t>(0);
-            constexpr static uint64_t max = static_cast<uint64_t>(255);
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint64_t value) noexcept {
-                if (value > max) {
-                    value = max;
-                }
-                if (value < min) {
-                    value = min;
-                }
-                uint64_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFFFFFFFFFull;
-            }
-            constexpr static inline uint64_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint64_t value = static_cast<uint64_t>((intel & 0xFFFFFFFFFFFFFFFFull));
-                return value;
-            }
-        };
         class Track_TX_Response {
             public:
             using dataType = uint8_t;
@@ -5283,33 +5205,6 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
-        class PDU_RX_LP_Enable {
-            public:
-            constexpr static uint32_t id = 0x25B;
-            constexpr static uint8_t dlc = 1;
-            constexpr static bool isExtendedId = false;
-
-            // Signals
-            using PDU_RX_LPCh4_Enable = signals::PDU_RX_LPCh4_Enable;
-            using PDU_RX_LPCh5_Enable = signals::PDU_RX_LPCh5_Enable;
-            using PDU_RX_LPCh6_Enable = signals::PDU_RX_LPCh6_Enable;
-            using PDU_RX_LPCh7_Enable = signals::PDU_RX_LPCh7_Enable;
-
-            // Attributes of message 'PDU_RX_LP_Enable'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class BMS_TX_Status {
-            public:
-            constexpr static uint32_t id = 0x1109216;
-            constexpr static uint8_t dlc = 8;
-            constexpr static bool isExtendedId = true;
-
-            // Signals
-            using BMS_Status_Frame = signals::BMS_Status_Frame;
-
-            // Attributes of message 'BMS_TX_Status'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
         class Track_TX_Respond {
             public:
             constexpr static uint32_t id = 0x1;

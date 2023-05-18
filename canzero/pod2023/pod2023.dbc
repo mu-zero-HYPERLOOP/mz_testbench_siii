@@ -36,6 +36,8 @@ BS_:
 BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track
 
 
+BO_ 272 BrakeF_TX_PressureCooling: 8 Vector__XXX
+
 BO_ 2148592864 BMS_Frame: 8 Bat1
 
 BO_ 1 Track_TX_Respond: 1 Track
@@ -292,10 +294,10 @@ BO_ 913 BrakeF_TX_PDO5: 0 BrakeF
 
 BO_ 977 BrakeF_TX_PDO6: 0 BrakeF
 
-BO_ 1041 BrakeF_TX_Pressure: 6 BrakeF
- SG_ BrakeF_TX_Pressure_Tank : 32|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
- SG_ BrakeF_TX_Pressure_Retract : 16|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
- SG_ BrakeF_TX_Pressure_Act : 0|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
+BO_ 1041 BrakeF_TX_Pressure: 8 BrakeF
+ SG_ BrakeF_TX_Pressure_Tank : 32|16@1+ (0.005,-2) [-2|18.475] "bar"  SensorF
+ SG_ BrakeF_TX_Pressure_Retract : 16|16@1+ (0.005,-2) [-2|18.475] "bar"  SensorF
+ SG_ BrakeF_TX_Pressure_Act : 0|16@1+ (0.005,-2) [-2|18.475] "bar"  SensorF
 
 BO_ 1105 BrakeF_TX_PDO8: 0 BrakeF
 
@@ -2736,11 +2738,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "BusType" "CAN";
-BA_ "CANzero_ProtocolVersion" "V1.0";
-BA_ "CANzero_DBCVersion" 174;
-BA_ "CANzero_SDOClientName" "TelemetryNode";
 BA_ "CANzero_NMTMasterName" "Master";
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_DBCVersion" 176;
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "BusType" "CAN";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -2757,6 +2759,7 @@ BA_ "CANzero_NodeID" BU_ MDB4 40;
 BA_ "CANzero_NodeID" BU_ MDB5 41;
 BA_ "CANzero_NodeID" BU_ MDB6 49;
 BA_ "CANzero_NodeID" BU_ Track 50;
+BA_ "GenMsgCycleTime" BO_ 272 100;
 BA_ "GenMsgCycleTime" BO_ 2148592864 100;
 BA_ "GenMsgCycleTime" BO_ 1 100;
 BA_ "GenMsgCycleTime" BO_ 0 100;
@@ -2986,8 +2989,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgCycleTime" BO_ 1456 10;
 BA_ "GenMsgSendType" BO_ 1456 0;
+BA_ "GenMsgCycleTime" BO_ 1456 10;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -3002,10 +3005,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgCycleTime" BO_ 1280 10;
 BA_ "GenMsgSendType" BO_ 1280 0;
-BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1280 10;
 BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1296 0;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;

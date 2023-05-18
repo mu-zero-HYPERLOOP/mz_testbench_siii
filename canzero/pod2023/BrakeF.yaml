@@ -10,30 +10,6 @@ ndf:
 
 ## Add your signals for the object-dictionary below
 object_dictionary:
-  0xA00:
-    name: Pressure1
-    comment: "Pressure value in bar of pressure sensor 1"
-    length: 16
-    default: 0
-  0xA01:
-    name: Pressure2
-    comment: "Pressure value in bar of pressure sensor 2"
-    length: 16
-    default: 0
-  0xA02:
-    name: Pressure3
-    comment: "Pressure value in bar of pressure sensor 3"
-    length: 16
-    default: 0
-  0xA03:
-    name: Pressure4
-    comment: "Pressure value in bar of pressure sensor 4"
-    length: 16
-    default: 0
-
-
-
-
 
 
 ## Add your emergency codes below

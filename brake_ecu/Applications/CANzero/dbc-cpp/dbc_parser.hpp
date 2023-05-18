@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 12:50:56 18.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 13:18:57 18.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'BrakeF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -440,17 +440,42 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char BusType[] = "CAN";
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 174;
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr uint32_t CANzero_DBCVersion = 176;
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
+        class BrakeF_TX_Pressure_Reservoir {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x110 };
+            constexpr static float min = static_cast<float>(-2);
+            constexpr static float max = static_cast<float>(18.475);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFull));
+                return value * (0.005f) + (-2.0f);
+            }
+
+            // Attributes of signal 'BrakeF_TX_Pressure_Reservoir'
+            constexpr static float GenSigStartValue = 400.0f;
+        };
         class CANzero_NMT_State {
             public:
             using dataType = uint16_t;
@@ -2614,6 +2639,18 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
+        class BrakeF_TX_PressureCooling {
+            public:
+            constexpr static uint32_t id = 0x110;
+            constexpr static uint8_t dlc = 2;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using BrakeF_TX_Pressure_Reservoir = signals::BrakeF_TX_Pressure_Reservoir;
+
+            // Attributes of message 'BrakeF_TX_PressureCooling'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
         class CANzero_NMT {
             public:
             constexpr static uint32_t id = 0x2;

@@ -13,6 +13,7 @@
 #include "PressureSensor.hpp"
 #include "estdio.hpp"
 #include "MovingAverageFilter.hpp"
+#include "canzero.hpp"
 
 
 #ifdef __cplusplus
