@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 13:18:58 18.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 15:42:49 18.05.2023.
  * It contains the object dictionary for the node 'BrakeF'.
  *
  * Florian Keck
@@ -56,10 +56,6 @@ volatile float    OD_delay                    = can::signals::BrakeF_OD_delay::C
 volatile uint8_t  OD_counterLimit             = can::signals::BrakeF_OD_counterLimit::CANzero_SDO_Default;
 volatile uint16_t OD_commWatchdog             = can::signals::BrakeF_OD_commWatchdog::CANzero_SDO_Default;
 volatile float    OD_valveUpperTolerance      = can::signals::BrakeF_OD_valveUpperTolerance::CANzero_SDO_Default;
-volatile uint16_t OD_Pressure1                = can::signals::BrakeF_OD_Pressure1::CANzero_SDO_Default;
-volatile uint16_t OD_Pressure2                = can::signals::BrakeF_OD_Pressure2::CANzero_SDO_Default;
-volatile uint16_t OD_Pressure3                = can::signals::BrakeF_OD_Pressure3::CANzero_SDO_Default;
-volatile uint16_t OD_Pressure4                = can::signals::BrakeF_OD_Pressure4::CANzero_SDO_Default;
 
 
 /**************************************************************************
@@ -108,10 +104,6 @@ osMutexId_t mutex_OD_delay                    = osMutexNew(NULL);
 osMutexId_t mutex_OD_counterLimit             = osMutexNew(NULL);
 osMutexId_t mutex_OD_commWatchdog             = osMutexNew(NULL);
 osMutexId_t mutex_OD_valveUpperTolerance      = osMutexNew(NULL);
-osMutexId_t mutex_OD_Pressure1                = osMutexNew(NULL);
-osMutexId_t mutex_OD_Pressure2                = osMutexNew(NULL);
-osMutexId_t mutex_OD_Pressure3                = osMutexNew(NULL);
-osMutexId_t mutex_OD_Pressure4                = osMutexNew(NULL);
 
 
 /**************************************************************************
@@ -297,22 +289,6 @@ void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {
             break;
         case 0x805:    // OD_valveUpperTolerance
             msgSdoResp.set<can::signals::BrakeF_OD_valveUpperTolerance>(OD_valveUpperTolerance_get());
-            respCode = can::signals::BrakeF_SDO_RespCode::OK;
-            break;
-        case 0xA00:    // OD_Pressure1
-            msgSdoResp.set<can::signals::BrakeF_OD_Pressure1>(OD_Pressure1_get());
-            respCode = can::signals::BrakeF_SDO_RespCode::OK;
-            break;
-        case 0xA01:    // OD_Pressure2
-            msgSdoResp.set<can::signals::BrakeF_OD_Pressure2>(OD_Pressure2_get());
-            respCode = can::signals::BrakeF_SDO_RespCode::OK;
-            break;
-        case 0xA02:    // OD_Pressure3
-            msgSdoResp.set<can::signals::BrakeF_OD_Pressure3>(OD_Pressure3_get());
-            respCode = can::signals::BrakeF_SDO_RespCode::OK;
-            break;
-        case 0xA03:    // OD_Pressure4
-            msgSdoResp.set<can::signals::BrakeF_OD_Pressure4>(OD_Pressure4_get());
             respCode = can::signals::BrakeF_SDO_RespCode::OK;
             break;
         default:
@@ -605,34 +581,6 @@ if (value < 0.0f || value > 327.675f) {
                 respCode = can::signals::BrakeF_SDO_RespCode::OK;
             }
             msgSdoResp.set<can::signals::BrakeF_OD_valveUpperTolerance>(OD_valveUpperTolerance_get());
-            break;
-        }
-        case 0xA00: {   // OD_Pressure1
-            uint16_t value = msgSdoReq.get<can::signals::BrakeF_OD_Pressure1>();
-                OD_Pressure1_set(value);
-                respCode = can::signals::BrakeF_SDO_RespCode::OK;
-            msgSdoResp.set<can::signals::BrakeF_OD_Pressure1>(OD_Pressure1_get());
-            break;
-        }
-        case 0xA01: {   // OD_Pressure2
-            uint16_t value = msgSdoReq.get<can::signals::BrakeF_OD_Pressure2>();
-                OD_Pressure2_set(value);
-                respCode = can::signals::BrakeF_SDO_RespCode::OK;
-            msgSdoResp.set<can::signals::BrakeF_OD_Pressure2>(OD_Pressure2_get());
-            break;
-        }
-        case 0xA02: {   // OD_Pressure3
-            uint16_t value = msgSdoReq.get<can::signals::BrakeF_OD_Pressure3>();
-                OD_Pressure3_set(value);
-                respCode = can::signals::BrakeF_SDO_RespCode::OK;
-            msgSdoResp.set<can::signals::BrakeF_OD_Pressure3>(OD_Pressure3_get());
-            break;
-        }
-        case 0xA03: {   // OD_Pressure4
-            uint16_t value = msgSdoReq.get<can::signals::BrakeF_OD_Pressure4>();
-                OD_Pressure4_set(value);
-                respCode = can::signals::BrakeF_SDO_RespCode::OK;
-            msgSdoResp.set<can::signals::BrakeF_OD_Pressure4>(OD_Pressure4_get());
             break;
         }
         default:
@@ -1355,70 +1303,6 @@ void WEAK_SYMBOL OD_valveUpperTolerance_set(const float value) {
 }
 #endif
 
-#ifndef OD_Pressure1_GET_OVERWRITE
-uint16_t WEAK_SYMBOL OD_Pressure1_get() {
-    osMutexAcquire(mutex_OD_Pressure1, portMAX_DELAY);
-    uint16_t value = OD_Pressure1;
-    osMutexRelease(mutex_OD_Pressure1);
-    return value;
-}
-#endif
-#ifndef OD_Pressure1_SET_OVERWRITE
-void WEAK_SYMBOL OD_Pressure1_set(const uint16_t value) {
-    osMutexAcquire(mutex_OD_Pressure1, portMAX_DELAY);
-    OD_Pressure1 = value;
-    osMutexRelease(mutex_OD_Pressure1);
-}
-#endif
-
-#ifndef OD_Pressure2_GET_OVERWRITE
-uint16_t WEAK_SYMBOL OD_Pressure2_get() {
-    osMutexAcquire(mutex_OD_Pressure2, portMAX_DELAY);
-    uint16_t value = OD_Pressure2;
-    osMutexRelease(mutex_OD_Pressure2);
-    return value;
-}
-#endif
-#ifndef OD_Pressure2_SET_OVERWRITE
-void WEAK_SYMBOL OD_Pressure2_set(const uint16_t value) {
-    osMutexAcquire(mutex_OD_Pressure2, portMAX_DELAY);
-    OD_Pressure2 = value;
-    osMutexRelease(mutex_OD_Pressure2);
-}
-#endif
-
-#ifndef OD_Pressure3_GET_OVERWRITE
-uint16_t WEAK_SYMBOL OD_Pressure3_get() {
-    osMutexAcquire(mutex_OD_Pressure3, portMAX_DELAY);
-    uint16_t value = OD_Pressure3;
-    osMutexRelease(mutex_OD_Pressure3);
-    return value;
-}
-#endif
-#ifndef OD_Pressure3_SET_OVERWRITE
-void WEAK_SYMBOL OD_Pressure3_set(const uint16_t value) {
-    osMutexAcquire(mutex_OD_Pressure3, portMAX_DELAY);
-    OD_Pressure3 = value;
-    osMutexRelease(mutex_OD_Pressure3);
-}
-#endif
-
-#ifndef OD_Pressure4_GET_OVERWRITE
-uint16_t WEAK_SYMBOL OD_Pressure4_get() {
-    osMutexAcquire(mutex_OD_Pressure4, portMAX_DELAY);
-    uint16_t value = OD_Pressure4;
-    osMutexRelease(mutex_OD_Pressure4);
-    return value;
-}
-#endif
-#ifndef OD_Pressure4_SET_OVERWRITE
-void WEAK_SYMBOL OD_Pressure4_set(const uint16_t value) {
-    osMutexAcquire(mutex_OD_Pressure4, portMAX_DELAY);
-    OD_Pressure4 = value;
-    osMutexRelease(mutex_OD_Pressure4);
-}
-#endif
-
 
 /**************************************************************************
 * FreeRTOS task that will send out periodically all readable OD entries   *
@@ -1436,10 +1320,9 @@ constexpr uint16_t READABLE_SDO_IDS[] = {
     0x460,    0x461,    0x462,    0x463, 
     0x464,    0x466,    0x467,    0x468, 
     0x469,    0x800,    0x801,    0x802, 
-    0x803,    0x804,    0x805,    0xA00, 
-    0xA01,    0xA02,    0xA03 
+    0x803,    0x804,    0x805 
 };
-constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 47;
+constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 43;
 extern RNG_HandleTypeDef hrng;
 
 void sendOdEntriesTask(void *pvParameters) {

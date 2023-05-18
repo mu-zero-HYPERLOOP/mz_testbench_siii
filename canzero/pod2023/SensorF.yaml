@@ -142,6 +142,71 @@ object_dictionary:
     access: ro
     default: -1.9
     conversion: {scale: 0.01, offset: -100}
+  0xB01:
+    name: ReservoirTemperature
+    length: 16
+    comment: Cooling Reservoir Temperature
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xB02:
+    name: Magnet_1_Temperature
+    length: 16
+    comment: Magnet_1_Temperature
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xB04:
+    name: Magnet_2_Temperature
+    length: 16
+    comment: Magnet_2_Temperature
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xB05:
+    name: Magnet_3_Temperature
+    length: 16
+    comment: Magnet_3_Temperature
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xB06:
+    name: Magnet_4_Temperature
+    length: 16
+    comment: Magnet_4_Temperature
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xB07:
+    name: Magnet_5_Temperature
+    length: 16
+    comment: Magnet_5_Temperature
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  0xB08:
+    name: Magnet_6_Temperature
+    length: 16
+    comment: Magnet_6_Temperature
+    access: ro
+    default: 0
+    conversion: {scale: 0.01, offset: -100}
+  
+  0xB10:
+    name: MdbState                # Required to put a name in.
+    length: 8                     # Required to put a length in bit in. Should be 8, 16, 24, 32, 40 or 48 bit.
+    comment: State of all mdbs if not the same on all mdbs inconsistant.
+    default: 0                    # Default value
+    choices: 
+      0: "precharge"
+      1: "levitaiton"
+      2: "grounded"
+      3: "save_to_approch"
+      4: "precharge_done"
+      255: "inconsistant"
+
+
+
   
   0xC00:
     name: FiducialRightCounter
@@ -179,6 +244,7 @@ object_dictionary:
     comment: Reset the position of the encoder and IMU to zero.
     access: wo
     choices: {0: "None", 1: "Reset"}
+
 
 ## Add your emergency codes below
 emergency:

@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 15:03:09 18.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 17:02:25 18.05.2023.
  * It contains the object dictionary for the node 'SensorF'.
  *
  * Florian Keck
@@ -69,6 +69,14 @@ volatile float    OD_IMU_GyroX                = can::signals::SensorF_OD_IMU_Gyr
 volatile float    OD_IMU_GyroY                = can::signals::SensorF_OD_IMU_GyroY::CANzero_SDO_Default;
 volatile float    OD_IMU_GyroZ                = can::signals::SensorF_OD_IMU_GyroZ::CANzero_SDO_Default;
 volatile float    OD_CoolingPressure          = can::signals::SensorF_OD_CoolingPressure::CANzero_SDO_Default;
+volatile float    OD_ReservoirTemperature     = can::signals::SensorF_OD_ReservoirTemperature::CANzero_SDO_Default;
+volatile float    OD_Magnet_1_Temperature     = can::signals::SensorF_OD_Magnet_1_Temperature::CANzero_SDO_Default;
+volatile float    OD_Magnet_2_Temperature     = can::signals::SensorF_OD_Magnet_2_Temperature::CANzero_SDO_Default;
+volatile float    OD_Magnet_3_Temperature     = can::signals::SensorF_OD_Magnet_3_Temperature::CANzero_SDO_Default;
+volatile float    OD_Magnet_4_Temperature     = can::signals::SensorF_OD_Magnet_4_Temperature::CANzero_SDO_Default;
+volatile float    OD_Magnet_5_Temperature     = can::signals::SensorF_OD_Magnet_5_Temperature::CANzero_SDO_Default;
+volatile float    OD_Magnet_6_Temperature     = can::signals::SensorF_OD_Magnet_6_Temperature::CANzero_SDO_Default;
+volatile uint8_t  OD_MdbState                 = can::signals::SensorF_OD_MdbState::CANzero_SDO_Default;
 volatile uint16_t OD_FiducialRightCounter     = can::signals::SensorF_OD_FiducialRightCounter::CANzero_SDO_Default;
 volatile uint16_t OD_FiducialLeftCounter      = can::signals::SensorF_OD_FiducialLeftCounter::CANzero_SDO_Default;
 volatile float    OD_Position                 = can::signals::SensorF_OD_Position::CANzero_SDO_Default;
@@ -134,6 +142,14 @@ osMutexId_t mutex_OD_IMU_GyroX                = osMutexNew(NULL);
 osMutexId_t mutex_OD_IMU_GyroY                = osMutexNew(NULL);
 osMutexId_t mutex_OD_IMU_GyroZ                = osMutexNew(NULL);
 osMutexId_t mutex_OD_CoolingPressure          = osMutexNew(NULL);
+osMutexId_t mutex_OD_ReservoirTemperature     = osMutexNew(NULL);
+osMutexId_t mutex_OD_Magnet_1_Temperature     = osMutexNew(NULL);
+osMutexId_t mutex_OD_Magnet_2_Temperature     = osMutexNew(NULL);
+osMutexId_t mutex_OD_Magnet_3_Temperature     = osMutexNew(NULL);
+osMutexId_t mutex_OD_Magnet_4_Temperature     = osMutexNew(NULL);
+osMutexId_t mutex_OD_Magnet_5_Temperature     = osMutexNew(NULL);
+osMutexId_t mutex_OD_Magnet_6_Temperature     = osMutexNew(NULL);
+osMutexId_t mutex_OD_MdbState                 = osMutexNew(NULL);
 osMutexId_t mutex_OD_FiducialRightCounter     = osMutexNew(NULL);
 osMutexId_t mutex_OD_FiducialLeftCounter      = osMutexNew(NULL);
 osMutexId_t mutex_OD_Position                 = osMutexNew(NULL);
@@ -375,6 +391,38 @@ void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {
             break;
         case 0xB00:    // OD_CoolingPressure
             msgSdoResp.set<can::signals::SensorF_OD_CoolingPressure>(OD_CoolingPressure_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xB01:    // OD_ReservoirTemperature
+            msgSdoResp.set<can::signals::SensorF_OD_ReservoirTemperature>(OD_ReservoirTemperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xB02:    // OD_Magnet_1_Temperature
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_1_Temperature>(OD_Magnet_1_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xB04:    // OD_Magnet_2_Temperature
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_2_Temperature>(OD_Magnet_2_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xB05:    // OD_Magnet_3_Temperature
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_3_Temperature>(OD_Magnet_3_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xB06:    // OD_Magnet_4_Temperature
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_4_Temperature>(OD_Magnet_4_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xB07:    // OD_Magnet_5_Temperature
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_5_Temperature>(OD_Magnet_5_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xB08:    // OD_Magnet_6_Temperature
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_6_Temperature>(OD_Magnet_6_Temperature_get());
+            respCode = can::signals::SensorF_SDO_RespCode::OK;
+            break;
+        case 0xB10:    // OD_MdbState
+            msgSdoResp.set<can::signals::SensorF_OD_MdbState>(OD_MdbState_get());
             respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0xC00:    // OD_FiducialRightCounter
@@ -747,6 +795,48 @@ if (value < 1.0f || value > 300.0f) {
         case 0xB00: {   // OD_CoolingPressure
             respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
             msgSdoResp.set<can::signals::SensorF_OD_CoolingPressure>(OD_CoolingPressure_get());
+            break;
+        }
+        case 0xB01: {   // OD_ReservoirTemperature
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_ReservoirTemperature>(OD_ReservoirTemperature_get());
+            break;
+        }
+        case 0xB02: {   // OD_Magnet_1_Temperature
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_1_Temperature>(OD_Magnet_1_Temperature_get());
+            break;
+        }
+        case 0xB04: {   // OD_Magnet_2_Temperature
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_2_Temperature>(OD_Magnet_2_Temperature_get());
+            break;
+        }
+        case 0xB05: {   // OD_Magnet_3_Temperature
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_3_Temperature>(OD_Magnet_3_Temperature_get());
+            break;
+        }
+        case 0xB06: {   // OD_Magnet_4_Temperature
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_4_Temperature>(OD_Magnet_4_Temperature_get());
+            break;
+        }
+        case 0xB07: {   // OD_Magnet_5_Temperature
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_5_Temperature>(OD_Magnet_5_Temperature_get());
+            break;
+        }
+        case 0xB08: {   // OD_Magnet_6_Temperature
+            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::SensorF_OD_Magnet_6_Temperature>(OD_Magnet_6_Temperature_get());
+            break;
+        }
+        case 0xB10: {   // OD_MdbState
+            uint8_t value = msgSdoReq.get<can::signals::SensorF_OD_MdbState>();
+                OD_MdbState_set(value);
+                respCode = can::signals::SensorF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::SensorF_OD_MdbState>(OD_MdbState_get());
             break;
         }
         case 0xC00: {   // OD_FiducialRightCounter
@@ -1697,6 +1787,134 @@ void WEAK_SYMBOL OD_CoolingPressure_set(const float value) {
 }
 #endif
 
+#ifndef OD_ReservoirTemperature_GET_OVERWRITE
+float WEAK_SYMBOL OD_ReservoirTemperature_get() {
+    osMutexAcquire(mutex_OD_ReservoirTemperature, portMAX_DELAY);
+    float value = OD_ReservoirTemperature;
+    osMutexRelease(mutex_OD_ReservoirTemperature);
+    return value;
+}
+#endif
+#ifndef OD_ReservoirTemperature_SET_OVERWRITE
+void WEAK_SYMBOL OD_ReservoirTemperature_set(const float value) {
+    osMutexAcquire(mutex_OD_ReservoirTemperature, portMAX_DELAY);
+    OD_ReservoirTemperature = value;
+    osMutexRelease(mutex_OD_ReservoirTemperature);
+}
+#endif
+
+#ifndef OD_Magnet_1_Temperature_GET_OVERWRITE
+float WEAK_SYMBOL OD_Magnet_1_Temperature_get() {
+    osMutexAcquire(mutex_OD_Magnet_1_Temperature, portMAX_DELAY);
+    float value = OD_Magnet_1_Temperature;
+    osMutexRelease(mutex_OD_Magnet_1_Temperature);
+    return value;
+}
+#endif
+#ifndef OD_Magnet_1_Temperature_SET_OVERWRITE
+void WEAK_SYMBOL OD_Magnet_1_Temperature_set(const float value) {
+    osMutexAcquire(mutex_OD_Magnet_1_Temperature, portMAX_DELAY);
+    OD_Magnet_1_Temperature = value;
+    osMutexRelease(mutex_OD_Magnet_1_Temperature);
+}
+#endif
+
+#ifndef OD_Magnet_2_Temperature_GET_OVERWRITE
+float WEAK_SYMBOL OD_Magnet_2_Temperature_get() {
+    osMutexAcquire(mutex_OD_Magnet_2_Temperature, portMAX_DELAY);
+    float value = OD_Magnet_2_Temperature;
+    osMutexRelease(mutex_OD_Magnet_2_Temperature);
+    return value;
+}
+#endif
+#ifndef OD_Magnet_2_Temperature_SET_OVERWRITE
+void WEAK_SYMBOL OD_Magnet_2_Temperature_set(const float value) {
+    osMutexAcquire(mutex_OD_Magnet_2_Temperature, portMAX_DELAY);
+    OD_Magnet_2_Temperature = value;
+    osMutexRelease(mutex_OD_Magnet_2_Temperature);
+}
+#endif
+
+#ifndef OD_Magnet_3_Temperature_GET_OVERWRITE
+float WEAK_SYMBOL OD_Magnet_3_Temperature_get() {
+    osMutexAcquire(mutex_OD_Magnet_3_Temperature, portMAX_DELAY);
+    float value = OD_Magnet_3_Temperature;
+    osMutexRelease(mutex_OD_Magnet_3_Temperature);
+    return value;
+}
+#endif
+#ifndef OD_Magnet_3_Temperature_SET_OVERWRITE
+void WEAK_SYMBOL OD_Magnet_3_Temperature_set(const float value) {
+    osMutexAcquire(mutex_OD_Magnet_3_Temperature, portMAX_DELAY);
+    OD_Magnet_3_Temperature = value;
+    osMutexRelease(mutex_OD_Magnet_3_Temperature);
+}
+#endif
+
+#ifndef OD_Magnet_4_Temperature_GET_OVERWRITE
+float WEAK_SYMBOL OD_Magnet_4_Temperature_get() {
+    osMutexAcquire(mutex_OD_Magnet_4_Temperature, portMAX_DELAY);
+    float value = OD_Magnet_4_Temperature;
+    osMutexRelease(mutex_OD_Magnet_4_Temperature);
+    return value;
+}
+#endif
+#ifndef OD_Magnet_4_Temperature_SET_OVERWRITE
+void WEAK_SYMBOL OD_Magnet_4_Temperature_set(const float value) {
+    osMutexAcquire(mutex_OD_Magnet_4_Temperature, portMAX_DELAY);
+    OD_Magnet_4_Temperature = value;
+    osMutexRelease(mutex_OD_Magnet_4_Temperature);
+}
+#endif
+
+#ifndef OD_Magnet_5_Temperature_GET_OVERWRITE
+float WEAK_SYMBOL OD_Magnet_5_Temperature_get() {
+    osMutexAcquire(mutex_OD_Magnet_5_Temperature, portMAX_DELAY);
+    float value = OD_Magnet_5_Temperature;
+    osMutexRelease(mutex_OD_Magnet_5_Temperature);
+    return value;
+}
+#endif
+#ifndef OD_Magnet_5_Temperature_SET_OVERWRITE
+void WEAK_SYMBOL OD_Magnet_5_Temperature_set(const float value) {
+    osMutexAcquire(mutex_OD_Magnet_5_Temperature, portMAX_DELAY);
+    OD_Magnet_5_Temperature = value;
+    osMutexRelease(mutex_OD_Magnet_5_Temperature);
+}
+#endif
+
+#ifndef OD_Magnet_6_Temperature_GET_OVERWRITE
+float WEAK_SYMBOL OD_Magnet_6_Temperature_get() {
+    osMutexAcquire(mutex_OD_Magnet_6_Temperature, portMAX_DELAY);
+    float value = OD_Magnet_6_Temperature;
+    osMutexRelease(mutex_OD_Magnet_6_Temperature);
+    return value;
+}
+#endif
+#ifndef OD_Magnet_6_Temperature_SET_OVERWRITE
+void WEAK_SYMBOL OD_Magnet_6_Temperature_set(const float value) {
+    osMutexAcquire(mutex_OD_Magnet_6_Temperature, portMAX_DELAY);
+    OD_Magnet_6_Temperature = value;
+    osMutexRelease(mutex_OD_Magnet_6_Temperature);
+}
+#endif
+
+#ifndef OD_MdbState_GET_OVERWRITE
+uint8_t WEAK_SYMBOL OD_MdbState_get() {
+    osMutexAcquire(mutex_OD_MdbState, portMAX_DELAY);
+    uint8_t value = OD_MdbState;
+    osMutexRelease(mutex_OD_MdbState);
+    return value;
+}
+#endif
+#ifndef OD_MdbState_SET_OVERWRITE
+void WEAK_SYMBOL OD_MdbState_set(const uint8_t value) {
+    osMutexAcquire(mutex_OD_MdbState, portMAX_DELAY);
+    OD_MdbState = value;
+    osMutexRelease(mutex_OD_MdbState);
+}
+#endif
+
 #ifndef OD_FiducialRightCounter_GET_OVERWRITE
 uint16_t WEAK_SYMBOL OD_FiducialRightCounter_get() {
     osMutexAcquire(mutex_OD_FiducialRightCounter, portMAX_DELAY);
@@ -1781,10 +1999,12 @@ constexpr uint16_t READABLE_SDO_IDS[] = {
     0x902,    0x903,    0x904,    0xA20, 
     0xA25,    0xA26,    0xA27,    0xA28, 
     0xA29,    0xA30,    0xA31,    0xA32, 
-    0xA33,    0xB00,    0xC00,    0xC01, 
+    0xA33,    0xB00,    0xB01,    0xB02, 
+    0xB04,    0xB05,    0xB06,    0xB07, 
+    0xB08,    0xB10,    0xC00,    0xC01, 
     0xD00,    0xD01 
 };
-constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 58;
+constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 66;
 extern RNG_HandleTypeDef hrng;
 
 void sendOdEntriesTask(void *pvParameters) {

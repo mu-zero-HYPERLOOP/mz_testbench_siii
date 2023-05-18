@@ -1,13 +1,13 @@
 /*
- * brake_ecu_control.hpp
+ * imu_controll.hpp
  *
- *  Created on: May 14, 2023
+ *  Created on: May 18, 2023
  *      Author: OfficeLaptop
  */
 
 #pragma once
 
-namespace brake{
+namespace imu {
 
 void init();
 

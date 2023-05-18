@@ -36,14 +36,29 @@ BS_:
 BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track
 
 
-BO_ 603 PDU_RX_LP_Enable: 1 PDU
+BO_ 258 MDB_RX_TargetAirGap: 5 Vector__XXX
+ SG_ MDB_Id_TargetAirGap : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ MDB_AirGap : 0|32@1+ (1,0) [0|0] ""  MDB6,MDB5,MDB4,MDB3,MDB2,MDB1
+
+BO_ 260 MDB_TX_Temperature: 5 MDB1
+ SG_ MDB_Id_Temperature : 32|8@1+ (1,0) [0|255] ""  SensorF
+ SG_ MDB_Temperature : 0|32@1+ (1,0) [0|0] ""  SensorF
+
+BO_ 257 MDB_TX_AirGap: 5 MDB1
+ SG_ MDB_Id_AirGap : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ MDB_AirGap : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1040 BrakeF_TX_PressureCooling: 2 BrakeF
+ SG_ BrakeF_TX_Pressure_Reservoir : 0|12@1+ (0.005,-2) [-2|18.475] "bar"  SensorF
+
+BO_ 266 PDU_RX_LP_Enable: 1 PDU
  SG_ PDU_RX_LPCh7_Enable : 3|1@1+ (1,0) [0|1] ""  SensorF
  SG_ PDU_RX_LPCh6_Enable : 2|1@1+ (1,0) [0|1] ""  SensorF
  SG_ PDU_RX_LPCh5_Enable : 1|1@1+ (1,0) [0|1] ""  SensorF
  SG_ PDU_RX_LPCh4_Enable : 0|1@1+ (1,0) [0|1] ""  SensorF
 
-BO_ 2165346838 BMS_TX_Status: 8 Vector__XXX
- SG_ BMS_Status_Frame : 0|64@1+ (1,0) [0|255] ""  SensorF
+BO_ 2148592864 BMS_Frame: 8 Bat1
+ SG_ BMS_FramePayload : 0|64@1+ (1,0) [0|0] ""  SensorF
 
 BO_ 1 Track_TX_Respond: 1 Track
  SG_ Track_TX_Response : 0|8@1+ (1,0) [0|255] ""  SensorF
@@ -54,9 +69,9 @@ BO_ 0 Track_RX_Controll: 1 SensorF
 BO_ 512 TEST_GROUND_STATION_CONTROLL: 1 Vector__XXX
  SG_ TEST_GROUND_STATION_COMMAND : 0|8@1+ (1,0) [0|255] ""  SensorF
 
-BO_ 256 MDB_TX_State: 2 MDB6
- SG_ MDB_State : 8|8@1+ (1,0) [0|255] ""  SensorF
- SG_ MDB_Id : 0|8@1+ (1,0) [0|255] ""  SensorF
+BO_ 256 MDB_TX_State: 2 MDB5
+ SG_ MDB_Id_State : 8|8@1+ (1,0) [0|255] ""  SensorF
+ SG_ MDB_State : 0|8@1+ (1,0) [0|255] ""  SensorF
 
 BO_ 450 SensorR_RX_POD1: 8 Vector__XXX
 
@@ -189,6 +204,14 @@ BO_ 1409 SensorF_SDO_Resp: 8 SensorF
  SG_ SensorF_OD_Position m3328 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
  SG_ SensorF_OD_FiducialLeftCounter m3073 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
  SG_ SensorF_OD_FiducialRightCounter m3072 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ SensorF_OD_MdbState m2832 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ SensorF_OD_Magnet_6_Temperature m2824 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ SensorF_OD_Magnet_5_Temperature m2823 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ SensorF_OD_Magnet_4_Temperature m2822 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ SensorF_OD_Magnet_3_Temperature m2821 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ SensorF_OD_Magnet_2_Temperature m2820 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ SensorF_OD_Magnet_1_Temperature m2818 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ SensorF_OD_ReservoirTemperature m2817 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
  SG_ SensorF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
  SG_ SensorF_OD_IMU_GyroZ m2611 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
  SG_ SensorF_OD_IMU_GyroY m2610 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
@@ -253,6 +276,14 @@ BO_ 1473 SensorF_SDO_Req_Up: 8 TelemetryNode
  SG_ SensorF_OD_Position m3328 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
  SG_ SensorF_OD_FiducialLeftCounter m3073 : 16|16@1+ (1,0) [0|65535] ""  SensorF
  SG_ SensorF_OD_FiducialRightCounter m3072 : 16|16@1+ (1,0) [0|65535] ""  SensorF
+ SG_ SensorF_OD_MdbState m2832 : 16|8@1+ (1,0) [0|255] ""  SensorF
+ SG_ SensorF_OD_Magnet_6_Temperature m2824 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
+ SG_ SensorF_OD_Magnet_5_Temperature m2823 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
+ SG_ SensorF_OD_Magnet_4_Temperature m2822 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
+ SG_ SensorF_OD_Magnet_3_Temperature m2821 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
+ SG_ SensorF_OD_Magnet_2_Temperature m2820 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
+ SG_ SensorF_OD_Magnet_1_Temperature m2818 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
+ SG_ SensorF_OD_ReservoirTemperature m2817 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
  SG_ SensorF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
  SG_ SensorF_OD_IMU_GyroZ m2611 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
  SG_ SensorF_OD_IMU_GyroY m2610 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
@@ -701,6 +732,11 @@ BO_ 849 BrakeF_RX_PDO4: 0 Vector__XXX
 BO_ 913 BrakeF_TX_PDO5: 0 BrakeF
 
 BO_ 977 BrakeF_TX_PDO6: 0 BrakeF
+
+BO_ 1041 BrakeF_TX_Pressure: 6 BrakeF
+ SG_ BrakeF_TX_Pressure_Tank : 32|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
+ SG_ BrakeF_TX_Pressure_Retract : 16|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
+ SG_ BrakeF_TX_Pressure_Act : 0|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
 
 BO_ 1105 BrakeF_TX_PDO8: 0 BrakeF
 
@@ -3589,7 +3625,9 @@ BO_ 1906 Track_BTL_TX: 8 Track
 
 BO_ 1970 Track_BTL_RX: 8 TelemetryNode
 
-BO_TX_BU_ 256 : MDB6,MDB1,MDB2,MDB3,MDB4,MDB5;
+BO_TX_BU_ 260 : MDB1,MDB6,MDB5,MDB4,MDB3,MDB2;
+BO_TX_BU_ 257 : MDB1,MDB6,MDB5,MDB4,MDB3,MDB2;
+BO_TX_BU_ 256 : MDB5,MDB6,MDB1,MDB2,MDB3,MDB4;
 
 
 CM_ BU_ OpticalSensor "Kistler SFP-II optical Sensor.";
@@ -3626,6 +3664,11 @@ CM_ BU_ MDB6 "ModularLevitationUnit-6
 Node-ID 0x31";
 CM_ BU_ Track "TrackECU
 Node-ID 0x32";
+CM_ SG_ 258 MDB_AirGap "as binary IEEE-754
+";
+CM_ SG_ 260 MDB_Temperature "as binary IEEE-754";
+CM_ SG_ 257 MDB_AirGap "as binary IEEE-754
+";
 CM_ BO_ 2684354555 "longitudinal and transverse velocity, angle between them";
 CM_ SG_ 2684354555 OpticalSensor_TX_Angle "Angle between longitudianl and transverse direction.";
 CM_ SG_ 2684354555 OpticalSensor_TX_VelTrans "Velocity in transverse direction.";
@@ -3692,6 +3735,14 @@ CM_ SG_ 1409 SensorF_OD_Velocity "Estimated Pod velocity";
 CM_ SG_ 1409 SensorF_OD_Position "Estimated Pod position";
 CM_ SG_ 1409 SensorF_OD_FiducialLeftCounter "Fiducial left stripe counter";
 CM_ SG_ 1409 SensorF_OD_FiducialRightCounter "Fiducial right stripe counter";
+CM_ SG_ 1409 SensorF_OD_MdbState "State of all mdbs if not the same on all mdbs inconsistant.";
+CM_ SG_ 1409 SensorF_OD_Magnet_6_Temperature "Magnet_6_Temperature";
+CM_ SG_ 1409 SensorF_OD_Magnet_5_Temperature "Magnet_5_Temperature";
+CM_ SG_ 1409 SensorF_OD_Magnet_4_Temperature "Magnet_4_Temperature";
+CM_ SG_ 1409 SensorF_OD_Magnet_3_Temperature "Magnet_3_Temperature";
+CM_ SG_ 1409 SensorF_OD_Magnet_2_Temperature "Magnet_2_Temperature";
+CM_ SG_ 1409 SensorF_OD_Magnet_1_Temperature "Magnet_1_Temperature";
+CM_ SG_ 1409 SensorF_OD_ReservoirTemperature "Cooling Reservoir Temperature";
 CM_ SG_ 1409 SensorF_OD_CoolingPressure "IMU cooling pressure.";
 CM_ SG_ 1409 SensorF_OD_IMU_GyroZ "IMU gyro z";
 CM_ SG_ 1409 SensorF_OD_IMU_GyroY "IMU gyro y";
@@ -3756,6 +3807,14 @@ CM_ SG_ 1473 SensorF_OD_Velocity "Estimated Pod velocity";
 CM_ SG_ 1473 SensorF_OD_Position "Estimated Pod position";
 CM_ SG_ 1473 SensorF_OD_FiducialLeftCounter "Fiducial left stripe counter";
 CM_ SG_ 1473 SensorF_OD_FiducialRightCounter "Fiducial right stripe counter";
+CM_ SG_ 1473 SensorF_OD_MdbState "State of all mdbs if not the same on all mdbs inconsistant.";
+CM_ SG_ 1473 SensorF_OD_Magnet_6_Temperature "Magnet_6_Temperature";
+CM_ SG_ 1473 SensorF_OD_Magnet_5_Temperature "Magnet_5_Temperature";
+CM_ SG_ 1473 SensorF_OD_Magnet_4_Temperature "Magnet_4_Temperature";
+CM_ SG_ 1473 SensorF_OD_Magnet_3_Temperature "Magnet_3_Temperature";
+CM_ SG_ 1473 SensorF_OD_Magnet_2_Temperature "Magnet_2_Temperature";
+CM_ SG_ 1473 SensorF_OD_Magnet_1_Temperature "Magnet_1_Temperature";
+CM_ SG_ 1473 SensorF_OD_ReservoirTemperature "Cooling Reservoir Temperature";
 CM_ SG_ 1473 SensorF_OD_CoolingPressure "IMU cooling pressure.";
 CM_ SG_ 1473 SensorF_OD_IMU_GyroZ "IMU gyro z";
 CM_ SG_ 1473 SensorF_OD_IMU_GyroY "IMU gyro y";
@@ -4166,6 +4225,7 @@ CM_ BO_ 785 "Transmit PDO 4 of node BrakeF with Node-ID 0x11";
 CM_ BO_ 849 "Receive PDO 4 of node BrakeF with Node-ID 0x11";
 CM_ BO_ 913 "Transmit PDO 5 of node BrakeF with Node-ID 0x11";
 CM_ BO_ 977 "Transmit PDO 6 of node BrakeF with Node-ID 0x11";
+CM_ BO_ 1041 "Transmit PDO 7 of node BrakeF with Node-ID 0x11";
 CM_ BO_ 1105 "Transmit PDO 8 of node BrakeF with Node-ID 0x11";
 CM_ BO_ 1169 "Transmit PDO 9 of node BrakeF with Node-ID 0x11";
 CM_ BO_ 1233 "Transmit PDO 10 of node BrakeF with Node-ID 0x11";
@@ -5701,11 +5761,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "BusType" "CAN";
-BA_ "CANzero_ProtocolVersion" "V1.0";
-BA_ "CANzero_DBCVersion" 182;
-BA_ "CANzero_SDOClientName" "TelemetryNode";
 BA_ "CANzero_NMTMasterName" "Master";
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_DBCVersion" 178;
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "BusType" "CAN";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -5722,8 +5782,13 @@ BA_ "CANzero_NodeID" BU_ MDB4 40;
 BA_ "CANzero_NodeID" BU_ MDB5 41;
 BA_ "CANzero_NodeID" BU_ MDB6 49;
 BA_ "CANzero_NodeID" BU_ Track 50;
-BA_ "GenMsgCycleTime" BO_ 603 100;
-BA_ "GenMsgCycleTime" BO_ 2165346838 100;
+BA_ "GenMsgCycleTime" BO_ 258 100;
+BA_ "GenMsgCycleTime" BO_ 260 100;
+BA_ "GenMsgCycleTime" BO_ 257 100;
+BA_ "GenMsgCycleTime" BO_ 1040 100;
+BA_ "GenSigStartValue" SG_ 1040 BrakeF_TX_Pressure_Reservoir 400;
+BA_ "GenMsgCycleTime" BO_ 266 100;
+BA_ "GenMsgCycleTime" BO_ 2148592864 100;
 BA_ "GenMsgCycleTime" BO_ 1 100;
 BA_ "GenMsgCycleTime" BO_ 0 100;
 BA_ "GenMsgCycleTime" BO_ 512 100;
@@ -5784,6 +5849,46 @@ BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_FiducialRightCounter 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_FiducialRightCounter 1;
 BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_FiducialRightCounter 0.0;
 BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_FiducialRightCounter 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_MdbState "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_MdbState 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_MdbState 1;
+BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_MdbState 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_MdbState 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_6_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_6_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_6_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_6_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_6_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_5_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_5_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_5_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_5_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_5_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_4_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_4_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_4_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_4_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_4_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_3_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_3_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_3_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_3_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_3_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_2_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_2_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_2_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_2_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_2_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_1_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_1_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_1_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_1_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_1_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_ReservoirTemperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_ReservoirTemperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_ReservoirTemperature 1;
+BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_ReservoirTemperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_ReservoirTemperature 0;
 BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_CoolingPressure "";
 BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_CoolingPressure 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_CoolingPressure 1;
@@ -6089,6 +6194,46 @@ BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_FiducialRightCounter 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_FiducialRightCounter 1;
 BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_FiducialRightCounter 0.0;
 BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_FiducialRightCounter 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_MdbState "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_MdbState 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_MdbState 1;
+BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_MdbState 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_MdbState 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_6_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_6_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_6_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_6_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_6_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_5_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_5_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_5_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_5_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_5_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_4_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_4_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_4_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_4_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_4_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_3_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_3_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_3_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_3_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_3_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_2_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_2_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_2_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_2_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_2_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_1_Temperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_1_Temperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_1_Temperature 1;
+BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_1_Temperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_1_Temperature 0;
+BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_ReservoirTemperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_ReservoirTemperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_ReservoirTemperature 1;
+BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_ReservoirTemperature 10000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_ReservoirTemperature 0;
 BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_CoolingPressure "";
 BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_CoolingPressure 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_CoolingPressure 1;
@@ -7610,6 +7755,10 @@ BA_ "GenMsgCycleTime" BO_ 785 100;
 BA_ "GenMsgCycleTime" BO_ 849 100;
 BA_ "GenMsgCycleTime" BO_ 913 100;
 BA_ "GenMsgCycleTime" BO_ 977 100;
+BA_ "GenMsgCycleTime" BO_ 1041 100;
+BA_ "GenSigStartValue" SG_ 1041 BrakeF_TX_Pressure_Tank 400;
+BA_ "GenSigStartValue" SG_ 1041 BrakeF_TX_Pressure_Retract 400;
+BA_ "GenSigStartValue" SG_ 1041 BrakeF_TX_Pressure_Act 400;
 BA_ "GenMsgCycleTime" BO_ 1105 100;
 BA_ "GenMsgCycleTime" BO_ 1169 100;
 BA_ "GenMsgCycleTime" BO_ 1233 100;
@@ -9481,8 +9630,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgCycleTime" BO_ 1456 10;
 BA_ "GenMsgSendType" BO_ 1456 0;
+BA_ "GenMsgCycleTime" BO_ 1456 10;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -9497,10 +9646,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgCycleTime" BO_ 1280 10;
 BA_ "GenMsgSendType" BO_ 1280 0;
-BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1280 10;
 BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1296 0;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;
@@ -13221,6 +13370,7 @@ VAL_ 513 SensorF_TX_ErrorResetTransition 1 "Transition" 0 "No Transitions" ;
 VAL_ 513 SensorF_TX_EnableTransition 1 "Transition" 0 "No Transitions" ;
 VAL_ 513 SensorF_TX_BrakesTransition 1 "Transition" 0 "No Transitions" ;
 VAL_ 1409 SensorF_OD_SetReset 0 "None" 1 "Reset" ;
+VAL_ 1409 SensorF_OD_MdbState 0 "precharge" 1 "levitaiton" 2 "grounded" 3 "save_to_approch" 4 "precharge_done" 255 "inconsistant" ;
 VAL_ 1409 SensorF_OD_EncoderResetPosition 0 "None" 1 "Reset" ;
 VAL_ 1409 SensorF_OD_HVBatteryMode 0 "Discharging" 1 "Charging" ;
 VAL_ 1409 SensorF_OD_StateMachineActivate 0 "Activate" 1 "Deactivate" ;
@@ -13236,8 +13386,9 @@ VAL_ 1409 SensorF_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Err
 VAL_ 1409 SensorF_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1409 SensorF_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
 VAL_ 1409 SensorF_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
-VAL_ 1409 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 3072 "FiducialRightCounter" 3073 "FiducialLeftCounter" 3328 "Position" 3329 "Velocity" 2320 "SetReset" ;
+VAL_ 1409 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 2817 "ReservoirTemperature" 2818 "Magnet_1_Temperature" 2820 "Magnet_2_Temperature" 2821 "Magnet_3_Temperature" 2822 "Magnet_4_Temperature" 2823 "Magnet_5_Temperature" 2824 "Magnet_6_Temperature" 2832 "MdbState" 3072 "FiducialRightCounter" 3073 "FiducialLeftCounter" 3328 "Position" 3329 "Velocity" 2320 "SetReset" ;
 VAL_ 1473 SensorF_OD_SetReset 0 "None" 1 "Reset" ;
+VAL_ 1473 SensorF_OD_MdbState 0 "precharge" 1 "levitaiton" 2 "grounded" 3 "save_to_approch" 4 "precharge_done" 255 "inconsistant" ;
 VAL_ 1473 SensorF_OD_EncoderResetPosition 0 "None" 1 "Reset" ;
 VAL_ 1473 SensorF_OD_HVBatteryMode 0 "Discharging" 1 "Charging" ;
 VAL_ 1473 SensorF_OD_StateMachineActivate 0 "Activate" 1 "Deactivate" ;
@@ -13252,8 +13403,8 @@ VAL_ 1473 SensorF_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
 VAL_ 1473 SensorF_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
 VAL_ 1473 SensorF_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1473 SensorF_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
-VAL_ 1473 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 3072 "FiducialRightCounter" 3073 "FiducialLeftCounter" 3328 "Position" 3329 "Velocity" 2320 "SetReset" ;
-VAL_ 1537 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 3072 "FiducialRightCounter" 3073 "FiducialLeftCounter" 3328 "Position" 3329 "Velocity" 2320 "SetReset" ;
+VAL_ 1473 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 2817 "ReservoirTemperature" 2818 "Magnet_1_Temperature" 2820 "Magnet_2_Temperature" 2821 "Magnet_3_Temperature" 2822 "Magnet_4_Temperature" 2823 "Magnet_5_Temperature" 2824 "Magnet_6_Temperature" 2832 "MdbState" 3072 "FiducialRightCounter" 3073 "FiducialLeftCounter" 3328 "Position" 3329 "Velocity" 2320 "SetReset" ;
+VAL_ 1537 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 2817 "ReservoirTemperature" 2818 "Magnet_1_Temperature" 2820 "Magnet_2_Temperature" 2821 "Magnet_3_Temperature" 2822 "Magnet_4_Temperature" 2823 "Magnet_5_Temperature" 2824 "Magnet_6_Temperature" 2832 "MdbState" 3072 "FiducialRightCounter" 3073 "FiducialLeftCounter" 3328 "Position" 3329 "Velocity" 2320 "SetReset" ;
 VAL_ 1793 SensorF_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
 VAL_ 130 SensorR_E12_highLIMTemperature 0 "Ok" 1 "ERR" ;
 VAL_ 130 SensorR_E11_scimoPEerror101overc 0 "Ok" 1 "ERR" ;

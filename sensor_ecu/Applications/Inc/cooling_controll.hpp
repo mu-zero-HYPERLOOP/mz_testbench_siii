@@ -11,8 +11,8 @@ namespace cooling {
 
 
 enum class MODE {
-	ON,
-	DYNAMIC,
+	ON = 0,
+	ADAPTIV,
 	OFF,
 };
 

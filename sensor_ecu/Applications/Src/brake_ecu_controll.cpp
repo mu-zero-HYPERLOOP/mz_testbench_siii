@@ -12,17 +12,15 @@
 
 namespace brake {
 
-namespace internal {
-float pressureTank;
+void pressureReceiver(RxMessage& raw){
+	can::Message<can::messages::BrakeF_TX_PressureCooling> msg{raw};
+	OD_ReservoirTemperature_set(msg.get<can::signals::BrakeF_TX_Pressure_Reservoir>());
 }
-
 
 void init(){
-
+	can::registerMessageReceiver<can::messages::BrakeF_TX_PressureCooling>(pressureReceiver);
 }
 
-void pressureReceiver(RxMessage& raw){
-}
 
 void update(){
 

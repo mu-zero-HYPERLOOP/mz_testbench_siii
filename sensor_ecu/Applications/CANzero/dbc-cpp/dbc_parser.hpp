@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 15:03:09 18.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 17:02:25 18.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -51,25 +51,25 @@ namespace can {
             0x1FFFFFFF,            0x1FFFFFFF 
         };
         constexpr uint32_t id_ext[2] = {     // Filter ID for extended (29-bit) ID messages
-            0x1109216,            0x1FFFFFFA 
+            0x10ECE0,            0x1FFFFFFA 
         };
 
-        constexpr uint8_t num_std = 21;      // Number of used receive filters for standard (11-bit) ID messages
-        constexpr uint32_t mask_std[21] = {   // Filter mask for standard (11-bit) ID messages
+        constexpr uint8_t num_std = 23;      // Number of used receive filters for standard (11-bit) ID messages
+        constexpr uint32_t mask_std[23] = {   // Filter mask for standard (11-bit) ID messages
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF 
+            0x7FF,            0x7FF,            0x7FF 
         };
-        constexpr uint32_t id_std[21] = {     // Filter ID for standard (11-bit) ID messages
-            0x25B,            0x001,            0x200,            0x100, 
-            0x002,            0x1C1,            0x241,            0x2C1, 
-            0x341,            0x5C1,            0x601,            0x701, 
-            0x781,            0x191,            0x711,            0x19A, 
-            0x21A,            0x51A,            0x55A,            0x71A, 
-            0x722 
+        constexpr uint32_t id_std[23] = {     // Filter ID for standard (11-bit) ID messages
+            0x104,            0x410,            0x10A,            0x001, 
+            0x200,            0x100,            0x002,            0x1C1, 
+            0x241,            0x2C1,            0x341,            0x5C1, 
+            0x601,            0x701,            0x781,            0x191, 
+            0x711,            0x19A,            0x21A,            0x51A, 
+            0x55A,            0x71A,            0x722 
         };
     }
 
@@ -458,22 +458,75 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char BusType[] = "CAN";
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 181;
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr uint32_t CANzero_DBCVersion = 178;
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
+        class MDB_Temperature {
+            public:
+            using dataType = uint32_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x104 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
+                uint32_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
+            }
+            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
+                return value;
+            }
+        };
+        class MDB_Id_Temperature {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x104 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 32) & 0xFF00000000ull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF00000000ull) >> 32);
+                return value;
+            }
+        };
+        class BrakeF_TX_Pressure_Reservoir {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x410 };
+            constexpr static float min = static_cast<float>(-2);
+            constexpr static float max = static_cast<float>(18.475);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFull));
+                return value * (0.005f) + (-2.0f);
+            }
+
+            // Attributes of signal 'BrakeF_TX_Pressure_Reservoir'
+            constexpr static float GenSigStartValue = 400.0f;
+        };
         class PDU_RX_LPCh4_Enable {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static uint32_t ids[] = { 0x10A };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
@@ -487,7 +540,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static uint32_t ids[] = { 0x10A };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
@@ -501,7 +554,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static uint32_t ids[] = { 0x10A };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
@@ -515,7 +568,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static uint32_t ids[] = { 0x10A };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
@@ -525,20 +578,12 @@ namespace can {
                 return value;
             }
         };
-        class BMS_Status_Frame {
+        class BMS_FramePayload {
             public:
             using dataType = uint64_t;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x1109216 };
-            constexpr static uint64_t min = static_cast<uint64_t>(0);
-            constexpr static uint64_t max = static_cast<uint64_t>(255);
+            constexpr static uint32_t ids[] = { 0x10ECE0 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint64_t value) noexcept {
-                if (value > max) {
-                    value = max;
-                }
-                if (value < min) {
-                    value = min;
-                }
                 uint64_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFFFFFFFFFull;
             }
@@ -589,7 +634,7 @@ namespace can {
                 return value;
             }
         };
-        class MDB_Id {
+        class MDB_State {
             public:
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 1;
@@ -603,7 +648,7 @@ namespace can {
                 return value;
             }
         };
-        class MDB_State {
+        class MDB_Id_State {
             public:
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 1;
@@ -1847,6 +1892,14 @@ namespace can {
             constexpr static uint16_t IMU_GYROY = 2610;
             constexpr static uint16_t IMU_GYROZ = 2611;
             constexpr static uint16_t COOLINGPRESSURE = 2816;
+            constexpr static uint16_t RESERVOIRTEMPERATURE = 2817;
+            constexpr static uint16_t MAGNET_1_TEMPERATURE = 2818;
+            constexpr static uint16_t MAGNET_2_TEMPERATURE = 2820;
+            constexpr static uint16_t MAGNET_3_TEMPERATURE = 2821;
+            constexpr static uint16_t MAGNET_4_TEMPERATURE = 2822;
+            constexpr static uint16_t MAGNET_5_TEMPERATURE = 2823;
+            constexpr static uint16_t MAGNET_6_TEMPERATURE = 2824;
+            constexpr static uint16_t MDBSTATE = 2832;
             constexpr static uint16_t FIDUCIALRIGHTCOUNTER = 3072;
             constexpr static uint16_t FIDUCIALLEFTCOUNTER = 3073;
             constexpr static uint16_t POSITION = 3328;
@@ -2027,6 +2080,286 @@ namespace can {
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
             constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_MdbState {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2832            
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2832);
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
+                dlc = 3;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2832) {
+                    while(1);
+                }
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
+                return value;
+            }
+
+            // Value table of signal 'SensorF_OD_MdbState'
+            constexpr static uint8_t PRECHARGE = 0;
+            constexpr static uint8_t LEVITAITON = 1;
+            constexpr static uint8_t GROUNDED = 2;
+            constexpr static uint8_t SAVE_TO_APPROCH = 3;
+            constexpr static uint8_t PRECHARGE_DONE = 4;
+            constexpr static uint8_t INCONSISTANT = 255;
+
+            // Attributes of signal 'SensorF_OD_MdbState'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_Magnet_6_Temperature {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2824            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2824);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2824) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_Magnet_6_Temperature'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_Magnet_5_Temperature {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2823            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2823);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2823) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_Magnet_5_Temperature'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_Magnet_4_Temperature {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2822            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2822);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2822) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_Magnet_4_Temperature'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_Magnet_3_Temperature {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2821            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2821);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2821) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_Magnet_3_Temperature'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_Magnet_2_Temperature {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2820            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2820);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2820) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_Magnet_2_Temperature'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_Magnet_1_Temperature {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2818            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2818);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2818) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_Magnet_1_Temperature'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_ReservoirTemperature {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 2817            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 2817);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 2817) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_ReservoirTemperature'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
             constexpr static float CANzero_SDO_Default = 0.0f;
         };
         class SensorF_OD_CoolingPressure {
@@ -4963,9 +5296,34 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
+        class MDB_TX_Temperature {
+            public:
+            constexpr static uint32_t id = 0x104;
+            constexpr static uint8_t dlc = 5;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using MDB_Temperature = signals::MDB_Temperature;
+            using MDB_Id_Temperature = signals::MDB_Id_Temperature;
+
+            // Attributes of message 'MDB_TX_Temperature'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_PressureCooling {
+            public:
+            constexpr static uint32_t id = 0x410;
+            constexpr static uint8_t dlc = 2;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using BrakeF_TX_Pressure_Reservoir = signals::BrakeF_TX_Pressure_Reservoir;
+
+            // Attributes of message 'BrakeF_TX_PressureCooling'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
         class PDU_RX_LP_Enable {
             public:
-            constexpr static uint32_t id = 0x25B;
+            constexpr static uint32_t id = 0x10A;
             constexpr static uint8_t dlc = 1;
             constexpr static bool isExtendedId = false;
 
@@ -4978,16 +5336,16 @@ namespace can {
             // Attributes of message 'PDU_RX_LP_Enable'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class BMS_TX_Status {
+        class BMS_Frame {
             public:
-            constexpr static uint32_t id = 0x1109216;
+            constexpr static uint32_t id = 0x10ECE0;
             constexpr static uint8_t dlc = 8;
             constexpr static bool isExtendedId = true;
 
             // Signals
-            using BMS_Status_Frame = signals::BMS_Status_Frame;
+            using BMS_FramePayload = signals::BMS_FramePayload;
 
-            // Attributes of message 'BMS_TX_Status'
+            // Attributes of message 'BMS_Frame'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class Track_TX_Respond {
@@ -5033,8 +5391,8 @@ namespace can {
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB_Id = signals::MDB_Id;
             using MDB_State = signals::MDB_State;
+            using MDB_Id_State = signals::MDB_Id_State;
 
             // Attributes of message 'MDB_TX_State'
             constexpr static uint16_t GenMsgCycleTime = 100;
@@ -5298,6 +5656,14 @@ namespace can {
             using SensorF_OD_Position = signals::SensorF_OD_Position;
             using SensorF_OD_FiducialLeftCounter = signals::SensorF_OD_FiducialLeftCounter;
             using SensorF_OD_FiducialRightCounter = signals::SensorF_OD_FiducialRightCounter;
+            using SensorF_OD_MdbState = signals::SensorF_OD_MdbState;
+            using SensorF_OD_Magnet_6_Temperature = signals::SensorF_OD_Magnet_6_Temperature;
+            using SensorF_OD_Magnet_5_Temperature = signals::SensorF_OD_Magnet_5_Temperature;
+            using SensorF_OD_Magnet_4_Temperature = signals::SensorF_OD_Magnet_4_Temperature;
+            using SensorF_OD_Magnet_3_Temperature = signals::SensorF_OD_Magnet_3_Temperature;
+            using SensorF_OD_Magnet_2_Temperature = signals::SensorF_OD_Magnet_2_Temperature;
+            using SensorF_OD_Magnet_1_Temperature = signals::SensorF_OD_Magnet_1_Temperature;
+            using SensorF_OD_ReservoirTemperature = signals::SensorF_OD_ReservoirTemperature;
             using SensorF_OD_CoolingPressure = signals::SensorF_OD_CoolingPressure;
             using SensorF_OD_IMU_GyroZ = signals::SensorF_OD_IMU_GyroZ;
             using SensorF_OD_IMU_GyroY = signals::SensorF_OD_IMU_GyroY;
@@ -5370,6 +5736,14 @@ namespace can {
             using SensorF_OD_Position = signals::SensorF_OD_Position;
             using SensorF_OD_FiducialLeftCounter = signals::SensorF_OD_FiducialLeftCounter;
             using SensorF_OD_FiducialRightCounter = signals::SensorF_OD_FiducialRightCounter;
+            using SensorF_OD_MdbState = signals::SensorF_OD_MdbState;
+            using SensorF_OD_Magnet_6_Temperature = signals::SensorF_OD_Magnet_6_Temperature;
+            using SensorF_OD_Magnet_5_Temperature = signals::SensorF_OD_Magnet_5_Temperature;
+            using SensorF_OD_Magnet_4_Temperature = signals::SensorF_OD_Magnet_4_Temperature;
+            using SensorF_OD_Magnet_3_Temperature = signals::SensorF_OD_Magnet_3_Temperature;
+            using SensorF_OD_Magnet_2_Temperature = signals::SensorF_OD_Magnet_2_Temperature;
+            using SensorF_OD_Magnet_1_Temperature = signals::SensorF_OD_Magnet_1_Temperature;
+            using SensorF_OD_ReservoirTemperature = signals::SensorF_OD_ReservoirTemperature;
             using SensorF_OD_CoolingPressure = signals::SensorF_OD_CoolingPressure;
             using SensorF_OD_IMU_GyroZ = signals::SensorF_OD_IMU_GyroZ;
             using SensorF_OD_IMU_GyroY = signals::SensorF_OD_IMU_GyroY;

@@ -62,10 +62,6 @@ extern volatile float    OD_delay;
 extern volatile uint8_t  OD_counterLimit;
 extern volatile uint16_t OD_commWatchdog;
 extern volatile float    OD_valveUpperTolerance;
-extern volatile uint16_t OD_Pressure1;
-extern volatile uint16_t OD_Pressure2;
-extern volatile uint16_t OD_Pressure3;
-extern volatile uint16_t OD_Pressure4;
 
 /**************************************************************************
 * Semaphores for access to OD values                                      *
@@ -113,10 +109,6 @@ extern osMutexId_t mutex_OD_delay;
 extern osMutexId_t mutex_OD_counterLimit;
 extern osMutexId_t mutex_OD_commWatchdog;
 extern osMutexId_t mutex_OD_valveUpperTolerance;
-extern osMutexId_t mutex_OD_Pressure1;
-extern osMutexId_t mutex_OD_Pressure2;
-extern osMutexId_t mutex_OD_Pressure3;
-extern osMutexId_t mutex_OD_Pressure4;
 
 
 /**************************************************************************
@@ -263,18 +255,6 @@ void OD_commWatchdog_set(const uint16_t value);
 
 float OD_valveUpperTolerance_get();
 void OD_valveUpperTolerance_set(const float value);
-
-uint16_t OD_Pressure1_get();
-void OD_Pressure1_set(const uint16_t value);
-
-uint16_t OD_Pressure2_get();
-void OD_Pressure2_set(const uint16_t value);
-
-uint16_t OD_Pressure3_get();
-void OD_Pressure3_set(const uint16_t value);
-
-uint16_t OD_Pressure4_get();
-void OD_Pressure4_set(const uint16_t value);
 
 
 /**************************************************************************

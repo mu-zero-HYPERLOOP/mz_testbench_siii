@@ -173,7 +173,7 @@ void bmsFrameReceiver(RxMessage& raw){
 }
 
 void init(){
-	can::registerMessageReceiver<can::messages::BMS_TX_Status>(bmsFrameReceiver);
+	can::registerMessageReceiver<can::messages::BMS_Frame>(bmsFrameReceiver);
 }
 
 void update(){

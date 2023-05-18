@@ -17,60 +17,33 @@
 #include "cooling_controll.hpp"
 #include "bms44_receiver.hpp"
 #include "NTCSensor.hpp"
+#include "mdb_controll.hpp"
+#include "kistler_controll.hpp"
+#include "imu_controll.hpp"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 void main_entry(void *argv) {
-
-
-
-	//bms44::init();
-
-	//PressureSensor pressureSensor(ADC_MODULE2, 3);
+	bms44::init();
 	pdu::init();
-	//TODO initalize peripherals.
-	/*
-	ImuMaster imuMaster;
-
+	mdb::init();
+	imu::init();
+	kistler::init();
 
 	FiducialSensor fiducialRight = FiducialSensor(
 			g_peripherals.m_fiducialRightConfig);
 	FiducialSensor fiducialLeft = FiducialSensor(
 			g_peripherals.m_fiducialLeftConfig);
+
 	KistlerController kistlerController;
 
-	imuMaster.start();
-	*/
 	//MODULE | RANK | R2 | U0 | BETA | R25
 	NTCSensor ntc(ADC_MODULE2, 0, 20000, 3.3, 3950, 10000);
 	NTCSensor ntc2(ADC_MODULE2, 1, 20000, 3.3, 3977, 10000);
-	AdcChannelController ain2(ADC_MODULE2, 1);
-
 
 	while (true) {
-		uint16_t avalue = ain2.get(true);
-		printf("avalue = %u/4095\n", avalue);
-		float r = 1000 * (1.0 / ((4095.0 / avalue) - 1));
-		printf("r = %f\n", r);
-
-		//ntc2.configure(287.15);
-
-		//bms44::update();
-		//TODO read sensor data.
-		/*
-		imuMaster.syncRead();
-		OD_IMU_AccelX_set(imuMaster.getAccelX());
-		OD_IMU_AccelY_set(imuMaster.getAccelY());
-		OD_IMU_AccelZ_set(imuMaster.getAccelZ());
-
-		OD_IMU_GyroX_set(imuMaster.getGyroX());
-		OD_IMU_GyroY_set(imuMaster.getGyroY());
-		OD_IMU_GyroZ_set(imuMaster.getGyroZ());
-
-		OD_CoolingPressure_set(pressureSensor.get());
-
 		unsigned int fiducialLeftCounter = fiducialLeft.getCount();
 		OD_FiducialLeftCounter_set((uint16_t)fiducialLeftCounter);
 
@@ -83,13 +56,16 @@ void main_entry(void *argv) {
 		OD_Position_set(kistlerPos);
 		OD_Velocity_set(kistlerVel);
 
-
-		*/
-		//cooling::update();
-		//pdu::update();
-		osDelay(pdMS_TO_TICKS(1000));
 		// ======= POSITION-ESTIMATION ======
 
+		imu::update();
+		kistler::update();
+		bms44::update();
+		mdb::update();
+		cooling::update();
+		pdu::update();
+
+		osDelay(pdMS_TO_TICKS(1000));
 	}
 }
 
