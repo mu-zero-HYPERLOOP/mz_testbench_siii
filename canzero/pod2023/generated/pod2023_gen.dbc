@@ -348,10 +348,10 @@ BO_ 386 SensorR_TX_AccFront: 8 SensorR
  SG_ SensorR_TX_AccFront_X : 0|16@1- (0.00125,0) [-40.96|40.95875] "m/s^2" Vector__XXX
 
 BO_ 514 SensorR_TX_RunStatus: 1 SensorR
- SG_ SensorR_TX_ErrorFlag : 6|1@1+ (1,0) [0|0] ""  SensorF
- SG_ SensorR_TX_Enabled : 5|1@1+ (1,0) [0|0] ""  SensorF
+ SG_ SensorR_TX_ErrorFlag : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SensorR_TX_Enabled : 5|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ SensorR_TX_TrajectorySet : 4|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SensorR_TX_RunState : 0|2@1+ (1,0) [0|0] ""  PDU,SensorF
+ SG_ SensorR_TX_RunState : 0|2@1+ (1,0) [0|0] ""  PDU
 
 BO_ 578 SensorR_RX_PDO2: 0 Vector__XXX
 
@@ -650,7 +650,7 @@ BO_ 1538 SensorR_SDO_Req_Down: 2 TelemetryNode
  SG_ SensorR_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  SensorR
 
 BO_ 1794 SensorR_Heartbeat: 1 SensorR
- SG_ SensorR_NodeState : 0|8@1+ (1,0) [0|0] ""  SensorF,Master,TelemetryNode
+ SG_ SensorR_NodeState : 0|8@1+ (1,0) [0|0] ""  Master,TelemetryNode
 
 BO_ 1858 SensorR_BTL_TX: 8 SensorR
 
@@ -831,9 +831,9 @@ BO_ 402 BrakeR_TX_Status: 3 BrakeR
  SG_ BrakeR_TX_MaxDeltaTime_Control : 16|8@1+ (1,0) [0|255] "ms" Vector__XXX
  SG_ BrakeR_TX_DeltaTime_Control : 8|8@1+ (1,0) [0|255] "ms" Vector__XXX
  SG_ BrakeR_TX_SDC_Input : 4|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BrakeR_TX_ErrorFlag : 3|1@1+ (1,0) [0|0] ""  SensorF
- SG_ BrakeR_TX_Enabled : 2|1@1+ (1,0) [0|0] ""  SensorF
- SG_ BrakeR_TX_Status : 0|2@1+ (1,0) [0|0] ""  SensorF
+ SG_ BrakeR_TX_ErrorFlag : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BrakeR_TX_Enabled : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BrakeR_TX_Status : 0|2@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 466 BrakeR_RX_Control: 1 SensorF
  SG_ BrakeR_RX_Engage : 2|2@1+ (1,0) [0|0] "" Vector__XXX
@@ -968,7 +968,7 @@ BO_ 1554 BrakeR_SDO_Req_Down: 2 TelemetryNode
  SG_ BrakeR_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  BrakeR
 
 BO_ 1810 BrakeR_Heartbeat: 1 BrakeR
- SG_ BrakeR_NodeState : 0|8@1+ (1,0) [0|0] ""  SensorF,Master,TelemetryNode
+ SG_ BrakeR_NodeState : 0|8@1+ (1,0) [0|0] ""  Master,TelemetryNode
 
 BO_ 1874 BrakeR_BTL_TX: 8 BrakeR
 
@@ -1243,10 +1243,10 @@ BO_ 138 HVCU_EMCY: 4 HVCU
  SG_ HVCU_W0_OtherWarning : 0|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
 
 BO_ 394 HVCU_TX_Status: 1 HVCU
- SG_ HVCU_TX_Enabled : 7|1@1+ (1,0) [0|0] ""  SensorF
- SG_ HVCU_TX_ErrorFlag : 6|1@1+ (1,0) [0|0] ""  SensorF
- SG_ HVCU_TX_Status : 3|3@1+ (1,0) [0|0] ""  SensorF
- SG_ HVCU_TX_InternalStatus : 0|3@1+ (1,0) [0|0] ""  SensorF
+ SG_ HVCU_TX_Enabled : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HVCU_TX_ErrorFlag : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HVCU_TX_Status : 3|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HVCU_TX_InternalStatus : 0|3@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 458 HVCU_RX_Control: 1 SensorF
  SG_ HVCU_RX_Charging : 3|1@1+ (1,0) [0|0] "" Vector__XXX
@@ -1370,7 +1370,7 @@ BO_ 1546 HVCU_SDO_Req_Down: 2 TelemetryNode
  SG_ HVCU_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  HVCU
 
 BO_ 1802 HVCU_Heartbeat: 1 HVCU
- SG_ HVCU_NodeState : 0|8@1+ (1,0) [0|0] ""  SensorF,Master,TelemetryNode
+ SG_ HVCU_NodeState : 0|8@1+ (1,0) [0|0] ""  Master,TelemetryNode
 
 BO_ 1866 HVCU_BTL_TX: 8 HVCU
 
@@ -5702,11 +5702,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "CANzero_NMTMasterName" "Master";
-BA_ "CANzero_SDOClientName" "TelemetryNode";
-BA_ "CANzero_DBCVersion" 176;
-BA_ "CANzero_ProtocolVersion" "V1.0";
 BA_ "BusType" "CAN";
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "CANzero_DBCVersion" 179;
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_NMTMasterName" "Master";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -9486,8 +9486,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1456 10;
+BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -9502,10 +9502,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgCycleTime" BO_ 1280 10;
-BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1296 10;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;
