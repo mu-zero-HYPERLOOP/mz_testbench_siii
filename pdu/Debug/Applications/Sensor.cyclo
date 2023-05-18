@@ -1,5 +1,0 @@
-Sensor.cpp:13:1:Sensor::Sensor()	1
-Sensor.cpp:21:6:void Sensor::init(bool, ADC_HandleTypeDef*)	2
-Sensor.cpp:29:15:GPIO_PinState Sensor::readGPIO(GPIO_TypeDef*, uint16_t)	1
-Sensor.cpp:33:1:Sensor::~Sensor()	1
-Sensor.cpp:33:1:virtual Sensor::~Sensor()	1

@@ -1,4 +1,0 @@
-cz_weak.cpp:14:28:void canzero::handle_emergency_warning()	1
-cz_weak.cpp:19:28:void canzero::handle_heartbeat_miss()	1
-cz_weak.cpp:23:28:void canzero::handle_txmailbox_overflow(CAN_HandleTypeDef*)	1
-cz_weak.cpp:27:28:void canzero::handle_trasmission_request_error()	1

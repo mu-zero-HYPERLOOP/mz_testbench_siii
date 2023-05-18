@@ -22,7 +22,6 @@ extern "C" {
 #endif
 
 void canzero_start(void *argv) {
-	/*
 	canzero::init();
 
 	TaskHandle_t sendTaskHandle = nullptr;
@@ -68,8 +67,6 @@ void canzero_start(void *argv) {
 	if(sendOdEntriesStatus != pdPASS){
 		Error_Handler();
 	}
-
-*/
 
 	while (true) {
 		osDelay(osWaitForever);

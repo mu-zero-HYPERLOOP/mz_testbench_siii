@@ -1,2 +1,0 @@
-../Applications/FlashAccess.cpp:11:10:uint32_t flash_read(uint32_t)	16	static
-../Applications/FlashAccess.cpp:15:6:void flash_write(uint32_t, uint32_t)	24	static

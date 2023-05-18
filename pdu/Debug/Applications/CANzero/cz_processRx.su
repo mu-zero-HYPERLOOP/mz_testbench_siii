@@ -1,6 +1,0 @@
-../Applications/CANzero/cz_processRx.cpp:21:6:void processRX(RxMessage)	8	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_Control]	16	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_Manual_Control]	16	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_HP_D_Dutycycle]	16	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_LP_Dutycycle]	16	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/pdu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:95:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::PDU_RX_LP_Enable]	16	static

@@ -1,5 +1,0 @@
-../Applications/Src/LowPassFilter.cpp:13:1:LowPassFilter::LowPassFilter()	16	static
-../Applications/Src/LowPassFilter.cpp:17:1:LowPassFilter::LowPassFilter(float, float)	24	static
-../Applications/Src/LowPassFilter.cpp:33:7:float LowPassFilter::update(float)	16	static
-../Applications/Src/LowPassFilter.cpp:37:7:float LowPassFilter::update(float, float, float)	24	static
-../Applications/Src/LowPassFilter.cpp:42:6:void LowPassFilter::reconfigureFilter(float, float)	24	static

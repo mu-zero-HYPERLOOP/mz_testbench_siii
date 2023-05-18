@@ -1,4 +1,0 @@
-../Applications/Src/cooling_control.cpp:25:6:void cooling::setMode(cooling::MODE)	16	static
-../Applications/Src/cooling_control.cpp:33:6:void cooling::update()	8	static
-../Applications/Src/cooling_control.cpp:57:1:void __static_initialization_and_destruction_0(int, int)	16	static
-../Applications/Src/cooling_control.cpp:57:1:cpp)	8	static

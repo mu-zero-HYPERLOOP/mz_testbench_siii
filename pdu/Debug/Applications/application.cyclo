@@ -1,6 +1,0 @@
-application.cpp:6:1:Application::Application()	1
-application.cpp:21:14:void* Application::create(const char*, osThreadFunc_t, void*)	2
-application.cpp:34:6:void Application::setName(const char*)	1
-application.cpp:38:6:void Application::setStackSize(int)	1
-application.cpp:42:6:void Application::setPriority(osPriority_t)	2
-application.cpp:50:14:tskTaskControlBlock* Application::getTaskHandle()	1

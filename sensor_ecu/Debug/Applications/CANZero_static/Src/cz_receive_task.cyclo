@@ -1,9 +1,0 @@
-core_cm4.h:1939:34:void __NVIC_SystemReset()	1
-cz_receive_task.cpp:20:6:void cz_receive_task(void*)	6
-cz_receive_task.cpp:43:6:void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef*)	2
-cz_receive_task.cpp:60:6:void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef*)	2
-cz_receive_task.cpp:77:6:void HAL_CAN_ErrorCallback(CAN_HandleTypeDef*)	1
-cz_receive_task.cpp:82:6:void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef*)	1
-dbc_parser.hpp:103:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::SensorF_BTL_RX]	2
-dbc_parser.hpp:103:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::SensorF_SDO_Req_Up]	2
-dbc_parser.hpp:103:17:bool can::checkRxMessage(const RxMessage&) [with MESSAGE = can::messages::SensorF_SDO_Req_Down]	2

@@ -1,7 +1,0 @@
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/sensor_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:151:9:can::MessageBase::MessageBase(uint32_t, uint8_t, bool)	24	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/sensor_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:184:14:void can::MessageBase::toBuf(CAN_TxHeaderTypeDef&, uint8_t*, can::CAN_BusTypeDef) const	24	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/sensor_ecu/Applications/CANZero_static/Inc/cz_typedefinitions.hpp:18:8:TxMessage::TxMessage()	16	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/sensor_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:213:19:TxMessage can::MessageBase::getTxMessage(can::CAN_BusTypeDef) const	24	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/sensor_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:220:14:void can::MessageBase::send(can::CAN_BusTypeDef) const	48	static
-/home/karlsassie/Documents/mu-zero/git/mz_testbench_siii/sensor_ecu/Applications/CANzero/dbc-cpp/dbc_parser.hpp:264:19:constexpr can::Message<MESSAGE_T>::Message() [with MESSAGE_T = can::messages::SensorF_EMCY]	16	static
-../Applications/CANZero_static/Src/cz_emergency.cpp:18:6:void canzero::emergency::consumer_entry(void*)	64	static

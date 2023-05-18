@@ -1,8 +1,0 @@
-canzero_emcy.cpp:36:6:void WARN_ALL_clear()	1
-canzero_emcy.cpp:43:6:void WARN_OtherWarning_set()	2
-canzero_emcy.cpp:55:6:void WARN_OtherWarning_clear()	2
-canzero_emcy.cpp:69:6:bool WARN_OtherWarning_get()	1
-canzero_emcy.cpp:81:6:void ERR_ALL_clear()	1
-canzero_emcy.cpp:88:6:void ERR_OtherError_set()	2
-canzero_emcy.cpp:100:6:void ERR_OtherError_clear()	2
-canzero_emcy.cpp:115:6:bool ERR_OtherError_get()	1

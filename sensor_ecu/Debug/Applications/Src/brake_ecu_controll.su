@@ -1,3 +1,0 @@
-../Applications/Src/brake_ecu_controll.cpp:20:6:void brake::init()	4	static
-../Applications/Src/brake_ecu_controll.cpp:24:6:void brake::pressureReceiver(RxMessage&)	16	static
-../Applications/Src/brake_ecu_controll.cpp:27:6:void brake::update()	4	static
