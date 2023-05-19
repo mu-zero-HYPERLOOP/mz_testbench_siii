@@ -10,6 +10,29 @@ ndf:
 
 ## Add your signals for the object-dictionary below
 object_dictionary:
+  0x900:
+    name: PistonStatus
+    length: 8                     
+    comment: Propulsion Piston Status.
+    default: 0                    
+    access: ro
+    choices: 
+      0: "Ready"
+      1: "Extended"
+  0xB00:
+    name: PropulsionPressure
+    length: 16
+    comment: Propulsion Pressure
+    access: ro
+    default: -1.9
+    conversion: {scale: 0.01, offset: -100}
+  0xA00:
+    name: PropulsionDistance
+    length: 16
+    comment: Propulsion Distance
+    access: ro
+    default: -1.9
+    conversion: {scale: 0.01, offset: -100}
 
 ## Add your emergency codes below
 emergency:

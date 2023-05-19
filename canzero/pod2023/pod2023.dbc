@@ -116,9 +116,9 @@ BO_ 123 CANzero_Timestamp: 0 Master
 BO_ 129 SensorF_EMCY: 4 SensorF
 
 BO_ 385 SensorF_TX_StatePod: 2 SensorF
- SG_ SensorF_TX_PodState_Target : 8|3@1+ (1,0) [0|0] ""  BrakeF,PDU
- SG_ SensorF_TX_PodState_Last : 3|3@1+ (1,0) [0|0] ""  BrakeF,PDU
- SG_ SensorF_TX_PodState : 0|3@1+ (1,0) [0|0] ""  BrakeF,PDU
+ SG_ SensorF_TX_PodState_Target : 8|3@1+ (1,0) [0|0] ""  Track,BrakeF,PDU
+ SG_ SensorF_TX_PodState_Last : 3|3@1+ (1,0) [0|0] ""  Track,BrakeF,PDU
+ SG_ SensorF_TX_PodState : 0|3@1+ (1,0) [0|0] ""  Track,BrakeF,PDU
 
 BO_ 449 SensorF_RX_PDO1: 0 Vector__XXX
 
@@ -2765,11 +2765,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "CANzero_NMTMasterName" "Master";
-BA_ "CANzero_SDOClientName" "TelemetryNode";
-BA_ "CANzero_DBCVersion" 181;
-BA_ "CANzero_ProtocolVersion" "V1.0";
 BA_ "BusType" "CAN";
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "CANzero_DBCVersion" 188;
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_NMTMasterName" "Master";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -3021,8 +3021,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1456 10;
+BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -3037,10 +3037,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgCycleTime" BO_ 1280 10;
-BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1296 10;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;

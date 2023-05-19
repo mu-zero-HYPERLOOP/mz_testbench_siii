@@ -205,9 +205,6 @@ object_dictionary:
       4: "precharge_done"
       255: "inconsistant"
 
-
-
-  
   0xC00:
     name: FiducialRightCounter
     length: 16

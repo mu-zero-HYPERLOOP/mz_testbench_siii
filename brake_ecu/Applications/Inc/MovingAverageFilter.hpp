@@ -1,56 +1,38 @@
 /*
  * MovingAverageFilter.hpp
  *
- *  Created on: May 14, 2023
+ *  Created on: May 19, 2023
  *      Author: OfficeLaptop
  */
 
 #pragma once
-#include "FreeRTOS.h"
-#include "cmsis_os.h"
-#include <cinttypes>
-#include <functional>
 
-template<size_t N>
+#include <cinttypes>
+
+template<size_t N, typename T = float>
 class MovingAverageFilter {
 public:
-	explicit MovingAverageFilter() : m_mutex(osMutexNew(NULL)){
-
-	}
-	~MovingAverageFilter(){
-		osMutexDelete(m_mutex);
-	}
-
-	void refresh(std::function<float()> newElementFunction){
-		osMutexAcquire(m_mutex, osWaitForever);
-		float sum = 0;
+	explicit MovingAverageFilter(T inital){
 		for(size_t i=0;i<N;i++){
-			float value = newElementFunction();
-			m_buffer[m_start++] = value;
-			sum += value;
+			m_buf[i] = inital / N;
 		}
-		m_average = sum / N;
-		osMutexRelease(m_mutex);
+		m_average = inital;
+		m_idx = 0;
 	}
 
-	float average(){
-		osMutexAcquire(m_mutex, osWaitForever);
-		float average =  m_average;
-		osMutexRelease(m_mutex);
-		return average;
+	void addValue(const T& value){
+		m_average -= m_buf[m_idx];
+		m_buf[m_idx] = value / N;
+		m_average += m_buf[m_idx];
+		m_idx = (m_idx + 1) % N;
 	}
 
-	void push(float value){
-		osMutexAcquire(m_mutex, osWaitForever);
-		m_average -= m_buffer[m_start];
-		m_buffer[m_start] = value / N;
-		m_average += m_buffer[m_start];
-		osMutexRelease(m_mutex);
+	T get(){
+		return m_average;
 	}
 
 private:
-	float m_average = 0;
-	float m_buffer[N] = {};
-	size_t m_start = 0;
-	osMutexId_t m_mutex;
+	T m_buf[N];
+	T m_average;
+	size_t m_idx;
 };

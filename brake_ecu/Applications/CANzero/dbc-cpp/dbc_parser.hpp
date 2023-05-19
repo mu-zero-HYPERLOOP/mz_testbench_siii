@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 15:42:49 18.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 19:06:15 19.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'BrakeF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -442,7 +442,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
-    constexpr uint32_t CANzero_DBCVersion = 176;
+    constexpr uint32_t CANzero_DBCVersion = 183;
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
     constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
@@ -1106,6 +1106,8 @@ namespace can {
             constexpr static uint16_t COUNTERLIMIT = 2051;
             constexpr static uint16_t COMMWATCHDOG = 2052;
             constexpr static uint16_t VALVEUPPERTOLERANCE = 2053;
+            constexpr static uint16_t BRAKESTATUS = 2304;
+            constexpr static uint16_t COOLINGPRESSURE = 2816;
         };
         class BrakeF_SDO_RespCode {
             public:
@@ -1128,6 +1130,72 @@ namespace can {
             constexpr static uint8_t ERR_READ_ONLY_OBJECT = 3;
             constexpr static uint8_t ERR_NO_ACCESS_IN_THIS_STATE = 4;
             constexpr static uint8_t ERR_OUT_OF_RANGE = 5;
+        };
+        class BrakeF_OD_BrakeStatus {
+            public:
+            // This signal is multiplexed by BrakeF_SDO_ID == 2304            
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2304);
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
+                dlc = 3;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2304) {
+                    while(1);
+                }
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
+                return value;
+            }
+
+            // Value table of signal 'BrakeF_OD_BrakeStatus'
+            constexpr static uint8_t DISENGAGED = 0;
+            constexpr static uint8_t ENGAGED = 1;
+
+            // Attributes of signal 'BrakeF_OD_BrakeStatus'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class BrakeF_OD_CoolingPressure {
+            public:
+            // This signal is multiplexed by BrakeF_SDO_ID == 2816            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x591, 0x5D1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                BrakeF_SDO_ID::set(intel, motorola, dlc, 2816);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (BrakeF_SDO_ID::get(intel, motorola) != 2816) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'BrakeF_OD_CoolingPressure'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 9810.0f;
+            constexpr static float CANzero_SDO_Default = -1.9f;
         };
         class BrakeF_OD_valveUpperTolerance {
             public:
@@ -2758,6 +2826,8 @@ namespace can {
             // Signals
             using BrakeF_SDO_ID = signals::BrakeF_SDO_ID;
             using BrakeF_SDO_RespCode = signals::BrakeF_SDO_RespCode;
+            using BrakeF_OD_BrakeStatus = signals::BrakeF_OD_BrakeStatus;
+            using BrakeF_OD_CoolingPressure = signals::BrakeF_OD_CoolingPressure;
             using BrakeF_OD_valveUpperTolerance = signals::BrakeF_OD_valveUpperTolerance;
             using BrakeF_OD_commWatchdog = signals::BrakeF_OD_commWatchdog;
             using BrakeF_OD_counterLimit = signals::BrakeF_OD_counterLimit;
@@ -2813,6 +2883,8 @@ namespace can {
 
             // Signals
             using BrakeF_SDO_ID = signals::BrakeF_SDO_ID;
+            using BrakeF_OD_BrakeStatus = signals::BrakeF_OD_BrakeStatus;
+            using BrakeF_OD_CoolingPressure = signals::BrakeF_OD_CoolingPressure;
             using BrakeF_OD_valveUpperTolerance = signals::BrakeF_OD_valveUpperTolerance;
             using BrakeF_OD_commWatchdog = signals::BrakeF_OD_commWatchdog;
             using BrakeF_OD_counterLimit = signals::BrakeF_OD_counterLimit;

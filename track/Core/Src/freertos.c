@@ -67,6 +67,13 @@ const osThreadAttr_t main_attributes = {
   .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for canzero */
+osThreadId_t canzeroHandle;
+const osThreadAttr_t canzero_attributes = {
+  .name = "canzero",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for printQueue */
 osMessageQueueId_t printQueueHandle;
 const osMessageQueueAttr_t printQueue_attributes = {
@@ -80,6 +87,7 @@ const osMessageQueueAttr_t printQueue_attributes = {
 
 void StartDefaultTask(void *argument);
 extern void main_entry(void *argument);
+extern void canzero_start(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -163,6 +171,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of main */
   mainHandle = osThreadNew(main_entry, NULL, &main_attributes);
+
+  /* creation of canzero */
+  canzeroHandle = osThreadNew(canzero_start, NULL, &canzero_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

@@ -30,15 +30,16 @@ static AdcModuleController& _getChannelAdcModuleControllerRuntime(AdcModule modu
 class AdcChannelController {
 public:
 	explicit AdcChannelController(AdcModule module, unsigned int rank) :
-			m_module(_getChannelAdcModuleControllerRuntime(module)),
-			m_channel(m_module.getChannelByRank(rank)) {
+			m_module(&_getChannelAdcModuleControllerRuntime(module)),
+			m_channel(m_module->getChannelByRank(rank)) {
 	}
+	AdcChannelController() = default;
 
 	uint16_t get(bool force = false) {
-		m_module.update(force);
+		m_module->update(force);
 		return m_channel->get();
 	}
 private:
-	AdcModuleController& m_module;
+	AdcModuleController* m_module;
 	AdcChannel *m_channel;
 };

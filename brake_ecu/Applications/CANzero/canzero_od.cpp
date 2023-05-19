@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 15:42:49 18.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 19:06:15 19.05.2023.
  * It contains the object dictionary for the node 'BrakeF'.
  *
  * Florian Keck
@@ -56,6 +56,8 @@ volatile float    OD_delay                    = can::signals::BrakeF_OD_delay::C
 volatile uint8_t  OD_counterLimit             = can::signals::BrakeF_OD_counterLimit::CANzero_SDO_Default;
 volatile uint16_t OD_commWatchdog             = can::signals::BrakeF_OD_commWatchdog::CANzero_SDO_Default;
 volatile float    OD_valveUpperTolerance      = can::signals::BrakeF_OD_valveUpperTolerance::CANzero_SDO_Default;
+volatile uint8_t  OD_BrakeStatus              = can::signals::BrakeF_OD_BrakeStatus::CANzero_SDO_Default;
+volatile float    OD_CoolingPressure          = can::signals::BrakeF_OD_CoolingPressure::CANzero_SDO_Default;
 
 
 /**************************************************************************
@@ -104,6 +106,8 @@ osMutexId_t mutex_OD_delay                    = osMutexNew(NULL);
 osMutexId_t mutex_OD_counterLimit             = osMutexNew(NULL);
 osMutexId_t mutex_OD_commWatchdog             = osMutexNew(NULL);
 osMutexId_t mutex_OD_valveUpperTolerance      = osMutexNew(NULL);
+osMutexId_t mutex_OD_BrakeStatus              = osMutexNew(NULL);
+osMutexId_t mutex_OD_CoolingPressure          = osMutexNew(NULL);
 
 
 /**************************************************************************
@@ -289,6 +293,14 @@ void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {
             break;
         case 0x805:    // OD_valveUpperTolerance
             msgSdoResp.set<can::signals::BrakeF_OD_valveUpperTolerance>(OD_valveUpperTolerance_get());
+            respCode = can::signals::BrakeF_SDO_RespCode::OK;
+            break;
+        case 0x900:    // OD_BrakeStatus
+            msgSdoResp.set<can::signals::BrakeF_OD_BrakeStatus>(OD_BrakeStatus_get());
+            respCode = can::signals::BrakeF_SDO_RespCode::OK;
+            break;
+        case 0xB00:    // OD_CoolingPressure
+            msgSdoResp.set<can::signals::BrakeF_OD_CoolingPressure>(OD_CoolingPressure_get());
             respCode = can::signals::BrakeF_SDO_RespCode::OK;
             break;
         default:
@@ -581,6 +593,18 @@ if (value < 0.0f || value > 327.675f) {
                 respCode = can::signals::BrakeF_SDO_RespCode::OK;
             }
             msgSdoResp.set<can::signals::BrakeF_OD_valveUpperTolerance>(OD_valveUpperTolerance_get());
+            break;
+        }
+        case 0x900: {   // OD_BrakeStatus
+            uint8_t value = msgSdoReq.get<can::signals::BrakeF_OD_BrakeStatus>();
+                OD_BrakeStatus_set(value);
+                respCode = can::signals::BrakeF_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::BrakeF_OD_BrakeStatus>(OD_BrakeStatus_get());
+            break;
+        }
+        case 0xB00: {   // OD_CoolingPressure
+            respCode = can::signals::BrakeF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::BrakeF_OD_CoolingPressure>(OD_CoolingPressure_get());
             break;
         }
         default:
@@ -1303,6 +1327,38 @@ void WEAK_SYMBOL OD_valveUpperTolerance_set(const float value) {
 }
 #endif
 
+#ifndef OD_BrakeStatus_GET_OVERWRITE
+uint8_t WEAK_SYMBOL OD_BrakeStatus_get() {
+    osMutexAcquire(mutex_OD_BrakeStatus, portMAX_DELAY);
+    uint8_t value = OD_BrakeStatus;
+    osMutexRelease(mutex_OD_BrakeStatus);
+    return value;
+}
+#endif
+#ifndef OD_BrakeStatus_SET_OVERWRITE
+void WEAK_SYMBOL OD_BrakeStatus_set(const uint8_t value) {
+    osMutexAcquire(mutex_OD_BrakeStatus, portMAX_DELAY);
+    OD_BrakeStatus = value;
+    osMutexRelease(mutex_OD_BrakeStatus);
+}
+#endif
+
+#ifndef OD_CoolingPressure_GET_OVERWRITE
+float WEAK_SYMBOL OD_CoolingPressure_get() {
+    osMutexAcquire(mutex_OD_CoolingPressure, portMAX_DELAY);
+    float value = OD_CoolingPressure;
+    osMutexRelease(mutex_OD_CoolingPressure);
+    return value;
+}
+#endif
+#ifndef OD_CoolingPressure_SET_OVERWRITE
+void WEAK_SYMBOL OD_CoolingPressure_set(const float value) {
+    osMutexAcquire(mutex_OD_CoolingPressure, portMAX_DELAY);
+    OD_CoolingPressure = value;
+    osMutexRelease(mutex_OD_CoolingPressure);
+}
+#endif
+
 
 /**************************************************************************
 * FreeRTOS task that will send out periodically all readable OD entries   *
@@ -1320,9 +1376,10 @@ constexpr uint16_t READABLE_SDO_IDS[] = {
     0x460,    0x461,    0x462,    0x463, 
     0x464,    0x466,    0x467,    0x468, 
     0x469,    0x800,    0x801,    0x802, 
-    0x803,    0x804,    0x805 
+    0x803,    0x804,    0x805,    0x900, 
+    0xB00 
 };
-constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 43;
+constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 45;
 extern RNG_HandleTypeDef hrng;
 
 void sendOdEntriesTask(void *pvParameters) {

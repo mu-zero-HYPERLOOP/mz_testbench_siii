@@ -133,9 +133,9 @@ BO_ 129 SensorF_EMCY: 4 SensorF
  SG_ SensorF_W0_OtherWarning : 0|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
 
 BO_ 385 SensorF_TX_StatePod: 2 SensorF
- SG_ SensorF_TX_PodState_Target : 8|3@1+ (1,0) [0|0] ""  BrakeF,PDU
- SG_ SensorF_TX_PodState_Last : 3|3@1+ (1,0) [0|0] ""  BrakeF,PDU
- SG_ SensorF_TX_PodState : 0|3@1+ (1,0) [0|0] ""  BrakeF,PDU
+ SG_ SensorF_TX_PodState_Target : 8|3@1+ (1,0) [0|0] ""  Track,BrakeF,PDU
+ SG_ SensorF_TX_PodState_Last : 3|3@1+ (1,0) [0|0] ""  Track,BrakeF,PDU
+ SG_ SensorF_TX_PodState : 0|3@1+ (1,0) [0|0] ""  Track,BrakeF,PDU
 
 BO_ 449 SensorF_RX_PDO1: 0 Vector__XXX
 
@@ -749,6 +749,8 @@ BO_ 1297 BrakeF_TX_PDO11: 0 BrakeF
 BO_ 1361 BrakeF_TX_PDO12: 0 BrakeF
 
 BO_ 1425 BrakeF_SDO_Resp: 8 BrakeF
+ SG_ BrakeF_OD_BrakeStatus m2304 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ BrakeF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
  SG_ BrakeF_OD_valveUpperTolerance m2053 : 16|16@1+ (0.005,0) [0|327.675] "bar"  TelemetryNode
  SG_ BrakeF_OD_commWatchdog m2052 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
  SG_ BrakeF_OD_counterLimit m2051 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
@@ -796,6 +798,8 @@ BO_ 1425 BrakeF_SDO_Resp: 8 BrakeF
  SG_ BrakeF_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
 
 BO_ 1489 BrakeF_SDO_Req_Up: 8 TelemetryNode
+ SG_ BrakeF_OD_BrakeStatus m2304 : 16|8@1+ (1,0) [0|255] ""  BrakeF
+ SG_ BrakeF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  BrakeF
  SG_ BrakeF_OD_valveUpperTolerance m2053 : 16|16@1+ (0.005,0) [0|327.675] "bar"  BrakeF
  SG_ BrakeF_OD_commWatchdog m2052 : 16|16@1+ (1,0) [0|65535] "ms"  BrakeF
  SG_ BrakeF_OD_counterLimit m2051 : 16|8@1+ (1,0) [0|255] ""  BrakeF
@@ -3535,6 +3539,9 @@ BO_ 1330 Track_TX_PDO11: 0 Track
 BO_ 1394 Track_TX_PDO12: 0 Track
 
 BO_ 1458 Track_SDO_Resp: 8 Track
+ SG_ Track_OD_PropulsionDistance m2560 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ Track_OD_PropulsionPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ Track_OD_PistonStatus m2304 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
  SG_ Track_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
  SG_ Track_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
  SG_ Track_OD_CAN2_DiscardedTxMessage m1127 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
@@ -3576,6 +3583,9 @@ BO_ 1458 Track_SDO_Resp: 8 Track
  SG_ Track_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
 
 BO_ 1522 Track_SDO_Req_Up: 8 TelemetryNode
+ SG_ Track_OD_PropulsionDistance m2560 : 16|16@1+ (0.01,-100) [-100|555.35] ""  Track
+ SG_ Track_OD_PropulsionPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  Track
+ SG_ Track_OD_PistonStatus m2304 : 16|8@1+ (1,0) [0|255] ""  Track
  SG_ Track_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  Track
  SG_ Track_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  Track
  SG_ Track_OD_CAN2_DiscardedTxMe_0000 m1127 : 16|24@1+ (1,0) [0|16777215] ""  Track
@@ -4233,6 +4243,8 @@ CM_ BO_ 1297 "Transmit PDO 11 of node BrakeF with Node-ID 0x11";
 CM_ BO_ 1361 "Transmit PDO 12 of node BrakeF with Node-ID 0x11";
 CM_ BO_ 1425 "DO NOT CHANGE ANYTHING HERE!
 SDO Response of node BrakeF with Node-ID 0x11";
+CM_ SG_ 1425 BrakeF_OD_BrakeStatus "State of the Brakes";
+CM_ SG_ 1425 BrakeF_OD_CoolingPressure "Cooling cycle Pressure";
 CM_ SG_ 1425 BrakeF_OD_valveUpperTolerance "Tolerance of the lower pressure pneumatic circuit";
 CM_ SG_ 1425 BrakeF_OD_commWatchdog "Max. number of ms to receive a new message";
 CM_ SG_ 1425 BrakeF_OD_counterLimit "Number of cycles in the loop to measure pressure once";
@@ -4280,6 +4292,8 @@ CM_ SG_ 1425 BrakeF_SDO_RespCode "Response code of SDO access.";
 CM_ SG_ 1425 BrakeF_SDO_ID "Specifies SDO-ID of BrakeF";
 CM_ BO_ 1489 "DO NOT CHANGE ANYTHING HERE!
 SDO Request Upload to node BrakeF with Node-ID 0x11";
+CM_ SG_ 1489 BrakeF_OD_BrakeStatus "State of the Brakes";
+CM_ SG_ 1489 BrakeF_OD_CoolingPressure "Cooling cycle Pressure";
 CM_ SG_ 1489 BrakeF_OD_valveUpperTolerance "Tolerance of the lower pressure pneumatic circuit";
 CM_ SG_ 1489 BrakeF_OD_commWatchdog "Max. number of ms to receive a new message";
 CM_ SG_ 1489 BrakeF_OD_counterLimit "Number of cycles in the loop to measure pressure once";
@@ -5635,6 +5649,9 @@ CM_ BO_ 1330 "Transmit PDO 11 of node Track with Node-ID 0x32";
 CM_ BO_ 1394 "Transmit PDO 12 of node Track with Node-ID 0x32";
 CM_ BO_ 1458 "DO NOT CHANGE ANYTHING HERE!
 SDO Response of node Track with Node-ID 0x32";
+CM_ SG_ 1458 Track_OD_PropulsionDistance "Propulsion Distance";
+CM_ SG_ 1458 Track_OD_PropulsionPressure "Propulsion Pressure";
+CM_ SG_ 1458 Track_OD_PistonStatus "Propulsion Piston Status.";
 CM_ SG_ 1458 Track_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
 CM_ SG_ 1458 Track_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
 CM_ SG_ 1458 Track_OD_CAN2_DiscardedTxMessage "Number of discarded TX messages on CAN2 because all messageboxes were full";
@@ -5676,6 +5693,9 @@ CM_ SG_ 1458 Track_SDO_RespCode "Response code of SDO access.";
 CM_ SG_ 1458 Track_SDO_ID "Specifies SDO-ID of Track";
 CM_ BO_ 1522 "DO NOT CHANGE ANYTHING HERE!
 SDO Request Upload to node Track with Node-ID 0x32";
+CM_ SG_ 1522 Track_OD_PropulsionDistance "Propulsion Distance";
+CM_ SG_ 1522 Track_OD_PropulsionPressure "Propulsion Pressure";
+CM_ SG_ 1522 Track_OD_PistonStatus "Propulsion Piston Status.";
 CM_ SG_ 1522 Track_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
 CM_ SG_ 1522 Track_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
 CM_ SG_ 1522 Track_OD_CAN2_DiscardedTxMe_0000 "Number of discarded TX messages on CAN2 because all messageboxes were full";
@@ -5761,11 +5781,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "CANzero_NMTMasterName" "Master";
-BA_ "CANzero_SDOClientName" "TelemetryNode";
-BA_ "CANzero_DBCVersion" 181;
-BA_ "CANzero_ProtocolVersion" "V1.0";
 BA_ "BusType" "CAN";
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "CANzero_DBCVersion" 188;
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_NMTMasterName" "Master";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -7765,6 +7785,16 @@ BA_ "GenMsgCycleTime" BO_ 1233 100;
 BA_ "GenMsgCycleTime" BO_ 1297 100;
 BA_ "GenMsgCycleTime" BO_ 1361 100;
 BA_ "GenMsgCycleTime" BO_ 1425 100;
+BA_ "CANzero_SDO_Group" SG_ 1425 BrakeF_OD_BrakeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 BrakeF_OD_BrakeStatus 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 BrakeF_OD_BrakeStatus 1;
+BA_ "GenSigStartValue" SG_ 1425 BrakeF_OD_BrakeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 BrakeF_OD_BrakeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1425 BrakeF_OD_CoolingPressure "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 BrakeF_OD_CoolingPressure 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 BrakeF_OD_CoolingPressure 1;
+BA_ "GenSigStartValue" SG_ 1425 BrakeF_OD_CoolingPressure 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 BrakeF_OD_CoolingPressure -1.9;
 BA_ "CANzero_SDO_Group" SG_ 1425 BrakeF_OD_valveUpperTolerance "";
 BA_ "CANzero_SDO_AccessType" SG_ 1425 BrakeF_OD_valveUpperTolerance 0;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 BrakeF_OD_valveUpperTolerance 1;
@@ -7983,6 +8013,16 @@ BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 BrakeF_OD_NodeID 1;
 BA_ "GenSigStartValue" SG_ 1425 BrakeF_OD_NodeID 0.0;
 BA_ "CANzero_SDO_Default" SG_ 1425 BrakeF_OD_NodeID 0;
 BA_ "GenMsgCycleTime" BO_ 1489 100;
+BA_ "CANzero_SDO_Group" SG_ 1489 BrakeF_OD_BrakeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 BrakeF_OD_BrakeStatus 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 BrakeF_OD_BrakeStatus 1;
+BA_ "GenSigStartValue" SG_ 1489 BrakeF_OD_BrakeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 BrakeF_OD_BrakeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1489 BrakeF_OD_CoolingPressure "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 BrakeF_OD_CoolingPressure 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 BrakeF_OD_CoolingPressure 1;
+BA_ "GenSigStartValue" SG_ 1489 BrakeF_OD_CoolingPressure 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 BrakeF_OD_CoolingPressure -1.9;
 BA_ "CANzero_SDO_Group" SG_ 1489 BrakeF_OD_valveUpperTolerance "";
 BA_ "CANzero_SDO_AccessType" SG_ 1489 BrakeF_OD_valveUpperTolerance 0;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 BrakeF_OD_valveUpperTolerance 1;
@@ -9630,8 +9670,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1456 10;
+BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -9646,10 +9686,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgCycleTime" BO_ 1280 10;
-BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1296 10;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;
@@ -12949,6 +12989,21 @@ BA_ "GenMsgCycleTime" BO_ 1266 100;
 BA_ "GenMsgCycleTime" BO_ 1330 100;
 BA_ "GenMsgCycleTime" BO_ 1394 100;
 BA_ "GenMsgCycleTime" BO_ 1458 100;
+BA_ "CANzero_SDO_Group" SG_ 1458 Track_OD_PropulsionDistance "";
+BA_ "CANzero_SDO_AccessType" SG_ 1458 Track_OD_PropulsionDistance 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1458 Track_OD_PropulsionDistance 1;
+BA_ "GenSigStartValue" SG_ 1458 Track_OD_PropulsionDistance 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1458 Track_OD_PropulsionDistance -1.9;
+BA_ "CANzero_SDO_Group" SG_ 1458 Track_OD_PropulsionPressure "";
+BA_ "CANzero_SDO_AccessType" SG_ 1458 Track_OD_PropulsionPressure 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1458 Track_OD_PropulsionPressure 1;
+BA_ "GenSigStartValue" SG_ 1458 Track_OD_PropulsionPressure 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1458 Track_OD_PropulsionPressure -1.9;
+BA_ "CANzero_SDO_Group" SG_ 1458 Track_OD_PistonStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1458 Track_OD_PistonStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1458 Track_OD_PistonStatus 1;
+BA_ "GenSigStartValue" SG_ 1458 Track_OD_PistonStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1458 Track_OD_PistonStatus 0;
 BA_ "CANzero_SDO_Group" SG_ 1458 Track_OD_CAN2_DelayedTxMessages "CAN";
 BA_ "CANzero_SDO_AccessType" SG_ 1458 Track_OD_CAN2_DelayedTxMessages 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1458 Track_OD_CAN2_DelayedTxMessages 1;
@@ -13137,6 +13192,21 @@ BA_ "CANzero_SDO_AccessIfOperational" SG_ 1458 Track_OD_NodeID 1;
 BA_ "GenSigStartValue" SG_ 1458 Track_OD_NodeID 0.0;
 BA_ "CANzero_SDO_Default" SG_ 1458 Track_OD_NodeID 0;
 BA_ "GenMsgCycleTime" BO_ 1522 100;
+BA_ "CANzero_SDO_Group" SG_ 1522 Track_OD_PropulsionDistance "";
+BA_ "CANzero_SDO_AccessType" SG_ 1522 Track_OD_PropulsionDistance 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1522 Track_OD_PropulsionDistance 1;
+BA_ "GenSigStartValue" SG_ 1522 Track_OD_PropulsionDistance 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1522 Track_OD_PropulsionDistance -1.9;
+BA_ "CANzero_SDO_Group" SG_ 1522 Track_OD_PropulsionPressure "";
+BA_ "CANzero_SDO_AccessType" SG_ 1522 Track_OD_PropulsionPressure 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1522 Track_OD_PropulsionPressure 1;
+BA_ "GenSigStartValue" SG_ 1522 Track_OD_PropulsionPressure 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1522 Track_OD_PropulsionPressure -1.9;
+BA_ "CANzero_SDO_Group" SG_ 1522 Track_OD_PistonStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1522 Track_OD_PistonStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1522 Track_OD_PistonStatus 1;
+BA_ "GenSigStartValue" SG_ 1522 Track_OD_PistonStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1522 Track_OD_PistonStatus 0;
 BA_ "CANzero_SDO_Group" SG_ 1522 Track_OD_CAN2_DelayedTxMessages "CAN";
 BA_ "CANzero_SDO_AccessType" SG_ 1522 Track_OD_CAN2_DelayedTxMessages 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1522 Track_OD_CAN2_DelayedTxMessages 1;
@@ -13493,6 +13563,7 @@ VAL_ 401 BrakeF_TX_Status 2 "EngagedService" 1 "EngagedEmergency" 0 "Disengaged"
 VAL_ 465 BrakeF_RX_Engage 2 "EngageService" 1 "EngageEmergency" 0 "Disengage" ;
 VAL_ 465 BrakeF_RX_Enable 1 "Enable" 0 "Disable" ;
 VAL_ 465 BrakeF_RX_ErrorReset 1 "Reset" 0 "No Reset" ;
+VAL_ 1425 BrakeF_OD_BrakeStatus 0 "Disengaged" 1 "Engaged" ;
 VAL_ 1425 BrakeF_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
 VAL_ 1425 BrakeF_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
 VAL_ 1425 BrakeF_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
@@ -13504,7 +13575,8 @@ VAL_ 1425 BrakeF_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Erro
 VAL_ 1425 BrakeF_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1425 BrakeF_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
 VAL_ 1425 BrakeF_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
-VAL_ 1425 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" ;
+VAL_ 1425 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" 2816 "CoolingPressure" 2304 "BrakeStatus" ;
+VAL_ 1489 BrakeF_OD_BrakeStatus 0 "Disengaged" 1 "Engaged" ;
 VAL_ 1489 BrakeF_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
 VAL_ 1489 BrakeF_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
 VAL_ 1489 BrakeF_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
@@ -13515,8 +13587,8 @@ VAL_ 1489 BrakeF_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
 VAL_ 1489 BrakeF_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
 VAL_ 1489 BrakeF_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1489 BrakeF_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
-VAL_ 1489 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" ;
-VAL_ 1553 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" ;
+VAL_ 1489 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" 2816 "CoolingPressure" 2304 "BrakeStatus" ;
+VAL_ 1553 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" 2816 "CoolingPressure" 2304 "BrakeStatus" ;
 VAL_ 1809 BrakeF_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
 VAL_ 146 BrakeR_E5_retractUnsuccesful_ope 0 "Ok" 1 "ERR" ;
 VAL_ 146 BrakeR_E4_retractUnsuccesful_not 0 "Ok" 1 "ERR" ;
@@ -13913,6 +13985,7 @@ VAL_ 1585 MDB6_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion"
 VAL_ 1841 MDB6_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
 VAL_ 178 Track_E0_OtherError 0 "Ok" 1 "ERR" ;
 VAL_ 178 Track_W0_OtherWarning 0 "Ok" 1 "WARN" ;
+VAL_ 1458 Track_OD_PistonStatus 0 "Ready" 1 "Extended" ;
 VAL_ 1458 Track_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
 VAL_ 1458 Track_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
 VAL_ 1458 Track_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
@@ -13924,7 +13997,8 @@ VAL_ 1458 Track_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error
 VAL_ 1458 Track_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1458 Track_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
 VAL_ 1458 Track_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
-VAL_ 1458 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
+VAL_ 1458 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2304 "PistonStatus" 2816 "PropulsionPressure" 2560 "PropulsionDistance" ;
+VAL_ 1522 Track_OD_PistonStatus 0 "Ready" 1 "Extended" ;
 VAL_ 1522 Track_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
 VAL_ 1522 Track_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
 VAL_ 1522 Track_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
@@ -13935,8 +14009,8 @@ VAL_ 1522 Track_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
 VAL_ 1522 Track_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
 VAL_ 1522 Track_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1522 Track_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
-VAL_ 1522 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
-VAL_ 1586 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
+VAL_ 1522 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2304 "PistonStatus" 2816 "PropulsionPressure" 2560 "PropulsionDistance" ;
+VAL_ 1586 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2304 "PistonStatus" 2816 "PropulsionPressure" 2560 "PropulsionDistance" ;
 VAL_ 1842 Track_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
 
 

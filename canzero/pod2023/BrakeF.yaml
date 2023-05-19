@@ -10,7 +10,22 @@ ndf:
 
 ## Add your signals for the object-dictionary below
 object_dictionary:
-  
+  0xB00:
+    name: CoolingPressure
+    length: 16
+    comment: Cooling cycle Pressure
+    access: ro
+    default: -1.9
+    conversion: {scale: 0.01, offset: -100}
+  0x900:
+    name: BrakeStatus
+    length: 8                     
+    comment: State of the Brakes
+    default: 0                    
+    choices: 
+      0: "Disengaged"
+      1: "Engaged"
+
 
 ## Add your emergency codes below
 emergency:

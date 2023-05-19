@@ -62,6 +62,8 @@ extern volatile float    OD_delay;
 extern volatile uint8_t  OD_counterLimit;
 extern volatile uint16_t OD_commWatchdog;
 extern volatile float    OD_valveUpperTolerance;
+extern volatile uint8_t  OD_BrakeStatus;
+extern volatile float    OD_CoolingPressure;
 
 /**************************************************************************
 * Semaphores for access to OD values                                      *
@@ -109,6 +111,8 @@ extern osMutexId_t mutex_OD_delay;
 extern osMutexId_t mutex_OD_counterLimit;
 extern osMutexId_t mutex_OD_commWatchdog;
 extern osMutexId_t mutex_OD_valveUpperTolerance;
+extern osMutexId_t mutex_OD_BrakeStatus;
+extern osMutexId_t mutex_OD_CoolingPressure;
 
 
 /**************************************************************************
@@ -255,6 +259,12 @@ void OD_commWatchdog_set(const uint16_t value);
 
 float OD_valveUpperTolerance_get();
 void OD_valveUpperTolerance_set(const float value);
+
+uint8_t OD_BrakeStatus_get();
+void OD_BrakeStatus_set(const uint8_t value);
+
+float OD_CoolingPressure_get();
+void OD_CoolingPressure_set(const float value);
 
 
 /**************************************************************************

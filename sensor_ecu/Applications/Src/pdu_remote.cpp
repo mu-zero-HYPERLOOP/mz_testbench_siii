@@ -37,10 +37,6 @@ static PduStatus s_confirmed_status = {
 		.m_pehwEnabled = false,
 };
 
-static bool m_error = false;
-static bool m_resetError = false;
-
-
 struct LpChannelConfig {
 	static constexpr size_t NUMBER_OF_CHANNELS = 10;
 	bool m_status[NUMBER_OF_CHANNELS];
