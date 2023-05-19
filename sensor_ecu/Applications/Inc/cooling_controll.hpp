@@ -18,6 +18,8 @@ enum class MODE {
 
 void setMode(MODE mode);
 
+void init();
+
 void update();
 
 }

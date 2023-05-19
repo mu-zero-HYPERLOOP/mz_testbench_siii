@@ -147,49 +147,49 @@ object_dictionary:
     length: 16
     comment: Cooling Reservoir Temperature
     access: ro
-    default: 0
+    default: 80
     conversion: {scale: 0.01, offset: -100}
   0xB02:
     name: Magnet_1_Temperature
     length: 16
     comment: Magnet_1_Temperature
     access: ro
-    default: 0
+    default: 80
     conversion: {scale: 0.01, offset: -100}
   0xB04:
     name: Magnet_2_Temperature
     length: 16
     comment: Magnet_2_Temperature
     access: ro
-    default: 0
+    default: 80
     conversion: {scale: 0.01, offset: -100}
   0xB05:
     name: Magnet_3_Temperature
     length: 16
     comment: Magnet_3_Temperature
     access: ro
-    default: 0
+    default: 80
     conversion: {scale: 0.01, offset: -100}
   0xB06:
     name: Magnet_4_Temperature
     length: 16
     comment: Magnet_4_Temperature
     access: ro
-    default: 0
+    default: 80
     conversion: {scale: 0.01, offset: -100}
   0xB07:
     name: Magnet_5_Temperature
     length: 16
     comment: Magnet_5_Temperature
     access: ro
-    default: 0
+    default: 80
     conversion: {scale: 0.01, offset: -100}
   0xB08:
     name: Magnet_6_Temperature
     length: 16
     comment: Magnet_6_Temperature
     access: ro
-    default: 0
+    default: 80
     conversion: {scale: 0.01, offset: -100}
   
   0xB10:

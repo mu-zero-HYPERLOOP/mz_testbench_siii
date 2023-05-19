@@ -50,6 +50,12 @@ public:
 
 	AdcChannel* getChannelByRank(size_t rank) {
 		if (rank >= m_nbrConvertions) {
+			// dont ask me why this doesn't log to console, but maybe it can still be found by clicking on the error message =^(.
+			printf("ERROR: the rank %u is invalid because the adc module only converts %u values\n", rank, m_nbrConvertions);
+			printf("HINT: This might happen if a AdcChannelController is constructed \n"
+					"before the hadc handles are initalized meaning before the Core/Src/main.c file is executed.\n"
+					"One way for this to happen is when a AdcChannelController is declared and constructed as a global.\n",
+					"It can be declared as a global with the default constructor and later be initalized with the correct constructor\n.");
 			Error_Handler();
 		}
 		return m_channels + rank;
@@ -82,7 +88,7 @@ private:
 	}
 
 	ADC_HandleTypeDef *m_hadc;
-	size_t m_nbrConvertions;
+	uint32_t& m_nbrConvertions;
 	AdcChannel *m_channels;
 	uint16_t *m_buffer;
 	bool m_bussy = false;

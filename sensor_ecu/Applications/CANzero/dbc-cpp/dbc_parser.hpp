@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 17:02:25 18.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 17:14:03 19.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -460,7 +460,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
-    constexpr uint32_t CANzero_DBCVersion = 178;
+    constexpr uint32_t CANzero_DBCVersion = 181;
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
     constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
@@ -2149,8 +2149,8 @@ namespace can {
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 18000.0f;
+            constexpr static float CANzero_SDO_Default = 80.0f;
         };
         class SensorF_OD_Magnet_5_Temperature {
             public:
@@ -2184,8 +2184,8 @@ namespace can {
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 18000.0f;
+            constexpr static float CANzero_SDO_Default = 80.0f;
         };
         class SensorF_OD_Magnet_4_Temperature {
             public:
@@ -2219,8 +2219,8 @@ namespace can {
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 18000.0f;
+            constexpr static float CANzero_SDO_Default = 80.0f;
         };
         class SensorF_OD_Magnet_3_Temperature {
             public:
@@ -2254,8 +2254,8 @@ namespace can {
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 18000.0f;
+            constexpr static float CANzero_SDO_Default = 80.0f;
         };
         class SensorF_OD_Magnet_2_Temperature {
             public:
@@ -2289,8 +2289,8 @@ namespace can {
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 18000.0f;
+            constexpr static float CANzero_SDO_Default = 80.0f;
         };
         class SensorF_OD_Magnet_1_Temperature {
             public:
@@ -2324,8 +2324,8 @@ namespace can {
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 18000.0f;
+            constexpr static float CANzero_SDO_Default = 80.0f;
         };
         class SensorF_OD_ReservoirTemperature {
             public:
@@ -2359,8 +2359,8 @@ namespace can {
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 10000.0f;
-            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static float GenSigStartValue = 18000.0f;
+            constexpr static float CANzero_SDO_Default = 80.0f;
         };
         class SensorF_OD_CoolingPressure {
             public:

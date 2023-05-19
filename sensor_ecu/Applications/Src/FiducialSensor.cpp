@@ -7,10 +7,8 @@
 #include "FiducialSensor.hpp"
 #include "estdio.hpp"
 
-FiducialSensor::FiducialSensor(FiducialConfig config) :
-		m_exti(config.m_gpio.m_port, config.m_gpio.m_pin), m_count(0), m_timer(config.m_htim), m_deltaTime(
-				0), m_distanceBetweenInterrupts(
-				config.m_distanceBetweenInterrupts) {
+FiducialSensor::FiducialSensor(GPIO_TypeDef* port, uint16_t pin, TIM_HandleTypeDef* htim, float distanceBetweenInterrupts)
+		: m_exti(port, pin), m_count(0), m_timer(htim), m_deltaTime(0), m_distanceBetweenInterrupts(distanceBetweenInterrupts) {
 	m_exti.setExtiCallback([&](bool v) {
 		this->extiCallback(v);
 	});

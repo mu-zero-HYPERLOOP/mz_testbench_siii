@@ -25,9 +25,9 @@ enum LpChannel : uint16_t{
 
 enum HpChannel : uint16_t{
 	HP_CHANNEL1 = 0,
-	HP_CHANNEL2,
-	HP_CHANNEL3,
-	HP_CHANNEL4
+	HP_CHANNEL2 = 1,
+	HP_CHANNEL3 = 2,
+	HP_CHANNEL4 = 3
 };
 
 enum ChannelStatus {
@@ -48,7 +48,7 @@ ChannelStatus getChannelStatus(LpChannel channel);
 ChannelStatus getChannelStatus(HpChannel channel);
 
 
-void init();
+void init(bool minimizeMessages = true);
 
 void update();
 

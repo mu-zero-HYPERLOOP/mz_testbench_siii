@@ -13,7 +13,7 @@ namespace kistler {
 void mainDataReceiver(RxMessage &raw) {
 	can::Message < can::messages::OpticalSensor_TX_MainData > msg { raw };
 	OD_Velocity_set(msg.get<can::signals::OpticalSensor_TX_Vel>());
-	OD_Position_set(m_position = msg.get<can::signals::OpticalSensor_TX_Distance>());
+	OD_Position_set(msg.get<can::signals::OpticalSensor_TX_Distance>());
 }
 
 void init() {

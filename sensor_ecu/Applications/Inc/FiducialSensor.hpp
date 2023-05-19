@@ -10,11 +10,11 @@
 #include <cinttypes>
 #include "GPIOExtiController.hpp"
 #include "Timer.hpp"
-#include "peripheral_config.hpp"
+#include "tim.h"
 
 class FiducialSensor {
 public:
-	explicit FiducialSensor(FiducialConfig config);
+	explicit FiducialSensor(GPIO_TypeDef* port, uint16_t pin, TIM_HandleTypeDef* htim, float distanceBetweenInterrupts);
 	~FiducialSensor();
 
 	void reset();

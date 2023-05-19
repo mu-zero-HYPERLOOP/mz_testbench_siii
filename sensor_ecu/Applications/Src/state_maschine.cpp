@@ -10,7 +10,7 @@
 #include "cmsis_os.h"
 
 
-namespace fms {
+namespace state_maschine {
 
 PodState s_state;
 PodState s_lastState;

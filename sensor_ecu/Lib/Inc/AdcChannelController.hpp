@@ -30,15 +30,22 @@ static AdcModuleController& _getChannelAdcModuleControllerRuntime(AdcModule modu
 class AdcChannelController {
 public:
 	explicit AdcChannelController(AdcModule module, unsigned int rank) :
-			m_module(_getChannelAdcModuleControllerRuntime(module)),
-			m_channel(m_module.getChannelByRank(rank)) {
+			m_module(&_getChannelAdcModuleControllerRuntime(module)),
+			m_channel(m_module->getChannelByRank(rank)) {
+	}
+	AdcChannelController() : m_module(nullptr), m_channel(nullptr){
+
 	}
 
 	uint16_t get(bool force = false) {
-		m_module.update(force);
+		if(m_module == nullptr || m_channel == nullptr){
+			printf("ERROR: can't fetch value from uninitalized adc channel controller!\n");
+			Error_Handler();
+		}
+		m_module->update(force);
 		return m_channel->get();
 	}
 private:
-	AdcModuleController& m_module;
+	AdcModuleController* m_module;
 	AdcChannel *m_channel;
 };

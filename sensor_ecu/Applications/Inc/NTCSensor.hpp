@@ -7,69 +7,45 @@
 
 #pragma once
 
-#include "AnalogInput.hpp"
 #include "AdcModule.hpp"
 #include <cinttypes>
 #include <cmath>
+#include "AdcChannelController.hpp"
 
 
 class NTCSensor {
 public:
-	explicit NTCSensor(AdcModule module, uint16_t rank, float internalResistance, float supplyVoltage, float beta, float r25)
+	explicit NTCSensor(AdcModule module, uint16_t rank, float beta, float r25, float internalResistance = 100000, float supplyVoltage = 3.3)
 		: m_channelController(module, rank),
 		  m_r(internalResistance),
 		  m_u0(supplyVoltage),
 		  m_beta(beta),
 		  m_r25(r25){
 	}
+	NTCSensor() = default;
 
 	float getTemperaturC(bool force = false){
 		return getTemperaturK(force) - t0;
 	}
 
-	float helper(uint16_t avalue, float r){
-
-		float r_ntc = ((4095 * r) / (avalue )) - r;
-		float log = std::log(r_ntc / m_r25);
-		float denom = log / m_beta + t25_inv;
-		return 1.0 / denom;
-	}
 
 	float getTemperaturK(bool force = false){
 		uint16_t avalue = m_channelController.get(force);
-		float min = 100000;
-		float bestR = 0;
-		float target = 273.15 + 14;
-		for(float r = 1000;r<100000;r+= 100){
-			float temp = helper(avalue, r);
-			if(std::abs(temp - target) < min){
-				min = std::abs(temp - target);
-				bestR = r;
-			}
-		}
-		printf("best_r = %f\n", bestR);
-		return helper(avalue, bestR);
-	}
-
-	float configure(float temperatureK){
-		uint16_t avalue = m_channelController.get(true);
-		float min = 100000;
-		float bestR = 0;
-		float target =  temperatureK;
-		for(float r = 1000;r<100000;r+= 100){
-			float temp = helper(avalue, r);
-			if(std::abs(temp - target) < min){
-				min = std::abs(temp - target);
-				bestR = r;
-			}
-		}
-		m_r = bestR;
-		printf("new resistance value = %f\n", bestR);
-		return helper(avalue, bestR);
-	}
-
-	void setR(float r){
-		m_r = r;
+		printf("avalue = %u\n", avalue);
+		/*
+		 *   3.3V
+		 *    |
+		 *    R  (internal resistor on the shield)
+		 *    |
+		 *   R_NTC --.
+		 *    |      | U = avalue * 3.3 / 4095
+		 *    GND  --'
+		 *
+		 * solve for R_NTC
+		 */
+		float r_ntc = m_r / ((4095.0/avalue) - 1);
+		float temperature = 1.0 / (std::log(r_ntc / m_r25) / m_beta + t25_inv);
+		return temperature;
 	}
 
 private:

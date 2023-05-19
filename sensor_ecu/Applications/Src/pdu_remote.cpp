@@ -5,13 +5,15 @@
  *      Author: karl
  */
 
-#include "pdu_control.hpp"
+#include <pdu_remote.hpp>
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
 #include "canzero.hpp"
 #include "estdio.hpp"
 
 namespace pdu {
+
+static bool g_minimizeMessages = false;
 
 struct PduStatus {
 	bool m_enabled;
@@ -153,10 +155,10 @@ void receiveTxStatus(RxMessage& raw) {
 
 void receiveHpDutycycle(RxMessage& raw){
 	can::Message<can::messages::PDU_TX_HP_Current> msg {raw};
-	s_confirmed_hpChannelConfig.m_status[0] = msg.get<can::signals::PDU_HPCh1_Current>() != 0;
-	s_confirmed_hpChannelConfig.m_status[1] = msg.get<can::signals::PDU_HPCh2_Current>() != 0;
-	s_confirmed_hpChannelConfig.m_status[2] = msg.get<can::signals::PDU_HPCh3_Current>() != 0;
-	s_confirmed_hpChannelConfig.m_status[3] = msg.get<can::signals::PDU_HPCh4_Current>() != 0;
+	s_confirmed_hpChannelConfig.m_status[0] = msg.get<can::signals::PDU_HPCh1_Current>() > 0.1;
+	s_confirmed_hpChannelConfig.m_status[1] = msg.get<can::signals::PDU_HPCh2_Current>() > 0.1;
+	s_confirmed_hpChannelConfig.m_status[2] = msg.get<can::signals::PDU_HPCh3_Current>() > 0.1;
+	s_confirmed_hpChannelConfig.m_status[3] = msg.get<can::signals::PDU_HPCh4_Current>() > 0.1;
 }
 
 void receiveLp1to5Dutycycle(RxMessage& raw){
@@ -178,7 +180,8 @@ void receiveLp6to10Dutycycle(RxMessage& raw){
 
 }
 
-void init(){
+void init(bool minimizeMessages){
+	g_minimizeMessages = minimizeMessages;
 	can::registerMessageReceiver<can::messages::PDU_TX_Status>(receiveTxStatus);
 	can::registerMessageReceiver<can::messages::PDU_TX_HP_Current>(receiveHpDutycycle);
 	can::registerMessageReceiver<can::messages::PDU_TX_LP_Current1>(receiveLp1to5Dutycycle);
@@ -188,14 +191,14 @@ void init(){
 
 
 void update(){
-	if(s_status != s_confirmed_status){
+	if(not g_minimizeMessages || s_status != s_confirmed_status){
 		can::Message<can::messages::PDU_RX_Control> controlMsg;
 		controlMsg.set<can::signals::PDU_RX_Enable>(s_status.m_enabled);
 		//controlMsg.set<can::signals::PDU_RX_ErrorReset>(s_confirmed_status.m_error);
 		controlMsg.set<can::signals::PDU_RX_PEHWEnable>(s_status.m_pehwEnabled);
 		controlMsg.send();
 	}
-	//if(s_lpChannelConfig != s_confirmed_lpChannelConfig){
+	if(not g_minimizeMessages || s_lpChannelConfig != s_confirmed_lpChannelConfig){
 		can::Message<can::messages::PDU_RX_LP_Dutycycle> lpMsg;
 		lpMsg.set<can::signals::PDU_LPCh1_Dutycycle>(s_lpChannelConfig.m_status[0] ? 100.0 : 0.0);
 		lpMsg.set<can::signals::PDU_LPCh2_Dutycycle>(s_lpChannelConfig.m_status[1] ? 100.0 : 0.0);
@@ -210,12 +213,11 @@ void update(){
 		lpEnableMsg.set<can::signals::PDU_RX_LPCh6_Enable>(s_lpChannelConfig.m_status[5]);
 		lpEnableMsg.set<can::signals::PDU_RX_LPCh7_Enable>(s_lpChannelConfig.m_status[6]);
 		lpEnableMsg.send();
-		//update lp channel config.
-		//can::message<can::messages::PDU_LP_Duty> lpDutyMsg;
-		//TODO ...
-	//}
+	}
 
-	if(s_hpChannelConfig != s_confirmed_hpChannelConfig){
+
+
+	if(not g_minimizeMessages || s_hpChannelConfig != s_confirmed_hpChannelConfig){
 		can::Message<can::messages::PDU_RX_HP_D_Dutycycle> hpMsg;
 		hpMsg.set<can::signals::PDU_HPCh1_Dutycycle>(s_hpChannelConfig.m_status[0] ? 100.0 : 0.0);
 		hpMsg.set<can::signals::PDU_HPCh2_Dutycycle>(s_hpChannelConfig.m_status[1] ? 100.0 : 0.0);
