@@ -37,7 +37,7 @@ public:
 	}
 
 	uint16_t get() {
-		m_module->weakUpdate();
+		m_module->update();
 		return m_channel->get();
 	}
 private:

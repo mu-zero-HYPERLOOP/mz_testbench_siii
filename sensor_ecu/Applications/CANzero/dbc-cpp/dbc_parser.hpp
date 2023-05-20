@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 17:14:03 19.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 14:31:26 20.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -54,22 +54,22 @@ namespace can {
             0x10ECE0,            0x1FFFFFFA 
         };
 
-        constexpr uint8_t num_std = 23;      // Number of used receive filters for standard (11-bit) ID messages
-        constexpr uint32_t mask_std[23] = {   // Filter mask for standard (11-bit) ID messages
+        constexpr uint8_t num_std = 24;      // Number of used receive filters for standard (11-bit) ID messages
+        constexpr uint32_t mask_std[24] = {   // Filter mask for standard (11-bit) ID messages
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF,            0x7FF 
+            0x7FF,            0x7FF,            0x7FF,            0x7FF 
         };
-        constexpr uint32_t id_std[23] = {     // Filter ID for standard (11-bit) ID messages
+        constexpr uint32_t id_std[24] = {     // Filter ID for standard (11-bit) ID messages
             0x104,            0x410,            0x10A,            0x001, 
             0x200,            0x100,            0x002,            0x1C1, 
             0x241,            0x2C1,            0x341,            0x5C1, 
             0x601,            0x701,            0x781,            0x191, 
-            0x711,            0x19A,            0x21A,            0x51A, 
-            0x55A,            0x71A,            0x722 
+            0x411,            0x711,            0x19A,            0x21A, 
+            0x51A,            0x55A,            0x71A,            0x722 
         };
     }
 
@@ -458,11 +458,11 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char CANzero_NMTMasterName[] = "Master";
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
-    constexpr uint32_t CANzero_DBCVersion = 181;
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
     constexpr char BusType[] = "CAN";
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr uint32_t CANzero_DBCVersion = 188;
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
@@ -4387,6 +4387,81 @@ namespace can {
             constexpr static uint8_t ENGAGEEMERGENCY = 1;
             constexpr static uint8_t ENGAGESERVICE = 2;
         };
+        class BrakeF_TX_Pressure_Act {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x411 };
+            constexpr static float min = static_cast<float>(-2);
+            constexpr static float max = static_cast<float>(18.475);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFull));
+                return value * (0.005f) + (-2.0f);
+            }
+
+            // Attributes of signal 'BrakeF_TX_Pressure_Act'
+            constexpr static float GenSigStartValue = 400.0f;
+        };
+        class BrakeF_TX_Pressure_Retract {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x411 };
+            constexpr static float min = static_cast<float>(-2);
+            constexpr static float max = static_cast<float>(18.475);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFF0000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF0000ull) >> 16);
+                return value * (0.005f) + (-2.0f);
+            }
+
+            // Attributes of signal 'BrakeF_TX_Pressure_Retract'
+            constexpr static float GenSigStartValue = 400.0f;
+        };
+        class BrakeF_TX_Pressure_Tank {
+            public:
+            using dataType = float;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x411 };
+            constexpr static float min = static_cast<float>(-2);
+            constexpr static float max = static_cast<float>(18.475);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-2.0f)) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 32) & 0xFFF00000000ull;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFF00000000ull) >> 32);
+                return value * (0.005f) + (-2.0f);
+            }
+
+            // Attributes of signal 'BrakeF_TX_Pressure_Tank'
+            constexpr static float GenSigStartValue = 400.0f;
+        };
         class BrakeF_NodeState {
             public:
             using dataType = uint8_t;
@@ -5888,6 +5963,20 @@ namespace can {
             using BrakeF_RX_Engage = signals::BrakeF_RX_Engage;
 
             // Attributes of message 'BrakeF_RX_Control'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BrakeF_TX_Pressure {
+            public:
+            constexpr static uint32_t id = 0x411;
+            constexpr static uint8_t dlc = 6;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using BrakeF_TX_Pressure_Act = signals::BrakeF_TX_Pressure_Act;
+            using BrakeF_TX_Pressure_Retract = signals::BrakeF_TX_Pressure_Retract;
+            using BrakeF_TX_Pressure_Tank = signals::BrakeF_TX_Pressure_Tank;
+
+            // Attributes of message 'BrakeF_TX_Pressure'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class BrakeF_Heartbeat {

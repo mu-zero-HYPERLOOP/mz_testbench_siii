@@ -14,6 +14,7 @@
 #include "canzero.hpp"
 #include "ImuMaster.hpp"
 #include "NTCSensor.hpp"
+#include "brake_ecu_remote.hpp"
 #include "FiducialSensor.hpp"
 #include <cmath>
 #include "cooling_controll.hpp"
@@ -26,6 +27,7 @@ extern "C" {
 void main_entry(void *argv) {
 	info::init();
 	//bms44::init();
+	brake::init();
 	cooling::init();
 	pdu::init(false);
 	mdb::init();
@@ -35,13 +37,14 @@ void main_entry(void *argv) {
 	while (true) {
 		info::update();
 		imu::update();
+		brake::update();
 		kistler::update();
 		//bms44::update();
 		mdb::update();
 		cooling::update();
 		pdu::update();
 
-		osDelay(pdMS_TO_TICKS(500));
+		osDelay(pdMS_TO_TICKS(100));
 	}
 }
 

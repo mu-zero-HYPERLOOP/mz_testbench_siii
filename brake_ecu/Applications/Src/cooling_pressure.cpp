@@ -17,7 +17,7 @@ namespace cooling_pressure {
 static AdcChannelController reservoirPressureAdc;
 
 constexpr AdcModule RESERVOIR_PRESSURE_ADC_MODULE  = ADC_MODULE2;
-constexpr uint16_t  RESERVOIR_PRESSURE_ADC_RANK    = 0;
+constexpr uint16_t  RESERVOIR_PRESSURE_ADC_RANK    = 3;
 constexpr float     RESERVOIR_PRESSURE_ZERO_OFFSET = -0.015;
 constexpr float     RESERVOIR_PRESSURE_C1          = 16 * 3.3 / (2.4 * 4095); //Line slope for pressure sensor
 constexpr float     RESERVOIR_PRESSURE_C2          = -16 * 0.6 / 2.4;         //Constant for pressure sensor

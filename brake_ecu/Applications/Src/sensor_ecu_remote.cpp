@@ -25,6 +25,7 @@ void init(){
 }
 
 void update(){
+	printf("cooling pressure = %f\n", OD_CoolingPressure_get());
 	can::Message<can::messages::BrakeF_TX_PressureCooling> coolingMsg;
 	coolingMsg.set<can::signals::BrakeF_TX_Pressure_Reservoir>(OD_CoolingPressure_get());
 	coolingMsg.send();

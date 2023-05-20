@@ -15,6 +15,8 @@
 #include <cz_handles.hpp>
 #include "dbc_parser.hpp"
 #include "cz_message_receiver.hpp"
+#include "cz_typedefinitions.hpp"
+#include "can.h"
 
 static constexpr size_t MSG_BUFFER_NUM_MESSAGES = 5; // Number of messages to store in the message buffer
 static constexpr size_t MSG_BUFFER_SIZE = MSG_BUFFER_NUM_MESSAGES

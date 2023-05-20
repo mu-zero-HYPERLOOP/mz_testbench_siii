@@ -315,9 +315,9 @@ BO_ 913 BrakeF_TX_PDO5: 0 BrakeF
 BO_ 977 BrakeF_TX_PDO6: 0 BrakeF
 
 BO_ 1041 BrakeF_TX_Pressure: 6 BrakeF
- SG_ BrakeF_TX_Pressure_Tank : 32|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
- SG_ BrakeF_TX_Pressure_Retract : 16|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
- SG_ BrakeF_TX_Pressure_Act : 0|12@1+ (0.005,-2) [-2|18.475] "bar" Vector__XXX
+ SG_ BrakeF_TX_Pressure_Tank : 32|12@1+ (0.005,-2) [-2|18.475] "bar"  SensorF
+ SG_ BrakeF_TX_Pressure_Retract : 16|12@1+ (0.005,-2) [-2|18.475] "bar"  SensorF
+ SG_ BrakeF_TX_Pressure_Act : 0|12@1+ (0.005,-2) [-2|18.475] "bar"  SensorF
 
 BO_ 1105 BrakeF_TX_PDO8: 0 BrakeF
 

@@ -5,7 +5,6 @@
  *      Author: karl
  */
 
-
 #include <brake_ecu_remote.hpp>
 #include <pdu_remote.hpp>
 #include "cooling_controll.hpp"
@@ -15,6 +14,7 @@
 #include "canzero.hpp"
 #include "AdcModule.hpp"
 #include "AdcChannelController.hpp"
+#include "MovingAverageFilter.hpp"
 
 namespace cooling {
 
@@ -30,17 +30,19 @@ constexpr float RESERVOIR_PRESSURE_LOW = 2;
 constexpr float RESERVOIR_TEMPERATURE_LOW = 20;
 constexpr float MAGNET_TEMPERATURE_LOW = 30;
 
-constexpr float     RESERVOIR_NTC_R25               = 10000;
-constexpr float     RESERVOIR_NTC_BETA              = 3950;
-constexpr float     RESERVOIR_NTC_INTERNAL_RESISTOR = 100000;
-constexpr float     RESERVOIR_NTC_INTERNAL_SUPPLY   = 3.3;
-constexpr AdcModule RESERVOIR_NTC_ADC_MODULE        = ADC_MODULE2;
-constexpr uint16_t  RESERVOIR_NTC_ADC_RANK          = 0;
+constexpr float RESERVOIR_NTC_NOMINAL_RESISTANCE = 8500;
+constexpr float RESERVOIR_NTC_NOMINAL_TEMPERATURE = 273.15 + 25;
+constexpr float RESERVOIR_NTC_BETA = 4200;
+constexpr float RESERVOIR_NTC_INTERNAL_RESISTOR = 100000;
+constexpr AdcModule RESERVOIR_NTC_ADC_MODULE = ADC_MODULE2;
+constexpr uint16_t RESERVOIR_NTC_ADC_RANK = 0;
 
 pdu::HpChannel COOLING_PUMP_CHANNEL = pdu::HP_CHANNEL1;
 
-
+AdcChannelController reservoirTemperatureAdc;
 NTCSensor reservoirTemperatureSensor;
+MovingAverageFilter<10> reservoirTemperatureFilter(20);
+//NTCSensor reference;
 
 void setMode(MODE mode) {
 	osMutexAcquire(s_modeMutex, osWaitForever);
@@ -48,56 +50,70 @@ void setMode(MODE mode) {
 	osMutexRelease(s_modeMutex);
 }
 
-bool toggle = true;
+float readReservoirTemperatureSensor() {
+	uint16_t avalue = reservoirTemperatureAdc.get();
+	float r_ntc = RESERVOIR_NTC_INTERNAL_RESISTOR / ((4095.0 / avalue) - 1);
 
-void init(){
-	reservoirTemperatureSensor = NTCSensor( RESERVOIR_NTC_ADC_MODULE,
-											RESERVOIR_NTC_ADC_RANK,
-											RESERVOIR_NTC_R25,
-											RESERVOIR_NTC_BETA,
-											RESERVOIR_NTC_INTERNAL_RESISTOR,
-											RESERVOIR_NTC_INTERNAL_SUPPLY);
+	float temperature = (1.0 / (
+			(
+					std::log(r_ntc / RESERVOIR_NTC_NOMINAL_RESISTANCE)
+					/ RESERVOIR_NTC_BETA)
+					+ (1.0 / RESERVOIR_NTC_NOMINAL_TEMPERATURE))) - 273.15;
+
+
+	if(!isnanf(temperature) && !isinff(temperature)){
+		reservoirTemperatureFilter.addValue(temperature);
+	}
+	return reservoirTemperatureFilter.get();
+}
+
+void init() {
+	reservoirTemperatureAdc = AdcChannelController(RESERVOIR_NTC_ADC_MODULE,
+			RESERVOIR_NTC_ADC_RANK);
+	for (size_t i = 0; i < 10; i++) {
+		reservoirTemperatureFilter.addValue(readReservoirTemperatureSensor());
+	}
 }
 
 
-void update(){
-	// reading temperature sensor.
-	float reservoirTemp = reservoirTemperatureSensor.getTemperaturC();
+void update() {
+	// read temperature sensor and update od entry.
+	OD_ReservoirTemperature_set(readReservoirTemperatureSensor());
 
-	// filter temperature sensor.
-	float filteredReservoirTemp = reservoirTemp;
-
-	printf("reservoir temp = %f\n", reservoirTemp);
-
-	// update od entry.
-	OD_ReservoirTemperature_set(filteredReservoirTemp);
+	printf("temperature = %f\n", OD_ReservoirTemperature_get());
 
 	// cooling state maschine.
 	osMutexAcquire(s_modeMutex, osWaitForever);
 	s_mode = s_nextMode;
 	osMutexRelease(s_modeMutex);
 
-	switch(s_mode){
+	switch (s_mode) {
 	case MODE::ON:
 		pdu::enableChannel(COOLING_PUMP_CHANNEL);
 		break;
-	case MODE::ADAPTIV:
-	{
+	case MODE::ADAPTIV: {
 		float pressure = OD_CoolingPressure_get();
-		bool errorPressure = (pressure >= RESERVOIR_PRESSURE_HIGH) || (pressure <= RESERVOIR_PRESSURE_LOW);
+		printf("pressure = %f\n", pressure);
+		bool errorPressure = (pressure >= RESERVOIR_PRESSURE_HIGH)
+				|| (pressure <= RESERVOIR_PRESSURE_LOW);
 
-		bool requiresCooling = (OD_ReservoirTemperature_get() > RESERVOIR_TEMPERATURE_LOW) ||
-				(OD_Magnet_1_Temperature_get() > MAGNET_TEMPERATURE_LOW) ||
-				(OD_Magnet_2_Temperature_get() > MAGNET_TEMPERATURE_LOW) ||
-				(OD_Magnet_3_Temperature_get() > MAGNET_TEMPERATURE_LOW) ||
-				(OD_Magnet_4_Temperature_get() > MAGNET_TEMPERATURE_LOW) ||
-				(OD_Magnet_5_Temperature_get() > MAGNET_TEMPERATURE_LOW) ||
-				(OD_Magnet_6_Temperature_get() > MAGNET_TEMPERATURE_LOW);
+		bool requiresCooling = (OD_ReservoirTemperature_get()
+				> RESERVOIR_TEMPERATURE_LOW)
+				|| (OD_Magnet_1_Temperature_get() > MAGNET_TEMPERATURE_LOW)
+				|| (OD_Magnet_2_Temperature_get() > MAGNET_TEMPERATURE_LOW)
+				|| (OD_Magnet_3_Temperature_get() > MAGNET_TEMPERATURE_LOW)
+				|| (OD_Magnet_4_Temperature_get() > MAGNET_TEMPERATURE_LOW)
+				|| (OD_Magnet_5_Temperature_get() > MAGNET_TEMPERATURE_LOW)
+				|| (OD_Magnet_6_Temperature_get() > MAGNET_TEMPERATURE_LOW);
+
+		printf("default magnet temperature =%f\n", OD_Magnet_1_Temperature_get());
+		printf("error Pressure = %u\n", errorPressure);
+		printf("requires Cooling = %u\n", requiresCooling);
 
 		bool activate = (not errorPressure) && requiresCooling;
-		if(activate){
+		if (activate) {
 			pdu::enableChannel(COOLING_PUMP_CHANNEL);
-		}else{
+		} else {
 			pdu::disableChannel(COOLING_PUMP_CHANNEL);
 		}
 		break;

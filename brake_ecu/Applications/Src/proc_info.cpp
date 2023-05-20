@@ -57,10 +57,6 @@ void update() {
 	float filteredExternalTemperature = externalTemperatureFilter.get();
 	float filteredInputVoltage = inputVoltageFilter.get();
 
-
-	printf("avalue = %u\n", avalue);
-	printf("unfiltered = %f       filtered = %f\n", inputVoltage, filteredInputVoltage);
-
 	// update ods.
 	OD_BoardTemp_set(
 			(filteredExternalTemperature + filteredInternalTemperature)

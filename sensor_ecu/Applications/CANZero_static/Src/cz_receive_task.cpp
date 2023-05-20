@@ -21,6 +21,9 @@ void cz_receive_task(void* argv) {
 	RxMessage message;
 	while (1) {
 		osMessageQueueGet(czReceiveQueue, (void*) &message, NULL, osWaitForever);
+		if(message.rxHeader.StdId == 1040){
+			printf("HELLO !!! \n");
+		}
 		if (message.rxHeader.RTR == CAN_RTR_DATA) {
  			if(can::checkRxMessage<can::messages::CANZERO_BTL_RX>(message)) {
 				if(message.rxBuf[0]==0xff) {

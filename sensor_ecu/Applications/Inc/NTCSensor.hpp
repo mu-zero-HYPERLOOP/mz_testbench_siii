@@ -31,7 +31,6 @@ public:
 
 	float getTemperaturK(bool force = false){
 		uint16_t avalue = m_channelController.get(force);
-		printf("avalue = %u\n", avalue);
 		/*
 		 *   3.3V
 		 *    |
