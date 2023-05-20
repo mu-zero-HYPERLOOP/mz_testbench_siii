@@ -15,7 +15,6 @@ namespace brake {
 void pressureReceiver(RxMessage& raw){
 	can::Message<can::messages::BrakeF_TX_PressureCooling> msg{raw};
 	OD_CoolingPressure_set(msg.get<can::signals::BrakeF_TX_Pressure_Reservoir>());
-	printf("received pressure = %f\n", OD_CoolingPressure_get());
 }
 
 void init(){

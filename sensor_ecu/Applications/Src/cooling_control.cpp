@@ -27,7 +27,7 @@ static osMutexId_t s_modeMutex = osMutexNew(NULL);
 constexpr float RESERVOIR_PRESSURE_HIGH = 5;
 constexpr float RESERVOIR_PRESSURE_LOW = 2;
 
-constexpr float RESERVOIR_TEMPERATURE_LOW = 20;
+constexpr float RESERVOIR_TEMPERATURE_LOW = 30;
 constexpr float MAGNET_TEMPERATURE_LOW = 30;
 
 constexpr float RESERVOIR_NTC_NOMINAL_RESISTANCE = 8500;
@@ -80,8 +80,6 @@ void update() {
 	// read temperature sensor and update od entry.
 	OD_ReservoirTemperature_set(readReservoirTemperatureSensor());
 
-	printf("temperature = %f\n", OD_ReservoirTemperature_get());
-
 	// cooling state maschine.
 	osMutexAcquire(s_modeMutex, osWaitForever);
 	s_mode = s_nextMode;
@@ -93,7 +91,6 @@ void update() {
 		break;
 	case MODE::ADAPTIV: {
 		float pressure = OD_CoolingPressure_get();
-		printf("pressure = %f\n", pressure);
 		bool errorPressure = (pressure >= RESERVOIR_PRESSURE_HIGH)
 				|| (pressure <= RESERVOIR_PRESSURE_LOW);
 
@@ -105,10 +102,6 @@ void update() {
 				|| (OD_Magnet_4_Temperature_get() > MAGNET_TEMPERATURE_LOW)
 				|| (OD_Magnet_5_Temperature_get() > MAGNET_TEMPERATURE_LOW)
 				|| (OD_Magnet_6_Temperature_get() > MAGNET_TEMPERATURE_LOW);
-
-		printf("default magnet temperature =%f\n", OD_Magnet_1_Temperature_get());
-		printf("error Pressure = %u\n", errorPressure);
-		printf("requires Cooling = %u\n", requiresCooling);
 
 		bool activate = (not errorPressure) && requiresCooling;
 		if (activate) {

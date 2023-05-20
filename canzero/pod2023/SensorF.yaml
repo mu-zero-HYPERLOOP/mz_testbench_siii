@@ -154,42 +154,42 @@ object_dictionary:
     length: 16
     comment: Magnet_1_Temperature
     access: ro
-    default: 80
+    default: 10
     conversion: {scale: 0.01, offset: -100}
   0xB04:
     name: Magnet_2_Temperature
     length: 16
     comment: Magnet_2_Temperature
     access: ro
-    default: 80
+    default: 10
     conversion: {scale: 0.01, offset: -100}
   0xB05:
     name: Magnet_3_Temperature
     length: 16
     comment: Magnet_3_Temperature
     access: ro
-    default: 80
+    default: 10
     conversion: {scale: 0.01, offset: -100}
   0xB06:
     name: Magnet_4_Temperature
     length: 16
     comment: Magnet_4_Temperature
     access: ro
-    default: 80
+    default: 10
     conversion: {scale: 0.01, offset: -100}
   0xB07:
     name: Magnet_5_Temperature
     length: 16
     comment: Magnet_5_Temperature
     access: ro
-    default: 80
+    default: 10
     conversion: {scale: 0.01, offset: -100}
   0xB08:
     name: Magnet_6_Temperature
     length: 16
     comment: Magnet_6_Temperature
     access: ro
-    default: 80
+    default: 10
     conversion: {scale: 0.01, offset: -100}
   
   0xB10:
@@ -206,15 +206,9 @@ object_dictionary:
       255: "inconsistant"
 
   0xC00:
-    name: FiducialRightCounter
+    name: StripeCount
     length: 16
-    comment: Fiducial right stripe counter
-    access: ro
-    default: 0
-  0xC01:
-    name: FiducialLeftCounter
-    length: 16
-    comment: Fiducial left stripe counter
+    comment: Fiducial Stripe Counter
     access: ro
     default: 0
 

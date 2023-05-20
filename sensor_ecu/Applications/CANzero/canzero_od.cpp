@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 14:31:27 20.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 17:54:05 20.05.2023.
  * It contains the object dictionary for the node 'SensorF'.
  *
  * Florian Keck
@@ -77,8 +77,7 @@ volatile float    OD_Magnet_4_Temperature     = can::signals::SensorF_OD_Magnet_
 volatile float    OD_Magnet_5_Temperature     = can::signals::SensorF_OD_Magnet_5_Temperature::CANzero_SDO_Default;
 volatile float    OD_Magnet_6_Temperature     = can::signals::SensorF_OD_Magnet_6_Temperature::CANzero_SDO_Default;
 volatile uint8_t  OD_MdbState                 = can::signals::SensorF_OD_MdbState::CANzero_SDO_Default;
-volatile uint16_t OD_FiducialRightCounter     = can::signals::SensorF_OD_FiducialRightCounter::CANzero_SDO_Default;
-volatile uint16_t OD_FiducialLeftCounter      = can::signals::SensorF_OD_FiducialLeftCounter::CANzero_SDO_Default;
+volatile uint16_t OD_StripeCount              = can::signals::SensorF_OD_StripeCount::CANzero_SDO_Default;
 volatile float    OD_Position                 = can::signals::SensorF_OD_Position::CANzero_SDO_Default;
 volatile float    OD_Velocity                 = can::signals::SensorF_OD_Velocity::CANzero_SDO_Default;
 
@@ -150,8 +149,7 @@ osMutexId_t mutex_OD_Magnet_4_Temperature     = osMutexNew(NULL);
 osMutexId_t mutex_OD_Magnet_5_Temperature     = osMutexNew(NULL);
 osMutexId_t mutex_OD_Magnet_6_Temperature     = osMutexNew(NULL);
 osMutexId_t mutex_OD_MdbState                 = osMutexNew(NULL);
-osMutexId_t mutex_OD_FiducialRightCounter     = osMutexNew(NULL);
-osMutexId_t mutex_OD_FiducialLeftCounter      = osMutexNew(NULL);
+osMutexId_t mutex_OD_StripeCount              = osMutexNew(NULL);
 osMutexId_t mutex_OD_Position                 = osMutexNew(NULL);
 osMutexId_t mutex_OD_Velocity                 = osMutexNew(NULL);
 
@@ -425,12 +423,8 @@ void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {
             msgSdoResp.set<can::signals::SensorF_OD_MdbState>(OD_MdbState_get());
             respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
-        case 0xC00:    // OD_FiducialRightCounter
-            msgSdoResp.set<can::signals::SensorF_OD_FiducialRightCounter>(OD_FiducialRightCounter_get());
-            respCode = can::signals::SensorF_SDO_RespCode::OK;
-            break;
-        case 0xC01:    // OD_FiducialLeftCounter
-            msgSdoResp.set<can::signals::SensorF_OD_FiducialLeftCounter>(OD_FiducialLeftCounter_get());
+        case 0xC00:    // OD_StripeCount
+            msgSdoResp.set<can::signals::SensorF_OD_StripeCount>(OD_StripeCount_get());
             respCode = can::signals::SensorF_SDO_RespCode::OK;
             break;
         case 0xD00:    // OD_Position
@@ -839,14 +833,9 @@ if (value < 1.0f || value > 300.0f) {
             msgSdoResp.set<can::signals::SensorF_OD_MdbState>(OD_MdbState_get());
             break;
         }
-        case 0xC00: {   // OD_FiducialRightCounter
+        case 0xC00: {   // OD_StripeCount
             respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SensorF_OD_FiducialRightCounter>(OD_FiducialRightCounter_get());
-            break;
-        }
-        case 0xC01: {   // OD_FiducialLeftCounter
-            respCode = can::signals::SensorF_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::SensorF_OD_FiducialLeftCounter>(OD_FiducialLeftCounter_get());
+            msgSdoResp.set<can::signals::SensorF_OD_StripeCount>(OD_StripeCount_get());
             break;
         }
         case 0xD00: {   // OD_Position
@@ -1915,35 +1904,19 @@ void WEAK_SYMBOL OD_MdbState_set(const uint8_t value) {
 }
 #endif
 
-#ifndef OD_FiducialRightCounter_GET_OVERWRITE
-uint16_t WEAK_SYMBOL OD_FiducialRightCounter_get() {
-    osMutexAcquire(mutex_OD_FiducialRightCounter, portMAX_DELAY);
-    uint16_t value = OD_FiducialRightCounter;
-    osMutexRelease(mutex_OD_FiducialRightCounter);
+#ifndef OD_StripeCount_GET_OVERWRITE
+uint16_t WEAK_SYMBOL OD_StripeCount_get() {
+    osMutexAcquire(mutex_OD_StripeCount, portMAX_DELAY);
+    uint16_t value = OD_StripeCount;
+    osMutexRelease(mutex_OD_StripeCount);
     return value;
 }
 #endif
-#ifndef OD_FiducialRightCounter_SET_OVERWRITE
-void WEAK_SYMBOL OD_FiducialRightCounter_set(const uint16_t value) {
-    osMutexAcquire(mutex_OD_FiducialRightCounter, portMAX_DELAY);
-    OD_FiducialRightCounter = value;
-    osMutexRelease(mutex_OD_FiducialRightCounter);
-}
-#endif
-
-#ifndef OD_FiducialLeftCounter_GET_OVERWRITE
-uint16_t WEAK_SYMBOL OD_FiducialLeftCounter_get() {
-    osMutexAcquire(mutex_OD_FiducialLeftCounter, portMAX_DELAY);
-    uint16_t value = OD_FiducialLeftCounter;
-    osMutexRelease(mutex_OD_FiducialLeftCounter);
-    return value;
-}
-#endif
-#ifndef OD_FiducialLeftCounter_SET_OVERWRITE
-void WEAK_SYMBOL OD_FiducialLeftCounter_set(const uint16_t value) {
-    osMutexAcquire(mutex_OD_FiducialLeftCounter, portMAX_DELAY);
-    OD_FiducialLeftCounter = value;
-    osMutexRelease(mutex_OD_FiducialLeftCounter);
+#ifndef OD_StripeCount_SET_OVERWRITE
+void WEAK_SYMBOL OD_StripeCount_set(const uint16_t value) {
+    osMutexAcquire(mutex_OD_StripeCount, portMAX_DELAY);
+    OD_StripeCount = value;
+    osMutexRelease(mutex_OD_StripeCount);
 }
 #endif
 
@@ -2001,10 +1974,10 @@ constexpr uint16_t READABLE_SDO_IDS[] = {
     0xA29,    0xA30,    0xA31,    0xA32, 
     0xA33,    0xB00,    0xB01,    0xB02, 
     0xB04,    0xB05,    0xB06,    0xB07, 
-    0xB08,    0xB10,    0xC00,    0xC01, 
-    0xD00,    0xD01 
+    0xB08,    0xB10,    0xC00,    0xD00, 
+    0xD01 
 };
-constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 66;
+constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 65;
 extern RNG_HandleTypeDef hrng;
 
 void sendOdEntriesTask(void *pvParameters) {

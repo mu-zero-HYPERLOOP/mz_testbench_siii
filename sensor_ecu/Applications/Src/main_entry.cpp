@@ -15,10 +15,10 @@
 #include "ImuMaster.hpp"
 #include "NTCSensor.hpp"
 #include "brake_ecu_remote.hpp"
-#include "FiducialSensor.hpp"
 #include <cmath>
 #include "cooling_controll.hpp"
 #include "NTCSensor.hpp"
+//#include "fiducials.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,6 +26,7 @@ extern "C" {
 
 void main_entry(void *argv) {
 	info::init();
+	//fiducials::init();
 	//bms44::init();
 	brake::init();
 	cooling::init();
@@ -36,6 +37,7 @@ void main_entry(void *argv) {
 
 	while (true) {
 		info::update();
+		//fiducials::update();
 		imu::update();
 		brake::update();
 		kistler::update();

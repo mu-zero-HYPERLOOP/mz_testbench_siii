@@ -31,6 +31,7 @@ void init(){
 void update(){
 	// read pressure sensor.
 	uint16_t avalue = reservoirPressureAdc.get();
+	printf("avalue = %u\n", avalue);
 	float reservoirPressure = RESERVOIR_PRESSURE_C1 * avalue + RESERVOIR_PRESSURE_C2 + RESERVOIR_PRESSURE_ZERO_OFFSET;
 	reservoirPressure = std::max(RESERVOIR_PRESSURE_LOWER_LIMIT, std::min(RESERVOIR_PRESSURE_UPPER_LIMIT, reservoirPressure));
 

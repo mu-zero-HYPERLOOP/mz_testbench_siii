@@ -83,8 +83,7 @@ extern volatile float    OD_Magnet_4_Temperature;
 extern volatile float    OD_Magnet_5_Temperature;
 extern volatile float    OD_Magnet_6_Temperature;
 extern volatile uint8_t  OD_MdbState;
-extern volatile uint16_t OD_FiducialRightCounter;
-extern volatile uint16_t OD_FiducialLeftCounter;
+extern volatile uint16_t OD_StripeCount;
 extern volatile float    OD_Position;
 extern volatile float    OD_Velocity;
 
@@ -155,8 +154,7 @@ extern osMutexId_t mutex_OD_Magnet_4_Temperature;
 extern osMutexId_t mutex_OD_Magnet_5_Temperature;
 extern osMutexId_t mutex_OD_Magnet_6_Temperature;
 extern osMutexId_t mutex_OD_MdbState;
-extern osMutexId_t mutex_OD_FiducialRightCounter;
-extern osMutexId_t mutex_OD_FiducialLeftCounter;
+extern osMutexId_t mutex_OD_StripeCount;
 extern osMutexId_t mutex_OD_Position;
 extern osMutexId_t mutex_OD_Velocity;
 
@@ -369,11 +367,8 @@ void OD_Magnet_6_Temperature_set(const float value);
 uint8_t OD_MdbState_get();
 void OD_MdbState_set(const uint8_t value);
 
-uint16_t OD_FiducialRightCounter_get();
-void OD_FiducialRightCounter_set(const uint16_t value);
-
-uint16_t OD_FiducialLeftCounter_get();
-void OD_FiducialLeftCounter_set(const uint16_t value);
+uint16_t OD_StripeCount_get();
+void OD_StripeCount_set(const uint16_t value);
 
 float OD_Position_get();
 void OD_Position_set(const float value);

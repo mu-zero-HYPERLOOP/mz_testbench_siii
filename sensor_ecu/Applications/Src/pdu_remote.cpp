@@ -218,7 +218,7 @@ void update(){
 		hpMsg.set<can::signals::PDU_HPCh1_Dutycycle>(s_hpChannelConfig.m_status[0] ? 100.0 : 0.0);
 		hpMsg.set<can::signals::PDU_HPCh2_Dutycycle>(s_hpChannelConfig.m_status[1] ? 100.0 : 0.0);
 		// update hp channel config.
-		hpMsg.send();
+		hpMsg.send(can::buses::BUS2);
 	}
 }
 
