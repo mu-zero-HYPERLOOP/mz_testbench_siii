@@ -9,29 +9,54 @@
 #include <cinttypes>
 #include <stm32f4xx_hal_can.h>
 
-
 namespace bms44 {
 
 struct bms_frame {
-	uint8_t m_crcLow;
-	uint8_t m_crcHigh;
-	float m_temperature;
-	float m_voltage;
-	float m_current;
-	float m_average_power_10sec;
-	float m_remaining_capacity_wh;
-	float m_full_charge_capacity_wh;
-	float m_hours_to_full_charge;
-	uint8_t m_reset[50];
+	volatile uint8_t m_crcLow;
+	volatile uint8_t m_crcHigh;
+	volatile int16_t m_manufacturId;
+	volatile int16_t m_skuId;
+	volatile uint16_t m_voltage;
+	volatile int16_t m_current; // in 10mA.
+	volatile int16_t m_temperature;
+	volatile uint16_t m_remainingCapacityProzent;
+	volatile uint16_t m_cycleLife;
+	volatile int16_t m_health;
+	volatile uint16_t m_cell1Voltage;
+	volatile uint16_t m_cell2Voltage;
+	volatile uint16_t m_cell3Voltage;
+	volatile uint16_t m_cell4Voltage;
+	volatile uint16_t m_cell5Voltage;
+	volatile uint16_t m_cell6Voltage;
+	volatile uint16_t m_cell7Voltage;
+	volatile uint16_t m_cell8Voltage;
+	volatile uint16_t m_cell9Voltage;
+	volatile uint16_t m_cell10Voltage;
+	volatile uint16_t m_cell11Voltage;
+	volatile uint16_t m_cell12Voltage;
+	volatile uint16_t m_standardCapacity;
+	volatile uint16_t m_remainingCapacity_mAh;
+	volatile uint16_t m_errorFlags1;
+	volatile uint16_t m_errorFlags2;
+
 };
 
-bms_frame m_currentFrame;
+#define BYTE_TO_BINARY_PATTERN "%c%c%c%c%c%c%c%c"
+#define BYTE_TO_BINARY(byte)  \
+  ((byte) & 0x80 ? '1' : '0'), \
+  ((byte) & 0x40 ? '1' : '0'), \
+  ((byte) & 0x20 ? '1' : '0'), \
+  ((byte) & 0x10 ? '1' : '0'), \
+  ((byte) & 0x08 ? '1' : '0'), \
+  ((byte) & 0x04 ? '1' : '0'), \
+  ((byte) & 0x02 ? '1' : '0'), \
+  ((byte) & 0x01 ? '1' : '0')
 
 struct bms_frame_fragment {
-	explicit bms_frame_fragment(RxMessage& raw){
+	explicit bms_frame_fragment(RxMessage &raw) {
 		uint32_t size = raw.rxHeader.DLC;
 		m_size = size - 1;
-		for(size_t i=0;i<m_size;i++){
+		for (size_t i = 0; i < m_size; i++) {
 			m_payload[i] = raw.rxBuf[i];
 		}
 		uint8_t tailByte = raw.rxBuf[m_size];
@@ -41,15 +66,15 @@ struct bms_frame_fragment {
 		m_transferId = tailByte & TRANSFER_MASK;
 	}
 
-	uint32_t size() const{
+	uint32_t size() const {
 		return m_size;
 	}
 
-	uint8_t operator[](uint32_t idx) const{
+	uint8_t operator[](uint32_t idx) const {
 		return m_payload[idx];
 	}
 
-	bool sofFlag() const{
+	bool sofFlag() const {
 		return m_sofFlag;
 	}
 
@@ -57,7 +82,7 @@ struct bms_frame_fragment {
 		return m_eofFlag;
 	}
 
-	bool toggleFlag()const {
+	bool toggleFlag() const {
 		return m_toggleFlag;
 	}
 
@@ -76,38 +101,38 @@ private:
 };
 
 struct bms_frame_builder {
-	void append_fragment(const bms_frame_fragment& fragment){
-		if(m_empty){ //expect sof.
-			if(not fragment.sofFlag()){
-				printf("ERROR parsing BMS Frame: unexpected SOF Flag!\n");
+	void append_fragment(const bms_frame_fragment &fragment) {
+		if (m_empty) { //expect sof.
+			if (not fragment.sofFlag()) {
+				printf("ERROR parsing BMS Frame: expected SOF Flag!\n");
 				m_error = true;
-			}else{
+			} else {
 				m_empty = false;
 				m_error = false;
 				m_toggle = false;
 				m_end = 0;
 			}
 		}
-		if(fragment.toggleFlag() != m_toggle){
+		if (fragment.toggleFlag() != m_toggle) {
 			printf("ERROR parsing BMS Frame: INVALID TOGGLE FLAG\n");
 			m_error = true;
 		}
 
 		//copy payload.
-		for(size_t i=0;i<fragment.size();i++){
+		for (size_t i = 0; i < fragment.size(); i++) {
 			m_buffer[m_end++] = fragment[i];
 		}
 
-		if(fragment.eofFlag()){
+		if (fragment.eofFlag()) {
 			m_complete = true;
 		}
 		m_toggle = !m_toggle;
 	}
-	bool isComplete(){
+	bool isComplete() {
 		return m_complete;
 	}
 
-	void reset(){
+	void reset() {
 		m_empty = true;
 		m_complete = false;
 		m_end = 0;
@@ -115,7 +140,7 @@ struct bms_frame_builder {
 		m_toggle = false;
 	}
 
-	float parsef16(uint16_t data){
+	float parsef16(uint16_t data) {
 		//represents 16 bit float
 		uint16_t sign = (data & (0x1 << 15)) >> 15;
 		int16_t exponent = (data & 0x7C00) >> 10;
@@ -128,25 +153,48 @@ struct bms_frame_builder {
 		int32_t u23_mantisse = (mantisse & 0x3FF) << 13;
 
 		uint32_t f32u32 = (sign << 31) | (u8_exponent << 23) | u23_mantisse;
-		float * f32p = (float*)(&f32u32);
+		float *f32p = (float*) (&f32u32);
 		float f32 = *f32p;
 		return f32;
 	}
 
-	bms_frame build(){
-		bms_frame frame;
-		frame.m_crcLow = m_buffer[0];
-		frame.m_crcHigh = m_buffer[1];
-		frame.m_temperature = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[2])));
-		frame.m_voltage = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[4])));
-		frame.m_current = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[6])));
-		frame.m_average_power_10sec = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[8])));
-		frame.m_remaining_capacity_wh = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[10])));
-		frame.m_full_charge_capacity_wh = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[12])));
-		frame.m_hours_to_full_charge = parsef16(*reinterpret_cast<uint16_t*>(&(m_buffer[14])));
+	bms_frame build() {
+		//log binary dump.
+		bms_frame frame = *reinterpret_cast<bms_frame*>(m_buffer);
 
-		float temperature = *reinterpret_cast<float*>(&(m_buffer[2]));
-		printf("other temperature = %f\n", temperature);
+		/*
+		printf("NEW  BMS44-FRAME\n");
+		printf("manufacturer Id = %u\n", frame.m_manufacturId);
+		printf("temperature = %u\n", frame.m_temperature);
+		printf("remainingCap = %u\n", frame.m_remainingCapacityProzent);
+		printf("remainingCap = %u\n", frame.m_remainingCapacity_mAh);
+		printf("health status = %u\n", frame.m_health);
+		printf("cycle life = %u\n", frame.m_cycleLife);
+		printf("current = %d\n", frame.m_current);
+		printf("cells voltage = %u\n", frame.m_voltage);
+		printf("cells voltage 1 = %u\n", frame.m_cell1Voltage);
+		printf("cells voltage 2 = %u\n", frame.m_cell2Voltage);
+		printf("cells voltage 3 = %u\n", frame.m_cell3Voltage);
+		printf("cells voltage 4 = %u\n", frame.m_cell4Voltage);
+		printf("cells voltage 5 = %u\n", frame.m_cell5Voltage);
+		printf("cells voltage 6 = %u\n", frame.m_cell6Voltage);
+		printf("cells voltage 7 = %u\n", frame.m_cell7Voltage);
+		printf("cells voltage 8 = %u\n", frame.m_cell8Voltage);
+		printf("cells voltage 9 = %u\n", frame.m_cell9Voltage);
+		printf("cells voltage 10 = %u\n", frame.m_cell10Voltage);
+		printf("cells voltage 11 = %u\n", frame.m_cell11Voltage);
+		printf("cells voltage 12 = %u\n", frame.m_cell12Voltage);
+		printf("error bits 1 = %u\n", frame.m_errorFlags1);
+		printf("error bits 2 = %u\n", frame.m_errorFlags2);
+		*/
+
+		uint16_t total_cell_voltage = 0;
+		volatile uint16_t *cellVoltagePtr = &frame.m_cell1Voltage;
+		for (size_t i = 0; i < 12; i++) {
+			total_cell_voltage += *cellVoltagePtr;
+			cellVoltagePtr++;
+		}
+		printf("total cell voltage = %u\n", total_cell_voltage);
 
 		reset();
 		return frame;
@@ -162,34 +210,49 @@ private:
 
 };
 
-bms_frame_builder frame_builder;
+bms_frame_builder frame_builder1;
+bms_frame_builder frame_builder2;
 
-void bmsFrameReceiver(RxMessage& raw){
+bms_frame m_bms44_1_state;
+bms_frame m_bms44_2_state;
+
+void bms1FrameReceiver(RxMessage &raw) {
 	bms_frame_fragment fragment(raw);
-	frame_builder.append_fragment(fragment);
-	if(frame_builder.isComplete()){
-		m_currentFrame = frame_builder.build();
+	frame_builder1.append_fragment(fragment);
+	if (frame_builder1.isComplete()) {
+		m_bms44_1_state = frame_builder1.build();
 	}
 }
 
-void init(){
-	can::registerMessageReceiver<can::messages::BMS_Frame>(bmsFrameReceiver);
+void bms2FrameReceiver(RxMessage &raw) {
+	bms_frame_fragment fragment(raw);
+	frame_builder2.append_fragment(fragment);
+	if (frame_builder2.isComplete()) {
+		m_bms44_2_state = frame_builder2.build();
+	}
 }
 
-void update(){
-	printf("======= FRAME ======\n");
-	printf("temperature          = %f\n", m_currentFrame.m_temperature);
-	printf("voltage              = %f\n", m_currentFrame.m_voltage);
-	printf("current              = %f\n", m_currentFrame.m_current);
-	printf("average pow          = %f\n", m_currentFrame.m_average_power_10sec);
-	printf("remaining capacity   = %f\n", m_currentFrame.m_remaining_capacity_wh);
-	printf("full charge cap      = %f\n", m_currentFrame.m_full_charge_capacity_wh);
-	printf("hours to full charge = %f\n", m_currentFrame.m_hours_to_full_charge);
+void init() {
+	can::registerMessageReceiver<can::messages::BMS44_1_Frame>(
+			bms1FrameReceiver);
+	can::registerMessageReceiver<can::messages::BMS44_2_Frame>(
+			bms1FrameReceiver);
+}
 
+void update() {
+
+	/*
+	 printf("======= FRAME ======\n");
+	 printf("temperature          = %f\n", m_currentFrame.m_temperature);
+	 printf("voltage              = %f\n", m_currentFrame.m_voltage);
+	 printf("current              = %f\n", m_currentFrame.m_current);
+	 printf("average pow          = %f\n", m_currentFrame.m_average_power_10sec);
+	 printf("remaining capacity   = %f\n", m_currentFrame.m_remaining_capacity_wh);
+	 printf("full charge cap      = %f\n", m_currentFrame.m_full_charge_capacity_wh);
+	 printf("hours to full charge = %f\n", m_currentFrame.m_hours_to_full_charge);
+	 */
 
 }
 
 }
-
-
 

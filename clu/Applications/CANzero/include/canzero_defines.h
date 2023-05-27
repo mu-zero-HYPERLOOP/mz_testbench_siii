@@ -1,7 +1,7 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This header file was generated from 'database_gen.dbc'.
- * It contains all CANzero defines (e.g. CAN-IDs) for the node 'SENSOR'.
+ * This header file was generated from 'pod2023_gen.dbc'.
+ * It contains all CANzero defines (e.g. CAN-IDs) for the node 'CLU'.
  *
  * Florian Keck
  * florian.keck@mu-zero.de
@@ -13,33 +13,33 @@
 #pragma once
 
 // Node ID and name
-#define CANZERO_NODE_ID     0x1
-#define CANZERO_NODE_NAME   "SENSOR"
+#define CANZERO_NODE_ID     0x14
+#define CANZERO_NODE_NAME   "CLU"
 
 // CAN-ID of the nodes function codes
-#define CANZERO_EMCY_CAN_ID           0x081
-#define CANZERO_TX_PDO1_CAN_ID        0x181
-#define CANZERO_RX_PDO1_CAN_ID        0x1C1
-#define CANZERO_TX_PDO2_CAN_ID        0x201
-#define CANZERO_RX_PDO2_CAN_ID        0x241
-#define CANZERO_TX_PDO3_CAN_ID        0x281
-#define CANZERO_RX_PDO3_CAN_ID        0x2C1
-#define CANZERO_TX_PDO4_CAN_ID        0x301
-#define CANZERO_RX_PDO4_CAN_ID        0x341
-#define CANZERO_TX_PDO5_CAN_ID        0x381
-#define CANZERO_TX_PDO6_CAN_ID        0x3C1
-#define CANZERO_TX_PDO7_CAN_ID        0x401
-#define CANZERO_TX_PDO8_CAN_ID        0x441
-#define CANZERO_TX_PDO9_CAN_ID        0x481
-#define CANZERO_TX_PDO10_CAN_ID       0x4C1
-#define CANZERO_TX_PDO11_CAN_ID       0x501
-#define CANZERO_TX_PDO12_CAN_ID       0x541
-#define CANZERO_SDO_RESP_CAN_ID       0x581
-#define CANZERO_SDO_REQ_UP_CAN_ID     0x5C1
-#define CANZERO_SDO_REQ_DOWN_CAN_ID   0x601
-#define CANZERO_HEARTBEAT_CAN_ID      0x701
-#define CANZERO_BTL_TX_CAN_ID         0x741
-#define CANZERO_BTL_RX_CAN_ID         0x781
+#define CANZERO_EMCY_CAN_ID           0x094
+#define CANZERO_TX_PDO1_CAN_ID        0x194
+#define CANZERO_RX_PDO1_CAN_ID        0x1D4
+#define CANZERO_TX_PDO2_CAN_ID        0x214
+#define CANZERO_RX_PDO2_CAN_ID        0x254
+#define CANZERO_TX_PDO3_CAN_ID        0x294
+#define CANZERO_RX_PDO3_CAN_ID        0x2D4
+#define CANZERO_TX_PDO4_CAN_ID        0x314
+#define CANZERO_RX_PDO4_CAN_ID        0x354
+#define CANZERO_TX_PDO5_CAN_ID        0x394
+#define CANZERO_TX_PDO6_CAN_ID        0x3D4
+#define CANZERO_TX_PDO7_CAN_ID        0x414
+#define CANZERO_TX_PDO8_CAN_ID        0x454
+#define CANZERO_TX_PDO9_CAN_ID        0x494
+#define CANZERO_TX_PDO10_CAN_ID       0x4D4
+#define CANZERO_TX_PDO11_CAN_ID       0x514
+#define CANZERO_TX_PDO12_CAN_ID       0x554
+#define CANZERO_SDO_RESP_CAN_ID       0x594
+#define CANZERO_SDO_REQ_UP_CAN_ID     0x5D4
+#define CANZERO_SDO_REQ_DOWN_CAN_ID   0x614
+#define CANZERO_HEARTBEAT_CAN_ID      0x714
+#define CANZERO_BTL_TX_CAN_ID         0x754
+#define CANZERO_BTL_RX_CAN_ID         0x794
 
 // CAN DLC of the nodes function codes
 #define CANZERO_EMCY_CAN_DLC           4

@@ -1,14 +1,14 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This header file was generated from 'database_gen.dbc'.
- * It contains the object dictionary for the node 'SENSOR'.
+ * This header file was generated from 'pod2023_gen.dbc'.
+ * It contains the object dictionary for the node 'CLU'.
  *
  * Florian Keck
  * florian.keck@mu-zero.de
  * Copyright 2023, mu-zero HYPERLOOP e.V.
  */
-#ifndef CANZERO_SENSOR_OD_HPP
-#define CANZERO_SENSOR_OD_HPP
+#ifndef CANZERO_CLU_OD_HPP
+#define CANZERO_CLU_OD_HPP
 
 #pragma once
 
@@ -56,10 +56,6 @@ extern volatile uint8_t  OD_CAN2_Status;
 extern volatile uint32_t OD_CAN2_DiscardedTxMessages;
 extern volatile uint8_t  OD_CAN2_ErrorStatus;
 extern volatile uint32_t OD_CAN2_DelayedTxMessages;
-extern volatile uint8_t  OD_IMU_number;
-extern volatile float    OD_IMU1_Temperature;
-extern volatile float    OD_IMU2_Temperature;
-extern volatile float    OD_IMU3_Temperature;
 
 /**************************************************************************
 * Semaphores for access to OD values                                      *
@@ -101,10 +97,6 @@ extern osMutexId_t mutex_OD_CAN2_Status;
 extern osMutexId_t mutex_OD_CAN2_DiscardedTxMessages;
 extern osMutexId_t mutex_OD_CAN2_ErrorStatus;
 extern osMutexId_t mutex_OD_CAN2_DelayedTxMessages;
-extern osMutexId_t mutex_OD_IMU_number;
-extern osMutexId_t mutex_OD_IMU1_Temperature;
-extern osMutexId_t mutex_OD_IMU2_Temperature;
-extern osMutexId_t mutex_OD_IMU3_Temperature;
 
 
 /**************************************************************************
@@ -234,18 +226,6 @@ void OD_CAN2_ErrorStatus_set(const uint8_t value);
 uint32_t OD_CAN2_DelayedTxMessages_get();
 void OD_CAN2_DelayedTxMessages_set(const uint32_t value);
 
-uint8_t OD_IMU_number_get();
-void OD_IMU_number_set(const uint8_t value);
-
-float OD_IMU1_Temperature_get();
-void OD_IMU1_Temperature_set(const float value);
-
-float OD_IMU2_Temperature_get();
-void OD_IMU2_Temperature_set(const float value);
-
-float OD_IMU3_Temperature_get();
-void OD_IMU3_Temperature_set(const float value);
-
 
 /**************************************************************************
 * FreeRTOS task that will send out periodically all readable OD entries   *
@@ -253,4 +233,4 @@ void OD_IMU3_Temperature_set(const float value);
 void sendOdEntriesTask(void *pvParameters);
 
 
-#endif // CANZERO_SENSOR_OD_HPP
+#endif // CANZERO_CLU_OD_HPP

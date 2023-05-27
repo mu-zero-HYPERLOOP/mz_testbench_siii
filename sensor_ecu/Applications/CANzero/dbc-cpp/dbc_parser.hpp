@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 17:54:04 20.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 17:33:49 27.05.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -46,30 +46,30 @@ namespace can {
     * Calculated mask and id for receive fiter.                               *
     ***************************************************************************/
     namespace filters {
-        constexpr uint8_t num_ext = 2;      // Number of used receive filters for extended (29-bit) ID messages
-        constexpr uint32_t mask_ext[2] = {   // Filter mask for extended (29-bit) ID messages
-            0x1FFFFFFF,            0x1FFFFFF9 
+        constexpr uint8_t num_ext = 3;      // Number of used receive filters for extended (29-bit) ID messages
+        constexpr uint32_t mask_ext[3] = {   // Filter mask for extended (29-bit) ID messages
+            0x1FFFFFFF,            0x1FFFFFFF,            0x1FFFFFF9 
         };
-        constexpr uint32_t id_ext[2] = {     // Filter ID for extended (29-bit) ID messages
-            0x10ECE0,            0x1FFFFFF8 
+        constexpr uint32_t id_ext[3] = {     // Filter ID for extended (29-bit) ID messages
+            0x1109216,            0x10ECE0,            0x1FFFFFF8 
         };
 
-        constexpr uint8_t num_std = 23;      // Number of used receive filters for standard (11-bit) ID messages
-        constexpr uint32_t mask_std[23] = {   // Filter mask for standard (11-bit) ID messages
+        constexpr uint8_t num_std = 22;      // Number of used receive filters for standard (11-bit) ID messages
+        constexpr uint32_t mask_std[22] = {   // Filter mask for standard (11-bit) ID messages
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF,            0x7FF 
+            0x7FF,            0x7FF,            0x6FF,            0x7FB, 
+            0x77F,            0x3FF 
         };
-        constexpr uint32_t id_std[23] = {     // Filter ID for standard (11-bit) ID messages
-            0x104,            0x411,            0x10A,            0x001, 
-            0x200,            0x100,            0x002,            0x1C1, 
-            0x241,            0x2C1,            0x341,            0x5C1, 
-            0x601,            0x701,            0x781,            0x191, 
-            0x711,            0x19A,            0x21A,            0x51A, 
-            0x55A,            0x71A,            0x722 
+        constexpr uint32_t id_std[22] = {     // Filter ID for standard (11-bit) ID messages
+            0x234,            0x250,            0x411,            0x10A, 
+            0x001,            0x002,            0x341,            0x601, 
+            0x701,            0x781,            0x191,            0x711, 
+            0x19A,            0x21A,            0x51A,            0x55A, 
+            0x71A,            0x722,            0x200,            0x100, 
+            0x241,            0x1C1 
         };
     }
 
@@ -421,6 +421,12 @@ namespace can {
             // Attributes of node 'Track'
             constexpr uint8_t CANzero_NodeID = 50;
         }
+        namespace CLU {
+            constexpr char comment[] = "central levitation unit Node-ID 0x14";
+
+            // Attributes of node 'CLU'
+            constexpr uint8_t CANzero_NodeID = 20;
+        }
     }
     
     /**********************************************************************************************
@@ -463,7 +469,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char BusType[] = "CAN";
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 188;
+    constexpr uint32_t CANzero_DBCVersion = 198;
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
@@ -472,7 +478,80 @@ namespace can {
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
-        class MDB_Temperature {
+        class CLU_RX_ActionRequest {
+            public:
+            using dataType = int8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x234 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, int8_t value) noexcept {
+                int8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
+            }
+            constexpr static inline int8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int8_t value = static_cast<int8_t>((intel & 0xFFull));
+                // Convert raw bits to signed value
+                SignedConverter8Bits signedConverter{value};
+                value = signedConverter.value;
+                return value;
+            }
+        };
+        class BMS44_2_FramePayload {
+            public:
+            using dataType = uint64_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1109216 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint64_t value) noexcept {
+                uint64_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFFFFFFFFFull;
+            }
+            constexpr static inline uint64_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint64_t value = static_cast<uint64_t>((intel & 0xFFFFFFFFFFFFFFFFull));
+                return value;
+            }
+        };
+        class CLU_RX_ErrorStatus {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x700 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x1ull));
+                return value;
+            }
+        };
+        class CLU_LevitationState {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x250 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
+                return value;
+            }
+        };
+        class CLU_RequiresCooling {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x300 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x1ull));
+                return value;
+            }
+        };
+        class MDB1_Temperature {
             public:
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 1;
@@ -483,20 +562,6 @@ namespace can {
             }
             constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
                 uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
-            }
-        };
-        class MDB_Id_Temperature {
-            public:
-            using dataType = uint8_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x104 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue) << 32) & 0xFF00000000ull;
-            }
-            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0xFF00000000ull) >> 32);
                 return value;
             }
         };
@@ -581,7 +646,7 @@ namespace can {
                 return value;
             }
         };
-        class BMS_FramePayload {
+        class BMS44_1_FramePayload {
             public:
             using dataType = uint64_t;
             constexpr static uint8_t numIds = 1;
@@ -637,7 +702,7 @@ namespace can {
                 return value;
             }
         };
-        class MDB_State {
+        class MDB1_State {
             public:
             using dataType = uint8_t;
             constexpr static uint8_t numIds = 1;
@@ -648,20 +713,6 @@ namespace can {
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
-                return value;
-            }
-        };
-        class MDB_Id_State {
-            public:
-            using dataType = uint8_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x100 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue) << 8) & 0xFF00ull;
-            }
-            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0xFF00ull) >> 8);
                 return value;
             }
         };
@@ -1040,6 +1091,7 @@ namespace can {
             constexpr static uint16_t HVCU = 10;
             constexpr static uint16_t BRAKEF = 17;
             constexpr static uint16_t BRAKER = 18;
+            constexpr static uint16_t CLU = 20;
             constexpr static uint16_t HVTU = 25;
             constexpr static uint16_t PDU = 26;
             constexpr static uint16_t MDB1 = 33;
@@ -1375,16 +1427,18 @@ namespace can {
             constexpr static uint8_t POD_OFF = 0;
             constexpr static uint8_t POD_IDLE = 1;
             constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
-            constexpr static uint8_t POD_FAULT = 3;
-            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
-            constexpr static uint8_t POD_LAUNCHING = 5;
-            constexpr static uint8_t POD_PUSHABLE = 6;
-            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
-            constexpr static uint8_t POD_START_LEVITATION = 8;
-            constexpr static uint8_t POD_STOP_LEVITATION = 9;
-            constexpr static uint8_t POD_LEVITATING = 10;
-            constexpr static uint8_t POD_BREAKING = 11;
-            constexpr static uint8_t POD_STOP = 12;
+            constexpr static uint8_t POD_READY_TO_LAUNCH = 3;
+            constexpr static uint8_t POD_START_LEVITATION = 4;
+            constexpr static uint8_t POD_STABLE_LEVITATION = 5;
+            constexpr static uint8_t POD_CRUSING = 6;
+            constexpr static uint8_t POD_DISENGAGE_BRAKES = 7;
+            constexpr static uint8_t POD_STOP_LEVITATION = 8;
+            constexpr static uint8_t POD_ROLLING = 9;
+            constexpr static uint8_t POD_ENGAGE_BRAKES = 10;
+            constexpr static uint8_t POD_END_OF_RUN = 11;
+            constexpr static uint8_t POD_SAFE_TO_APPROCH = 12;
+            constexpr static uint8_t POD_PUSHABLE = 13;
+            constexpr static uint8_t POD_STARTUP = 14;
         };
         class SensorF_TX_PodState_Last {
             public:
@@ -5539,17 +5593,76 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
-        class MDB_TX_Temperature {
+        class CLU_RX_ActionRequest {
             public:
-            constexpr static uint32_t id = 0x104;
-            constexpr static uint8_t dlc = 5;
+            constexpr static uint32_t id = 0x234;
+            constexpr static uint8_t dlc = 1;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB_Temperature = signals::MDB_Temperature;
-            using MDB_Id_Temperature = signals::MDB_Id_Temperature;
+            using CLU_RX_ActionRequest_ = signals::CLU_RX_ActionRequest;
 
-            // Attributes of message 'MDB_TX_Temperature'
+            // Attributes of message 'CLU_RX_ActionRequest'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class BMS44_2_Frame {
+            public:
+            constexpr static uint32_t id = 0x1109216;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = true;
+
+            // Signals
+            using BMS44_2_FramePayload = signals::BMS44_2_FramePayload;
+
+            // Attributes of message 'BMS44_2_Frame'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class CLU_RX_StatusLedControll {
+            public:
+            constexpr static uint32_t id = 0x700;
+            constexpr static uint8_t dlc = 1;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using CLU_RX_ErrorStatus = signals::CLU_RX_ErrorStatus;
+
+            // Attributes of message 'CLU_RX_StatusLedControll'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class CLU_TX_LevitationState {
+            public:
+            constexpr static uint32_t id = 0x250;
+            constexpr static uint8_t dlc = 1;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using CLU_LevitationState = signals::CLU_LevitationState;
+
+            // Attributes of message 'CLU_TX_LevitationState'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class CLU_TX_CoolingState {
+            public:
+            constexpr static uint32_t id = 0x300;
+            constexpr static uint8_t dlc = 1;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using CLU_RequiresCooling = signals::CLU_RequiresCooling;
+
+            // Attributes of message 'CLU_TX_CoolingState'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class MDB1_TX_Temperature {
+            public:
+            constexpr static uint32_t id = 0x104;
+            constexpr static uint8_t dlc = 4;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using MDB1_Temperature = signals::MDB1_Temperature;
+
+            // Attributes of message 'MDB1_TX_Temperature'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class BrakeF_TX_PressureCooling {
@@ -5579,16 +5692,16 @@ namespace can {
             // Attributes of message 'PDU_RX_LP_Enable'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class BMS_Frame {
+        class BMS44_1_Frame {
             public:
             constexpr static uint32_t id = 0x10ECE0;
             constexpr static uint8_t dlc = 8;
             constexpr static bool isExtendedId = true;
 
             // Signals
-            using BMS_FramePayload = signals::BMS_FramePayload;
+            using BMS44_1_FramePayload = signals::BMS44_1_FramePayload;
 
-            // Attributes of message 'BMS_Frame'
+            // Attributes of message 'BMS44_1_Frame'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class Track_TX_Respond {
@@ -5627,17 +5740,16 @@ namespace can {
             // Attributes of message 'TEST_GROUND_STATION_CONTROLL'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB_TX_State {
+        class MDB1_TX_State {
             public:
             constexpr static uint32_t id = 0x100;
-            constexpr static uint8_t dlc = 2;
+            constexpr static uint8_t dlc = 1;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB_State = signals::MDB_State;
-            using MDB_Id_State = signals::MDB_Id_State;
+            using MDB1_State = signals::MDB1_State;
 
-            // Attributes of message 'MDB_TX_State'
+            // Attributes of message 'MDB1_TX_State'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class OpticalSensor_TX_MainData {

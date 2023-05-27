@@ -154,7 +154,7 @@ typedef struct PduOutputState {
 	OutputChannelPwm 	LPCh2					{false, 100.0f};
 	OutputChannelPwm	LPCh3_HVCU				{true, 100.0f};
 	OutputChannel 		LPCh4_eboxECUs			{false};
-	OutputChannel 		LPCh5_powerElectronics	{false};
+	OutputChannel 		LPCh5_powerElectronics	{true};
 	OutputChannel 		LPCh6   				{false}; //hw
 	OutputChannel 		LPCh7_rearECU			{false};
 	OutputChannelPwm 	LPCh8_telemetry			{false, 100.0f}; // Telemetry node, Wifi-Router
@@ -162,9 +162,9 @@ typedef struct PduOutputState {
 	OutputChannelPwm 	LPCh10					{false, 100.0f}; //telemetry
 	OutputChannelPwm	HPCh1_projectXX			{false, 100.0f};
 	OutputChannelPwm	HPCh2_coolingPump		{false, 100.0f};
-	OutputChannelPwm	HPCh3					{false};
+	OutputChannelPwm	HPCh3					{true};
 	OutputChannelPwm	HPCh4					{false};
-	OutputChannelPwm	D1_projectXX			{false, 100.0f};
+	OutputChannelPwm	D1_projectXX			{true, 100.0f};
 	OutputChannelPwm	D2_PE_enable			{false, 100.0f};
 	OutputChannelPwm	D3						{false, 100.0f};
 	OutputChannelPwm	D4						{false, 100.0f};
@@ -349,6 +349,7 @@ void receiveCanMessages() {
 		}
 		else if(checkRxMessage<messages::PDU_RX_LP_Dutycycle>(rxRawMsg)) {	// Duty cycle message for manual control
 			can::Message<messages::PDU_RX_LP_Dutycycle> dutyMsg{rxRawMsg};
+			continue;
 
 			float lpch1_duty = dutyMsg.get<signals::PDU_LPCh1_Dutycycle>();
 			outputState.LPCh1_opticalSensor.set(lpch1_duty != 0, lpch1_duty);
@@ -365,6 +366,7 @@ void receiveCanMessages() {
 
 		} else if(checkRxMessage<messages::PDU_RX_HP_D_Dutycycle>(rxRawMsg)) {	// Duty cycle message for manual control
 			can::Message<messages::PDU_RX_HP_D_Dutycycle> dutyMsg{rxRawMsg};
+			continue;
 
 			float hpch1_duty = dutyMsg.get<signals::PDU_HPCh1_Dutycycle>();
 			outputState.HPCh1_projectXX.set(hpch1_duty != 0, hpch1_duty);
@@ -375,8 +377,9 @@ void receiveCanMessages() {
 			outputState.D3.setDuty(						dutyMsg.get<signals::PDU_D3_Dutycycle>());
 			outputState.D4.setDuty(						dutyMsg.get<signals::PDU_D4_Dutycycle>());
 		} else if(checkRxMessage<messages::PDU_RX_LP_Enable>(rxRawMsg)){
-
 			can::Message<messages::PDU_RX_LP_Enable> lpEnableMsg {rxRawMsg};
+			continue;
+
 			outputState.LPCh4_eboxECUs.set(lpEnableMsg.get<signals::PDU_RX_LPCh4_Enable>());
 			outputState.LPCh5_powerElectronics.set(lpEnableMsg.get<signals::PDU_RX_LPCh5_Enable>());
 			outputState.LPCh6.set(lpEnableMsg.get<signals::PDU_RX_LPCh6_Enable>());

@@ -74,6 +74,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/pdu/Applications/CANzero/dbc-cpp}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/pdu/Applications/CANzero/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/pdu/Applications/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/pdu/Applications/Inc}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp.67390665" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp"/>
 							</tool>
@@ -223,5 +224,12 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/pdu"/>
+		</configuration>
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/pdu"/>
+		</configuration>
+	</storageModule>
 </cproject>

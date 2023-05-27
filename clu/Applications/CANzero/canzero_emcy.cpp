@@ -1,7 +1,7 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'database_gen.dbc' on 14:21:06 28.04.2023.
- * It contains the errors and warnings for the node 'SENSOR'.
+ * This source file was generated from 'pod2023_gen.dbc' on 17:42:20 27.05.2023.
+ * It contains the errors and warnings for the node 'CLU'.
  *
  * Florian Keck
  * florian.keck@mu-zero.de

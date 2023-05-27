@@ -13,4 +13,8 @@ void init();
 
 void update();
 
+void enable();
+
+void disable();
+
 }

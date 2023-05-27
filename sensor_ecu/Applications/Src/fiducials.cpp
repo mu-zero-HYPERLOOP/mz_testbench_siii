@@ -31,7 +31,6 @@ void init(){
 
 void update(){
 	OD_StripeCount_set(interruptsCounter);
-	printf("stripeCounter %u\n", interruptsCounter);
 }
 
 

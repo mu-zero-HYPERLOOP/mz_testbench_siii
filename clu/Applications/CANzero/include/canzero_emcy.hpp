@@ -1,14 +1,14 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This header file was generated from 'database_gen.dbc'.
- * It contains the errors and warnings for the node 'SENSOR'.
+ * This header file was generated from 'pod2023_gen.dbc'.
+ * It contains the errors and warnings for the node 'CLU'.
  *
  * Florian Keck
  * florian.keck@mu-zero.de
  * Copyright 2023, mu-zero HYPERLOOP e.V.
  */
-#ifndef CANZERO_SENSOR_EMCY_HPP
-#define CANZERO_SENSOR_EMCY_HPP
+#ifndef CANZERO_CLU_EMCY_HPP
+#define CANZERO_CLU_EMCY_HPP
 
 #pragma once
 
@@ -48,4 +48,4 @@ void ERR_OtherError_clear();
 bool ERR_OtherError_get();
 
 
-#endif // CANZERO_SENSOR_EMCY_HPP
+#endif // CANZERO_CLU_EMCY_HPP

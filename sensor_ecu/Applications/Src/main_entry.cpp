@@ -8,17 +8,17 @@
 #include <bms44_remote.hpp>
 #include <imu.hpp>
 #include <kistler_remote.hpp>
-#include <mdb_remote.hpp>
+#include "clu_remote.hpp"
 #include <pdu_remote.hpp>
 #include <proc_info.hpp>
 #include "canzero.hpp"
 #include "ImuMaster.hpp"
-#include "NTCSensor.hpp"
 #include "brake_ecu_remote.hpp"
 #include <cmath>
 #include "cooling_controll.hpp"
-#include "NTCSensor.hpp"
-//#include "fiducials.hpp"
+#include "fiducials.hpp"
+#include "led_status.hpp"
+#include "sdc.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,27 +26,31 @@ extern "C" {
 
 void main_entry(void *argv) {
 	info::init();
-	//fiducials::init();
-	//bms44::init();
+	fiducials::init();
+	bms44::init();
 	brake::init();
 	cooling::init();
 	pdu::init(false);
-	mdb::init();
+	clu::init();
 	imu::init();
 	kistler::init();
+	led_status::init();
+	sdc::init();
 
 	while (true) {
 		info::update();
-		//fiducials::update();
+		fiducials::update();
 		imu::update();
 		brake::update();
 		kistler::update();
-		//bms44::update();
-		mdb::update();
+		bms44::update();
+		clu::update();
 		cooling::update();
 		pdu::update();
+		led_status::update();
+		sdc::update();
 
-		osDelay(pdMS_TO_TICKS(100));
+		osDelay(pdMS_TO_TICKS(50));
 	}
 }
 

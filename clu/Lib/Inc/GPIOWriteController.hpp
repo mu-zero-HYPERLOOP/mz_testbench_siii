@@ -19,10 +19,7 @@ public:
 		HAL_GPIO_WritePin(m_port, m_pin, GPIO_PIN_SET);
 	}
 	void write(bool value) {
-		if (value)
-			set();
-		else
-			reset();
+		HAL_GPIO_WritePin(m_port, m_pin, static_cast<GPIO_PinState>(value ? 1 : 0));
 	}
 	void reset() {
 		HAL_GPIO_WritePin(m_port, m_pin, GPIO_PIN_RESET);

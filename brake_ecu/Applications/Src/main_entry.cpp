@@ -12,6 +12,7 @@
 #include "state_maschine.hpp"
 #include "sensor_ecu_remote.hpp"
 #include "proc_info.hpp"
+#include "sdc.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -23,12 +24,14 @@ void main_entry(void *argv) {
 	state_maschine::init();
 	sensor_ecu::init();
 	brake_solenoid::init();
+	sdc::init();
 
 	while(true){
 		proc_info::update();
 		cooling_pressure::update();
 		sensor_ecu::update();
 		state_maschine::update();
+		sdc::update();
 
 		osDelay(pdMS_TO_TICKS(50));
 	}

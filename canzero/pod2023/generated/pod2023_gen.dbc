@@ -33,20 +33,95 @@ NS_ :
 
 BS_:
 
-BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track
+BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track CLU
 
 
-BO_ 258 MDB_RX_TargetAirGap: 5 Vector__XXX
- SG_ MDB_Id_TargetAirGap : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ MDB_AirGap : 0|32@1+ (1,0) [0|0] ""  MDB6,MDB5,MDB4,MDB3,MDB2,MDB1
+BO_ 57 CLU_TX_ActionRequest: 1 CLU
+ SG_ CLU_TX_ActionRequest : 0|8@1+ (1,0) [0|255] "" Vector__XXX
 
-BO_ 260 MDB_TX_Temperature: 5 MDB1
- SG_ MDB_Id_Temperature : 32|8@1+ (1,0) [0|255] ""  SensorF
- SG_ MDB_Temperature : 0|32@1+ (1,0) [0|0] ""  SensorF
+BO_ 564 CLU_RX_ActionRequest: 1 SensorF
+ SG_ CLU_RX_ActionRequest : 0|8@1+ (1,0) [0|255] ""  SensorF
 
-BO_ 257 MDB_TX_AirGap: 5 MDB1
- SG_ MDB_Id_AirGap : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ MDB_AirGap : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2165346838 BMS44_2_Frame: 8 Vector__XXX
+ SG_ BMS44_2_FramePayload : 0|64@1+ (1,0) [0|0] ""  SensorF
+
+BO_ 1792 CLU_RX_StatusLedControll: 1 SensorF
+ SG_ CLU_RX_ErrorStatus : 0|1@1+ (1,0) [0|1] ""  CLU
+
+BO_ 592 CLU_TX_LevitationState: 1 CLU
+ SG_ CLU_LevitationState : 0|8@1+ (1,0) [0|255] ""  SensorF
+
+BO_ 768 CLU_TX_CoolingState: 1 Vector__XXX
+ SG_ CLU_RequiresCooling : 0|1@1+ (1,0) [0|1] ""  SensorF
+
+BO_ 274 MDB3_RX_TargetAirGap: 4 CLU
+ SG_ MDB3_TargetAirGap : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 295 MDB6_RX_TargetAirGap: 4 CLU
+ SG_ MDB6_TargetAirGap : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 297 MDB6_TX_Temperature: 4 Vector__XXX
+ SG_ MDB6_Temperature : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 294 MDB6_TX_AirGap: 4 Vector__XXX
+ SG_ MDB6_TargetAirGap : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 293 MDB6_TX_State: 1 Vector__XXX
+ SG_ MDB6_State : 0|8@1+ (1,0) [0|255] ""  CLU
+
+BO_ 292 MDB5_TX_Temperature: 4 Vector__XXX
+ SG_ MDB5_Temperature : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 290 MDB5_RX_TargetAirGap: 4 CLU
+ SG_ MDB5_TargetAirGap : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 289 MDB5_TX_AirGap: 4 Vector__XXX
+ SG_ MDB5_AirGap : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 288 MDB5_TX_State: 1 Vector__XXX
+ SG_ MDB5_State : 0|8@1+ (1,0) [0|255] ""  CLU
+
+BO_ 281 MDB4_TX_Temperature: 4 Vector__XXX
+ SG_ MDB4_Temperature : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 279 MDB4_RX_TargetAirGap: 4 CLU
+ SG_ MDB4_TargetAirGap : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 278 MDB4_TX_AirGap: 4 Vector__XXX
+ SG_ MDB4_AirGap : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 277 MDB4_TX_State: 1 Vector__XXX
+ SG_ MDB4_State : 0|8@1+ (1,0) [0|255] ""  CLU
+
+BO_ 276 MDB3_TX_Temperature: 4 Vector__XXX
+ SG_ MDB3_Temperature : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 273 MDB3_TX_AirGap: 4 Vector__XXX
+ SG_ MDB3_AirGap : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 272 MDB3_TX_State: 1 Vector__XXX
+ SG_ MDB3_State : 0|8@1+ (1,0) [0|255] ""  CLU
+
+BO_ 265 MDB2_TX_Temperature: 4 Vector__XXX
+ SG_ MDB2_Temperature : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 263 MDB2_RX_TargetAirGap: 4 CLU
+ SG_ MDB2_TargetAirGap : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 262 MDB2_TX_AirGap: 4 Vector__XXX
+ SG_ MDB2_AirGap : 0|32@1+ (1,0) [0|0] ""  CLU
+
+BO_ 261 MDB2_TX_State: 1 Vector__XXX
+ SG_ MDB2_State : 0|8@1+ (1,0) [0|255] ""  CLU
+
+BO_ 258 MDB1_RX_TargetAirGap: 4 CLU
+ SG_ MDB1_TargetAirGap : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 260 MDB1_TX_Temperature: 4 MDB3
+ SG_ MDB1_Temperature : 0|32@1+ (1,0) [0|0] ""  CLU,SensorF
+
+BO_ 257 MDB1_TX_AirGap: 4 MDB3
+ SG_ MDB1_AirGap : 0|32@1+ (1,0) [0|0] ""  CLU
 
 BO_ 1041 BrakeF_TX_PressureCooling: 2 BrakeF
  SG_ BrakeF_TX_Pressure_Reservoir : 0|12@1+ (0.005,-2) [-2|18.475] "bar"  SensorF
@@ -57,8 +132,8 @@ BO_ 266 PDU_RX_LP_Enable: 1 PDU
  SG_ PDU_RX_LPCh5_Enable : 1|1@1+ (1,0) [0|1] ""  SensorF
  SG_ PDU_RX_LPCh4_Enable : 0|1@1+ (1,0) [0|1] ""  SensorF
 
-BO_ 2148592864 BMS_Frame: 8 Bat1
- SG_ BMS_FramePayload : 0|64@1+ (1,0) [0|0] ""  SensorF
+BO_ 2148592864 BMS44_1_Frame: 8 Bat1
+ SG_ BMS44_1_FramePayload : 0|64@1+ (1,0) [0|0] ""  SensorF
 
 BO_ 1 Track_TX_Respond: 1 Track
  SG_ Track_TX_Response : 0|8@1+ (1,0) [0|255] ""  SensorF
@@ -69,9 +144,8 @@ BO_ 0 Track_RX_Controll: 1 SensorF
 BO_ 512 TEST_GROUND_STATION_CONTROLL: 1 Vector__XXX
  SG_ TEST_GROUND_STATION_COMMAND : 0|8@1+ (1,0) [0|255] ""  SensorF
 
-BO_ 256 MDB_TX_State: 2 MDB5
- SG_ MDB_Id_State : 8|8@1+ (1,0) [0|255] ""  SensorF
- SG_ MDB_State : 0|8@1+ (1,0) [0|255] ""  SensorF
+BO_ 256 MDB1_TX_State: 1 MDB3
+ SG_ MDB1_State : 0|8@1+ (1,0) [0|255] ""  CLU,SensorF
 
 BO_ 450 SensorR_RX_POD1: 8 Vector__XXX
 
@@ -106,8 +180,8 @@ BO_ 2684354556 OpticalSensor_TX_Status: 8 OpticalSensor
  SG_ OpticalSensor_TX_SerialNo : 0|24@1+ (1,0) [0|0] ""  SensorF
 
 BO_ 2 CANzero_NMT: 4 Master
- SG_ CANzero_NMT_Node : 16|16@1+ (1,0) [0|63] ""  SensorF,SensorR,BrakeF,BrakeR,PDU,HVCU,HVTU,TelemetryNode,MDB1,MDB2,MDB3,MDB4,MDB5,MDB6,Track
- SG_ CANzero_NMT_State : 0|16@1+ (1,0) [0|0] ""  SensorF,SensorR,BrakeF,BrakeR,PDU,HVCU,HVTU,TelemetryNode,MDB1,MDB2,MDB3,MDB4,MDB5,MDB6,Track
+ SG_ CANzero_NMT_Node : 16|16@1+ (1,0) [0|63] ""  SensorF,SensorR,BrakeF,BrakeR,PDU,HVCU,HVTU,TelemetryNode,MDB1,MDB2,MDB3,MDB4,MDB5,MDB6,Track,CLU
+ SG_ CANzero_NMT_State : 0|16@1+ (1,0) [0|0] ""  SensorF,SensorR,BrakeF,BrakeR,PDU,HVCU,HVTU,TelemetryNode,MDB1,MDB2,MDB3,MDB4,MDB5,MDB6,Track,CLU
 
 BO_ 122 CANzero_Sync: 0 Master
 
@@ -133,9 +207,9 @@ BO_ 129 SensorF_EMCY: 4 SensorF
  SG_ SensorF_W0_OtherWarning : 0|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
 
 BO_ 385 SensorF_TX_StatePod: 2 SensorF
- SG_ SensorF_TX_PodState_Target : 8|3@1+ (1,0) [0|0] ""  Track,BrakeF,PDU
- SG_ SensorF_TX_PodState_Last : 3|3@1+ (1,0) [0|0] ""  Track,BrakeF,PDU
- SG_ SensorF_TX_PodState : 0|3@1+ (1,0) [0|0] ""  Track,BrakeF,PDU
+ SG_ SensorF_TX_PodState_Target : 8|3@1+ (1,0) [0|0] ""  CLU,Track,BrakeF,PDU
+ SG_ SensorF_TX_PodState_Last : 3|3@1+ (1,0) [0|0] ""  CLU,Track,BrakeF,PDU
+ SG_ SensorF_TX_PodState : 0|3@1+ (1,0) [0|0] ""  CLU,Track,BrakeF,PDU
 
 BO_ 449 SensorF_RX_PDO1: 0 Vector__XXX
 
@@ -3628,9 +3702,136 @@ BO_ 1906 Track_BTL_TX: 8 Track
 
 BO_ 1970 Track_BTL_RX: 8 TelemetryNode
 
-BO_TX_BU_ 260 : MDB1,MDB6,MDB5,MDB4,MDB3,MDB2;
-BO_TX_BU_ 257 : MDB1,MDB6,MDB5,MDB4,MDB3,MDB2;
-BO_TX_BU_ 256 : MDB5,MDB6,MDB1,MDB2,MDB3,MDB4;
+BO_ 148 CLU_EMCY: 4 CLU
+ SG_ CLU_E0_OtherError : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ CLU_W0_OtherWarning : 0|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+
+BO_ 404 CLU_TX_PDO1: 0 CLU
+
+BO_ 468 CLU_RX_PDO1: 0 Vector__XXX
+
+BO_ 532 CLU_TX_PDO2: 0 CLU
+
+BO_ 596 CLU_RX_PDO2: 0 Vector__XXX
+
+BO_ 660 CLU_TX_PDO3: 0 CLU
+
+BO_ 724 CLU_RX_PDO3: 0 Vector__XXX
+
+BO_ 788 CLU_TX_PDO4: 0 CLU
+
+BO_ 852 CLU_RX_PDO4: 0 Vector__XXX
+
+BO_ 916 CLU_TX_PDO5: 0 CLU
+
+BO_ 980 CLU_TX_PDO6: 0 CLU
+
+BO_ 1044 CLU_TX_PDO7: 0 CLU
+
+BO_ 1108 CLU_TX_PDO8: 0 CLU
+
+BO_ 1172 CLU_TX_PDO9: 0 CLU
+
+BO_ 1236 CLU_TX_PDO10: 0 CLU
+
+BO_ 1300 CLU_TX_PDO11: 0 CLU
+
+BO_ 1364 CLU_TX_PDO12: 0 CLU
+
+BO_ 1428 CLU_SDO_Resp: 8 CLU
+ SG_ CLU_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ CLU_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_CAN2_DiscardedTxMessages m1127 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ CLU_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ CLU_OD_CAN2_autoErrorReset m1123 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_CAN2_lastErrorCode m1122 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ CLU_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_CAN1_DelayedTxMessages m1113 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ CLU_OD_CAN1_ErrorStatus m1112 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_CAN1_DiscardedTxMessages m1111 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ CLU_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  TelemetryNode
+ SG_ CLU_OD_CAN1_autoErrorReset m1107 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_CAN1_lastErrorCode m1106 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ CLU_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  TelemetryNode
+ SG_ CLU_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  TelemetryNode
+ SG_ CLU_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ CLU_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  TelemetryNode
+ SG_ CLU_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  TelemetryNode
+ SG_ CLU_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  TelemetryNode
+ SG_ CLU_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  TelemetryNode
+ SG_ CLU_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  TelemetryNode
+ SG_ CLU_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  TelemetryNode
+ SG_ CLU_OD_OdEntrySendInterval m33 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ CLU_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_HeartbeatInterval m16 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
+ SG_ CLU_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ CLU_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ CLU_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
+ SG_ CLU_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
+ SG_ CLU_SDO_RespCode : 12|4@1+ (1,0) [0|0] ""  TelemetryNode
+ SG_ CLU_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  TelemetryNode
+
+BO_ 1492 CLU_SDO_Req_Up: 8 TelemetryNode
+ SG_ CLU_OD_CAN2_DelayedTxMessages m1129 : 16|24@1+ (1,0) [0|16777215] ""  CLU
+ SG_ CLU_OD_CAN2_ErrorStatus m1128 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_CAN2_DiscardedTxMessages m1127 : 16|24@1+ (1,0) [0|16777215] ""  CLU
+ SG_ CLU_OD_CAN2_Status m1126 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_CAN2_Baudrate m1124 : 16|16@1+ (1,0) [125|1000] "kbps"  CLU
+ SG_ CLU_OD_CAN2_autoErrorReset m1123 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_CAN2_lastErrorCode m1122 : 16|32@1+ (1,0) [0|4294967295] ""  CLU
+ SG_ CLU_OD_CAN2_RxErrCnt m1121 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_CAN2_TxErrCnt m1120 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_CAN1_DelayedTxMessages m1113 : 16|24@1+ (1,0) [0|16777215] ""  CLU
+ SG_ CLU_OD_CAN1_ErrorStatus m1112 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_CAN1_DiscardedTxMessages m1111 : 16|24@1+ (1,0) [0|16777215] ""  CLU
+ SG_ CLU_OD_CAN1_Status m1110 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_CAN1_Baudrate m1108 : 16|16@1+ (1,0) [125|1000] "kbps"  CLU
+ SG_ CLU_OD_CAN1_autoErrorReset m1107 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_CAN1_lastErrorCode m1106 : 16|32@1+ (1,0) [0|4294967295] ""  CLU
+ SG_ CLU_OD_CAN1_RxErrCnt m1105 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_CAN1_TxErrCnt m1104 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_BuildTime m1073 : 16|24@1+ (1,0) [0|16777215] ""  CLU
+ SG_ CLU_OD_BuildDate m1072 : 16|32@1+ (1,0) [0|4294967295] ""  CLU
+ SG_ CLU_OD_ChipUID2 m1057 : 16|48@1+ (1,0) [0|281474976710655] ""  CLU
+ SG_ CLU_OD_ChipUID1 m1056 : 16|48@1+ (1,0) [0|281474976710655] ""  CLU
+ SG_ CLU_OD_SdcOut m1046 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_SdcIn m1045 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_runtime m1044 : 16|24@1+ (1,0) [0|16777215] "ms"  CLU
+ SG_ CLU_OD_InputVoltage m1043 : 16|16@1+ (0.001,0) [0|65.535] "V"  CLU
+ SG_ CLU_OD_BoardTemp m1042 : 16|16@1+ (0.01,-30) [-30|625.35] "°C"  CLU
+ SG_ CLU_OD_MemFree m1041 : 16|16@1+ (4,0) [0|262140] "bytes"  CLU
+ SG_ CLU_OD_CpuUsage m1040 : 16|8@1+ (0.5,0) [0|100] "%"  CLU
+ SG_ CLU_OD_OdEntrySendInterval m33 : 16|16@1+ (1,0) [0|65535] "ms"  CLU
+ SG_ CLU_OD_SendOdOnBootup m32 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_HeartbeatInterval m16 : 16|16@1+ (1,0) [0|65535] "ms"  CLU
+ SG_ CLU_OD_DbcVersion m5 : 16|16@1+ (1,0) [0|65535] ""  CLU
+ SG_ CLU_OD_StackVersion m4 : 16|16@1+ (1,0) [0|65535] ""  CLU
+ SG_ CLU_OD_ProtocolVersion m3 : 16|16@1+ (1,0) [0|65535] ""  CLU
+ SG_ CLU_OD_NodeStatus m2 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_OD_NodeID m1 : 16|8@1+ (1,0) [0|255] ""  CLU
+ SG_ CLU_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  CLU
+
+BO_ 1556 CLU_SDO_Req_Down: 2 TelemetryNode
+ SG_ CLU_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  CLU
+
+BO_ 1812 CLU_Heartbeat: 1 CLU
+ SG_ CLU_NodeState : 0|8@1+ (1,0) [0|0] ""  Master,TelemetryNode
+
+BO_ 1876 CLU_BTL_TX: 8 CLU
+
+BO_ 1940 CLU_BTL_RX: 8 TelemetryNode
+
+BO_TX_BU_ 260 : MDB3,MDB2,MDB1,MDB6,MDB5,MDB4;
+BO_TX_BU_ 257 : MDB3,MDB2,MDB1,MDB6,MDB5,MDB4;
+BO_TX_BU_ 256 : MDB3,MDB4,MDB6,MDB1,MDB2;
 
 
 CM_ BU_ OpticalSensor "Kistler SFP-II optical Sensor.";
@@ -3667,10 +3868,37 @@ CM_ BU_ MDB6 "ModularLevitationUnit-6
 Node-ID 0x31";
 CM_ BU_ Track "TrackECU
 Node-ID 0x32";
-CM_ SG_ 258 MDB_AirGap "as binary IEEE-754
+CM_ BU_ CLU "central levitation unit
+Node-ID 0x14";
+CM_ SG_ 274 MDB3_TargetAirGap "as binary IEEE-754
 ";
-CM_ SG_ 260 MDB_Temperature "as binary IEEE-754";
-CM_ SG_ 257 MDB_AirGap "as binary IEEE-754
+CM_ SG_ 295 MDB6_TargetAirGap "as binary IEEE-754
+";
+CM_ SG_ 297 MDB6_Temperature "as binary IEEE-754";
+CM_ SG_ 294 MDB6_TargetAirGap "as binary IEEE-754
+";
+CM_ SG_ 292 MDB5_Temperature "as binary IEEE-754";
+CM_ SG_ 290 MDB5_TargetAirGap "as binary IEEE-754
+";
+CM_ SG_ 289 MDB5_AirGap "as binary IEEE-754
+";
+CM_ SG_ 281 MDB4_Temperature "as binary IEEE-754";
+CM_ SG_ 279 MDB4_TargetAirGap "as binary IEEE-754
+";
+CM_ SG_ 278 MDB4_AirGap "as binary IEEE-754
+";
+CM_ SG_ 276 MDB3_Temperature "as binary IEEE-754";
+CM_ SG_ 273 MDB3_AirGap "as binary IEEE-754
+";
+CM_ SG_ 265 MDB2_Temperature "as binary IEEE-754";
+CM_ SG_ 263 MDB2_TargetAirGap "as binary IEEE-754
+";
+CM_ SG_ 262 MDB2_AirGap "as binary IEEE-754
+";
+CM_ SG_ 258 MDB1_TargetAirGap "as binary IEEE-754
+";
+CM_ SG_ 260 MDB1_Temperature "as binary IEEE-754";
+CM_ SG_ 257 MDB1_AirGap "as binary IEEE-754
 ";
 CM_ BO_ 2684354555 "longitudinal and transverse velocity, angle between them";
 CM_ SG_ 2684354555 OpticalSensor_TX_Angle "Angle between longitudianl and transverse direction.";
@@ -5731,6 +5959,113 @@ CM_ BO_ 1842 "Heartbeat of node Track with Node-ID 0x32";
 CM_ SG_ 1842 Track_NodeState "Heartbeat status of node Track";
 CM_ BO_ 1906 "Bootloader transmit from node Track with Node-ID 0x32";
 CM_ BO_ 1970 "Bootloader receive by node Track with Node-ID 0x32";
+CM_ BO_ 148 "Emergency message of node CLU with Node-ID 0x14";
+CM_ SG_ 148 CLU_E0_OtherError "Other error.";
+CM_ SG_ 148 CLU_W0_OtherWarning "Other warning.";
+CM_ BO_ 404 "Transmit PDO 1 of node CLU with Node-ID 0x14";
+CM_ BO_ 468 "Receive PDO 1 of node CLU with Node-ID 0x14";
+CM_ BO_ 532 "Transmit PDO 2 of node CLU with Node-ID 0x14";
+CM_ BO_ 596 "Receive PDO 2 of node CLU with Node-ID 0x14";
+CM_ BO_ 660 "Transmit PDO 3 of node CLU with Node-ID 0x14";
+CM_ BO_ 724 "Receive PDO 3 of node CLU with Node-ID 0x14";
+CM_ BO_ 788 "Transmit PDO 4 of node CLU with Node-ID 0x14";
+CM_ BO_ 852 "Receive PDO 4 of node CLU with Node-ID 0x14";
+CM_ BO_ 916 "Transmit PDO 5 of node CLU with Node-ID 0x14";
+CM_ BO_ 980 "Transmit PDO 6 of node CLU with Node-ID 0x14";
+CM_ BO_ 1044 "Transmit PDO 7 of node CLU with Node-ID 0x14";
+CM_ BO_ 1108 "Transmit PDO 8 of node CLU with Node-ID 0x14";
+CM_ BO_ 1172 "Transmit PDO 9 of node CLU with Node-ID 0x14";
+CM_ BO_ 1236 "Transmit PDO 10 of node CLU with Node-ID 0x14";
+CM_ BO_ 1300 "Transmit PDO 11 of node CLU with Node-ID 0x14";
+CM_ BO_ 1364 "Transmit PDO 12 of node CLU with Node-ID 0x14";
+CM_ BO_ 1428 "DO NOT CHANGE ANYTHING HERE!
+SDO Response of node CLU with Node-ID 0x14";
+CM_ SG_ 1428 CLU_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1428 CLU_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1428 CLU_OD_CAN2_DiscardedTxMessages "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1428 CLU_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1428 CLU_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1428 CLU_OD_CAN2_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1428 CLU_OD_CAN2_lastErrorCode "Last error code.";
+CM_ SG_ 1428 CLU_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1428 CLU_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1428 CLU_OD_CAN1_DelayedTxMessages "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1428 CLU_OD_CAN1_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1428 CLU_OD_CAN1_DiscardedTxMessages "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1428 CLU_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1428 CLU_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1428 CLU_OD_CAN1_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1428 CLU_OD_CAN1_lastErrorCode "Last error code.";
+CM_ SG_ 1428 CLU_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1428 CLU_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1428 CLU_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1428 CLU_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1428 CLU_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1428 CLU_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1428 CLU_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1428 CLU_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1428 CLU_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1428 CLU_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1428 CLU_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1428 CLU_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1428 CLU_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1428 CLU_OD_OdEntrySendInterval "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1428 CLU_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1428 CLU_OD_HeartbeatInterval "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1428 CLU_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1428 CLU_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1428 CLU_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1428 CLU_OD_NodeStatus "State of the node.";
+CM_ SG_ 1428 CLU_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1428 CLU_SDO_RespCode "Response code of SDO access.";
+CM_ SG_ 1428 CLU_SDO_ID "Specifies SDO-ID of CLU";
+CM_ BO_ 1492 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Upload to node CLU with Node-ID 0x14";
+CM_ SG_ 1492 CLU_OD_CAN2_DelayedTxMessages "Number of delayed TX messages on CAN2 because no messagebox was free.";
+CM_ SG_ 1492 CLU_OD_CAN2_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1492 CLU_OD_CAN2_DiscardedTxMessages "Number of discarded TX messages on CAN2 because all messageboxes were full";
+CM_ SG_ 1492 CLU_OD_CAN2_Status "Status of CAN2.";
+CM_ SG_ 1492 CLU_OD_CAN2_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1492 CLU_OD_CAN2_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1492 CLU_OD_CAN2_lastErrorCode "Last error code.";
+CM_ SG_ 1492 CLU_OD_CAN2_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1492 CLU_OD_CAN2_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1492 CLU_OD_CAN1_DelayedTxMessages "Number of delayed TX messages on CAN1 because no messagebox was free.";
+CM_ SG_ 1492 CLU_OD_CAN1_ErrorStatus "Internal error status (e.g. Error active, Error passive, Bus Off)";
+CM_ SG_ 1492 CLU_OD_CAN1_DiscardedTxMessages "Number of discarded TX messages on CAN1 because all messageboxes were full";
+CM_ SG_ 1492 CLU_OD_CAN1_Status "Status of CAN1.";
+CM_ SG_ 1492 CLU_OD_CAN1_Baudrate "Baudrate of CAN.";
+CM_ SG_ 1492 CLU_OD_CAN1_autoErrorReset "Automatic reset of errors.";
+CM_ SG_ 1492 CLU_OD_CAN1_lastErrorCode "Last error code.";
+CM_ SG_ 1492 CLU_OD_CAN1_RxErrCnt "Receive error count of CAN1.";
+CM_ SG_ 1492 CLU_OD_CAN1_TxErrCnt "Transmit error count of CAN1.";
+CM_ SG_ 1492 CLU_OD_BuildTime "Software build time in the format HHMMSS.";
+CM_ SG_ 1492 CLU_OD_BuildDate "Software build date in the format YYYYMMDD.";
+CM_ SG_ 1492 CLU_OD_ChipUID2 "Seccond part of unique ID of microcontroller.";
+CM_ SG_ 1492 CLU_OD_ChipUID1 "First part of unique ID of microcontroller.";
+CM_ SG_ 1492 CLU_OD_SdcOut "Measurement of Shutdown Circuit Output";
+CM_ SG_ 1492 CLU_OD_SdcIn "Measurement of Shutdown Circuit Input";
+CM_ SG_ 1492 CLU_OD_runtime "Runtime of chip in milliseconds.";
+CM_ SG_ 1492 CLU_OD_InputVoltage "Board supply voltage.";
+CM_ SG_ 1492 CLU_OD_BoardTemp "Temperature of board";
+CM_ SG_ 1492 CLU_OD_MemFree "Free memory in bytes.";
+CM_ SG_ 1492 CLU_OD_CpuUsage "Current CPU usage in %.";
+CM_ SG_ 1492 CLU_OD_OdEntrySendInterval "Interval for sending all readable OD entries. Sending is disabled if less than 5 ms.";
+CM_ SG_ 1492 CLU_OD_SendOdOnBootup "Whether to send all OD entries on bootup.";
+CM_ SG_ 1492 CLU_OD_HeartbeatInterval "Heartbeat Interval in milliseconds.";
+CM_ SG_ 1492 CLU_OD_DbcVersion "CANzero DBC version.";
+CM_ SG_ 1492 CLU_OD_StackVersion "CANzero stack version.";
+CM_ SG_ 1492 CLU_OD_ProtocolVersion "CANzero Protocol Version.";
+CM_ SG_ 1492 CLU_OD_NodeStatus "State of the node.";
+CM_ SG_ 1492 CLU_OD_NodeID "CANzero Node-ID.";
+CM_ SG_ 1492 CLU_SDO_ID "Specifies SDO-ID of CLU";
+CM_ BO_ 1556 "DO NOT CHANGE ANYTHING HERE!
+SDO Request Download from node CLU with Node-ID 0x14";
+CM_ SG_ 1556 CLU_SDO_ID "Specifies SDO-ID of CLU";
+CM_ BO_ 1812 "Heartbeat of node CLU with Node-ID 0x14";
+CM_ SG_ 1812 CLU_NodeState "Heartbeat status of node CLU";
+CM_ BO_ 1876 "Bootloader transmit from node CLU with Node-ID 0x14";
+CM_ BO_ 1940 "Bootloader receive by node CLU with Node-ID 0x14";
 BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
 BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","Cyclic","not_used","IfActive","NoMsgSendType";
 BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
@@ -5773,7 +6108,7 @@ BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
 BA_ "BusType" "CAN";
 BA_ "CANzero_ProtocolVersion" "V1.0";
-BA_ "CANzero_DBCVersion" 188;
+BA_ "CANzero_DBCVersion" 198;
 BA_ "CANzero_SDOClientName" "TelemetryNode";
 BA_ "CANzero_NMTMasterName" "Master";
 BA_ "DBName" "pod2022";
@@ -5792,6 +6127,33 @@ BA_ "CANzero_NodeID" BU_ MDB4 40;
 BA_ "CANzero_NodeID" BU_ MDB5 41;
 BA_ "CANzero_NodeID" BU_ MDB6 49;
 BA_ "CANzero_NodeID" BU_ Track 50;
+BA_ "CANzero_NodeID" BU_ CLU 20;
+BA_ "GenMsgCycleTime" BO_ 57 100;
+BA_ "GenMsgCycleTime" BO_ 564 100;
+BA_ "GenMsgCycleTime" BO_ 2165346838 100;
+BA_ "GenMsgCycleTime" BO_ 1792 100;
+BA_ "GenMsgCycleTime" BO_ 592 100;
+BA_ "GenMsgCycleTime" BO_ 768 100;
+BA_ "GenMsgCycleTime" BO_ 274 100;
+BA_ "GenMsgCycleTime" BO_ 295 100;
+BA_ "GenMsgCycleTime" BO_ 297 100;
+BA_ "GenMsgCycleTime" BO_ 294 100;
+BA_ "GenMsgCycleTime" BO_ 293 100;
+BA_ "GenMsgCycleTime" BO_ 292 100;
+BA_ "GenMsgCycleTime" BO_ 290 100;
+BA_ "GenMsgCycleTime" BO_ 289 100;
+BA_ "GenMsgCycleTime" BO_ 288 100;
+BA_ "GenMsgCycleTime" BO_ 281 100;
+BA_ "GenMsgCycleTime" BO_ 279 100;
+BA_ "GenMsgCycleTime" BO_ 278 100;
+BA_ "GenMsgCycleTime" BO_ 277 100;
+BA_ "GenMsgCycleTime" BO_ 276 100;
+BA_ "GenMsgCycleTime" BO_ 273 100;
+BA_ "GenMsgCycleTime" BO_ 272 100;
+BA_ "GenMsgCycleTime" BO_ 265 100;
+BA_ "GenMsgCycleTime" BO_ 263 100;
+BA_ "GenMsgCycleTime" BO_ 262 100;
+BA_ "GenMsgCycleTime" BO_ 261 100;
 BA_ "GenMsgCycleTime" BO_ 258 100;
 BA_ "GenMsgCycleTime" BO_ 260 100;
 BA_ "GenMsgCycleTime" BO_ 257 100;
@@ -13374,8 +13736,401 @@ BA_ "GenMsgCycleTime" BO_ 1586 100;
 BA_ "GenMsgCycleTime" BO_ 1842 100;
 BA_ "GenMsgCycleTime" BO_ 1906 100;
 BA_ "GenMsgCycleTime" BO_ 1970 100;
+BA_ "GenMsgCycleTime" BO_ 148 100;
+BA_ "GenMsgCycleTime" BO_ 404 100;
+BA_ "GenMsgCycleTime" BO_ 468 100;
+BA_ "GenMsgCycleTime" BO_ 532 100;
+BA_ "GenMsgCycleTime" BO_ 596 100;
+BA_ "GenMsgCycleTime" BO_ 660 100;
+BA_ "GenMsgCycleTime" BO_ 724 100;
+BA_ "GenMsgCycleTime" BO_ 788 100;
+BA_ "GenMsgCycleTime" BO_ 852 100;
+BA_ "GenMsgCycleTime" BO_ 916 100;
+BA_ "GenMsgCycleTime" BO_ 980 100;
+BA_ "GenMsgCycleTime" BO_ 1044 100;
+BA_ "GenMsgCycleTime" BO_ 1108 100;
+BA_ "GenMsgCycleTime" BO_ 1172 100;
+BA_ "GenMsgCycleTime" BO_ 1236 100;
+BA_ "GenMsgCycleTime" BO_ 1300 100;
+BA_ "GenMsgCycleTime" BO_ 1364 100;
+BA_ "GenMsgCycleTime" BO_ 1428 100;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN2_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN2_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN2_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN2_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN2_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN2_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN2_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN2_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN2_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN2_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN2_DiscardedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN2_DiscardedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN2_DiscardedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN2_DiscardedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN2_DiscardedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN2_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN2_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN2_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN2_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN2_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN2_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN2_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN2_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN2_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN2_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN1_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN1_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN1_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN1_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN1_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN1_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN1_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN1_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN1_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN1_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN1_DiscardedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN1_DiscardedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN1_DiscardedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN1_DiscardedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN1_DiscardedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN1_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN1_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN1_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN1_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN1_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN1_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN1_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN1_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN1_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN1_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_OdEntrySendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_OdEntrySendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_OdEntrySendInterval 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_OdEntrySendInterval 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_OdEntrySendInterval 50;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_HeartbeatInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_HeartbeatInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_HeartbeatInterval 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_HeartbeatInterval 250.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_HeartbeatInterval 250;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1428 CLU_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1428 CLU_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1428 CLU_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1428 CLU_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1428 CLU_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1492 100;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN2_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN2_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN2_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN2_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN2_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN2_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN2_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN2_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN2_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN2_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN2_DiscardedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN2_DiscardedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN2_DiscardedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN2_DiscardedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN2_DiscardedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN2_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN2_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN2_Status 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN2_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN2_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN2_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN2_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN2_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN2_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN2_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN2_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN2_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN2_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN2_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN2_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN2_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN2_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN2_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN2_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN2_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN2_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN2_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN2_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN2_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN2_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN2_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN2_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN2_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN2_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN2_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN1_DelayedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN1_DelayedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN1_DelayedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN1_DelayedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN1_DelayedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN1_ErrorStatus "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN1_ErrorStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN1_ErrorStatus 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN1_ErrorStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN1_ErrorStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN1_DiscardedTxMessages "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN1_DiscardedTxMessages 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN1_DiscardedTxMessages 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN1_DiscardedTxMessages 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN1_DiscardedTxMessages 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN1_Status "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN1_Status 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN1_Status 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN1_Status 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN1_Status 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN1_Baudrate "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN1_Baudrate 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN1_Baudrate 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN1_Baudrate 1000.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN1_Baudrate 1000;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN1_autoErrorReset "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN1_autoErrorReset 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN1_autoErrorReset 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN1_autoErrorReset 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN1_autoErrorReset 1;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN1_lastErrorCode "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN1_lastErrorCode 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN1_lastErrorCode 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN1_lastErrorCode 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN1_lastErrorCode 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN1_RxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN1_RxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN1_RxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN1_RxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN1_RxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CAN1_TxErrCnt "CAN";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CAN1_TxErrCnt 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CAN1_TxErrCnt 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CAN1_TxErrCnt 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CAN1_TxErrCnt 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_BuildTime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_BuildTime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_BuildTime 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_BuildTime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_BuildTime 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_BuildDate "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_BuildDate 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_BuildDate 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_BuildDate 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_BuildDate 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_ChipUID2 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_ChipUID2 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_ChipUID2 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_ChipUID2 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_ChipUID2 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_ChipUID1 "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_ChipUID1 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_ChipUID1 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_ChipUID1 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_ChipUID1 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_SdcOut "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_SdcOut 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_SdcOut 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_SdcOut 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_SdcOut 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_SdcIn "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_SdcIn 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_SdcIn 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_SdcIn 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_SdcIn 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_runtime "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_runtime 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_runtime 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_runtime 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_runtime 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_InputVoltage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_InputVoltage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_InputVoltage 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_InputVoltage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_InputVoltage 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_BoardTemp "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_BoardTemp 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_BoardTemp 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_BoardTemp 3000.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_BoardTemp 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_MemFree "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_MemFree 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_MemFree 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_MemFree 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_MemFree 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_CpuUsage "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_CpuUsage 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_CpuUsage 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_CpuUsage 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_CpuUsage 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_OdEntrySendInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_OdEntrySendInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_OdEntrySendInterval 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_OdEntrySendInterval 50.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_OdEntrySendInterval 50;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_SendOdOnBootup "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_SendOdOnBootup 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_SendOdOnBootup 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_SendOdOnBootup 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_HeartbeatInterval "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_HeartbeatInterval 0;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_HeartbeatInterval 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_HeartbeatInterval 250.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_HeartbeatInterval 250;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_DbcVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_DbcVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_DbcVersion 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_DbcVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_DbcVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_StackVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_StackVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_StackVersion 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_StackVersion 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_StackVersion 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_ProtocolVersion "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_ProtocolVersion 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_ProtocolVersion 1.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_ProtocolVersion 1;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_NodeStatus "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_NodeStatus 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_NodeStatus 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_NodeStatus 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_NodeStatus 0;
+BA_ "CANzero_SDO_Group" SG_ 1492 CLU_OD_NodeID "";
+BA_ "CANzero_SDO_AccessType" SG_ 1492 CLU_OD_NodeID 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1492 CLU_OD_NodeID 1;
+BA_ "GenSigStartValue" SG_ 1492 CLU_OD_NodeID 0.0;
+BA_ "CANzero_SDO_Default" SG_ 1492 CLU_OD_NodeID 0;
+BA_ "GenMsgCycleTime" BO_ 1556 100;
+BA_ "GenMsgCycleTime" BO_ 1812 100;
+BA_ "GenMsgCycleTime" BO_ 1876 100;
+BA_ "GenMsgCycleTime" BO_ 1940 100;
 VAL_ 2684354556 OpticalSensor_TX_LEDStatus 2 "FLASHING" 1 "ON" 0 "OFF" ;
-VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SensorF" 2 "SensorR" 17 "BrakeF" 18 "BrakeR" 26 "PDU" 10 "HVCU" 25 "HVTU" 34 "TelemetryNode" 33 "MDB1" 35 "MDB2" 39 "MDB3" 40 "MDB4" 41 "MDB5" 49 "MDB6" 50 "Track" ;
+VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SensorF" 2 "SensorR" 17 "BrakeF" 18 "BrakeR" 26 "PDU" 10 "HVCU" 25 "HVTU" 34 "TelemetryNode" 33 "MDB1" 35 "MDB2" 39 "MDB3" 40 "MDB4" 41 "MDB5" 49 "MDB6" 50 "Track" 20 "CLU" ;
 VAL_ 2 CANzero_NMT_State 1 "Start Remote Node" 2 "Stop Remote Node" 128 "Enter Pre-Operational" 129 "Reset" ;
 VAL_ 129 SensorF_E14_fiducialHighOffset 0 "Ok" 1 "ERR" ;
 VAL_ 129 SensorF_E13_encoderSpeedError 0 "Ok" 1 "ERR" ;
@@ -13396,7 +14151,7 @@ VAL_ 129 SensorF_W1_StateMTransitionW 0 "Ok" 1 "WARN" ;
 VAL_ 129 SensorF_W0_OtherWarning 0 "Ok" 1 "WARN" ;
 VAL_ 385 SensorF_TX_PodState_Target 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
 VAL_ 385 SensorF_TX_PodState_Last 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
-VAL_ 385 SensorF_TX_PodState 12 "Pod Stop" 11 "Pod Breaking" 10 "Pod Levitating" 9 "Pod Stop Levitation" 8 "Pod Start Levitation" 7 "Pod Safe to Approach" 6 "Pod Pushable" 5 "Pod Launching" 4 "Pod Ready to Launch" 3 "Pod Fault" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
+VAL_ 385 SensorF_TX_PodState 14 "Pod Startup" 13 "Pod Pushable" 12 "Pod Safe to Approch" 11 "Pod End Of Run" 10 "Pod Engage Brakes" 9 "Pod Rolling" 8 "Pod Stop Levitation" 7 "Pod Disengage Brakes" 6 "Pod Crusing" 5 "Pod Stable Levitation" 4 "Pod Start Levitation" 3 "Pod Ready to Launch" 2 "Pod Launch Preparation" 1 "Pod Idle" 0 "Pod Off" ;
 VAL_ 513 SensorF_TX_PreopHVCUT 1 "Transition" 0 "No Transitions" ;
 VAL_ 513 SensorF_TX_PreopPDUT 1 "Transition" 0 "No Transitions" ;
 VAL_ 513 SensorF_TX_PreopBrakeRT 1 "Transition" 0 "No Transitions" ;
@@ -13988,6 +14743,33 @@ VAL_ 1522 Track_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Op
 VAL_ 1522 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2304 "PistonStatus" 2816 "PropulsionPressure" 2560 "PropulsionDistance" ;
 VAL_ 1586 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2304 "PistonStatus" 2816 "PropulsionPressure" 2560 "PropulsionDistance" ;
 VAL_ 1842 Track_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
+VAL_ 148 CLU_E0_OtherError 0 "Ok" 1 "ERR" ;
+VAL_ 148 CLU_W0_OtherWarning 0 "Ok" 1 "WARN" ;
+VAL_ 1428 CLU_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1428 CLU_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1428 CLU_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1428 CLU_OD_CAN2_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1428 CLU_OD_CAN1_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1428 CLU_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1428 CLU_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1428 CLU_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1428 CLU_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1428 CLU_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1428 CLU_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
+VAL_ 1428 CLU_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
+VAL_ 1492 CLU_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1492 CLU_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1492 CLU_OD_CAN2_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1492 CLU_OD_CAN2_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1492 CLU_OD_CAN1_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
+VAL_ 1492 CLU_OD_CAN1_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
+VAL_ 1492 CLU_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
+VAL_ 1492 CLU_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
+VAL_ 1492 CLU_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
+VAL_ 1492 CLU_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
+VAL_ 1492 CLU_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
+VAL_ 1556 CLU_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
+VAL_ 1812 CLU_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
 
 
 

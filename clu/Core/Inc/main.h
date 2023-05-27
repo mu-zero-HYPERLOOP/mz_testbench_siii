@@ -88,6 +88,8 @@ void Error_Handler(void);
 #define AN1_GPIO_Port GPIOC
 #define SDC_Pin GPIO_PIN_1
 #define SDC_GPIO_Port GPIOB
+#define TMP_LED_OUTPUT_Pin GPIO_PIN_10
+#define TMP_LED_OUTPUT_GPIO_Port GPIOE
 #define CS_IMU2_Pin GPIO_PIN_10
 #define CS_IMU2_GPIO_Port GPIOB
 #define CS_IMU3_Pin GPIO_PIN_11

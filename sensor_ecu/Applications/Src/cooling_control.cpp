@@ -8,7 +8,7 @@
 #include <brake_ecu_remote.hpp>
 #include <pdu_remote.hpp>
 #include "cooling_controll.hpp"
-#include "NTCSensor.hpp"
+#include "clu_remote.hpp"
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
 #include "canzero.hpp"
@@ -37,10 +37,9 @@ constexpr float RESERVOIR_NTC_INTERNAL_RESISTOR = 100000;
 constexpr AdcModule RESERVOIR_NTC_ADC_MODULE = ADC_MODULE2;
 constexpr uint16_t RESERVOIR_NTC_ADC_RANK = 0;
 
-pdu::HpChannel COOLING_PUMP_CHANNEL = pdu::HP_CHANNEL1;
+pdu::HpChannel COOLING_PUMP_CHANNEL = pdu::HP_CHANNEL2;
 
 AdcChannelController reservoirTemperatureAdc;
-NTCSensor reservoirTemperatureSensor;
 MovingAverageFilter<10> reservoirTemperatureFilter(20);
 //NTCSensor reference;
 
@@ -94,14 +93,7 @@ void update() {
 		bool errorPressure = (pressure >= RESERVOIR_PRESSURE_HIGH)
 				|| (pressure <= RESERVOIR_PRESSURE_LOW);
 
-		bool requiresCooling = (OD_ReservoirTemperature_get()
-				> RESERVOIR_TEMPERATURE_LOW)
-				|| (OD_Magnet_1_Temperature_get() > MAGNET_TEMPERATURE_LOW)
-				|| (OD_Magnet_2_Temperature_get() > MAGNET_TEMPERATURE_LOW)
-				|| (OD_Magnet_3_Temperature_get() > MAGNET_TEMPERATURE_LOW)
-				|| (OD_Magnet_4_Temperature_get() > MAGNET_TEMPERATURE_LOW)
-				|| (OD_Magnet_5_Temperature_get() > MAGNET_TEMPERATURE_LOW)
-				|| (OD_Magnet_6_Temperature_get() > MAGNET_TEMPERATURE_LOW);
+		bool requiresCooling = (OD_ReservoirTemperature_get() > RESERVOIR_TEMPERATURE_LOW) || clu::requiresCooling();
 
 		bool activate = (not errorPressure) && requiresCooling;
 		if (activate) {

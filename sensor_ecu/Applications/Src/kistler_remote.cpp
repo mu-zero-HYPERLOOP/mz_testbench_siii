@@ -16,12 +16,26 @@ void mainDataReceiver(RxMessage &raw) {
 	OD_Position_set(msg.get<can::signals::OpticalSensor_TX_Distance>());
 }
 
+void statusReceiver(RxMessage& raw){
+	can::Message<can::messages::OpticalSensor_TX_Status> msg {raw};
+	msg.get<can::signals::OpticalSensor_TX_Temp>();
+}
+
 void init() {
 	can::registerMessageReceiver<can::messages::OpticalSensor_TX_MainData>(mainDataReceiver);
+	can::registerMessageReceiver<can::messages::OpticalSensor_TX_Status>(statusReceiver);
+}
+
+
+void enable(){
+
+}
+
+void disable(){
+
 }
 
 void update() {
-
 }
 
 }
