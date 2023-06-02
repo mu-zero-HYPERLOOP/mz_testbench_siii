@@ -38,7 +38,9 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#ifdef RELEASE
 #include "iwdg.h"
+#endif
 #include "led.h"
 #include "FreeRTOS.h"
 
@@ -62,12 +64,15 @@ void SystemClock_Config(void);
 void HAL_CAN_TxMailbox0CompleteCallback(CAN_HandleTypeDef *hcan) {
 	LED_RGB_Write(100, 0, 0);
 }
+
+#ifdef RELEASE
 void wdTask(void* params){
 	while(1){
 		HAL_IWDG_Refresh(&hiwdg);
 		osDelay(pdMS_TO_TICKS(490));
 	}
 }
+#endif
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan);
 void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan);
 void HAL_CAN_ErrorCallback(CAN_HandleTypeDef *hcan);

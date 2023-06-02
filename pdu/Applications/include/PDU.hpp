@@ -160,9 +160,9 @@ typedef struct PduOutputState {
 	OutputChannelPwm 	LPCh8_telemetry			{false, 100.0f}; // Telemetry node, Wifi-Router
 	OutputChannelPwm	LPCh9_logger			{false};
 	OutputChannelPwm 	LPCh10					{false, 100.0f}; //telemetry
-	OutputChannelPwm	HPCh1_projectXX			{false, 100.0f};
+	OutputChannelPwm	HPCh1_projectXX			{true, 100.0f};
 	OutputChannelPwm	HPCh2_coolingPump		{false, 100.0f};
-	OutputChannelPwm	HPCh3					{true};
+	OutputChannelPwm	HPCh3					{false};
 	OutputChannelPwm	HPCh4					{false};
 	OutputChannelPwm	D1_projectXX			{true, 100.0f};
 	OutputChannelPwm	D2_PE_enable			{false, 100.0f};
@@ -863,15 +863,18 @@ static void pduAppFunction(void *pvArguments) {
 		}
 
 		// Error monitoring
+		/*
 		if(pduEnabled == false) {
 			batterySafetyChecks();
 		}
+
 		if(pduEnabled == true) {
 			batterySafetyChecks();
 			if(stateMachineWatchdog.isTimedOut()) {
 				//ERR_watchdogStateMachine_set();
 			}
 		}
+		*/
 
 		// If any error is present, shutdown PeHwEnable and SDC and enable red led
 		if(anyErrorPresent()) {
