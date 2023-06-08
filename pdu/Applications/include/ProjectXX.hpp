@@ -882,6 +882,13 @@ static void projectXXFunction(void *pvParams) {
 		osDelay(pdMS_TO_TICKS(50));
 	}
 
+	leds.setAll(COLORS::MU_GREEN, 1.0f);
+	leds.update();
+	while(true){
+		leds.update();
+		osDelay(pdMS_TO_TICKS(50));
+	}
+
 	// startup animation.
 	/*
 	{

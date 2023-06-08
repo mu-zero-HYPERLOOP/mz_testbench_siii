@@ -6,15 +6,12 @@
  */
 
 #pragma once
+#include "canzero.hpp"
 
 namespace ground {
 
-enum Command {
-	COMMAND_NONE,
-	COMMAND_PREPARE,
-	COMMAND_LAUNCH,
-	COMMAND_PUSHABLE,
-};
+using COMMAND = can::signals::SensorF_OD_TelemetryCommands;
+using Command = can::signals::SensorF_OD_TelemetryCommands::dataType;
 
 void reset();
 

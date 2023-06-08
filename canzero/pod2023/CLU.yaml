@@ -6,7 +6,7 @@ ndf:
   name: CLU
   node_id: 0x14
   comment: central levitation unit
-  parent_ndfs: [mu-zero]
+  parent_ndfs: [Brake]
 
 ## Add your signals for the object-dictionary below
 object_dictionary:

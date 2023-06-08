@@ -84,6 +84,8 @@ public:
 	 */
 	inline float getGyroZ() { return -m_gyroY; }
 
+	[[nodiscard]] inline int onlineCount() {return m_numOfImusOnline;}
+
 private:
 	ICM20602::config_t imuConfig = {
 		.accelDlpf = 		ICM20602::ACCEL_DLPF_44_8_HZ,

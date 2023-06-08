@@ -6,10 +6,10 @@
  */
 
 #include "state_maschine.hpp"
+#include "estdio.hpp"
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
 #include "sdc.hpp"
-#include "brake_ecu_remote.hpp"
 #include "cooling_controll.hpp"
 #include "kistler_remote.hpp"
 #include "clu_remote.hpp"
@@ -20,6 +20,8 @@
 
 
 namespace state_maschine {
+
+static constexpr TickType_t STATE_BRD_INTERVAL = pdMS_TO_TICKS(100);
 
 static constexpr TickType_t STARTUP_TIME = pdMS_TO_TICKS(1000);
 static constexpr float MIN_SPEED_TO_TRANSITION_INTO_CRUSING = 3;
@@ -38,28 +40,42 @@ static PodState s_state;
 static PodState s_lastState;
 static PodState s_nextState;
 static volatile bool s_error = false;
+static volatile bool s_handlingError = false;
 static osMutexId_t s_stateMutex = osMutexNew(NULL);
 
 static TickType_t s_lastTransition = 0;
+static TickType_t s_lastBrd = 0;
 
 void setState(PodState state){
     osMutexAcquire(s_stateMutex, portMAX_DELAY);
-	s_nextState = state;
+    s_nextState = state;
     osMutexRelease(s_stateMutex);
     ground::reset();
+}
+
+void init(){
+	s_nextState = STATE::POD_STARTUP;
 }
 
 void update(){
     osMutexAcquire(s_stateMutex, portMAX_DELAY);
 	if(s_state != s_nextState){
+		s_state = s_nextState;
 		s_lastTransition = xTaskGetTickCount();
+		s_lastBrd = 0;
 	}
 	s_lastState = s_state;
-	s_state = s_nextState;
     osMutexRelease(s_stateMutex);
     bool handlingError = s_error;
 
 	TickType_t timeSinceLastTransition = xTaskGetTickCount() - s_lastTransition;
+	TickType_t timeSinceLastBrd = xTaskGetTickCount() - s_lastBrd;
+	if(timeSinceLastBrd > STATE_BRD_INTERVAL){
+		can::Message<can::messages::SensorF_TX_StatePod> msg;
+		msg.set<can::signals::SensorF_TX_PodState>(s_state);
+		msg.send();
+		s_lastBrd = xTaskGetTickCount();
+	}
 
     switch(s_state){
     case STATE::POD_STARTUP:
@@ -69,29 +85,17 @@ void update(){
     	}
     	break;
     case STATE::POD_IDLE:
-    	if(handlingError){
-    		setState(STATE::POD_OFF);
-    		break;
-    	}
     	sdc::open();
-    	brake::engageBrakes();
     	cooling::setMode(cooling::MODE::ADAPTIV);
     	kistler::disable();
-    	clu::requestAction(clu::Action::MDB_STOP);
-    	if(ground::lastCommand() == ground::Command::COMMAND_PREPARE){
+    	if(ground::lastCommand() == ground::COMMAND::LAUNCH_PREPARATION){
     		setState(STATE::POD_LAUNCH_PREPARATION);
     	}
     	break;
     case STATE::POD_LAUNCH_PREPARATION:
-    	if(handlingError){
-    		setState(STATE::POD_IDLE);
-    		break;
-    	}
     	sdc::close();
-    	brake::engageBrakes();
     	cooling::setMode(cooling::MODE::ADAPTIV);
     	kistler::enable();
-    	clu::requestAction(clu::Action::MDB_STOP);
     	//TODO add check for track.
     	//TODO add check for temperatures.
     	if(clu::getState() == clu::State::MDB_READY){
@@ -99,98 +103,57 @@ void update(){
     	}
     	break;
     case STATE::POD_READY_TO_LAUNCH:
-    	if(handlingError){
-    		setState(STATE::POD_IDLE);
-    		break;
-    	}
     	sdc::close();
-    	brake::engageBrakes();
     	cooling::setMode(cooling::MODE::ADAPTIV);
     	kistler::enable();
-    	clu::requestAction(clu::Action::MDB_STOP);
-    	if(ground::lastCommand() == ground::Command::COMMAND_LAUNCH){
+    	if(ground::lastCommand() == ground::COMMAND::LAUNCH_START){
     		setState(STATE::POD_START_LEVITATION);
     	}
     	break;
     case STATE::POD_START_LEVITATION:
-    	if(handlingError){
-    		setState(STATE::POD_ROLLING);
-    		break;
-    	}
     	sdc::close();
-    	brake::engageBrakes();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	clu::requestAction(clu::Action::MDB_START);
     	if(clu::getState() == clu::State::MDB_STABLE_LEV){
     		setState(STATE::POD_STABLE_LEVITATION);
     	}
     	break;
     case STATE::POD_STABLE_LEVITATION:
-    	if(handlingError){
-    		setState(STATE::POD_ROLLING);
-    		break;
-    	}
     	sdc::close();
-    	brake::engageBrakes();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	clu::requestAction(clu::Action::MDB_START);
     	if(OD_Velocity_get() > MIN_SPEED_TO_TRANSITION_INTO_CRUSING){
     		setState(STATE::POD_CRUSING);
     	}
     	break;
     case STATE::POD_CRUSING:
-    	if(handlingError){
-    		setState(STATE::POD_ROLLING);
-    		break;
-    	}
     	sdc::close();
-    	brake::engageBrakes();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	clu::requestAction(clu::Action::MDB_START);
     	if(OD_Position_get() >= DISTANCE_TO_STOP_LEVITATION || OD_StripeCount_get() >= STRIPE_COUNT_TO_STOP_LEVITATION){
     		setState(STATE::POD_DISENGAGE_BRAKES);
     	}
     	break;
     case STATE::POD_DISENGAGE_BRAKES:
-    	if(handlingError){
-    		setState(STATE::POD_ROLLING);
-    		break;
-    	}
     	sdc::close();
-    	brake::disengageBrakes();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	clu::requestAction(clu::Action::MDB_START);
     	if(timeSinceLastTransition > TIME_TO_DISENGAGE_BRAKES){
     		setState(STATE::POD_STOP_LEVITATION);
     	}
     	break;
     case STATE::POD_STOP_LEVITATION:
-    	if(handlingError){
-    		setState(STATE::POD_ROLLING);
-    		break;
-    	}
     	sdc::close();
-    	brake::disengageBrakes();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	clu::requestAction(clu::Action::MDB_STOP);
     	if(clu::getState() == clu::State::MDB_GROUNDED){
     		setState(STATE::POD_ROLLING);
     	}
     	break;
     case STATE::POD_ROLLING:
-    	if(handlingError){
-    		// normal behavior already leads to the fastest possible stop.
-    	}
     	sdc::open();
-    	brake::disengageBrakes();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	clu::requestAction(clu::Action::MDB_STOP);
     	if(OD_Velocity_get() <= SPEED_TO_ENGAGE_BRAKES || OD_Position_get() >= DISTANCE_TO_FORCE_BRAKES
     			|| timeSinceLastTransition > MAX_TIME_ROLLING
 				|| OD_StripeCount_get() >= STRIPE_COUNT_TO_FORCE_BRAKES){
@@ -198,80 +161,32 @@ void update(){
     	}
     	break;
     case STATE::POD_ENGAGE_BRAKES:
-    	if(handlingError){
-    		// normal behavior already leads to the fastest possible stop.
-    	}
     	sdc::open();
-    	brake::engageBrakes();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	clu::requestAction(clu::Action::MDB_STOP);
     	if(OD_Velocity_get() <= SPEED_CONSIDERED_STOPED){
     		setState(STATE::POD_END_OF_RUN);
     	}
     	break;
     case STATE::POD_END_OF_RUN:
-    	if(handlingError){
-    		setState(STATE::POD_OFF);
-    		break;
-    	}
     	sdc::open();
-    	brake::engageBrakes();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::disable();
-    	clu::requestAction(clu::Action::MDB_STOP);
     	break;
     case STATE::POD_SAFE_TO_APPROCH:
-    	if(handlingError){
-    		setState(STATE::POD_OFF);
-    		break;
-    	}
     	sdc::open();
-    	brake::engageBrakes();
     	cooling::setMode(cooling::MODE::ADAPTIV);
     	kistler::disable();
-    	clu::requestAction(clu::Action::MDB_STOP);
     	break;
     case STATE::POD_PUSHABLE:
-    	if(handlingError){
-    		setState(STATE::POD_OFF);
-    		break;
-    	}
     	sdc::open();
-    	brake::disengageBrakes();
     	cooling::setMode(cooling::MODE::OFF);
     	kistler::disable();
-    	clu::requestAction(clu::Action::MDB_STOP);
     	break;
     case STATE::POD_OFF:
-    	//TODO disable the lp channel that supplies power to the microcontrollers.
-    	//pdu::disableChannel(pdu::LP_CHANNEL1) ;
-    	//turn off all microcontrollers.
+    	//pdu::killMe();
     	break;
     }
-    if(handlingError){
-    	s_error = false;
-    }
 }
 
-void start(){
-	s_state = s_nextState;
-	s_lastState = s_nextState;
-	while(true){
-		update();
-		can::Message<can::messages::SensorF_TX_StatePod> stateMsg;
-		stateMsg.set<can::signals::SensorF_TX_PodState>(s_state);
-		stateMsg.set<can::signals::SensorF_TX_PodState_Target>(s_nextState);
-		stateMsg.set<can::signals::SensorF_TX_PodState_Last>(s_lastState);
-		stateMsg.send();
-	}
-}
-
-}
-
-
-// overwrites weak implementation from cz_weak.cpp
-void canzero::handle_emergency_warning(){
-	state_maschine::s_error = true;
-	ERR_ALL_clear();
 }

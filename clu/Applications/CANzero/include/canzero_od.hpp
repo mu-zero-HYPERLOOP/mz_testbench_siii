@@ -56,6 +56,12 @@ extern volatile uint8_t  OD_CAN2_Status;
 extern volatile uint32_t OD_CAN2_DiscardedTxMessages;
 extern volatile uint8_t  OD_CAN2_ErrorStatus;
 extern volatile uint32_t OD_CAN2_DelayedTxMessages;
+extern volatile float    OD_tankLowerControlLimit;
+extern volatile float    OD_tankUpperControlLimit;
+extern volatile float    OD_delay;
+extern volatile uint8_t  OD_counterLimit;
+extern volatile uint16_t OD_commWatchdog;
+extern volatile float    OD_valveUpperTolerance;
 
 /**************************************************************************
 * Semaphores for access to OD values                                      *
@@ -97,6 +103,12 @@ extern osMutexId_t mutex_OD_CAN2_Status;
 extern osMutexId_t mutex_OD_CAN2_DiscardedTxMessages;
 extern osMutexId_t mutex_OD_CAN2_ErrorStatus;
 extern osMutexId_t mutex_OD_CAN2_DelayedTxMessages;
+extern osMutexId_t mutex_OD_tankLowerControlLimit;
+extern osMutexId_t mutex_OD_tankUpperControlLimit;
+extern osMutexId_t mutex_OD_delay;
+extern osMutexId_t mutex_OD_counterLimit;
+extern osMutexId_t mutex_OD_commWatchdog;
+extern osMutexId_t mutex_OD_valveUpperTolerance;
 
 
 /**************************************************************************
@@ -225,6 +237,24 @@ void OD_CAN2_ErrorStatus_set(const uint8_t value);
 
 uint32_t OD_CAN2_DelayedTxMessages_get();
 void OD_CAN2_DelayedTxMessages_set(const uint32_t value);
+
+float OD_tankLowerControlLimit_get();
+void OD_tankLowerControlLimit_set(const float value);
+
+float OD_tankUpperControlLimit_get();
+void OD_tankUpperControlLimit_set(const float value);
+
+float OD_delay_get();
+void OD_delay_set(const float value);
+
+uint8_t OD_counterLimit_get();
+void OD_counterLimit_set(const uint8_t value);
+
+uint16_t OD_commWatchdog_get();
+void OD_commWatchdog_set(const uint16_t value);
+
+float OD_valveUpperTolerance_get();
+void OD_valveUpperTolerance_set(const float value);
 
 
 /**************************************************************************

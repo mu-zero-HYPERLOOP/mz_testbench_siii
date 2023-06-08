@@ -150,25 +150,25 @@ public:
 
 // All output channels of the PDU with the initial states
 typedef struct PduOutputState {
-	OutputChannelPwm 	LPCh1_opticalSensor		{false, 100.0f};
-	OutputChannelPwm 	LPCh2					{false, 100.0f};
-	OutputChannelPwm	LPCh3_HVCU				{true, 100.0f};
-	OutputChannel 		LPCh4_eboxECUs			{false};
-	OutputChannel 		LPCh5_powerElectronics	{true};
-	OutputChannel 		LPCh6   				{false}; //hw
-	OutputChannel 		LPCh7_rearECU			{false};
-	OutputChannelPwm 	LPCh8_telemetry			{false, 100.0f}; // Telemetry node, Wifi-Router
-	OutputChannelPwm	LPCh9_logger			{false};
-	OutputChannelPwm 	LPCh10					{false, 100.0f}; //telemetry
-	OutputChannelPwm	HPCh1_projectXX			{true, 100.0f};
-	OutputChannelPwm	HPCh2_coolingPump		{false, 100.0f};
-	OutputChannelPwm	HPCh3					{false};
-	OutputChannelPwm	HPCh4					{false};
-	OutputChannelPwm	D1_projectXX			{true, 100.0f};
-	OutputChannelPwm	D2_PE_enable			{false, 100.0f};
-	OutputChannelPwm	D3						{false, 100.0f};
-	OutputChannelPwm	D4						{false, 100.0f};
-	OutputChannel		SDC 					{false};
+	OutputChannelPwm 	LPCh1					{false, 100.0f}; // optical sensor (kistler)
+	OutputChannelPwm 	LPCh2					{false, 100.0f}; //reserved
+	OutputChannelPwm	LPCh3					{true, 100.0f}; // ebox microcontroller.
+	OutputChannel 		LPCh4					{false}; //reserved
+	OutputChannel 		LPCh5					{false};  //unassinged
+	OutputChannel 		LPCh6   				{false}; //reserved
+	OutputChannel 		LPCh7					{false}; // Telemetry node, Wifi-Router
+	OutputChannelPwm 	LPCh8					{false, 100.0f};
+	OutputChannelPwm	LPCh9					{false}; //logger
+	OutputChannelPwm 	LPCh10					{false, 100.0f}; //reserved
+	OutputChannelPwm	HPCh1					{true, 100.0f}; //led strip power
+	OutputChannelPwm	HPCh2					{false, 100.0f}; //cooling pump.
+	OutputChannelPwm	HPCh3					{false}; //maybe solenoid source
+	OutputChannelPwm	HPCh4					{false}; //reserved
+	OutputChannelPwm	D1						{true, 100.0f}; //led digital
+	OutputChannelPwm	D2						{false, 100.0f}; //reserved
+	OutputChannelPwm	D3						{false, 100.0f}; //reserved
+	OutputChannelPwm	D4						{false, 100.0f}; //reserved
+	OutputChannel		SDC 					{false}; // not used!
 } PduOutputState;
 
 PduOutputState outputState;
@@ -314,7 +314,7 @@ void receiveCanMessages() {
 			// PDU is pduEnabled and in State Machine control mode
 			if(pduEnabled) {
 				outputState.SDC.set(true);
-				outputState.LPCh5_powerElectronics.set(true);
+				outputState.LPCh5.set(true);
 				outputState.LPCh6.set(peHwEnable);
 			}
 
@@ -323,24 +323,24 @@ void receiveCanMessages() {
 
 			// PDU is in manual control mode
 			if(!pduEnabled) {
-				outputState.LPCh1_opticalSensor.set(					manualControlMsg.get<signals::PDU_LPCh1_Enable>());
+				outputState.LPCh1.set(					manualControlMsg.get<signals::PDU_LPCh1_Enable>());
 				outputState.LPCh2.set(					manualControlMsg.get<signals::PDU_LPCh2_Enable>());
-				outputState.LPCh3_HVCU.set(				manualControlMsg.get<signals::PDU_LPCh3_Enable>());
-				outputState.LPCh4_eboxECUs.set(			manualControlMsg.get<signals::PDU_LPCh4_Enable>());
-				outputState.LPCh5_powerElectronics.set(	manualControlMsg.get<signals::PDU_LPCh5_Enable>());
+				outputState.LPCh3.set(				manualControlMsg.get<signals::PDU_LPCh3_Enable>());
+				outputState.LPCh4.set(			manualControlMsg.get<signals::PDU_LPCh4_Enable>());
+				outputState.LPCh5.set(	manualControlMsg.get<signals::PDU_LPCh5_Enable>());
 				outputState.LPCh6.set(					manualControlMsg.get<signals::PDU_LPCh6_Enable>());
-				outputState.LPCh7_rearECU.set(			manualControlMsg.get<signals::PDU_LPCh7_Enable>());
-				outputState.LPCh8_telemetry.set(  		manualControlMsg.get<signals::PDU_LPCh8_Enable>());
-				outputState.LPCh9_logger.set( 	manualControlMsg.get<signals::PDU_LPCh9_Enable>());
+				outputState.LPCh7.set(			manualControlMsg.get<signals::PDU_LPCh7_Enable>());
+				outputState.LPCh8.set(  		manualControlMsg.get<signals::PDU_LPCh8_Enable>());
+				outputState.LPCh9.set( 	manualControlMsg.get<signals::PDU_LPCh9_Enable>());
 				outputState.LPCh10.set( 				manualControlMsg.get<signals::PDU_LPCh10_Enable>());
 
-				outputState.HPCh1_projectXX.set(	    manualControlMsg.get<signals::PDU_HPCh1_Enable>());
-				outputState.HPCh2_coolingPump.set(		manualControlMsg.get<signals::PDU_HPCh2_Enable>());
+				outputState.HPCh1.set(	    manualControlMsg.get<signals::PDU_HPCh1_Enable>());
+				outputState.HPCh2.set(		manualControlMsg.get<signals::PDU_HPCh2_Enable>());
 				outputState.HPCh3.set(			 		manualControlMsg.get<signals::PDU_HPCh3_Enable>());
 				outputState.HPCh4.set(					manualControlMsg.get<signals::PDU_HPCh4_Enable>());
 
-				outputState.D1_projectXX.set(			manualControlMsg.get<signals::PDU_D1_Enable>());
-				outputState.D2_PE_enable.set(			manualControlMsg.get<signals::PDU_D2_Enable>());
+				outputState.D1.set(			manualControlMsg.get<signals::PDU_D1_Enable>());
+				outputState.D2.set(			manualControlMsg.get<signals::PDU_D2_Enable>());
 				outputState.D3.set(						manualControlMsg.get<signals::PDU_D3_Enable>());
 				outputState.D4.set(						manualControlMsg.get<signals::PDU_D4_Enable>());
 
@@ -349,41 +349,39 @@ void receiveCanMessages() {
 		}
 		else if(checkRxMessage<messages::PDU_RX_LP_Dutycycle>(rxRawMsg)) {	// Duty cycle message for manual control
 			can::Message<messages::PDU_RX_LP_Dutycycle> dutyMsg{rxRawMsg};
-			continue;
 
 			float lpch1_duty = dutyMsg.get<signals::PDU_LPCh1_Dutycycle>();
-			outputState.LPCh1_opticalSensor.set(lpch1_duty != 0, lpch1_duty);
+			outputState.LPCh1.set(lpch1_duty != 0, lpch1_duty);
 			float lpch2_duty = dutyMsg.get<signals::PDU_LPCh2_Dutycycle>();
 			outputState.LPCh2.set(lpch2_duty != 0,lpch2_duty);
 			float lpch3_duty = dutyMsg.get<signals::PDU_LPCh3_Dutycycle>();
-			outputState.LPCh3_HVCU.set(lpch3_duty != 0, lpch3_duty);
+			outputState.LPCh3.set(lpch3_duty != 0, lpch3_duty);
 			float lpch8_duty = dutyMsg.get<signals::PDU_LPCh8_Dutycycle>();
-			outputState.LPCh8_telemetry.set(lpch8_duty != 0, lpch8_duty);
+			outputState.LPCh8.set(lpch8_duty != 0, lpch8_duty);
 			float lpch9_duty = dutyMsg.get<signals::PDU_LPCh9_Dutycycle>();
-			outputState.LPCh9_logger.set(lpch9_duty != 0, lpch9_duty);
+			outputState.LPCh9.set(lpch9_duty != 0, lpch9_duty);
 			float lpch10_duty = dutyMsg.get<signals::PDU_LPCh10_Dutycycle>();
 			outputState.LPCh10.set(lpch10_duty != 0, lpch10_duty);
 
 		} else if(checkRxMessage<messages::PDU_RX_HP_D_Dutycycle>(rxRawMsg)) {	// Duty cycle message for manual control
 			can::Message<messages::PDU_RX_HP_D_Dutycycle> dutyMsg{rxRawMsg};
-			continue;
 
 			float hpch1_duty = dutyMsg.get<signals::PDU_HPCh1_Dutycycle>();
-			outputState.HPCh1_projectXX.set(hpch1_duty != 0, hpch1_duty);
+			outputState.HPCh1.set(hpch1_duty != 0, hpch1_duty);
 			float hpch2_duty = dutyMsg.get<signals::PDU_HPCh2_Dutycycle>();
-			outputState.HPCh2_coolingPump.set(hpch2_duty != 0, hpch2_duty);
-			outputState.D1_projectXX.setDuty(			dutyMsg.get<signals::PDU_D1_Dutycycle>());
-			outputState.D2_PE_enable.setDuty(			dutyMsg.get<signals::PDU_D2_Dutycycle>());
+			outputState.HPCh2.set(hpch2_duty != 0, hpch2_duty);
+			outputState.D1.setDuty(			dutyMsg.get<signals::PDU_D1_Dutycycle>());
+			outputState.D2.setDuty(			dutyMsg.get<signals::PDU_D2_Dutycycle>());
 			outputState.D3.setDuty(						dutyMsg.get<signals::PDU_D3_Dutycycle>());
 			outputState.D4.setDuty(						dutyMsg.get<signals::PDU_D4_Dutycycle>());
 		} else if(checkRxMessage<messages::PDU_RX_LP_Enable>(rxRawMsg)){
 			can::Message<messages::PDU_RX_LP_Enable> lpEnableMsg {rxRawMsg};
 			continue;
 
-			outputState.LPCh4_eboxECUs.set(lpEnableMsg.get<signals::PDU_RX_LPCh4_Enable>());
-			outputState.LPCh5_powerElectronics.set(lpEnableMsg.get<signals::PDU_RX_LPCh5_Enable>());
+			outputState.LPCh4.set(lpEnableMsg.get<signals::PDU_RX_LPCh4_Enable>());
+			outputState.LPCh5.set(lpEnableMsg.get<signals::PDU_RX_LPCh5_Enable>());
 			outputState.LPCh6.set(lpEnableMsg.get<signals::PDU_RX_LPCh6_Enable>());
-			outputState.LPCh7_rearECU.set(lpEnableMsg.get<signals::PDU_RX_LPCh7_Enable>());
+			outputState.LPCh7.set(lpEnableMsg.get<signals::PDU_RX_LPCh7_Enable>());
 
 		} else if(checkRxMessage<messages::SensorF_TX_BMS>(rxRawMsg)) {
 			can::Message<messages::SensorF_TX_BMS> batteryTempMsg{rxRawMsg};
@@ -443,19 +441,19 @@ void readAndSendData() {
 		}
 	}
 
-	outputState.LPCh1_opticalSensor.setCurrent(lpChannelCurrent[0]);
+	outputState.LPCh1.setCurrent(lpChannelCurrent[0]);
 	outputState.LPCh2.setCurrent(lpChannelCurrent[1]);
-	outputState.LPCh3_HVCU.setCurrent(lpChannelCurrent[2]);
-	outputState.LPCh4_eboxECUs.setCurrent(lpChannelCurrent[3]);
-	outputState.LPCh5_powerElectronics.setCurrent(lpChannelCurrent[4]);
+	outputState.LPCh3.setCurrent(lpChannelCurrent[2]);
+	outputState.LPCh4.setCurrent(lpChannelCurrent[3]);
+	outputState.LPCh5.setCurrent(lpChannelCurrent[4]);
 	outputState.LPCh6.setCurrent(lpChannelCurrent[5]);
-	outputState.LPCh7_rearECU.setCurrent(lpChannelCurrent[6]);
-	outputState.LPCh8_telemetry.setCurrent(lpChannelCurrent[7]);
-	outputState.LPCh9_logger.setCurrent(lpChannelCurrent[8]);
+	outputState.LPCh7.setCurrent(lpChannelCurrent[6]);
+	outputState.LPCh8.setCurrent(lpChannelCurrent[7]);
+	outputState.LPCh9.setCurrent(lpChannelCurrent[8]);
 	outputState.LPCh10.setCurrent(lpChannelCurrent[9]);
 
-	outputState.HPCh1_projectXX.setCurrent(hpChannelCurrent[0]);
-	outputState.HPCh2_coolingPump.setCurrent(hpChannelCurrent[0]);
+	outputState.HPCh1.setCurrent(hpChannelCurrent[0]);
+	outputState.HPCh2.setCurrent(hpChannelCurrent[0]);
 	outputState.HPCh3.setCurrent(hpChannelCurrent[0]);
 	outputState.HPCh4.setCurrent(hpChannelCurrent[0]);
 
@@ -508,38 +506,38 @@ void readAndSendData() {
 	msgBattery.send();
 
 	if(OD_CoolingPumpEnabled != can::signals::PDU_OD_CoolingPumpEnabled::ENABLE){
-					outputState.HPCh2_coolingPump.set(false);
+					outputState.HPCh2.set(false);
 	}
 
 	// Short Circuit Debug Message
 	Message<messages::PDU_TX_LP_Short_Circuit_Debug> msgDebug1;
-	msgDebug1.set<signals::PDU_LPCh1_ShortCnt>(outputState.LPCh1_opticalSensor.numShorts());
-	msgDebug1.set<signals::PDU_LPCh1_State>(outputState.LPCh1_opticalSensor.getStatus());
+	msgDebug1.set<signals::PDU_LPCh1_ShortCnt>(outputState.LPCh1.numShorts());
+	msgDebug1.set<signals::PDU_LPCh1_State>(outputState.LPCh1.getStatus());
 	msgDebug1.set<signals::PDU_LPCh2_ShortCnt>(outputState.LPCh2.numShorts());
 	msgDebug1.set<signals::PDU_LPCh2_State>(outputState.LPCh2.getStatus());
-	msgDebug1.set<signals::PDU_LPCh3_ShortCnt>(outputState.LPCh3_HVCU.numShorts());
-	msgDebug1.set<signals::PDU_LPCh3_State>(outputState.LPCh3_HVCU.getStatus());
-	msgDebug1.set<signals::PDU_LPCh4_ShortCnt>(outputState.LPCh4_eboxECUs.numShorts());
-	msgDebug1.set<signals::PDU_LPCh4_State>(outputState.LPCh4_eboxECUs.getStatus());
-	msgDebug1.set<signals::PDU_LPCh5_ShortCnt>(outputState.LPCh5_powerElectronics.numShorts());
-	msgDebug1.set<signals::PDU_LPCh5_State>(outputState.LPCh5_powerElectronics.getStatus());
+	msgDebug1.set<signals::PDU_LPCh3_ShortCnt>(outputState.LPCh3.numShorts());
+	msgDebug1.set<signals::PDU_LPCh3_State>(outputState.LPCh3.getStatus());
+	msgDebug1.set<signals::PDU_LPCh4_ShortCnt>(outputState.LPCh4.numShorts());
+	msgDebug1.set<signals::PDU_LPCh4_State>(outputState.LPCh4.getStatus());
+	msgDebug1.set<signals::PDU_LPCh5_ShortCnt>(outputState.LPCh5.numShorts());
+	msgDebug1.set<signals::PDU_LPCh5_State>(outputState.LPCh5.getStatus());
 	msgDebug1.set<signals::PDU_LPCh6_ShortCnt>(outputState.LPCh6.numShorts());
 	msgDebug1.set<signals::PDU_LPCh6_State>(outputState.LPCh6.getStatus());
-	msgDebug1.set<signals::PDU_LPCh7_ShortCnt>(outputState.LPCh7_rearECU.numShorts());
-	msgDebug1.set<signals::PDU_LPCh7_State>(outputState.LPCh7_rearECU.getStatus());
-	msgDebug1.set<signals::PDU_LPCh8_ShortCnt>(outputState.LPCh8_telemetry.numShorts());
-	msgDebug1.set<signals::PDU_LPCh8_State>(outputState.LPCh8_telemetry.getStatus());
-	msgDebug1.set<signals::PDU_LPCh9_ShortCnt>(outputState.LPCh9_logger.numShorts());
-	msgDebug1.set<signals::PDU_LPCh9_State>(outputState.LPCh9_logger.getStatus());
+	msgDebug1.set<signals::PDU_LPCh7_ShortCnt>(outputState.LPCh7.numShorts());
+	msgDebug1.set<signals::PDU_LPCh7_State>(outputState.LPCh7.getStatus());
+	msgDebug1.set<signals::PDU_LPCh8_ShortCnt>(outputState.LPCh8.numShorts());
+	msgDebug1.set<signals::PDU_LPCh8_State>(outputState.LPCh8.getStatus());
+	msgDebug1.set<signals::PDU_LPCh9_ShortCnt>(outputState.LPCh9.numShorts());
+	msgDebug1.set<signals::PDU_LPCh9_State>(outputState.LPCh9.getStatus());
 	msgDebug1.set<signals::PDU_LPCh10_ShortCnt>(outputState.LPCh10.numShorts());
 	msgDebug1.set<signals::PDU_LPCh10_State>(outputState.LPCh10.getStatus());
 	msgDebug1.send();
 
 	Message<messages::PDU_TX_HP_Short_Circuit_Debug> msgDebug2;
-	msgDebug2.set<signals::PDU_HPCh1_ShortCnt>(outputState.HPCh1_projectXX.numShorts());
-	msgDebug2.set<signals::PDU_HPCh1_State>(outputState.HPCh1_projectXX.getStatus());
-	msgDebug2.set<signals::PDU_HPCh2_ShortCnt>(outputState.HPCh2_coolingPump.numShorts());
-	msgDebug2.set<signals::PDU_HPCh2_State>(outputState.HPCh2_coolingPump.getStatus());
+	msgDebug2.set<signals::PDU_HPCh1_ShortCnt>(outputState.HPCh1.numShorts());
+	msgDebug2.set<signals::PDU_HPCh1_State>(outputState.HPCh1.getStatus());
+	msgDebug2.set<signals::PDU_HPCh2_ShortCnt>(outputState.HPCh2.numShorts());
+	msgDebug2.set<signals::PDU_HPCh2_State>(outputState.HPCh2.getStatus());
 	msgDebug2.set<signals::PDU_HPCh3_ShortCnt>(outputState.HPCh3.numShorts());
 	msgDebug2.set<signals::PDU_HPCh3_State>(outputState.HPCh3.getStatus());
 	msgDebug2.set<signals::PDU_HPCh4_ShortCnt>(outputState.HPCh4.numShorts());
@@ -582,22 +580,22 @@ void batterySafetyChecks() {
 
 			// If undervoltage is longer than 1s, shut everything down
 		} else if(errorUndervoltageCounter >= 200) {
-			outputState.LPCh1_opticalSensor.set(false);
+			outputState.LPCh1.set(false);
 			outputState.LPCh2.set(false);
-			outputState.LPCh3_HVCU.set(false);
-			outputState.LPCh4_eboxECUs.set(false);
-			outputState.LPCh5_powerElectronics.set(false);
+			outputState.LPCh3.set(false);
+			outputState.LPCh4.set(false);
+			outputState.LPCh5.set(false);
 			outputState.LPCh6.set(false);
-			outputState.LPCh7_rearECU.set(false);
-			outputState.LPCh8_telemetry.set(false);
-			outputState.LPCh9_logger.set(false);
+			outputState.LPCh7.set(false);
+			outputState.LPCh8.set(false);
+			outputState.LPCh9.set(false);
 			outputState.LPCh10.set(false);
-			outputState.HPCh1_projectXX.set(false);
-			outputState.HPCh2_coolingPump.set(false);
+			outputState.HPCh1.set(false);
+			outputState.HPCh2.set(false);
 			outputState.HPCh3.set(false);
 			outputState.HPCh4.set(false);
-			outputState.D1_projectXX.set(false);
-			outputState.D2_PE_enable.set(false);
+			outputState.D1.set(false);
+			outputState.D2.set(false);
 			outputState.D3.set(false);
 			outputState.D4.set(false);
 			outputState.SDC.set(false);
@@ -616,22 +614,22 @@ void batterySafetyChecks() {
 
 			// If overtemperature is longer than 2s, shut everything down
 		} else if(errorOvertemperatureCounter >= 400) {
-			outputState.LPCh1_opticalSensor.set(false);
+			outputState.LPCh1.set(false);
 			outputState.LPCh2.set(false);
-			outputState.LPCh3_HVCU.set(false);
-			outputState.LPCh4_eboxECUs.set(false);
-			outputState.LPCh5_powerElectronics.set(false);
+			outputState.LPCh3.set(false);
+			outputState.LPCh4.set(false);
+			outputState.LPCh5.set(false);
 			outputState.LPCh6.set(false);
-			outputState.LPCh7_rearECU.set(false);
-			outputState.LPCh8_telemetry.set(false);
-			outputState.LPCh9_logger.set(false);
+			outputState.LPCh7.set(false);
+			outputState.LPCh8.set(false);
+			outputState.LPCh9.set(false);
 			outputState.LPCh10.set(false);
-			outputState.HPCh1_projectXX.set(false);
-			outputState.HPCh2_coolingPump.set(false);
+			outputState.HPCh1.set(false);
+			outputState.HPCh2.set(false);
 			outputState.HPCh3.set(false);
 			outputState.HPCh4.set(false);
-			outputState.D1_projectXX.set(false);
-			outputState.D2_PE_enable.set(false);
+			outputState.D1.set(false);
+			outputState.D2.set(false);
 			outputState.D3.set(false);
 			outputState.D4.set(false);
 			outputState.SDC.set(false);
@@ -648,22 +646,22 @@ void batterySafetyChecks() {
 		// If error is present for 10 or more cycles, shut down pod and set the error
 		if(errorOvercurrentCounter > 10) {
 			ERR_batteryOvercurrent_set();
-			outputState.LPCh1_opticalSensor.set(false);
+			outputState.LPCh1.set(false);
 			outputState.LPCh2.set(false);
-			outputState.LPCh3_HVCU.set(false);
-			outputState.LPCh4_eboxECUs.set(false);
-			outputState.LPCh5_powerElectronics.set(false);
+			outputState.LPCh3.set(false);
+			outputState.LPCh4.set(false);
+			outputState.LPCh5.set(false);
 			outputState.LPCh6.set(false);
-			outputState.LPCh7_rearECU.set(false);
+			outputState.LPCh7.set(false);
 			outputState.LPCh8_telemetry.set(false);
 			outputState.LPCh9_logger.set(false);
 			outputState.LPCh10.set(false);
-			outputState.HPCh1_projectXX.set(false);
-			outputState.HPCh2_coolingPump.set(false);
+			outputState.HPCh1.set(false);
+			outputState.HPCh2.set(false);
 			outputState.HPCh3.set(false);
 			outputState.HPCh4.set(false);
-			outputState.D1_projectXX.set(false);
-			outputState.D2_PE_enable.set(false);
+			outputState.D1.set(false);
+			outputState.D2.set(false);
 			outputState.D3.set(false);
 			outputState.D4.set(false);
 			outputState.SDC.set(false);
@@ -678,22 +676,22 @@ void batterySafetyChecks() {
  * Set the hardware channels
  */
 void updateChannels() {
-	outputState.LPCh1_opticalSensor.update();
+	outputState.LPCh1.update();
 	outputState.LPCh2.update();
-	outputState.LPCh3_HVCU.update();
-	outputState.LPCh4_eboxECUs.update();
-	outputState.LPCh5_powerElectronics.update();
+	outputState.LPCh3.update();
+	outputState.LPCh4.update();
+	outputState.LPCh5.update();
 	outputState.LPCh6.update();
-	outputState.LPCh7_rearECU.update();
-	outputState.LPCh8_telemetry.update();
-	outputState.LPCh9_logger.update();
+	outputState.LPCh7.update();
+	outputState.LPCh8.update();
+	outputState.LPCh9.update();
 	outputState.LPCh10.update();
-	outputState.HPCh1_projectXX.update();
-	outputState.HPCh2_coolingPump.update();
+	outputState.HPCh1.update();
+	outputState.HPCh2.update();
 	outputState.HPCh3.update();
 	outputState.HPCh4.update();
-	outputState.D1_projectXX.update();
-	outputState.D2_PE_enable.update();
+	outputState.D1.update();
+	outputState.D2.update();
 	outputState.D3.update();
 	outputState.D4.update();
 
@@ -703,8 +701,8 @@ void updateChannels() {
 	//Somehow all timers except of TIM2 can't save dutycycles of 100% so that the +1 was deleted.
 
 	// LPCh1 is TIM12_CH2
-	if(outputState.LPCh1_opticalSensor.getSwitch()) {
-		htim12.Instance->CCR2 = outputState.LPCh1_opticalSensor.getDuty() * (htim12.Instance->ARR) / 100.0f;
+	if(outputState.LPCh1.getSwitch()) {
+		htim12.Instance->CCR2 = outputState.LPCh1.getDuty() * (htim12.Instance->ARR) / 100.0f;
 	} else {
 		htim12.Instance->CCR2 = 0;
 	}
@@ -717,22 +715,22 @@ void updateChannels() {
 	}
 
 	// LPCh3 is TIM2_CH1
-	if(outputState.LPCh3_HVCU.getSwitch()) {
-		htim2.Instance->CCR1 = outputState.LPCh3_HVCU.getDuty() * (htim2.Instance->ARR + 1) / 100.0f;
+	if(outputState.LPCh3.getSwitch()) {
+		htim2.Instance->CCR1 = outputState.LPCh3.getDuty() * (htim2.Instance->ARR + 1) / 100.0f;
 	} else {
 		htim2.Instance->CCR1 = 0;
 	}
 
 	// LPCh8 is TIM8_CH1
-	if(outputState.LPCh8_telemetry.getSwitch()) {
-		htim8.Instance->CCR1 = outputState.LPCh3_HVCU.getDuty() * (htim8.Instance->ARR ) / 100.0f;
+	if(outputState.LPCh8.getSwitch()) {
+		htim8.Instance->CCR1 = outputState.LPCh3.getDuty() * (htim8.Instance->ARR ) / 100.0f;
 	} else {
 		htim8.Instance->CCR1 = 0;
 	}
 
 	// LPCh9 is TIM4_CH2
-	if(outputState.LPCh9_logger.getSwitch()) {
-		htim4.Instance->CCR2 = outputState.LPCh9_logger.getDuty() * (htim4.Instance->ARR) / 100.0f;
+	if(outputState.LPCh9.getSwitch()) {
+		htim4.Instance->CCR2 = outputState.LPCh9.getDuty() * (htim4.Instance->ARR) / 100.0f;
 	} else {
 		htim4.Instance->CCR2 = 0;
 	}
@@ -745,29 +743,29 @@ void updateChannels() {
 	}
 
 	// HPCh1 is TIM8_CH4
-	if(outputState.HPCh1_projectXX.getSwitch()) {
-		htim8.Instance->CCR4 = outputState.HPCh1_projectXX.getDuty() * (htim8.Instance->ARR) / 100.0f;
+	if(outputState.HPCh1.getSwitch()) {
+		htim8.Instance->CCR4 = outputState.HPCh1.getDuty() * (htim8.Instance->ARR) / 100.0f;
 	} else {
 		htim8.Instance->CCR4 = 0;
 	}
 
 	// HPCh2 is TIM8_CH2
-	if(outputState.HPCh2_coolingPump.getSwitch()) {
+	if(outputState.HPCh2.getSwitch()) {
 		htim8.Instance->CCR2 = outputState.HPCh2_coolingPump.getDuty() * (htim8.Instance->ARR) / 100.0f;
 	} else {
 		htim8.Instance->CCR2 = 0;
 	}
 
 	// D1 is TIM3_CH1 (is controlled by ProjectXX.hpp)
-	if(outputState.D1_projectXX.getSwitch()) {
-		//htim3.Instance->CCR1 = outputState.D1_projectXX.getDuty() * (htim3.Instance->ARR) / 100.0f;
+	if(outputState.D1.getSwitch()) {
+		//htim3.Instance->CCR1 = outputState.D1.getDuty() * (htim3.Instance->ARR) / 100.0f;
 	} else {
 		//htim3.Instance->CCR1= 0;
 	}
 
 	// D2 is TIM10_CH1
-	if(outputState.D2_PE_enable.getSwitch()) {
-		htim10.Instance->CCR1 = outputState.D2_PE_enable.getDuty() * (htim10.Instance->ARR) / 100.0f;
+	if(outputState.D2.getSwitch()) {
+		htim10.Instance->CCR1 = outputState.D2.getDuty() * (htim10.Instance->ARR) / 100.0f;
 	} else {
 		htim10.Instance->CCR1 = 0;
 	}
@@ -787,10 +785,10 @@ void updateChannels() {
 	}
 
 	// Standard On/Off output
-	HAL_GPIO_WritePin(LP4_control_GPIO_Port, LP4_control_Pin, outputState.LPCh4_eboxECUs.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LP5_control_GPIO_Port, LP5_control_Pin, outputState.LPCh5_powerElectronics.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LP4_control_GPIO_Port, LP4_control_Pin, outputState.LPCh4.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LP5_control_GPIO_Port, LP5_control_Pin, outputState.LPCh5.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(LP6_control_GPIO_Port, LP6_control_Pin, outputState.LPCh6.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LP7_control_GPIO_Port, LP7_control_Pin, outputState.LPCh7_rearECU.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(LP7_control_GPIO_Port, LP7_control_Pin, outputState.LPCh7.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(HP3_control_GPIO_Port, HP3_control_Pin, outputState.HPCh3.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(HP4_control_GPIO_Port, HP4_control_Pin, outputState.HPCh4.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
 

@@ -30,10 +30,15 @@ void main_entry(void *argv) {
 		proc_info::update();
 		cooling_pressure::update();
 		sensor_ecu::update();
-		state_maschine::update();
+		//state_maschine::update();
 		sdc::update();
 
-		osDelay(pdMS_TO_TICKS(50));
+		brake_solenoid::disengage();
+
+		osDelay(pdMS_TO_TICKS(1000));
+
+		brake_solenoid::engage();
+		osDelay(pdMS_TO_TICKS(1000));
 	}
 }
 

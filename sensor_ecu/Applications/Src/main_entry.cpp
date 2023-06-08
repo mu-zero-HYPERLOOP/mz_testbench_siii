@@ -6,6 +6,7 @@
  */
 
 #include <bms44_remote.hpp>
+#include "ground_station_remote.hpp"
 #include <imu.hpp>
 #include <kistler_remote.hpp>
 #include "clu_remote.hpp"
@@ -19,6 +20,7 @@
 #include "fiducials.hpp"
 #include "led_status.hpp"
 #include "sdc.hpp"
+#include "state_maschine.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,6 +28,7 @@ extern "C" {
 
 void main_entry(void *argv) {
 	info::init();
+	ground::init();
 	fiducials::init();
 	bms44::init();
 	brake::init();
@@ -36,9 +39,11 @@ void main_entry(void *argv) {
 	kistler::init();
 	led_status::init();
 	sdc::init();
+	state_maschine::init();
 
 	while (true) {
 		info::update();
+		ground::update();
 		fiducials::update();
 		imu::update();
 		brake::update();
@@ -49,6 +54,7 @@ void main_entry(void *argv) {
 		pdu::update();
 		led_status::update();
 		sdc::update();
+		state_maschine::update();
 
 		osDelay(pdMS_TO_TICKS(50));
 	}

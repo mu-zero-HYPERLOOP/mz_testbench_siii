@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 20:06:18 19.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 18:37:39 07.06.2023.
  * It contains the object dictionary for the node 'Track'.
  *
  * Florian Keck
@@ -52,7 +52,9 @@ volatile uint8_t  OD_CAN2_ErrorStatus         = can::signals::Track_OD_CAN2_Erro
 volatile uint32_t OD_CAN2_DelayedTxMessages   = can::signals::Track_OD_CAN2_DelayedTxMessages::CANzero_SDO_Default;
 volatile uint8_t  OD_PistonStatus             = can::signals::Track_OD_PistonStatus::CANzero_SDO_Default;
 volatile float    OD_PropulsionDistance       = can::signals::Track_OD_PropulsionDistance::CANzero_SDO_Default;
-volatile float    OD_PropulsionPressure       = can::signals::Track_OD_PropulsionPressure::CANzero_SDO_Default;
+volatile float    OD_PressureReservoir        = can::signals::Track_OD_PressureReservoir::CANzero_SDO_Default;
+volatile float    OD_PressurePush             = can::signals::Track_OD_PressurePush::CANzero_SDO_Default;
+volatile float    OD_PressureRetract          = can::signals::Track_OD_PressureRetract::CANzero_SDO_Default;
 
 
 /**************************************************************************
@@ -97,7 +99,9 @@ osMutexId_t mutex_OD_CAN2_ErrorStatus         = osMutexNew(NULL);
 osMutexId_t mutex_OD_CAN2_DelayedTxMessages   = osMutexNew(NULL);
 osMutexId_t mutex_OD_PistonStatus             = osMutexNew(NULL);
 osMutexId_t mutex_OD_PropulsionDistance       = osMutexNew(NULL);
-osMutexId_t mutex_OD_PropulsionPressure       = osMutexNew(NULL);
+osMutexId_t mutex_OD_PressureReservoir        = osMutexNew(NULL);
+osMutexId_t mutex_OD_PressurePush             = osMutexNew(NULL);
+osMutexId_t mutex_OD_PressureRetract          = osMutexNew(NULL);
 
 
 /**************************************************************************
@@ -269,8 +273,16 @@ void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {
             msgSdoResp.set<can::signals::Track_OD_PropulsionDistance>(OD_PropulsionDistance_get());
             respCode = can::signals::Track_SDO_RespCode::OK;
             break;
-        case 0xB00:    // OD_PropulsionPressure
-            msgSdoResp.set<can::signals::Track_OD_PropulsionPressure>(OD_PropulsionPressure_get());
+        case 0xB00:    // OD_PressureReservoir
+            msgSdoResp.set<can::signals::Track_OD_PressureReservoir>(OD_PressureReservoir_get());
+            respCode = can::signals::Track_SDO_RespCode::OK;
+            break;
+        case 0xB01:    // OD_PressurePush
+            msgSdoResp.set<can::signals::Track_OD_PressurePush>(OD_PressurePush_get());
+            respCode = can::signals::Track_SDO_RespCode::OK;
+            break;
+        case 0xB02:    // OD_PressureRetract
+            msgSdoResp.set<can::signals::Track_OD_PressureRetract>(OD_PressureRetract_get());
             respCode = can::signals::Track_SDO_RespCode::OK;
             break;
         default:
@@ -513,9 +525,19 @@ if (value < 125 || value > 1000) {
             msgSdoResp.set<can::signals::Track_OD_PropulsionDistance>(OD_PropulsionDistance_get());
             break;
         }
-        case 0xB00: {   // OD_PropulsionPressure
+        case 0xB00: {   // OD_PressureReservoir
             respCode = can::signals::Track_SDO_RespCode::ERR_READ_ONLY_OBJECT;
-            msgSdoResp.set<can::signals::Track_OD_PropulsionPressure>(OD_PropulsionPressure_get());
+            msgSdoResp.set<can::signals::Track_OD_PressureReservoir>(OD_PressureReservoir_get());
+            break;
+        }
+        case 0xB01: {   // OD_PressurePush
+            respCode = can::signals::Track_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::Track_OD_PressurePush>(OD_PressurePush_get());
+            break;
+        }
+        case 0xB02: {   // OD_PressureRetract
+            respCode = can::signals::Track_SDO_RespCode::ERR_READ_ONLY_OBJECT;
+            msgSdoResp.set<can::signals::Track_OD_PressureRetract>(OD_PressureRetract_get());
             break;
         }
         default:
@@ -1174,19 +1196,51 @@ void WEAK_SYMBOL OD_PropulsionDistance_set(const float value) {
 }
 #endif
 
-#ifndef OD_PropulsionPressure_GET_OVERWRITE
-float WEAK_SYMBOL OD_PropulsionPressure_get() {
-    osMutexAcquire(mutex_OD_PropulsionPressure, portMAX_DELAY);
-    float value = OD_PropulsionPressure;
-    osMutexRelease(mutex_OD_PropulsionPressure);
+#ifndef OD_PressureReservoir_GET_OVERWRITE
+float WEAK_SYMBOL OD_PressureReservoir_get() {
+    osMutexAcquire(mutex_OD_PressureReservoir, portMAX_DELAY);
+    float value = OD_PressureReservoir;
+    osMutexRelease(mutex_OD_PressureReservoir);
     return value;
 }
 #endif
-#ifndef OD_PropulsionPressure_SET_OVERWRITE
-void WEAK_SYMBOL OD_PropulsionPressure_set(const float value) {
-    osMutexAcquire(mutex_OD_PropulsionPressure, portMAX_DELAY);
-    OD_PropulsionPressure = value;
-    osMutexRelease(mutex_OD_PropulsionPressure);
+#ifndef OD_PressureReservoir_SET_OVERWRITE
+void WEAK_SYMBOL OD_PressureReservoir_set(const float value) {
+    osMutexAcquire(mutex_OD_PressureReservoir, portMAX_DELAY);
+    OD_PressureReservoir = value;
+    osMutexRelease(mutex_OD_PressureReservoir);
+}
+#endif
+
+#ifndef OD_PressurePush_GET_OVERWRITE
+float WEAK_SYMBOL OD_PressurePush_get() {
+    osMutexAcquire(mutex_OD_PressurePush, portMAX_DELAY);
+    float value = OD_PressurePush;
+    osMutexRelease(mutex_OD_PressurePush);
+    return value;
+}
+#endif
+#ifndef OD_PressurePush_SET_OVERWRITE
+void WEAK_SYMBOL OD_PressurePush_set(const float value) {
+    osMutexAcquire(mutex_OD_PressurePush, portMAX_DELAY);
+    OD_PressurePush = value;
+    osMutexRelease(mutex_OD_PressurePush);
+}
+#endif
+
+#ifndef OD_PressureRetract_GET_OVERWRITE
+float WEAK_SYMBOL OD_PressureRetract_get() {
+    osMutexAcquire(mutex_OD_PressureRetract, portMAX_DELAY);
+    float value = OD_PressureRetract;
+    osMutexRelease(mutex_OD_PressureRetract);
+    return value;
+}
+#endif
+#ifndef OD_PressureRetract_SET_OVERWRITE
+void WEAK_SYMBOL OD_PressureRetract_set(const float value) {
+    osMutexAcquire(mutex_OD_PressureRetract, portMAX_DELAY);
+    OD_PressureRetract = value;
+    osMutexRelease(mutex_OD_PressureRetract);
 }
 #endif
 
@@ -1206,9 +1260,10 @@ constexpr uint16_t READABLE_SDO_IDS[] = {
     0x456,    0x457,    0x458,    0x459, 
     0x460,    0x461,    0x462,    0x463, 
     0x464,    0x466,    0x467,    0x468, 
-    0x469,    0x900,    0xA00,    0xB00 
+    0x469,    0x900,    0xA00,    0xB00, 
+    0xB01,    0xB02 
 };
-constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 40;
+constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 42;
 extern RNG_HandleTypeDef hrng;
 
 void sendOdEntriesTask(void *pvParameters) {

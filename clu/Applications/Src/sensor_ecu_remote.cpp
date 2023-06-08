@@ -15,7 +15,7 @@
 namespace sensor_ecu_remote {
 
 static volatile PodState m_state;
-static mdb::State m_mdbState;
+static mdb::PublicState m_mdbState;
 constexpr TickType_t MESSAGE_LEVITATION_INTERVAL = 500;
 static TickType_t m_lastMsgTime = 0;
 
@@ -42,8 +42,7 @@ void stateReceiver(RxMessage &raw) {
 void actionRequestReceiver(RxMessage &raw) {
 	can::Message<can::messages::CLU_RX_ActionRequest> msg { raw };
 	uint8_t action = msg.get<can::signals::CLU_RX_ActionRequest>();
-	m_lastActionRequest = static_cast<ActionRequest>(action);
-	m_lastActionRequestDirty = true;
+	mdb::setCommand(static_cast<mdb::Command>(action));
 }
 
 void init() {
@@ -51,7 +50,7 @@ void init() {
 			stateReceiver);
 	can::registerMessageReceiver<can::messages::CLU_RX_ActionRequest>(
 			actionRequestReceiver);
-	m_mdbState = mdb::State::MDB_OFF;
+	m_mdbState = mdb::PublicState::MDB_OFF;
 	m_lastActionRequest = ActionRequest::MDB_STOP;
 	m_lastMsgTime = 0;
 }
@@ -68,13 +67,6 @@ void update() {
 		can::Message<can::messages::CLU_TX_LevitationState> msg;
 		msg.set<can::signals::CLU_LevitationState>(m_mdbState);
 		msg.send();
-	}
-	TickType_t ticksSinceActionRequestMsg = xTaskGetTickCount() - m_lastActionRequestTime;
-	if(m_lastActionRequestDirty || ticksSinceActionRequestMsg > ACTION_REQUEST_INTERVALL){
-		can::Message<can::messages::CLU_TX_ActionRequest> msg;
-		msg.set<can::signals::CLU_TX_ActionRequest>(static_cast<uint8_t>(m_lastActionRequest));
-		m_lastActionRequestDirty = false;
-		m_lastActionRequestTime = xTaskGetTickCount();
 	}
 }
 

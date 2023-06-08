@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 17:42:20 27.05.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 18:30:08 08.06.2023.
  * It contains the object dictionary for the node 'CLU'.
  *
  * Florian Keck
@@ -50,6 +50,12 @@ volatile uint8_t  OD_CAN2_Status              = can::signals::CLU_OD_CAN2_Status
 volatile uint32_t OD_CAN2_DiscardedTxMessages = can::signals::CLU_OD_CAN2_DiscardedTxMessages::CANzero_SDO_Default;
 volatile uint8_t  OD_CAN2_ErrorStatus         = can::signals::CLU_OD_CAN2_ErrorStatus::CANzero_SDO_Default;
 volatile uint32_t OD_CAN2_DelayedTxMessages   = can::signals::CLU_OD_CAN2_DelayedTxMessages::CANzero_SDO_Default;
+volatile float    OD_tankLowerControlLimit    = can::signals::CLU_OD_tankLowerControlLimit::CANzero_SDO_Default;
+volatile float    OD_tankUpperControlLimit    = can::signals::CLU_OD_tankUpperControlLimit::CANzero_SDO_Default;
+volatile float    OD_delay                    = can::signals::CLU_OD_delay::CANzero_SDO_Default;
+volatile uint8_t  OD_counterLimit             = can::signals::CLU_OD_counterLimit::CANzero_SDO_Default;
+volatile uint16_t OD_commWatchdog             = can::signals::CLU_OD_commWatchdog::CANzero_SDO_Default;
+volatile float    OD_valveUpperTolerance      = can::signals::CLU_OD_valveUpperTolerance::CANzero_SDO_Default;
 
 
 /**************************************************************************
@@ -92,6 +98,12 @@ osMutexId_t mutex_OD_CAN2_Status              = osMutexNew(NULL);
 osMutexId_t mutex_OD_CAN2_DiscardedTxMessages = osMutexNew(NULL);
 osMutexId_t mutex_OD_CAN2_ErrorStatus         = osMutexNew(NULL);
 osMutexId_t mutex_OD_CAN2_DelayedTxMessages   = osMutexNew(NULL);
+osMutexId_t mutex_OD_tankLowerControlLimit    = osMutexNew(NULL);
+osMutexId_t mutex_OD_tankUpperControlLimit    = osMutexNew(NULL);
+osMutexId_t mutex_OD_delay                    = osMutexNew(NULL);
+osMutexId_t mutex_OD_counterLimit             = osMutexNew(NULL);
+osMutexId_t mutex_OD_commWatchdog             = osMutexNew(NULL);
+osMutexId_t mutex_OD_valveUpperTolerance      = osMutexNew(NULL);
 
 
 /**************************************************************************
@@ -253,6 +265,30 @@ void handleSDORequestDownloadBySDOID(const uint16_t sdoId) {
             break;
         case 0x469:    // OD_CAN2_DelayedTxMessages
             msgSdoResp.set<can::signals::CLU_OD_CAN2_DelayedTxMessages>(OD_CAN2_DelayedTxMessages_get());
+            respCode = can::signals::CLU_SDO_RespCode::OK;
+            break;
+        case 0x800:    // OD_tankLowerControlLimit
+            msgSdoResp.set<can::signals::CLU_OD_tankLowerControlLimit>(OD_tankLowerControlLimit_get());
+            respCode = can::signals::CLU_SDO_RespCode::OK;
+            break;
+        case 0x801:    // OD_tankUpperControlLimit
+            msgSdoResp.set<can::signals::CLU_OD_tankUpperControlLimit>(OD_tankUpperControlLimit_get());
+            respCode = can::signals::CLU_SDO_RespCode::OK;
+            break;
+        case 0x802:    // OD_delay
+            msgSdoResp.set<can::signals::CLU_OD_delay>(OD_delay_get());
+            respCode = can::signals::CLU_SDO_RespCode::OK;
+            break;
+        case 0x803:    // OD_counterLimit
+            msgSdoResp.set<can::signals::CLU_OD_counterLimit>(OD_counterLimit_get());
+            respCode = can::signals::CLU_SDO_RespCode::OK;
+            break;
+        case 0x804:    // OD_commWatchdog
+            msgSdoResp.set<can::signals::CLU_OD_commWatchdog>(OD_commWatchdog_get());
+            respCode = can::signals::CLU_SDO_RespCode::OK;
+            break;
+        case 0x805:    // OD_valveUpperTolerance
+            msgSdoResp.set<can::signals::CLU_OD_valveUpperTolerance>(OD_valveUpperTolerance_get());
             respCode = can::signals::CLU_SDO_RespCode::OK;
             break;
         default:
@@ -483,6 +519,68 @@ if (value < 125 || value > 1000) {
         case 0x469: {   // OD_CAN2_DelayedTxMessages
             respCode = can::signals::CLU_SDO_RespCode::ERR_READ_ONLY_OBJECT;
             msgSdoResp.set<can::signals::CLU_OD_CAN2_DelayedTxMessages>(OD_CAN2_DelayedTxMessages_get());
+            break;
+        }
+        case 0x800: {   // OD_tankLowerControlLimit
+            float value = msgSdoReq.get<can::signals::CLU_OD_tankLowerControlLimit>();
+if (value < 0.0f || value > 327.675f) {
+                respCode = can::signals::CLU_SDO_RespCode::ERR_OUT_OF_RANGE;
+            }
+            else {
+                OD_tankLowerControlLimit_set(value);
+                respCode = can::signals::CLU_SDO_RespCode::OK;
+            }
+            msgSdoResp.set<can::signals::CLU_OD_tankLowerControlLimit>(OD_tankLowerControlLimit_get());
+            break;
+        }
+        case 0x801: {   // OD_tankUpperControlLimit
+            float value = msgSdoReq.get<can::signals::CLU_OD_tankUpperControlLimit>();
+if (value < 0.0f || value > 327.675f) {
+                respCode = can::signals::CLU_SDO_RespCode::ERR_OUT_OF_RANGE;
+            }
+            else {
+                OD_tankUpperControlLimit_set(value);
+                respCode = can::signals::CLU_SDO_RespCode::OK;
+            }
+            msgSdoResp.set<can::signals::CLU_OD_tankUpperControlLimit>(OD_tankUpperControlLimit_get());
+            break;
+        }
+        case 0x802: {   // OD_delay
+            float value = msgSdoReq.get<can::signals::CLU_OD_delay>();
+if (value < 0.0f || value > 127.5f) {
+                respCode = can::signals::CLU_SDO_RespCode::ERR_OUT_OF_RANGE;
+            }
+            else {
+                OD_delay_set(value);
+                respCode = can::signals::CLU_SDO_RespCode::OK;
+            }
+            msgSdoResp.set<can::signals::CLU_OD_delay>(OD_delay_get());
+            break;
+        }
+        case 0x803: {   // OD_counterLimit
+            uint8_t value = msgSdoReq.get<can::signals::CLU_OD_counterLimit>();
+                OD_counterLimit_set(value);
+                respCode = can::signals::CLU_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::CLU_OD_counterLimit>(OD_counterLimit_get());
+            break;
+        }
+        case 0x804: {   // OD_commWatchdog
+            uint16_t value = msgSdoReq.get<can::signals::CLU_OD_commWatchdog>();
+                OD_commWatchdog_set(value);
+                respCode = can::signals::CLU_SDO_RespCode::OK;
+            msgSdoResp.set<can::signals::CLU_OD_commWatchdog>(OD_commWatchdog_get());
+            break;
+        }
+        case 0x805: {   // OD_valveUpperTolerance
+            float value = msgSdoReq.get<can::signals::CLU_OD_valveUpperTolerance>();
+if (value < 0.0f || value > 327.675f) {
+                respCode = can::signals::CLU_SDO_RespCode::ERR_OUT_OF_RANGE;
+            }
+            else {
+                OD_valveUpperTolerance_set(value);
+                respCode = can::signals::CLU_SDO_RespCode::OK;
+            }
+            msgSdoResp.set<can::signals::CLU_OD_valveUpperTolerance>(OD_valveUpperTolerance_get());
             break;
         }
         default:
@@ -1109,6 +1207,102 @@ void WEAK_SYMBOL OD_CAN2_DelayedTxMessages_set(const uint32_t value) {
 }
 #endif
 
+#ifndef OD_tankLowerControlLimit_GET_OVERWRITE
+float WEAK_SYMBOL OD_tankLowerControlLimit_get() {
+    osMutexAcquire(mutex_OD_tankLowerControlLimit, portMAX_DELAY);
+    float value = OD_tankLowerControlLimit;
+    osMutexRelease(mutex_OD_tankLowerControlLimit);
+    return value;
+}
+#endif
+#ifndef OD_tankLowerControlLimit_SET_OVERWRITE
+void WEAK_SYMBOL OD_tankLowerControlLimit_set(const float value) {
+    osMutexAcquire(mutex_OD_tankLowerControlLimit, portMAX_DELAY);
+    OD_tankLowerControlLimit = value;
+    osMutexRelease(mutex_OD_tankLowerControlLimit);
+}
+#endif
+
+#ifndef OD_tankUpperControlLimit_GET_OVERWRITE
+float WEAK_SYMBOL OD_tankUpperControlLimit_get() {
+    osMutexAcquire(mutex_OD_tankUpperControlLimit, portMAX_DELAY);
+    float value = OD_tankUpperControlLimit;
+    osMutexRelease(mutex_OD_tankUpperControlLimit);
+    return value;
+}
+#endif
+#ifndef OD_tankUpperControlLimit_SET_OVERWRITE
+void WEAK_SYMBOL OD_tankUpperControlLimit_set(const float value) {
+    osMutexAcquire(mutex_OD_tankUpperControlLimit, portMAX_DELAY);
+    OD_tankUpperControlLimit = value;
+    osMutexRelease(mutex_OD_tankUpperControlLimit);
+}
+#endif
+
+#ifndef OD_delay_GET_OVERWRITE
+float WEAK_SYMBOL OD_delay_get() {
+    osMutexAcquire(mutex_OD_delay, portMAX_DELAY);
+    float value = OD_delay;
+    osMutexRelease(mutex_OD_delay);
+    return value;
+}
+#endif
+#ifndef OD_delay_SET_OVERWRITE
+void WEAK_SYMBOL OD_delay_set(const float value) {
+    osMutexAcquire(mutex_OD_delay, portMAX_DELAY);
+    OD_delay = value;
+    osMutexRelease(mutex_OD_delay);
+}
+#endif
+
+#ifndef OD_counterLimit_GET_OVERWRITE
+uint8_t WEAK_SYMBOL OD_counterLimit_get() {
+    osMutexAcquire(mutex_OD_counterLimit, portMAX_DELAY);
+    uint8_t value = OD_counterLimit;
+    osMutexRelease(mutex_OD_counterLimit);
+    return value;
+}
+#endif
+#ifndef OD_counterLimit_SET_OVERWRITE
+void WEAK_SYMBOL OD_counterLimit_set(const uint8_t value) {
+    osMutexAcquire(mutex_OD_counterLimit, portMAX_DELAY);
+    OD_counterLimit = value;
+    osMutexRelease(mutex_OD_counterLimit);
+}
+#endif
+
+#ifndef OD_commWatchdog_GET_OVERWRITE
+uint16_t WEAK_SYMBOL OD_commWatchdog_get() {
+    osMutexAcquire(mutex_OD_commWatchdog, portMAX_DELAY);
+    uint16_t value = OD_commWatchdog;
+    osMutexRelease(mutex_OD_commWatchdog);
+    return value;
+}
+#endif
+#ifndef OD_commWatchdog_SET_OVERWRITE
+void WEAK_SYMBOL OD_commWatchdog_set(const uint16_t value) {
+    osMutexAcquire(mutex_OD_commWatchdog, portMAX_DELAY);
+    OD_commWatchdog = value;
+    osMutexRelease(mutex_OD_commWatchdog);
+}
+#endif
+
+#ifndef OD_valveUpperTolerance_GET_OVERWRITE
+float WEAK_SYMBOL OD_valveUpperTolerance_get() {
+    osMutexAcquire(mutex_OD_valveUpperTolerance, portMAX_DELAY);
+    float value = OD_valveUpperTolerance;
+    osMutexRelease(mutex_OD_valveUpperTolerance);
+    return value;
+}
+#endif
+#ifndef OD_valveUpperTolerance_SET_OVERWRITE
+void WEAK_SYMBOL OD_valveUpperTolerance_set(const float value) {
+    osMutexAcquire(mutex_OD_valveUpperTolerance, portMAX_DELAY);
+    OD_valveUpperTolerance = value;
+    osMutexRelease(mutex_OD_valveUpperTolerance);
+}
+#endif
+
 
 /**************************************************************************
 * FreeRTOS task that will send out periodically all readable OD entries   *
@@ -1125,9 +1319,10 @@ constexpr uint16_t READABLE_SDO_IDS[] = {
     0x456,    0x457,    0x458,    0x459, 
     0x460,    0x461,    0x462,    0x463, 
     0x464,    0x466,    0x467,    0x468, 
-    0x469 
+    0x469,    0x800,    0x801,    0x802, 
+    0x803,    0x804,    0x805 
 };
-constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 37;
+constexpr uint16_t NUMBER_OF_READABLE_SDO_IDS = 43;
 extern RNG_HandleTypeDef hrng;
 
 void sendOdEntriesTask(void *pvParameters) {

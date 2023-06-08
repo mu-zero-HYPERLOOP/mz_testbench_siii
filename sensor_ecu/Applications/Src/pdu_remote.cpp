@@ -185,6 +185,12 @@ void init(bool minimizeMessages){
 
 }
 
+void killMe(){
+	//disable the power channel of the sensor ecu itself. be very careful with this
+	// might lead to problems where the ecus can't be flashed anymore because they turn off immediatly.
+	disableChannel(LP_CHANNEL3);
+}
+
 
 void update(){
 	if(not g_minimizeMessages || s_status != s_confirmed_status){

@@ -20,9 +20,23 @@ object_dictionary:
       0: "Ready"
       1: "Extended"
   0xB00:
-    name: PropulsionPressure
+    name: PressureReservoir
     length: 16
-    comment: Propulsion Pressure
+    comment: Pressure in the reservoir
+    access: ro
+    default: -1.9
+    conversion: {scale: 0.01, offset: -100}
+  0xB01:
+    name: PressurePush
+    length: 16
+    comment: Push Pressure
+    access: ro
+    default: -1.9
+    conversion: {scale: 0.01, offset: -100}
+  0xB02:
+    name: PressureRetract
+    length: 16
+    comment: Retraction Pressure
     access: ro
     default: -1.9
     conversion: {scale: 0.01, offset: -100}

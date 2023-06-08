@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 17:42:19 27.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 18:30:08 08.06.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'CLU' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -306,12 +306,6 @@ namespace can {
         namespace OpticalSensor {
             constexpr char comment[] = "Kistler SFP-II optical Sensor.";
         }
-        namespace EMUS_BMS {
-            constexpr char comment[] = "HV BMS ";
-        }
-        namespace SCIMO_PE {
-            constexpr char comment[] = "";
-        }
         namespace TelemetryNode {
             constexpr char comment[] = "Gateway between Pod and Telemetry Node-ID 0x22Gateway between Pod and Telemetry Node-ID 0x22";
 
@@ -350,18 +344,6 @@ namespace can {
 
             // Attributes of node 'PDU'
             constexpr uint8_t CANzero_NodeID = 26;
-        }
-        namespace HVCU {
-            constexpr char comment[] = "HVController Node-ID 0xA";
-
-            // Attributes of node 'HVCU'
-            constexpr uint8_t CANzero_NodeID = 10;
-        }
-        namespace HVTU {
-            constexpr char comment[] = "High Voltage CAN Translation Unit between BMS and Pod Node-ID 0x19";
-
-            // Attributes of node 'HVTU'
-            constexpr uint8_t CANzero_NodeID = 25;
         }
         namespace TestBench {
             constexpr char comment[] = "";
@@ -454,11 +436,11 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char BusType[] = "CAN";
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 198;
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr uint32_t CANzero_DBCVersion = 205;
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
@@ -476,6 +458,20 @@ namespace can {
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
+                return value;
+            }
+        };
+        class CLU_TX_TagetAirGap {
+            public:
+            using dataType = uint32_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x39 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
+                uint32_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 8) & 0xFFFFFFFF00ull;
+            }
+            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFF00ull) >> 8);
                 return value;
             }
         };
@@ -925,10 +921,10 @@ namespace can {
             constexpr static uint32_t ids[] = { 0x181 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
                 uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue)) & 0x7ull;
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0x7ull));
+                uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
 
@@ -949,55 +945,7 @@ namespace can {
             constexpr static uint8_t POD_PUSHABLE = 13;
             constexpr static uint8_t POD_STARTUP = 14;
         };
-        class SensorF_TX_PodState_Last {
-            public:
-            using dataType = uint8_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x181 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x38ull;
-            }
-            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0x38ull) >> 3);
-                return value;
-            }
-
-            // Value table of signal 'SensorF_TX_PodState_Last'
-            constexpr static uint8_t POD_OFF = 0;
-            constexpr static uint8_t POD_IDLE = 1;
-            constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
-            constexpr static uint8_t POD_FAULT = 3;
-            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
-            constexpr static uint8_t POD_LAUNCHING = 5;
-            constexpr static uint8_t POD_PUSHABLE = 6;
-            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
-        };
-        class SensorF_TX_PodState_Target {
-            public:
-            using dataType = uint8_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x181 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue) << 8) & 0x700ull;
-            }
-            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0x700ull) >> 8);
-                return value;
-            }
-
-            // Value table of signal 'SensorF_TX_PodState_Target'
-            constexpr static uint8_t POD_OFF = 0;
-            constexpr static uint8_t POD_IDLE = 1;
-            constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
-            constexpr static uint8_t POD_FAULT = 3;
-            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
-            constexpr static uint8_t POD_LAUNCHING = 5;
-            constexpr static uint8_t POD_PUSHABLE = 6;
-            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
-        };
-        class CLU_W0_OtherWarning {
+        class CLU_W0_highPressureActingChamber {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
@@ -1011,11 +959,68 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'CLU_W0_OtherWarning'
+            // Value table of signal 'CLU_W0_highPressureActingChamber'
             constexpr static bool OK = 0;
             constexpr static bool WARN = 1;
         };
-        class CLU_E0_OtherError {
+        class CLU_W1_highPressureRetractingChamber {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x94 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x2ull) >> 1);
+                return value;
+            }
+
+            // Value table of signal 'CLU_W1_highPressureRetractingChamber'
+            constexpr static bool OK = 0;
+            constexpr static bool WARN = 1;
+
+            // Attributes of signal 'CLU_W1_highPressureRetractingChamber'
+            constexpr static char SystemSignalLongSymbol[] = "CLU_W1_highPressureRetractingChamber";
+        };
+        class CLU_W2_enableWithAnError {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x94 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x4ull) >> 2);
+                return value;
+            }
+
+            // Value table of signal 'CLU_W2_enableWithAnError'
+            constexpr static bool OK = 0;
+            constexpr static bool WARN = 1;
+        };
+        class CLU_W3_externalError {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x94 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x8ull) >> 3);
+                return value;
+            }
+
+            // Value table of signal 'CLU_W3_externalError'
+            constexpr static bool OK = 0;
+            constexpr static bool WARN = 1;
+        };
+        class CLU_E0_pressureTooHigh {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
@@ -1029,9 +1034,108 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'CLU_E0_OtherError'
+            // Value table of signal 'CLU_E0_pressureTooHigh'
             constexpr static bool OK = 0;
             constexpr static bool ERR = 1;
+        };
+        class CLU_E1_pressureTooLow {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x94 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 13) & 0x2000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x2000ull) >> 13);
+                return value;
+            }
+
+            // Value table of signal 'CLU_E1_pressureTooLow'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+        };
+        class CLU_E2_commWatchdogTimeout {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x94 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 14) & 0x4000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x4000ull) >> 14);
+                return value;
+            }
+
+            // Value table of signal 'CLU_E2_commWatchdogTimeout'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+        };
+        class CLU_E3_retractUnsuccesful_errorFlag {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x94 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 15) & 0x8000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x8000ull) >> 15);
+                return value;
+            }
+
+            // Value table of signal 'CLU_E3_retractUnsuccesful_errorFlag'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+
+            // Attributes of signal 'CLU_E3_retractUnsuccesful_errorFlag'
+            constexpr static char SystemSignalLongSymbol[] = "CLU_E3_retractUnsuccesful_errorFlag";
+        };
+        class CLU_E4_retractUnsuccesful_notEnabled {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x94 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0x10000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x10000ull) >> 16);
+                return value;
+            }
+
+            // Value table of signal 'CLU_E4_retractUnsuccesful_notEnabled'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+
+            // Attributes of signal 'CLU_E4_retractUnsuccesful_notEnabled'
+            constexpr static char SystemSignalLongSymbol[] = "CLU_E4_retractUnsuccesful_notEnabled";
+        };
+        class CLU_E5_retractUnsuccesful_openSDC {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x94 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 17) & 0x20000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x20000ull) >> 17);
+                return value;
+            }
+
+            // Value table of signal 'CLU_E5_retractUnsuccesful_openSDC'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+
+            // Attributes of signal 'CLU_E5_retractUnsuccesful_openSDC'
+            constexpr static char SystemSignalLongSymbol[] = "CLU_E5_retractUnsuccesful_openSDC";
         };
         class CLU_SDO_ID {
             public:
@@ -1094,28 +1198,206 @@ namespace can {
             constexpr static uint16_t CAN2_DISCARDEDTXMESSAGES = 1127;
             constexpr static uint16_t CAN2_ERRORSTATUS = 1128;
             constexpr static uint16_t CAN2_DELAYEDTXMESSAGES = 1129;
+            constexpr static uint16_t TANKLOWERCONTROLLIMIT = 2048;
+            constexpr static uint16_t TANKUPPERCONTROLLIMIT = 2049;
+            constexpr static uint16_t DELAY = 2050;
+            constexpr static uint16_t COUNTERLIMIT = 2051;
+            constexpr static uint16_t COMMWATCHDOG = 2052;
+            constexpr static uint16_t VALVEUPPERTOLERANCE = 2053;
         };
-        class CLU_SDO_RespCode {
+        class CLU_OD_valveUpperTolerance {
             public:
-            using dataType = uint8_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x594 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue) << 12) & 0xF000ull;
+            // This signal is multiplexed by CLU_SDO_ID == 2053            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x594, 0x5D4 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(327.675);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                CLU_SDO_ID::set(intel, motorola, dlc, 2053);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
             }
-            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0xF000ull) >> 12);
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (CLU_SDO_ID::get(intel, motorola) != 2053) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.005f);
+            }
+
+            // Attributes of signal 'CLU_OD_valveUpperTolerance'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 2000.0f;
+            constexpr static float CANzero_SDO_Default = 10.0f;
+        };
+        class CLU_OD_commWatchdog {
+            public:
+            // This signal is multiplexed by CLU_SDO_ID == 2052            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x594, 0x5D4 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                CLU_SDO_ID::set(intel, motorola, dlc, 2052);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (CLU_SDO_ID::get(intel, motorola) != 2052) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
                 return value;
             }
 
-            // Value table of signal 'CLU_SDO_RespCode'
-            constexpr static uint8_t OK = 0;
-            constexpr static uint8_t ERR_NON_EXISTING_OBJECT = 1;
-            constexpr static uint8_t ERR_WRITE_ONLY_OBJECT = 2;
-            constexpr static uint8_t ERR_READ_ONLY_OBJECT = 3;
-            constexpr static uint8_t ERR_NO_ACCESS_IN_THIS_STATE = 4;
-            constexpr static uint8_t ERR_OUT_OF_RANGE = 5;
+            // Attributes of signal 'CLU_OD_commWatchdog'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 60.0f;
+            constexpr static float CANzero_SDO_Default = 60.0f;
+        };
+        class CLU_OD_counterLimit {
+            public:
+            // This signal is multiplexed by CLU_SDO_ID == 2051            
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x594, 0x5D4 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                CLU_SDO_ID::set(intel, motorola, dlc, 2051);
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
+                dlc = 3;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (CLU_SDO_ID::get(intel, motorola) != 2051) {
+                    while(1);
+                }
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'CLU_OD_counterLimit'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 5.0f;
+            constexpr static float CANzero_SDO_Default = 5.0f;
+        };
+        class CLU_OD_delay {
+            public:
+            // This signal is multiplexed by CLU_SDO_ID == 2050            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x594, 0x5D4 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(127.5);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                CLU_SDO_ID::set(intel, motorola, dlc, 2050);
+                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFF0000ull;
+                dlc = 3;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (CLU_SDO_ID::get(intel, motorola) != 2050) {
+                    while(1);
+                }
+                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000ull) >> 16);
+                return value * (0.5f);
+            }
+
+            // Attributes of signal 'CLU_OD_delay'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10.0f;
+            constexpr static float CANzero_SDO_Default = 5.0f;
+        };
+        class CLU_OD_tankUpperControlLimit {
+            public:
+            // This signal is multiplexed by CLU_SDO_ID == 2049            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x594, 0x5D4 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(327.675);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                CLU_SDO_ID::set(intel, motorola, dlc, 2049);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (CLU_SDO_ID::get(intel, motorola) != 2049) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.005f);
+            }
+
+            // Attributes of signal 'CLU_OD_tankUpperControlLimit'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 3800.0f;
+            constexpr static float CANzero_SDO_Default = 19.0f;
+        };
+        class CLU_OD_tankLowerControlLimit {
+            public:
+            // This signal is multiplexed by CLU_SDO_ID == 2048            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x594, 0x5D4 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(327.675);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                CLU_SDO_ID::set(intel, motorola, dlc, 2048);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.005f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (CLU_SDO_ID::get(intel, motorola) != 2048) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.005f);
+            }
+
+            // Attributes of signal 'CLU_OD_tankLowerControlLimit'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 1400.0f;
+            constexpr static float CANzero_SDO_Default = 7.0f;
         };
         class CLU_OD_CAN2_DelayedTxMessages {
             public:
@@ -2148,8 +2430,8 @@ namespace can {
             constexpr static char CANzero_SDO_Group[] = "";
             constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
             constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
-            constexpr static float GenSigStartValue = 250.0f;
-            constexpr static float CANzero_SDO_Default = 250.0f;
+            constexpr static float GenSigStartValue = 100.0f;
+            constexpr static float CANzero_SDO_Default = 100.0f;
         };
         class CLU_OD_DbcVersion {
             public:
@@ -2322,11 +2604,12 @@ namespace can {
         class CLU_TX_ActionRequest {
             public:
             constexpr static uint32_t id = 0x39;
-            constexpr static uint8_t dlc = 1;
+            constexpr static uint8_t dlc = 5;
             constexpr static bool isExtendedId = false;
 
             // Signals
             using CLU_TX_ActionRequest_ = signals::CLU_TX_ActionRequest;
+            using CLU_TX_TagetAirGap = signals::CLU_TX_TagetAirGap;
 
             // Attributes of message 'CLU_TX_ActionRequest'
             constexpr static uint16_t GenMsgCycleTime = 100;
@@ -2683,13 +2966,11 @@ namespace can {
         class SensorF_TX_StatePod {
             public:
             constexpr static uint32_t id = 0x181;
-            constexpr static uint8_t dlc = 2;
+            constexpr static uint8_t dlc = 1;
             constexpr static bool isExtendedId = false;
 
             // Signals
             using SensorF_TX_PodState = signals::SensorF_TX_PodState;
-            using SensorF_TX_PodState_Last = signals::SensorF_TX_PodState_Last;
-            using SensorF_TX_PodState_Target = signals::SensorF_TX_PodState_Target;
 
             // Attributes of message 'SensorF_TX_StatePod'
             constexpr static uint16_t GenMsgCycleTime = 100;
@@ -2701,8 +2982,16 @@ namespace can {
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using CLU_W0_OtherWarning = signals::CLU_W0_OtherWarning;
-            using CLU_E0_OtherError = signals::CLU_E0_OtherError;
+            using CLU_W0_highPressureActingChamber = signals::CLU_W0_highPressureActingChamber;
+            using CLU_W1_highPressureRetractingChamber = signals::CLU_W1_highPressureRetractingChamber;
+            using CLU_W2_enableWithAnError = signals::CLU_W2_enableWithAnError;
+            using CLU_W3_externalError = signals::CLU_W3_externalError;
+            using CLU_E0_pressureTooHigh = signals::CLU_E0_pressureTooHigh;
+            using CLU_E1_pressureTooLow = signals::CLU_E1_pressureTooLow;
+            using CLU_E2_commWatchdogTimeout = signals::CLU_E2_commWatchdogTimeout;
+            using CLU_E3_retractUnsuccesful_errorFlag = signals::CLU_E3_retractUnsuccesful_errorFlag;
+            using CLU_E4_retractUnsuccesful_notEnabled = signals::CLU_E4_retractUnsuccesful_notEnabled;
+            using CLU_E5_retractUnsuccesful_openSDC = signals::CLU_E5_retractUnsuccesful_openSDC;
 
             // Attributes of message 'CLU_EMCY'
             constexpr static uint16_t GenMsgCycleTime = 100;
@@ -2859,7 +3148,12 @@ namespace can {
 
             // Signals
             using CLU_SDO_ID = signals::CLU_SDO_ID;
-            using CLU_SDO_RespCode = signals::CLU_SDO_RespCode;
+            using CLU_OD_valveUpperTolerance = signals::CLU_OD_valveUpperTolerance;
+            using CLU_OD_commWatchdog = signals::CLU_OD_commWatchdog;
+            using CLU_OD_counterLimit = signals::CLU_OD_counterLimit;
+            using CLU_OD_delay = signals::CLU_OD_delay;
+            using CLU_OD_tankUpperControlLimit = signals::CLU_OD_tankUpperControlLimit;
+            using CLU_OD_tankLowerControlLimit = signals::CLU_OD_tankLowerControlLimit;
             using CLU_OD_CAN2_DelayedTxMessages = signals::CLU_OD_CAN2_DelayedTxMessages;
             using CLU_OD_CAN2_ErrorStatus = signals::CLU_OD_CAN2_ErrorStatus;
             using CLU_OD_CAN2_DiscardedTxMessages = signals::CLU_OD_CAN2_DiscardedTxMessages;
@@ -2909,6 +3203,12 @@ namespace can {
 
             // Signals
             using CLU_SDO_ID = signals::CLU_SDO_ID;
+            using CLU_OD_valveUpperTolerance = signals::CLU_OD_valveUpperTolerance;
+            using CLU_OD_commWatchdog = signals::CLU_OD_commWatchdog;
+            using CLU_OD_counterLimit = signals::CLU_OD_counterLimit;
+            using CLU_OD_delay = signals::CLU_OD_delay;
+            using CLU_OD_tankUpperControlLimit = signals::CLU_OD_tankUpperControlLimit;
+            using CLU_OD_tankLowerControlLimit = signals::CLU_OD_tankLowerControlLimit;
             using CLU_OD_CAN2_DelayedTxMessages = signals::CLU_OD_CAN2_DelayedTxMessages;
             using CLU_OD_CAN2_ErrorStatus = signals::CLU_OD_CAN2_ErrorStatus;
             using CLU_OD_CAN2_DiscardedTxMessages = signals::CLU_OD_CAN2_DiscardedTxMessages;

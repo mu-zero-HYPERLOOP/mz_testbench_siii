@@ -7,13 +7,21 @@
 
 #include <kistler_remote.hpp>
 #include "canzero.hpp"
+#include "pdu_remote.hpp"
 
 namespace kistler {
 
+static volatile float vel;
+static volatile float pos;
+
+static constexpr bool FREQUENT_LOGGING = true;
+
+pdu::LpChannel POWER_CHANNEL = pdu::LpChannel::LP_CHANNEL1;
+
 void mainDataReceiver(RxMessage &raw) {
 	can::Message < can::messages::OpticalSensor_TX_MainData > msg { raw };
-	OD_Velocity_set(msg.get<can::signals::OpticalSensor_TX_Vel>());
-	OD_Position_set(msg.get<can::signals::OpticalSensor_TX_Distance>());
+	vel = msg.get<can::signals::OpticalSensor_TX_Vel>();
+	pos = msg.get<can::signals::OpticalSensor_TX_Distance>();
 }
 
 void statusReceiver(RxMessage& raw){
@@ -28,14 +36,24 @@ void init() {
 
 
 void enable(){
-
+	pdu::enableChannel(POWER_CHANNEL);
 }
 
 void disable(){
-
+	pdu::disableChannel(POWER_CHANNEL);
 }
 
 void update() {
+	OD_Velocity_set(vel);
+	OD_Position_set(pos);
+	if(FREQUENT_LOGGING){
+		can::Message<can::messages::SensorF_SDO_Resp> velMsg;
+		velMsg.set<can::signals::SensorF_OD_Velocity>(vel);
+		velMsg.send();
+		can::Message<can::messages::SensorF_SDO_Resp> posMsg;
+		posMsg.set<can::signals::SensorF_OD_Position>(pos);
+		posMsg.send();
+	}
 }
 
 }

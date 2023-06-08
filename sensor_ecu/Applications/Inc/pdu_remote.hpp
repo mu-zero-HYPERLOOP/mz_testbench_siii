@@ -42,7 +42,10 @@ void enableChannel(HpChannel channel);
 void disableChannel(HpChannel channel);
 
 void enableChannel(LpChannel channel);
+
 void disableChannel(LpChannel channel);
+
+void killMe();
 
 ChannelStatus getChannelStatus(LpChannel channel);
 ChannelStatus getChannelStatus(HpChannel channel);

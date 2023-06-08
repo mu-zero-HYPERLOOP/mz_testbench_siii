@@ -30,8 +30,6 @@ enum Action : uint8_t {
 
 [[nodiscard]] bool requiresCooling();
 
-void requestAction(Action action);
-
 void init();
 
 void update();

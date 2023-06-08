@@ -58,7 +58,9 @@ extern volatile uint8_t  OD_CAN2_ErrorStatus;
 extern volatile uint32_t OD_CAN2_DelayedTxMessages;
 extern volatile uint8_t  OD_PistonStatus;
 extern volatile float    OD_PropulsionDistance;
-extern volatile float    OD_PropulsionPressure;
+extern volatile float    OD_PressureReservoir;
+extern volatile float    OD_PressurePush;
+extern volatile float    OD_PressureRetract;
 
 /**************************************************************************
 * Semaphores for access to OD values                                      *
@@ -102,7 +104,9 @@ extern osMutexId_t mutex_OD_CAN2_ErrorStatus;
 extern osMutexId_t mutex_OD_CAN2_DelayedTxMessages;
 extern osMutexId_t mutex_OD_PistonStatus;
 extern osMutexId_t mutex_OD_PropulsionDistance;
-extern osMutexId_t mutex_OD_PropulsionPressure;
+extern osMutexId_t mutex_OD_PressureReservoir;
+extern osMutexId_t mutex_OD_PressurePush;
+extern osMutexId_t mutex_OD_PressureRetract;
 
 
 /**************************************************************************
@@ -238,8 +242,14 @@ void OD_PistonStatus_set(const uint8_t value);
 float OD_PropulsionDistance_get();
 void OD_PropulsionDistance_set(const float value);
 
-float OD_PropulsionPressure_get();
-void OD_PropulsionPressure_set(const float value);
+float OD_PressureReservoir_get();
+void OD_PressureReservoir_set(const float value);
+
+float OD_PressurePush_get();
+void OD_PressurePush_set(const float value);
+
+float OD_PressureRetract_get();
+void OD_PressureRetract_set(const float value);
 
 
 /**************************************************************************

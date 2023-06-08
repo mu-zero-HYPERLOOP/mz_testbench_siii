@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 17:33:49 27.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 18:36:39 07.06.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -319,12 +319,6 @@ namespace can {
         namespace OpticalSensor {
             constexpr char comment[] = "Kistler SFP-II optical Sensor.";
         }
-        namespace EMUS_BMS {
-            constexpr char comment[] = "HV BMS ";
-        }
-        namespace SCIMO_PE {
-            constexpr char comment[] = "";
-        }
         namespace TelemetryNode {
             constexpr char comment[] = "Gateway between Pod and Telemetry Node-ID 0x22Gateway between Pod and Telemetry Node-ID 0x22";
 
@@ -363,18 +357,6 @@ namespace can {
 
             // Attributes of node 'PDU'
             constexpr uint8_t CANzero_NodeID = 26;
-        }
-        namespace HVCU {
-            constexpr char comment[] = "HVController Node-ID 0xA";
-
-            // Attributes of node 'HVCU'
-            constexpr uint8_t CANzero_NodeID = 10;
-        }
-        namespace HVTU {
-            constexpr char comment[] = "High Voltage CAN Translation Unit between BMS and Pod Node-ID 0x19";
-
-            // Attributes of node 'HVTU'
-            constexpr uint8_t CANzero_NodeID = 25;
         }
         namespace TestBench {
             constexpr char comment[] = "";
@@ -467,11 +449,11 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char BusType[] = "CAN";
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 198;
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr uint32_t CANzero_DBCVersion = 204;
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
@@ -480,18 +462,15 @@ namespace can {
     namespace signals {
         class CLU_RX_ActionRequest {
             public:
-            using dataType = int8_t;
+            using dataType = uint8_t;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x234 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, int8_t value) noexcept {
-                int8_t rawValue = (value);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
             }
-            constexpr static inline int8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                int8_t value = static_cast<int8_t>((intel & 0xFFull));
-                // Convert raw bits to signed value
-                SignedConverter8Bits signedConverter{value};
-                value = signedConverter.value;
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
         };
@@ -1416,10 +1395,10 @@ namespace can {
             constexpr static uint32_t ids[] = { 0x181 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
                 uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue)) & 0x7ull;
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0x7ull));
+                uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
 
@@ -1439,54 +1418,6 @@ namespace can {
             constexpr static uint8_t POD_SAFE_TO_APPROCH = 12;
             constexpr static uint8_t POD_PUSHABLE = 13;
             constexpr static uint8_t POD_STARTUP = 14;
-        };
-        class SensorF_TX_PodState_Last {
-            public:
-            using dataType = uint8_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x181 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x38ull;
-            }
-            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0x38ull) >> 3);
-                return value;
-            }
-
-            // Value table of signal 'SensorF_TX_PodState_Last'
-            constexpr static uint8_t POD_OFF = 0;
-            constexpr static uint8_t POD_IDLE = 1;
-            constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
-            constexpr static uint8_t POD_FAULT = 3;
-            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
-            constexpr static uint8_t POD_LAUNCHING = 5;
-            constexpr static uint8_t POD_PUSHABLE = 6;
-            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
-        };
-        class SensorF_TX_PodState_Target {
-            public:
-            using dataType = uint8_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x181 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue) << 8) & 0x700ull;
-            }
-            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0x700ull) >> 8);
-                return value;
-            }
-
-            // Value table of signal 'SensorF_TX_PodState_Target'
-            constexpr static uint8_t POD_OFF = 0;
-            constexpr static uint8_t POD_IDLE = 1;
-            constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
-            constexpr static uint8_t POD_FAULT = 3;
-            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
-            constexpr static uint8_t POD_LAUNCHING = 5;
-            constexpr static uint8_t POD_PUSHABLE = 6;
-            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
         };
         class SensorF_TX_BrakesTransition {
             public:
@@ -5495,78 +5426,6 @@ namespace can {
             constexpr static uint8_t OPERATIONAL = 5;
             constexpr static uint8_t PREOPERATIONAL = 127;
         };
-        class HVCU_RX_Enable {
-            public:
-            using dataType = bool;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x1CA };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
-                bool rawValue = value;
-                intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
-            }
-            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                bool value = static_cast<bool>((intel & 0x1ull));
-                return value;
-            }
-
-            // Value table of signal 'HVCU_RX_Enable'
-            constexpr static bool DISABLE = 0;
-            constexpr static bool ENABLE = 1;
-        };
-        class HVCU_RX_Activate {
-            public:
-            using dataType = bool;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x1CA };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
-                bool rawValue = value;
-                intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
-            }
-            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                bool value = static_cast<bool>((intel & 0x2ull) >> 1);
-                return value;
-            }
-
-            // Value table of signal 'HVCU_RX_Activate'
-            constexpr static bool DEACTIVATE = 0;
-            constexpr static bool ACTIVATE = 1;
-        };
-        class HVCU_RX_ErrorReset {
-            public:
-            using dataType = bool;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x1CA };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
-                bool rawValue = value;
-                intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
-            }
-            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                bool value = static_cast<bool>((intel & 0x4ull) >> 2);
-                return value;
-            }
-
-            // Value table of signal 'HVCU_RX_ErrorReset'
-            constexpr static bool NO_RESET = 0;
-            constexpr static bool RESET = 1;
-        };
-        class HVCU_RX_Charging {
-            public:
-            using dataType = bool;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x1CA };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
-                bool rawValue = value;
-                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
-            }
-            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                bool value = static_cast<bool>((intel & 0x8ull) >> 3);
-                return value;
-            }
-
-            // Value table of signal 'HVCU_RX_Charging'
-            constexpr static bool NOT_CHARGING = 0;
-            constexpr static bool CHARGING = 1;
-        };
         class TelemetryNode_NodeState {
             public:
             using dataType = uint8_t;
@@ -5839,13 +5698,11 @@ namespace can {
         class SensorF_TX_StatePod {
             public:
             constexpr static uint32_t id = 0x181;
-            constexpr static uint8_t dlc = 2;
+            constexpr static uint8_t dlc = 1;
             constexpr static bool isExtendedId = false;
 
             // Signals
             using SensorF_TX_PodState = signals::SensorF_TX_PodState;
-            using SensorF_TX_PodState_Last = signals::SensorF_TX_PodState_Last;
-            using SensorF_TX_PodState_Target = signals::SensorF_TX_PodState_Target;
 
             // Attributes of message 'SensorF_TX_StatePod'
             constexpr static uint16_t GenMsgCycleTime = 100;
@@ -6417,21 +6274,6 @@ namespace can {
             using PDU_NodeState = signals::PDU_NodeState;
 
             // Attributes of message 'PDU_Heartbeat'
-            constexpr static uint16_t GenMsgCycleTime = 100;
-        };
-        class HVCU_RX_Control {
-            public:
-            constexpr static uint32_t id = 0x1CA;
-            constexpr static uint8_t dlc = 1;
-            constexpr static bool isExtendedId = false;
-
-            // Signals
-            using HVCU_RX_Enable = signals::HVCU_RX_Enable;
-            using HVCU_RX_Activate = signals::HVCU_RX_Activate;
-            using HVCU_RX_ErrorReset = signals::HVCU_RX_ErrorReset;
-            using HVCU_RX_Charging = signals::HVCU_RX_Charging;
-
-            // Attributes of message 'HVCU_RX_Control'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class TelemetryNode_Heartbeat {

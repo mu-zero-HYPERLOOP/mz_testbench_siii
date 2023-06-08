@@ -43,7 +43,7 @@
 
 // CAN DLC of the nodes function codes
 #define CANZERO_EMCY_CAN_DLC           4
-#define CANZERO_TX_PDO1_CAN_DLC        2
+#define CANZERO_TX_PDO1_CAN_DLC        1
 #define CANZERO_RX_PDO1_CAN_DLC        0
 #define CANZERO_TX_PDO2_CAN_DLC        4
 #define CANZERO_RX_PDO2_CAN_DLC        0

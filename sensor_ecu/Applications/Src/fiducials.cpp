@@ -17,6 +17,8 @@ static GPIOExtiController extiGpio(DIN1_GPIO_Port, DIN1_Pin);
 
 static volatile uint32_t interruptsCounter = 0;
 
+static constexpr bool FREQUENT_LOGGING = true;
+
 void extiCallback(bool edge){
 	interruptsCounter += 1;
 }
@@ -31,6 +33,11 @@ void init(){
 
 void update(){
 	OD_StripeCount_set(interruptsCounter);
+	if(FREQUENT_LOGGING){
+		can::Message<can::messages::SensorF_SDO_Resp> counterMsg;
+		counterMsg.set<can::signals::SensorF_OD_StripeCount>(interruptsCounter);
+		counterMsg.send();
+	}
 }
 
 

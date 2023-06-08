@@ -13,6 +13,7 @@
 #include "ground_station_remote.hpp"
 #include "solenoid.hpp"
 #include "state_maschine.hpp"
+#include "sdc.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -24,6 +25,7 @@ void main_entry(void *argv) {
 	solenoid::init();
 	ground_station::init();
 	state_maschine::init();
+	sdc::init();
 
 	while (true) {
 		distance_sensor::update();
@@ -31,6 +33,7 @@ void main_entry(void *argv) {
 		ground_station::update();
 		solenoid::update();
 		state_maschine::update();
+		sdc::update();
 
 		// wait for one second.
 		osDelay(50);

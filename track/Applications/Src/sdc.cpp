@@ -16,8 +16,6 @@ static GPIOWriteController m_sdcGpio(SDC_GPIO_Port, SDC_Pin);
 static bool current;
 
 void open(){
-	close();
-	return;
 	m_sdcGpio.reset();
 	if(current){
 		printf("open sdc\n");
@@ -35,7 +33,7 @@ void close(){
 
 
 void init(){
-	current = true;
+	current = false;
 	open();
 }
 

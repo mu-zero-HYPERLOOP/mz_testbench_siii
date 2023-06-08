@@ -8,36 +8,27 @@
 #include "ground_station_remote.hpp"
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
+#include "estdio.hpp"
 #include "canzero.hpp"
 
 namespace ground {
 
-static volatile Command m_lastCommand = Command::COMMAND_NONE;
-static volatile TickType_t m_lastCommandTime = 0;
-static constexpr TickType_t COMMAND_LIFETIME = pdMS_TO_TICKS(100);
-
 void reset(){
-	m_lastCommand = Command::COMMAND_NONE;
-	m_lastCommandTime = 0;
+	OD_TelemetryCommands_set(COMMAND::NONE);
 }
 
 Command lastCommand(){
-	return m_lastCommand;
+	return OD_TelemetryCommands_get();
 }
 
-static void groundStationCommandReceiver(RxMessage& raw){
-	m_lastCommand = Command::COMMAND_LAUNCH;
-	m_lastCommandTime = xTaskGetTickCount();
-}
 
 void init(){
 	//register receivers for
 }
 
 void update(){
-	TickType_t timeSinceLastCommand = xTaskGetTickCount() - m_lastCommandTime;
-	if(timeSinceLastCommand > COMMAND_LIFETIME){
-		reset();
+	if(OD_TelemetryCommands_get() == COMMAND::EMERGENCY){
+		ERR_OtherError_set();
 	}
 }
 

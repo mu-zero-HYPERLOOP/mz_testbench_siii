@@ -25,20 +25,6 @@ void pressureReceiver(RxMessage& raw){
 }
 
 
-void disengageBrakes(){
-	if(m_brakeState){
-		m_brakeState = false;
-		m_brakeStateDirty = true;
-	}
-}
-
-void engageBrakes(){
-	if(not m_brakeState){
-		m_brakeState = true;
-		m_brakeStateDirty  = true;
-	}
-}
-
 void init(){
 	can::registerMessageReceiver<can::messages::BrakeF_TX_PressureCooling>(pressureReceiver);
 }
@@ -47,11 +33,6 @@ void update(){
 	TickType_t timeSinceLastBrakeMsg = xTaskGetTickCount() - m_lastBrakeStateMsg;
 	if(timeSinceLastBrakeMsg > MAX_TIME_BETWEEN_BRAKE_STATE_MSG){
 		m_brakeStateDirty  = true;
-	}
-	if(m_brakeStateDirty){
-		//send can message to brake ecu.
-		m_lastBrakeStateMsg = xTaskGetTickCount();
-		m_brakeStateDirty = false;
 	}
 }
 
