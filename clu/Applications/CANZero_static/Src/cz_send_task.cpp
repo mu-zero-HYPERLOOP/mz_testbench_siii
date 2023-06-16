@@ -10,6 +10,7 @@
 #include "canzero_od.hpp"
 #include "cz_log.hpp"
 #include "cz_weak.hpp"
+#include "estdio.hpp"
 
 #include "FreeRTOS.h"
 #include "message_buffer.h"
@@ -25,6 +26,9 @@ void cz_send_entry(void* argv){
 	while(true){
 		if(osMessageQueueGet(czSendQueue,&sendMessage,NULL,osWaitForever) != osOK){
 			Error_Handler();
+		}
+		if(sendMessage.txHeader.StdId == 0x39){
+			printf("Hello, World!\n");
 		}
 
 		//uint32_t* buf = reinterpret_cast<uint32_t*>(&(sendMessage.txBuf[0]));

@@ -11,6 +11,9 @@
 
 namespace bms44 {
 
+constexpr uint16_t TITAN_ID = 19783;
+constexpr uint16_t HYPERION_ID = 0;
+
 struct bms_frame {
 	volatile uint8_t m_crcLow;
 	volatile uint8_t m_crcHigh;
@@ -161,6 +164,46 @@ struct bms_frame_builder {
 	bms_frame build() {
 		//log binary dump.
 		bms_frame frame = *reinterpret_cast<bms_frame*>(m_buffer);
+
+		if(frame.m_manufacturId == TITAN_ID){
+			OD_TitanTemperature_set((float)frame.m_temperature);
+			OD_TitanVoltage_set(frame.m_voltage / (float) 1000.0f);
+			OD_TitanCurrent_set(frame.m_current / (float) 10000.0f);
+			OD_TitanRemainingCapacity_set(frame.m_remainingCapacityProzent);
+			OD_TitanHealthStatus_set(frame.m_health);
+			OD_TitanLifeCycle_set(frame.m_cycleLife);
+			OD_TitanCell1Voltage_set(frame.m_cell1Voltage / 1000.0f);
+			OD_TitanCell2Voltage_set(frame.m_cell2Voltage / 1000.0f);
+			OD_TitanCell3Voltage_set(frame.m_cell3Voltage / 1000.0f);
+			OD_TitanCell4Voltage_set(frame.m_cell4Voltage / 1000.0f);
+			OD_TitanCell5Voltage_set(frame.m_cell5Voltage / 1000.0f);
+			OD_TitanCell6Voltage_set(frame.m_cell6Voltage / 1000.0f);
+			OD_TitanCell7Voltage_set(frame.m_cell7Voltage / 1000.0f);
+			OD_TitanCell8Voltage_set(frame.m_cell8Voltage / 1000.0f);
+			OD_TitanCell9Voltage_set(frame.m_cell9Voltage / 1000.0f);
+			OD_TitanCell10Voltage_set(frame.m_cell10Voltage / 1000.0f);
+			OD_TitanCell11Voltage_set(frame.m_cell11Voltage / 1000.0f);
+			OD_TitanCell12Voltage_set(frame.m_cell12Voltage / 1000.0f);
+		} else if(frame.m_manufacturId == HYPERION_ID){
+			OD_HyperionTemperature_set((float)frame.m_temperature);
+			OD_HyperionVoltage_set(frame.m_voltage / (float) 1000.0f);
+			OD_HyperionCurrent_set(frame.m_current / (float) 10000.0f);
+			OD_HyperionRemainingCapacity_set(frame.m_remainingCapacityProzent);
+			OD_HyperionHealthStatus_set(frame.m_health);
+			OD_HyperionLifeCycle_set(frame.m_cycleLife);
+			OD_HyperionCell1Voltage_set(frame.m_cell1Voltage / 1000.0f);
+			OD_HyperionCell2Voltage_set(frame.m_cell2Voltage / 1000.0f);
+			OD_HyperionCell3Voltage_set(frame.m_cell3Voltage / 1000.0f);
+			OD_HyperionCell4Voltage_set(frame.m_cell4Voltage / 1000.0f);
+			OD_HyperionCell5Voltage_set(frame.m_cell5Voltage / 1000.0f);
+			OD_HyperionCell6Voltage_set(frame.m_cell6Voltage / 1000.0f);
+			OD_HyperionCell7Voltage_set(frame.m_cell7Voltage / 1000.0f);
+			OD_HyperionCell8Voltage_set(frame.m_cell8Voltage / 1000.0f);
+			OD_HyperionCell9Voltage_set(frame.m_cell9Voltage / 1000.0f);
+			OD_HyperionCell10Voltage_set(frame.m_cell10Voltage / 1000.0f);
+			OD_HyperionCell11Voltage_set(frame.m_cell11Voltage / 1000.0f);
+			OD_HyperionCell12Voltage_set(frame.m_cell12Voltage / 1000.0f);
+		}
 
 		/*
 		printf("NEW  BMS44-FRAME\n");

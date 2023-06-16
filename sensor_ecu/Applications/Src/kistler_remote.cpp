@@ -16,7 +16,7 @@ static volatile float pos;
 
 static constexpr bool FREQUENT_LOGGING = true;
 
-pdu::LpChannel POWER_CHANNEL = pdu::LpChannel::LP_CHANNEL1;
+pdu::HpChannel POWER_CHANNEL = pdu::HpChannel::HP_CHANNEL1;
 
 void mainDataReceiver(RxMessage &raw) {
 	can::Message < can::messages::OpticalSensor_TX_MainData > msg { raw };
@@ -32,6 +32,7 @@ void statusReceiver(RxMessage& raw){
 void init() {
 	can::registerMessageReceiver<can::messages::OpticalSensor_TX_MainData>(mainDataReceiver);
 	can::registerMessageReceiver<can::messages::OpticalSensor_TX_Status>(statusReceiver);
+	enable();
 }
 
 

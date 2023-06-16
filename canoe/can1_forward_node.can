@@ -1,0 +1,27 @@
+/*@!Encoding:1252*/
+on message CAN1.*
+{
+  
+  message CAN2.* m;
+  if(this.DIR==RX)        // if it is a received frame
+  {
+   if(this.CAN==1)
+   {
+    m=this;
+    output(m);      // send it to the other channel
+   }
+  }
+}
+
+on message CAN2.*           
+{
+ message CAN1.* m;
+ if(this.DIR==RX)        // if it is a received frame
+ {
+  if(this.CAN==2)
+  {
+   m=this;
+   output(m);      // send it to the other channel
+  }
+ }
+}

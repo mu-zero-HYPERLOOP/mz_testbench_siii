@@ -55,7 +55,18 @@ struct LpChannelConfig {
 };
 
 static LpChannelConfig s_lpChannelConfig = {
-		.m_status = {false, false, true, false, false, false, false, true, true, false}
+		.m_status = {
+				false,  //kistler
+				false,
+				true,  //ebox microcontrollers
+				false,
+				false, // mdbs, pi (broken) [dep]
+				false, // mdbs, pi (backup) [dep]
+				true, // telemetry.
+				false,
+				false,
+				true //sdc.
+		}
 };
 static LpChannelConfig s_confirmed_lpChannelConfig;
 
@@ -75,7 +86,7 @@ struct HpChannelConfig {
 };
 
 static HpChannelConfig s_hpChannelConfig = {
-		.m_status = {false, false, false, false}
+		.m_status = {false, true, false, false}
 };
 static HpChannelConfig s_confirmed_hpChannelConfig;
 
@@ -224,7 +235,7 @@ void update(){
 		hpMsg.set<can::signals::PDU_HPCh1_Dutycycle>(s_hpChannelConfig.m_status[0] ? 100.0 : 0.0);
 		hpMsg.set<can::signals::PDU_HPCh2_Dutycycle>(s_hpChannelConfig.m_status[1] ? 100.0 : 0.0);
 		// update hp channel config.
-		hpMsg.send(can::buses::BUS2);
+		hpMsg.send();
 	}
 }
 

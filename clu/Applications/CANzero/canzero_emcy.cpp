@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 18:30:08 08.06.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 15:00:47 16.06.2023.
  * It contains the errors and warnings for the node 'CLU'.
  *
  * Florian Keck

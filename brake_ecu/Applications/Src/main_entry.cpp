@@ -30,7 +30,7 @@ void main_entry(void *argv) {
 		proc_info::update();
 		cooling_pressure::update();
 		sensor_ecu::update();
-		//state_maschine::update();
+		state_maschine::update();
 		sdc::update();
 
 		brake_solenoid::disengage();

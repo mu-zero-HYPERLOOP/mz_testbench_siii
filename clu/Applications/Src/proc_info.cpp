@@ -53,8 +53,7 @@ void update() {
 
 	// update ods.
 	OD_BoardTemp_set(
-			(filteredExternalTemperature + filteredInternalTemperature)
-					* 0.5);
+			filteredInternalTemperature);
 	OD_InputVoltage_set(filteredInputVoltage);
 
 	// every 20 iterations estimate cpu resources.

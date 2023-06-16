@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 18:36:39 07.06.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 16:22:34 16.06.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'SensorF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -308,6 +308,9 @@ namespace can {
     struct SignedConverter18Bits {
         int32_t value : 18;
     };
+    struct SignedConverter32Bits {
+        int32_t value : 32;
+    };
 
     /**********************************************************************************************
     * Network nodes with attributes                                                               *
@@ -318,6 +321,12 @@ namespace can {
         }
         namespace OpticalSensor {
             constexpr char comment[] = "Kistler SFP-II optical Sensor.";
+        }
+        namespace EMUS_BMS {
+            constexpr char comment[] = "HV BMS ";
+        }
+        namespace SCIMO_PE {
+            constexpr char comment[] = "";
         }
         namespace TelemetryNode {
             constexpr char comment[] = "Gateway between Pod and Telemetry Node-ID 0x22Gateway between Pod and Telemetry Node-ID 0x22";
@@ -357,6 +366,18 @@ namespace can {
 
             // Attributes of node 'PDU'
             constexpr uint8_t CANzero_NodeID = 26;
+        }
+        namespace HVCU {
+            constexpr char comment[] = "HVController Node-ID 0xA";
+
+            // Attributes of node 'HVCU'
+            constexpr uint8_t CANzero_NodeID = 10;
+        }
+        namespace HVTU {
+            constexpr char comment[] = "High Voltage CAN Translation Unit between BMS and Pod Node-ID 0x19";
+
+            // Attributes of node 'HVTU'
+            constexpr uint8_t CANzero_NodeID = 25;
         }
         namespace TestBench {
             constexpr char comment[] = "";
@@ -449,11 +470,11 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char CANzero_NMTMasterName[] = "Master";
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
-    constexpr uint32_t CANzero_DBCVersion = 204;
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
     constexpr char BusType[] = "CAN";
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr uint32_t CANzero_DBCVersion = 213;
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
@@ -515,6 +536,16 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'CLU_LevitationState'
+            constexpr static uint8_t OFF = 0;
+            constexpr static uint8_t IDLE = 1;
+            constexpr static uint8_t PRECHARGE = 2;
+            constexpr static uint8_t READY = 3;
+            constexpr static uint8_t LEVI_START = 4;
+            constexpr static uint8_t LEVI = 5;
+            constexpr static uint8_t ERROR = 6;
+            constexpr static uint8_t INCONSISTANT = 7;
         };
         class CLU_RequiresCooling {
             public:
@@ -532,16 +563,27 @@ namespace can {
         };
         class MDB1_Temperature {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x104 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class BrakeF_TX_Pressure_Reservoir {
@@ -694,6 +736,26 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'MDB1_State'
+            constexpr static uint8_t INIT = 0;
+            constexpr static uint8_t IDLE = 1;
+            constexpr static uint8_t PRECHARGE = 2;
+            constexpr static uint8_t READY = 3;
+            constexpr static uint8_t LEVI_START = 4;
+            constexpr static uint8_t LEVI_RUN = 5;
+            constexpr static uint8_t LEVI_END = 6;
+            constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t ERROR = 10;
+            constexpr static uint8_t ERROR_OVERCURRENT = 11;
+            constexpr static uint8_t ERROR_OVERVOLT = 12;
+            constexpr static uint8_t ERROR_OVERTEMP = 13;
+            constexpr static uint8_t ERROR_AIRGAP = 14;
+            constexpr static uint8_t ERROR_AIRGAP_SEN = 15;
+            constexpr static uint8_t ERROR_CAN = 16;
+            constexpr static uint8_t ERROR_CURRE_CALIB = 17;
+            constexpr static uint8_t ERROR_CHIPTEMP = 18;
+            constexpr static uint8_t ERROR_CALCTIME = 19;
         };
         class OpticalSensor_TX_Timestamp {
             public:
@@ -2100,6 +2162,42 @@ namespace can {
             constexpr static uint16_t HEARTBEATINTERVAL = 16;
             constexpr static uint16_t SENDODONBOOTUP = 32;
             constexpr static uint16_t ODENTRYSENDINTERVAL = 33;
+            constexpr static uint16_t HYPERIONTEMPERATURE = 512;
+            constexpr static uint16_t HYPERIONVOLTAGE = 513;
+            constexpr static uint16_t HYPERIONCURRENT = 514;
+            constexpr static uint16_t HYPERIONREMAININGCAPACITY = 515;
+            constexpr static uint16_t HYPERIONLIFECYCLE = 516;
+            constexpr static uint16_t HYPERIONHEALTHSTATUS = 517;
+            constexpr static uint16_t HYPERIONCELL1VOLTAGE = 518;
+            constexpr static uint16_t HYPERIONCELL2VOLTAGE = 519;
+            constexpr static uint16_t HYPERIONCELL3VOLTAGE = 520;
+            constexpr static uint16_t HYPERIONCELL4VOLTAGE = 521;
+            constexpr static uint16_t HYPERIONCELL5VOLTAGE = 522;
+            constexpr static uint16_t HYPERIONCELL6VOLTAGE = 523;
+            constexpr static uint16_t HYPERIONCELL7VOLTAGE = 524;
+            constexpr static uint16_t HYPERIONCELL8VOLTAGE = 525;
+            constexpr static uint16_t HYPERIONCELL9VOLTAGE = 526;
+            constexpr static uint16_t HYPERIONCELL10VOLTAGE = 527;
+            constexpr static uint16_t HYPERIONCELL11VOLTAGE = 528;
+            constexpr static uint16_t HYPERIONCELL12VOLTAGE = 529;
+            constexpr static uint16_t TITANTEMPERATURE = 768;
+            constexpr static uint16_t TITANVOLTAGE = 769;
+            constexpr static uint16_t TITANCURRENT = 770;
+            constexpr static uint16_t TITANREMAININGCAPACITY = 771;
+            constexpr static uint16_t TITANLIFECYCLE = 772;
+            constexpr static uint16_t TITANHEALTHSTATUS = 773;
+            constexpr static uint16_t TITANCELL1VOLTAGE = 774;
+            constexpr static uint16_t TITANCELL2VOLTAGE = 775;
+            constexpr static uint16_t TITANCELL3VOLTAGE = 776;
+            constexpr static uint16_t TITANCELL4VOLTAGE = 777;
+            constexpr static uint16_t TITANCELL5VOLTAGE = 778;
+            constexpr static uint16_t TITANCELL6VOLTAGE = 779;
+            constexpr static uint16_t TITANCELL7VOLTAGE = 780;
+            constexpr static uint16_t TITANCELL8VOLTAGE = 781;
+            constexpr static uint16_t TITANCELL9VOLTAGE = 782;
+            constexpr static uint16_t TITANCELL10VOLTAGE = 783;
+            constexpr static uint16_t TITANCELL11VOLTAGE = 784;
+            constexpr static uint16_t TITANCELL12VOLTAGE = 785;
             constexpr static uint16_t CPUUSAGE = 1040;
             constexpr static uint16_t MEMFREE = 1041;
             constexpr static uint16_t BOARDTEMP = 1042;
@@ -2181,6 +2279,1228 @@ namespace can {
             constexpr static uint8_t ERR_READ_ONLY_OBJECT = 3;
             constexpr static uint8_t ERR_NO_ACCESS_IN_THIS_STATE = 4;
             constexpr static uint8_t ERR_OUT_OF_RANGE = 5;
+        };
+        class SensorF_OD_TitanCell12Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 785            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 785);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 785) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell12Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell11Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 784            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 784);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 784) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell11Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell10Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 783            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 783);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 783) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell10Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell9Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 782            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 782);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 782) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell9Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell8Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 781            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 781);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 781) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell8Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell7Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 780            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 780);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 780) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell7Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell6Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 779            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 779);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 779) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell6Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell5Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 778            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 778);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 778) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell5Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell4Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 777            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 777);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 777) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell4Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell3Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 776            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 776);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 776) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell3Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell2Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 775            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 775);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 775) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell2Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanCell1Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 774            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 774);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 774) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCell1Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanHealthStatus {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 773            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                SensorF_SDO_ID::set(intel, motorola, dlc, 773);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 773) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanHealthStatus'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanLifeCycle {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 772            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                SensorF_SDO_ID::set(intel, motorola, dlc, 772);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 772) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanLifeCycle'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanRemainingCapacity {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 771            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                SensorF_SDO_ID::set(intel, motorola, dlc, 771);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 771) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanRemainingCapacity'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static char SystemSignalLongSymbol[] = "SensorF_OD_TitanRemainingCapacity";
+        };
+        class SensorF_OD_TitanCurrent {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 770            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 770);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 770) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanCurrent'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanVoltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 769            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 769);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 769) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanVoltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_TitanTemperature {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 768            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(655.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 768);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 768) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f);
+            }
+
+            // Attributes of signal 'SensorF_OD_TitanTemperature'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell12Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 529            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 529);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 529) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell12Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell11Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 528            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 528);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 528) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell11Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell10Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 527            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 527);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 527) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell10Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell9Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 526            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 526);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 526) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell9Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell8Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 525            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 525);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 525) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell8Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell7Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 524            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 524);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 524) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell7Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell6Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 523            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 523);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 523) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell6Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell5Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 522            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 522);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 522) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell5Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell4Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 521            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 521);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 521) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell4Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell3Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 520            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 520);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 520) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell3Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell2Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 519            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 519);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 519) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell2Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionCell1Voltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 518            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(655.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 518);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 518) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCell1Voltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionHealthStatus {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 517            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                SensorF_SDO_ID::set(intel, motorola, dlc, 517);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 517) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionHealthStatus'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_WRITE;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionLifeCycle {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 516            
+            using dataType = uint16_t;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint16_t value) noexcept {
+                SensorF_SDO_ID::set(intel, motorola, dlc, 516);
+                uint16_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline uint16_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 516) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value;
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionLifeCycle'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionRemainingCapacity {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 515            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(655.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 515);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 515) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionRemainingCapacity'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+            constexpr static char SystemSignalLongSymbol[] = "SensorF_OD_HyperionRemainingCapacity";
+        };
+        class SensorF_OD_HyperionCurrent {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 514            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(-100);
+            constexpr static float max = static_cast<float>(555.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 514);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value - (-100.0f)) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 514) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f) + (-100.0f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionCurrent'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 10000.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionVoltage {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 513            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(65.535);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 513);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.001f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 513) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.001f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionVoltage'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
+        };
+        class SensorF_OD_HyperionTemperature {
+            public:
+            // This signal is multiplexed by SensorF_SDO_ID == 512            
+            using dataType = float;
+            constexpr static uint8_t numIds = 2;
+            constexpr static uint32_t ids[] = { 0x581, 0x5C1 };
+            constexpr static float min = static_cast<float>(0);
+            constexpr static float max = static_cast<float>(655.35);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                SensorF_SDO_ID::set(intel, motorola, dlc, 512);
+                uint16_t rawValue = static_cast<uint16_t>(STD_ROUND((value) / (0.01f)));
+                intel |= (static_cast<uint64_t>(rawValue) << 16) & 0xFFFF0000ull;
+                dlc = 4;
+            }
+            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                if (SensorF_SDO_ID::get(intel, motorola) != 512) {
+                    while(1);
+                }
+                uint16_t value = static_cast<uint16_t>((intel & 0xFFFF0000ull) >> 16);
+                return value * (0.01f);
+            }
+
+            // Attributes of signal 'SensorF_OD_HyperionTemperature'
+            constexpr static char CANzero_SDO_Group[] = "";
+            constexpr static CANzero_SDO_AccessType_t CANzero_SDO_AccessType = CANzero_SDO_AccessType_t::READ_ONLY;
+            constexpr static CANzero_SDO_AccessIfOperational_t CANzero_SDO_AccessIfOperational = CANzero_SDO_AccessIfOperational_t::YES;
+            constexpr static float GenSigStartValue = 0.0f;
+            constexpr static float CANzero_SDO_Default = 0.0f;
         };
         class SensorF_OD_SetReset {
             public:
@@ -5426,6 +6746,78 @@ namespace can {
             constexpr static uint8_t OPERATIONAL = 5;
             constexpr static uint8_t PREOPERATIONAL = 127;
         };
+        class HVCU_RX_Enable {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1CA };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x1ull));
+                return value;
+            }
+
+            // Value table of signal 'HVCU_RX_Enable'
+            constexpr static bool DISABLE = 0;
+            constexpr static bool ENABLE = 1;
+        };
+        class HVCU_RX_Activate {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1CA };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x2ull) >> 1);
+                return value;
+            }
+
+            // Value table of signal 'HVCU_RX_Activate'
+            constexpr static bool DEACTIVATE = 0;
+            constexpr static bool ACTIVATE = 1;
+        };
+        class HVCU_RX_ErrorReset {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1CA };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x4ull) >> 2);
+                return value;
+            }
+
+            // Value table of signal 'HVCU_RX_ErrorReset'
+            constexpr static bool NO_RESET = 0;
+            constexpr static bool RESET = 1;
+        };
+        class HVCU_RX_Charging {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x1CA };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x8ull) >> 3);
+                return value;
+            }
+
+            // Value table of signal 'HVCU_RX_Charging'
+            constexpr static bool NOT_CHARGING = 0;
+            constexpr static bool CHARGING = 1;
+        };
         class TelemetryNode_NodeState {
             public:
             using dataType = uint8_t;
@@ -5892,6 +7284,42 @@ namespace can {
             // Signals
             using SensorF_SDO_ID = signals::SensorF_SDO_ID;
             using SensorF_SDO_RespCode = signals::SensorF_SDO_RespCode;
+            using SensorF_OD_TitanCell12Voltage = signals::SensorF_OD_TitanCell12Voltage;
+            using SensorF_OD_TitanCell11Voltage = signals::SensorF_OD_TitanCell11Voltage;
+            using SensorF_OD_TitanCell10Voltage = signals::SensorF_OD_TitanCell10Voltage;
+            using SensorF_OD_TitanCell9Voltage = signals::SensorF_OD_TitanCell9Voltage;
+            using SensorF_OD_TitanCell8Voltage = signals::SensorF_OD_TitanCell8Voltage;
+            using SensorF_OD_TitanCell7Voltage = signals::SensorF_OD_TitanCell7Voltage;
+            using SensorF_OD_TitanCell6Voltage = signals::SensorF_OD_TitanCell6Voltage;
+            using SensorF_OD_TitanCell5Voltage = signals::SensorF_OD_TitanCell5Voltage;
+            using SensorF_OD_TitanCell4Voltage = signals::SensorF_OD_TitanCell4Voltage;
+            using SensorF_OD_TitanCell3Voltage = signals::SensorF_OD_TitanCell3Voltage;
+            using SensorF_OD_TitanCell2Voltage = signals::SensorF_OD_TitanCell2Voltage;
+            using SensorF_OD_TitanCell1Voltage = signals::SensorF_OD_TitanCell1Voltage;
+            using SensorF_OD_TitanHealthStatus = signals::SensorF_OD_TitanHealthStatus;
+            using SensorF_OD_TitanLifeCycle = signals::SensorF_OD_TitanLifeCycle;
+            using SensorF_OD_TitanRemainingCapacity = signals::SensorF_OD_TitanRemainingCapacity;
+            using SensorF_OD_TitanCurrent = signals::SensorF_OD_TitanCurrent;
+            using SensorF_OD_TitanVoltage = signals::SensorF_OD_TitanVoltage;
+            using SensorF_OD_TitanTemperature = signals::SensorF_OD_TitanTemperature;
+            using SensorF_OD_HyperionCell12Voltage = signals::SensorF_OD_HyperionCell12Voltage;
+            using SensorF_OD_HyperionCell11Voltage = signals::SensorF_OD_HyperionCell11Voltage;
+            using SensorF_OD_HyperionCell10Voltage = signals::SensorF_OD_HyperionCell10Voltage;
+            using SensorF_OD_HyperionCell9Voltage = signals::SensorF_OD_HyperionCell9Voltage;
+            using SensorF_OD_HyperionCell8Voltage = signals::SensorF_OD_HyperionCell8Voltage;
+            using SensorF_OD_HyperionCell7Voltage = signals::SensorF_OD_HyperionCell7Voltage;
+            using SensorF_OD_HyperionCell6Voltage = signals::SensorF_OD_HyperionCell6Voltage;
+            using SensorF_OD_HyperionCell5Voltage = signals::SensorF_OD_HyperionCell5Voltage;
+            using SensorF_OD_HyperionCell4Voltage = signals::SensorF_OD_HyperionCell4Voltage;
+            using SensorF_OD_HyperionCell3Voltage = signals::SensorF_OD_HyperionCell3Voltage;
+            using SensorF_OD_HyperionCell2Voltage = signals::SensorF_OD_HyperionCell2Voltage;
+            using SensorF_OD_HyperionCell1Voltage = signals::SensorF_OD_HyperionCell1Voltage;
+            using SensorF_OD_HyperionHealthStatus = signals::SensorF_OD_HyperionHealthStatus;
+            using SensorF_OD_HyperionLifeCycle = signals::SensorF_OD_HyperionLifeCycle;
+            using SensorF_OD_HyperionRemainingCapacity = signals::SensorF_OD_HyperionRemainingCapacity;
+            using SensorF_OD_HyperionCurrent = signals::SensorF_OD_HyperionCurrent;
+            using SensorF_OD_HyperionVoltage = signals::SensorF_OD_HyperionVoltage;
+            using SensorF_OD_HyperionTemperature = signals::SensorF_OD_HyperionTemperature;
             using SensorF_OD_SetReset = signals::SensorF_OD_SetReset;
             using SensorF_OD_Velocity = signals::SensorF_OD_Velocity;
             using SensorF_OD_Position = signals::SensorF_OD_Position;
@@ -5971,6 +7399,42 @@ namespace can {
 
             // Signals
             using SensorF_SDO_ID = signals::SensorF_SDO_ID;
+            using SensorF_OD_TitanCell12Voltage = signals::SensorF_OD_TitanCell12Voltage;
+            using SensorF_OD_TitanCell11Voltage = signals::SensorF_OD_TitanCell11Voltage;
+            using SensorF_OD_TitanCell10Voltage = signals::SensorF_OD_TitanCell10Voltage;
+            using SensorF_OD_TitanCell9Voltage = signals::SensorF_OD_TitanCell9Voltage;
+            using SensorF_OD_TitanCell8Voltage = signals::SensorF_OD_TitanCell8Voltage;
+            using SensorF_OD_TitanCell7Voltage = signals::SensorF_OD_TitanCell7Voltage;
+            using SensorF_OD_TitanCell6Voltage = signals::SensorF_OD_TitanCell6Voltage;
+            using SensorF_OD_TitanCell5Voltage = signals::SensorF_OD_TitanCell5Voltage;
+            using SensorF_OD_TitanCell4Voltage = signals::SensorF_OD_TitanCell4Voltage;
+            using SensorF_OD_TitanCell3Voltage = signals::SensorF_OD_TitanCell3Voltage;
+            using SensorF_OD_TitanCell2Voltage = signals::SensorF_OD_TitanCell2Voltage;
+            using SensorF_OD_TitanCell1Voltage = signals::SensorF_OD_TitanCell1Voltage;
+            using SensorF_OD_TitanHealthStatus = signals::SensorF_OD_TitanHealthStatus;
+            using SensorF_OD_TitanLifeCycle = signals::SensorF_OD_TitanLifeCycle;
+            using SensorF_OD_TitanRemainingCapacity = signals::SensorF_OD_TitanRemainingCapacity;
+            using SensorF_OD_TitanCurrent = signals::SensorF_OD_TitanCurrent;
+            using SensorF_OD_TitanVoltage = signals::SensorF_OD_TitanVoltage;
+            using SensorF_OD_TitanTemperature = signals::SensorF_OD_TitanTemperature;
+            using SensorF_OD_HyperionCell12Voltage = signals::SensorF_OD_HyperionCell12Voltage;
+            using SensorF_OD_HyperionCell11Voltage = signals::SensorF_OD_HyperionCell11Voltage;
+            using SensorF_OD_HyperionCell10Voltage = signals::SensorF_OD_HyperionCell10Voltage;
+            using SensorF_OD_HyperionCell9Voltage = signals::SensorF_OD_HyperionCell9Voltage;
+            using SensorF_OD_HyperionCell8Voltage = signals::SensorF_OD_HyperionCell8Voltage;
+            using SensorF_OD_HyperionCell7Voltage = signals::SensorF_OD_HyperionCell7Voltage;
+            using SensorF_OD_HyperionCell6Voltage = signals::SensorF_OD_HyperionCell6Voltage;
+            using SensorF_OD_HyperionCell5Voltage = signals::SensorF_OD_HyperionCell5Voltage;
+            using SensorF_OD_HyperionCell4Voltage = signals::SensorF_OD_HyperionCell4Voltage;
+            using SensorF_OD_HyperionCell3Voltage = signals::SensorF_OD_HyperionCell3Voltage;
+            using SensorF_OD_HyperionCell2Voltage = signals::SensorF_OD_HyperionCell2Voltage;
+            using SensorF_OD_HyperionCell1Voltage = signals::SensorF_OD_HyperionCell1Voltage;
+            using SensorF_OD_HyperionHealthStatus = signals::SensorF_OD_HyperionHealthStatus;
+            using SensorF_OD_HyperionLifeCycle = signals::SensorF_OD_HyperionLifeCycle;
+            using SensorF_OD_HyperionRemainingCapacity = signals::SensorF_OD_HyperionRemainingCapacity;
+            using SensorF_OD_HyperionCurrent = signals::SensorF_OD_HyperionCurrent;
+            using SensorF_OD_HyperionVoltage = signals::SensorF_OD_HyperionVoltage;
+            using SensorF_OD_HyperionTemperature = signals::SensorF_OD_HyperionTemperature;
             using SensorF_OD_SetReset = signals::SensorF_OD_SetReset;
             using SensorF_OD_Velocity = signals::SensorF_OD_Velocity;
             using SensorF_OD_Position = signals::SensorF_OD_Position;
@@ -6274,6 +7738,21 @@ namespace can {
             using PDU_NodeState = signals::PDU_NodeState;
 
             // Attributes of message 'PDU_Heartbeat'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class HVCU_RX_Control {
+            public:
+            constexpr static uint32_t id = 0x1CA;
+            constexpr static uint8_t dlc = 1;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using HVCU_RX_Enable = signals::HVCU_RX_Enable;
+            using HVCU_RX_Activate = signals::HVCU_RX_Activate;
+            using HVCU_RX_ErrorReset = signals::HVCU_RX_ErrorReset;
+            using HVCU_RX_Charging = signals::HVCU_RX_Charging;
+
+            // Attributes of message 'HVCU_RX_Control'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class TelemetryNode_Heartbeat {

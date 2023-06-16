@@ -1,0 +1,80 @@
+
+24V Supply Failure ! (not software handled)
+
+
+Cooling Pressure Low
+    -Indicated Leakage
+    -Detect Low for time (watchdog timeout)
+    -error propaged by BECU to SECU to state-maschine
+
+Cooling Pressure Hight
+    -Indicate Busting of pipes.
+    -Detect Low for time (watchdog timeout)
+    -error propaged by BECU to SECU to state-maschine
+
+MDB Error 
+    -Distance Sensor Error || Distance Sensor Out Of Range
+        -React immediatly (handle in mdbs)
+    -Precharge Failure (not possible to detect)
+    -error propaged by CLU to SECU to state-maschine
+    -special case: MDB OverTemperature (set require cooling)
+
+Telemetry Timeout
+    -Setup Periodic Signal from Canoe (required in idle to continue)
+    -throw error on timeout.
+    -implies two way communication because of TCP.
+    -handle in SECU directly forward to state-maschine
+
+44V BMS Error
+    - Health Status Low
+    - Voltage to Low.
+    - Voltage to High.
+    - Cell Imbalance
+    - Over Temperature
+    - Over Current
+    - Directly forward to state-maschine.
+
+
+BIR / SDC Failure (not software handled)
+
+Brake Solenoid Failure (not software handled)
+
+Track Solendoid Failure (not software hanlded)
+
+Position estimation inconsistant
+    -Fiducial Range check 
+    -on Failure stop immediatly.
+
+Healthbeat miss (optional)
+
+Track pneumatic overpressure
+    -don't push
+    -propage to ground station -> SECU -> state-machine  (weak handling)
+
+Track pneumatic underpressure 
+    -don't push
+    -propage to ground station -> SECU -> state-machine  (weak handling)
+
+
+ECU OnBoard Over temperature (optional)
+
+EBox Over Temperature (optional)
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+

@@ -40,7 +40,7 @@ void main_entry(void *argv) {
 		status_led::update();
 		state_maschine::update();
 
-		osDelay(pdMS_TO_TICKS(5));
+		osDelay(pdMS_TO_TICKS(50));
 	}
 }
 

@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 15:05:13 16.05.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 16:26:22 15.06.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'PDU' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -52,18 +52,18 @@ namespace can {
         constexpr uint32_t id_ext[1] = {     // Filter ID for extended (29-bit) ID messages
         };
 
-        constexpr uint8_t num_std = 15;      // Number of used receive filters for standard (11-bit) ID messages
-        constexpr uint32_t mask_std[15] = {   // Filter mask for standard (11-bit) ID messages
+        constexpr uint8_t num_std = 16;      // Number of used receive filters for standard (11-bit) ID messages
+        constexpr uint32_t mask_std[16] = {   // Filter mask for standard (11-bit) ID messages
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF,            0x7FF 
+            0x7FF,            0x7FF,            0x7FF,            0x7FF 
         };
-        constexpr uint32_t id_std[15] = {     // Filter ID for standard (11-bit) ID messages
-            0x002,            0x181,            0x441,            0x481, 
-            0x202,            0x282,            0x482,            0x582, 
-            0x1DA,            0x25A,            0x2DA,            0x35A, 
-            0x5DA,            0x61A,            0x79A 
+        constexpr uint32_t id_std[16] = {     // Filter ID for standard (11-bit) ID messages
+            0x10A,            0x002,            0x181,            0x441, 
+            0x481,            0x202,            0x282,            0x482, 
+            0x582,            0x1DA,            0x25A,            0x2DA, 
+            0x35A,            0x5DA,            0x61A,            0x79A 
         };
     }
 
@@ -415,6 +415,12 @@ namespace can {
             // Attributes of node 'Track'
             constexpr uint8_t CANzero_NodeID = 50;
         }
+        namespace CLU {
+            constexpr char comment[] = "central levitation unit Node-ID 0x14";
+
+            // Attributes of node 'CLU'
+            constexpr uint8_t CANzero_NodeID = 20;
+        }
     }
     
     /**********************************************************************************************
@@ -457,7 +463,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char BusType[] = "CAN";
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 177;
+    constexpr uint32_t CANzero_DBCVersion = 205;
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
@@ -470,7 +476,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static uint32_t ids[] = { 0x10A };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
@@ -484,7 +490,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static uint32_t ids[] = { 0x10A };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
@@ -498,7 +504,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static uint32_t ids[] = { 0x10A };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
@@ -512,7 +518,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x25B };
+            constexpr static uint32_t ids[] = { 0x10A };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
@@ -571,6 +577,7 @@ namespace can {
             constexpr static uint16_t HVCU = 10;
             constexpr static uint16_t BRAKEF = 17;
             constexpr static uint16_t BRAKER = 18;
+            constexpr static uint16_t CLU = 20;
             constexpr static uint16_t HVTU = 25;
             constexpr static uint16_t PDU = 26;
             constexpr static uint16_t MDB1 = 33;
@@ -589,10 +596,10 @@ namespace can {
             constexpr static uint32_t ids[] = { 0x181 };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
                 uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue)) & 0x7ull;
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
             }
             constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0x7ull));
+                uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
 
@@ -600,64 +607,18 @@ namespace can {
             constexpr static uint8_t POD_OFF = 0;
             constexpr static uint8_t POD_IDLE = 1;
             constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
-            constexpr static uint8_t POD_FAULT = 3;
-            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
-            constexpr static uint8_t POD_LAUNCHING = 5;
-            constexpr static uint8_t POD_PUSHABLE = 6;
-            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
-            constexpr static uint8_t POD_START_LEVITATION = 8;
-            constexpr static uint8_t POD_STOP_LEVITATION = 9;
-            constexpr static uint8_t POD_LEVITATING = 10;
-            constexpr static uint8_t POD_BREAKING = 11;
-            constexpr static uint8_t POD_STOP = 12;
-        };
-        class SensorF_TX_PodState_Last {
-            public:
-            using dataType = uint8_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x181 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x38ull;
-            }
-            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0x38ull) >> 3);
-                return value;
-            }
-
-            // Value table of signal 'SensorF_TX_PodState_Last'
-            constexpr static uint8_t POD_OFF = 0;
-            constexpr static uint8_t POD_IDLE = 1;
-            constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
-            constexpr static uint8_t POD_FAULT = 3;
-            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
-            constexpr static uint8_t POD_LAUNCHING = 5;
-            constexpr static uint8_t POD_PUSHABLE = 6;
-            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
-        };
-        class SensorF_TX_PodState_Target {
-            public:
-            using dataType = uint8_t;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x181 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
-                uint8_t rawValue = (value);
-                intel |= (static_cast<uint64_t>(rawValue) << 8) & 0x700ull;
-            }
-            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0x700ull) >> 8);
-                return value;
-            }
-
-            // Value table of signal 'SensorF_TX_PodState_Target'
-            constexpr static uint8_t POD_OFF = 0;
-            constexpr static uint8_t POD_IDLE = 1;
-            constexpr static uint8_t POD_LAUNCH_PREPARATION = 2;
-            constexpr static uint8_t POD_FAULT = 3;
-            constexpr static uint8_t POD_READY_TO_LAUNCH = 4;
-            constexpr static uint8_t POD_LAUNCHING = 5;
-            constexpr static uint8_t POD_PUSHABLE = 6;
-            constexpr static uint8_t POD_SAFE_TO_APPROACH = 7;
+            constexpr static uint8_t POD_READY_TO_LAUNCH = 3;
+            constexpr static uint8_t POD_START_LEVITATION = 4;
+            constexpr static uint8_t POD_STABLE_LEVITATION = 5;
+            constexpr static uint8_t POD_CRUSING = 6;
+            constexpr static uint8_t POD_DISENGAGE_BRAKES = 7;
+            constexpr static uint8_t POD_STOP_LEVITATION = 8;
+            constexpr static uint8_t POD_ROLLING = 9;
+            constexpr static uint8_t POD_ENGAGE_BRAKES = 10;
+            constexpr static uint8_t POD_END_OF_RUN = 11;
+            constexpr static uint8_t POD_SAFE_TO_APPROCH = 12;
+            constexpr static uint8_t POD_PUSHABLE = 13;
+            constexpr static uint8_t POD_STARTUP = 14;
         };
         class SensorF_TX_BatteryTemp {
             public:
@@ -8505,7 +8466,7 @@ namespace can {
     namespace messages {
         class PDU_RX_LP_Enable {
             public:
-            constexpr static uint32_t id = 0x25B;
+            constexpr static uint32_t id = 0x10A;
             constexpr static uint8_t dlc = 1;
             constexpr static bool isExtendedId = false;
 
@@ -8534,13 +8495,11 @@ namespace can {
         class SensorF_TX_StatePod {
             public:
             constexpr static uint32_t id = 0x181;
-            constexpr static uint8_t dlc = 2;
+            constexpr static uint8_t dlc = 1;
             constexpr static bool isExtendedId = false;
 
             // Signals
             using SensorF_TX_PodState = signals::SensorF_TX_PodState;
-            using SensorF_TX_PodState_Last = signals::SensorF_TX_PodState_Last;
-            using SensorF_TX_PodState_Target = signals::SensorF_TX_PodState_Target;
 
             // Attributes of message 'SensorF_TX_StatePod'
             constexpr static uint16_t GenMsgCycleTime = 100;

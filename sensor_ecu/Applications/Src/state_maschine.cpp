@@ -114,7 +114,7 @@ void update(){
     	sdc::close();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	if(clu::getState() == clu::State::MDB_STABLE_LEV){
+    	if(clu::getState() == clu::State::MDB_LEVI){
     		setState(STATE::POD_STABLE_LEVITATION);
     	}
     	break;
@@ -146,7 +146,7 @@ void update(){
     	sdc::close();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	if(clu::getState() == clu::State::MDB_GROUNDED){
+    	if(clu::getState() == clu::State::MDB_READY){
     		setState(STATE::POD_ROLLING);
     	}
     	break;

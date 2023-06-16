@@ -10,6 +10,7 @@
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
 #include <cinttypes>
+#include "estdio.hpp"
 
 namespace mdb {
 
@@ -19,7 +20,7 @@ static volatile float m_temp[MDB_COUNT];
 static volatile uint8_t m_stateCount[MDB_STATE_COUNT];
 static volatile PublicState m_state[MDB_COUNT];
 
-static float m_targetAirGap;
+static float m_targetAirGap = 10.0f;
 
 static volatile PublicState m_publicState;
 
@@ -47,7 +48,11 @@ void mdbStatusReceiver(RxMessage& raw){
 	if(m_stateCount[state] == MDB_COUNT){
 		m_publicState = static_cast<PublicState>(state);
 	}else{
-		m_publicState = MDB_INCONSISTANT;
+		if(m_stateCount[MDB_ERROR]){
+			m_publicState = MDB_ERROR;
+		}else{
+			m_publicState = MDB_INCONSISTANT;
+		}
 	}
 	m_lastStateBrd = xTaskGetTickCount();
 }
@@ -62,16 +67,22 @@ void mdbTempReceiver(RxMessage& raw){
 	m_temp[MDB_ID] = *reinterpret_cast<float*>(raw.rxBuf);
 }
 
+void mdbActionRequestReceiver(RxMessage& raw){
+	can::Message<can::messages::CLU_RX_ActionRequest> msg{raw};
+	uint8_t actionRequestByte = msg.get<can::signals::CLU_RX_ActionRequest>();
+	setCommand(static_cast<Command>(actionRequestByte));
+}
+
 void init(){
 	m_stateMapping[MDB_STATE_INIT] = PublicState::MDB_IDLE;
 	m_stateMapping[MDB_STATE_IDLE] = PublicState::MDB_IDLE;
 	m_stateMapping[MDB_STATE_PRECHARGE] = PublicState::MDB_PRECHARGE;
 	m_stateMapping[MDB_STATE_READY] = PublicState::MDB_READY;
-	m_stateMapping[MDB_STATE_LEVI_START] = PublicState::MDB_LEVI;
+	m_stateMapping[MDB_STATE_LEVI_START] = PublicState::MDB_LEVI_START;
 	m_stateMapping[MDB_STATE_LEVI_RUN] = PublicState::MDB_LEVI;
 	m_stateMapping[MDB_STATE_LEVI_END] = PublicState::MDB_LEVI;
 	m_stateMapping[MDB_STATE_LEVI_UNSTABLE] = PublicState::MDB_LEVI;
-	m_stateMapping[MDB_ERROR] = PublicState::MDB_ERROR;
+	m_stateMapping[MDB_STATE_ERROR] = PublicState::MDB_ERROR;
 	m_stateMapping[MDB_ERROR_OVERCURRENT] = PublicState::MDB_ERROR;
 	m_stateMapping[MDB_ERROR_OVERVOLT] = PublicState::MDB_ERROR;
 	m_stateMapping[MDB_ERROR_OVERTEMP] = PublicState::MDB_ERROR;
@@ -148,8 +159,8 @@ void update(){
 	if(timeSinceLastCommandBrd > COMMAND_BRD_INTERVAL && m_command != MDB_COMMAND_NONE){
 		can::Message<can::messages::CLU_TX_ActionRequest> msg;
 		msg.set<can::signals::CLU_TX_ActionRequest>(static_cast<uint8_t>(m_command));
-		msg.set<can::signals::CLU_TX_TagetAirGap>(*reinterpret_cast<uint32_t*>(&m_targetAirGap));
-		msg.send();
+		msg.set<can::signals::CLU_TX_TargetAirGap>(*reinterpret_cast<uint32_t*>(&m_targetAirGap));
+		//msg.send(can::buses::BUS1);
 		m_lastCommandBrd = xTaskGetTickCount();
 	}
 }

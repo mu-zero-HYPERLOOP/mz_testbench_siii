@@ -11,14 +11,7 @@
 
 namespace sensor_ecu_remote {
 
-enum ActionRequest {
-	MDB_START,
-	MDB_STOP,
-};
-
 [[nodiscard]] PodState getState();
-
-[[nodiscard]] ActionRequest getLastActionRequest();
 
 void init();
 

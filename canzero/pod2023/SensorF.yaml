@@ -228,13 +228,258 @@ object_dictionary:
     default: 0
     conversion: {scale: 0.01, offset: -100}
 
-
   0x910:
     name: SetReset
     length: 8
     comment: Reset the position of the encoder and IMU to zero.
     access: wo
     choices: {0: "None", 1: "Reset"}
+
+  0x200:
+    name: HyperionTemperature
+    length: 16
+    comment: "Temperature of the Hyperion Battery (48V)"
+    access: ro
+    unit: C°
+    conversion: {scale: 0.01}
+  0x201:
+    name: HyperionVoltage
+    length: 16
+    comment: "Voltage of the Hyperion Battery (48V)"
+    access: ro
+    unit: V
+    conversion: {scale: 0.001}
+  0x202:
+    name: HyperionCurrent
+    length: 16
+    comment: "Current of the Hyperion Battery (48V)"
+    access: ro
+    unit: "A"
+    conversion: {scale: 0.01, offset: -100}
+  0x203:
+    name: HyperionRemainingCapacity
+    length: 16
+    comment: "Remaining Capacity of Hyperion Battery (48V)"
+    access: ro
+    unit: "%"
+    conversion: {scale: 0.01}
+  0x204:
+    name: HyperionLifeCycle
+    length: 16
+    comment: "Charge Discharge cycles of Hyperion Battery (48V)"
+    access: ro
+  0x205:
+    name: HyperionHealthStatus
+    length: 16
+    comment: "Health Status of Hyperion Battery (48V)"
+    unit : "%"
+  0x206:
+    name: HyperionCell1Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.01}
+  0x207:
+    name: HyperionCell2Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x208:
+    name: HyperionCell3Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x209:
+    name: HyperionCell4Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x20A:
+    name: HyperionCell5Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x20B:
+    name: HyperionCell6Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x20C:
+    name: HyperionCell7Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x20D:
+    name: HyperionCell8Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x20E:
+    name: HyperionCell9Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x20F:
+    name: HyperionCell10Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x210:
+    name: HyperionCell11Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x211:
+    name: HyperionCell12Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+
+  0x300:
+    name: TitanTemperature
+    length: 16
+    comment: "Temperature of the Hyperion Battery (48V)"
+    access: ro
+    unit: C°
+    conversion: {scale: 0.01}
+  0x301:
+    name: TitanVoltage
+    length: 16
+    comment: "Voltage of the Hyperion Battery (48V)"
+    access: ro
+    unit: V
+    conversion: {scale: 0.001}
+  0x302:
+    name: TitanCurrent
+    length: 16
+    comment: "Current of the Hyperion Battery (48V)"
+    access: ro
+    unit: "A"
+    conversion: {scale: 0.01, offset: -100}
+  0x303:
+    name: TitanRemainingCapacity
+    length: 16
+    comment: "Remaining Capacity of Hyperion Battery (48V)"
+    access: ro
+    unit: "%"
+  0x304:
+    name: TitanLifeCycle
+    length: 16
+    comment: "Charge Discharge cycles of Hyperion Battery (48V)"
+    access: ro
+  0x305:
+    name: TitanHealthStatus
+    length: 16
+    comment: "Health Status of Hyperion Battery (48V)"
+    unit : "%"
+    access: ro
+  0x306:
+    name: TitanCell1Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x307:
+    name: TitanCell2Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x308:
+    name: TitanCell3Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x309:
+    name: TitanCell4Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x30A:
+    name: TitanCell5Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x30B:
+    name: TitanCell6Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x30C:
+    name: TitanCell7Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x30D:
+    name: TitanCell8Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x30E:
+    name: TitanCell9Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x30F:
+    name: TitanCell10Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x310:
+    name: TitanCell11Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
+  0x311:
+    name: TitanCell12Voltage
+    length: 16
+    unit: V
+    comment: "Cell Voltage of Hyperion Battery (48V)"
+    access: ro
+    conversion: {scale: 0.001}
 
 
 ## Add your emergency codes below

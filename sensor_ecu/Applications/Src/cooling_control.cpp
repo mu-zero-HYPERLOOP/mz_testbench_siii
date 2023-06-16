@@ -37,7 +37,7 @@ constexpr float RESERVOIR_NTC_INTERNAL_RESISTOR = 100000;
 constexpr AdcModule RESERVOIR_NTC_ADC_MODULE = ADC_MODULE2;
 constexpr uint16_t RESERVOIR_NTC_ADC_RANK = 0;
 
-pdu::HpChannel COOLING_PUMP_CHANNEL = pdu::HP_CHANNEL2;
+pdu::HpChannel COOLING_PUMP_CHANNEL = pdu::HP_CHANNEL3;
 
 AdcChannelController reservoirTemperatureAdc;
 MovingAverageFilter<10> reservoirTemperatureFilter(20);

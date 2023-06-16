@@ -15,6 +15,7 @@
 #include "Watchdog.hpp"
 #include <cmath>
 #include <algorithm>
+#include "estdio.hpp"
 
 //AdcDma<4> adc1 { &hadc1 }; //ADC class to read basic BCU signals, already defined in TaskManager.cpp
 AdcDma<14> adc2 { &hadc2 };	// ADC class to read the current of the channels
@@ -159,12 +160,12 @@ typedef struct PduOutputState {
 	OutputChannel 		LPCh7					{false}; // Telemetry node, Wifi-Router
 	OutputChannelPwm 	LPCh8					{false, 100.0f};
 	OutputChannelPwm	LPCh9					{false}; //logger
-	OutputChannelPwm 	LPCh10					{false, 100.0f}; //reserved
-	OutputChannelPwm	HPCh1					{true, 100.0f}; //led strip power
+	OutputChannelPwm 	LPCh10					{true, 100.0f}; //reserved
+	OutputChannelPwm	HPCh1					{false, 100.0f}; //led strip power
 	OutputChannelPwm	HPCh2					{false, 100.0f}; //cooling pump.
-	OutputChannelPwm	HPCh3					{false}; //maybe solenoid source
+	OutputChannelPwm	HPCh3					{false}; //maybe solenoid source (better for led strip because no remote)
 	OutputChannelPwm	HPCh4					{false}; //reserved
-	OutputChannelPwm	D1						{true, 100.0f}; //led digital
+	OutputChannelPwm	D1						{false, 100.0f}; //led digital
 	OutputChannelPwm	D2						{false, 100.0f}; //reserved
 	OutputChannelPwm	D3						{false, 100.0f}; //reserved
 	OutputChannelPwm	D4						{false, 100.0f}; //reserved
@@ -314,8 +315,6 @@ void receiveCanMessages() {
 			// PDU is pduEnabled and in State Machine control mode
 			if(pduEnabled) {
 				outputState.SDC.set(true);
-				outputState.LPCh5.set(true);
-				outputState.LPCh6.set(peHwEnable);
 			}
 
 		} else if(checkRxMessage<messages::PDU_RX_Manual_Control>(rxRawMsg)) {
@@ -376,7 +375,6 @@ void receiveCanMessages() {
 			outputState.D4.setDuty(						dutyMsg.get<signals::PDU_D4_Dutycycle>());
 		} else if(checkRxMessage<messages::PDU_RX_LP_Enable>(rxRawMsg)){
 			can::Message<messages::PDU_RX_LP_Enable> lpEnableMsg {rxRawMsg};
-			continue;
 
 			outputState.LPCh4.set(lpEnableMsg.get<signals::PDU_RX_LPCh4_Enable>());
 			outputState.LPCh5.set(lpEnableMsg.get<signals::PDU_RX_LPCh5_Enable>());
@@ -405,6 +403,7 @@ void readAndSendData() {
 		// The sense current is multiplied by the current divider factor of BTF6070
 		lpChannelCurrent[i] = (adcData[i] * 3.3f / 4095.0f) / 62.0f * 1750 - 0.010f;	// Subtract 10mA since this seems to be an offset
 
+		/*
 		// Limit to plausible values
 		if(lpChannelCurrent[i] < 0.0f) {
 			lpChannelCurrent[i] = 0.0f;
@@ -412,6 +411,7 @@ void readAndSendData() {
 		if (lpChannelCurrent[i] > 8.0f) {
 			lpChannelCurrent[i] = 8.0f;
 		}
+		*/
 
 		// Sum up current to total LV battery current
 		if(lpChannelCurrent[i] < 8.0f) {
@@ -653,8 +653,8 @@ void batterySafetyChecks() {
 			outputState.LPCh5.set(false);
 			outputState.LPCh6.set(false);
 			outputState.LPCh7.set(false);
-			outputState.LPCh8_telemetry.set(false);
-			outputState.LPCh9_logger.set(false);
+			outputState.LPCh8.set(false);
+			outputState.LPCh9.set(false);
 			outputState.LPCh10.set(false);
 			outputState.HPCh1.set(false);
 			outputState.HPCh2.set(false);
@@ -676,11 +676,14 @@ void batterySafetyChecks() {
  * Set the hardware channels
  */
 void updateChannels() {
+	/*
 	outputState.LPCh1.update();
 	outputState.LPCh2.update();
 	outputState.LPCh3.update();
 	outputState.LPCh4.update();
-	outputState.LPCh5.update();
+	*/
+	//outputState.LPCh5.update();
+	/*
 	outputState.LPCh6.update();
 	outputState.LPCh7.update();
 	outputState.LPCh8.update();
@@ -694,6 +697,7 @@ void updateChannels() {
 	outputState.D2.update();
 	outputState.D3.update();
 	outputState.D4.update();
+	*/
 
 
 	// Standard output channels with PWM support
@@ -751,7 +755,7 @@ void updateChannels() {
 
 	// HPCh2 is TIM8_CH2
 	if(outputState.HPCh2.getSwitch()) {
-		htim8.Instance->CCR2 = outputState.HPCh2_coolingPump.getDuty() * (htim8.Instance->ARR) / 100.0f;
+		htim8.Instance->CCR2 = outputState.HPCh2.getDuty() * (htim8.Instance->ARR) / 100.0f;
 	} else {
 		htim8.Instance->CCR2 = 0;
 	}
@@ -803,7 +807,7 @@ void sendData() {
 	// PDU status
 	Message<messages::PDU_TX_Status> msgStatus;
 	msgStatus.set<signals::PDU_TX_Enabled>(pduEnabled);
-	msgStatus.set<signals::PDU_TX_PEHWEnabled>(outputState.LPCh6.get());
+	msgStatus.set<signals::PDU_TX_PEHWEnabled>(false);
 	msgStatus.set<signals::PDU_TX_ErrorFlag>(anyErrorPresent());
 	msgStatus.send();
 }
@@ -814,6 +818,7 @@ uint32_t lastStatusSent = 0;
 
 // Main Task of the PDU
 static void pduAppFunction(void *pvArguments) {
+
 	LED_RGB_Write(0, 0, 0);
 
 	// Wait 100ms to be sure that battery voltage was already read at least once by the TaskManager.cpp
@@ -876,8 +881,6 @@ static void pduAppFunction(void *pvArguments) {
 
 		// If any error is present, shutdown PeHwEnable and SDC and enable red led
 		if(anyErrorPresent()) {
-			outputState.LPCh6.set(false);
-			outputState.SDC.set(false);
 			LED_Red_Write(255);
 		} else {
 			LED_Red_Write(0);

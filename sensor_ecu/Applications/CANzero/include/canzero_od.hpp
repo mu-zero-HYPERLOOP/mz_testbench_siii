@@ -27,6 +27,42 @@ extern volatile uint16_t OD_DbcVersion;
 extern volatile uint16_t OD_HeartbeatInterval;
 extern volatile uint8_t  OD_SendOdOnBootup;
 extern volatile uint16_t OD_OdEntrySendInterval;
+extern volatile float    OD_HyperionTemperature;
+extern volatile float    OD_HyperionVoltage;
+extern volatile float    OD_HyperionCurrent;
+extern volatile float    OD_HyperionRemainingCapacity;
+extern volatile uint16_t OD_HyperionLifeCycle;
+extern volatile uint16_t OD_HyperionHealthStatus;
+extern volatile float    OD_HyperionCell1Voltage;
+extern volatile float    OD_HyperionCell2Voltage;
+extern volatile float    OD_HyperionCell3Voltage;
+extern volatile float    OD_HyperionCell4Voltage;
+extern volatile float    OD_HyperionCell5Voltage;
+extern volatile float    OD_HyperionCell6Voltage;
+extern volatile float    OD_HyperionCell7Voltage;
+extern volatile float    OD_HyperionCell8Voltage;
+extern volatile float    OD_HyperionCell9Voltage;
+extern volatile float    OD_HyperionCell10Voltage;
+extern volatile float    OD_HyperionCell11Voltage;
+extern volatile float    OD_HyperionCell12Voltage;
+extern volatile float    OD_TitanTemperature;
+extern volatile float    OD_TitanVoltage;
+extern volatile float    OD_TitanCurrent;
+extern volatile uint16_t OD_TitanRemainingCapacity;
+extern volatile uint16_t OD_TitanLifeCycle;
+extern volatile uint16_t OD_TitanHealthStatus;
+extern volatile float    OD_TitanCell1Voltage;
+extern volatile float    OD_TitanCell2Voltage;
+extern volatile float    OD_TitanCell3Voltage;
+extern volatile float    OD_TitanCell4Voltage;
+extern volatile float    OD_TitanCell5Voltage;
+extern volatile float    OD_TitanCell6Voltage;
+extern volatile float    OD_TitanCell7Voltage;
+extern volatile float    OD_TitanCell8Voltage;
+extern volatile float    OD_TitanCell9Voltage;
+extern volatile float    OD_TitanCell10Voltage;
+extern volatile float    OD_TitanCell11Voltage;
+extern volatile float    OD_TitanCell12Voltage;
 extern volatile float    OD_CpuUsage;
 extern volatile uint32_t OD_MemFree;
 extern volatile float    OD_BoardTemp;
@@ -98,6 +134,42 @@ extern osMutexId_t mutex_OD_DbcVersion;
 extern osMutexId_t mutex_OD_HeartbeatInterval;
 extern osMutexId_t mutex_OD_SendOdOnBootup;
 extern osMutexId_t mutex_OD_OdEntrySendInterval;
+extern osMutexId_t mutex_OD_HyperionTemperature;
+extern osMutexId_t mutex_OD_HyperionVoltage;
+extern osMutexId_t mutex_OD_HyperionCurrent;
+extern osMutexId_t mutex_OD_HyperionRemainingCapacity;
+extern osMutexId_t mutex_OD_HyperionLifeCycle;
+extern osMutexId_t mutex_OD_HyperionHealthStatus;
+extern osMutexId_t mutex_OD_HyperionCell1Voltage;
+extern osMutexId_t mutex_OD_HyperionCell2Voltage;
+extern osMutexId_t mutex_OD_HyperionCell3Voltage;
+extern osMutexId_t mutex_OD_HyperionCell4Voltage;
+extern osMutexId_t mutex_OD_HyperionCell5Voltage;
+extern osMutexId_t mutex_OD_HyperionCell6Voltage;
+extern osMutexId_t mutex_OD_HyperionCell7Voltage;
+extern osMutexId_t mutex_OD_HyperionCell8Voltage;
+extern osMutexId_t mutex_OD_HyperionCell9Voltage;
+extern osMutexId_t mutex_OD_HyperionCell10Voltage;
+extern osMutexId_t mutex_OD_HyperionCell11Voltage;
+extern osMutexId_t mutex_OD_HyperionCell12Voltage;
+extern osMutexId_t mutex_OD_TitanTemperature;
+extern osMutexId_t mutex_OD_TitanVoltage;
+extern osMutexId_t mutex_OD_TitanCurrent;
+extern osMutexId_t mutex_OD_TitanRemainingCapacity;
+extern osMutexId_t mutex_OD_TitanLifeCycle;
+extern osMutexId_t mutex_OD_TitanHealthStatus;
+extern osMutexId_t mutex_OD_TitanCell1Voltage;
+extern osMutexId_t mutex_OD_TitanCell2Voltage;
+extern osMutexId_t mutex_OD_TitanCell3Voltage;
+extern osMutexId_t mutex_OD_TitanCell4Voltage;
+extern osMutexId_t mutex_OD_TitanCell5Voltage;
+extern osMutexId_t mutex_OD_TitanCell6Voltage;
+extern osMutexId_t mutex_OD_TitanCell7Voltage;
+extern osMutexId_t mutex_OD_TitanCell8Voltage;
+extern osMutexId_t mutex_OD_TitanCell9Voltage;
+extern osMutexId_t mutex_OD_TitanCell10Voltage;
+extern osMutexId_t mutex_OD_TitanCell11Voltage;
+extern osMutexId_t mutex_OD_TitanCell12Voltage;
 extern osMutexId_t mutex_OD_CpuUsage;
 extern osMutexId_t mutex_OD_MemFree;
 extern osMutexId_t mutex_OD_BoardTemp;
@@ -198,6 +270,114 @@ void OD_SendOdOnBootup_set(const uint8_t value);
 
 uint16_t OD_OdEntrySendInterval_get();
 void OD_OdEntrySendInterval_set(const uint16_t value);
+
+float OD_HyperionTemperature_get();
+void OD_HyperionTemperature_set(const float value);
+
+float OD_HyperionVoltage_get();
+void OD_HyperionVoltage_set(const float value);
+
+float OD_HyperionCurrent_get();
+void OD_HyperionCurrent_set(const float value);
+
+float OD_HyperionRemainingCapacity_get();
+void OD_HyperionRemainingCapacity_set(const float value);
+
+uint16_t OD_HyperionLifeCycle_get();
+void OD_HyperionLifeCycle_set(const uint16_t value);
+
+uint16_t OD_HyperionHealthStatus_get();
+void OD_HyperionHealthStatus_set(const uint16_t value);
+
+float OD_HyperionCell1Voltage_get();
+void OD_HyperionCell1Voltage_set(const float value);
+
+float OD_HyperionCell2Voltage_get();
+void OD_HyperionCell2Voltage_set(const float value);
+
+float OD_HyperionCell3Voltage_get();
+void OD_HyperionCell3Voltage_set(const float value);
+
+float OD_HyperionCell4Voltage_get();
+void OD_HyperionCell4Voltage_set(const float value);
+
+float OD_HyperionCell5Voltage_get();
+void OD_HyperionCell5Voltage_set(const float value);
+
+float OD_HyperionCell6Voltage_get();
+void OD_HyperionCell6Voltage_set(const float value);
+
+float OD_HyperionCell7Voltage_get();
+void OD_HyperionCell7Voltage_set(const float value);
+
+float OD_HyperionCell8Voltage_get();
+void OD_HyperionCell8Voltage_set(const float value);
+
+float OD_HyperionCell9Voltage_get();
+void OD_HyperionCell9Voltage_set(const float value);
+
+float OD_HyperionCell10Voltage_get();
+void OD_HyperionCell10Voltage_set(const float value);
+
+float OD_HyperionCell11Voltage_get();
+void OD_HyperionCell11Voltage_set(const float value);
+
+float OD_HyperionCell12Voltage_get();
+void OD_HyperionCell12Voltage_set(const float value);
+
+float OD_TitanTemperature_get();
+void OD_TitanTemperature_set(const float value);
+
+float OD_TitanVoltage_get();
+void OD_TitanVoltage_set(const float value);
+
+float OD_TitanCurrent_get();
+void OD_TitanCurrent_set(const float value);
+
+uint16_t OD_TitanRemainingCapacity_get();
+void OD_TitanRemainingCapacity_set(const uint16_t value);
+
+uint16_t OD_TitanLifeCycle_get();
+void OD_TitanLifeCycle_set(const uint16_t value);
+
+uint16_t OD_TitanHealthStatus_get();
+void OD_TitanHealthStatus_set(const uint16_t value);
+
+float OD_TitanCell1Voltage_get();
+void OD_TitanCell1Voltage_set(const float value);
+
+float OD_TitanCell2Voltage_get();
+void OD_TitanCell2Voltage_set(const float value);
+
+float OD_TitanCell3Voltage_get();
+void OD_TitanCell3Voltage_set(const float value);
+
+float OD_TitanCell4Voltage_get();
+void OD_TitanCell4Voltage_set(const float value);
+
+float OD_TitanCell5Voltage_get();
+void OD_TitanCell5Voltage_set(const float value);
+
+float OD_TitanCell6Voltage_get();
+void OD_TitanCell6Voltage_set(const float value);
+
+float OD_TitanCell7Voltage_get();
+void OD_TitanCell7Voltage_set(const float value);
+
+float OD_TitanCell8Voltage_get();
+void OD_TitanCell8Voltage_set(const float value);
+
+float OD_TitanCell9Voltage_get();
+void OD_TitanCell9Voltage_set(const float value);
+
+float OD_TitanCell10Voltage_get();
+void OD_TitanCell10Voltage_set(const float value);
+
+float OD_TitanCell11Voltage_get();
+void OD_TitanCell11Voltage_set(const float value);
+
+float OD_TitanCell12Voltage_get();
+void OD_TitanCell12Voltage_set(const float value);
 
 float OD_CpuUsage_get();
 void OD_CpuUsage_set(const float value);

@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 18:30:08 08.06.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 15:00:46 16.06.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'CLU' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -297,6 +297,13 @@ namespace can {
     };
 
     /**********************************************************************************************
+    * Signed converters for converting signed signals.                                            *
+    ***********************************************************************************************/
+    struct SignedConverter32Bits {
+        int32_t value : 32;
+    };
+
+    /**********************************************************************************************
     * Network nodes with attributes                                                               *
     ***********************************************************************************************/
     namespace nodes {
@@ -305,6 +312,12 @@ namespace can {
         }
         namespace OpticalSensor {
             constexpr char comment[] = "Kistler SFP-II optical Sensor.";
+        }
+        namespace EMUS_BMS {
+            constexpr char comment[] = "HV BMS ";
+        }
+        namespace SCIMO_PE {
+            constexpr char comment[] = "";
         }
         namespace TelemetryNode {
             constexpr char comment[] = "Gateway between Pod and Telemetry Node-ID 0x22Gateway between Pod and Telemetry Node-ID 0x22";
@@ -344,6 +357,18 @@ namespace can {
 
             // Attributes of node 'PDU'
             constexpr uint8_t CANzero_NodeID = 26;
+        }
+        namespace HVCU {
+            constexpr char comment[] = "HVController Node-ID 0xA";
+
+            // Attributes of node 'HVCU'
+            constexpr uint8_t CANzero_NodeID = 10;
+        }
+        namespace HVTU {
+            constexpr char comment[] = "High Voltage CAN Translation Unit between BMS and Pod Node-ID 0x19";
+
+            // Attributes of node 'HVTU'
+            constexpr uint8_t CANzero_NodeID = 25;
         }
         namespace TestBench {
             constexpr char comment[] = "";
@@ -436,11 +461,11 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char CANzero_NMTMasterName[] = "Master";
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
-    constexpr uint32_t CANzero_DBCVersion = 205;
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
     constexpr char BusType[] = "CAN";
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr uint32_t CANzero_DBCVersion = 206;
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
@@ -460,8 +485,15 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'CLU_TX_ActionRequest'
+            constexpr static uint8_t NONE = 0;
+            constexpr static uint8_t PREPARE = 1;
+            constexpr static uint8_t START = 2;
+            constexpr static uint8_t STOP = 3;
+            constexpr static uint8_t SET_AIRGAP = 4;
         };
-        class CLU_TX_TagetAirGap {
+        class CLU_TX_TargetAirGap {
             public:
             using dataType = uint32_t;
             constexpr static uint8_t numIds = 1;
@@ -516,6 +548,16 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'CLU_LevitationState'
+            constexpr static uint8_t OFF = 0;
+            constexpr static uint8_t IDLE = 1;
+            constexpr static uint8_t PRECHARGE = 2;
+            constexpr static uint8_t READY = 3;
+            constexpr static uint8_t LEVI_START = 4;
+            constexpr static uint8_t LEVI = 5;
+            constexpr static uint8_t ERROR = 6;
+            constexpr static uint8_t INCONSISTANT = 7;
         };
         class CLU_RequiresCooling {
             public:
@@ -533,44 +575,102 @@ namespace can {
         };
         class MDB3_TargetAirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x112 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB6_TargetAirGap {
             public:
-            using dataType = uint32_t;
-            constexpr static uint8_t numIds = 2;
-            constexpr static uint32_t ids[] = { 0x127, 0x126 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            using dataType = double;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x127 };
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB6_Temperature {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x129 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
+            }
+        };
+        class MDB6_AirGap {
+            public:
+            using dataType = double;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x126 };
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
+            }
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB6_State {
@@ -586,47 +686,100 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'MDB6_State'
+            constexpr static uint8_t INIT = 0;
+            constexpr static uint8_t IDLE = 1;
+            constexpr static uint8_t PRECHARGE = 2;
+            constexpr static uint8_t READY = 3;
+            constexpr static uint8_t LEVI_START = 4;
+            constexpr static uint8_t LEVI_RUN = 5;
+            constexpr static uint8_t LEVI_END = 6;
+            constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t ERROR = 10;
+            constexpr static uint8_t ERROR_OVERCURRENT = 11;
+            constexpr static uint8_t ERROR_OVERVOLT = 12;
+            constexpr static uint8_t ERROR_OVERTEMP = 13;
+            constexpr static uint8_t ERROR_AIRGAP = 14;
+            constexpr static uint8_t ERROR_AIRGAP_SEN = 16;
+            constexpr static uint8_t ERROR_CAN = 17;
+            constexpr static uint8_t ERROR_CURRE_CALIB = 18;
+            constexpr static uint8_t ERROR_CHIPTEMP = 19;
+            constexpr static uint8_t ERROR_CALCTIME = 20;
         };
         class MDB5_Temperature {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x124 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB5_TargetAirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x122 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB5_AirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x121 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB5_State {
@@ -642,47 +795,100 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'MDB5_State'
+            constexpr static uint8_t INIT = 0;
+            constexpr static uint8_t IDLE = 1;
+            constexpr static uint8_t PRECHARGE = 2;
+            constexpr static uint8_t READY = 3;
+            constexpr static uint8_t LEVI_START = 4;
+            constexpr static uint8_t LEVI_RUN = 5;
+            constexpr static uint8_t LEVI_END = 6;
+            constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t ERROR = 10;
+            constexpr static uint8_t ERROR_OVERCURRENT = 11;
+            constexpr static uint8_t ERROR_OVERVOLT = 12;
+            constexpr static uint8_t ERROR_OVERTEMP = 13;
+            constexpr static uint8_t ERROR_AIRGAP = 14;
+            constexpr static uint8_t ERROR_AIRGAP_SEN = 15;
+            constexpr static uint8_t ERROR_CAN = 16;
+            constexpr static uint8_t ERROR_CURRE_CALIB = 17;
+            constexpr static uint8_t ERROR_CHIPTEMP = 18;
+            constexpr static uint8_t ERROR_CALCTIME = 19;
         };
         class MDB4_Temperature {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x119 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB4_TargetAirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x117 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB4_AirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x116 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB4_State {
@@ -698,33 +904,75 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'MDB4_State'
+            constexpr static uint8_t INIT = 0;
+            constexpr static uint8_t IDLE = 1;
+            constexpr static uint8_t PRECHARGE = 2;
+            constexpr static uint8_t READY = 3;
+            constexpr static uint8_t LEVI_START = 4;
+            constexpr static uint8_t LEVI_RUN = 5;
+            constexpr static uint8_t LEVI_END = 6;
+            constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t ERROR = 10;
+            constexpr static uint8_t ERROR_OVERCURRENT = 11;
+            constexpr static uint8_t ERROR_OVERVOLT = 12;
+            constexpr static uint8_t ERROR_OVERTEMP = 13;
+            constexpr static uint8_t ERROR_AIRGAP = 14;
+            constexpr static uint8_t ERROR_AIRGAP_SEN = 15;
+            constexpr static uint8_t ERROR_CAN = 16;
+            constexpr static uint8_t ERROR_CURRE_CALIB = 17;
+            constexpr static uint8_t ERROR_CHIPTEMP = 18;
+            constexpr static uint8_t ERROR_CALCTIME = 19;
         };
         class MDB3_Temperature {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x114 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB3_AirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x111 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB3_State {
@@ -740,47 +988,100 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'MDB3_State'
+            constexpr static uint8_t INIT = 0;
+            constexpr static uint8_t IDLE = 1;
+            constexpr static uint8_t PRECHARGE = 2;
+            constexpr static uint8_t READY = 3;
+            constexpr static uint8_t LEVI_START = 4;
+            constexpr static uint8_t LEVI_RUN = 5;
+            constexpr static uint8_t LEVI_END = 6;
+            constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t ERROR = 10;
+            constexpr static uint8_t ERROR_OVERCURRENT = 11;
+            constexpr static uint8_t ERROR_OVERVOLT = 12;
+            constexpr static uint8_t ERROR_OVERTEMP = 13;
+            constexpr static uint8_t ERROR_AIRGAP = 14;
+            constexpr static uint8_t ERROR_AIRGAP_SEN = 15;
+            constexpr static uint8_t ERROR_CAN = 16;
+            constexpr static uint8_t ERROR_CURRE_CALIB = 17;
+            constexpr static uint8_t ERROR_CHIPTEMP = 18;
+            constexpr static uint8_t ERROR_CALCTIME = 19;
         };
         class MDB2_Temperature {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x109 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB2_TargetAirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x107 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB2_AirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x106 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB2_State {
@@ -796,47 +1097,92 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'MDB2_State'
+            constexpr static uint8_t INIT = 0;
+            constexpr static uint8_t IDLE = 1;
+            constexpr static uint8_t PRECHARGE = 2;
+            constexpr static uint8_t READY = 3;
+            constexpr static uint8_t LEVI_START = 4;
+            constexpr static uint8_t LEVI_RUN = 5;
+            constexpr static uint8_t LEVI_END = 6;
+            constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t ERROR = 10;
+            constexpr static uint8_t ERROR_OVERCURRENT = 11;
+            constexpr static uint8_t ERROR_OVERVOLT = 12;
+            constexpr static uint8_t ERROR_OVERTEMP = 13;
+            constexpr static uint8_t ERROR_AIRGAP = 14;
+            constexpr static uint8_t ERROR_AIRGAP_SEN = 15;
+            constexpr static uint8_t ERROR_CAN = 16;
+            constexpr static uint8_t ERROR_CURRE_CALIB = 17;
+            constexpr static uint8_t ERROR_CHIPTEMP = 18;
+            constexpr static uint8_t ERROR_CALCTIME = 19;
         };
         class MDB1_TargetAirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x102 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB1_Temperature {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x104 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB1_AirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x101 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFFull));
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class MDB1_State {
@@ -852,6 +1198,26 @@ namespace can {
                 uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
                 return value;
             }
+
+            // Value table of signal 'MDB1_State'
+            constexpr static uint8_t INIT = 0;
+            constexpr static uint8_t IDLE = 1;
+            constexpr static uint8_t PRECHARGE = 2;
+            constexpr static uint8_t READY = 3;
+            constexpr static uint8_t LEVI_START = 4;
+            constexpr static uint8_t LEVI_RUN = 5;
+            constexpr static uint8_t LEVI_END = 6;
+            constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t ERROR = 10;
+            constexpr static uint8_t ERROR_OVERCURRENT = 11;
+            constexpr static uint8_t ERROR_OVERVOLT = 12;
+            constexpr static uint8_t ERROR_OVERTEMP = 13;
+            constexpr static uint8_t ERROR_AIRGAP = 14;
+            constexpr static uint8_t ERROR_AIRGAP_SEN = 15;
+            constexpr static uint8_t ERROR_CAN = 16;
+            constexpr static uint8_t ERROR_CURRE_CALIB = 17;
+            constexpr static uint8_t ERROR_CHIPTEMP = 18;
+            constexpr static uint8_t ERROR_CALCTIME = 19;
         };
         class CANzero_NMT_State {
             public:
@@ -1204,6 +1570,28 @@ namespace can {
             constexpr static uint16_t COUNTERLIMIT = 2051;
             constexpr static uint16_t COMMWATCHDOG = 2052;
             constexpr static uint16_t VALVEUPPERTOLERANCE = 2053;
+        };
+        class CLU_SDO_RespCode {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x594 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue) << 12) & 0xF000ull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xF000ull) >> 12);
+                return value;
+            }
+
+            // Value table of signal 'CLU_SDO_RespCode'
+            constexpr static uint8_t OK = 0;
+            constexpr static uint8_t ERR_NON_EXISTING_OBJECT = 1;
+            constexpr static uint8_t ERR_WRITE_ONLY_OBJECT = 2;
+            constexpr static uint8_t ERR_READ_ONLY_OBJECT = 3;
+            constexpr static uint8_t ERR_NO_ACCESS_IN_THIS_STATE = 4;
+            constexpr static uint8_t ERR_OUT_OF_RANGE = 5;
         };
         class CLU_OD_valveUpperTolerance {
             public:
@@ -2609,7 +2997,7 @@ namespace can {
 
             // Signals
             using CLU_TX_ActionRequest_ = signals::CLU_TX_ActionRequest;
-            using CLU_TX_TagetAirGap = signals::CLU_TX_TagetAirGap;
+            using CLU_TX_TargetAirGap = signals::CLU_TX_TargetAirGap;
 
             // Attributes of message 'CLU_TX_ActionRequest'
             constexpr static uint16_t GenMsgCycleTime = 100;
@@ -2705,7 +3093,7 @@ namespace can {
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB6_TargetAirGap = signals::MDB6_TargetAirGap;
+            using MDB6_AirGap = signals::MDB6_AirGap;
 
             // Attributes of message 'MDB6_TX_AirGap'
             constexpr static uint16_t GenMsgCycleTime = 100;
@@ -3148,6 +3536,7 @@ namespace can {
 
             // Signals
             using CLU_SDO_ID = signals::CLU_SDO_ID;
+            using CLU_SDO_RespCode = signals::CLU_SDO_RespCode;
             using CLU_OD_valveUpperTolerance = signals::CLU_OD_valveUpperTolerance;
             using CLU_OD_commWatchdog = signals::CLU_OD_commWatchdog;
             using CLU_OD_counterLimit = signals::CLU_OD_counterLimit;

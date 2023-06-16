@@ -41,10 +41,10 @@ constexpr float     PROPULSION_PRESSURE_RETRACT_UPPER_LIMIT = 17.9;     //Upper 
 constexpr float     PROPULSION_PRESSURE_RETRACT_LOWER_LIMIT = -1.9;     //Lower limit for CAN message
 
 constexpr bool APPLY_MOVING_AVERAGE_FILTER = false;
-constexpr size_t MOVING_AVERAGE_SIZE = 10
-MovingAverageFilter<MOVING_AVERAGE_SIZE> reservoirFilter;
-MovingAverageFilter<MOVING_AVERAGE_SIZE> pushFilter;
-MovingAverageFilter<MOVING_AVERAGE_SIZE> retractFilter;
+constexpr size_t MOVING_AVERAGE_SIZE = 10;
+MovingAverageFilter<MOVING_AVERAGE_SIZE> reservoirFilter(0);
+MovingAverageFilter<MOVING_AVERAGE_SIZE> pushFilter(0);
+MovingAverageFilter<MOVING_AVERAGE_SIZE> retractFilter(0);
 
 constexpr bool LOG_FREQUENCLY = true;
 
@@ -52,6 +52,14 @@ AdcChannelController reservoirPressureAdc;
 AdcChannelController pushPressureAdc;
 AdcChannelController retractPressureAdc;
 
+inline float readPressure(AdcChannelController& adc, float c1, float c2, float zeroOffset,
+		float lower, float upper){
+	uint16_t avalue = adc.get();
+	float pressure = c1 * avalue + c2 + zeroOffset;
+	pressure = std::max(lower, std::min(upper, pressure));
+	return pressure;
+
+}
 
 void init(){
 	reservoirPressureAdc = AdcChannelController(PROPULSION_PRESSURE_RESERVOIR_ADC_MODULE, PROPULSION_PRESSURE_RESERVOIR_ADC_RANK);
@@ -91,14 +99,6 @@ void init(){
 
 }
 
-inline float readPressure(AdcChannelController& adc, float c1, float c2, float zeroOffset,
-		lower, upper){
-	uint16_t avalue = adc.get();
-	float pressure = c1 * avalue + c2 + zeroOffset;
-	pressure = std::max(lower, std::min(upper, pressure));
-	return pressure;
-
-}
 
 void update(){
 	// read pressure sensor.
