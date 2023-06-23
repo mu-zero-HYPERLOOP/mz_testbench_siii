@@ -78,9 +78,11 @@ int8_t hvStatusPos = 0;
 
 void stateDisplayUpdateAndDelay(TickType_t delay) {
 
+	/*
 	extern MessageBufferHandle_t handlePodStateMessageBuffer;
 	RxMessage rxMsgRaw;
 	TickType_t delayStart = xTaskGetTickCount();
+	*/
 
 	/*
 
@@ -257,7 +259,6 @@ void stateDisplayUpdateAndDelay(TickType_t delay) {
 	 }
 	 }
 
-	 */
 	leds.update();
 
 	if (xTaskGetTickCount() - delayStart < delay) {
@@ -267,6 +268,7 @@ void stateDisplayUpdateAndDelay(TickType_t delay) {
 		osDelay(remainingTime);
 		//break;
 	}
+	 */
 
 	//while(xTaskGetTickCount() - delayStart < delay);
 	//leds.update();

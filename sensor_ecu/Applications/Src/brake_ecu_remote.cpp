@@ -12,7 +12,7 @@
 #include "cmsis_os.h"
 
 
-namespace brake {
+namespace brake_remote {
 
 static bool m_brakeState;
 static bool m_brakeStateDirty = true;

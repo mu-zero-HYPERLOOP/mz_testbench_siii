@@ -15,3 +15,18 @@ object_dictionary:
 emergency:
   warnings:
   errors:
+    E1:
+      name: CPUOverTemp
+      comment: OnBoard Temperature to high
+    E2:
+      name: OverVolt
+      comment: Input voltage to high
+    E3:
+      name: UnderVolt
+      comment: Input voltage to low
+    E4:
+      name: MagnetOverTemp
+      comment: at least one magnet is to hot.
+    E5:
+      name: LevitationError
+      comment: at least one mdb when into an error state.

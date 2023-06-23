@@ -48,7 +48,7 @@
 #define CANZERO_TX_PDO2_CAN_DLC        8
 #define CANZERO_RX_PDO2_CAN_DLC        6
 #define CANZERO_TX_PDO3_CAN_DLC        3
-#define CANZERO_RX_PDO3_CAN_DLC        6
+#define CANZERO_RX_PDO3_CAN_DLC        4
 #define CANZERO_TX_PDO4_CAN_DLC        0
 #define CANZERO_RX_PDO4_CAN_DLC        3
 #define CANZERO_TX_PDO5_CAN_DLC        0

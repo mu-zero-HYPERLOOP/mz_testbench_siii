@@ -13,11 +13,11 @@
 
 namespace fiducials {
 
-static GPIOExtiController extiGpio(DIN1_GPIO_Port, DIN1_Pin);
+static GPIOExtiController extiGpio(DIN2_GPIO_Port, DIN2_Pin);
 
 static volatile uint32_t interruptsCounter = 0;
 
-static constexpr bool FREQUENT_LOGGING = true;
+static constexpr bool FREQUENT_LOGGING = false;
 
 void extiCallback(bool edge){
 	interruptsCounter += 1;

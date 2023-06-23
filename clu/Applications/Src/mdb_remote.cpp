@@ -9,27 +9,32 @@
 #include "canzero.hpp"
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
+#include "task.h"
 #include <cinttypes>
 #include "estdio.hpp"
 
 namespace mdb {
 
+static constexpr float MAGNET_OVERTEMP_THRESHOLD = 80;
+static constexpr TickType_t MAGNET_OVERTEMP_TIMEOUT = pdMS_TO_TICKS(1000);
+static TickType_t lastMagnetTempOk;
 
 static volatile float m_airGap[MDB_COUNT];
 static volatile float m_temp[MDB_COUNT];
 static volatile uint8_t m_stateCount[MDB_STATE_COUNT];
 static volatile PublicState m_state[MDB_COUNT];
+static bool dirtyTargetAirGap = false;
 
 static float m_targetAirGap = 10.0f;
 
 static volatile PublicState m_publicState;
 
 static volatile TickType_t m_lastStateBrd = 0;
-static constexpr TickType_t STATE_BRD_INTERVAL = pdMS_TO_TICKS(50);
+static constexpr TickType_t STATE_BRD_INTERVAL = pdMS_TO_TICKS(100);
 
 static Command m_command = MDB_COMMAND_NONE;
 static TickType_t m_lastCommandBrd = 0;
-static constexpr TickType_t COMMAND_BRD_INTERVAL = pdMS_TO_TICKS(100);
+static constexpr TickType_t COMMAND_BRD_INTERVAL = pdMS_TO_TICKS(50);
 
 static PublicState m_stateMapping[MDB_STATE_COUNT];
 
@@ -73,7 +78,16 @@ void mdbActionRequestReceiver(RxMessage& raw){
 	setCommand(static_cast<Command>(actionRequestByte));
 }
 
+void configAirGapReceiver(RxMessage& raw){
+	can::Message<can::messages::CLU_RX_ConfigureAirGap> msg{raw};
+	float targetAirGap = msg.get<can::signals::CLU_RX_ConfigureAirGap>();
+	if(targetAirGap >= 4.0f && targetAirGap <= 20.0f){
+		setTargetAirGap(targetAirGap);
+	}
+}
+
 void init(){
+	lastMagnetTempOk = xTaskGetTickCount();
 	m_stateMapping[MDB_STATE_INIT] = PublicState::MDB_IDLE;
 	m_stateMapping[MDB_STATE_IDLE] = PublicState::MDB_IDLE;
 	m_stateMapping[MDB_STATE_PRECHARGE] = PublicState::MDB_PRECHARGE;
@@ -82,6 +96,7 @@ void init(){
 	m_stateMapping[MDB_STATE_LEVI_RUN] = PublicState::MDB_LEVI;
 	m_stateMapping[MDB_STATE_LEVI_END] = PublicState::MDB_LEVI;
 	m_stateMapping[MDB_STATE_LEVI_UNSTABLE] = PublicState::MDB_LEVI;
+	m_stateMapping[MDB_STATE_LEVI_AIR_GAP_CHANGE] = PublicState::MDB_LEVI;
 	m_stateMapping[MDB_STATE_ERROR] = PublicState::MDB_ERROR;
 	m_stateMapping[MDB_ERROR_OVERCURRENT] = PublicState::MDB_ERROR;
 	m_stateMapping[MDB_ERROR_OVERVOLT] = PublicState::MDB_ERROR;
@@ -122,7 +137,14 @@ void init(){
 	can::registerMessageReceiver<can::messages::MDB4_TX_Temperature>(mdbTempReceiver<3>);
 	can::registerMessageReceiver<can::messages::MDB5_TX_Temperature>(mdbTempReceiver<4>);
 	can::registerMessageReceiver<can::messages::MDB6_TX_Temperature>(mdbTempReceiver<5>);
+
+	can::registerMessageReceiver<can::messages::CLU_RX_ConfigureAirGap>(configAirGapReceiver);
+
+	for(uint8_t i=0;i<MDB_COUNT;i++){
+		m_temp[i] = 0;
+	}
 }
+
 
 PublicState getState(){
 	return m_publicState;
@@ -131,6 +153,10 @@ PublicState getState(){
 void setTargetAirGap(float airGap){
 	if(airGap != m_targetAirGap){
 		m_targetAirGap = airGap;
+		if(m_publicState == PublicState::MDB_ERROR || m_publicState == PublicState::MDB_LEVI
+				|| m_publicState == PublicState::MDB_LEVI_START){
+			dirtyTargetAirGap = true;
+		}
 	}
 }
 
@@ -148,6 +174,11 @@ void setCommand(Command command){
 }
 
 void update(){
+	if(m_publicState == PublicState::MDB_ERROR){
+		ERR_LevitationError_set();
+	}else{
+		ERR_LevitationError_clear();
+	}
 	TickType_t timeSinceLastBrd = xTaskGetTickCount() - m_lastStateBrd;
 	if(timeSinceLastBrd > STATE_BRD_INTERVAL){
 		can::Message<can::messages::CLU_TX_LevitationState> msg;
@@ -157,12 +188,37 @@ void update(){
 	}
 	TickType_t timeSinceLastCommandBrd = xTaskGetTickCount() - m_lastCommandBrd;
 	if(timeSinceLastCommandBrd > COMMAND_BRD_INTERVAL && m_command != MDB_COMMAND_NONE){
+		Command command = m_command;
+		if(m_publicState == PublicState::MDB_ERROR){
+			command = Command::MDB_COMMAND_STOP;
+		}
+		if(dirtyTargetAirGap){
+			command = Command::MDB_COMMAND_SET_AIRGAP;
+			dirtyTargetAirGap = false;
+		}
 		can::Message<can::messages::CLU_TX_ActionRequest> msg;
-		msg.set<can::signals::CLU_TX_ActionRequest>(static_cast<uint8_t>(m_command));
-		msg.set<can::signals::CLU_TX_TargetAirGap>(*reinterpret_cast<uint32_t*>(&m_targetAirGap));
-		//msg.send(can::buses::BUS1);
+		msg.set<can::signals::CLU_TX_ActionRequest>(static_cast<uint8_t>(command));
+		msg.set<can::signals::CLU_TX_TargetAirGap>(m_targetAirGap);
+		msg.send();
 		m_lastCommandBrd = xTaskGetTickCount();
 	}
+	bool tempOk = true;
+	for(size_t i = 0; i < MDB_COUNT;i++){
+		if(m_temp[i] > MAGNET_OVERTEMP_THRESHOLD){
+			tempOk = false;
+			break;
+		}
+	}
+	if(tempOk){
+		lastMagnetTempOk = xTaskGetTickCount();
+	}
+	TickType_t timeSinceMagnetTempOk = xTaskGetTickCount() - lastMagnetTempOk;
+	if(timeSinceMagnetTempOk > MAGNET_OVERTEMP_TIMEOUT){
+		ERR_MagnetOverTemp_set();
+	}else{
+		ERR_MagnetOverTemp_clear();
+	}
+
 }
 
 }

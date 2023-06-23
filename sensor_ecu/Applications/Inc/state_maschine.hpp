@@ -18,6 +18,8 @@ using PodState = uint8_t;
 
 void setState(PodState state);
 
+PodState getState();
+
 void init();
 
 void update();

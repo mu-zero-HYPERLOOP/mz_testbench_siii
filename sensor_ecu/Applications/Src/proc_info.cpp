@@ -17,6 +17,18 @@
 
 namespace info {
 
+constexpr float OVER_TEMP_THRESHOLD = 60;
+constexpr TickType_t OVER_TEMP_TIMEOUT = pdMS_TO_TICKS(1000);
+TickType_t lastTempOk;
+
+constexpr float OVER_VOLT_THRESHOLD = 25;
+constexpr TickType_t OVER_VOLT_TIMEOUT = pdMS_TO_TICKS(1000);
+TickType_t lastOverVoltOk;
+
+constexpr float UNDER_VOLT_THRESHOLD = 18;
+constexpr TickType_t UNDER_VOLT_TIMEOUT = pdMS_TO_TICKS(1000);
+TickType_t lastUnderVoltOk;
+
 AdcChannelController internalTemperatureAdc;
 AdcChannelController externalTemperatureAdc;
 AdcChannelController inputVoltageAdc;
@@ -28,6 +40,10 @@ void init() {
 	internalTemperatureAdc = AdcChannelController(ADC_MODULE1, 2);
 	externalTemperatureAdc = AdcChannelController(ADC_MODULE1, 0);
 	inputVoltageAdc = AdcChannelController(ADC_MODULE1, 1);
+
+	lastTempOk = xTaskGetTickCount();
+	lastOverVoltOk = xTaskGetTickCount();
+	lastUnderVoltOk = xTaskGetTickCount();
 }
 
 void update() {
@@ -47,15 +63,41 @@ void update() {
 
 	// filter sensor data.
 
-	float filteredInternalTemperature = internalTemp;
-	float filteredExternalTemperature = externalTemp;
-	float filteredInputVoltage = inputVoltage;
-
 	// update ods.
 	OD_BoardTemp_set(
-			(filteredExternalTemperature + filteredInternalTemperature)
+			(externalTemp + internalTemp)
 					* 0.5);
-	OD_InputVoltage_set(filteredInputVoltage);
+	if(OD_BoardTemp_get() < OVER_TEMP_THRESHOLD){
+		lastTempOk = xTaskGetTickCount();
+	}
+	TickType_t timeSinceTempOk = xTaskGetTickCount() - lastTempOk;
+	if(timeSinceTempOk > OVER_TEMP_TIMEOUT){
+		ERR_CPUOverTemp_set();
+	}else{
+		ERR_CPUOverTemp_clear();
+	}
+
+	OD_InputVoltage_set(inputVoltage);
+
+	if(OD_InputVoltage_get() > UNDER_VOLT_THRESHOLD){
+		lastUnderVoltOk = xTaskGetTickCount();
+	}
+	TickType_t timeSinceUnderVoltOk = xTaskGetTickCount() - lastUnderVoltOk;
+	if(timeSinceUnderVoltOk > UNDER_VOLT_TIMEOUT){
+		ERR_UnderVolt_set();
+	}else{
+		ERR_UnderVolt_clear();
+	}
+
+	if(OD_InputVoltage_get() < OVER_VOLT_THRESHOLD){
+		lastOverVoltOk = xTaskGetTickCount();
+	}
+	TickType_t timeSinceOverVoltOk = xTaskGetTickCount() - lastOverVoltOk;
+	if(timeSinceOverVoltOk > OVER_TEMP_TIMEOUT){
+		ERR_OverVolt_set();
+	}else{
+		ERR_OverVolt_clear();
+	}
 
 	// every 20 iterations estimate cpu resources.
 	if (frameCounter > 20) {

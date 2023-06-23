@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 16:26:23 15.06.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 03:09:42 22.06.2023.
  * It contains the errors and warnings for the node 'PDU'.
  *
  * Florian Keck
@@ -156,6 +156,10 @@ void ERR_ALL_clear() {
     ERR_batteryOvercurrent_clear();
     ERR_batterTempCritical_clear();
     ERR_watchdogStateMachine_clear();
+    ERR_SECUHeartbeatMiss_clear();
+    ERR_CPUOverTemp_clear();
+    ERR_OverVolt_clear();
+    ERR_UnderVolt_clear();
 }
 
 // Error: E0_OtherError
@@ -335,6 +339,150 @@ void ERR_watchdogStateMachine_clear() {
 bool ERR_watchdogStateMachine_get() {
     // Return internal value
     return ERR_watchdogStateMachine_status;
+}
+
+
+// Error: E5_SECUHeartbeatMiss
+bool ERR_SECUHeartbeatMiss_status = false;    // Internal value
+
+void ERR_SECUHeartbeatMiss_set() {
+    // Only set error when it is not set yet
+    if(!ERR_SECUHeartbeatMiss_status) {
+            
+        // Set bit and notify emergency task
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_SECUHeartbeatMiss_FLAG, eSetBits);
+
+        // Update internal value
+        ERR_SECUHeartbeatMiss_status = true;
+    }
+}
+
+void ERR_SECUHeartbeatMiss_clear() {
+    // Only clear error when it is set
+    if(ERR_SECUHeartbeatMiss_status) {
+
+        // Reset bit
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_SECUHeartbeatMiss_FLAG);
+
+        // Update internal value
+        ERR_SECUHeartbeatMiss_status = false;
+
+        // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
+        (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
+    }
+}
+
+bool ERR_SECUHeartbeatMiss_get() {
+    // Return internal value
+    return ERR_SECUHeartbeatMiss_status;
+}
+
+
+// Error: E6_CPUOverTemp
+bool ERR_CPUOverTemp_status = false;    // Internal value
+
+void ERR_CPUOverTemp_set() {
+    // Only set error when it is not set yet
+    if(!ERR_CPUOverTemp_status) {
+            
+        // Set bit and notify emergency task
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_CPUOverTemp_FLAG, eSetBits);
+
+        // Update internal value
+        ERR_CPUOverTemp_status = true;
+    }
+}
+
+void ERR_CPUOverTemp_clear() {
+    // Only clear error when it is set
+    if(ERR_CPUOverTemp_status) {
+
+        // Reset bit
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_CPUOverTemp_FLAG);
+
+        // Update internal value
+        ERR_CPUOverTemp_status = false;
+
+        // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
+        (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
+    }
+}
+
+bool ERR_CPUOverTemp_get() {
+    // Return internal value
+    return ERR_CPUOverTemp_status;
+}
+
+
+// Error: E7_OverVolt
+bool ERR_OverVolt_status = false;    // Internal value
+
+void ERR_OverVolt_set() {
+    // Only set error when it is not set yet
+    if(!ERR_OverVolt_status) {
+            
+        // Set bit and notify emergency task
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_OverVolt_FLAG, eSetBits);
+
+        // Update internal value
+        ERR_OverVolt_status = true;
+    }
+}
+
+void ERR_OverVolt_clear() {
+    // Only clear error when it is set
+    if(ERR_OverVolt_status) {
+
+        // Reset bit
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_OverVolt_FLAG);
+
+        // Update internal value
+        ERR_OverVolt_status = false;
+
+        // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
+        (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
+    }
+}
+
+bool ERR_OverVolt_get() {
+    // Return internal value
+    return ERR_OverVolt_status;
+}
+
+
+// Error: E8_UnderVolt
+bool ERR_UnderVolt_status = false;    // Internal value
+
+void ERR_UnderVolt_set() {
+    // Only set error when it is not set yet
+    if(!ERR_UnderVolt_status) {
+            
+        // Set bit and notify emergency task
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_UnderVolt_FLAG, eSetBits);
+
+        // Update internal value
+        ERR_UnderVolt_status = true;
+    }
+}
+
+void ERR_UnderVolt_clear() {
+    // Only clear error when it is set
+    if(ERR_UnderVolt_status) {
+
+        // Reset bit
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_UnderVolt_FLAG);
+
+        // Update internal value
+        ERR_UnderVolt_status = false;
+
+        // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
+        (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
+    }
+}
+
+bool ERR_UnderVolt_get() {
+    // Return internal value
+    return ERR_UnderVolt_status;
 }
 
 

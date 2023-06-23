@@ -112,13 +112,7 @@ extern volatile float    OD_IMU_GyroY;
 extern volatile float    OD_IMU_GyroZ;
 extern volatile float    OD_CoolingPressure;
 extern volatile float    OD_ReservoirTemperature;
-extern volatile float    OD_Magnet_1_Temperature;
-extern volatile float    OD_Magnet_2_Temperature;
-extern volatile float    OD_Magnet_3_Temperature;
-extern volatile float    OD_Magnet_4_Temperature;
-extern volatile float    OD_Magnet_5_Temperature;
-extern volatile float    OD_Magnet_6_Temperature;
-extern volatile uint8_t  OD_MdbState;
+extern volatile float    OD_EboxTemperature;
 extern volatile uint16_t OD_StripeCount;
 extern volatile float    OD_Position;
 extern volatile float    OD_Velocity;
@@ -219,13 +213,7 @@ extern osMutexId_t mutex_OD_IMU_GyroY;
 extern osMutexId_t mutex_OD_IMU_GyroZ;
 extern osMutexId_t mutex_OD_CoolingPressure;
 extern osMutexId_t mutex_OD_ReservoirTemperature;
-extern osMutexId_t mutex_OD_Magnet_1_Temperature;
-extern osMutexId_t mutex_OD_Magnet_2_Temperature;
-extern osMutexId_t mutex_OD_Magnet_3_Temperature;
-extern osMutexId_t mutex_OD_Magnet_4_Temperature;
-extern osMutexId_t mutex_OD_Magnet_5_Temperature;
-extern osMutexId_t mutex_OD_Magnet_6_Temperature;
-extern osMutexId_t mutex_OD_MdbState;
+extern osMutexId_t mutex_OD_EboxTemperature;
 extern osMutexId_t mutex_OD_StripeCount;
 extern osMutexId_t mutex_OD_Position;
 extern osMutexId_t mutex_OD_Velocity;
@@ -526,26 +514,8 @@ void OD_CoolingPressure_set(const float value);
 float OD_ReservoirTemperature_get();
 void OD_ReservoirTemperature_set(const float value);
 
-float OD_Magnet_1_Temperature_get();
-void OD_Magnet_1_Temperature_set(const float value);
-
-float OD_Magnet_2_Temperature_get();
-void OD_Magnet_2_Temperature_set(const float value);
-
-float OD_Magnet_3_Temperature_get();
-void OD_Magnet_3_Temperature_set(const float value);
-
-float OD_Magnet_4_Temperature_get();
-void OD_Magnet_4_Temperature_set(const float value);
-
-float OD_Magnet_5_Temperature_get();
-void OD_Magnet_5_Temperature_set(const float value);
-
-float OD_Magnet_6_Temperature_get();
-void OD_Magnet_6_Temperature_set(const float value);
-
-uint8_t OD_MdbState_get();
-void OD_MdbState_set(const uint8_t value);
+float OD_EboxTemperature_get();
+void OD_EboxTemperature_set(const float value);
 
 uint16_t OD_StripeCount_get();
 void OD_StripeCount_set(const uint16_t value);

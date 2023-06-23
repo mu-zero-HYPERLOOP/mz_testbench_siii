@@ -8,6 +8,19 @@
 #include "adc.h"
 #include "AdcDma.hpp"
 #include "canzero_od.hpp"
+#include "canzero_emcy.hpp"
+
+constexpr float OVER_TEMP_THRESHOLD = 50;
+constexpr TickType_t OVER_TEMP_TIMEOUT = pdMS_TO_TICKS(1000);
+TickType_t lastTempOk;
+
+constexpr float OVER_VOLT_THRESHOLD = 25;
+constexpr TickType_t OVER_VOLT_TIMEOUT = pdMS_TO_TICKS(1000);
+TickType_t lastOverVoltOk;
+
+constexpr float UNDER_VOLT_THRESHOLD = 18;
+constexpr TickType_t UNDER_VOLT_TIMEOUT = pdMS_TO_TICKS(1000);
+TickType_t lastUnderVoltOk;
 
 // ADC1 reads the four analog inputs on the BCU (Board temperature (IN10), Input voltage (IN12), Temperature Sensor, Vrefint)
 AdcDma<4> adc1{&hadc1};
@@ -92,7 +105,39 @@ void stats::updateSensorStats(void*){
 		float internalTemp = (3.3f * (float) adcData[2]/4095.0f - 0.76f) / 0.0025f + 25.0f;
 
 		OD_BoardTemp_set((ntcTemperature + internalTemp) / 2.0f);
+
+
+		if(OD_BoardTemp_get() < OVER_TEMP_THRESHOLD){
+			lastTempOk = xTaskGetTickCount();
+		}
+		TickType_t timeSinceTempOk = xTaskGetTickCount() - lastTempOk;
+		if(timeSinceTempOk > OVER_TEMP_TIMEOUT){
+			ERR_CPUOverTemp_set();
+		}else{
+			ERR_CPUOverTemp_clear();
+		}
+
 		OD_InputVoltage_set(inputVoltage);
+
+		if(OD_InputVoltage_get() > UNDER_VOLT_THRESHOLD){
+			lastUnderVoltOk = xTaskGetTickCount();
+		}
+		TickType_t timeSinceUnderVoltOk = xTaskGetTickCount() - lastUnderVoltOk;
+		if(timeSinceUnderVoltOk > UNDER_VOLT_TIMEOUT){
+			ERR_UnderVolt_set();
+		}else{
+			ERR_UnderVolt_clear();
+		}
+
+		if(OD_InputVoltage_get() < OVER_VOLT_THRESHOLD){
+			lastOverVoltOk = xTaskGetTickCount();
+		}
+		TickType_t timeSinceOverVoltOk = xTaskGetTickCount() - lastOverVoltOk;
+		if(timeSinceOverVoltOk > OVER_VOLT_THRESHOLD){
+			ERR_OverVolt_set();
+		}else{
+			ERR_OverVolt_clear();
+		}
 
 		// Update CPU usage only every twenty cycles, so every second
 		cyclesCounter++;

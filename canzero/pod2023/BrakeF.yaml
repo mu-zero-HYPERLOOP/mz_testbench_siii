@@ -11,10 +11,19 @@ ndf:
 ## Add your signals for the object-dictionary below
 object_dictionary:
   0xB00:
-    name: CoolingPressure
+    name: IntakePressure
     length: 16
     comment: Cooling cycle Pressure
     access: ro
+    unit: bar
+    default: -1.9
+    conversion: {scale: 0.01, offset: -100}
+  0xB01:
+    name: OuttakePressure
+    length: 16
+    comment: Cooling cycle Pressure
+    access: ro
+    unit: bar
     default: -1.9
     conversion: {scale: 0.01, offset: -100}
   0x900:
@@ -31,3 +40,25 @@ object_dictionary:
 emergency:
   warnings:
   errors:
+    E0:
+      name: CPUOverTemp
+      comment: OnBoard Temperature to high
+    E1:
+      name: UnderVolt
+      comment: Input voltage to low.
+    E2:
+      name: OverVolt
+      comment: Input voltage to high
+    E3:
+      name: IntakeOverPressure
+      comment: pressure at the intake of the cooling cycle is to high
+    E4:
+      name: IntakeUnderPressure
+      comment: pressure at the intake of the cooling cycle is to low.
+    E5:
+      name: OuttakeOverPressure
+      comment: pressure at the outtake of the cooling cycle is to high.
+    E6:
+      name: OuttakeUnderPressure
+      comment: pressure at the outtake of the cooling cycle is to low.
+  

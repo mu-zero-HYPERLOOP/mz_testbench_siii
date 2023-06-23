@@ -24,11 +24,12 @@ void processRX(RxMessage message) {
 	extern MessageBufferHandle_t handlePodStateMessageBuffer;
 	extern MessageBufferHandle_t handleSensorRMessageBuffer;
 
-
-	if (
+	if(can::checkRxMessage<can::messages::SensorF_TX_StatePod>(message)){
+		xMessageBufferSend(handlePodStateMessageBuffer, &message, sizeof(message), 1);
+	}else if (
 		can::checkRxMessage<can::messages::PDU_RX_Control>(message) ||
 		can::checkRxMessage<can::messages::PDU_RX_Manual_Control>(message) ||
-		can::checkRxMessage<can::messages::PDU_RX_HP_D_Dutycycle>(message) ||
+		can::checkRxMessage<can::messages::PDU_RX_HP_Dutycycle>(message) ||
 		can::checkRxMessage<can::messages::PDU_RX_LP_Dutycycle>(message) ||
 		can::checkRxMessage<can::messages::PDU_RX_LP_Enable>(message)
 //		can::checkRxMessage<can::messages::SensorR_TX_Temperature>(message) ||

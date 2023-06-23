@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 15:00:46 16.06.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 00:30:47 22.06.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'CLU' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -60,16 +60,16 @@ namespace can {
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF,            0x3FF,            0x7FD 
+            0x7FF,            0x3FF,            0x7FD,            0x7F7 
         };
         constexpr uint32_t id_std[28] = {     // Filter ID for standard (11-bit) ID messages
-            0x234,            0x129,            0x125,            0x121, 
-            0x120,            0x119,            0x116,            0x115, 
-            0x114,            0x111,            0x110,            0x109, 
-            0x106,            0x105,            0x104,            0x101, 
-            0x100,            0x002,            0x181,            0x1D4, 
-            0x254,            0x2D4,            0x354,            0x5D4, 
-            0x614,            0x794,            0x300,            0x124 
+            0x118,            0x234,            0x125,            0x120, 
+            0x119,            0x116,            0x115,            0x114, 
+            0x111,            0x110,            0x109,            0x106, 
+            0x105,            0x104,            0x101,            0x100, 
+            0x002,            0x181,            0x1D4,            0x254, 
+            0x2D4,            0x354,            0x5D4,            0x614, 
+            0x794,            0x300,            0x124,            0x121 
         };
     }
 
@@ -463,7 +463,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char BusType[] = "CAN";
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 206;
+    constexpr uint32_t CANzero_DBCVersion = 248;
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
@@ -472,6 +472,45 @@ namespace can {
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
+        class CLU_RX_ConfigureAirGap {
+            public:
+            using dataType = double;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x118 };
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
+            }
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
+            }
+        };
+        class CLU_TX_ErrorPrio {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x4 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
+                return value;
+            }
+        };
         class CLU_TX_ActionRequest {
             public:
             using dataType = uint8_t;
@@ -495,16 +534,27 @@ namespace can {
         };
         class CLU_TX_TargetAirGap {
             public:
-            using dataType = uint32_t;
+            using dataType = double;
             constexpr static uint8_t numIds = 1;
             constexpr static uint32_t ids[] = { 0x39 };
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint32_t value) noexcept {
-                uint32_t rawValue = (value);
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
                 intel |= (static_cast<uint64_t>(rawValue) << 8) & 0xFFFFFFFF00ull;
             }
-            constexpr static inline uint32_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint32_t value = static_cast<uint32_t>((intel & 0xFFFFFFFF00ull) >> 8);
-                return value;
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFF00ull) >> 8);
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
             }
         };
         class CLU_RX_ActionRequest {
@@ -573,7 +623,7 @@ namespace can {
                 return value;
             }
         };
-        class MDB3_TargetAirGap {
+        class MDB3_Current {
             public:
             using dataType = double;
             constexpr static uint8_t numIds = 1;
@@ -598,7 +648,7 @@ namespace can {
                 return value * (0.0001);
             }
         };
-        class MDB6_TargetAirGap {
+        class MDB6_Current {
             public:
             using dataType = double;
             constexpr static uint8_t numIds = 1;
@@ -696,6 +746,7 @@ namespace can {
             constexpr static uint8_t LEVI_RUN = 5;
             constexpr static uint8_t LEVI_END = 6;
             constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t LEVI_AIR_GAP_CHANGE = 8;
             constexpr static uint8_t ERROR = 10;
             constexpr static uint8_t ERROR_OVERCURRENT = 11;
             constexpr static uint8_t ERROR_OVERVOLT = 12;
@@ -732,7 +783,7 @@ namespace can {
                 return value * (0.0001);
             }
         };
-        class MDB5_TargetAirGap {
+        class MDB5_Current {
             public:
             using dataType = double;
             constexpr static uint8_t numIds = 1;
@@ -805,6 +856,7 @@ namespace can {
             constexpr static uint8_t LEVI_RUN = 5;
             constexpr static uint8_t LEVI_END = 6;
             constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t LEVI_AIR_GAP_CHANGE = 8;
             constexpr static uint8_t ERROR = 10;
             constexpr static uint8_t ERROR_OVERCURRENT = 11;
             constexpr static uint8_t ERROR_OVERVOLT = 12;
@@ -841,7 +893,7 @@ namespace can {
                 return value * (0.0001);
             }
         };
-        class MDB4_TargetAirGap {
+        class MDB4_Current {
             public:
             using dataType = double;
             constexpr static uint8_t numIds = 1;
@@ -914,6 +966,7 @@ namespace can {
             constexpr static uint8_t LEVI_RUN = 5;
             constexpr static uint8_t LEVI_END = 6;
             constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t LEVI_AIR_GAP_CHANGE = 8;
             constexpr static uint8_t ERROR = 10;
             constexpr static uint8_t ERROR_OVERCURRENT = 11;
             constexpr static uint8_t ERROR_OVERVOLT = 12;
@@ -998,6 +1051,7 @@ namespace can {
             constexpr static uint8_t LEVI_RUN = 5;
             constexpr static uint8_t LEVI_END = 6;
             constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t LEVI_AIR_GAP_CHANGE = 8;
             constexpr static uint8_t ERROR = 10;
             constexpr static uint8_t ERROR_OVERCURRENT = 11;
             constexpr static uint8_t ERROR_OVERVOLT = 12;
@@ -1034,7 +1088,7 @@ namespace can {
                 return value * (0.0001);
             }
         };
-        class MDB2_TargetAirGap {
+        class MDB2_Current {
             public:
             using dataType = double;
             constexpr static uint8_t numIds = 1;
@@ -1107,6 +1161,7 @@ namespace can {
             constexpr static uint8_t LEVI_RUN = 5;
             constexpr static uint8_t LEVI_END = 6;
             constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t LEVI_AIR_GAP_CHANGE = 8;
             constexpr static uint8_t ERROR = 10;
             constexpr static uint8_t ERROR_OVERCURRENT = 11;
             constexpr static uint8_t ERROR_OVERVOLT = 12;
@@ -1118,7 +1173,7 @@ namespace can {
             constexpr static uint8_t ERROR_CHIPTEMP = 18;
             constexpr static uint8_t ERROR_CALCTIME = 19;
         };
-        class MDB1_TargetAirGap {
+        class MDB1_Current {
             public:
             using dataType = double;
             constexpr static uint8_t numIds = 1;
@@ -1208,6 +1263,7 @@ namespace can {
             constexpr static uint8_t LEVI_RUN = 5;
             constexpr static uint8_t LEVI_END = 6;
             constexpr static uint8_t LEVI_UNSTABLE = 7;
+            constexpr static uint8_t LEVI_AIR_GAP_CHANGE = 8;
             constexpr static uint8_t ERROR = 10;
             constexpr static uint8_t ERROR_OVERCURRENT = 11;
             constexpr static uint8_t ERROR_OVERVOLT = 12;
@@ -1404,7 +1460,7 @@ namespace can {
             constexpr static bool OK = 0;
             constexpr static bool ERR = 1;
         };
-        class CLU_E1_pressureTooLow {
+        class CLU_E1_CPUOverTemp {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
@@ -1418,11 +1474,11 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'CLU_E1_pressureTooLow'
+            // Value table of signal 'CLU_E1_CPUOverTemp'
             constexpr static bool OK = 0;
             constexpr static bool ERR = 1;
         };
-        class CLU_E2_commWatchdogTimeout {
+        class CLU_E2_OverVolt {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
@@ -1436,11 +1492,11 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'CLU_E2_commWatchdogTimeout'
+            // Value table of signal 'CLU_E2_OverVolt'
             constexpr static bool OK = 0;
             constexpr static bool ERR = 1;
         };
-        class CLU_E3_retractUnsuccesful_errorFlag {
+        class CLU_E3_UnderVolt {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
@@ -1454,14 +1510,11 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'CLU_E3_retractUnsuccesful_errorFlag'
+            // Value table of signal 'CLU_E3_UnderVolt'
             constexpr static bool OK = 0;
             constexpr static bool ERR = 1;
-
-            // Attributes of signal 'CLU_E3_retractUnsuccesful_errorFlag'
-            constexpr static char SystemSignalLongSymbol[] = "CLU_E3_retractUnsuccesful_errorFlag";
         };
-        class CLU_E4_retractUnsuccesful_notEnabled {
+        class CLU_E4_MagnetOverTemp {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
@@ -1475,14 +1528,11 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'CLU_E4_retractUnsuccesful_notEnabled'
+            // Value table of signal 'CLU_E4_MagnetOverTemp'
             constexpr static bool OK = 0;
             constexpr static bool ERR = 1;
-
-            // Attributes of signal 'CLU_E4_retractUnsuccesful_notEnabled'
-            constexpr static char SystemSignalLongSymbol[] = "CLU_E4_retractUnsuccesful_notEnabled";
         };
-        class CLU_E5_retractUnsuccesful_openSDC {
+        class CLU_E5_LevitationError {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
@@ -1496,12 +1546,9 @@ namespace can {
                 return value;
             }
 
-            // Value table of signal 'CLU_E5_retractUnsuccesful_openSDC'
+            // Value table of signal 'CLU_E5_LevitationError'
             constexpr static bool OK = 0;
             constexpr static bool ERR = 1;
-
-            // Attributes of signal 'CLU_E5_retractUnsuccesful_openSDC'
-            constexpr static char SystemSignalLongSymbol[] = "CLU_E5_retractUnsuccesful_openSDC";
         };
         class CLU_SDO_ID {
             public:
@@ -2989,6 +3036,30 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
+        class CLU_RX_ConfigureAirGap {
+            public:
+            constexpr static uint32_t id = 0x118;
+            constexpr static uint8_t dlc = 4;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using CLU_RX_ConfigureAirGap_ = signals::CLU_RX_ConfigureAirGap;
+
+            // Attributes of message 'CLU_RX_ConfigureAirGap'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class CLU_TX_Error {
+            public:
+            constexpr static uint32_t id = 0x4;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using CLU_TX_ErrorPrio = signals::CLU_TX_ErrorPrio;
+
+            // Attributes of message 'CLU_TX_Error'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
         class CLU_TX_ActionRequest {
             public:
             constexpr static uint32_t id = 0x39;
@@ -3050,28 +3121,28 @@ namespace can {
             // Attributes of message 'CLU_TX_CoolingState'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB3_RX_TargetAirGap {
+        class MDB3_TX_Current {
             public:
             constexpr static uint32_t id = 0x112;
             constexpr static uint8_t dlc = 4;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB3_TargetAirGap = signals::MDB3_TargetAirGap;
+            using MDB3_Current = signals::MDB3_Current;
 
-            // Attributes of message 'MDB3_RX_TargetAirGap'
+            // Attributes of message 'MDB3_TX_Current'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB6_RX_TargetAirGap {
+        class MDB6_TX_Current {
             public:
             constexpr static uint32_t id = 0x127;
             constexpr static uint8_t dlc = 4;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB6_TargetAirGap = signals::MDB6_TargetAirGap;
+            using MDB6_Current = signals::MDB6_Current;
 
-            // Attributes of message 'MDB6_RX_TargetAirGap'
+            // Attributes of message 'MDB6_TX_Current'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB6_TX_Temperature {
@@ -3122,16 +3193,16 @@ namespace can {
             // Attributes of message 'MDB5_TX_Temperature'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB5_RX_TargetAirGap {
+        class MDB5_TX_Current {
             public:
             constexpr static uint32_t id = 0x122;
             constexpr static uint8_t dlc = 4;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB5_TargetAirGap = signals::MDB5_TargetAirGap;
+            using MDB5_Current = signals::MDB5_Current;
 
-            // Attributes of message 'MDB5_RX_TargetAirGap'
+            // Attributes of message 'MDB5_TX_Current'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB5_TX_AirGap {
@@ -3170,16 +3241,16 @@ namespace can {
             // Attributes of message 'MDB4_TX_Temperature'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB4_RX_TargetAirGap {
+        class MDB4_TX_Current {
             public:
             constexpr static uint32_t id = 0x117;
             constexpr static uint8_t dlc = 4;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB4_TargetAirGap = signals::MDB4_TargetAirGap;
+            using MDB4_Current = signals::MDB4_Current;
 
-            // Attributes of message 'MDB4_RX_TargetAirGap'
+            // Attributes of message 'MDB4_TX_Current'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB4_TX_AirGap {
@@ -3254,16 +3325,16 @@ namespace can {
             // Attributes of message 'MDB2_TX_Temperature'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB2_RX_TargetAirGap {
+        class MDB2_TX_Current {
             public:
             constexpr static uint32_t id = 0x107;
             constexpr static uint8_t dlc = 4;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB2_TargetAirGap = signals::MDB2_TargetAirGap;
+            using MDB2_Current = signals::MDB2_Current;
 
-            // Attributes of message 'MDB2_RX_TargetAirGap'
+            // Attributes of message 'MDB2_TX_Current'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB2_TX_AirGap {
@@ -3290,16 +3361,16 @@ namespace can {
             // Attributes of message 'MDB2_TX_State'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB1_RX_TargetAirGap {
+        class MDB1_TX_Current {
             public:
             constexpr static uint32_t id = 0x102;
             constexpr static uint8_t dlc = 4;
             constexpr static bool isExtendedId = false;
 
             // Signals
-            using MDB1_TargetAirGap = signals::MDB1_TargetAirGap;
+            using MDB1_Current = signals::MDB1_Current;
 
-            // Attributes of message 'MDB1_RX_TargetAirGap'
+            // Attributes of message 'MDB1_TX_Current'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB1_TX_Temperature {
@@ -3375,11 +3446,11 @@ namespace can {
             using CLU_W2_enableWithAnError = signals::CLU_W2_enableWithAnError;
             using CLU_W3_externalError = signals::CLU_W3_externalError;
             using CLU_E0_pressureTooHigh = signals::CLU_E0_pressureTooHigh;
-            using CLU_E1_pressureTooLow = signals::CLU_E1_pressureTooLow;
-            using CLU_E2_commWatchdogTimeout = signals::CLU_E2_commWatchdogTimeout;
-            using CLU_E3_retractUnsuccesful_errorFlag = signals::CLU_E3_retractUnsuccesful_errorFlag;
-            using CLU_E4_retractUnsuccesful_notEnabled = signals::CLU_E4_retractUnsuccesful_notEnabled;
-            using CLU_E5_retractUnsuccesful_openSDC = signals::CLU_E5_retractUnsuccesful_openSDC;
+            using CLU_E1_CPUOverTemp = signals::CLU_E1_CPUOverTemp;
+            using CLU_E2_OverVolt = signals::CLU_E2_OverVolt;
+            using CLU_E3_UnderVolt = signals::CLU_E3_UnderVolt;
+            using CLU_E4_MagnetOverTemp = signals::CLU_E4_MagnetOverTemp;
+            using CLU_E5_LevitationError = signals::CLU_E5_LevitationError;
 
             // Attributes of message 'CLU_EMCY'
             constexpr static uint16_t GenMsgCycleTime = 100;

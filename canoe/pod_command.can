@@ -1,0 +1,136 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  msTimer t1;
+  msTimer t2;
+  int command;
+  message TelemetryNode_Heartbeat heartbeat;
+  message CLU_RX_ConfigureAirGap configAirGapMsg;
+  message SensorF_RX_IgnoreLevel ignoreLevelMsg;
+  
+  message CLU_TX_ActionRequest resetMdbErrorsMsg;
+  message PDU_RX_Control resetPduMsg;
+  message SensorF_TX_StatePod resetFmsMsg;
+  message SensorF_Heartbeat lastHeartbeat;
+  message SensorF_TX_StatePod stateMsg;
+}
+
+on message SensorF_Heartbeat {
+  lastHeartbeat = this;
+}
+
+on message SensorF_TX_StatePod {
+  stateMsg = this;
+  stateMsg.can = 4;
+  output(stateMsg);
+  if(stateMsg.SensorF_TX_PodState == 0){
+    @SMS_On = 0;
+  }
+}
+
+on start {
+  @SMS_ResetErrors = 0;
+  resetMdbErrorsMsg.CLU_TX_ActionRequest = 10;
+  resetPduMsg.PDU_RX_Enable = 1;
+  resetPduMsg.PDU_RX_ErrorReset = 1;
+  resetPduMsg.PDU_RX_PEHWEnable = 0;
+  
+  resetFmsMsg.SensorF_TX_PodState = 14;
+  
+  @SMS_On = 0;
+  @SMS_IgnoreLevel = 10;
+  @SMS_EmergencyLevel = 20;
+  ignoreLevelMsg.SensorF_IgnoreLevel = @SMS_IgnoreLevel;
+  ignoreLevelMsg.SensorF_EmergencyLevel = @SMS_EmergencyLevel;
+  @SMS_TargetAirGap = 12.0;
+  configAirGapMsg.CLU_RX_ConfigureAirGap = @SMS_TargetAirGap * 10000.0;
+
+  heartbeat.TelemetryNode_NodeState = 5;
+
+  setTimer(t2,1000);
+}
+
+on timer t2 {
+  dword timeSinceLastHeartbeat;
+  timeSinceLastHeartbeat = timeDiff(lastHeartbeat, NOW);
+  if(timeSinceLastHeartbeat > 1000){
+    @SMS_TelemetryConnection = 0;
+  }else{
+    @SMS_TelemetryConnection = 1000 - timeSinceLastHeartbeat;
+  }
+
+  
+  setTimer(t2, 1000);
+}
+
+// Timer to send the SDO Req message periodically
+on timer t1 {
+ message SensorF_SDO_Req_Up msg;
+ msg.SensorF_SDO_ID = 0x900;
+ msg.SensorF_OD_TelemetryCommands = command;
+ output(msg);
+
+ output(heartbeat);
+  
+ output(ignoreLevelMsg);
+  
+ output(configAirGapMsg);
+  
+ 
+ if(@SMS_On) {
+   setTimer(t1, 200);  // Send telemetry commands every 25ms
+ }
+}
+
+on sysvar SMS_On {
+  if(@SMS_On) {
+    write("Start sending State Machine Commands!");
+    setTimer(t1, 100); 
+
+  } else {
+    write("Stop sending State Machine Commands.");
+  }
+}
+
+on sysvar SMS_SetTargetAirGap{
+  if(@SMS_SetTargetAirGap == 1){
+    configAirGapMsg.CLU_RX_ConfigureAirGap = @SMS_TargetAirGap * 10000.0;
+    output(configAirGapMsg);
+  }
+}
+
+on sysvar SMS_IgnoreLevel{
+  if(@SMS_IgnoreLevel){
+    ignoreLevelMsg.SensorF_IgnoreLevel =  @SMS_IgnoreLevel;
+  }
+}
+
+on sysvar SMS_EmergencyLevel{
+  if(@SMS_EmergencyLevel){
+    if(@SMS_EmergencyLevel < @SMS_IgnoreLevel){
+      @SMS_EmergencyLevel = @SMS_IgnoreLevel;
+    }
+    ignoreLevelMsg.SensorF_EmergencyLevel = @SMS_EmergencyLevel;
+  }
+}
+
+on sysvar SMS_ResetErrors{
+  if(@SMS_ResetErrors == 1){
+    output(resetMdbErrorsMsg);
+    output(resetPduMsg);
+    output(resetFmsMsg);
+  }
+}
+
+// A button was pressed to send a command
+on sysvar SMS_State {
+  if(@SMS_State != -1) {
+    command = @SMS_State;
+  }
+}
+  

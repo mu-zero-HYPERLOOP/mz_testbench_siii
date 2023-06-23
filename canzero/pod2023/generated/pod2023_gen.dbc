@@ -36,8 +36,24 @@ BS_:
 BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track CLU
 
 
+BO_ 291 CLU_RX_ConfigureAirGap: 4 Vector__XXX
+ SG_ CLU_RX_ConfigureAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] ""  CLU
+
+BO_ 1072 SensorF_RX_IgnoreLevel: 2 Vector__XXX
+ SG_ SensorF_EmergencyLevel : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ SensorF_IgnoreLevel : 0|8@1+ (1,0) [0|255] ""  SensorF
+
+BO_ 5 PDU_TX_Error: 8 PDU
+ SG_ PDU_TX_ErrorPrio : 0|8@1+ (1,0) [0|255] ""  SensorF
+
+BO_ 4 CLU_TX_Error: 8 CLU
+ SG_ CLU_TX_ErrorPrio : 0|8@1+ (1,0) [0|255] ""  SensorF
+
+BO_ 3 BrakeF_TX_Error: 8 BrakeF
+ SG_ BrakeF_TX_ErrorPrio : 0|8@1+ (1,0) [0|255] ""  SensorF
+
 BO_ 57 CLU_TX_ActionRequest: 5 CLU
- SG_ CLU_TX_TargetAirGap : 8|32@1+ (1,0) [0|4294967295] "" Vector__XXX
+ SG_ CLU_TX_TargetAirGap : 8|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
  SG_ CLU_TX_ActionRequest : 0|8@1+ (1,0) [0|255] "" Vector__XXX
 
 BO_ 564 CLU_RX_ActionRequest: 1 SensorF
@@ -55,11 +71,11 @@ BO_ 592 CLU_TX_LevitationState: 1 CLU
 BO_ 768 CLU_TX_CoolingState: 1 Vector__XXX
  SG_ CLU_RequiresCooling : 0|1@1+ (1,0) [0|1] ""  SensorF
 
-BO_ 274 MDB3_RX_TargetAirGap: 4 CLU
- SG_ MDB3_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
+BO_ 274 MDB3_TX_Current: 4 CLU
+ SG_ MDB3_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
 
-BO_ 295 MDB6_RX_TargetAirGap: 4 CLU
- SG_ MDB6_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
+BO_ 295 MDB6_TX_Current: 4 CLU
+ SG_ MDB6_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
 
 BO_ 297 MDB6_TX_Temperature: 4 Vector__XXX
  SG_ MDB6_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
@@ -73,8 +89,8 @@ BO_ 293 MDB6_TX_State: 1 MDB6
 BO_ 292 MDB5_TX_Temperature: 4 Vector__XXX
  SG_ MDB5_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 290 MDB5_RX_TargetAirGap: 4 CLU
- SG_ MDB5_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
+BO_ 290 MDB5_TX_Current: 4 CLU
+ SG_ MDB5_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
 
 BO_ 289 MDB5_TX_AirGap: 4 Vector__XXX
  SG_ MDB5_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
@@ -85,8 +101,8 @@ BO_ 288 MDB5_TX_State: 1 MDB5
 BO_ 281 MDB4_TX_Temperature: 4 Vector__XXX
  SG_ MDB4_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 279 MDB4_RX_TargetAirGap: 4 CLU
- SG_ MDB4_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C" Vector__XXX
+BO_ 279 MDB4_TX_Current: 4 CLU
+ SG_ MDB4_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
 
 BO_ 278 MDB4_TX_AirGap: 4 Vector__XXX
  SG_ MDB4_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
@@ -106,8 +122,8 @@ BO_ 272 MDB3_TX_State: 1 MDB3
 BO_ 265 MDB2_TX_Temperature: 4 Vector__XXX
  SG_ MDB2_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 263 MDB2_RX_TargetAirGap: 4 CLU
- SG_ MDB2_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
+BO_ 263 MDB2_TX_Current: 4 CLU
+ SG_ MDB2_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
 
 BO_ 262 MDB2_TX_AirGap: 4 Vector__XXX
  SG_ MDB2_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
@@ -115,8 +131,8 @@ BO_ 262 MDB2_TX_AirGap: 4 Vector__XXX
 BO_ 261 MDB2_TX_State: 1 MDB2
  SG_ MDB2_State : 0|8@1+ (1,0) [0|255] ""  CLU
 
-BO_ 258 MDB1_RX_TargetAirGap: 4 CLU
- SG_ MDB1_TargetAirGap : 0|32@1- (0.0001,0) [0|0] "mm" Vector__XXX
+BO_ 258 MDB1_TX_Current: 4 CLU
+ SG_ MDB1_Current : 0|32@1- (0.0001,0) [0|0] "A" Vector__XXX
 
 BO_ 260 MDB1_TX_Temperature: 4 MDB3
  SG_ MDB1_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU,SensorF
@@ -189,19 +205,22 @@ BO_ 122 CANzero_Sync: 0 Master
 BO_ 123 CANzero_Timestamp: 0 Master
 
 BO_ 129 SensorF_EMCY: 4 SensorF
- SG_ SensorF_E14_fiducialHighOffset : 26|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E13_encoderSpeedError : 25|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E12_encoderError : 24|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E10_TelemEmergency : 22|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E9_SWError : 21|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E8_NodeErrorFlag : 20|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E7_TelemetryTimeout : 19|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E6_SensorRTimeout : 18|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E5_HVCUTimeout : 17|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E4_PDUTimeout : 16|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E3_BrakeRTimeout : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E2_BrakeFTimeout : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ SensorF_E1_StateMTransitionE : 13|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E16_EboxOverTemp : 28|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E15_HyperionLowCap : 27|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E14_TitanLowCap : 26|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E13_HyperionLowHp : 25|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E12_TitanLowHp : 24|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E11_HyperionOverTemp : 23|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E10_TitanOverTemp : 22|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E9_TelemetryHeartbeatMis : 21|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E8_PDUHeartbeatMiss : 20|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E7_BECUHeartbeatMiss : 19|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E6_CLUHeartbeatMiss : 18|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E5_ReservoirOverTemp : 17|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E4_InvalidPosition : 16|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E3_UnderVolt : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E2_OverVolt : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ SensorF_E1_CPUOverTemp : 13|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ SensorF_E0_OtherError : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ SensorF_W2_encoderOORWarning : 2|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ SensorF_W1_StateMTransitionW : 1|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
@@ -309,18 +328,12 @@ BO_ 1409 SensorF_SDO_Resp: 8 SensorF
  SG_ SensorF_OD_HyperionVoltage m513 : 16|16@1+ (0.001,0) [0|65.535] "V"  TelemetryNode
  SG_ SensorF_OD_HyperionTemperature m512 : 16|16@1+ (0.01,0) [0|655.35] "C°"  TelemetryNode
  SG_ SensorF_OD_SetReset m2320 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
- SG_ SensorF_OD_Velocity m3329 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
- SG_ SensorF_OD_Position m3328 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ SensorF_OD_Velocity m3329 : 16|16@1+ (0.01,-100) [-100|555.35] "m/s"  TelemetryNode
+ SG_ SensorF_OD_Position m3328 : 16|16@1+ (0.01,-100) [-100|555.35] "m"  TelemetryNode
  SG_ SensorF_OD_StripeCount m3072 : 16|16@1+ (1,0) [0|65535] ""  TelemetryNode
- SG_ SensorF_OD_MdbState m2832 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
- SG_ SensorF_OD_Magnet_6_Temperature m2824 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
- SG_ SensorF_OD_Magnet_5_Temperature m2823 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
- SG_ SensorF_OD_Magnet_4_Temperature m2822 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
- SG_ SensorF_OD_Magnet_3_Temperature m2821 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
- SG_ SensorF_OD_Magnet_2_Temperature m2820 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
- SG_ SensorF_OD_Magnet_1_Temperature m2818 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
- SG_ SensorF_OD_ReservoirTemperature m2817 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
- SG_ SensorF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ SensorF_OD_EboxTemperature m2818 : 16|16@1+ (0.01,-100) [-100|555.35] "C°"  TelemetryNode
+ SG_ SensorF_OD_ReservoirTemperature m2817 : 16|16@1+ (0.01,-100) [-100|555.35] "C°"  TelemetryNode
+ SG_ SensorF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] "bar"  TelemetryNode
  SG_ SensorF_OD_IMU_GyroZ m2611 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
  SG_ SensorF_OD_IMU_GyroY m2610 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
  SG_ SensorF_OD_IMU_GyroX m2609 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
@@ -416,18 +429,12 @@ BO_ 1473 SensorF_SDO_Req_Up: 8 TelemetryNode
  SG_ SensorF_OD_HyperionVoltage m513 : 16|16@1+ (0.001,0) [0|65.535] "V"  SensorF
  SG_ SensorF_OD_HyperionTemperature m512 : 16|16@1+ (0.01,0) [0|655.35] "C°"  SensorF
  SG_ SensorF_OD_SetReset m2320 : 16|8@1+ (1,0) [0|255] ""  SensorF
- SG_ SensorF_OD_Velocity m3329 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
- SG_ SensorF_OD_Position m3328 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
+ SG_ SensorF_OD_Velocity m3329 : 16|16@1+ (0.01,-100) [-100|555.35] "m/s"  SensorF
+ SG_ SensorF_OD_Position m3328 : 16|16@1+ (0.01,-100) [-100|555.35] "m"  SensorF
  SG_ SensorF_OD_StripeCount m3072 : 16|16@1+ (1,0) [0|65535] ""  SensorF
- SG_ SensorF_OD_MdbState m2832 : 16|8@1+ (1,0) [0|255] ""  SensorF
- SG_ SensorF_OD_Magnet_6_Temperature m2824 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
- SG_ SensorF_OD_Magnet_5_Temperature m2823 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
- SG_ SensorF_OD_Magnet_4_Temperature m2822 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
- SG_ SensorF_OD_Magnet_3_Temperature m2821 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
- SG_ SensorF_OD_Magnet_2_Temperature m2820 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
- SG_ SensorF_OD_Magnet_1_Temperature m2818 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
- SG_ SensorF_OD_ReservoirTemperature m2817 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
- SG_ SensorF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
+ SG_ SensorF_OD_EboxTemperature m2818 : 16|16@1+ (0.01,-100) [-100|555.35] "C°"  SensorF
+ SG_ SensorF_OD_ReservoirTemperature m2817 : 16|16@1+ (0.01,-100) [-100|555.35] "C°"  SensorF
+ SG_ SensorF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] "bar"  SensorF
  SG_ SensorF_OD_IMU_GyroZ m2611 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
  SG_ SensorF_OD_IMU_GyroY m2610 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
  SG_ SensorF_OD_IMU_GyroX m2609 : 16|16@1+ (0.01,-100) [-100|555.35] ""  SensorF
@@ -836,12 +843,13 @@ BO_ 1858 SensorR_BTL_TX: 8 SensorR
 BO_ 1922 SensorR_BTL_RX: 8 TelemetryNode
 
 BO_ 145 BrakeF_EMCY: 4 BrakeF
- SG_ BrakeF_E5_retractUnsuccesful_ope : 17|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ BrakeF_E4_retractUnsuccesful_not : 16|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ BrakeF_E3_retractUnsuccesful_err : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ BrakeF_E2_commWatchdogTimeout : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ BrakeF_E1_pressureTooLow : 13|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ BrakeF_E0_pressureTooHigh : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ BrakeF_E6_OuttakeUnderPressure : 18|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ BrakeF_E5_OuttakeOverPressure : 17|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ BrakeF_E4_IntakeUnderPressure : 16|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ BrakeF_E3_IntakeOverPressure : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ BrakeF_E2_OverVolt : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ BrakeF_E1_UnderVolt : 13|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ BrakeF_E0_CPUOverTemp : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ BrakeF_W3_externalError : 3|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ BrakeF_W2_enableWithAnError : 2|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ BrakeF_W1_highPressureRetracting : 1|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
@@ -888,7 +896,8 @@ BO_ 1361 BrakeF_TX_PDO12: 0 BrakeF
 
 BO_ 1425 BrakeF_SDO_Resp: 8 BrakeF
  SG_ BrakeF_OD_BrakeStatus m2304 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
- SG_ BrakeF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  TelemetryNode
+ SG_ BrakeF_OD_OuttakePressure m2817 : 16|16@1+ (0.01,-100) [-100|555.35] "bar"  TelemetryNode
+ SG_ BrakeF_OD_IntakePressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] "bar"  TelemetryNode
  SG_ BrakeF_OD_valveUpperTolerance m2053 : 16|16@1+ (0.005,0) [0|327.675] "bar"  TelemetryNode
  SG_ BrakeF_OD_commWatchdog m2052 : 16|16@1+ (1,0) [0|65535] "ms"  TelemetryNode
  SG_ BrakeF_OD_counterLimit m2051 : 16|8@1+ (1,0) [0|255] ""  TelemetryNode
@@ -937,7 +946,8 @@ BO_ 1425 BrakeF_SDO_Resp: 8 BrakeF
 
 BO_ 1489 BrakeF_SDO_Req_Up: 8 TelemetryNode
  SG_ BrakeF_OD_BrakeStatus m2304 : 16|8@1+ (1,0) [0|255] ""  BrakeF
- SG_ BrakeF_OD_CoolingPressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] ""  BrakeF
+ SG_ BrakeF_OD_OuttakePressure m2817 : 16|16@1+ (0.01,-100) [-100|555.35] "bar"  BrakeF
+ SG_ BrakeF_OD_IntakePressure m2816 : 16|16@1+ (0.01,-100) [-100|555.35] "bar"  BrakeF
  SG_ BrakeF_OD_valveUpperTolerance m2053 : 16|16@1+ (0.005,0) [0|327.675] "bar"  BrakeF
  SG_ BrakeF_OD_commWatchdog m2052 : 16|16@1+ (1,0) [0|65535] "ms"  BrakeF
  SG_ BrakeF_OD_counterLimit m2051 : 16|8@1+ (1,0) [0|255] ""  BrakeF
@@ -1153,6 +1163,10 @@ BO_ 1874 BrakeR_BTL_TX: 8 BrakeR
 BO_ 1938 BrakeR_BTL_RX: 8 TelemetryNode
 
 BO_ 154 PDU_EMCY: 4 PDU
+ SG_ PDU_E8_UnderVolt : 20|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_E7_OverVolt : 19|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_E6_CPUOverTemp : 18|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ PDU_E5_SECUHeartbeatMiss : 17|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ PDU_E4_watchdogStateMachine : 16|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ PDU_E3_batterTempCritical : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ PDU_E2_batteryOvercurrent : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
@@ -1196,11 +1210,9 @@ BO_ 666 PDU_TX_HP_Short_Circuit_Debug: 3 PDU
  SG_ PDU_HPCh1_State : 4|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ PDU_HPCh1_ShortCnt : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
-BO_ 730 PDU_RX_HP_D_Dutycycle: 6 SensorF
- SG_ PDU_D4_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_D3_Dutycycle : 32|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_D2_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_D1_Dutycycle : 16|8@1+ (0.5,0) [0|100] "%"  PDU
+BO_ 730 PDU_RX_HP_Dutycycle: 4 SensorF
+ SG_ PDU_HPCh4_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_HPCh3_Dutycycle : 16|8@1+ (0.5,0) [0|100] "%" Vector__XXX
  SG_ PDU_HPCh2_Dutycycle : 8|8@1+ (0.5,0) [0|100] "%"  PDU
  SG_ PDU_HPCh1_Dutycycle : 0|8@1+ (0.5,0) [0|100] "%"  PDU
 
@@ -3462,6 +3474,9 @@ BO_ 1905 MDB6_BTL_TX: 8 MDB6
 BO_ 1969 MDB6_BTL_RX: 8 TelemetryNode
 
 BO_ 178 Track_EMCY: 4 Track
+ SG_ Track_E3_UnderVolt : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Track_E2_OverVolt : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ Track_E1_CPUOverTemp : 13|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ Track_E0_OtherError : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ Track_W0_OtherWarning : 0|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
 
@@ -3599,11 +3614,11 @@ BO_ 1906 Track_BTL_TX: 8 Track
 BO_ 1970 Track_BTL_RX: 8 TelemetryNode
 
 BO_ 148 CLU_EMCY: 4 CLU
- SG_ CLU_E5_retractUnsuccesful_openSD : 17|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ CLU_E4_retractUnsuccesful_notEna : 16|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ CLU_E3_retractUnsuccesful_errorF : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ CLU_E2_commWatchdogTimeout : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
- SG_ CLU_E1_pressureTooLow : 13|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ CLU_E5_LevitationError : 17|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ CLU_E4_MagnetOverTemp : 16|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ CLU_E3_UnderVolt : 15|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ CLU_E2_OverVolt : 14|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ CLU_E1_CPUOverTemp : 13|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ CLU_E0_pressureTooHigh : 12|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ CLU_W3_externalError : 3|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
  SG_ CLU_W2_enableWithAnError : 2|1@1+ (1,0) [0|0] ""  Master,TelemetryNode
@@ -3739,7 +3754,7 @@ BO_ 1556 CLU_SDO_Req_Down: 2 TelemetryNode
  SG_ CLU_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  CLU
 
 BO_ 1812 CLU_Heartbeat: 1 CLU
- SG_ CLU_NodeState : 0|8@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ CLU_NodeState : 0|8@1+ (1,0) [0|0] ""  SensorF,Master,TelemetryNode
 
 BO_ 1876 CLU_BTL_TX: 8 CLU
 
@@ -3785,20 +3800,20 @@ CM_ BU_ Track "TrackECU
 Node-ID 0x32";
 CM_ BU_ CLU "central levitation unit
 Node-ID 0x14";
-CM_ SG_ 274 MDB3_TargetAirGap "as binary IEEE-754
+CM_ SG_ 274 MDB3_Current "as binary IEEE-754
 ";
-CM_ SG_ 295 MDB6_TargetAirGap "as binary IEEE-754
+CM_ SG_ 295 MDB6_Current "as binary IEEE-754
 ";
 CM_ SG_ 297 MDB6_Temperature "as binary IEEE-754";
 CM_ SG_ 294 MDB6_AirGap "as binary IEEE-754
 ";
 CM_ SG_ 292 MDB5_Temperature "as binary IEEE-754";
-CM_ SG_ 290 MDB5_TargetAirGap "as binary IEEE-754
+CM_ SG_ 290 MDB5_Current "as binary IEEE-754
 ";
 CM_ SG_ 289 MDB5_AirGap "as binary IEEE-754
 ";
 CM_ SG_ 281 MDB4_Temperature "as binary IEEE-754";
-CM_ SG_ 279 MDB4_TargetAirGap "as binary IEEE-754
+CM_ SG_ 279 MDB4_Current "as binary IEEE-754
 ";
 CM_ SG_ 278 MDB4_AirGap "as binary IEEE-754
 ";
@@ -3806,11 +3821,11 @@ CM_ SG_ 276 MDB3_Temperature "as binary IEEE-754";
 CM_ SG_ 273 MDB3_AirGap "as binary IEEE-754
 ";
 CM_ SG_ 265 MDB2_Temperature "as binary IEEE-754";
-CM_ SG_ 263 MDB2_TargetAirGap "as binary IEEE-754
+CM_ SG_ 263 MDB2_Current "as binary IEEE-754
 ";
 CM_ SG_ 262 MDB2_AirGap "as binary IEEE-754
 ";
-CM_ SG_ 258 MDB1_TargetAirGap "as binary IEEE-754
+CM_ SG_ 258 MDB1_Current "as binary IEEE-754
 ";
 CM_ SG_ 260 MDB1_Temperature "as binary IEEE-754";
 CM_ SG_ 257 MDB1_AirGap "as binary IEEE-754
@@ -3831,19 +3846,22 @@ CM_ SG_ 2 CANzero_NMT_State "CANzero NMT State Request by master.";
 CM_ BO_ 122 "CANzero Sync message. Not used yet, just a placeholder for future versions.";
 CM_ BO_ 123 "CANzero Timestamp message. Not used yet, just a placeholder for future versions.";
 CM_ BO_ 129 "Emergency message of node SensorF with Node-ID 0x1";
-CM_ SG_ 129 SensorF_E14_fiducialHighOffset "Fiducial position estimation derived from kistler estimation";
-CM_ SG_ 129 SensorF_E13_encoderSpeedError "Error when the meassured speed is prohibited";
-CM_ SG_ 129 SensorF_E12_encoderError "Error when something fails in the Wheel encoder.";
-CM_ SG_ 129 SensorF_E10_TelemEmergency "Telemtry sent emergency command";
-CM_ SG_ 129 SensorF_E9_SWError "State machine plausibility check failed";
-CM_ SG_ 129 SensorF_E8_NodeErrorFlag "A nodes error flag was active";
-CM_ SG_ 129 SensorF_E7_TelemetryTimeout "Did not respond in set max time";
-CM_ SG_ 129 SensorF_E6_SensorRTimeout "Did not respond in set max time";
-CM_ SG_ 129 SensorF_E5_HVCUTimeout "Did not respond in set max time";
-CM_ SG_ 129 SensorF_E4_PDUTimeout "Did not respond in set max time";
-CM_ SG_ 129 SensorF_E3_BrakeRTimeout "Did not respond in set max time";
-CM_ SG_ 129 SensorF_E2_BrakeFTimeout "Did not respond in set max time";
-CM_ SG_ 129 SensorF_E1_StateMTransitionE "Something went wrong with a transition";
+CM_ SG_ 129 SensorF_E16_EboxOverTemp "ebox temperature to high.";
+CM_ SG_ 129 SensorF_E15_HyperionLowCap "capacity of hyperion is to low.";
+CM_ SG_ 129 SensorF_E14_TitanLowCap "capacity of titan is to low.";
+CM_ SG_ 129 SensorF_E13_HyperionLowHp "Health status of Hyperion is low.";
+CM_ SG_ 129 SensorF_E12_TitanLowHp "Health Status of Titan is low.";
+CM_ SG_ 129 SensorF_E11_HyperionOverTemp "Hyperion Battery is to hot.";
+CM_ SG_ 129 SensorF_E10_TitanOverTemp "Titan Battery is to hot.";
+CM_ SG_ 129 SensorF_E9_TelemetryHeartbeatMis "didn't receive a heartbeat message from the Telemetry node.";
+CM_ SG_ 129 SensorF_E8_PDUHeartbeatMiss "didn't receive a heartbeat message from the PDU.";
+CM_ SG_ 129 SensorF_E7_BECUHeartbeatMiss "didn't receive a heartbeat message from the BECU.";
+CM_ SG_ 129 SensorF_E6_CLUHeartbeatMiss "didn't receive a heartbeat message from the clu.";
+CM_ SG_ 129 SensorF_E5_ReservoirOverTemp "Temperature of the cooling reservoir is to high.";
+CM_ SG_ 129 SensorF_E4_InvalidPosition "Fiducial count doesn't match kistler readings.";
+CM_ SG_ 129 SensorF_E3_UnderVolt "Input voltage to low";
+CM_ SG_ 129 SensorF_E2_OverVolt "Input voltage to high";
+CM_ SG_ 129 SensorF_E1_CPUOverTemp "OnBoard Temperature to high";
 CM_ SG_ 129 SensorF_E0_OtherError "Other error.";
 CM_ SG_ 129 SensorF_W2_encoderOORWarning "the position form the wheelencoder is outside the track limits";
 CM_ SG_ 129 SensorF_W1_StateMTransitionW "Some transition is about to time out";
@@ -3914,13 +3932,7 @@ CM_ SG_ 1409 SensorF_OD_SetReset "Reset the position of the encoder and IMU to z
 CM_ SG_ 1409 SensorF_OD_Velocity "Estimated Pod velocity";
 CM_ SG_ 1409 SensorF_OD_Position "Estimated Pod position";
 CM_ SG_ 1409 SensorF_OD_StripeCount "Fiducial Stripe Counter";
-CM_ SG_ 1409 SensorF_OD_MdbState "State of all mdbs if not the same on all mdbs inconsistant.";
-CM_ SG_ 1409 SensorF_OD_Magnet_6_Temperature "Magnet_6_Temperature";
-CM_ SG_ 1409 SensorF_OD_Magnet_5_Temperature "Magnet_5_Temperature";
-CM_ SG_ 1409 SensorF_OD_Magnet_4_Temperature "Magnet_4_Temperature";
-CM_ SG_ 1409 SensorF_OD_Magnet_3_Temperature "Magnet_3_Temperature";
-CM_ SG_ 1409 SensorF_OD_Magnet_2_Temperature "Magnet_2_Temperature";
-CM_ SG_ 1409 SensorF_OD_Magnet_1_Temperature "Magnet_1_Temperature";
+CM_ SG_ 1409 SensorF_OD_EboxTemperature "Ebox Temperature";
 CM_ SG_ 1409 SensorF_OD_ReservoirTemperature "Cooling Reservoir Temperature";
 CM_ SG_ 1409 SensorF_OD_CoolingPressure "IMU cooling pressure.";
 CM_ SG_ 1409 SensorF_OD_IMU_GyroZ "IMU gyro z";
@@ -4021,13 +4033,7 @@ CM_ SG_ 1473 SensorF_OD_SetReset "Reset the position of the encoder and IMU to z
 CM_ SG_ 1473 SensorF_OD_Velocity "Estimated Pod velocity";
 CM_ SG_ 1473 SensorF_OD_Position "Estimated Pod position";
 CM_ SG_ 1473 SensorF_OD_StripeCount "Fiducial Stripe Counter";
-CM_ SG_ 1473 SensorF_OD_MdbState "State of all mdbs if not the same on all mdbs inconsistant.";
-CM_ SG_ 1473 SensorF_OD_Magnet_6_Temperature "Magnet_6_Temperature";
-CM_ SG_ 1473 SensorF_OD_Magnet_5_Temperature "Magnet_5_Temperature";
-CM_ SG_ 1473 SensorF_OD_Magnet_4_Temperature "Magnet_4_Temperature";
-CM_ SG_ 1473 SensorF_OD_Magnet_3_Temperature "Magnet_3_Temperature";
-CM_ SG_ 1473 SensorF_OD_Magnet_2_Temperature "Magnet_2_Temperature";
-CM_ SG_ 1473 SensorF_OD_Magnet_1_Temperature "Magnet_1_Temperature";
+CM_ SG_ 1473 SensorF_OD_EboxTemperature "Ebox Temperature";
 CM_ SG_ 1473 SensorF_OD_ReservoirTemperature "Cooling Reservoir Temperature";
 CM_ SG_ 1473 SensorF_OD_CoolingPressure "IMU cooling pressure.";
 CM_ SG_ 1473 SensorF_OD_IMU_GyroZ "IMU gyro z";
@@ -4411,12 +4417,13 @@ CM_ SG_ 1794 SensorR_NodeState "Heartbeat status of node SensorR";
 CM_ BO_ 1858 "Bootloader transmit from node SensorR with Node-ID 0x2";
 CM_ BO_ 1922 "Bootloader receive by node SensorR with Node-ID 0x2";
 CM_ BO_ 145 "Emergency message of node BrakeF with Node-ID 0x11";
-CM_ SG_ 145 BrakeF_E5_retractUnsuccesful_ope "Instruction to retract was received, but the SDC is detected to be open";
-CM_ SG_ 145 BrakeF_E4_retractUnsuccesful_not "Instruction to retract was received, but the ECU is not enabled";
-CM_ SG_ 145 BrakeF_E3_retractUnsuccesful_err "Instruction to retract was received, but an error flag inhibited retraction";
-CM_ SG_ 145 BrakeF_E2_commWatchdogTimeout "Communication Watchdog timeout. It took more than the time set to receive a new message from the state machine";
-CM_ SG_ 145 BrakeF_E1_pressureTooLow "Pressure tank has a lower value than the provided LowerControlLimit";
-CM_ SG_ 145 BrakeF_E0_pressureTooHigh "Pressure tank has a higher value than the provided UpperControlLimit";
+CM_ SG_ 145 BrakeF_E6_OuttakeUnderPressure "pressure at the outtake of the cooling cycle is to low.";
+CM_ SG_ 145 BrakeF_E5_OuttakeOverPressure "pressure at the outtake of the cooling cycle is to high.";
+CM_ SG_ 145 BrakeF_E4_IntakeUnderPressure "pressure at the intake of the cooling cycle is to low.";
+CM_ SG_ 145 BrakeF_E3_IntakeOverPressure "pressure at the intake of the cooling cycle is to high";
+CM_ SG_ 145 BrakeF_E2_OverVolt "Input voltage to high";
+CM_ SG_ 145 BrakeF_E1_UnderVolt "Input voltage to low.";
+CM_ SG_ 145 BrakeF_E0_CPUOverTemp "OnBoard Temperature to high";
 CM_ SG_ 145 BrakeF_W3_externalError "SDC reading indicates it's open, but there's no internal error in the ECU";
 CM_ SG_ 145 BrakeF_W2_enableWithAnError "The ECU was enabled with an error flag";
 CM_ SG_ 145 BrakeF_W1_highPressureRetracting "Pressure higher than desired was measured in the acting chamber";
@@ -4447,7 +4454,8 @@ CM_ BO_ 1361 "Transmit PDO 12 of node BrakeF with Node-ID 0x11";
 CM_ BO_ 1425 "DO NOT CHANGE ANYTHING HERE!
 SDO Response of node BrakeF with Node-ID 0x11";
 CM_ SG_ 1425 BrakeF_OD_BrakeStatus "State of the Brakes";
-CM_ SG_ 1425 BrakeF_OD_CoolingPressure "Cooling cycle Pressure";
+CM_ SG_ 1425 BrakeF_OD_OuttakePressure "Cooling cycle Pressure";
+CM_ SG_ 1425 BrakeF_OD_IntakePressure "Cooling cycle Pressure";
 CM_ SG_ 1425 BrakeF_OD_valveUpperTolerance "Tolerance of the lower pressure pneumatic circuit";
 CM_ SG_ 1425 BrakeF_OD_commWatchdog "Max. number of ms to receive a new message";
 CM_ SG_ 1425 BrakeF_OD_counterLimit "Number of cycles in the loop to measure pressure once";
@@ -4496,7 +4504,8 @@ CM_ SG_ 1425 BrakeF_SDO_ID "Specifies SDO-ID of BrakeF";
 CM_ BO_ 1489 "DO NOT CHANGE ANYTHING HERE!
 SDO Request Upload to node BrakeF with Node-ID 0x11";
 CM_ SG_ 1489 BrakeF_OD_BrakeStatus "State of the Brakes";
-CM_ SG_ 1489 BrakeF_OD_CoolingPressure "Cooling cycle Pressure";
+CM_ SG_ 1489 BrakeF_OD_OuttakePressure "Cooling cycle Pressure";
+CM_ SG_ 1489 BrakeF_OD_IntakePressure "Cooling cycle Pressure";
 CM_ SG_ 1489 BrakeF_OD_valveUpperTolerance "Tolerance of the lower pressure pneumatic circuit";
 CM_ SG_ 1489 BrakeF_OD_commWatchdog "Max. number of ms to receive a new message";
 CM_ SG_ 1489 BrakeF_OD_counterLimit "Number of cycles in the loop to measure pressure once";
@@ -4684,6 +4693,10 @@ CM_ SG_ 1810 BrakeR_NodeState "Heartbeat status of node BrakeR";
 CM_ BO_ 1874 "Bootloader transmit from node BrakeR with Node-ID 0x12";
 CM_ BO_ 1938 "Bootloader receive by node BrakeR with Node-ID 0x12";
 CM_ BO_ 154 "Emergency message of node PDU with Node-ID 0x1A";
+CM_ SG_ 154 PDU_E8_UnderVolt "Input voltage to low.";
+CM_ SG_ 154 PDU_E7_OverVolt "Input voltage to high";
+CM_ SG_ 154 PDU_E6_CPUOverTemp "cpu temperature to high";
+CM_ SG_ 154 PDU_E5_SECUHeartbeatMiss "didn't receive a heartbeat from SECU.";
 CM_ SG_ 154 PDU_E4_watchdogStateMachine "The watchdog for the state machine timed out.";
 CM_ SG_ 154 PDU_E3_batterTempCritical "Temperature limit of the battery reached.";
 CM_ SG_ 154 PDU_E2_batteryOvercurrent "Overcurrent limit of the battery reached.";
@@ -5653,6 +5666,9 @@ CM_ SG_ 1841 MDB6_NodeState "Heartbeat status of node MDB6";
 CM_ BO_ 1905 "Bootloader transmit from node MDB6 with Node-ID 0x31";
 CM_ BO_ 1969 "Bootloader receive by node MDB6 with Node-ID 0x31";
 CM_ BO_ 178 "Emergency message of node Track with Node-ID 0x32";
+CM_ SG_ 178 Track_E3_UnderVolt "Input voltage to low";
+CM_ SG_ 178 Track_E2_OverVolt "Input voltage to high";
+CM_ SG_ 178 Track_E1_CPUOverTemp "OnBoard Temperature to high";
 CM_ SG_ 178 Track_E0_OtherError "Other error.";
 CM_ SG_ 178 Track_W0_OtherWarning "Other warning.";
 CM_ BO_ 434 "Transmit PDO 1 of node Track with Node-ID 0x32";
@@ -5770,11 +5786,11 @@ CM_ SG_ 1842 Track_NodeState "Heartbeat status of node Track";
 CM_ BO_ 1906 "Bootloader transmit from node Track with Node-ID 0x32";
 CM_ BO_ 1970 "Bootloader receive by node Track with Node-ID 0x32";
 CM_ BO_ 148 "Emergency message of node CLU with Node-ID 0x14";
-CM_ SG_ 148 CLU_E5_retractUnsuccesful_openSD "Instruction to retract was received, but the SDC is detected to be open";
-CM_ SG_ 148 CLU_E4_retractUnsuccesful_notEna "Instruction to retract was received, but the ECU is not enabled";
-CM_ SG_ 148 CLU_E3_retractUnsuccesful_errorF "Instruction to retract was received, but an error flag inhibited retraction";
-CM_ SG_ 148 CLU_E2_commWatchdogTimeout "Communication Watchdog timeout. It took more than the time set to receive a new message from the state machine";
-CM_ SG_ 148 CLU_E1_pressureTooLow "Pressure tank has a lower value than the provided LowerControlLimit";
+CM_ SG_ 148 CLU_E5_LevitationError "at least one mdb when into an error state.";
+CM_ SG_ 148 CLU_E4_MagnetOverTemp "at least one magnet is to hot.";
+CM_ SG_ 148 CLU_E3_UnderVolt "Input voltage to low";
+CM_ SG_ 148 CLU_E2_OverVolt "Input voltage to high";
+CM_ SG_ 148 CLU_E1_CPUOverTemp "OnBoard Temperature to high";
 CM_ SG_ 148 CLU_E0_pressureTooHigh "Pressure tank has a higher value than the provided UpperControlLimit";
 CM_ SG_ 148 CLU_W3_externalError "SDC reading indicates it's open, but there's no internal error in the ECU";
 CM_ SG_ 148 CLU_W2_enableWithAnError "The ECU was enabled with an error flag";
@@ -5936,11 +5952,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "BusType" "CAN";
-BA_ "CANzero_ProtocolVersion" "V1.0";
-BA_ "CANzero_DBCVersion" 213;
-BA_ "CANzero_SDOClientName" "TelemetryNode";
 BA_ "CANzero_NMTMasterName" "Master";
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_DBCVersion" 249;
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "BusType" "CAN";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -5958,6 +5974,11 @@ BA_ "CANzero_NodeID" BU_ MDB5 41;
 BA_ "CANzero_NodeID" BU_ MDB6 49;
 BA_ "CANzero_NodeID" BU_ Track 50;
 BA_ "CANzero_NodeID" BU_ CLU 20;
+BA_ "GenMsgCycleTime" BO_ 291 100;
+BA_ "GenMsgCycleTime" BO_ 1072 100;
+BA_ "GenMsgCycleTime" BO_ 5 100;
+BA_ "GenMsgCycleTime" BO_ 4 100;
+BA_ "GenMsgCycleTime" BO_ 3 100;
 BA_ "GenMsgCycleTime" BO_ 57 100;
 BA_ "GenMsgCycleTime" BO_ 564 100;
 BA_ "GenMsgCycleTime" BO_ 2165346838 100;
@@ -6003,6 +6024,7 @@ BA_ "GenMsgCycleTime" BO_ 2 100;
 BA_ "GenMsgCycleTime" BO_ 122 100;
 BA_ "GenMsgCycleTime" BO_ 123 100;
 BA_ "GenMsgCycleTime" BO_ 129 100;
+BA_ "SystemSignalLongSymbol" SG_ 129 SensorF_E9_TelemetryHeartbeatMis "SensorF_E9_TelemetryHeartbeatMiss";
 BA_ "GenMsgCycleTime" BO_ 385 100;
 BA_ "GenMsgCycleTime" BO_ 449 100;
 BA_ "GenMsgCycleTime" BO_ 513 100;
@@ -6228,41 +6250,11 @@ BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_StripeCount 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_StripeCount 1;
 BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_StripeCount 0.0;
 BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_StripeCount 0;
-BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_MdbState "";
-BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_MdbState 0;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_MdbState 1;
-BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_MdbState 0.0;
-BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_MdbState 0;
-BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_6_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_6_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_6_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_6_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_6_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_5_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_5_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_5_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_5_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_5_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_4_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_4_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_4_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_4_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_4_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_3_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_3_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_3_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_3_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_3_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_2_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_2_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_2_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_2_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_2_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_Magnet_1_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_Magnet_1_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_Magnet_1_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_Magnet_1_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_Magnet_1_Temperature 10;
+BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_EboxTemperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_EboxTemperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_EboxTemperature 1;
+BA_ "GenSigStartValue" SG_ 1409 SensorF_OD_EboxTemperature 18000.0;
+BA_ "CANzero_SDO_Default" SG_ 1409 SensorF_OD_EboxTemperature 80;
 BA_ "CANzero_SDO_Group" SG_ 1409 SensorF_OD_ReservoirTemperature "";
 BA_ "CANzero_SDO_AccessType" SG_ 1409 SensorF_OD_ReservoirTemperature 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1409 SensorF_OD_ReservoirTemperature 1;
@@ -6750,41 +6742,11 @@ BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_StripeCount 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_StripeCount 1;
 BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_StripeCount 0.0;
 BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_StripeCount 0;
-BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_MdbState "";
-BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_MdbState 0;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_MdbState 1;
-BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_MdbState 0.0;
-BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_MdbState 0;
-BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_6_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_6_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_6_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_6_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_6_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_5_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_5_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_5_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_5_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_5_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_4_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_4_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_4_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_4_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_4_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_3_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_3_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_3_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_3_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_3_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_2_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_2_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_2_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_2_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_2_Temperature 10;
-BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_Magnet_1_Temperature "";
-BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_Magnet_1_Temperature 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_Magnet_1_Temperature 1;
-BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_Magnet_1_Temperature 11000.0;
-BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_Magnet_1_Temperature 10;
+BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_EboxTemperature "";
+BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_EboxTemperature 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_EboxTemperature 1;
+BA_ "GenSigStartValue" SG_ 1473 SensorF_OD_EboxTemperature 18000.0;
+BA_ "CANzero_SDO_Default" SG_ 1473 SensorF_OD_EboxTemperature 80;
 BA_ "CANzero_SDO_Group" SG_ 1473 SensorF_OD_ReservoirTemperature "";
 BA_ "CANzero_SDO_AccessType" SG_ 1473 SensorF_OD_ReservoirTemperature 1;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1473 SensorF_OD_ReservoirTemperature 1;
@@ -8296,9 +8258,6 @@ BA_ "GenMsgCycleTime" BO_ 1794 100;
 BA_ "GenMsgCycleTime" BO_ 1858 100;
 BA_ "GenMsgCycleTime" BO_ 1922 100;
 BA_ "GenMsgCycleTime" BO_ 145 100;
-BA_ "SystemSignalLongSymbol" SG_ 145 BrakeF_E5_retractUnsuccesful_ope "BrakeF_E5_retractUnsuccesful_openSDC";
-BA_ "SystemSignalLongSymbol" SG_ 145 BrakeF_E4_retractUnsuccesful_not "BrakeF_E4_retractUnsuccesful_notEnabled";
-BA_ "SystemSignalLongSymbol" SG_ 145 BrakeF_E3_retractUnsuccesful_err "BrakeF_E3_retractUnsuccesful_errorFlag";
 BA_ "SystemSignalLongSymbol" SG_ 145 BrakeF_W1_highPressureRetracting "BrakeF_W1_highPressureRetractingChamber";
 BA_ "SystemSignalLongSymbol" SG_ 145 BrakeF_W0_highPressureActingCham "BrakeF_W0_highPressureActingChamber";
 BA_ "GenMsgCycleTime" BO_ 401 100;
@@ -8322,11 +8281,16 @@ BA_ "CANzero_SDO_AccessType" SG_ 1425 BrakeF_OD_BrakeStatus 0;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 BrakeF_OD_BrakeStatus 1;
 BA_ "GenSigStartValue" SG_ 1425 BrakeF_OD_BrakeStatus 0.0;
 BA_ "CANzero_SDO_Default" SG_ 1425 BrakeF_OD_BrakeStatus 0;
-BA_ "CANzero_SDO_Group" SG_ 1425 BrakeF_OD_CoolingPressure "";
-BA_ "CANzero_SDO_AccessType" SG_ 1425 BrakeF_OD_CoolingPressure 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 BrakeF_OD_CoolingPressure 1;
-BA_ "GenSigStartValue" SG_ 1425 BrakeF_OD_CoolingPressure 9810.0;
-BA_ "CANzero_SDO_Default" SG_ 1425 BrakeF_OD_CoolingPressure -1.9;
+BA_ "CANzero_SDO_Group" SG_ 1425 BrakeF_OD_OuttakePressure "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 BrakeF_OD_OuttakePressure 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 BrakeF_OD_OuttakePressure 1;
+BA_ "GenSigStartValue" SG_ 1425 BrakeF_OD_OuttakePressure 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 BrakeF_OD_OuttakePressure -1.9;
+BA_ "CANzero_SDO_Group" SG_ 1425 BrakeF_OD_IntakePressure "";
+BA_ "CANzero_SDO_AccessType" SG_ 1425 BrakeF_OD_IntakePressure 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 BrakeF_OD_IntakePressure 1;
+BA_ "GenSigStartValue" SG_ 1425 BrakeF_OD_IntakePressure 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1425 BrakeF_OD_IntakePressure -1.9;
 BA_ "CANzero_SDO_Group" SG_ 1425 BrakeF_OD_valveUpperTolerance "";
 BA_ "CANzero_SDO_AccessType" SG_ 1425 BrakeF_OD_valveUpperTolerance 0;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1425 BrakeF_OD_valveUpperTolerance 1;
@@ -8550,11 +8514,16 @@ BA_ "CANzero_SDO_AccessType" SG_ 1489 BrakeF_OD_BrakeStatus 0;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 BrakeF_OD_BrakeStatus 1;
 BA_ "GenSigStartValue" SG_ 1489 BrakeF_OD_BrakeStatus 0.0;
 BA_ "CANzero_SDO_Default" SG_ 1489 BrakeF_OD_BrakeStatus 0;
-BA_ "CANzero_SDO_Group" SG_ 1489 BrakeF_OD_CoolingPressure "";
-BA_ "CANzero_SDO_AccessType" SG_ 1489 BrakeF_OD_CoolingPressure 1;
-BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 BrakeF_OD_CoolingPressure 1;
-BA_ "GenSigStartValue" SG_ 1489 BrakeF_OD_CoolingPressure 9810.0;
-BA_ "CANzero_SDO_Default" SG_ 1489 BrakeF_OD_CoolingPressure -1.9;
+BA_ "CANzero_SDO_Group" SG_ 1489 BrakeF_OD_OuttakePressure "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 BrakeF_OD_OuttakePressure 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 BrakeF_OD_OuttakePressure 1;
+BA_ "GenSigStartValue" SG_ 1489 BrakeF_OD_OuttakePressure 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 BrakeF_OD_OuttakePressure -1.9;
+BA_ "CANzero_SDO_Group" SG_ 1489 BrakeF_OD_IntakePressure "";
+BA_ "CANzero_SDO_AccessType" SG_ 1489 BrakeF_OD_IntakePressure 1;
+BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 BrakeF_OD_IntakePressure 1;
+BA_ "GenSigStartValue" SG_ 1489 BrakeF_OD_IntakePressure 9810.0;
+BA_ "CANzero_SDO_Default" SG_ 1489 BrakeF_OD_IntakePressure -1.9;
 BA_ "CANzero_SDO_Group" SG_ 1489 BrakeF_OD_valveUpperTolerance "";
 BA_ "CANzero_SDO_AccessType" SG_ 1489 BrakeF_OD_valveUpperTolerance 0;
 BA_ "CANzero_SDO_AccessIfOperational" SG_ 1489 BrakeF_OD_valveUpperTolerance 1;
@@ -9254,10 +9223,8 @@ BA_ "GenSigStartValue" SG_ 602 PDU_LPCh10_Dutycycle 200;
 BA_ "GenSigStartValue" SG_ 602 PDU_LPCh1_Dutycycle 200;
 BA_ "GenMsgCycleTime" BO_ 666 100;
 BA_ "GenMsgCycleTime" BO_ 730 100;
-BA_ "GenSigStartValue" SG_ 730 PDU_D4_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 730 PDU_D3_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 730 PDU_D2_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 730 PDU_D1_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 730 PDU_HPCh4_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 730 PDU_HPCh3_Dutycycle 200;
 BA_ "GenSigStartValue" SG_ 730 PDU_HPCh2_Dutycycle 200;
 BA_ "GenSigStartValue" SG_ 730 PDU_HPCh1_Dutycycle 200;
 BA_ "GenMsgCycleTime" BO_ 794 100;
@@ -9832,8 +9799,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgCycleTime" BO_ 1456 10;
 BA_ "GenMsgSendType" BO_ 1456 0;
+BA_ "GenMsgCycleTime" BO_ 1456 10;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -9848,10 +9815,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgCycleTime" BO_ 1280 10;
 BA_ "GenMsgSendType" BO_ 1280 0;
-BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1280 10;
 BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1296 0;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;
@@ -13211,9 +13178,6 @@ BA_ "GenMsgCycleTime" BO_ 1842 100;
 BA_ "GenMsgCycleTime" BO_ 1906 100;
 BA_ "GenMsgCycleTime" BO_ 1970 100;
 BA_ "GenMsgCycleTime" BO_ 148 100;
-BA_ "SystemSignalLongSymbol" SG_ 148 CLU_E5_retractUnsuccesful_openSD "CLU_E5_retractUnsuccesful_openSDC";
-BA_ "SystemSignalLongSymbol" SG_ 148 CLU_E4_retractUnsuccesful_notEna "CLU_E4_retractUnsuccesful_notEnabled";
-BA_ "SystemSignalLongSymbol" SG_ 148 CLU_E3_retractUnsuccesful_errorF "CLU_E3_retractUnsuccesful_errorFlag";
 BA_ "SystemSignalLongSymbol" SG_ 148 CLU_W1_highPressureRetractingCha "CLU_W1_highPressureRetractingChamber";
 BA_ "GenMsgCycleTime" BO_ 404 100;
 BA_ "GenMsgCycleTime" BO_ 468 100;
@@ -13669,28 +13633,31 @@ BA_ "GenMsgCycleTime" BO_ 1876 100;
 BA_ "GenMsgCycleTime" BO_ 1940 100;
 VAL_ 57 CLU_TX_ActionRequest 4 "SET_AIRGAP" 3 "STOP" 2 "START" 1 "PREPARE" 0 "NONE" ;
 VAL_ 592 CLU_LevitationState 7 "INCONSISTANT" 6 "ERROR" 5 "LEVI" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "OFF" ;
-VAL_ 293 MDB6_State 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 20 "ERROR_CALCTIME" 19 "ERROR_CHIPTEMP" 18 "ERROR_CURRE_CALIB" 17 "ERROR_CAN" 16 "ERROR_AIRGAP_SEN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 288 MDB5_State 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 277 MDB4_State 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 272 MDB3_State 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 261 MDB2_State 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 256 MDB1_State 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 293 MDB6_State 8 "LEVI_AIR_GAP_CHANGE" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 20 "ERROR_CALCTIME" 19 "ERROR_CHIPTEMP" 18 "ERROR_CURRE_CALIB" 17 "ERROR_CAN" 16 "ERROR_AIRGAP_SEN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 288 MDB5_State 8 "LEVI_AIR_GAP_CHANGE" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 277 MDB4_State 8 "LEVI_AIR_GAP_CHANGE" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 272 MDB3_State 8 "LEVI_AIR_GAP_CHANGE" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 261 MDB2_State 8 "LEVI_AIR_GAP_CHANGE" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 256 MDB1_State 8 "LEVI_AIR_GAP_CHANGE" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
 VAL_ 2684354556 OpticalSensor_TX_LEDStatus 2 "FLASHING" 1 "ON" 0 "OFF" ;
 VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SensorF" 2 "SensorR" 17 "BrakeF" 18 "BrakeR" 26 "PDU" 10 "HVCU" 25 "HVTU" 34 "TelemetryNode" 33 "MDB1" 35 "MDB2" 39 "MDB3" 40 "MDB4" 41 "MDB5" 49 "MDB6" 50 "Track" 20 "CLU" ;
 VAL_ 2 CANzero_NMT_State 1 "Start Remote Node" 2 "Stop Remote Node" 128 "Enter Pre-Operational" 129 "Reset" ;
-VAL_ 129 SensorF_E14_fiducialHighOffset 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E13_encoderSpeedError 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E12_encoderError 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E10_TelemEmergency 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E9_SWError 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E8_NodeErrorFlag 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E7_TelemetryTimeout 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E6_SensorRTimeout 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E5_HVCUTimeout 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E4_PDUTimeout 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E3_BrakeRTimeout 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E2_BrakeFTimeout 0 "Ok" 1 "ERR" ;
-VAL_ 129 SensorF_E1_StateMTransitionE 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E16_EboxOverTemp 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E15_HyperionLowCap 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E14_TitanLowCap 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E13_HyperionLowHp 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E12_TitanLowHp 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E11_HyperionOverTemp 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E10_TitanOverTemp 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E9_TelemetryHeartbeatMis 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E8_PDUHeartbeatMiss 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E7_BECUHeartbeatMiss 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E6_CLUHeartbeatMiss 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E5_ReservoirOverTemp 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E4_InvalidPosition 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E3_UnderVolt 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E2_OverVolt 0 "Ok" 1 "ERR" ;
+VAL_ 129 SensorF_E1_CPUOverTemp 0 "Ok" 1 "ERR" ;
 VAL_ 129 SensorF_E0_OtherError 0 "Ok" 1 "ERR" ;
 VAL_ 129 SensorF_W2_encoderOORWarning 0 "Ok" 1 "WARN" ;
 VAL_ 129 SensorF_W1_StateMTransitionW 0 "Ok" 1 "WARN" ;
@@ -13715,7 +13682,6 @@ VAL_ 513 SensorF_TX_ErrorResetTransition 1 "Transition" 0 "No Transitions" ;
 VAL_ 513 SensorF_TX_EnableTransition 1 "Transition" 0 "No Transitions" ;
 VAL_ 513 SensorF_TX_BrakesTransition 1 "Transition" 0 "No Transitions" ;
 VAL_ 1409 SensorF_OD_SetReset 0 "None" 1 "Reset" ;
-VAL_ 1409 SensorF_OD_MdbState 0 "precharge" 1 "levitaiton" 2 "grounded" 3 "save_to_approch" 4 "precharge_done" 255 "inconsistant" ;
 VAL_ 1409 SensorF_OD_EncoderResetPosition 0 "None" 1 "Reset" ;
 VAL_ 1409 SensorF_OD_HVBatteryMode 0 "Discharging" 1 "Charging" ;
 VAL_ 1409 SensorF_OD_StateMachineActivate 0 "Activate" 1 "Deactivate" ;
@@ -13731,9 +13697,8 @@ VAL_ 1409 SensorF_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Err
 VAL_ 1409 SensorF_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1409 SensorF_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
 VAL_ 1409 SensorF_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
-VAL_ 1409 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 2817 "ReservoirTemperature" 2818 "Magnet_1_Temperature" 2820 "Magnet_2_Temperature" 2821 "Magnet_3_Temperature" 2822 "Magnet_4_Temperature" 2823 "Magnet_5_Temperature" 2824 "Magnet_6_Temperature" 2832 "MdbState" 3072 "StripeCount" 3328 "Position" 3329 "Velocity" 2320 "SetReset" 512 "HyperionTemperature" 513 "HyperionVoltage" 514 "HyperionCurrent" 515 "HyperionRemainingCapacity" 516 "HyperionLifeCycle" 517 "HyperionHealthStatus" 518 "HyperionCell1Voltage" 519 "HyperionCell2Voltage" 520 "HyperionCell3Voltage" 521 "HyperionCell4Voltage" 522 "HyperionCell5Voltage" 523 "HyperionCell6Voltage" 524 "HyperionCell7Voltage" 525 "HyperionCell8Voltage" 526 "HyperionCell9Voltage" 527 "HyperionCell10Voltage" 528 "HyperionCell11Voltage" 529 "HyperionCell12Voltage" 768 "TitanTemperature" 769 "TitanVoltage" 770 "TitanCurrent" 771 "TitanRemainingCapacity" 772 "TitanLifeCycle" 773 "TitanHealthStatus" 774 "TitanCell1Voltage" 775 "TitanCell2Voltage" 776 "TitanCell3Voltage" 777 "TitanCell4Voltage" 778 "TitanCell5Voltage" 779 "TitanCell6Voltage" 780 "TitanCell7Voltage" 781 "TitanCell8Voltage" 782 "TitanCell9Voltage" 783 "TitanCell10Voltage" 784 "TitanCell11Voltage" 785 "TitanCell12Voltage" ;
+VAL_ 1409 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 2817 "ReservoirTemperature" 2818 "EboxTemperature" 3072 "StripeCount" 3328 "Position" 3329 "Velocity" 2320 "SetReset" 512 "HyperionTemperature" 513 "HyperionVoltage" 514 "HyperionCurrent" 515 "HyperionRemainingCapacity" 516 "HyperionLifeCycle" 517 "HyperionHealthStatus" 518 "HyperionCell1Voltage" 519 "HyperionCell2Voltage" 520 "HyperionCell3Voltage" 521 "HyperionCell4Voltage" 522 "HyperionCell5Voltage" 523 "HyperionCell6Voltage" 524 "HyperionCell7Voltage" 525 "HyperionCell8Voltage" 526 "HyperionCell9Voltage" 527 "HyperionCell10Voltage" 528 "HyperionCell11Voltage" 529 "HyperionCell12Voltage" 768 "TitanTemperature" 769 "TitanVoltage" 770 "TitanCurrent" 771 "TitanRemainingCapacity" 772 "TitanLifeCycle" 773 "TitanHealthStatus" 774 "TitanCell1Voltage" 775 "TitanCell2Voltage" 776 "TitanCell3Voltage" 777 "TitanCell4Voltage" 778 "TitanCell5Voltage" 779 "TitanCell6Voltage" 780 "TitanCell7Voltage" 781 "TitanCell8Voltage" 782 "TitanCell9Voltage" 783 "TitanCell10Voltage" 784 "TitanCell11Voltage" 785 "TitanCell12Voltage" ;
 VAL_ 1473 SensorF_OD_SetReset 0 "None" 1 "Reset" ;
-VAL_ 1473 SensorF_OD_MdbState 0 "precharge" 1 "levitaiton" 2 "grounded" 3 "save_to_approch" 4 "precharge_done" 255 "inconsistant" ;
 VAL_ 1473 SensorF_OD_EncoderResetPosition 0 "None" 1 "Reset" ;
 VAL_ 1473 SensorF_OD_HVBatteryMode 0 "Discharging" 1 "Charging" ;
 VAL_ 1473 SensorF_OD_StateMachineActivate 0 "Activate" 1 "Deactivate" ;
@@ -13748,8 +13713,8 @@ VAL_ 1473 SensorF_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
 VAL_ 1473 SensorF_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
 VAL_ 1473 SensorF_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1473 SensorF_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
-VAL_ 1473 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 2817 "ReservoirTemperature" 2818 "Magnet_1_Temperature" 2820 "Magnet_2_Temperature" 2821 "Magnet_3_Temperature" 2822 "Magnet_4_Temperature" 2823 "Magnet_5_Temperature" 2824 "Magnet_6_Temperature" 2832 "MdbState" 3072 "StripeCount" 3328 "Position" 3329 "Velocity" 2320 "SetReset" 512 "HyperionTemperature" 513 "HyperionVoltage" 514 "HyperionCurrent" 515 "HyperionRemainingCapacity" 516 "HyperionLifeCycle" 517 "HyperionHealthStatus" 518 "HyperionCell1Voltage" 519 "HyperionCell2Voltage" 520 "HyperionCell3Voltage" 521 "HyperionCell4Voltage" 522 "HyperionCell5Voltage" 523 "HyperionCell6Voltage" 524 "HyperionCell7Voltage" 525 "HyperionCell8Voltage" 526 "HyperionCell9Voltage" 527 "HyperionCell10Voltage" 528 "HyperionCell11Voltage" 529 "HyperionCell12Voltage" 768 "TitanTemperature" 769 "TitanVoltage" 770 "TitanCurrent" 771 "TitanRemainingCapacity" 772 "TitanLifeCycle" 773 "TitanHealthStatus" 774 "TitanCell1Voltage" 775 "TitanCell2Voltage" 776 "TitanCell3Voltage" 777 "TitanCell4Voltage" 778 "TitanCell5Voltage" 779 "TitanCell6Voltage" 780 "TitanCell7Voltage" 781 "TitanCell8Voltage" 782 "TitanCell9Voltage" 783 "TitanCell10Voltage" 784 "TitanCell11Voltage" 785 "TitanCell12Voltage" ;
-VAL_ 1537 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 2817 "ReservoirTemperature" 2818 "Magnet_1_Temperature" 2820 "Magnet_2_Temperature" 2821 "Magnet_3_Temperature" 2822 "Magnet_4_Temperature" 2823 "Magnet_5_Temperature" 2824 "Magnet_6_Temperature" 2832 "MdbState" 3072 "StripeCount" 3328 "Position" 3329 "Velocity" 2320 "SetReset" 512 "HyperionTemperature" 513 "HyperionVoltage" 514 "HyperionCurrent" 515 "HyperionRemainingCapacity" 516 "HyperionLifeCycle" 517 "HyperionHealthStatus" 518 "HyperionCell1Voltage" 519 "HyperionCell2Voltage" 520 "HyperionCell3Voltage" 521 "HyperionCell4Voltage" 522 "HyperionCell5Voltage" 523 "HyperionCell6Voltage" 524 "HyperionCell7Voltage" 525 "HyperionCell8Voltage" 526 "HyperionCell9Voltage" 527 "HyperionCell10Voltage" 528 "HyperionCell11Voltage" 529 "HyperionCell12Voltage" 768 "TitanTemperature" 769 "TitanVoltage" 770 "TitanCurrent" 771 "TitanRemainingCapacity" 772 "TitanLifeCycle" 773 "TitanHealthStatus" 774 "TitanCell1Voltage" 775 "TitanCell2Voltage" 776 "TitanCell3Voltage" 777 "TitanCell4Voltage" 778 "TitanCell5Voltage" 779 "TitanCell6Voltage" 780 "TitanCell7Voltage" 781 "TitanCell8Voltage" 782 "TitanCell9Voltage" 783 "TitanCell10Voltage" 784 "TitanCell11Voltage" 785 "TitanCell12Voltage" ;
+VAL_ 1473 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 2817 "ReservoirTemperature" 2818 "EboxTemperature" 3072 "StripeCount" 3328 "Position" 3329 "Velocity" 2320 "SetReset" 512 "HyperionTemperature" 513 "HyperionVoltage" 514 "HyperionCurrent" 515 "HyperionRemainingCapacity" 516 "HyperionLifeCycle" 517 "HyperionHealthStatus" 518 "HyperionCell1Voltage" 519 "HyperionCell2Voltage" 520 "HyperionCell3Voltage" 521 "HyperionCell4Voltage" 522 "HyperionCell5Voltage" 523 "HyperionCell6Voltage" 524 "HyperionCell7Voltage" 525 "HyperionCell8Voltage" 526 "HyperionCell9Voltage" 527 "HyperionCell10Voltage" 528 "HyperionCell11Voltage" 529 "HyperionCell12Voltage" 768 "TitanTemperature" 769 "TitanVoltage" 770 "TitanCurrent" 771 "TitanRemainingCapacity" 772 "TitanLifeCycle" 773 "TitanHealthStatus" 774 "TitanCell1Voltage" 775 "TitanCell2Voltage" 776 "TitanCell3Voltage" 777 "TitanCell4Voltage" 778 "TitanCell5Voltage" 779 "TitanCell6Voltage" 780 "TitanCell7Voltage" 781 "TitanCell8Voltage" 782 "TitanCell9Voltage" 783 "TitanCell10Voltage" 784 "TitanCell11Voltage" 785 "TitanCell12Voltage" ;
+VAL_ 1537 SensorF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2304 "TelemetryCommands" 2305 "StateMachineInterval" 2306 "StateMachineActivate" 2307 "HVBatteryMode" 2308 "EncoderWheelDiameter" 2309 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2600 "IMU_AccelX" 2601 "IMU_AccelY" 2608 "IMU_AccelZ" 2609 "IMU_GyroX" 2610 "IMU_GyroY" 2611 "IMU_GyroZ" 2816 "CoolingPressure" 2817 "ReservoirTemperature" 2818 "EboxTemperature" 3072 "StripeCount" 3328 "Position" 3329 "Velocity" 2320 "SetReset" 512 "HyperionTemperature" 513 "HyperionVoltage" 514 "HyperionCurrent" 515 "HyperionRemainingCapacity" 516 "HyperionLifeCycle" 517 "HyperionHealthStatus" 518 "HyperionCell1Voltage" 519 "HyperionCell2Voltage" 520 "HyperionCell3Voltage" 521 "HyperionCell4Voltage" 522 "HyperionCell5Voltage" 523 "HyperionCell6Voltage" 524 "HyperionCell7Voltage" 525 "HyperionCell8Voltage" 526 "HyperionCell9Voltage" 527 "HyperionCell10Voltage" 528 "HyperionCell11Voltage" 529 "HyperionCell12Voltage" 768 "TitanTemperature" 769 "TitanVoltage" 770 "TitanCurrent" 771 "TitanRemainingCapacity" 772 "TitanLifeCycle" 773 "TitanHealthStatus" 774 "TitanCell1Voltage" 775 "TitanCell2Voltage" 776 "TitanCell3Voltage" 777 "TitanCell4Voltage" 778 "TitanCell5Voltage" 779 "TitanCell6Voltage" 780 "TitanCell7Voltage" 781 "TitanCell8Voltage" 782 "TitanCell9Voltage" 783 "TitanCell10Voltage" 784 "TitanCell11Voltage" 785 "TitanCell12Voltage" ;
 VAL_ 1793 SensorF_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
 VAL_ 130 SensorR_E12_highLIMTemperature 0 "Ok" 1 "ERR" ;
 VAL_ 130 SensorR_E11_scimoPEerror101overc 0 "Ok" 1 "ERR" ;
@@ -13821,12 +13786,13 @@ VAL_ 1474 SensorR_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-
 VAL_ 1474 SensorR_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2576 "EncoderWheelDiameter" 2586 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2608 "ExecTimeOverall" 2609 "ExecTimeStateEst" 2610 "ExecTimeControl" 2611 "ExecTimeReadSensors" 2624 "OpcKp" 2625 "OpcKi" 2626 "CtrlMode" 2627 "CurrentReq" 2628 "PodMass" 2629 "FmaxCtrl" 2630 "FminCtrl" 2631 "MaxCtrlError" 2632 "MaxCtrlErrorDuration" 2633 "WarningThreshholdForLimModelOutOfBoundaries" 2634 "MaxRequiredVelocity" 2635 "VdcReduceFactor" 2636 "RunMode" 2637 "SetFinish" 2816 "RunProfile_T0" 2817 "RunProfile_V0" 2818 "RunProfile_T1" 2819 "RunProfile_V1" 2820 "RunProfile_T2" 2821 "RunProfile_V2" 2822 "RunProfile_T3" 2823 "RunProfile_V3" 2824 "RunProfile_T4" 2825 "RunProfile_V4" 2826 "EstimatedRunLength" 3072 "TC_I" 3073 "TC_f" 3074 "VelocityController" 3075 "CVOPCImax" 3076 "CVOPCTcf" 3077 "CVOPCTcI" 3078 "CVOPCSmoothingDeltaVelocity" 3079 "CVOPCDeltaVelHigherCurrent" 3080 "CVOPCReduceCurrentWhileCruising" 3081 "CVOPCHystereseF" 3088 "AccAtCurrentMeasured" 3089 "CurrentForConstantVelocity" 3090 "CascadedMaxSetForceDelta" 3091 "CascadedFreqCurUpdate" 3092 "CascadedKpIncreaseCurrent" 3093 "CascadedKpDecreaseCurrent" 3094 "CVOPCImin" 3095 "CVOPCTcFreq" 3096 "AdaptModelByCurrent" 3097 "Current4Stopping" 3104 "FinishedDelay" 3105 "maxRunDistance" 3106 "opc_ratelimiter_f" 3107 "DebugCascadedIreq" 3108 "DebugCVOPCfreq" 3109 "opc_brakeFlag" 3110 "opc_t_run_max" 3111 "opc_F_max" 3112 "opc_T_acc" 3113 "opc_v_max" 3120 "opc_v_threshold" 3121 "opc_F_decrease" 3122 "opc_lowpass_Tcf" 3123 "opc_lowpass_TcI" 3329 "StripeMode" 3330 "ReflectorDistance" 3331 "PositionGlitch" 3332 "EnableSignalGeneration" 3585 "accDeviation" 3586 "velDeviationEncoder" 3587 "velDeviationOptic" 3588 "posDeviationEncoder" 3589 "posDeviationOptic" ;
 VAL_ 1538 SensorR_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "samplingInterval" 2576 "EncoderWheelDiameter" 2586 "EncoderResetPosition" 2592 "IMU_number" 2597 "IMU1_Temperature" 2598 "IMU2_Temperature" 2599 "IMU3_Temperature" 2608 "ExecTimeOverall" 2609 "ExecTimeStateEst" 2610 "ExecTimeControl" 2611 "ExecTimeReadSensors" 2624 "OpcKp" 2625 "OpcKi" 2626 "CtrlMode" 2627 "CurrentReq" 2628 "PodMass" 2629 "FmaxCtrl" 2630 "FminCtrl" 2631 "MaxCtrlError" 2632 "MaxCtrlErrorDuration" 2633 "WarningThreshholdForLimModelOutOfBoundaries" 2634 "MaxRequiredVelocity" 2635 "VdcReduceFactor" 2636 "RunMode" 2637 "SetFinish" 2816 "RunProfile_T0" 2817 "RunProfile_V0" 2818 "RunProfile_T1" 2819 "RunProfile_V1" 2820 "RunProfile_T2" 2821 "RunProfile_V2" 2822 "RunProfile_T3" 2823 "RunProfile_V3" 2824 "RunProfile_T4" 2825 "RunProfile_V4" 2826 "EstimatedRunLength" 3072 "TC_I" 3073 "TC_f" 3074 "VelocityController" 3075 "CVOPCImax" 3076 "CVOPCTcf" 3077 "CVOPCTcI" 3078 "CVOPCSmoothingDeltaVelocity" 3079 "CVOPCDeltaVelHigherCurrent" 3080 "CVOPCReduceCurrentWhileCruising" 3081 "CVOPCHystereseF" 3088 "AccAtCurrentMeasured" 3089 "CurrentForConstantVelocity" 3090 "CascadedMaxSetForceDelta" 3091 "CascadedFreqCurUpdate" 3092 "CascadedKpIncreaseCurrent" 3093 "CascadedKpDecreaseCurrent" 3094 "CVOPCImin" 3095 "CVOPCTcFreq" 3096 "AdaptModelByCurrent" 3097 "Current4Stopping" 3104 "FinishedDelay" 3105 "maxRunDistance" 3106 "opc_ratelimiter_f" 3107 "DebugCascadedIreq" 3108 "DebugCVOPCfreq" 3109 "opc_brakeFlag" 3110 "opc_t_run_max" 3111 "opc_F_max" 3112 "opc_T_acc" 3113 "opc_v_max" 3120 "opc_v_threshold" 3121 "opc_F_decrease" 3122 "opc_lowpass_Tcf" 3123 "opc_lowpass_TcI" 3329 "StripeMode" 3330 "ReflectorDistance" 3331 "PositionGlitch" 3332 "EnableSignalGeneration" 3585 "accDeviation" 3586 "velDeviationEncoder" 3587 "velDeviationOptic" 3588 "posDeviationEncoder" 3589 "posDeviationOptic" ;
 VAL_ 1794 SensorR_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
-VAL_ 145 BrakeF_E5_retractUnsuccesful_ope 0 "Ok" 1 "ERR" ;
-VAL_ 145 BrakeF_E4_retractUnsuccesful_not 0 "Ok" 1 "ERR" ;
-VAL_ 145 BrakeF_E3_retractUnsuccesful_err 0 "Ok" 1 "ERR" ;
-VAL_ 145 BrakeF_E2_commWatchdogTimeout 0 "Ok" 1 "ERR" ;
-VAL_ 145 BrakeF_E1_pressureTooLow 0 "Ok" 1 "ERR" ;
-VAL_ 145 BrakeF_E0_pressureTooHigh 0 "Ok" 1 "ERR" ;
+VAL_ 145 BrakeF_E6_OuttakeUnderPressure 0 "Ok" 1 "ERR" ;
+VAL_ 145 BrakeF_E5_OuttakeOverPressure 0 "Ok" 1 "ERR" ;
+VAL_ 145 BrakeF_E4_IntakeUnderPressure 0 "Ok" 1 "ERR" ;
+VAL_ 145 BrakeF_E3_IntakeOverPressure 0 "Ok" 1 "ERR" ;
+VAL_ 145 BrakeF_E2_OverVolt 0 "Ok" 1 "ERR" ;
+VAL_ 145 BrakeF_E1_UnderVolt 0 "Ok" 1 "ERR" ;
+VAL_ 145 BrakeF_E0_CPUOverTemp 0 "Ok" 1 "ERR" ;
 VAL_ 145 BrakeF_W3_externalError 0 "Ok" 1 "WARN" ;
 VAL_ 145 BrakeF_W2_enableWithAnError 0 "Ok" 1 "WARN" ;
 VAL_ 145 BrakeF_W1_highPressureRetracting 0 "Ok" 1 "WARN" ;
@@ -13850,7 +13816,7 @@ VAL_ 1425 BrakeF_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Erro
 VAL_ 1425 BrakeF_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1425 BrakeF_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
 VAL_ 1425 BrakeF_SDO_RespCode 5 "ERR: Out of range" 4 "ERR: No access in this state" 3 "ERR: Read only object" 2 "ERR: Write only object" 1 "ERR: Non existing object" 0 "OK" ;
-VAL_ 1425 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" 2816 "CoolingPressure" 2304 "BrakeStatus" ;
+VAL_ 1425 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" 2816 "IntakePressure" 2817 "OuttakePressure" 2304 "BrakeStatus" ;
 VAL_ 1489 BrakeF_OD_BrakeStatus 0 "Disengaged" 1 "Engaged" ;
 VAL_ 1489 BrakeF_OD_CAN2_ErrorStatus 0 "Ok" 1 "Warn" 2 "Error Passive" 3 "Bus Off" ;
 VAL_ 1489 BrakeF_OD_CAN2_Status 0 "Reset" 1 "Ready" 2 "Listening" 3 "Sleep_Pending" 4 "Sleep_Active" 5 "ERROR" ;
@@ -13862,8 +13828,8 @@ VAL_ 1489 BrakeF_OD_CAN1_autoErrorReset 0 "Disabled" 1 "Enabled" ;
 VAL_ 1489 BrakeF_OD_CAN1_lastErrorCode 0 "No Error" 1 "Stuff Error" 2 "Form Error" 3 "Ack Error" 4 "Bit recessive Error" 5 "Bit dominant Error" 6 "CRC Error" ;
 VAL_ 1489 BrakeF_OD_SendOdOnBootup 0 "Disabled" 1 "Enabled" ;
 VAL_ 1489 BrakeF_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" 128 "Reset" ;
-VAL_ 1489 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" 2816 "CoolingPressure" 2304 "BrakeStatus" ;
-VAL_ 1553 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" 2816 "CoolingPressure" 2304 "BrakeStatus" ;
+VAL_ 1489 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" 2816 "IntakePressure" 2817 "OuttakePressure" 2304 "BrakeStatus" ;
+VAL_ 1553 BrakeF_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" 2816 "IntakePressure" 2817 "OuttakePressure" 2304 "BrakeStatus" ;
 VAL_ 1809 BrakeF_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
 VAL_ 146 BrakeR_E5_retractUnsuccesful_ope 0 "Ok" 1 "ERR" ;
 VAL_ 146 BrakeR_E4_retractUnsuccesful_not 0 "Ok" 1 "ERR" ;
@@ -13907,6 +13873,10 @@ VAL_ 1490 BrakeR_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-O
 VAL_ 1490 BrakeR_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" ;
 VAL_ 1554 BrakeR_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2048 "tankLowerControlLimit" 2049 "tankUpperControlLimit" 2050 "delay" 2051 "counterLimit" 2052 "commWatchdog" 2053 "valveUpperTolerance" ;
 VAL_ 1810 BrakeR_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
+VAL_ 154 PDU_E8_UnderVolt 0 "Ok" 1 "ERR" ;
+VAL_ 154 PDU_E7_OverVolt 0 "Ok" 1 "ERR" ;
+VAL_ 154 PDU_E6_CPUOverTemp 0 "Ok" 1 "ERR" ;
+VAL_ 154 PDU_E5_SECUHeartbeatMiss 0 "Ok" 1 "ERR" ;
 VAL_ 154 PDU_E4_watchdogStateMachine 0 "Ok" 1 "ERR" ;
 VAL_ 154 PDU_E3_batterTempCritical 0 "Ok" 1 "ERR" ;
 VAL_ 154 PDU_E2_batteryOvercurrent 0 "Ok" 1 "ERR" ;
@@ -14187,6 +14157,9 @@ VAL_ 1521 MDB6_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Ope
 VAL_ 1521 MDB6_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
 VAL_ 1585 MDB6_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" ;
 VAL_ 1841 MDB6_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
+VAL_ 178 Track_E3_UnderVolt 0 "Ok" 1 "ERR" ;
+VAL_ 178 Track_E2_OverVolt 0 "Ok" 1 "ERR" ;
+VAL_ 178 Track_E1_CPUOverTemp 0 "Ok" 1 "ERR" ;
 VAL_ 178 Track_E0_OtherError 0 "Ok" 1 "ERR" ;
 VAL_ 178 Track_W0_OtherWarning 0 "Ok" 1 "WARN" ;
 VAL_ 1458 Track_OD_PistonStatus 0 "Ready" 1 "Extended" ;
@@ -14216,11 +14189,11 @@ VAL_ 1522 Track_OD_NodeStatus 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Op
 VAL_ 1522 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2304 "PistonStatus" 2816 "PressureReservoir" 2817 "PressurePush" 2818 "PressureRetract" 2560 "PropulsionDistance" ;
 VAL_ 1586 Track_SDO_ID 0 "Reserved" 1 "NodeID" 2 "NodeStatus" 3 "ProtocolVersion" 4 "StackVersion" 5 "DbcVersion" 16 "HeartbeatInterval" 32 "SendOdOnBootup" 33 "OdEntrySendInterval" 1040 "CpuUsage" 1041 "MemFree" 1042 "BoardTemp" 1043 "InputVoltage" 1044 "runtime" 1045 "SdcIn" 1046 "SdcOut" 1056 "ChipUID1" 1057 "ChipUID2" 1072 "BuildDate" 1073 "BuildTime" 1104 "CAN1_TxErrCnt" 1105 "CAN1_RxErrCnt" 1106 "CAN1_lastErrorCode" 1107 "CAN1_autoErrorReset" 1108 "CAN1_Baudrate" 1110 "CAN1_Status" 1111 "CAN1_DiscardedTxMessages" 1112 "CAN1_ErrorStatus" 1113 "CAN1_DelayedTxMessages" 1120 "CAN2_TxErrCnt" 1121 "CAN2_RxErrCnt" 1122 "CAN2_lastErrorCode" 1123 "CAN2_autoErrorReset" 1124 "CAN2_Baudrate" 1126 "CAN2_Status" 1127 "CAN2_DiscardedTxMessages" 1128 "CAN2_ErrorStatus" 1129 "CAN2_DelayedTxMessages" 2304 "PistonStatus" 2816 "PressureReservoir" 2817 "PressurePush" 2818 "PressureRetract" 2560 "PropulsionDistance" ;
 VAL_ 1842 Track_NodeState 0 "Bootup" 4 "Stopped" 5 "Operational" 127 "Pre-Operational" ;
-VAL_ 148 CLU_E5_retractUnsuccesful_openSD 0 "Ok" 1 "ERR" ;
-VAL_ 148 CLU_E4_retractUnsuccesful_notEna 0 "Ok" 1 "ERR" ;
-VAL_ 148 CLU_E3_retractUnsuccesful_errorF 0 "Ok" 1 "ERR" ;
-VAL_ 148 CLU_E2_commWatchdogTimeout 0 "Ok" 1 "ERR" ;
-VAL_ 148 CLU_E1_pressureTooLow 0 "Ok" 1 "ERR" ;
+VAL_ 148 CLU_E5_LevitationError 0 "Ok" 1 "ERR" ;
+VAL_ 148 CLU_E4_MagnetOverTemp 0 "Ok" 1 "ERR" ;
+VAL_ 148 CLU_E3_UnderVolt 0 "Ok" 1 "ERR" ;
+VAL_ 148 CLU_E2_OverVolt 0 "Ok" 1 "ERR" ;
+VAL_ 148 CLU_E1_CPUOverTemp 0 "Ok" 1 "ERR" ;
 VAL_ 148 CLU_E0_pressureTooHigh 0 "Ok" 1 "ERR" ;
 VAL_ 148 CLU_W3_externalError 0 "Ok" 1 "WARN" ;
 VAL_ 148 CLU_W2_enableWithAnError 0 "Ok" 1 "WARN" ;

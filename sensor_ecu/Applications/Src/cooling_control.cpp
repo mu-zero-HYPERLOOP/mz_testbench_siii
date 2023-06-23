@@ -33,14 +33,23 @@ constexpr float MAGNET_TEMPERATURE_LOW = 30;
 constexpr float RESERVOIR_NTC_NOMINAL_RESISTANCE = 8500;
 constexpr float RESERVOIR_NTC_NOMINAL_TEMPERATURE = 273.15 + 25;
 constexpr float RESERVOIR_NTC_BETA = 4200;
-constexpr float RESERVOIR_NTC_INTERNAL_RESISTOR = 100000;
+constexpr float RESERVOIR_NTC_INTERNAL_RESISTOR = 1000;
 constexpr AdcModule RESERVOIR_NTC_ADC_MODULE = ADC_MODULE2;
 constexpr uint16_t RESERVOIR_NTC_ADC_RANK = 0;
+
+constexpr float EBOX_NTC_NOMINAL_RESISTANCE = 10000;
+constexpr float EBOX_NTC_NOMINAL_TEMPERATURE = 273.15 + 25;
+constexpr float EBOX_NTC_BETA = 3977;
+constexpr float EBOX_NTC_INTERNAL_RESISTANCE = 1000;
+constexpr AdcModule EBOX_NTC_ADC_MODULE = ADC_MODULE2;
+constexpr uint8_t EBOX_NTC_ADC_RANK = 1;
 
 pdu::HpChannel COOLING_PUMP_CHANNEL = pdu::HP_CHANNEL3;
 
 AdcChannelController reservoirTemperatureAdc;
 MovingAverageFilter<10> reservoirTemperatureFilter(20);
+AdcChannelController eboxTemperatureAdc;
+MovingAverageFilter<10> eboxTemperatureFilter(20);
 //NTCSensor reference;
 
 void setMode(MODE mode) {
@@ -66,11 +75,28 @@ float readReservoirTemperatureSensor() {
 	return reservoirTemperatureFilter.get();
 }
 
+float readBoxTemperatureSensor(){
+	uint16_t avalue = eboxTemperatureAdc.get();
+	float r_ntc = EBOX_NTC_INTERNAL_RESISTANCE / ((4095.0 / avalue) - 1.0);
+
+	float temperature = 1.0f / ((std::log(r_ntc / EBOX_NTC_NOMINAL_RESISTANCE) / EBOX_NTC_BETA)
+			+ (1.0f / EBOX_NTC_NOMINAL_TEMPERATURE) )
+					- 273.15;
+	if(!isnanf(temperature) && !isinff(temperature) && temperature > 0){
+		eboxTemperatureFilter.addValue(temperature);
+	}
+	return eboxTemperatureFilter.get();
+}
+
 void init() {
 	reservoirTemperatureAdc = AdcChannelController(RESERVOIR_NTC_ADC_MODULE,
 			RESERVOIR_NTC_ADC_RANK);
 	for (size_t i = 0; i < 10; i++) {
 		reservoirTemperatureFilter.addValue(readReservoirTemperatureSensor());
+	}
+	eboxTemperatureAdc = AdcChannelController(EBOX_NTC_ADC_MODULE, EBOX_NTC_ADC_RANK);
+	for (size_t i = 0; i < 10; i++) {
+		reservoirTemperatureFilter.addValue(readBoxTemperatureSensor());
 	}
 }
 
@@ -78,6 +104,7 @@ void init() {
 void update() {
 	// read temperature sensor and update od entry.
 	OD_ReservoirTemperature_set(readReservoirTemperatureSensor());
+	OD_EboxTemperature_set(readBoxTemperatureSensor());
 
 	// cooling state maschine.
 	osMutexAcquire(s_modeMutex, osWaitForever);
@@ -93,7 +120,7 @@ void update() {
 		bool errorPressure = (pressure >= RESERVOIR_PRESSURE_HIGH)
 				|| (pressure <= RESERVOIR_PRESSURE_LOW);
 
-		bool requiresCooling = (OD_ReservoirTemperature_get() > RESERVOIR_TEMPERATURE_LOW) || clu::requiresCooling();
+		bool requiresCooling = clu::requiresCooling();
 
 		bool activate = (not errorPressure) && requiresCooling;
 		if (activate) {

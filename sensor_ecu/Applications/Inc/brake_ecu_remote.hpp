@@ -7,7 +7,7 @@
 
 #pragma once
 
-namespace brake{
+namespace brake_remote{
 
 void init();
 

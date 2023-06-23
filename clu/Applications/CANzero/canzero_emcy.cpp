@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 15:00:47 16.06.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 00:30:47 22.06.2023.
  * It contains the errors and warnings for the node 'CLU'.
  *
  * Florian Keck
@@ -188,11 +188,11 @@ bool WARN_externalError_get() {
 // Reset all errors
 void ERR_ALL_clear() {
     ERR_pressureTooHigh_clear();
-    ERR_pressureTooLow_clear();
-    ERR_commWatchdogTimeout_clear();
-    ERR_retractUnsuccesful_errorFlag_clear();
-    ERR_retractUnsuccesful_notEnabled_clear();
-    ERR_retractUnsuccesful_openSDC_clear();
+    ERR_CPUOverTemp_clear();
+    ERR_OverVolt_clear();
+    ERR_UnderVolt_clear();
+    ERR_MagnetOverTemp_clear();
+    ERR_LevitationError_clear();
 }
 
 // Error: E0_pressureTooHigh
@@ -231,183 +231,183 @@ bool ERR_pressureTooHigh_get() {
 }
 
 
-// Error: E1_pressureTooLow
-bool ERR_pressureTooLow_status = false;    // Internal value
+// Error: E1_CPUOverTemp
+bool ERR_CPUOverTemp_status = false;    // Internal value
 
-void ERR_pressureTooLow_set() {
+void ERR_CPUOverTemp_set() {
     // Only set error when it is not set yet
-    if(!ERR_pressureTooLow_status) {
+    if(!ERR_CPUOverTemp_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_pressureTooLow_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_CPUOverTemp_FLAG, eSetBits);
 
         // Update internal value
-        ERR_pressureTooLow_status = true;
+        ERR_CPUOverTemp_status = true;
     }
 }
 
-void ERR_pressureTooLow_clear() {
+void ERR_CPUOverTemp_clear() {
     // Only clear error when it is set
-    if(ERR_pressureTooLow_status) {
+    if(ERR_CPUOverTemp_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_pressureTooLow_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_CPUOverTemp_FLAG);
 
         // Update internal value
-        ERR_pressureTooLow_status = false;
+        ERR_CPUOverTemp_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_pressureTooLow_get() {
+bool ERR_CPUOverTemp_get() {
     // Return internal value
-    return ERR_pressureTooLow_status;
+    return ERR_CPUOverTemp_status;
 }
 
 
-// Error: E2_commWatchdogTimeout
-bool ERR_commWatchdogTimeout_status = false;    // Internal value
+// Error: E2_OverVolt
+bool ERR_OverVolt_status = false;    // Internal value
 
-void ERR_commWatchdogTimeout_set() {
+void ERR_OverVolt_set() {
     // Only set error when it is not set yet
-    if(!ERR_commWatchdogTimeout_status) {
+    if(!ERR_OverVolt_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_commWatchdogTimeout_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_OverVolt_FLAG, eSetBits);
 
         // Update internal value
-        ERR_commWatchdogTimeout_status = true;
+        ERR_OverVolt_status = true;
     }
 }
 
-void ERR_commWatchdogTimeout_clear() {
+void ERR_OverVolt_clear() {
     // Only clear error when it is set
-    if(ERR_commWatchdogTimeout_status) {
+    if(ERR_OverVolt_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_commWatchdogTimeout_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_OverVolt_FLAG);
 
         // Update internal value
-        ERR_commWatchdogTimeout_status = false;
+        ERR_OverVolt_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_commWatchdogTimeout_get() {
+bool ERR_OverVolt_get() {
     // Return internal value
-    return ERR_commWatchdogTimeout_status;
+    return ERR_OverVolt_status;
 }
 
 
-// Error: E3_retractUnsuccesful_errorFlag
-bool ERR_retractUnsuccesful_errorFlag_status = false;    // Internal value
+// Error: E3_UnderVolt
+bool ERR_UnderVolt_status = false;    // Internal value
 
-void ERR_retractUnsuccesful_errorFlag_set() {
+void ERR_UnderVolt_set() {
     // Only set error when it is not set yet
-    if(!ERR_retractUnsuccesful_errorFlag_status) {
+    if(!ERR_UnderVolt_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_errorFlag_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_UnderVolt_FLAG, eSetBits);
 
         // Update internal value
-        ERR_retractUnsuccesful_errorFlag_status = true;
+        ERR_UnderVolt_status = true;
     }
 }
 
-void ERR_retractUnsuccesful_errorFlag_clear() {
+void ERR_UnderVolt_clear() {
     // Only clear error when it is set
-    if(ERR_retractUnsuccesful_errorFlag_status) {
+    if(ERR_UnderVolt_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_errorFlag_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_UnderVolt_FLAG);
 
         // Update internal value
-        ERR_retractUnsuccesful_errorFlag_status = false;
+        ERR_UnderVolt_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_retractUnsuccesful_errorFlag_get() {
+bool ERR_UnderVolt_get() {
     // Return internal value
-    return ERR_retractUnsuccesful_errorFlag_status;
+    return ERR_UnderVolt_status;
 }
 
 
-// Error: E4_retractUnsuccesful_notEnabled
-bool ERR_retractUnsuccesful_notEnabled_status = false;    // Internal value
+// Error: E4_MagnetOverTemp
+bool ERR_MagnetOverTemp_status = false;    // Internal value
 
-void ERR_retractUnsuccesful_notEnabled_set() {
+void ERR_MagnetOverTemp_set() {
     // Only set error when it is not set yet
-    if(!ERR_retractUnsuccesful_notEnabled_status) {
+    if(!ERR_MagnetOverTemp_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_notEnabled_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_MagnetOverTemp_FLAG, eSetBits);
 
         // Update internal value
-        ERR_retractUnsuccesful_notEnabled_status = true;
+        ERR_MagnetOverTemp_status = true;
     }
 }
 
-void ERR_retractUnsuccesful_notEnabled_clear() {
+void ERR_MagnetOverTemp_clear() {
     // Only clear error when it is set
-    if(ERR_retractUnsuccesful_notEnabled_status) {
+    if(ERR_MagnetOverTemp_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_notEnabled_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_MagnetOverTemp_FLAG);
 
         // Update internal value
-        ERR_retractUnsuccesful_notEnabled_status = false;
+        ERR_MagnetOverTemp_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_retractUnsuccesful_notEnabled_get() {
+bool ERR_MagnetOverTemp_get() {
     // Return internal value
-    return ERR_retractUnsuccesful_notEnabled_status;
+    return ERR_MagnetOverTemp_status;
 }
 
 
-// Error: E5_retractUnsuccesful_openSDC
-bool ERR_retractUnsuccesful_openSDC_status = false;    // Internal value
+// Error: E5_LevitationError
+bool ERR_LevitationError_status = false;    // Internal value
 
-void ERR_retractUnsuccesful_openSDC_set() {
+void ERR_LevitationError_set() {
     // Only set error when it is not set yet
-    if(!ERR_retractUnsuccesful_openSDC_status) {
+    if(!ERR_LevitationError_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_openSDC_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_LevitationError_FLAG, eSetBits);
 
         // Update internal value
-        ERR_retractUnsuccesful_openSDC_status = true;
+        ERR_LevitationError_status = true;
     }
 }
 
-void ERR_retractUnsuccesful_openSDC_clear() {
+void ERR_LevitationError_clear() {
     // Only clear error when it is set
-    if(ERR_retractUnsuccesful_openSDC_status) {
+    if(ERR_LevitationError_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_openSDC_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_LevitationError_FLAG);
 
         // Update internal value
-        ERR_retractUnsuccesful_openSDC_status = false;
+        ERR_LevitationError_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_retractUnsuccesful_openSDC_get() {
+bool ERR_LevitationError_get() {
     // Return internal value
-    return ERR_retractUnsuccesful_openSDC_status;
+    return ERR_LevitationError_status;
 }
 
 

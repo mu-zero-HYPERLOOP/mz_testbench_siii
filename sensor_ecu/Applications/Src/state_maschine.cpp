@@ -5,6 +5,8 @@
  *      Author: OfficeLaptop
  */
 
+#include "heartbeat_monitor.hpp"
+#include "error.hpp"
 #include "state_maschine.hpp"
 #include "estdio.hpp"
 #include "FreeRTOS.h"
@@ -16,6 +18,9 @@
 #include "ground_station_remote.hpp"
 #include "canzero.hpp"
 #include "pdu_remote.hpp"
+#include "brake_control.hpp"
+#include "fiducials.hpp"
+#include "canzero.hpp"
 
 
 
@@ -31,9 +36,12 @@ static constexpr TickType_t TIME_TO_DISENGAGE_BRAKES = pdMS_TO_TICKS(1000);
 static constexpr TickType_t TIME_TO_ENGAGE_BRAKES = pdMS_TO_TICKS(1000);
 static constexpr float SPEED_TO_ENGAGE_BRAKES = 10;
 static constexpr TickType_t MAX_TIME_ROLLING = pdMS_TO_TICKS(2000);
-static constexpr TickType_t DISTANCE_TO_FORCE_BRAKES = 10;
-static constexpr TickType_t STRIPE_COUNT_TO_FORCE_BRAKES = 10;
+static constexpr TickType_t DISTANCE_TO_FORCE_BRAKES = 1.5;
+static constexpr TickType_t STRIPE_COUNT_TO_FORCE_BRAKES = 2;
 static constexpr float SPEED_CONSIDERED_STOPED = 0.1;
+static constexpr TickType_t STOP_LEVI_TIMEOUT = pdMS_TO_TICKS(2000);
+static constexpr TickType_t MIN_PRECHARGE_TIME = pdMS_TO_TICKS(1000);
+static constexpr TickType_t MAX_TIME_IN_EOR = pdMS_TO_TICKS(1000 * 60 * 2);
 
 
 static PodState s_state;
@@ -53,6 +61,10 @@ void setState(PodState state){
     ground::reset();
 }
 
+PodState getState(){
+	return s_state;
+}
+
 void init(){
 	s_nextState = STATE::POD_STARTUP;
 }
@@ -66,7 +78,6 @@ void update(){
 	}
 	s_lastState = s_state;
     osMutexRelease(s_stateMutex);
-    bool handlingError = s_error;
 
 	TickType_t timeSinceLastTransition = xTaskGetTickCount() - s_lastTransition;
 	TickType_t timeSinceLastBrd = xTaskGetTickCount() - s_lastBrd;
@@ -76,79 +87,173 @@ void update(){
 		msg.send();
 		s_lastBrd = xTaskGetTickCount();
 	}
+	if(errors::hasEmergency() || ground::lastCommand() == ground::COMMAND::EMERGENCY){
+		sdc::open();
+		kistler::disable();
+		brake_control::engage();
+		setState(STATE::POD_OFF);
+		return;
+	}
 
     switch(s_state){
     case STATE::POD_STARTUP:
-    	// TODO implement special handling of iwdg resets.
-    	if(timeSinceLastTransition > STARTUP_TIME){
+    	if(errors::hasError()){
+    		setState(STATE::POD_OFF);
+    		break;
+    	}
+    	kistler::disable();
+    	brake_control::engage();
+    	sdc::open();
+    	if(timeSinceLastTransition > STARTUP_TIME
+    			&& heartbeat::telemetryConnected()){
     		setState(STATE::POD_IDLE);
     	}
     	break;
     case STATE::POD_IDLE:
-    	sdc::open();
-    	cooling::setMode(cooling::MODE::ADAPTIV);
-    	kistler::disable();
+    	if(errors::hasError()){
+    		setState(STATE::POD_OFF);
+    		break;
+    	}
     	if(ground::lastCommand() == ground::COMMAND::LAUNCH_PREPARATION){
     		setState(STATE::POD_LAUNCH_PREPARATION);
+    		break;
     	}
+    	if(ground::lastCommand() == ground::COMMAND::PUSHING_START){
+    		setState(STATE::POD_PUSHABLE);
+    		break;
+    	}
+    	fiducials::reset();
+    	sdc::open();
+    	cooling::setMode(cooling::MODE::ADAPTIV);
+    	kistler::enable();
+    	brake_control::engage();
     	break;
     case STATE::POD_LAUNCH_PREPARATION:
+    	if(errors::hasError()){
+    		setState(STATE::POD_OFF);
+    		break;
+    	}
+    	if(ground::lastCommand() == ground::COMMAND::LAUNCH_ABORT){
+    		setState(STATE::POD_IDLE);
+    		break;
+    	}
+    	if(ground::lastCommand() == ground::COMMAND::LAUNCH_START){
+    		setState(STATE::POD_IDLE);
+    		break;
+    	}
     	sdc::close();
     	cooling::setMode(cooling::MODE::ADAPTIV);
     	kistler::enable();
-    	//TODO add check for track.
-    	//TODO add check for temperatures.
-    	if(clu::getState() == clu::State::MDB_READY){
+    	brake_control::engage();
+    	if(clu::getState() == clu::State::MDB_READY && timeSinceLastTransition > MIN_PRECHARGE_TIME){
     		setState(STATE::POD_READY_TO_LAUNCH);
     	}
     	break;
     case STATE::POD_READY_TO_LAUNCH:
+    	if(errors::hasError()){
+    		setState(STATE::POD_OFF);
+    		break;
+    	}
+    	if(ground::lastCommand() == ground::COMMAND::LAUNCH_ABORT){
+    		setState(STATE::POD_IDLE);
+    		break;
+    	}
     	sdc::close();
     	cooling::setMode(cooling::MODE::ADAPTIV);
     	kistler::enable();
+    	brake_control::engage();
     	if(ground::lastCommand() == ground::COMMAND::LAUNCH_START){
     		setState(STATE::POD_START_LEVITATION);
     	}
     	break;
     case STATE::POD_START_LEVITATION:
+    	if(errors::hasError()){
+    		setState(STATE::POD_DISENGAGE_BRAKES);
+    	}
+    	if(ground::lastCommand() == ground::COMMAND::LAUNCH_ABORT){
+    		setState(STATE::POD_STOP_LEVITATION);
+    		break;
+    	}
+    	if(errors::hasError()){
+    		setState(STATE::POD_DISENGAGE_BRAKES);
+    		break;
+    	}
     	sdc::close();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
+    	brake_control::engage();
     	if(clu::getState() == clu::State::MDB_LEVI){
     		setState(STATE::POD_STABLE_LEVITATION);
     	}
     	break;
     case STATE::POD_STABLE_LEVITATION:
+    	if(errors::hasError()){
+    		setState(STATE::POD_DISENGAGE_BRAKES);
+    		break;
+    	}
+    	if(OD_Position_get() >= DISTANCE_TO_FORCE_BRAKES || OD_StripeCount_get() >= STRIPE_COUNT_TO_FORCE_BRAKES){
+    		setState(STATE::POD_ENGAGE_BRAKES);
+    		break;
+    	}
+    	if(ground::lastCommand() == ground::COMMAND::LAUNCH_ABORT){
+    		setState(STATE::POD_STOP_LEVITATION);
+    		break;
+    	}
     	sdc::close();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
+    	brake_control::engage();
     	if(OD_Velocity_get() > MIN_SPEED_TO_TRANSITION_INTO_CRUSING){
     		setState(STATE::POD_CRUSING);
+    		break;
     	}
     	break;
     case STATE::POD_CRUSING:
+    	if(OD_Position_get() >= DISTANCE_TO_FORCE_BRAKES || OD_StripeCount_get() >= STRIPE_COUNT_TO_FORCE_BRAKES){
+    		setState(STATE::POD_ENGAGE_BRAKES);
+    		break;
+    	}
+    	if(errors::hasError()){
+    		setState(STATE::POD_DISENGAGE_BRAKES);
+    		break;
+    	}
+    	if(ground::lastCommand() == ground::COMMAND::LAUNCH_ABORT){
+    		setState(STATE::POD_DISENGAGE_BRAKES);
+    		break;
+    	}
     	sdc::close();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
+    	brake_control::engage();
     	if(OD_Position_get() >= DISTANCE_TO_STOP_LEVITATION || OD_StripeCount_get() >= STRIPE_COUNT_TO_STOP_LEVITATION){
     		setState(STATE::POD_DISENGAGE_BRAKES);
     	}
     	break;
     case STATE::POD_DISENGAGE_BRAKES:
+    	if(OD_Position_get() >= DISTANCE_TO_FORCE_BRAKES || OD_StripeCount_get() >= STRIPE_COUNT_TO_FORCE_BRAKES){
+    		setState(STATE::POD_ENGAGE_BRAKES);
+    		break;
+    	}
     	sdc::close();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
     	if(timeSinceLastTransition > TIME_TO_DISENGAGE_BRAKES){
     		setState(STATE::POD_STOP_LEVITATION);
     	}
+    	brake_control::disengage();
     	break;
     case STATE::POD_STOP_LEVITATION:
+    	if(OD_Position_get() >= DISTANCE_TO_FORCE_BRAKES || OD_StripeCount_get() >= STRIPE_COUNT_TO_FORCE_BRAKES){
+    		setState(STATE::POD_ENGAGE_BRAKES);
+    		break;
+    	}
     	sdc::close();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::enable();
-    	if(clu::getState() == clu::State::MDB_READY){
+    	if(clu::getState() == clu::State::MDB_READY || timeSinceLastTransition > STOP_LEVI_TIMEOUT){
     		setState(STATE::POD_ROLLING);
     	}
+    	brake_control::disengage();
     	break;
     case STATE::POD_ROLLING:
     	sdc::open();
@@ -159,6 +264,7 @@ void update(){
 				|| OD_StripeCount_get() >= STRIPE_COUNT_TO_FORCE_BRAKES){
     		setState(STATE::POD_ENGAGE_BRAKES);
     	}
+    	brake_control::disengage();
     	break;
     case STATE::POD_ENGAGE_BRAKES:
     	sdc::open();
@@ -167,24 +273,68 @@ void update(){
     	if(OD_Velocity_get() <= SPEED_CONSIDERED_STOPED){
     		setState(STATE::POD_END_OF_RUN);
     	}
+    	brake_control::engage();
     	break;
     case STATE::POD_END_OF_RUN:
     	sdc::open();
     	cooling::setMode(cooling::MODE::ON);
     	kistler::disable();
+    	brake_control::engage();
+    	if(not errors::hasError()){
+			if(not clu::requiresCooling()){
+				setState(STATE::POD_SAFE_TO_APPROCH);
+				break;
+			}
+    	}else{
+    		if(timeSinceLastTransition > MAX_TIME_IN_EOR){
+    			setState(STATE::POD_OFF);
+    			break;
+    		}
+    	}
     	break;
     case STATE::POD_SAFE_TO_APPROCH:
+    	if(ground::lastCommand() == ground::COMMAND::IDLE){
+    		setState(STATE::POD_IDLE);
+    		break;
+    	}
+    	else if(ground::lastCommand() == ground::COMMAND::PUSHING_START){
+    		setState(STATE::POD_PUSHABLE);
+    		break;
+    	}
     	sdc::open();
     	cooling::setMode(cooling::MODE::ADAPTIV);
     	kistler::disable();
+    	brake_control::engage();
     	break;
     case STATE::POD_PUSHABLE:
+    	if(errors::hasError()){
+    		setState(STATE::POD_OFF);
+    		break;
+    	}
+    	if(ground::lastCommand() == ground::COMMAND::IDLE){
+    		setState(STATE::POD_IDLE);
+    		break;
+    	}
+    	/*
+    	if(OD_StripeCount_get() > STRIPE_COUNT_TO_FORCE_BRAKES){
+    		setState(STATE::POD_END_OF_RUN);
+    		break;
+    	}
+    	if(OD_Position_get() > DISTANCE_TO_FORCE_BRAKES){
+    		setState(STATE::POD_END_OF_RUN);
+    		break;
+    	}
+    	*/
     	sdc::open();
+    	brake_control::disengage();
     	cooling::setMode(cooling::MODE::OFF);
-    	kistler::disable();
+    	kistler::enable();
     	break;
     case STATE::POD_OFF:
-    	//pdu::killMe();
+    	sdc::open();
+    	kistler::disable();
+    	brake_control::engage();
+    	//mainly handled by the pdu.
     	break;
     }
 }

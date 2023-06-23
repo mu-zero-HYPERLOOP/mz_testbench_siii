@@ -10,6 +10,8 @@
 
 #include "dbc_parser.hpp"
 #include "canzero_od.hpp"
+#include "cz_emergency.hpp"
+#include "canzero_emcy.hpp"
 #include "cz_message_receiver.hpp"
 #include "cz_RxMessageQueue.hpp"
 

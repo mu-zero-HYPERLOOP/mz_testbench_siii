@@ -23,6 +23,7 @@ Command lastCommand(){
 
 
 void init(){
+	OD_TelemetryCommands_set(COMMAND::NONE);
 	//register receivers for
 }
 

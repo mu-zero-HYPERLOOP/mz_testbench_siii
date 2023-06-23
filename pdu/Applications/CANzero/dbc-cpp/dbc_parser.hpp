@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 16:26:22 15.06.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 03:09:42 22.06.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'PDU' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -461,17 +461,31 @@ namespace can {
     /**********************************************************************************************
     * Network attributes                                                                          *
     ***********************************************************************************************/
-    constexpr char BusType[] = "CAN";
-    constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 205;
-    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
+    constexpr char CANzero_SDOClientName[] = "TelemetryNode";
+    constexpr uint32_t CANzero_DBCVersion = 251;
+    constexpr char CANzero_ProtocolVersion[] = "V1.0";
+    constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
     
     /**********************************************************************************************
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
+        class PDU_TX_ErrorPrio {
+            public:
+            using dataType = uint8_t;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x5 };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, uint8_t value) noexcept {
+                uint8_t rawValue = (value);
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFull;
+            }
+            constexpr static inline uint8_t get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                uint8_t value = static_cast<uint8_t>((intel & 0xFFull));
+                return value;
+            }
+        };
         class PDU_RX_LPCh4_Enable {
             public:
             using dataType = bool;
@@ -5138,6 +5152,78 @@ namespace can {
             constexpr static bool OK = 0;
             constexpr static bool ERR = 1;
         };
+        class PDU_E5_SECUHeartbeatMiss {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x9A };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 17) & 0x20000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x20000ull) >> 17);
+                return value;
+            }
+
+            // Value table of signal 'PDU_E5_SECUHeartbeatMiss'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+        };
+        class PDU_E6_CPUOverTemp {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x9A };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 18) & 0x40000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x40000ull) >> 18);
+                return value;
+            }
+
+            // Value table of signal 'PDU_E6_CPUOverTemp'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+        };
+        class PDU_E7_OverVolt {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x9A };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 19) & 0x80000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x80000ull) >> 19);
+                return value;
+            }
+
+            // Value table of signal 'PDU_E7_OverVolt'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+        };
+        class PDU_E8_UnderVolt {
+            public:
+            using dataType = bool;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x9A };
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
+                bool rawValue = value;
+                intel |= (static_cast<uint64_t>(rawValue) << 20) & 0x100000ull;
+            }
+            constexpr static inline bool get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                bool value = static_cast<bool>((intel & 0x100000ull) >> 20);
+                return value;
+            }
+
+            // Value table of signal 'PDU_E8_UnderVolt'
+            constexpr static bool OK = 0;
+            constexpr static bool ERR = 1;
+        };
         class PDU_TX_Enabled {
             public:
             using dataType = bool;
@@ -5710,7 +5796,7 @@ namespace can {
             // Attributes of signal 'PDU_HPCh2_Dutycycle'
             constexpr static float GenSigStartValue = 200.0f;
         };
-        class PDU_D1_Dutycycle {
+        class PDU_HPCh3_Dutycycle {
             public:
             using dataType = float;
             constexpr static uint8_t numIds = 1;
@@ -5732,10 +5818,10 @@ namespace can {
                 return value * (0.5f);
             }
 
-            // Attributes of signal 'PDU_D1_Dutycycle'
+            // Attributes of signal 'PDU_HPCh3_Dutycycle'
             constexpr static float GenSigStartValue = 200.0f;
         };
-        class PDU_D2_Dutycycle {
+        class PDU_HPCh4_Dutycycle {
             public:
             using dataType = float;
             constexpr static uint8_t numIds = 1;
@@ -5757,57 +5843,7 @@ namespace can {
                 return value * (0.5f);
             }
 
-            // Attributes of signal 'PDU_D2_Dutycycle'
-            constexpr static float GenSigStartValue = 200.0f;
-        };
-        class PDU_D3_Dutycycle {
-            public:
-            using dataType = float;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x2DA };
-            constexpr static float min = static_cast<float>(0);
-            constexpr static float max = static_cast<float>(100);
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
-                if (value > max) {
-                    value = max;
-                }
-                if (value < min) {
-                    value = min;
-                }
-                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
-                intel |= (static_cast<uint64_t>(rawValue) << 32) & 0xFF00000000ull;
-            }
-            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0xFF00000000ull) >> 32);
-                return value * (0.5f);
-            }
-
-            // Attributes of signal 'PDU_D3_Dutycycle'
-            constexpr static float GenSigStartValue = 200.0f;
-        };
-        class PDU_D4_Dutycycle {
-            public:
-            using dataType = float;
-            constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x2DA };
-            constexpr static float min = static_cast<float>(0);
-            constexpr static float max = static_cast<float>(100);
-            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, float value) noexcept {
-                if (value > max) {
-                    value = max;
-                }
-                if (value < min) {
-                    value = min;
-                }
-                uint8_t rawValue = static_cast<uint8_t>(STD_ROUND((value) / (0.5f)));
-                intel |= (static_cast<uint64_t>(rawValue) << 40) & 0xFF0000000000ull;
-            }
-            constexpr static inline float get(const uint64_t& intel, const uint64_t& motorola) noexcept {
-                uint8_t value = static_cast<uint8_t>((intel & 0xFF0000000000ull) >> 40);
-                return value * (0.5f);
-            }
-
-            // Attributes of signal 'PDU_D4_Dutycycle'
+            // Attributes of signal 'PDU_HPCh4_Dutycycle'
             constexpr static float GenSigStartValue = 200.0f;
         };
         class PDU_LPCh1_Enable {
@@ -8464,6 +8500,18 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
+        class PDU_TX_Error {
+            public:
+            constexpr static uint32_t id = 0x5;
+            constexpr static uint8_t dlc = 8;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using PDU_TX_ErrorPrio = signals::PDU_TX_ErrorPrio;
+
+            // Attributes of message 'PDU_TX_Error'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
         class PDU_RX_LP_Enable {
             public:
             constexpr static uint32_t id = 0x10A;
@@ -8719,6 +8767,10 @@ namespace can {
             using PDU_E2_batteryOvercurrent = signals::PDU_E2_batteryOvercurrent;
             using PDU_E3_batterTempCritical = signals::PDU_E3_batterTempCritical;
             using PDU_E4_watchdogStateMachine = signals::PDU_E4_watchdogStateMachine;
+            using PDU_E5_SECUHeartbeatMiss = signals::PDU_E5_SECUHeartbeatMiss;
+            using PDU_E6_CPUOverTemp = signals::PDU_E6_CPUOverTemp;
+            using PDU_E7_OverVolt = signals::PDU_E7_OverVolt;
+            using PDU_E8_UnderVolt = signals::PDU_E8_UnderVolt;
 
             // Attributes of message 'PDU_EMCY'
             constexpr static uint16_t GenMsgCycleTime = 100;
@@ -8802,21 +8854,19 @@ namespace can {
             // Attributes of message 'PDU_TX_HP_Short_Circuit_Debug'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class PDU_RX_HP_D_Dutycycle {
+        class PDU_RX_HP_Dutycycle {
             public:
             constexpr static uint32_t id = 0x2DA;
-            constexpr static uint8_t dlc = 6;
+            constexpr static uint8_t dlc = 4;
             constexpr static bool isExtendedId = false;
 
             // Signals
             using PDU_HPCh1_Dutycycle = signals::PDU_HPCh1_Dutycycle;
             using PDU_HPCh2_Dutycycle = signals::PDU_HPCh2_Dutycycle;
-            using PDU_D1_Dutycycle = signals::PDU_D1_Dutycycle;
-            using PDU_D2_Dutycycle = signals::PDU_D2_Dutycycle;
-            using PDU_D3_Dutycycle = signals::PDU_D3_Dutycycle;
-            using PDU_D4_Dutycycle = signals::PDU_D4_Dutycycle;
+            using PDU_HPCh3_Dutycycle = signals::PDU_HPCh3_Dutycycle;
+            using PDU_HPCh4_Dutycycle = signals::PDU_HPCh4_Dutycycle;
 
-            // Attributes of message 'PDU_RX_HP_D_Dutycycle'
+            // Attributes of message 'PDU_RX_HP_Dutycycle'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class PDU_TX_PDO4 {
@@ -9144,7 +9194,7 @@ namespace can {
         using CANZERO_TX_PDO2 = PDU_TX_HP_Current;
         using CANZERO_RX_PDO2 = PDU_RX_LP_Dutycycle;
         using CANZERO_TX_PDO3 = PDU_TX_HP_Short_Circuit_Debug;
-        using CANZERO_RX_PDO3 = PDU_RX_HP_D_Dutycycle;
+        using CANZERO_RX_PDO3 = PDU_RX_HP_Dutycycle;
         using CANZERO_TX_PDO4 = PDU_TX_PDO4;
         using CANZERO_RX_PDO4 = PDU_RX_Manual_Control;
         using CANZERO_TX_PDO5 = PDU_TX_PDO5;

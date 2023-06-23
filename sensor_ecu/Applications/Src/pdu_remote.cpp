@@ -60,9 +60,9 @@ static LpChannelConfig s_lpChannelConfig = {
 				false,
 				true,  //ebox microcontrollers
 				false,
-				false, // mdbs, pi (broken) [dep]
-				false, // mdbs, pi (backup) [dep]
-				true, // telemetry.
+				false, //brake (over relay)
+				false,
+				true, // telemetry atena.
 				false,
 				false,
 				true //sdc.
@@ -86,7 +86,12 @@ struct HpChannelConfig {
 };
 
 static HpChannelConfig s_hpChannelConfig = {
-		.m_status = {false, true, false, false}
+		.m_status = {
+				false, //kistler
+				true,
+				false,
+				false,
+		}
 };
 static HpChannelConfig s_confirmed_hpChannelConfig;
 
@@ -231,10 +236,11 @@ void update(){
 
 
 	if(not g_minimizeMessages || s_hpChannelConfig != s_confirmed_hpChannelConfig){
-		can::Message<can::messages::PDU_RX_HP_D_Dutycycle> hpMsg;
+		can::Message<can::messages::PDU_RX_HP_Dutycycle> hpMsg;
 		hpMsg.set<can::signals::PDU_HPCh1_Dutycycle>(s_hpChannelConfig.m_status[0] ? 100.0 : 0.0);
 		hpMsg.set<can::signals::PDU_HPCh2_Dutycycle>(s_hpChannelConfig.m_status[1] ? 100.0 : 0.0);
-		// update hp channel config.
+		hpMsg.set<can::signals::PDU_HPCh3_Dutycycle>(s_hpChannelConfig.m_status[2] ? 100.0 : 0.0);
+		hpMsg.set<can::signals::PDU_HPCh4_Dutycycle>(s_hpChannelConfig.m_status[3] ? 100.0 : 0.0);
 		hpMsg.send();
 	}
 }

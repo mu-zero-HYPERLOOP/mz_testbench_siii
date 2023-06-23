@@ -59,41 +59,47 @@ constexpr uint32_t ERR_ANY_FLAG = 0xFFFFF000;
 // Reset all errors
 void ERR_ALL_clear();
 
-// Error: E0_pressureTooHigh
-constexpr uint32_t ERR_pressureTooHigh_FLAG = 0x1000;
-void ERR_pressureTooHigh_set();
-void ERR_pressureTooHigh_clear();
-bool ERR_pressureTooHigh_get();
+// Error: E0_CPUOverTemp
+constexpr uint32_t ERR_CPUOverTemp_FLAG = 0x1000;
+void ERR_CPUOverTemp_set();
+void ERR_CPUOverTemp_clear();
+bool ERR_CPUOverTemp_get();
 
-// Error: E1_pressureTooLow
-constexpr uint32_t ERR_pressureTooLow_FLAG = 0x2000;
-void ERR_pressureTooLow_set();
-void ERR_pressureTooLow_clear();
-bool ERR_pressureTooLow_get();
+// Error: E1_UnderVolt
+constexpr uint32_t ERR_UnderVolt_FLAG = 0x2000;
+void ERR_UnderVolt_set();
+void ERR_UnderVolt_clear();
+bool ERR_UnderVolt_get();
 
-// Error: E2_commWatchdogTimeout
-constexpr uint32_t ERR_commWatchdogTimeout_FLAG = 0x4000;
-void ERR_commWatchdogTimeout_set();
-void ERR_commWatchdogTimeout_clear();
-bool ERR_commWatchdogTimeout_get();
+// Error: E2_OverVolt
+constexpr uint32_t ERR_OverVolt_FLAG = 0x4000;
+void ERR_OverVolt_set();
+void ERR_OverVolt_clear();
+bool ERR_OverVolt_get();
 
-// Error: E3_retractUnsuccesful_errorFlag
-constexpr uint32_t ERR_retractUnsuccesful_errorFlag_FLAG = 0x8000;
-void ERR_retractUnsuccesful_errorFlag_set();
-void ERR_retractUnsuccesful_errorFlag_clear();
-bool ERR_retractUnsuccesful_errorFlag_get();
+// Error: E3_IntakeOverPressure
+constexpr uint32_t ERR_IntakeOverPressure_FLAG = 0x8000;
+void ERR_IntakeOverPressure_set();
+void ERR_IntakeOverPressure_clear();
+bool ERR_IntakeOverPressure_get();
 
-// Error: E4_retractUnsuccesful_notEnabled
-constexpr uint32_t ERR_retractUnsuccesful_notEnabled_FLAG = 0x10000;
-void ERR_retractUnsuccesful_notEnabled_set();
-void ERR_retractUnsuccesful_notEnabled_clear();
-bool ERR_retractUnsuccesful_notEnabled_get();
+// Error: E4_IntakeUnderPressure
+constexpr uint32_t ERR_IntakeUnderPressure_FLAG = 0x10000;
+void ERR_IntakeUnderPressure_set();
+void ERR_IntakeUnderPressure_clear();
+bool ERR_IntakeUnderPressure_get();
 
-// Error: E5_retractUnsuccesful_openSDC
-constexpr uint32_t ERR_retractUnsuccesful_openSDC_FLAG = 0x20000;
-void ERR_retractUnsuccesful_openSDC_set();
-void ERR_retractUnsuccesful_openSDC_clear();
-bool ERR_retractUnsuccesful_openSDC_get();
+// Error: E5_OuttakeOverPressure
+constexpr uint32_t ERR_OuttakeOverPressure_FLAG = 0x20000;
+void ERR_OuttakeOverPressure_set();
+void ERR_OuttakeOverPressure_clear();
+bool ERR_OuttakeOverPressure_get();
+
+// Error: E6_OuttakeUnderPressure
+constexpr uint32_t ERR_OuttakeUnderPressure_FLAG = 0x40000;
+void ERR_OuttakeUnderPressure_set();
+void ERR_OuttakeUnderPressure_clear();
+bool ERR_OuttakeUnderPressure_get();
 
 
 #endif // CANZERO_BrakeF_EMCY_HPP

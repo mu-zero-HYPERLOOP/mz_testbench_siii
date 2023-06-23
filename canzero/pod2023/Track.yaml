@@ -52,3 +52,12 @@ object_dictionary:
 emergency:
   warnings:
   errors:
+    E1:
+      name: CPUOverTemp
+      comment: OnBoard Temperature to high
+    E2:
+      name: OverVolt
+      comment: Input voltage to high
+    E3:
+      name: UnderVolt
+      comment: Input voltage to low

@@ -83,5 +83,29 @@ void ERR_watchdogStateMachine_set();
 void ERR_watchdogStateMachine_clear();
 bool ERR_watchdogStateMachine_get();
 
+// Error: E5_SECUHeartbeatMiss
+constexpr uint32_t ERR_SECUHeartbeatMiss_FLAG = 0x20000;
+void ERR_SECUHeartbeatMiss_set();
+void ERR_SECUHeartbeatMiss_clear();
+bool ERR_SECUHeartbeatMiss_get();
+
+// Error: E6_CPUOverTemp
+constexpr uint32_t ERR_CPUOverTemp_FLAG = 0x40000;
+void ERR_CPUOverTemp_set();
+void ERR_CPUOverTemp_clear();
+bool ERR_CPUOverTemp_get();
+
+// Error: E7_OverVolt
+constexpr uint32_t ERR_OverVolt_FLAG = 0x80000;
+void ERR_OverVolt_set();
+void ERR_OverVolt_clear();
+bool ERR_OverVolt_get();
+
+// Error: E8_UnderVolt
+constexpr uint32_t ERR_UnderVolt_FLAG = 0x100000;
+void ERR_UnderVolt_set();
+void ERR_UnderVolt_clear();
+bool ERR_UnderVolt_get();
+
 
 #endif // CANZERO_PDU_EMCY_HPP

@@ -140,6 +140,7 @@ object_dictionary:
     length: 16
     comment: IMU cooling pressure.
     access: ro
+    unit: bar
     default: -1.9
     conversion: {scale: 0.01, offset: -100}
   0xB01:
@@ -147,63 +148,17 @@ object_dictionary:
     length: 16
     comment: Cooling Reservoir Temperature
     access: ro
+    unit: C°
     default: 80
     conversion: {scale: 0.01, offset: -100}
   0xB02:
-    name: Magnet_1_Temperature
+    name: EboxTemperature
     length: 16
-    comment: Magnet_1_Temperature
+    comment: Ebox Temperature
     access: ro
-    default: 10
+    unit: C°
+    default: 80
     conversion: {scale: 0.01, offset: -100}
-  0xB04:
-    name: Magnet_2_Temperature
-    length: 16
-    comment: Magnet_2_Temperature
-    access: ro
-    default: 10
-    conversion: {scale: 0.01, offset: -100}
-  0xB05:
-    name: Magnet_3_Temperature
-    length: 16
-    comment: Magnet_3_Temperature
-    access: ro
-    default: 10
-    conversion: {scale: 0.01, offset: -100}
-  0xB06:
-    name: Magnet_4_Temperature
-    length: 16
-    comment: Magnet_4_Temperature
-    access: ro
-    default: 10
-    conversion: {scale: 0.01, offset: -100}
-  0xB07:
-    name: Magnet_5_Temperature
-    length: 16
-    comment: Magnet_5_Temperature
-    access: ro
-    default: 10
-    conversion: {scale: 0.01, offset: -100}
-  0xB08:
-    name: Magnet_6_Temperature
-    length: 16
-    comment: Magnet_6_Temperature
-    access: ro
-    default: 10
-    conversion: {scale: 0.01, offset: -100}
-  
-  0xB10:
-    name: MdbState                # Required to put a name in.
-    length: 8                     # Required to put a length in bit in. Should be 8, 16, 24, 32, 40 or 48 bit.
-    comment: State of all mdbs if not the same on all mdbs inconsistant.
-    default: 0                    # Default value
-    choices: 
-      0: "precharge"
-      1: "levitaiton"
-      2: "grounded"
-      3: "save_to_approch"
-      4: "precharge_done"
-      255: "inconsistant"
 
   0xC00:
     name: StripeCount
@@ -217,6 +172,7 @@ object_dictionary:
     length: 16
     comment: Estimated Pod position
     access: ro
+    unit: m
     default: 0
     conversion: {scale: 0.01, offset: -100}
 
@@ -225,6 +181,7 @@ object_dictionary:
     length: 16
     comment: Estimated Pod velocity
     access: ro
+    unit: m/s
     default: 0
     conversion: {scale: 0.01, offset: -100}
 
@@ -486,44 +443,53 @@ object_dictionary:
 emergency:
   errors:
     E1:
-      name: StateMTransitionE
-      comment: Something went wrong with a transition
+      name: CPUOverTemp
+      comment: OnBoard Temperature to high
     E2:
-      name: BrakeFTimeout
-      comment: Did not respond in set max time
+      name: OverVolt
+      comment: Input voltage to high
     E3:
-      name: BrakeRTimeout
-      comment: Did not respond in set max time
+      name: UnderVolt
+      comment: Input voltage to low
     E4:
-      name: PDUTimeout
-      comment: Did not respond in set max time
+      name: InvalidPosition
+      comment: Fiducial count doesn't match kistler readings.
     E5:
-      name: HVCUTimeout
-      comment: Did not respond in set max time
-    E6:
-      name: SensorRTimeout
-      comment: Did not respond in set max time
+      name: ReservoirOverTemp
+      comment: Temperature of the cooling reservoir is to high.
+    E6: 
+      name: CLUHeartbeatMiss
+      comment: didn't receive a heartbeat message from the clu.
     E7:
-      name: TelemetryTimeout
-      comment: Did not respond in set max time
+      name: BECUHeartbeatMiss
+      comment: didn't receive a heartbeat message from the BECU.
     E8:
-      name: NodeErrorFlag
-      comment: A nodes error flag was active
+      name: PDUHeartbeatMiss
+      comment: didn't receive a heartbeat message from the PDU.
     E9:
-      name: SWError
-      comment: State machine plausibility check failed
+      name: TelemetryHeartbeatMiss
+      comment: didn't receive a heartbeat message from the Telemetry node.
     E10:
-      name: TelemEmergency
-      comment: Telemtry sent emergency command
+      name: TitanOverTemp
+      comment: Titan Battery is to hot.
+    E11:
+      name: HyperionOverTemp
+      comment: Hyperion Battery is to hot.
     E12:
-      name: encoderError
-      comment: Error when something fails in the Wheel encoder.
+      name: TitanLowHp
+      comment: Health Status of Titan is low.
     E13:
-      name: encoderSpeedError
-      comment: Error when the meassured speed is prohibited
+      name: HyperionLowHp
+      comment: Health status of Hyperion is low.
     E14:
-      name: fiducialHighOffset
-      comment: Fiducial position estimation derived from kistler estimation
+      name: TitanLowCap
+      comment: capacity of titan is to low.
+    E15:
+      name: HyperionLowCap
+      comment: capacity of hyperion is to low.
+    E16:
+      name: EboxOverTemp
+      comment: ebox temperature to high.
 
   warnings:
     W1:

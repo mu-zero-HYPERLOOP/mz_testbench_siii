@@ -13,6 +13,7 @@
 #include "sensor_ecu_remote.hpp"
 #include "proc_info.hpp"
 #include "sdc.hpp"
+#include "error_prop.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -20,6 +21,7 @@ extern "C" {
 
 void main_entry(void *argv) {
 	proc_info::init();
+	error_prop::init();
 	cooling_pressure::init();
 	state_maschine::init();
 	sensor_ecu::init();
@@ -32,13 +34,8 @@ void main_entry(void *argv) {
 		sensor_ecu::update();
 		state_maschine::update();
 		sdc::update();
-
-		brake_solenoid::disengage();
-
-		osDelay(pdMS_TO_TICKS(1000));
-
-		brake_solenoid::engage();
-		osDelay(pdMS_TO_TICKS(1000));
+		error_prop::update();
+		osDelay(pdMS_TO_TICKS(50));
 	}
 }
 

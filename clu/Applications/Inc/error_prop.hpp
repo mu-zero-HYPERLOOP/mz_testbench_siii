@@ -1,13 +1,13 @@
 /*
- * info_controll.hpp
+ * error_prop.hpp
  *
- *  Created on: May 19, 2023
+ *  Created on: Jun 18, 2023
  *      Author: OfficeLaptop
  */
 
 #pragma once
 
-namespace info {
+namespace error_prop {
 
 void init();
 

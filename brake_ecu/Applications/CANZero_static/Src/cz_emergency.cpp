@@ -13,7 +13,10 @@
 #include "task.h"
 
 
+TaskHandle_t emergencyTaskHandle;
+
 void canzero::emergency::consumer_entry(void* argv){
+	emergencyTaskHandle = xTaskGetCurrentTaskHandle();
 	// Timeout for waiting for an emergency notification
 	constexpr uint32_t EMERGENCY_WAIT_TIMEOUT_MS = 500;
 

@@ -36,8 +36,24 @@ BS_:
 BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track CLU
 
 
+BO_ 291 CLU_RX_ConfigureAirGap: 4 Vector__XXX
+ SG_ CLU_RX_ConfigureAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] ""  CLU
+
+BO_ 1072 SensorF_RX_IgnoreLevel: 2 Vector__XXX
+ SG_ SensorF_EmergencyLevel : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ SensorF_IgnoreLevel : 0|8@1+ (1,0) [0|255] ""  SensorF
+
+BO_ 5 PDU_TX_Error: 8 PDU
+ SG_ PDU_TX_ErrorPrio : 0|8@1+ (1,0) [0|255] ""  SensorF
+
+BO_ 4 CLU_TX_Error: 8 CLU
+ SG_ CLU_TX_ErrorPrio : 0|8@1+ (1,0) [0|255] ""  SensorF
+
+BO_ 3 BrakeF_TX_Error: 8 BrakeF
+ SG_ BrakeF_TX_ErrorPrio : 0|8@1+ (1,0) [0|255] ""  SensorF
+
 BO_ 57 CLU_TX_ActionRequest: 5 CLU
- SG_ CLU_TX_TargetAirGap : 8|32@1+ (1,0) [0|4294967295] "" Vector__XXX
+ SG_ CLU_TX_TargetAirGap : 8|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
  SG_ CLU_TX_ActionRequest : 0|8@1+ (1,0) [0|255] "" Vector__XXX
 
 BO_ 564 CLU_RX_ActionRequest: 1 SensorF
@@ -55,11 +71,11 @@ BO_ 592 CLU_TX_LevitationState: 1 CLU
 BO_ 768 CLU_TX_CoolingState: 1 Vector__XXX
  SG_ CLU_RequiresCooling : 0|1@1+ (1,0) [0|1] ""  SensorF
 
-BO_ 274 MDB3_RX_TargetAirGap: 4 CLU
- SG_ MDB3_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
+BO_ 274 MDB3_TX_Current: 4 CLU
+ SG_ MDB3_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
 
-BO_ 295 MDB6_RX_TargetAirGap: 4 CLU
- SG_ MDB6_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
+BO_ 295 MDB6_TX_Current: 4 CLU
+ SG_ MDB6_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
 
 BO_ 297 MDB6_TX_Temperature: 4 Vector__XXX
  SG_ MDB6_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
@@ -73,8 +89,8 @@ BO_ 293 MDB6_TX_State: 1 MDB6
 BO_ 292 MDB5_TX_Temperature: 4 Vector__XXX
  SG_ MDB5_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 290 MDB5_RX_TargetAirGap: 4 CLU
- SG_ MDB5_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
+BO_ 290 MDB5_TX_Current: 4 CLU
+ SG_ MDB5_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
 
 BO_ 289 MDB5_TX_AirGap: 4 Vector__XXX
  SG_ MDB5_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
@@ -85,8 +101,8 @@ BO_ 288 MDB5_TX_State: 1 MDB5
 BO_ 281 MDB4_TX_Temperature: 4 Vector__XXX
  SG_ MDB4_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 279 MDB4_RX_TargetAirGap: 4 CLU
- SG_ MDB4_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C" Vector__XXX
+BO_ 279 MDB4_TX_Current: 4 CLU
+ SG_ MDB4_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
 
 BO_ 278 MDB4_TX_AirGap: 4 Vector__XXX
  SG_ MDB4_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
@@ -106,8 +122,8 @@ BO_ 272 MDB3_TX_State: 1 MDB3
 BO_ 265 MDB2_TX_Temperature: 4 Vector__XXX
  SG_ MDB2_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 263 MDB2_RX_TargetAirGap: 4 CLU
- SG_ MDB2_TargetAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
+BO_ 263 MDB2_TX_Current: 4 CLU
+ SG_ MDB2_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
 
 BO_ 262 MDB2_TX_AirGap: 4 Vector__XXX
  SG_ MDB2_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
@@ -115,8 +131,8 @@ BO_ 262 MDB2_TX_AirGap: 4 Vector__XXX
 BO_ 261 MDB2_TX_State: 1 MDB2
  SG_ MDB2_State : 0|8@1+ (1,0) [0|255] ""  CLU
 
-BO_ 258 MDB1_RX_TargetAirGap: 4 CLU
- SG_ MDB1_TargetAirGap : 0|32@1- (0.0001,0) [0|0] "mm" Vector__XXX
+BO_ 258 MDB1_TX_Current: 4 CLU
+ SG_ MDB1_Current : 0|32@1- (0.0001,0) [0|0] "A" Vector__XXX
 
 BO_ 260 MDB1_TX_Temperature: 4 MDB3
  SG_ MDB1_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU,SensorF
@@ -513,11 +529,9 @@ BO_ 666 PDU_TX_HP_Short_Circuit_Debug: 3 PDU
  SG_ PDU_HPCh1_State : 4|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ PDU_HPCh1_ShortCnt : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
-BO_ 730 PDU_RX_HP_D_Dutycycle: 6 SensorF
- SG_ PDU_D4_Dutycycle : 40|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_D3_Dutycycle : 32|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_D2_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%"  PDU
- SG_ PDU_D1_Dutycycle : 16|8@1+ (0.5,0) [0|100] "%"  PDU
+BO_ 730 PDU_RX_HP_Dutycycle: 4 SensorF
+ SG_ PDU_HPCh4_Dutycycle : 24|8@1+ (0.5,0) [0|100] "%" Vector__XXX
+ SG_ PDU_HPCh3_Dutycycle : 16|8@1+ (0.5,0) [0|100] "%" Vector__XXX
  SG_ PDU_HPCh2_Dutycycle : 8|8@1+ (0.5,0) [0|100] "%"  PDU
  SG_ PDU_HPCh1_Dutycycle : 0|8@1+ (0.5,0) [0|100] "%"  PDU
 
@@ -2240,7 +2254,7 @@ BO_ 1556 CLU_SDO_Req_Down: 2 TelemetryNode
  SG_ CLU_SDO_ID M : 0|12@1+ (1,0) [0|4095] ""  CLU
 
 BO_ 1812 CLU_Heartbeat: 1 CLU
- SG_ CLU_NodeState : 0|8@1+ (1,0) [0|0] ""  Master,TelemetryNode
+ SG_ CLU_NodeState : 0|8@1+ (1,0) [0|0] ""  SensorF,Master,TelemetryNode
 
 BO_ 1876 CLU_BTL_TX: 8 CLU
 
@@ -2286,20 +2300,20 @@ CM_ BU_ Track "TrackECU
 Node-ID 0x32";
 CM_ BU_ CLU "central levitation unit
 Node-ID 0x14";
-CM_ SG_ 274 MDB3_TargetAirGap "as binary IEEE-754
+CM_ SG_ 274 MDB3_Current "as binary IEEE-754
 ";
-CM_ SG_ 295 MDB6_TargetAirGap "as binary IEEE-754
+CM_ SG_ 295 MDB6_Current "as binary IEEE-754
 ";
 CM_ SG_ 297 MDB6_Temperature "as binary IEEE-754";
 CM_ SG_ 294 MDB6_AirGap "as binary IEEE-754
 ";
 CM_ SG_ 292 MDB5_Temperature "as binary IEEE-754";
-CM_ SG_ 290 MDB5_TargetAirGap "as binary IEEE-754
+CM_ SG_ 290 MDB5_Current "as binary IEEE-754
 ";
 CM_ SG_ 289 MDB5_AirGap "as binary IEEE-754
 ";
 CM_ SG_ 281 MDB4_Temperature "as binary IEEE-754";
-CM_ SG_ 279 MDB4_TargetAirGap "as binary IEEE-754
+CM_ SG_ 279 MDB4_Current "as binary IEEE-754
 ";
 CM_ SG_ 278 MDB4_AirGap "as binary IEEE-754
 ";
@@ -2307,11 +2321,11 @@ CM_ SG_ 276 MDB3_Temperature "as binary IEEE-754";
 CM_ SG_ 273 MDB3_AirGap "as binary IEEE-754
 ";
 CM_ SG_ 265 MDB2_Temperature "as binary IEEE-754";
-CM_ SG_ 263 MDB2_TargetAirGap "as binary IEEE-754
+CM_ SG_ 263 MDB2_Current "as binary IEEE-754
 ";
 CM_ SG_ 262 MDB2_AirGap "as binary IEEE-754
 ";
-CM_ SG_ 258 MDB1_TargetAirGap "as binary IEEE-754
+CM_ SG_ 258 MDB1_Current "as binary IEEE-754
 ";
 CM_ SG_ 260 MDB1_Temperature "as binary IEEE-754";
 CM_ SG_ 257 MDB1_AirGap "as binary IEEE-754
@@ -2938,11 +2952,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "BusType" "CAN";
-BA_ "CANzero_ProtocolVersion" "V1.0";
-BA_ "CANzero_DBCVersion" 213;
-BA_ "CANzero_SDOClientName" "TelemetryNode";
 BA_ "CANzero_NMTMasterName" "Master";
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_DBCVersion" 249;
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "BusType" "CAN";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -2960,6 +2974,11 @@ BA_ "CANzero_NodeID" BU_ MDB5 41;
 BA_ "CANzero_NodeID" BU_ MDB6 49;
 BA_ "CANzero_NodeID" BU_ Track 50;
 BA_ "CANzero_NodeID" BU_ CLU 20;
+BA_ "GenMsgCycleTime" BO_ 291 100;
+BA_ "GenMsgCycleTime" BO_ 1072 100;
+BA_ "GenMsgCycleTime" BO_ 5 100;
+BA_ "GenMsgCycleTime" BO_ 4 100;
+BA_ "GenMsgCycleTime" BO_ 3 100;
 BA_ "GenMsgCycleTime" BO_ 57 100;
 BA_ "GenMsgCycleTime" BO_ 564 100;
 BA_ "GenMsgCycleTime" BO_ 2165346838 100;
@@ -3119,10 +3138,8 @@ BA_ "GenSigStartValue" SG_ 602 PDU_LPCh10_Dutycycle 200;
 BA_ "GenSigStartValue" SG_ 602 PDU_LPCh1_Dutycycle 200;
 BA_ "GenMsgCycleTime" BO_ 666 100;
 BA_ "GenMsgCycleTime" BO_ 730 100;
-BA_ "GenSigStartValue" SG_ 730 PDU_D4_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 730 PDU_D3_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 730 PDU_D2_Dutycycle 200;
-BA_ "GenSigStartValue" SG_ 730 PDU_D1_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 730 PDU_HPCh4_Dutycycle 200;
+BA_ "GenSigStartValue" SG_ 730 PDU_HPCh3_Dutycycle 200;
 BA_ "GenSigStartValue" SG_ 730 PDU_HPCh2_Dutycycle 200;
 BA_ "GenSigStartValue" SG_ 730 PDU_HPCh1_Dutycycle 200;
 BA_ "GenMsgCycleTime" BO_ 794 100;
@@ -3217,8 +3234,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgCycleTime" BO_ 1456 10;
 BA_ "GenMsgSendType" BO_ 1456 0;
+BA_ "GenMsgCycleTime" BO_ 1456 10;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -3233,10 +3250,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgCycleTime" BO_ 1280 10;
 BA_ "GenMsgSendType" BO_ 1280 0;
-BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1280 10;
 BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1296 0;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;
@@ -3552,12 +3569,12 @@ BA_ "GenMsgCycleTime" BO_ 1876 100;
 BA_ "GenMsgCycleTime" BO_ 1940 100;
 VAL_ 57 CLU_TX_ActionRequest 4 "SET_AIRGAP" 3 "STOP" 2 "START" 1 "PREPARE" 0 "NONE" ;
 VAL_ 592 CLU_LevitationState 7 "INCONSISTANT" 6 "ERROR" 5 "LEVI" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "OFF" ;
-VAL_ 293 MDB6_State 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 20 "ERROR_CALCTIME" 19 "ERROR_CHIPTEMP" 18 "ERROR_CURRE_CALIB" 17 "ERROR_CAN" 16 "ERROR_AIRGAP_SEN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 288 MDB5_State 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 277 MDB4_State 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 272 MDB3_State 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 261 MDB2_State 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
-VAL_ 256 MDB1_State 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 293 MDB6_State 8 "LEVI_AIR_GAP_CHANGE" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 20 "ERROR_CALCTIME" 19 "ERROR_CHIPTEMP" 18 "ERROR_CURRE_CALIB" 17 "ERROR_CAN" 16 "ERROR_AIRGAP_SEN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 288 MDB5_State 8 "LEVI_AIR_GAP_CHANGE" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 277 MDB4_State 8 "LEVI_AIR_GAP_CHANGE" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 272 MDB3_State 8 "LEVI_AIR_GAP_CHANGE" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 261 MDB2_State 8 "LEVI_AIR_GAP_CHANGE" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
+VAL_ 256 MDB1_State 8 "LEVI_AIR_GAP_CHANGE" 15 "ERROR_AIRGAP_SEN" 14 "ERROR_AIRGAP" 13 "ERROR_OVERTEMP" 12 "ERROR_OVERVOLT" 11 "ERROR_OVERCURRENT" 10 "ERROR" 19 "ERROR_CALCTIME" 18 "ERROR_CHIPTEMP" 17 "ERROR_CURRE_CALIB" 16 "ERROR_CAN" 7 "LEVI_UNSTABLE" 6 "LEVI_END" 5 "LEVI_RUN" 4 "LEVI_START" 3 "READY" 2 "PRECHARGE" 1 "IDLE" 0 "INIT" ;
 VAL_ 2684354556 OpticalSensor_TX_LEDStatus 2 "FLASHING" 1 "ON" 0 "OFF" ;
 VAL_ 2 CANzero_NMT_Node 0 "All" 1 "SensorF" 2 "SensorR" 17 "BrakeF" 18 "BrakeR" 26 "PDU" 10 "HVCU" 25 "HVTU" 34 "TelemetryNode" 33 "MDB1" 35 "MDB2" 39 "MDB3" 40 "MDB4" 41 "MDB5" 49 "MDB6" 50 "Track" 20 "CLU" ;
 VAL_ 2 CANzero_NMT_State 1 "Start Remote Node" 2 "Stop Remote Node" 128 "Enter Pre-Operational" 129 "Reset" ;

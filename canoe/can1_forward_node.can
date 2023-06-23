@@ -1,7 +1,6 @@
 /*@!Encoding:1252*/
 on message CAN1.*
 {
-  
   message CAN2.* m;
   if(this.DIR==RX)        // if it is a received frame
   {

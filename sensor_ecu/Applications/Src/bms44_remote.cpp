@@ -237,7 +237,6 @@ struct bms_frame_builder {
 			total_cell_voltage += *cellVoltagePtr;
 			cellVoltagePtr++;
 		}
-		printf("total cell voltage = %u\n", total_cell_voltage);
 
 		reset();
 		return frame;

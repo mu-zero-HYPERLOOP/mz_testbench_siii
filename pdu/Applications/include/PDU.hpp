@@ -16,6 +16,7 @@
 #include <cmath>
 #include <algorithm>
 #include "estdio.hpp"
+#include "GlobalState.hpp"
 
 //AdcDma<4> adc1 { &hadc1 }; //ADC class to read basic BCU signals, already defined in TaskManager.cpp
 AdcDma<14> adc2 { &hadc2 };	// ADC class to read the current of the channels
@@ -267,6 +268,7 @@ float estimateLiPoSoc(float cellVoltage) {
  */
 
 void receiveCanMessages() {
+	state::receiveCAN();
 	using namespace can;
 	while(xMessageBufferReceive(handlePduRxMessageBuffer, &rxRawMsg, sizeof(rxRawMsg), 0) != 0) {
 		// Control message from state machine
@@ -362,17 +364,17 @@ void receiveCanMessages() {
 			float lpch10_duty = dutyMsg.get<signals::PDU_LPCh10_Dutycycle>();
 			outputState.LPCh10.set(lpch10_duty != 0, lpch10_duty);
 
-		} else if(checkRxMessage<messages::PDU_RX_HP_D_Dutycycle>(rxRawMsg)) {	// Duty cycle message for manual control
-			can::Message<messages::PDU_RX_HP_D_Dutycycle> dutyMsg{rxRawMsg};
+		} else if(checkRxMessage<messages::PDU_RX_HP_Dutycycle>(rxRawMsg)) {	// Duty cycle message for manual control
+			can::Message<messages::PDU_RX_HP_Dutycycle> dutyMsg{rxRawMsg};
 
 			float hpch1_duty = dutyMsg.get<signals::PDU_HPCh1_Dutycycle>();
 			outputState.HPCh1.set(hpch1_duty != 0, hpch1_duty);
 			float hpch2_duty = dutyMsg.get<signals::PDU_HPCh2_Dutycycle>();
 			outputState.HPCh2.set(hpch2_duty != 0, hpch2_duty);
-			outputState.D1.setDuty(			dutyMsg.get<signals::PDU_D1_Dutycycle>());
-			outputState.D2.setDuty(			dutyMsg.get<signals::PDU_D2_Dutycycle>());
-			outputState.D3.setDuty(						dutyMsg.get<signals::PDU_D3_Dutycycle>());
-			outputState.D4.setDuty(						dutyMsg.get<signals::PDU_D4_Dutycycle>());
+			float hpch3_duty = dutyMsg.get<signals::PDU_HPCh3_Dutycycle>();
+			outputState.HPCh3.set(hpch3_duty != 0, hpch3_duty);
+			float hpch4_duty = dutyMsg.get<signals::PDU_HPCh4_Dutycycle>();
+			outputState.HPCh4.set(hpch4_duty != 0, hpch4_duty);
 		} else if(checkRxMessage<messages::PDU_RX_LP_Enable>(rxRawMsg)){
 			can::Message<messages::PDU_RX_LP_Enable> lpEnableMsg {rxRawMsg};
 
@@ -703,101 +705,149 @@ void updateChannels() {
 	// Standard output channels with PWM support
 
 	//Somehow all timers except of TIM2 can't save dutycycles of 100% so that the +1 was deleted.
-
-	// LPCh1 is TIM12_CH2
-	if(outputState.LPCh1.getSwitch()) {
-		htim12.Instance->CCR2 = outputState.LPCh1.getDuty() * (htim12.Instance->ARR) / 100.0f;
-	} else {
+	if(state::get() == state::STATE::POD_OFF){
+		// LPCh1 is TIM12_CH2
 		htim12.Instance->CCR2 = 0;
-	}
 
-	// LPCh2 is TIM2_CH3
-	if(outputState.LPCh2.getSwitch()) {
-		htim2.Instance->CCR3 = outputState.LPCh2.getDuty() * (htim2.Instance->ARR + 1) / 100.0f;
-	} else {
+		// LPCh2 is TIM2_CH3
 		htim2.Instance->CCR3 = 0;
-	}
 
-	// LPCh3 is TIM2_CH1
-	if(outputState.LPCh3.getSwitch()) {
-		htim2.Instance->CCR1 = outputState.LPCh3.getDuty() * (htim2.Instance->ARR + 1) / 100.0f;
-	} else {
+		// LPCh3 is TIM2_CH1
 		htim2.Instance->CCR1 = 0;
-	}
 
-	// LPCh8 is TIM8_CH1
-	if(outputState.LPCh8.getSwitch()) {
-		htim8.Instance->CCR1 = outputState.LPCh3.getDuty() * (htim8.Instance->ARR ) / 100.0f;
-	} else {
+		// LPCh8 is TIM8_CH1
 		htim8.Instance->CCR1 = 0;
-	}
 
-	// LPCh9 is TIM4_CH2
-	if(outputState.LPCh9.getSwitch()) {
-		htim4.Instance->CCR2 = outputState.LPCh9.getDuty() * (htim4.Instance->ARR) / 100.0f;
-	} else {
+		// LPCh9 is TIM4_CH2
 		htim4.Instance->CCR2 = 0;
-	}
 
-	// LPCh10 is TIM11_CH1
-	if(outputState.LPCh10.getSwitch()) {
-		htim11.Instance->CCR1 = outputState.LPCh10.getDuty() * (htim11.Instance->ARR) / 100.0f;
-	} else {
+		// LPCh10 is TIM11_CH1
 		htim11.Instance->CCR1 = 0;
-	}
 
-	// HPCh1 is TIM8_CH4
-	if(outputState.HPCh1.getSwitch()) {
-		htim8.Instance->CCR4 = outputState.HPCh1.getDuty() * (htim8.Instance->ARR) / 100.0f;
-	} else {
+		// HPCh1 is TIM8_CH4
 		htim8.Instance->CCR4 = 0;
-	}
 
-	// HPCh2 is TIM8_CH2
-	if(outputState.HPCh2.getSwitch()) {
-		htim8.Instance->CCR2 = outputState.HPCh2.getDuty() * (htim8.Instance->ARR) / 100.0f;
-	} else {
+		// HPCh2 is TIM8_CH2
 		htim8.Instance->CCR2 = 0;
-	}
 
-	// D1 is TIM3_CH1 (is controlled by ProjectXX.hpp)
-	if(outputState.D1.getSwitch()) {
-		//htim3.Instance->CCR1 = outputState.D1.getDuty() * (htim3.Instance->ARR) / 100.0f;
-	} else {
-		//htim3.Instance->CCR1= 0;
-	}
+		// D1 is TIM3_CH1 (is controlled by ProjectXX.hpp)
+		htim3.Instance->CCR1= 0;
 
-	// D2 is TIM10_CH1
-	if(outputState.D2.getSwitch()) {
-		htim10.Instance->CCR1 = outputState.D2.getDuty() * (htim10.Instance->ARR) / 100.0f;
-	} else {
+		// D2 is TIM10_CH1
 		htim10.Instance->CCR1 = 0;
-	}
 
-	// D3 is TIM2_CH4
-	if(outputState.D3.getSwitch()) {
-		htim2.Instance->CCR4 = outputState.D3.getDuty() * (htim2.Instance->ARR) / 100.0f;
-	} else {
+		// D3 is TIM2_CH4
 		htim2.Instance->CCR4 = 0;
-	}
 
-	// D4 is TIM3_CH3
-	if(outputState.D4.getSwitch()) {
-		htim3.Instance->CCR3 = outputState.D4.getDuty() * (htim3.Instance->ARR) / 100.0f;
-	} else {
+		// D4 is TIM3_CH3
 		htim3.Instance->CCR3 = 0;
+
+		// Standard On/Off output
+		HAL_GPIO_WritePin(LP4_control_GPIO_Port, LP4_control_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LP5_control_GPIO_Port, LP5_control_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LP6_control_GPIO_Port, LP6_control_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LP7_control_GPIO_Port, LP7_control_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(HP3_control_GPIO_Port, HP3_control_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(HP4_control_GPIO_Port, HP4_control_Pin, GPIO_PIN_RESET);
+
+		// SDC switch
+		HAL_GPIO_WritePin(SDC_control_GPIO_Port, SDC_control_Pin, GPIO_PIN_RESET);
+	}else{
+		// LPCh1 is TIM12_CH2
+		if(outputState.LPCh1.getSwitch()) {
+			htim12.Instance->CCR2 = outputState.LPCh1.getDuty() * (htim12.Instance->ARR) / 100.0f;
+		} else {
+			htim12.Instance->CCR2 = 0;
+		}
+
+		// LPCh2 is TIM2_CH3
+		if(outputState.LPCh2.getSwitch()) {
+			htim2.Instance->CCR3 = outputState.LPCh2.getDuty() * (htim2.Instance->ARR + 1) / 100.0f;
+		} else {
+			htim2.Instance->CCR3 = 0;
+		}
+
+		// LPCh3 is TIM2_CH1
+		if(outputState.LPCh3.getSwitch()) {
+			htim2.Instance->CCR1 = outputState.LPCh3.getDuty() * (htim2.Instance->ARR + 1) / 100.0f;
+		} else {
+			htim2.Instance->CCR1 = 0;
+		}
+
+		// LPCh8 is TIM8_CH1
+		if(outputState.LPCh8.getSwitch()) {
+			htim8.Instance->CCR1 = outputState.LPCh3.getDuty() * (htim8.Instance->ARR ) / 100.0f;
+		} else {
+			htim8.Instance->CCR1 = 0;
+		}
+
+		// LPCh9 is TIM4_CH2
+		if(outputState.LPCh9.getSwitch()) {
+			htim4.Instance->CCR2 = outputState.LPCh9.getDuty() * (htim4.Instance->ARR) / 100.0f;
+		} else {
+			htim4.Instance->CCR2 = 0;
+		}
+
+		// LPCh10 is TIM11_CH1
+		if(outputState.LPCh10.getSwitch()) {
+			htim11.Instance->CCR1 = outputState.LPCh10.getDuty() * (htim11.Instance->ARR) / 100.0f;
+		} else {
+			htim11.Instance->CCR1 = 0;
+		}
+
+		// HPCh1 is TIM8_CH4
+		if(outputState.HPCh1.getSwitch()) {
+			htim8.Instance->CCR4 = outputState.HPCh1.getDuty() * (htim8.Instance->ARR) / 100.0f;
+		} else {
+			htim8.Instance->CCR4 = 0;
+		}
+
+		// HPCh2 is TIM8_CH2
+		if(outputState.HPCh2.getSwitch()) {
+			htim8.Instance->CCR2 = outputState.HPCh2.getDuty() * (htim8.Instance->ARR) / 100.0f;
+		} else {
+			htim8.Instance->CCR2 = 0;
+		}
+
+		// D1 is TIM3_CH1 (is controlled by ProjectXX.hpp)
+		if(outputState.D1.getSwitch()) {
+			//htim3.Instance->CCR1 = outputState.D1.getDuty() * (htim3.Instance->ARR) / 100.0f;
+		} else {
+			//htim3.Instance->CCR1= 0;
+		}
+
+		// D2 is TIM10_CH1
+		if(outputState.D2.getSwitch()) {
+			htim10.Instance->CCR1 = outputState.D2.getDuty() * (htim10.Instance->ARR) / 100.0f;
+		} else {
+			htim10.Instance->CCR1 = 0;
+		}
+
+		// D3 is TIM2_CH4
+		if(outputState.D3.getSwitch()) {
+			htim2.Instance->CCR4 = outputState.D3.getDuty() * (htim2.Instance->ARR) / 100.0f;
+		} else {
+			htim2.Instance->CCR4 = 0;
+		}
+
+		// D4 is TIM3_CH3
+		if(outputState.D4.getSwitch()) {
+			htim3.Instance->CCR3 = outputState.D4.getDuty() * (htim3.Instance->ARR) / 100.0f;
+		} else {
+			htim3.Instance->CCR3 = 0;
+		}
+
+		// Standard On/Off output
+		HAL_GPIO_WritePin(LP4_control_GPIO_Port, LP4_control_Pin, outputState.LPCh4.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LP5_control_GPIO_Port, LP5_control_Pin, outputState.LPCh5.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LP6_control_GPIO_Port, LP6_control_Pin, outputState.LPCh6.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LP7_control_GPIO_Port, LP7_control_Pin, outputState.LPCh7.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(HP3_control_GPIO_Port, HP3_control_Pin, outputState.HPCh3.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(HP4_control_GPIO_Port, HP4_control_Pin, outputState.HPCh4.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
+
+		// SDC switch
+		HAL_GPIO_WritePin(SDC_control_GPIO_Port, SDC_control_Pin, outputState.SDC.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
 	}
-
-	// Standard On/Off output
-	HAL_GPIO_WritePin(LP4_control_GPIO_Port, LP4_control_Pin, outputState.LPCh4.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LP5_control_GPIO_Port, LP5_control_Pin, outputState.LPCh5.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LP6_control_GPIO_Port, LP6_control_Pin, outputState.LPCh6.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LP7_control_GPIO_Port, LP7_control_Pin, outputState.LPCh7.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(HP3_control_GPIO_Port, HP3_control_Pin, outputState.HPCh3.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(HP4_control_GPIO_Port, HP4_control_Pin, outputState.HPCh4.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
-
-	// SDC switch
-	HAL_GPIO_WritePin(SDC_control_GPIO_Port, SDC_control_Pin, outputState.SDC.getSwitch() ? GPIO_PIN_SET : GPIO_PIN_RESET);
 }
 
 /**

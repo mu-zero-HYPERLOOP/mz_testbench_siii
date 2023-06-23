@@ -15,6 +15,7 @@
 #include "central_controll.hpp"
 #include "status_led_controll.hpp"
 #include "state_maschine.hpp"
+#include "error_prop.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -23,6 +24,7 @@ extern "C" {
 
 void main_entry(void *argv) {
 	info::init();
+	error_prop::init();
 	cooling_controll::init();
 	mdb::init();
 	sensor_ecu_remote::init();
@@ -39,6 +41,7 @@ void main_entry(void *argv) {
 		central_controll::update();
 		status_led::update();
 		state_maschine::update();
+		error_prop::update();
 
 		osDelay(pdMS_TO_TICKS(50));
 	}

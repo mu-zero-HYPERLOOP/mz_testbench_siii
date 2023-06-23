@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 16:22:35 16.06.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 03:09:35 22.06.2023.
  * It contains the errors and warnings for the node 'SensorF'.
  *
  * Florian Keck
@@ -152,19 +152,22 @@ bool WARN_encoderOORWarning_get() {
 // Reset all errors
 void ERR_ALL_clear() {
     ERR_OtherError_clear();
-    ERR_StateMTransitionE_clear();
-    ERR_BrakeFTimeout_clear();
-    ERR_BrakeRTimeout_clear();
-    ERR_PDUTimeout_clear();
-    ERR_HVCUTimeout_clear();
-    ERR_SensorRTimeout_clear();
-    ERR_TelemetryTimeout_clear();
-    ERR_NodeErrorFlag_clear();
-    ERR_SWError_clear();
-    ERR_TelemEmergency_clear();
-    ERR_encoderError_clear();
-    ERR_encoderSpeedError_clear();
-    ERR_fiducialHighOffset_clear();
+    ERR_CPUOverTemp_clear();
+    ERR_OverVolt_clear();
+    ERR_UnderVolt_clear();
+    ERR_InvalidPosition_clear();
+    ERR_ReservoirOverTemp_clear();
+    ERR_CLUHeartbeatMiss_clear();
+    ERR_BECUHeartbeatMiss_clear();
+    ERR_PDUHeartbeatMiss_clear();
+    ERR_TelemetryHeartbeatMiss_clear();
+    ERR_TitanOverTemp_clear();
+    ERR_HyperionOverTemp_clear();
+    ERR_TitanLowHp_clear();
+    ERR_HyperionLowHp_clear();
+    ERR_TitanLowCap_clear();
+    ERR_HyperionLowCap_clear();
+    ERR_EboxOverTemp_clear();
 }
 
 // Error: E0_OtherError
@@ -203,471 +206,579 @@ bool ERR_OtherError_get() {
 }
 
 
-// Error: E1_StateMTransitionE
-bool ERR_StateMTransitionE_status = false;    // Internal value
+// Error: E1_CPUOverTemp
+bool ERR_CPUOverTemp_status = false;    // Internal value
 
-void ERR_StateMTransitionE_set() {
+void ERR_CPUOverTemp_set() {
     // Only set error when it is not set yet
-    if(!ERR_StateMTransitionE_status) {
+    if(!ERR_CPUOverTemp_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_StateMTransitionE_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_CPUOverTemp_FLAG, eSetBits);
 
         // Update internal value
-        ERR_StateMTransitionE_status = true;
+        ERR_CPUOverTemp_status = true;
     }
 }
 
-void ERR_StateMTransitionE_clear() {
+void ERR_CPUOverTemp_clear() {
     // Only clear error when it is set
-    if(ERR_StateMTransitionE_status) {
+    if(ERR_CPUOverTemp_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_StateMTransitionE_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_CPUOverTemp_FLAG);
 
         // Update internal value
-        ERR_StateMTransitionE_status = false;
+        ERR_CPUOverTemp_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_StateMTransitionE_get() {
+bool ERR_CPUOverTemp_get() {
     // Return internal value
-    return ERR_StateMTransitionE_status;
+    return ERR_CPUOverTemp_status;
 }
 
 
-// Error: E2_BrakeFTimeout
-bool ERR_BrakeFTimeout_status = false;    // Internal value
+// Error: E2_OverVolt
+bool ERR_OverVolt_status = false;    // Internal value
 
-void ERR_BrakeFTimeout_set() {
+void ERR_OverVolt_set() {
     // Only set error when it is not set yet
-    if(!ERR_BrakeFTimeout_status) {
+    if(!ERR_OverVolt_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_BrakeFTimeout_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_OverVolt_FLAG, eSetBits);
 
         // Update internal value
-        ERR_BrakeFTimeout_status = true;
+        ERR_OverVolt_status = true;
     }
 }
 
-void ERR_BrakeFTimeout_clear() {
+void ERR_OverVolt_clear() {
     // Only clear error when it is set
-    if(ERR_BrakeFTimeout_status) {
+    if(ERR_OverVolt_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_BrakeFTimeout_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_OverVolt_FLAG);
 
         // Update internal value
-        ERR_BrakeFTimeout_status = false;
+        ERR_OverVolt_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_BrakeFTimeout_get() {
+bool ERR_OverVolt_get() {
     // Return internal value
-    return ERR_BrakeFTimeout_status;
+    return ERR_OverVolt_status;
 }
 
 
-// Error: E3_BrakeRTimeout
-bool ERR_BrakeRTimeout_status = false;    // Internal value
+// Error: E3_UnderVolt
+bool ERR_UnderVolt_status = false;    // Internal value
 
-void ERR_BrakeRTimeout_set() {
+void ERR_UnderVolt_set() {
     // Only set error when it is not set yet
-    if(!ERR_BrakeRTimeout_status) {
+    if(!ERR_UnderVolt_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_BrakeRTimeout_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_UnderVolt_FLAG, eSetBits);
 
         // Update internal value
-        ERR_BrakeRTimeout_status = true;
+        ERR_UnderVolt_status = true;
     }
 }
 
-void ERR_BrakeRTimeout_clear() {
+void ERR_UnderVolt_clear() {
     // Only clear error when it is set
-    if(ERR_BrakeRTimeout_status) {
+    if(ERR_UnderVolt_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_BrakeRTimeout_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_UnderVolt_FLAG);
 
         // Update internal value
-        ERR_BrakeRTimeout_status = false;
+        ERR_UnderVolt_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_BrakeRTimeout_get() {
+bool ERR_UnderVolt_get() {
     // Return internal value
-    return ERR_BrakeRTimeout_status;
+    return ERR_UnderVolt_status;
 }
 
 
-// Error: E4_PDUTimeout
-bool ERR_PDUTimeout_status = false;    // Internal value
+// Error: E4_InvalidPosition
+bool ERR_InvalidPosition_status = false;    // Internal value
 
-void ERR_PDUTimeout_set() {
+void ERR_InvalidPosition_set() {
     // Only set error when it is not set yet
-    if(!ERR_PDUTimeout_status) {
+    if(!ERR_InvalidPosition_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_PDUTimeout_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_InvalidPosition_FLAG, eSetBits);
 
         // Update internal value
-        ERR_PDUTimeout_status = true;
+        ERR_InvalidPosition_status = true;
     }
 }
 
-void ERR_PDUTimeout_clear() {
+void ERR_InvalidPosition_clear() {
     // Only clear error when it is set
-    if(ERR_PDUTimeout_status) {
+    if(ERR_InvalidPosition_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_PDUTimeout_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_InvalidPosition_FLAG);
 
         // Update internal value
-        ERR_PDUTimeout_status = false;
+        ERR_InvalidPosition_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_PDUTimeout_get() {
+bool ERR_InvalidPosition_get() {
     // Return internal value
-    return ERR_PDUTimeout_status;
+    return ERR_InvalidPosition_status;
 }
 
 
-// Error: E5_HVCUTimeout
-bool ERR_HVCUTimeout_status = false;    // Internal value
+// Error: E5_ReservoirOverTemp
+bool ERR_ReservoirOverTemp_status = false;    // Internal value
 
-void ERR_HVCUTimeout_set() {
+void ERR_ReservoirOverTemp_set() {
     // Only set error when it is not set yet
-    if(!ERR_HVCUTimeout_status) {
+    if(!ERR_ReservoirOverTemp_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_HVCUTimeout_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_ReservoirOverTemp_FLAG, eSetBits);
 
         // Update internal value
-        ERR_HVCUTimeout_status = true;
+        ERR_ReservoirOverTemp_status = true;
     }
 }
 
-void ERR_HVCUTimeout_clear() {
+void ERR_ReservoirOverTemp_clear() {
     // Only clear error when it is set
-    if(ERR_HVCUTimeout_status) {
+    if(ERR_ReservoirOverTemp_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_HVCUTimeout_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_ReservoirOverTemp_FLAG);
 
         // Update internal value
-        ERR_HVCUTimeout_status = false;
+        ERR_ReservoirOverTemp_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_HVCUTimeout_get() {
+bool ERR_ReservoirOverTemp_get() {
     // Return internal value
-    return ERR_HVCUTimeout_status;
+    return ERR_ReservoirOverTemp_status;
 }
 
 
-// Error: E6_SensorRTimeout
-bool ERR_SensorRTimeout_status = false;    // Internal value
+// Error: E6_CLUHeartbeatMiss
+bool ERR_CLUHeartbeatMiss_status = false;    // Internal value
 
-void ERR_SensorRTimeout_set() {
+void ERR_CLUHeartbeatMiss_set() {
     // Only set error when it is not set yet
-    if(!ERR_SensorRTimeout_status) {
+    if(!ERR_CLUHeartbeatMiss_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_SensorRTimeout_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_CLUHeartbeatMiss_FLAG, eSetBits);
 
         // Update internal value
-        ERR_SensorRTimeout_status = true;
+        ERR_CLUHeartbeatMiss_status = true;
     }
 }
 
-void ERR_SensorRTimeout_clear() {
+void ERR_CLUHeartbeatMiss_clear() {
     // Only clear error when it is set
-    if(ERR_SensorRTimeout_status) {
+    if(ERR_CLUHeartbeatMiss_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_SensorRTimeout_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_CLUHeartbeatMiss_FLAG);
 
         // Update internal value
-        ERR_SensorRTimeout_status = false;
+        ERR_CLUHeartbeatMiss_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_SensorRTimeout_get() {
+bool ERR_CLUHeartbeatMiss_get() {
     // Return internal value
-    return ERR_SensorRTimeout_status;
+    return ERR_CLUHeartbeatMiss_status;
 }
 
 
-// Error: E7_TelemetryTimeout
-bool ERR_TelemetryTimeout_status = false;    // Internal value
+// Error: E7_BECUHeartbeatMiss
+bool ERR_BECUHeartbeatMiss_status = false;    // Internal value
 
-void ERR_TelemetryTimeout_set() {
+void ERR_BECUHeartbeatMiss_set() {
     // Only set error when it is not set yet
-    if(!ERR_TelemetryTimeout_status) {
+    if(!ERR_BECUHeartbeatMiss_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_TelemetryTimeout_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_BECUHeartbeatMiss_FLAG, eSetBits);
 
         // Update internal value
-        ERR_TelemetryTimeout_status = true;
+        ERR_BECUHeartbeatMiss_status = true;
     }
 }
 
-void ERR_TelemetryTimeout_clear() {
+void ERR_BECUHeartbeatMiss_clear() {
     // Only clear error when it is set
-    if(ERR_TelemetryTimeout_status) {
+    if(ERR_BECUHeartbeatMiss_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_TelemetryTimeout_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_BECUHeartbeatMiss_FLAG);
 
         // Update internal value
-        ERR_TelemetryTimeout_status = false;
+        ERR_BECUHeartbeatMiss_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_TelemetryTimeout_get() {
+bool ERR_BECUHeartbeatMiss_get() {
     // Return internal value
-    return ERR_TelemetryTimeout_status;
+    return ERR_BECUHeartbeatMiss_status;
 }
 
 
-// Error: E8_NodeErrorFlag
-bool ERR_NodeErrorFlag_status = false;    // Internal value
+// Error: E8_PDUHeartbeatMiss
+bool ERR_PDUHeartbeatMiss_status = false;    // Internal value
 
-void ERR_NodeErrorFlag_set() {
+void ERR_PDUHeartbeatMiss_set() {
     // Only set error when it is not set yet
-    if(!ERR_NodeErrorFlag_status) {
+    if(!ERR_PDUHeartbeatMiss_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_NodeErrorFlag_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_PDUHeartbeatMiss_FLAG, eSetBits);
 
         // Update internal value
-        ERR_NodeErrorFlag_status = true;
+        ERR_PDUHeartbeatMiss_status = true;
     }
 }
 
-void ERR_NodeErrorFlag_clear() {
+void ERR_PDUHeartbeatMiss_clear() {
     // Only clear error when it is set
-    if(ERR_NodeErrorFlag_status) {
+    if(ERR_PDUHeartbeatMiss_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_NodeErrorFlag_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_PDUHeartbeatMiss_FLAG);
 
         // Update internal value
-        ERR_NodeErrorFlag_status = false;
+        ERR_PDUHeartbeatMiss_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_NodeErrorFlag_get() {
+bool ERR_PDUHeartbeatMiss_get() {
     // Return internal value
-    return ERR_NodeErrorFlag_status;
+    return ERR_PDUHeartbeatMiss_status;
 }
 
 
-// Error: E9_SWError
-bool ERR_SWError_status = false;    // Internal value
+// Error: E9_TelemetryHeartbeatMiss
+bool ERR_TelemetryHeartbeatMiss_status = false;    // Internal value
 
-void ERR_SWError_set() {
+void ERR_TelemetryHeartbeatMiss_set() {
     // Only set error when it is not set yet
-    if(!ERR_SWError_status) {
+    if(!ERR_TelemetryHeartbeatMiss_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_SWError_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_TelemetryHeartbeatMiss_FLAG, eSetBits);
 
         // Update internal value
-        ERR_SWError_status = true;
+        ERR_TelemetryHeartbeatMiss_status = true;
     }
 }
 
-void ERR_SWError_clear() {
+void ERR_TelemetryHeartbeatMiss_clear() {
     // Only clear error when it is set
-    if(ERR_SWError_status) {
+    if(ERR_TelemetryHeartbeatMiss_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_SWError_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_TelemetryHeartbeatMiss_FLAG);
 
         // Update internal value
-        ERR_SWError_status = false;
+        ERR_TelemetryHeartbeatMiss_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_SWError_get() {
+bool ERR_TelemetryHeartbeatMiss_get() {
     // Return internal value
-    return ERR_SWError_status;
+    return ERR_TelemetryHeartbeatMiss_status;
 }
 
 
-// Error: E10_TelemEmergency
-bool ERR_TelemEmergency_status = false;    // Internal value
+// Error: E10_TitanOverTemp
+bool ERR_TitanOverTemp_status = false;    // Internal value
 
-void ERR_TelemEmergency_set() {
+void ERR_TitanOverTemp_set() {
     // Only set error when it is not set yet
-    if(!ERR_TelemEmergency_status) {
+    if(!ERR_TitanOverTemp_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_TelemEmergency_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_TitanOverTemp_FLAG, eSetBits);
 
         // Update internal value
-        ERR_TelemEmergency_status = true;
+        ERR_TitanOverTemp_status = true;
     }
 }
 
-void ERR_TelemEmergency_clear() {
+void ERR_TitanOverTemp_clear() {
     // Only clear error when it is set
-    if(ERR_TelemEmergency_status) {
+    if(ERR_TitanOverTemp_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_TelemEmergency_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_TitanOverTemp_FLAG);
 
         // Update internal value
-        ERR_TelemEmergency_status = false;
+        ERR_TitanOverTemp_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_TelemEmergency_get() {
+bool ERR_TitanOverTemp_get() {
     // Return internal value
-    return ERR_TelemEmergency_status;
+    return ERR_TitanOverTemp_status;
 }
 
 
-// Error: E12_encoderError
-bool ERR_encoderError_status = false;    // Internal value
+// Error: E11_HyperionOverTemp
+bool ERR_HyperionOverTemp_status = false;    // Internal value
 
-void ERR_encoderError_set() {
+void ERR_HyperionOverTemp_set() {
     // Only set error when it is not set yet
-    if(!ERR_encoderError_status) {
+    if(!ERR_HyperionOverTemp_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_encoderError_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_HyperionOverTemp_FLAG, eSetBits);
 
         // Update internal value
-        ERR_encoderError_status = true;
+        ERR_HyperionOverTemp_status = true;
     }
 }
 
-void ERR_encoderError_clear() {
+void ERR_HyperionOverTemp_clear() {
     // Only clear error when it is set
-    if(ERR_encoderError_status) {
+    if(ERR_HyperionOverTemp_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_encoderError_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_HyperionOverTemp_FLAG);
 
         // Update internal value
-        ERR_encoderError_status = false;
+        ERR_HyperionOverTemp_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_encoderError_get() {
+bool ERR_HyperionOverTemp_get() {
     // Return internal value
-    return ERR_encoderError_status;
+    return ERR_HyperionOverTemp_status;
 }
 
 
-// Error: E13_encoderSpeedError
-bool ERR_encoderSpeedError_status = false;    // Internal value
+// Error: E12_TitanLowHp
+bool ERR_TitanLowHp_status = false;    // Internal value
 
-void ERR_encoderSpeedError_set() {
+void ERR_TitanLowHp_set() {
     // Only set error when it is not set yet
-    if(!ERR_encoderSpeedError_status) {
+    if(!ERR_TitanLowHp_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_encoderSpeedError_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_TitanLowHp_FLAG, eSetBits);
 
         // Update internal value
-        ERR_encoderSpeedError_status = true;
+        ERR_TitanLowHp_status = true;
     }
 }
 
-void ERR_encoderSpeedError_clear() {
+void ERR_TitanLowHp_clear() {
     // Only clear error when it is set
-    if(ERR_encoderSpeedError_status) {
+    if(ERR_TitanLowHp_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_encoderSpeedError_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_TitanLowHp_FLAG);
 
         // Update internal value
-        ERR_encoderSpeedError_status = false;
+        ERR_TitanLowHp_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_encoderSpeedError_get() {
+bool ERR_TitanLowHp_get() {
     // Return internal value
-    return ERR_encoderSpeedError_status;
+    return ERR_TitanLowHp_status;
 }
 
 
-// Error: E14_fiducialHighOffset
-bool ERR_fiducialHighOffset_status = false;    // Internal value
+// Error: E13_HyperionLowHp
+bool ERR_HyperionLowHp_status = false;    // Internal value
 
-void ERR_fiducialHighOffset_set() {
+void ERR_HyperionLowHp_set() {
     // Only set error when it is not set yet
-    if(!ERR_fiducialHighOffset_status) {
+    if(!ERR_HyperionLowHp_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_fiducialHighOffset_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_HyperionLowHp_FLAG, eSetBits);
 
         // Update internal value
-        ERR_fiducialHighOffset_status = true;
+        ERR_HyperionLowHp_status = true;
     }
 }
 
-void ERR_fiducialHighOffset_clear() {
+void ERR_HyperionLowHp_clear() {
     // Only clear error when it is set
-    if(ERR_fiducialHighOffset_status) {
+    if(ERR_HyperionLowHp_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_fiducialHighOffset_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_HyperionLowHp_FLAG);
 
         // Update internal value
-        ERR_fiducialHighOffset_status = false;
+        ERR_HyperionLowHp_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_fiducialHighOffset_get() {
+bool ERR_HyperionLowHp_get() {
     // Return internal value
-    return ERR_fiducialHighOffset_status;
+    return ERR_HyperionLowHp_status;
+}
+
+
+// Error: E14_TitanLowCap
+bool ERR_TitanLowCap_status = false;    // Internal value
+
+void ERR_TitanLowCap_set() {
+    // Only set error when it is not set yet
+    if(!ERR_TitanLowCap_status) {
+            
+        // Set bit and notify emergency task
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_TitanLowCap_FLAG, eSetBits);
+
+        // Update internal value
+        ERR_TitanLowCap_status = true;
+    }
+}
+
+void ERR_TitanLowCap_clear() {
+    // Only clear error when it is set
+    if(ERR_TitanLowCap_status) {
+
+        // Reset bit
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_TitanLowCap_FLAG);
+
+        // Update internal value
+        ERR_TitanLowCap_status = false;
+
+        // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
+        (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
+    }
+}
+
+bool ERR_TitanLowCap_get() {
+    // Return internal value
+    return ERR_TitanLowCap_status;
+}
+
+
+// Error: E15_HyperionLowCap
+bool ERR_HyperionLowCap_status = false;    // Internal value
+
+void ERR_HyperionLowCap_set() {
+    // Only set error when it is not set yet
+    if(!ERR_HyperionLowCap_status) {
+            
+        // Set bit and notify emergency task
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_HyperionLowCap_FLAG, eSetBits);
+
+        // Update internal value
+        ERR_HyperionLowCap_status = true;
+    }
+}
+
+void ERR_HyperionLowCap_clear() {
+    // Only clear error when it is set
+    if(ERR_HyperionLowCap_status) {
+
+        // Reset bit
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_HyperionLowCap_FLAG);
+
+        // Update internal value
+        ERR_HyperionLowCap_status = false;
+
+        // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
+        (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
+    }
+}
+
+bool ERR_HyperionLowCap_get() {
+    // Return internal value
+    return ERR_HyperionLowCap_status;
+}
+
+
+// Error: E16_EboxOverTemp
+bool ERR_EboxOverTemp_status = false;    // Internal value
+
+void ERR_EboxOverTemp_set() {
+    // Only set error when it is not set yet
+    if(!ERR_EboxOverTemp_status) {
+            
+        // Set bit and notify emergency task
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_EboxOverTemp_FLAG, eSetBits);
+
+        // Update internal value
+        ERR_EboxOverTemp_status = true;
+    }
+}
+
+void ERR_EboxOverTemp_clear() {
+    // Only clear error when it is set
+    if(ERR_EboxOverTemp_status) {
+
+        // Reset bit
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_EboxOverTemp_FLAG);
+
+        // Update internal value
+        ERR_EboxOverTemp_status = false;
+
+        // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
+        (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
+    }
+}
+
+bool ERR_EboxOverTemp_get() {
+    // Return internal value
+    return ERR_EboxOverTemp_status;
 }
 
 

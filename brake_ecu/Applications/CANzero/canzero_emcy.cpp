@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY CZ2CPP V1.7.7.
  *
- * This source file was generated from 'pod2023_gen.dbc' on 14:47:17 06.06.2023.
+ * This source file was generated from 'pod2023_gen.dbc' on 13:21:43 18.06.2023.
  * It contains the errors and warnings for the node 'BrakeF'.
  *
  * Florian Keck
@@ -187,227 +187,264 @@ bool WARN_externalError_get() {
 ***************************************************************************/
 // Reset all errors
 void ERR_ALL_clear() {
-    ERR_pressureTooHigh_clear();
-    ERR_pressureTooLow_clear();
-    ERR_commWatchdogTimeout_clear();
-    ERR_retractUnsuccesful_errorFlag_clear();
-    ERR_retractUnsuccesful_notEnabled_clear();
-    ERR_retractUnsuccesful_openSDC_clear();
+    ERR_CPUOverTemp_clear();
+    ERR_UnderVolt_clear();
+    ERR_OverVolt_clear();
+    ERR_IntakeOverPressure_clear();
+    ERR_IntakeUnderPressure_clear();
+    ERR_OuttakeOverPressure_clear();
+    ERR_OuttakeUnderPressure_clear();
 }
 
-// Error: E0_pressureTooHigh
-bool ERR_pressureTooHigh_status = false;    // Internal value
+// Error: E0_CPUOverTemp
+bool ERR_CPUOverTemp_status = false;    // Internal value
 
-void ERR_pressureTooHigh_set() {
+void ERR_CPUOverTemp_set() {
     // Only set error when it is not set yet
-    if(!ERR_pressureTooHigh_status) {
+    if(!ERR_CPUOverTemp_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_pressureTooHigh_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_CPUOverTemp_FLAG, eSetBits);
 
         // Update internal value
-        ERR_pressureTooHigh_status = true;
+        ERR_CPUOverTemp_status = true;
     }
 }
 
-void ERR_pressureTooHigh_clear() {
+void ERR_CPUOverTemp_clear() {
     // Only clear error when it is set
-    if(ERR_pressureTooHigh_status) {
+    if(ERR_CPUOverTemp_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_pressureTooHigh_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_CPUOverTemp_FLAG);
 
         // Update internal value
-        ERR_pressureTooHigh_status = false;
+        ERR_CPUOverTemp_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_pressureTooHigh_get() {
+bool ERR_CPUOverTemp_get() {
     // Return internal value
-    return ERR_pressureTooHigh_status;
+    return ERR_CPUOverTemp_status;
 }
 
 
-// Error: E1_pressureTooLow
-bool ERR_pressureTooLow_status = false;    // Internal value
+// Error: E1_UnderVolt
+bool ERR_UnderVolt_status = false;    // Internal value
 
-void ERR_pressureTooLow_set() {
+void ERR_UnderVolt_set() {
     // Only set error when it is not set yet
-    if(!ERR_pressureTooLow_status) {
+    if(!ERR_UnderVolt_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_pressureTooLow_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_UnderVolt_FLAG, eSetBits);
 
         // Update internal value
-        ERR_pressureTooLow_status = true;
+        ERR_UnderVolt_status = true;
     }
 }
 
-void ERR_pressureTooLow_clear() {
+void ERR_UnderVolt_clear() {
     // Only clear error when it is set
-    if(ERR_pressureTooLow_status) {
+    if(ERR_UnderVolt_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_pressureTooLow_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_UnderVolt_FLAG);
 
         // Update internal value
-        ERR_pressureTooLow_status = false;
+        ERR_UnderVolt_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_pressureTooLow_get() {
+bool ERR_UnderVolt_get() {
     // Return internal value
-    return ERR_pressureTooLow_status;
+    return ERR_UnderVolt_status;
 }
 
 
-// Error: E2_commWatchdogTimeout
-bool ERR_commWatchdogTimeout_status = false;    // Internal value
+// Error: E2_OverVolt
+bool ERR_OverVolt_status = false;    // Internal value
 
-void ERR_commWatchdogTimeout_set() {
+void ERR_OverVolt_set() {
     // Only set error when it is not set yet
-    if(!ERR_commWatchdogTimeout_status) {
+    if(!ERR_OverVolt_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_commWatchdogTimeout_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_OverVolt_FLAG, eSetBits);
 
         // Update internal value
-        ERR_commWatchdogTimeout_status = true;
+        ERR_OverVolt_status = true;
     }
 }
 
-void ERR_commWatchdogTimeout_clear() {
+void ERR_OverVolt_clear() {
     // Only clear error when it is set
-    if(ERR_commWatchdogTimeout_status) {
+    if(ERR_OverVolt_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_commWatchdogTimeout_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_OverVolt_FLAG);
 
         // Update internal value
-        ERR_commWatchdogTimeout_status = false;
+        ERR_OverVolt_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_commWatchdogTimeout_get() {
+bool ERR_OverVolt_get() {
     // Return internal value
-    return ERR_commWatchdogTimeout_status;
+    return ERR_OverVolt_status;
 }
 
 
-// Error: E3_retractUnsuccesful_errorFlag
-bool ERR_retractUnsuccesful_errorFlag_status = false;    // Internal value
+// Error: E3_IntakeOverPressure
+bool ERR_IntakeOverPressure_status = false;    // Internal value
 
-void ERR_retractUnsuccesful_errorFlag_set() {
+void ERR_IntakeOverPressure_set() {
     // Only set error when it is not set yet
-    if(!ERR_retractUnsuccesful_errorFlag_status) {
+    if(!ERR_IntakeOverPressure_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_errorFlag_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_IntakeOverPressure_FLAG, eSetBits);
 
         // Update internal value
-        ERR_retractUnsuccesful_errorFlag_status = true;
+        ERR_IntakeOverPressure_status = true;
     }
 }
 
-void ERR_retractUnsuccesful_errorFlag_clear() {
+void ERR_IntakeOverPressure_clear() {
     // Only clear error when it is set
-    if(ERR_retractUnsuccesful_errorFlag_status) {
+    if(ERR_IntakeOverPressure_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_errorFlag_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_IntakeOverPressure_FLAG);
 
         // Update internal value
-        ERR_retractUnsuccesful_errorFlag_status = false;
+        ERR_IntakeOverPressure_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_retractUnsuccesful_errorFlag_get() {
+bool ERR_IntakeOverPressure_get() {
     // Return internal value
-    return ERR_retractUnsuccesful_errorFlag_status;
+    return ERR_IntakeOverPressure_status;
 }
 
 
-// Error: E4_retractUnsuccesful_notEnabled
-bool ERR_retractUnsuccesful_notEnabled_status = false;    // Internal value
+// Error: E4_IntakeUnderPressure
+bool ERR_IntakeUnderPressure_status = false;    // Internal value
 
-void ERR_retractUnsuccesful_notEnabled_set() {
+void ERR_IntakeUnderPressure_set() {
     // Only set error when it is not set yet
-    if(!ERR_retractUnsuccesful_notEnabled_status) {
+    if(!ERR_IntakeUnderPressure_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_notEnabled_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_IntakeUnderPressure_FLAG, eSetBits);
 
         // Update internal value
-        ERR_retractUnsuccesful_notEnabled_status = true;
+        ERR_IntakeUnderPressure_status = true;
     }
 }
 
-void ERR_retractUnsuccesful_notEnabled_clear() {
+void ERR_IntakeUnderPressure_clear() {
     // Only clear error when it is set
-    if(ERR_retractUnsuccesful_notEnabled_status) {
+    if(ERR_IntakeUnderPressure_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_notEnabled_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_IntakeUnderPressure_FLAG);
 
         // Update internal value
-        ERR_retractUnsuccesful_notEnabled_status = false;
+        ERR_IntakeUnderPressure_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_retractUnsuccesful_notEnabled_get() {
+bool ERR_IntakeUnderPressure_get() {
     // Return internal value
-    return ERR_retractUnsuccesful_notEnabled_status;
+    return ERR_IntakeUnderPressure_status;
 }
 
 
-// Error: E5_retractUnsuccesful_openSDC
-bool ERR_retractUnsuccesful_openSDC_status = false;    // Internal value
+// Error: E5_OuttakeOverPressure
+bool ERR_OuttakeOverPressure_status = false;    // Internal value
 
-void ERR_retractUnsuccesful_openSDC_set() {
+void ERR_OuttakeOverPressure_set() {
     // Only set error when it is not set yet
-    if(!ERR_retractUnsuccesful_openSDC_status) {
+    if(!ERR_OuttakeOverPressure_status) {
             
         // Set bit and notify emergency task
-        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_openSDC_FLAG, eSetBits);
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_OuttakeOverPressure_FLAG, eSetBits);
 
         // Update internal value
-        ERR_retractUnsuccesful_openSDC_status = true;
+        ERR_OuttakeOverPressure_status = true;
     }
 }
 
-void ERR_retractUnsuccesful_openSDC_clear() {
+void ERR_OuttakeOverPressure_clear() {
     // Only clear error when it is set
-    if(ERR_retractUnsuccesful_openSDC_status) {
+    if(ERR_OuttakeOverPressure_status) {
 
         // Reset bit
-        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_retractUnsuccesful_openSDC_FLAG);
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_OuttakeOverPressure_FLAG);
 
         // Update internal value
-        ERR_retractUnsuccesful_openSDC_status = false;
+        ERR_OuttakeOverPressure_status = false;
 
         // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
         (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
     }
 }
 
-bool ERR_retractUnsuccesful_openSDC_get() {
+bool ERR_OuttakeOverPressure_get() {
     // Return internal value
-    return ERR_retractUnsuccesful_openSDC_status;
+    return ERR_OuttakeOverPressure_status;
+}
+
+
+// Error: E6_OuttakeUnderPressure
+bool ERR_OuttakeUnderPressure_status = false;    // Internal value
+
+void ERR_OuttakeUnderPressure_set() {
+    // Only set error when it is not set yet
+    if(!ERR_OuttakeUnderPressure_status) {
+            
+        // Set bit and notify emergency task
+        xTaskNotify((TaskHandle_t)emergencyTaskHandle, ERR_OuttakeUnderPressure_FLAG, eSetBits);
+
+        // Update internal value
+        ERR_OuttakeUnderPressure_status = true;
+    }
+}
+
+void ERR_OuttakeUnderPressure_clear() {
+    // Only clear error when it is set
+    if(ERR_OuttakeUnderPressure_status) {
+
+        // Reset bit
+        (void)ulTaskNotifyValueClear((TaskHandle_t)emergencyTaskHandle, ERR_OuttakeUnderPressure_FLAG);
+
+        // Update internal value
+        ERR_OuttakeUnderPressure_status = false;
+
+        // ulTaskNotifyValueClear() seems not to notify the task -> notify the task
+        (void)xTaskNotify((TaskHandle_t)emergencyTaskHandle, 0, eNoAction);
+    }
+}
+
+bool ERR_OuttakeUnderPressure_get() {
+    // Return internal value
+    return ERR_OuttakeUnderPressure_status;
 }
 
 

@@ -108,3 +108,17 @@ emergency:
     E4:
       name: watchdogStateMachine
       comment: The watchdog for the state machine timed out.
+    E5:
+      name: SECUHeartbeatMiss
+      comment: didn't receive a heartbeat from SECU.
+    E6:
+      name: CPUOverTemp
+      comment: cpu temperature to high
+    E7:
+      name: OverVolt
+      comment: Input voltage to high
+    E8:
+      name: UnderVolt
+      comment: Input voltage to low.
+
+    

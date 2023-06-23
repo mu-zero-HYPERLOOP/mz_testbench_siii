@@ -59,83 +59,101 @@ void ERR_OtherError_set();
 void ERR_OtherError_clear();
 bool ERR_OtherError_get();
 
-// Error: E1_StateMTransitionE
-constexpr uint32_t ERR_StateMTransitionE_FLAG = 0x2000;
-void ERR_StateMTransitionE_set();
-void ERR_StateMTransitionE_clear();
-bool ERR_StateMTransitionE_get();
+// Error: E1_CPUOverTemp
+constexpr uint32_t ERR_CPUOverTemp_FLAG = 0x2000;
+void ERR_CPUOverTemp_set();
+void ERR_CPUOverTemp_clear();
+bool ERR_CPUOverTemp_get();
 
-// Error: E2_BrakeFTimeout
-constexpr uint32_t ERR_BrakeFTimeout_FLAG = 0x4000;
-void ERR_BrakeFTimeout_set();
-void ERR_BrakeFTimeout_clear();
-bool ERR_BrakeFTimeout_get();
+// Error: E2_OverVolt
+constexpr uint32_t ERR_OverVolt_FLAG = 0x4000;
+void ERR_OverVolt_set();
+void ERR_OverVolt_clear();
+bool ERR_OverVolt_get();
 
-// Error: E3_BrakeRTimeout
-constexpr uint32_t ERR_BrakeRTimeout_FLAG = 0x8000;
-void ERR_BrakeRTimeout_set();
-void ERR_BrakeRTimeout_clear();
-bool ERR_BrakeRTimeout_get();
+// Error: E3_UnderVolt
+constexpr uint32_t ERR_UnderVolt_FLAG = 0x8000;
+void ERR_UnderVolt_set();
+void ERR_UnderVolt_clear();
+bool ERR_UnderVolt_get();
 
-// Error: E4_PDUTimeout
-constexpr uint32_t ERR_PDUTimeout_FLAG = 0x10000;
-void ERR_PDUTimeout_set();
-void ERR_PDUTimeout_clear();
-bool ERR_PDUTimeout_get();
+// Error: E4_InvalidPosition
+constexpr uint32_t ERR_InvalidPosition_FLAG = 0x10000;
+void ERR_InvalidPosition_set();
+void ERR_InvalidPosition_clear();
+bool ERR_InvalidPosition_get();
 
-// Error: E5_HVCUTimeout
-constexpr uint32_t ERR_HVCUTimeout_FLAG = 0x20000;
-void ERR_HVCUTimeout_set();
-void ERR_HVCUTimeout_clear();
-bool ERR_HVCUTimeout_get();
+// Error: E5_ReservoirOverTemp
+constexpr uint32_t ERR_ReservoirOverTemp_FLAG = 0x20000;
+void ERR_ReservoirOverTemp_set();
+void ERR_ReservoirOverTemp_clear();
+bool ERR_ReservoirOverTemp_get();
 
-// Error: E6_SensorRTimeout
-constexpr uint32_t ERR_SensorRTimeout_FLAG = 0x40000;
-void ERR_SensorRTimeout_set();
-void ERR_SensorRTimeout_clear();
-bool ERR_SensorRTimeout_get();
+// Error: E6_CLUHeartbeatMiss
+constexpr uint32_t ERR_CLUHeartbeatMiss_FLAG = 0x40000;
+void ERR_CLUHeartbeatMiss_set();
+void ERR_CLUHeartbeatMiss_clear();
+bool ERR_CLUHeartbeatMiss_get();
 
-// Error: E7_TelemetryTimeout
-constexpr uint32_t ERR_TelemetryTimeout_FLAG = 0x80000;
-void ERR_TelemetryTimeout_set();
-void ERR_TelemetryTimeout_clear();
-bool ERR_TelemetryTimeout_get();
+// Error: E7_BECUHeartbeatMiss
+constexpr uint32_t ERR_BECUHeartbeatMiss_FLAG = 0x80000;
+void ERR_BECUHeartbeatMiss_set();
+void ERR_BECUHeartbeatMiss_clear();
+bool ERR_BECUHeartbeatMiss_get();
 
-// Error: E8_NodeErrorFlag
-constexpr uint32_t ERR_NodeErrorFlag_FLAG = 0x100000;
-void ERR_NodeErrorFlag_set();
-void ERR_NodeErrorFlag_clear();
-bool ERR_NodeErrorFlag_get();
+// Error: E8_PDUHeartbeatMiss
+constexpr uint32_t ERR_PDUHeartbeatMiss_FLAG = 0x100000;
+void ERR_PDUHeartbeatMiss_set();
+void ERR_PDUHeartbeatMiss_clear();
+bool ERR_PDUHeartbeatMiss_get();
 
-// Error: E9_SWError
-constexpr uint32_t ERR_SWError_FLAG = 0x200000;
-void ERR_SWError_set();
-void ERR_SWError_clear();
-bool ERR_SWError_get();
+// Error: E9_TelemetryHeartbeatMiss
+constexpr uint32_t ERR_TelemetryHeartbeatMiss_FLAG = 0x200000;
+void ERR_TelemetryHeartbeatMiss_set();
+void ERR_TelemetryHeartbeatMiss_clear();
+bool ERR_TelemetryHeartbeatMiss_get();
 
-// Error: E10_TelemEmergency
-constexpr uint32_t ERR_TelemEmergency_FLAG = 0x400000;
-void ERR_TelemEmergency_set();
-void ERR_TelemEmergency_clear();
-bool ERR_TelemEmergency_get();
+// Error: E10_TitanOverTemp
+constexpr uint32_t ERR_TitanOverTemp_FLAG = 0x400000;
+void ERR_TitanOverTemp_set();
+void ERR_TitanOverTemp_clear();
+bool ERR_TitanOverTemp_get();
 
-// Error: E12_encoderError
-constexpr uint32_t ERR_encoderError_FLAG = 0x1000000;
-void ERR_encoderError_set();
-void ERR_encoderError_clear();
-bool ERR_encoderError_get();
+// Error: E11_HyperionOverTemp
+constexpr uint32_t ERR_HyperionOverTemp_FLAG = 0x800000;
+void ERR_HyperionOverTemp_set();
+void ERR_HyperionOverTemp_clear();
+bool ERR_HyperionOverTemp_get();
 
-// Error: E13_encoderSpeedError
-constexpr uint32_t ERR_encoderSpeedError_FLAG = 0x2000000;
-void ERR_encoderSpeedError_set();
-void ERR_encoderSpeedError_clear();
-bool ERR_encoderSpeedError_get();
+// Error: E12_TitanLowHp
+constexpr uint32_t ERR_TitanLowHp_FLAG = 0x1000000;
+void ERR_TitanLowHp_set();
+void ERR_TitanLowHp_clear();
+bool ERR_TitanLowHp_get();
 
-// Error: E14_fiducialHighOffset
-constexpr uint32_t ERR_fiducialHighOffset_FLAG = 0x4000000;
-void ERR_fiducialHighOffset_set();
-void ERR_fiducialHighOffset_clear();
-bool ERR_fiducialHighOffset_get();
+// Error: E13_HyperionLowHp
+constexpr uint32_t ERR_HyperionLowHp_FLAG = 0x2000000;
+void ERR_HyperionLowHp_set();
+void ERR_HyperionLowHp_clear();
+bool ERR_HyperionLowHp_get();
+
+// Error: E14_TitanLowCap
+constexpr uint32_t ERR_TitanLowCap_FLAG = 0x4000000;
+void ERR_TitanLowCap_set();
+void ERR_TitanLowCap_clear();
+bool ERR_TitanLowCap_get();
+
+// Error: E15_HyperionLowCap
+constexpr uint32_t ERR_HyperionLowCap_FLAG = 0x8000000;
+void ERR_HyperionLowCap_set();
+void ERR_HyperionLowCap_clear();
+bool ERR_HyperionLowCap_get();
+
+// Error: E16_EboxOverTemp
+constexpr uint32_t ERR_EboxOverTemp_FLAG = 0x10000000;
+void ERR_EboxOverTemp_set();
+void ERR_EboxOverTemp_clear();
+bool ERR_EboxOverTemp_get();
 
 
 #endif // CANZERO_SensorF_EMCY_HPP

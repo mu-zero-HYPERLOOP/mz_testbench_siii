@@ -12,7 +12,7 @@
 
 namespace imu {
 
-static constexpr bool FREQUENT_LOGGING = true;
+static constexpr bool FREQUENT_LOGGING = false;
 
 ImuMaster imuMaster;
 
