@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <Application.hpp>
+#include "Application.hpp"
 #include <cz_interface.hpp>
 #include <Emergency.hpp>
 #include <handles.hpp>
@@ -53,10 +53,13 @@
 #include "BuildDateTime.hpp"
 
 #include "dbc_parser.hpp"
-using namespace can;
 
 #include <PDU.hpp>
-#include "ProjectXX.hpp"
+
+
+void led_app_entry(void* argv);
+
+using namespace can;
 
 
 void SystemClock_Config(void);
@@ -177,7 +180,7 @@ int main() {
 
 	Application projectXXApp;
 	projectXXApp.setStackSize(2 * 256 * 4);
-	projectXXApp.create("projectXXApp", projectXXFunction, NULL);
+	projectXXApp.create("neopixelApp", led_app_entry, NULL);
 
 	//create stats the first time
 	stats::estimateCPUusage();

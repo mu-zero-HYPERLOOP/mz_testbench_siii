@@ -18,6 +18,8 @@
 #include "estdio.hpp"
 #include "GlobalState.hpp"
 
+using namespace can;
+
 //AdcDma<4> adc1 { &hadc1 }; //ADC class to read basic BCU signals, already defined in TaskManager.cpp
 AdcDma<14> adc2 { &hadc2 };	// ADC class to read the current of the channels
 
