@@ -168,7 +168,7 @@ typedef struct PduOutputState {
 	OutputChannelPwm	HPCh2					{false, 100.0f}; //cooling pump.
 	OutputChannelPwm	HPCh3					{false}; //maybe solenoid source (better for led strip because no remote)
 	OutputChannelPwm	HPCh4					{false}; //reserved
-	OutputChannelPwm	D1						{false, 100.0f}; //led digital
+	OutputChannelPwm	D1						{true, 100.0f}; //led digital
 	OutputChannelPwm	D2						{false, 100.0f}; //reserved
 	OutputChannelPwm	D3						{false, 100.0f}; //reserved
 	OutputChannelPwm	D4						{false, 100.0f}; //reserved
@@ -342,12 +342,14 @@ void receiveCanMessages() {
 				outputState.HPCh3.set(			 		manualControlMsg.get<signals::PDU_HPCh3_Enable>());
 				outputState.HPCh4.set(					manualControlMsg.get<signals::PDU_HPCh4_Enable>());
 
+				/*
 				outputState.D1.set(			manualControlMsg.get<signals::PDU_D1_Enable>());
 				outputState.D2.set(			manualControlMsg.get<signals::PDU_D2_Enable>());
 				outputState.D3.set(						manualControlMsg.get<signals::PDU_D3_Enable>());
 				outputState.D4.set(						manualControlMsg.get<signals::PDU_D4_Enable>());
 
 				outputState.SDC.set(					manualControlMsg.get<signals::PDU_SDC_Enable>());
+				*/
 			}
 		}
 		else if(checkRxMessage<messages::PDU_RX_LP_Dutycycle>(rxRawMsg)) {	// Duty cycle message for manual control
@@ -598,11 +600,11 @@ void batterySafetyChecks() {
 			outputState.HPCh2.set(false);
 			outputState.HPCh3.set(false);
 			outputState.HPCh4.set(false);
-			outputState.D1.set(false);
-			outputState.D2.set(false);
-			outputState.D3.set(false);
-			outputState.D4.set(false);
-			outputState.SDC.set(false);
+			//outputState.D1.set(false);
+			//outputState.D2.set(false);
+			//outputState.D3.set(false);
+			//outputState.D4.set(false);
+			//outputState.SDC.set(false);
 		}
 	} else {
 		errorUndervoltageCounter = 0;
@@ -632,10 +634,10 @@ void batterySafetyChecks() {
 			outputState.HPCh2.set(false);
 			outputState.HPCh3.set(false);
 			outputState.HPCh4.set(false);
-			outputState.D1.set(false);
-			outputState.D2.set(false);
-			outputState.D3.set(false);
-			outputState.D4.set(false);
+			//outputState.D1.set(false);
+			//outputState.D2.set(false);
+			//outputState.D3.set(false);
+			//outputState.D4.set(false);
 			outputState.SDC.set(false);
 		}
 	} else {
@@ -664,10 +666,10 @@ void batterySafetyChecks() {
 			outputState.HPCh2.set(false);
 			outputState.HPCh3.set(false);
 			outputState.HPCh4.set(false);
-			outputState.D1.set(false);
-			outputState.D2.set(false);
-			outputState.D3.set(false);
-			outputState.D4.set(false);
+			//outputState.D1.set(false);
+			//outputState.D2.set(false);
+			//outputState.D3.set(false);
+			//outputState.D4.set(false);
 			outputState.SDC.set(false);
 		}
 	} else {
@@ -680,14 +682,11 @@ void batterySafetyChecks() {
  * Set the hardware channels
  */
 void updateChannels() {
-	/*
 	outputState.LPCh1.update();
 	outputState.LPCh2.update();
 	outputState.LPCh3.update();
 	outputState.LPCh4.update();
-	*/
-	//outputState.LPCh5.update();
-	/*
+	outputState.LPCh5.update();
 	outputState.LPCh6.update();
 	outputState.LPCh7.update();
 	outputState.LPCh8.update();
@@ -697,6 +696,7 @@ void updateChannels() {
 	outputState.HPCh2.update();
 	outputState.HPCh3.update();
 	outputState.HPCh4.update();
+	/*
 	outputState.D1.update();
 	outputState.D2.update();
 	outputState.D3.update();
@@ -733,7 +733,7 @@ void updateChannels() {
 		htim8.Instance->CCR2 = 0;
 
 		// D1 is TIM3_CH1 (is controlled by ProjectXX.hpp)
-		htim3.Instance->CCR1= 0;
+		//htim3.Instance->CCR1= 0;
 
 		// D2 is TIM10_CH1
 		htim10.Instance->CCR1 = 0;
@@ -812,11 +812,13 @@ void updateChannels() {
 		}
 
 		// D1 is TIM3_CH1 (is controlled by ProjectXX.hpp)
+		/*
 		if(outputState.D1.getSwitch()) {
-			//htim3.Instance->CCR1 = outputState.D1.getDuty() * (htim3.Instance->ARR) / 100.0f;
+			htim3.Instance->CCR1 = outputState.D1.getDuty() * (htim3.Instance->ARR) / 100.0f;
 		} else {
-			//htim3.Instance->CCR1= 0;
+			htim3.Instance->CCR1= 0;
 		}
+		*/
 
 		// D2 is TIM10_CH1
 		if(outputState.D2.getSwitch()) {
@@ -888,7 +890,7 @@ static void pduAppFunction(void *pvArguments) {
 	HAL_TIM_PWM_Start(&htim11, TIM_CHANNEL_1);	// LPCh10
 	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_4);	// HPCh1
 	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_2);	// HPCh2
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);	// D1
+	//HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);	// D1
 	HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1);	// D2
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_4);	// D3
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);	// D4

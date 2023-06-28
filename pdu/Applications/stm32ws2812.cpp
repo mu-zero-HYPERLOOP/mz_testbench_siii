@@ -34,7 +34,7 @@ TIM_HandleTypeDef *timer;
 uint32_t channel;
 
 // Number of leds - set by init
-uint16_t leds = 0;
+static uint16_t leds = 0;
 
 // The actual DMA buffer - contains two halves each containing 24 bytes - 48 bytes in total.
 // Used directly by the stm32 hardware to control pwm.
@@ -129,6 +129,7 @@ static inline void update_next_buffer() {
 
 }
 
+/*
 // Done sending first half of the DMA buffer - this can now safely be updated
 void HAL_TIM_PWM_PulseFinishedHalfCpltCallback(TIM_HandleTypeDef *htim) {
 
@@ -148,6 +149,7 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim) {
 	}
 
 }
+*/
 
 void zeroLedValues() {
 	memset(led_value, 0, leds * 3); // Zero it all

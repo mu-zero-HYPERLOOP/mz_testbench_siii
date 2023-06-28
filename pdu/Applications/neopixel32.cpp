@@ -3,8 +3,12 @@
 
 #include "neopixel32.hpp"
 #include <stdlib.h>
+#include "FreeRTOS.h"
+#include "cmsis_os.h"
 
 static void _NP32_Recalc_DMA_Buf(NP32_Instance_t *handle);
+
+static osSemaphoreId_t m_sem = osSemaphoreNew(1, 1, NULL);
 
 int8_t NP32_Init(NP32_Instance_t *handle)
 {
@@ -45,7 +49,8 @@ int8_t NP32_Update(NP32_Instance_t *handle)
         return -1;
 
     // Wait for the last update to complete.
-    while (handle->DMA_Busy_Flag);
+    osSemaphoreAcquire(m_sem, pdMS_TO_TICKS(50));
+    //while (handle->DMA_Busy_Flag);
 
     // Recalculate the DMA-buffer.
     _NP32_Recalc_DMA_Buf(handle);
@@ -59,8 +64,7 @@ int8_t NP32_Update(NP32_Instance_t *handle)
 
 void NP32_DMAComplete_Callback(NP32_Instance_t *handle)
 {
-    if (handle->DMA_Busy_Flag)
-        handle->DMA_Busy_Flag = 0;
+	osSemaphoreRelease(m_sem);
 }
 
 void NP32_HSV_To_RGB(NP32_HSV_t hsv, NP32_RGB_t *rgb)

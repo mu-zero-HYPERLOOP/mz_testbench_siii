@@ -5,10 +5,7 @@
  *      Author: karl
  */
 #include "Neopixel.hpp"
-#include "NeopixelAnimation.hpp"
-#include "NeopixelMix.hpp"
-#include "NeopixelEaseLinear.hpp"
-#include "NeopixelIdentity.hpp"
+#include "estdio.hpp"
 #include <chrono>
 #include "FreeRTOS.h"
 #include "cmsis_os.h"
@@ -19,32 +16,23 @@ void led_app_entry(void* argv) {
 	using namespace std::chrono;
 	using namespace std::chrono_literals;
 
-	constexpr uint32_t ledCount = 200;
+	constexpr uint32_t ledCount = 108 * 2 - 1;
 
-	neopixel::init(&htim3, TIM_CHANNEL_3, ledCount);
-
-	/*
-	neopixel::Animation<
-		neopixel::mix<
-			neopixel::color_t(1.0f, 0.0f, 1.0f),
-			neopixel::color_t(0.0f, 1.0f, 0.0f),
-			neopixel::pos_identity>,
-		neopixel::ease_linear> animation1(0, 100, 10ms);
-		*/
+	neopixel::init(&htim3, TIM_CHANNEL_1, ledCount);
+	neopixel::setAll(color_t(255,0,255));
 
 	bool switchero = false;
+	uint32_t count = 0;
 	while(true){
-
-		for(uint32_t i = 0; i < ledCount; i++){
-			if((bool)(i % 2) == switchero){
-				neopixel::set(i, color_t(1.0f, 0.0f, 1.0f));
-			}else{
-				neopixel::set(i, color_t(0.0f, 1.0f, 0.0f));
-			}
-		}
+		neopixel::set(0, count, color_t(123,0,0));
+		neopixel::set(count + 1, ledCount, color_t(10, 50, 23));
 
 		neopixel::update();
 		osDelay(pdMS_TO_TICKS(50));
 		switchero = !switchero;
+		count++;
+		if(count >= ledCount){
+			count = 0;
+		}
 	}
 }

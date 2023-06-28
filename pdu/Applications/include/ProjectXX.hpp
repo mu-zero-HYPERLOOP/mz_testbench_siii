@@ -876,6 +876,7 @@ void smoothPingPongAnimation(int16_t start, int16_t end, int16_t step,
  */
 static void projectXXFunction(void *pvParams) {
 	osDelay(100);
+	osDelay(osWaitForever);
 
 // Make sure that while DCDC powers up, all LEDs are black
 	for (int i = 0; i < 20; i++) {

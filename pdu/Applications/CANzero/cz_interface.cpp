@@ -196,8 +196,8 @@ void cz_interface::setFilter(unsigned int canModule, CAN_FilterTypeDef canFilter
 			Error_Handler(); /* Start Error */
 		}
 	} else {
-		printDebug("Error in cz_interface: hcanModule %u not supported",
-				canModule);
+		//printDebug("Error in cz_interface: hcanModule %u not supported",
+		//		canModule);
 		return;
 	}
 }
@@ -287,7 +287,7 @@ void cz_interface::cz_send(void* params){
 					OD_CAN2_DiscardedTxMessages++;
 				}
 
-				printDebug("Discarded TX message with ID %lu !!\n", sendMessage.txHeader.StdId);
+				//printDebug("Discarded TX message with ID %lu !!\n", sendMessage.txHeader.StdId);
 			}
 		}
 #endif
