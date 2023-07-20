@@ -154,25 +154,25 @@ public:
 
 // All output channels of the PDU with the initial states
 typedef struct PduOutputState {
-	OutputChannelPwm 	LPCh1					{false, 100.0f}; // optical sensor (kistler)
-	OutputChannelPwm 	LPCh2					{false, 100.0f}; //reserved
-	OutputChannelPwm	LPCh3					{true, 100.0f}; // ebox microcontroller.
-	OutputChannel 		LPCh4					{false}; //reserved
-	OutputChannel 		LPCh5					{false};  //unassinged
-	OutputChannel 		LPCh6   				{false}; //reserved
-	OutputChannel 		LPCh7					{false}; // Telemetry node, Wifi-Router
+	OutputChannelPwm 	LPCh1					{false, 100.0f}; // true
+	OutputChannelPwm 	LPCh2					{false}; //true (SDC).
+	OutputChannelPwm	LPCh3					{false, 100.0f}; // true
+	OutputChannel 		LPCh4					{false};
+	OutputChannel 		LPCh5					{true};  //ebox tower
+	OutputChannel 		LPCh6   				{false};
+	OutputChannel 		LPCh7					{false};
 	OutputChannelPwm 	LPCh8					{false, 100.0f};
-	OutputChannelPwm	LPCh9					{false}; //logger
-	OutputChannelPwm 	LPCh10					{true, 100.0f}; //reserved
+	OutputChannelPwm	LPCh9					{false};
+	OutputChannelPwm 	LPCh10					{false, 100.0f};
 	OutputChannelPwm	HPCh1					{false, 100.0f}; //led strip power
 	OutputChannelPwm	HPCh2					{false, 100.0f}; //cooling pump.
 	OutputChannelPwm	HPCh3					{false}; //maybe solenoid source (better for led strip because no remote)
 	OutputChannelPwm	HPCh4					{false}; //reserved
-	OutputChannelPwm	D1						{true, 100.0f}; //led digital
+	OutputChannelPwm	D1						{false, 100.0f}; //led digital
 	OutputChannelPwm	D2						{false, 100.0f}; //reserved
 	OutputChannelPwm	D3						{false, 100.0f}; //reserved
 	OutputChannelPwm	D4						{false, 100.0f}; //reserved
-	OutputChannel		SDC 					{false}; // not used!
+	OutputChannel		SDC 					{true}; // not used!
 } PduOutputState;
 
 PduOutputState outputState;
@@ -281,7 +281,7 @@ void receiveCanMessages() {
 			can::Message<messages::PDU_RX_Control> controlMsg{rxRawMsg};
 			bool errorReset = controlMsg.get<signals::PDU_RX_ErrorReset>();
 			bool _enable	= controlMsg.get<signals::PDU_RX_Enable>();  //activates control mode
-			bool peHwEnable = controlMsg.get<signals::PDU_RX_PEHWEnable>(); //allows the PDU to set the PE_enable channel (D2)
+			//bool peHwEnable = controlMsg.get<signals::PDU_RX_PEHWEnable>(); //allows the PDU to set the PE_enable channel (D2)
 
 
 			// Reset all errors if requested
@@ -318,7 +318,7 @@ void receiveCanMessages() {
 
 			// PDU is pduEnabled and in State Machine control mode
 			if(pduEnabled) {
-				outputState.SDC.set(true);
+				//outputState.SDC.set(true);
 			}
 
 		} else if(checkRxMessage<messages::PDU_RX_Manual_Control>(rxRawMsg)) {
@@ -361,18 +361,18 @@ void receiveCanMessages() {
 			outputState.LPCh2.set(lpch2_duty != 0,lpch2_duty);
 			float lpch3_duty = dutyMsg.get<signals::PDU_LPCh3_Dutycycle>();
 			outputState.LPCh3.set(lpch3_duty != 0, lpch3_duty);
-			float lpch8_duty = dutyMsg.get<signals::PDU_LPCh8_Dutycycle>();
-			outputState.LPCh8.set(lpch8_duty != 0, lpch8_duty);
-			float lpch9_duty = dutyMsg.get<signals::PDU_LPCh9_Dutycycle>();
-			outputState.LPCh9.set(lpch9_duty != 0, lpch9_duty);
+			//float lpch8_duty = dutyMsg.get<signals::PDU_LPCh8_Dutycycle>();
+			//outputState.LPCh8.set(lpch8_duty != 0, lpch8_duty);
+			//float lpch9_duty = dutyMsg.get<signals::PDU_LPCh9_Dutycycle>();
+			//outputState.LPCh9.set(lpch9_duty != 0, lpch9_duty);
 			float lpch10_duty = dutyMsg.get<signals::PDU_LPCh10_Dutycycle>();
 			outputState.LPCh10.set(lpch10_duty != 0, lpch10_duty);
 
 		} else if(checkRxMessage<messages::PDU_RX_HP_Dutycycle>(rxRawMsg)) {	// Duty cycle message for manual control
 			can::Message<messages::PDU_RX_HP_Dutycycle> dutyMsg{rxRawMsg};
 
-			float hpch1_duty = dutyMsg.get<signals::PDU_HPCh1_Dutycycle>();
-			outputState.HPCh1.set(hpch1_duty != 0, hpch1_duty);
+			//float hpch1_duty = dutyMsg.get<signals::PDU_HPCh1_Dutycycle>();
+			outputState.HPCh1.set(false);
 			float hpch2_duty = dutyMsg.get<signals::PDU_HPCh2_Dutycycle>();
 			outputState.HPCh2.set(hpch2_duty != 0, hpch2_duty);
 			float hpch3_duty = dutyMsg.get<signals::PDU_HPCh3_Dutycycle>();
@@ -381,16 +381,11 @@ void receiveCanMessages() {
 			outputState.HPCh4.set(hpch4_duty != 0, hpch4_duty);
 		} else if(checkRxMessage<messages::PDU_RX_LP_Enable>(rxRawMsg)){
 			can::Message<messages::PDU_RX_LP_Enable> lpEnableMsg {rxRawMsg};
-
 			outputState.LPCh4.set(lpEnableMsg.get<signals::PDU_RX_LPCh4_Enable>());
 			outputState.LPCh5.set(lpEnableMsg.get<signals::PDU_RX_LPCh5_Enable>());
 			outputState.LPCh6.set(lpEnableMsg.get<signals::PDU_RX_LPCh6_Enable>());
 			outputState.LPCh7.set(lpEnableMsg.get<signals::PDU_RX_LPCh7_Enable>());
 
-		} else if(checkRxMessage<messages::SensorF_TX_BMS>(rxRawMsg)) {
-			can::Message<messages::SensorF_TX_BMS> batteryTempMsg{rxRawMsg};
-
-			batteryTemperature = batteryTempMsg.get<signals::SensorF_TX_BatteryTemp>();
 		}
 	}
 }
@@ -616,7 +611,7 @@ void batterySafetyChecks() {
 
 		// If error is present for 200 or more cycles (1000ms), set the error
 		if(errorOvertemperatureCounter == 200) {
-			ERR_batterTempCritical_set();
+			//ERR_batterTempCritical_set();
 
 			// If overtemperature is longer than 2s, shut everything down
 		} else if(errorOvertemperatureCounter >= 400) {
@@ -651,7 +646,7 @@ void batterySafetyChecks() {
 
 		// If error is present for 10 or more cycles, shut down pod and set the error
 		if(errorOvercurrentCounter > 10) {
-			ERR_batteryOvercurrent_set();
+			//ERR_batteryOvercurrent_set();
 			outputState.LPCh1.set(false);
 			outputState.LPCh2.set(false);
 			outputState.LPCh3.set(false);
@@ -965,7 +960,7 @@ static void pduAppFunction(void *pvArguments) {
 		}
 
 		// Delay until next check
-		osDelay(pdMS_TO_TICKS(5));
+		osDelay(pdMS_TO_TICKS(50));
 	}
 }
 

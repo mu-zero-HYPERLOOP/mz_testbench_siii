@@ -287,7 +287,7 @@ void cz_interface::cz_send(void* params){
 					OD_CAN2_DiscardedTxMessages++;
 				}
 
-				//printDebug("Discarded TX message with ID %lu !!\n", sendMessage.txHeader.StdId);
+				printDebug("Discarded TX message with ID %lu !!\n", sendMessage.txHeader.StdId);
 			}
 		}
 #endif

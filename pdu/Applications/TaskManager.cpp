@@ -112,7 +112,7 @@ void stats::updateSensorStats(void*){
 		}
 		TickType_t timeSinceTempOk = xTaskGetTickCount() - lastTempOk;
 		if(timeSinceTempOk > OVER_TEMP_TIMEOUT){
-			ERR_CPUOverTemp_set();
+			//ERR_CPUOverTemp_set();
 		}else{
 			ERR_CPUOverTemp_clear();
 		}
@@ -124,7 +124,7 @@ void stats::updateSensorStats(void*){
 		}
 		TickType_t timeSinceUnderVoltOk = xTaskGetTickCount() - lastUnderVoltOk;
 		if(timeSinceUnderVoltOk > UNDER_VOLT_TIMEOUT){
-			ERR_UnderVolt_set();
+			//ERR_UnderVolt_set();
 		}else{
 			ERR_UnderVolt_clear();
 		}
@@ -134,7 +134,7 @@ void stats::updateSensorStats(void*){
 		}
 		TickType_t timeSinceOverVoltOk = xTaskGetTickCount() - lastOverVoltOk;
 		if(timeSinceOverVoltOk > OVER_VOLT_THRESHOLD){
-			ERR_OverVolt_set();
+			//ERR_OverVolt_set();
 		}else{
 			ERR_OverVolt_clear();
 		}

@@ -36,7 +36,31 @@ BS_:
 BU_: Bat1 OpticalSensor EMUS_BMS SCIMO_PE TelemetryNode Master SensorF SensorR BrakeF BrakeR PDU HVCU HVTU TestBench MDB1 MDB2 MDB3 MDB4 MDB5 MDB6 Track CLU
 
 
-BO_ 291 CLU_RX_ConfigureAirGap: 4 Vector__XXX
+BO_ 302 MDB6_TX_CurrentDC: 4 Vector__XXX
+ SG_ MDB6_TX_CurrentDC : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
+
+BO_ 299 MDB5_TX_CurrentDC: 4 Vector__XXX
+ SG_ MDB5_TX_CurrentDC : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
+
+BO_ 286 MDB4_TX_CurrentDC: 4 Vector__XXX
+ SG_ MDB4_TX_CurrentDC : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
+
+BO_ 283 MDB3_TX_CurrentDC: 4 Vector__XXX
+ SG_ MDB3_TX_CurrentDC : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
+
+BO_ 270 MDB2_TX_CurrentDC: 4 Vector__XXX
+ SG_ MDB2_TX_CurrentDC : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
+
+BO_ 267 MDB1_TX_CurrentDC: 4 Vector__XXX
+ SG_ MDB1_TX_CurrentDC : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
+
+BO_ 269 MDB2_TX_CurrentTarget: 4 MDB2
+ SG_ MDB2_CurrentTarget : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
+
+BO_ 266 MDB1_TX_CurrentTarget: 4 MDB1
+ SG_ MDB1_CurrentTarget : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
+
+BO_ 155 CLU_RX_ConfigureAirGap: 4 Vector__XXX
  SG_ CLU_RX_ConfigureAirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] ""  CLU
 
 BO_ 1072 SensorF_RX_IgnoreLevel: 2 Vector__XXX
@@ -71,79 +95,79 @@ BO_ 592 CLU_TX_LevitationState: 1 CLU
 BO_ 768 CLU_TX_CoolingState: 1 Vector__XXX
  SG_ CLU_RequiresCooling : 0|1@1+ (1,0) [0|1] ""  SensorF
 
-BO_ 274 MDB3_TX_Current: 4 CLU
- SG_ MDB3_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
+BO_ 274 MDB3_TX_CurrentMagnet: 4 MDB3
+ SG_ MDB3_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
 
-BO_ 295 MDB6_TX_Current: 4 CLU
- SG_ MDB6_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
+BO_ 295 MDB6_TX_CurrentMagnet: 4 MDB6
+ SG_ MDB6_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
 
-BO_ 297 MDB6_TX_Temperature: 4 Vector__XXX
+BO_ 297 MDB6_TX_Temperature: 4 MDB6
  SG_ MDB6_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 294 MDB6_TX_AirGap: 4 Vector__XXX
+BO_ 294 MDB6_TX_AirGap: 4 MDB6
  SG_ MDB6_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
 
 BO_ 293 MDB6_TX_State: 1 MDB6
  SG_ MDB6_State : 0|8@1+ (1,0) [0|255] ""  CLU
 
-BO_ 292 MDB5_TX_Temperature: 4 Vector__XXX
+BO_ 292 MDB5_TX_Temperature: 4 MDB5
  SG_ MDB5_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 290 MDB5_TX_Current: 4 CLU
- SG_ MDB5_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
+BO_ 290 MDB5_TX_CurrentMagnet: 4 MDB5
+ SG_ MDB5_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
 
-BO_ 289 MDB5_TX_AirGap: 4 Vector__XXX
+BO_ 289 MDB5_TX_AirGap: 4 MDB5
  SG_ MDB5_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
 
 BO_ 288 MDB5_TX_State: 1 MDB5
  SG_ MDB5_State : 0|8@1+ (1,0) [0|255] ""  CLU
 
-BO_ 281 MDB4_TX_Temperature: 4 Vector__XXX
+BO_ 281 MDB4_TX_Temperature: 4 MDB4
  SG_ MDB4_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 279 MDB4_TX_Current: 4 CLU
- SG_ MDB4_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm" Vector__XXX
+BO_ 279 MDB4_TX_CurrentMagnet: 4 MDB4
+ SG_ MDB4_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
 
-BO_ 278 MDB4_TX_AirGap: 4 Vector__XXX
+BO_ 278 MDB4_TX_AirGap: 4 MDB4
  SG_ MDB4_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
 
 BO_ 277 MDB4_TX_State: 1 MDB4
  SG_ MDB4_State : 0|8@1+ (1,0) [0|255] ""  CLU
 
-BO_ 276 MDB3_TX_Temperature: 4 Vector__XXX
+BO_ 276 MDB3_TX_Temperature: 4 MDB3
  SG_ MDB3_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 273 MDB3_TX_AirGap: 4 Vector__XXX
+BO_ 273 MDB3_TX_AirGap: 4 MDB3
  SG_ MDB3_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
 
 BO_ 272 MDB3_TX_State: 1 MDB3
  SG_ MDB3_State : 0|8@1+ (1,0) [0|255] ""  CLU
 
-BO_ 265 MDB2_TX_Temperature: 4 Vector__XXX
+BO_ 265 MDB2_TX_Temperature: 4 MDB2
  SG_ MDB2_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU
 
-BO_ 263 MDB2_TX_Current: 4 CLU
- SG_ MDB2_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A" Vector__XXX
+BO_ 263 MDB2_TX_CurrentMagnet: 4 MDB2
+ SG_ MDB2_Current : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "A"  CLU
 
-BO_ 262 MDB2_TX_AirGap: 4 Vector__XXX
+BO_ 262 MDB2_TX_AirGap: 4 MDB2
  SG_ MDB2_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
 
 BO_ 261 MDB2_TX_State: 1 MDB2
  SG_ MDB2_State : 0|8@1+ (1,0) [0|255] ""  CLU
 
-BO_ 258 MDB1_TX_Current: 4 CLU
- SG_ MDB1_Current : 0|32@1- (0.0001,0) [0|0] "A" Vector__XXX
+BO_ 258 MDB1_TX_CurrentMagnet: 4 MDB1
+ SG_ MDB1_Current : 0|32@1- (0.0001,0) [0|0] "A"  CLU
 
-BO_ 260 MDB1_TX_Temperature: 4 MDB3
+BO_ 260 MDB1_TX_Temperature: 4 MDB1
  SG_ MDB1_Temperature : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "C"  CLU,SensorF
 
-BO_ 257 MDB1_TX_AirGap: 4 MDB3
+BO_ 257 MDB1_TX_AirGap: 4 MDB1
  SG_ MDB1_AirGap : 0|32@1- (0.0001,0) [-214748.3648|214748.3647] "mm"  CLU
 
 BO_ 1041 BrakeF_TX_PressureCooling: 2 BrakeF
  SG_ BrakeF_TX_Pressure_Reservoir : 0|12@1+ (0.005,-2) [-2|18.475] "bar"  SensorF
 
-BO_ 266 PDU_RX_LP_Enable: 1 PDU
+BO_ 523 PDU_RX_LP_Enable: 1 PDU
  SG_ PDU_RX_LPCh7_Enable : 3|1@1+ (1,0) [0|1] ""  PDU,SensorF
  SG_ PDU_RX_LPCh6_Enable : 2|1@1+ (1,0) [0|1] ""  PDU,SensorF
  SG_ PDU_RX_LPCh5_Enable : 1|1@1+ (1,0) [0|1] ""  PDU,SensorF
@@ -2260,8 +2284,7 @@ BO_ 1876 CLU_BTL_TX: 8 CLU
 
 BO_ 1940 CLU_BTL_RX: 8 TelemetryNode
 
-BO_TX_BU_ 260 : MDB3,MDB2,MDB1,MDB6,MDB5,MDB4;
-BO_TX_BU_ 257 : MDB3,MDB2,MDB1,MDB6,MDB5,MDB4;
+
 
 
 CM_ BU_ OpticalSensor "Kistler SFP-II optical Sensor.";
@@ -2952,11 +2975,11 @@ BA_DEF_DEF_  "CANzero_SDO_AccessIfOperational" "No";
 BA_DEF_DEF_  "CANzero_SDO_AccessType" "Read Write";
 BA_DEF_DEF_  "CANzero_SDO_Default" 0;
 BA_DEF_DEF_  "SystemSignalLongSymbol" "";
-BA_ "CANzero_NMTMasterName" "Master";
-BA_ "CANzero_SDOClientName" "TelemetryNode";
-BA_ "CANzero_DBCVersion" 249;
-BA_ "CANzero_ProtocolVersion" "V1.0";
 BA_ "BusType" "CAN";
+BA_ "CANzero_ProtocolVersion" "V1.0";
+BA_ "CANzero_DBCVersion" 263;
+BA_ "CANzero_SDOClientName" "TelemetryNode";
+BA_ "CANzero_NMTMasterName" "Master";
 BA_ "DBName" "pod2022";
 BA_ "CANzero_NodeID" BU_ TelemetryNode 34;
 BA_ "CANzero_NodeID" BU_ SensorF 1;
@@ -2974,7 +2997,15 @@ BA_ "CANzero_NodeID" BU_ MDB5 41;
 BA_ "CANzero_NodeID" BU_ MDB6 49;
 BA_ "CANzero_NodeID" BU_ Track 50;
 BA_ "CANzero_NodeID" BU_ CLU 20;
-BA_ "GenMsgCycleTime" BO_ 291 100;
+BA_ "GenMsgCycleTime" BO_ 302 100;
+BA_ "GenMsgCycleTime" BO_ 299 100;
+BA_ "GenMsgCycleTime" BO_ 286 100;
+BA_ "GenMsgCycleTime" BO_ 283 100;
+BA_ "GenMsgCycleTime" BO_ 270 100;
+BA_ "GenMsgCycleTime" BO_ 267 100;
+BA_ "GenMsgCycleTime" BO_ 269 100;
+BA_ "GenMsgCycleTime" BO_ 266 100;
+BA_ "GenMsgCycleTime" BO_ 155 100;
 BA_ "GenMsgCycleTime" BO_ 1072 100;
 BA_ "GenMsgCycleTime" BO_ 5 100;
 BA_ "GenMsgCycleTime" BO_ 4 100;
@@ -3010,7 +3041,7 @@ BA_ "GenMsgCycleTime" BO_ 260 100;
 BA_ "GenMsgCycleTime" BO_ 257 100;
 BA_ "GenMsgCycleTime" BO_ 1041 100;
 BA_ "GenSigStartValue" SG_ 1041 BrakeF_TX_Pressure_Reservoir 400;
-BA_ "GenMsgCycleTime" BO_ 266 100;
+BA_ "GenMsgCycleTime" BO_ 523 100;
 BA_ "GenMsgCycleTime" BO_ 2148592864 100;
 BA_ "GenMsgCycleTime" BO_ 1 100;
 BA_ "GenMsgCycleTime" BO_ 0 100;
@@ -3234,8 +3265,8 @@ BA_ "GenMsgCycleTime" BO_ 1509 100;
 BA_ "GenMsgCycleTime" BO_ 1508 100;
 BA_ "GenMsgCycleTime" BO_ 1488 100;
 BA_ "GenMsgCycleTime" BO_ 1472 100;
-BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1456 10;
+BA_ "GenMsgSendType" BO_ 1456 0;
 BA_ "GenMsgCycleTime" BO_ 1440 100;
 BA_ "GenMsgCycleTime" BO_ 1344 100;
 BA_ "GenMsgCycleTime" BO_ 1328 100;
@@ -3250,10 +3281,10 @@ BA_ "GenMsgCycleTime" BO_ 1299 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A3 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A2 100;
 BA_ "GenSigStartValue" SG_ 1299 SCIMO_MOT2_A1 100;
-BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgCycleTime" BO_ 1280 10;
-BA_ "GenMsgCycleTime" BO_ 1296 10;
+BA_ "GenMsgSendType" BO_ 1280 0;
 BA_ "GenMsgSendType" BO_ 1296 0;
+BA_ "GenMsgCycleTime" BO_ 1296 10;
 BA_ "GenMsgCycleTime" BO_ 2578776065 100;
 BA_ "GenMsgCycleTime" BO_ 2578776064 100;
 BA_ "GenMsgCycleTime" BO_ 2578776071 100;

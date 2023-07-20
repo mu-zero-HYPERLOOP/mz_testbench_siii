@@ -10,10 +10,10 @@
 
 namespace brake_control {
 
-constexpr pdu::LpChannel BRAKE_CHANNEL = pdu::LpChannel::LP_CHANNEL5;
+constexpr pdu::LpChannel BRAKE_CHANNEL = pdu::LpChannel::LP_CHANNEL4;
 
 void init(){
-	pdu::disableChannel(BRAKE_CHANNEL);
+	engage();
 }
 
 void engage(){

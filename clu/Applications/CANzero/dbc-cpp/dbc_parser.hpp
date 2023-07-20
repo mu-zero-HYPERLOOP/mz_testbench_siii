@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 00:30:47 22.06.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 19:32:11 19.07.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'CLU' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -57,19 +57,19 @@ namespace can {
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
             0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x7FF,            0x7FF,            0x7FF, 
-            0x7FF,            0x3FF,            0x7FD,            0x7F7 
+            0x7FF,            0x7DF,            0x7DF,            0x3FF, 
+            0x7FE,            0x7FE,            0x7F7,            0x7FD, 
+            0x7FD,            0x7F7,            0x7FD,            0x7FD, 
+            0x7FE,            0x7EF,            0x7EF,            0x7FD 
         };
         constexpr uint32_t id_std[28] = {     // Filter ID for standard (11-bit) ID messages
-            0x118,            0x234,            0x125,            0x120, 
-            0x119,            0x116,            0x115,            0x114, 
-            0x111,            0x110,            0x109,            0x106, 
-            0x105,            0x104,            0x101,            0x100, 
+            0x09B,            0x234,            0x109,            0x105, 
             0x002,            0x181,            0x1D4,            0x254, 
             0x2D4,            0x354,            0x5D4,            0x614, 
-            0x794,            0x300,            0x124,            0x121 
+            0x794,            0x10E,            0x10B,            0x300, 
+            0x126,            0x124,            0x121,            0x120, 
+            0x119,            0x116,            0x115,            0x110, 
+            0x106,            0x104,            0x101,            0x100 
         };
     }
 
@@ -463,7 +463,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char BusType[] = "CAN";
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
-    constexpr uint32_t CANzero_DBCVersion = 248;
+    constexpr uint32_t CANzero_DBCVersion = 263;
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char DBName[] = "pod2022";
@@ -472,11 +472,161 @@ namespace can {
     * Namespace containing all signals with their value tables and attributes                     *
     ***********************************************************************************************/
     namespace signals {
+        class MDB6_TX_CurrentDC {
+            public:
+            using dataType = double;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x12E };
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
+            }
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
+            }
+        };
+        class MDB5_TX_CurrentDC {
+            public:
+            using dataType = double;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x12B };
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
+            }
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
+            }
+        };
+        class MDB4_TX_CurrentDC {
+            public:
+            using dataType = double;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x11E };
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
+            }
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
+            }
+        };
+        class MDB3_TX_CurrentDC {
+            public:
+            using dataType = double;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x11B };
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
+            }
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
+            }
+        };
+        class MDB2_TX_CurrentDC {
+            public:
+            using dataType = double;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x10E };
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
+            }
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
+            }
+        };
+        class MDB1_TX_CurrentDC {
+            public:
+            using dataType = double;
+            constexpr static uint8_t numIds = 1;
+            constexpr static uint32_t ids[] = { 0x10B };
+            constexpr static double min = static_cast<double>(-214748.3648);
+            constexpr static double max = static_cast<double>(214748.3647);
+            constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
+                if (value > max) {
+                    value = max;
+                }
+                if (value < min) {
+                    value = min;
+                }
+                int32_t rawValue = static_cast<int32_t>(STD_ROUND((value) / (0.0001)));
+                intel |= (static_cast<uint64_t>(rawValue)) & 0xFFFFFFFFull;
+            }
+            constexpr static inline double get(const uint64_t& intel, const uint64_t& motorola) noexcept {
+                int32_t value = static_cast<int32_t>((intel & 0xFFFFFFFFull));
+                // Convert raw bits to signed value
+                SignedConverter32Bits signedConverter{value};
+                value = signedConverter.value;
+                return value * (0.0001);
+            }
+        };
         class CLU_RX_ConfigureAirGap {
             public:
             using dataType = double;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x118 };
+            constexpr static uint32_t ids[] = { 0x9B };
             constexpr static double min = static_cast<double>(-214748.3648);
             constexpr static double max = static_cast<double>(214748.3647);
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, double value) noexcept {
@@ -3036,9 +3186,81 @@ namespace can {
     * Namespace containing all messages                                                           *
     ***********************************************************************************************/
     namespace messages {
+        class MDB6_TX_CurrentDC {
+            public:
+            constexpr static uint32_t id = 0x12E;
+            constexpr static uint8_t dlc = 4;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using MDB6_TX_CurrentDC_ = signals::MDB6_TX_CurrentDC;
+
+            // Attributes of message 'MDB6_TX_CurrentDC'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class MDB5_TX_CurrentDC {
+            public:
+            constexpr static uint32_t id = 0x12B;
+            constexpr static uint8_t dlc = 4;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using MDB5_TX_CurrentDC_ = signals::MDB5_TX_CurrentDC;
+
+            // Attributes of message 'MDB5_TX_CurrentDC'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class MDB4_TX_CurrentDC {
+            public:
+            constexpr static uint32_t id = 0x11E;
+            constexpr static uint8_t dlc = 4;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using MDB4_TX_CurrentDC_ = signals::MDB4_TX_CurrentDC;
+
+            // Attributes of message 'MDB4_TX_CurrentDC'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class MDB3_TX_CurrentDC {
+            public:
+            constexpr static uint32_t id = 0x11B;
+            constexpr static uint8_t dlc = 4;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using MDB3_TX_CurrentDC_ = signals::MDB3_TX_CurrentDC;
+
+            // Attributes of message 'MDB3_TX_CurrentDC'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class MDB2_TX_CurrentDC {
+            public:
+            constexpr static uint32_t id = 0x10E;
+            constexpr static uint8_t dlc = 4;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using MDB2_TX_CurrentDC_ = signals::MDB2_TX_CurrentDC;
+
+            // Attributes of message 'MDB2_TX_CurrentDC'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
+        class MDB1_TX_CurrentDC {
+            public:
+            constexpr static uint32_t id = 0x10B;
+            constexpr static uint8_t dlc = 4;
+            constexpr static bool isExtendedId = false;
+
+            // Signals
+            using MDB1_TX_CurrentDC_ = signals::MDB1_TX_CurrentDC;
+
+            // Attributes of message 'MDB1_TX_CurrentDC'
+            constexpr static uint16_t GenMsgCycleTime = 100;
+        };
         class CLU_RX_ConfigureAirGap {
             public:
-            constexpr static uint32_t id = 0x118;
+            constexpr static uint32_t id = 0x9B;
             constexpr static uint8_t dlc = 4;
             constexpr static bool isExtendedId = false;
 
@@ -3121,7 +3343,7 @@ namespace can {
             // Attributes of message 'CLU_TX_CoolingState'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB3_TX_Current {
+        class MDB3_TX_CurrentMagnet {
             public:
             constexpr static uint32_t id = 0x112;
             constexpr static uint8_t dlc = 4;
@@ -3130,10 +3352,10 @@ namespace can {
             // Signals
             using MDB3_Current = signals::MDB3_Current;
 
-            // Attributes of message 'MDB3_TX_Current'
+            // Attributes of message 'MDB3_TX_CurrentMagnet'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB6_TX_Current {
+        class MDB6_TX_CurrentMagnet {
             public:
             constexpr static uint32_t id = 0x127;
             constexpr static uint8_t dlc = 4;
@@ -3142,7 +3364,7 @@ namespace can {
             // Signals
             using MDB6_Current = signals::MDB6_Current;
 
-            // Attributes of message 'MDB6_TX_Current'
+            // Attributes of message 'MDB6_TX_CurrentMagnet'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB6_TX_Temperature {
@@ -3193,7 +3415,7 @@ namespace can {
             // Attributes of message 'MDB5_TX_Temperature'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB5_TX_Current {
+        class MDB5_TX_CurrentMagnet {
             public:
             constexpr static uint32_t id = 0x122;
             constexpr static uint8_t dlc = 4;
@@ -3202,7 +3424,7 @@ namespace can {
             // Signals
             using MDB5_Current = signals::MDB5_Current;
 
-            // Attributes of message 'MDB5_TX_Current'
+            // Attributes of message 'MDB5_TX_CurrentMagnet'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB5_TX_AirGap {
@@ -3241,7 +3463,7 @@ namespace can {
             // Attributes of message 'MDB4_TX_Temperature'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB4_TX_Current {
+        class MDB4_TX_CurrentMagnet {
             public:
             constexpr static uint32_t id = 0x117;
             constexpr static uint8_t dlc = 4;
@@ -3250,7 +3472,7 @@ namespace can {
             // Signals
             using MDB4_Current = signals::MDB4_Current;
 
-            // Attributes of message 'MDB4_TX_Current'
+            // Attributes of message 'MDB4_TX_CurrentMagnet'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB4_TX_AirGap {
@@ -3325,7 +3547,7 @@ namespace can {
             // Attributes of message 'MDB2_TX_Temperature'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB2_TX_Current {
+        class MDB2_TX_CurrentMagnet {
             public:
             constexpr static uint32_t id = 0x107;
             constexpr static uint8_t dlc = 4;
@@ -3334,7 +3556,7 @@ namespace can {
             // Signals
             using MDB2_Current = signals::MDB2_Current;
 
-            // Attributes of message 'MDB2_TX_Current'
+            // Attributes of message 'MDB2_TX_CurrentMagnet'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB2_TX_AirGap {
@@ -3361,7 +3583,7 @@ namespace can {
             // Attributes of message 'MDB2_TX_State'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
-        class MDB1_TX_Current {
+        class MDB1_TX_CurrentMagnet {
             public:
             constexpr static uint32_t id = 0x102;
             constexpr static uint8_t dlc = 4;
@@ -3370,7 +3592,7 @@ namespace can {
             // Signals
             using MDB1_Current = signals::MDB1_Current;
 
-            // Attributes of message 'MDB1_TX_Current'
+            // Attributes of message 'MDB1_TX_CurrentMagnet'
             constexpr static uint16_t GenMsgCycleTime = 100;
         };
         class MDB1_TX_Temperature {

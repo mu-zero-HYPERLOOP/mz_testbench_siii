@@ -44,7 +44,7 @@ constexpr float EBOX_NTC_INTERNAL_RESISTANCE = 1000;
 constexpr AdcModule EBOX_NTC_ADC_MODULE = ADC_MODULE2;
 constexpr uint8_t EBOX_NTC_ADC_RANK = 1;
 
-pdu::HpChannel COOLING_PUMP_CHANNEL = pdu::HP_CHANNEL3;
+pdu::HpChannel COOLING_PUMP_CHANNEL = pdu::HP_CHANNEL2;
 
 AdcChannelController reservoirTemperatureAdc;
 MovingAverageFilter<10> reservoirTemperatureFilter(20);
@@ -117,8 +117,7 @@ void update() {
 		break;
 	case MODE::ADAPTIV: {
 		float pressure = OD_CoolingPressure_get();
-		bool errorPressure = (pressure >= RESERVOIR_PRESSURE_HIGH)
-				|| (pressure <= RESERVOIR_PRESSURE_LOW);
+		bool errorPressure = (pressure >= RESERVOIR_PRESSURE_HIGH);
 
 		bool requiresCooling = clu::requiresCooling();
 

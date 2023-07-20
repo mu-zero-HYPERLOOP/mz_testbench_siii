@@ -21,9 +21,9 @@ constexpr uint8_t LEVI_ERROR_PRIO_LEVI = 20;
 constexpr uint8_t LEVI_ERROR_PRIO_PREP = 10;
 constexpr uint8_t LEVI_ERROR_PRIO_NON_LEVI = 5;
 
-constexpr uint8_t MAGNET_OVER_TEMP_PRIO_LEVI = 15;
-constexpr uint8_t MAGNET_OVER_TEMP_PRIO_PREP = 10;
-constexpr uint8_t MAGNET_OVER_TEMP_PRIO_NON_LEVI = 10;
+constexpr uint8_t MAGNET_OVER_TEMP_PRIO_LEVI = 5;
+constexpr uint8_t MAGNET_OVER_TEMP_PRIO_PREP = 5;
+constexpr uint8_t MAGNET_OVER_TEMP_PRIO_NON_LEVI = 5;
 
 namespace error_prop {
 

@@ -55,7 +55,7 @@ bool telemetryConnected(){
 void update(){
 	TickType_t timeSinceBecuHeartbeat = xTaskGetTickCount() - lastBecuHeartbeat;
 	if(timeSinceBecuHeartbeat > HEARTBEAT_TIMEOUT){
-		ERR_BECUHeartbeatMiss_set();
+		//ERR_BECUHeartbeatMiss_set();
 	}else{
 		ERR_BECUHeartbeatMiss_clear();
 	}

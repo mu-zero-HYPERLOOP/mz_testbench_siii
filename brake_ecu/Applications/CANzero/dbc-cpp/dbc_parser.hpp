@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 13:21:42 18.06.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 20:21:44 05.07.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'BrakeF' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -448,7 +448,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
-    constexpr uint32_t CANzero_DBCVersion = 222;
+    constexpr uint32_t CANzero_DBCVersion = 259;
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
     constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";

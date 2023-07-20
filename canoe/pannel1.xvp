@@ -4,15 +4,15 @@
     <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=16.4.4.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl8" Children="Controls" ControlName="Button 8">
       <Property Name="Name">ButtonControl8</Property>
       <Property Name="Size">336, 30</Property>
-      <Property Name="Location">248, 300</Property>
+      <Property Name="Location">248, 259</Property>
       <Property Name="Text">Reset Errors</Property>
       <Property Name="SymbolConfiguration">8;16;;;;SMS_ResetErrors;1;;;-1;;;;;;0</Property>
       <Property Name="TabIndex">110</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=16.4.4.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl7" Children="Controls" ControlName="Button 7">
       <Property Name="Name">ButtonControl7</Property>
-      <Property Name="Size">336, 30</Property>
-      <Property Name="Location">248, 254</Property>
+      <Property Name="Size">506, 167</Property>
+      <Property Name="Location">518, 420</Property>
       <Property Name="ReleaseValueVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;RxValue&gt;-1&lt;/RxValue&gt;</Property>
       <Property Name="ReleaseValueVT">1;Lower;-1</Property>
       <Property Name="ReleaseValue">-1</Property>

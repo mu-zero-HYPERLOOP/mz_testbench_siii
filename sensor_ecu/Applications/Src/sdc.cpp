@@ -9,33 +9,22 @@
 #include "GPIOWriteController.hpp"
 #include "gpio.h"
 #include "estdio.hpp"
+#include "pdu_remote.hpp"
 
 namespace sdc {
 
-static GPIOWriteController m_sdcGpio(SDC_GPIO_Port, SDC_Pin);
-static bool current;
+pdu::LpChannel SDC_CHANNEL = pdu::LpChannel::LP_CHANNEL6;
 
 void open(){
-	close();
-	return;
-	m_sdcGpio.reset();
-	if(current){
-		printf("open sdc\n");
-		current = false;
-	}
+	pdu::disableChannel(SDC_CHANNEL);
 }
 
 void close(){
-	m_sdcGpio.set();
-	if(not current){
-		printf("close sdc\n");
-		current = true;
-	}
+	pdu::enableChannel(SDC_CHANNEL);
 }
 
 
 void init(){
-	current = true;
 	open();
 }
 

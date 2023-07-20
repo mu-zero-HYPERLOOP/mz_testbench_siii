@@ -20,6 +20,14 @@ variables
   message SensorF_TX_StatePod stateMsg;
 }
 
+on key '0' {
+ message SensorF_SDO_Req_Up msg;
+ msg.SensorF_SDO_ID = 0x900;
+ msg.SensorF_OD_TelemetryCommands = 9;
+ output(msg);
+ write("emergency");
+}
+
 on message SensorF_Heartbeat {
   lastHeartbeat = this;
 }
@@ -47,7 +55,7 @@ on start {
   @SMS_EmergencyLevel = 20;
   ignoreLevelMsg.SensorF_IgnoreLevel = @SMS_IgnoreLevel;
   ignoreLevelMsg.SensorF_EmergencyLevel = @SMS_EmergencyLevel;
-  @SMS_TargetAirGap = 12.0;
+  @SMS_TargetAirGap = 8.0;
   configAirGapMsg.CLU_RX_ConfigureAirGap = @SMS_TargetAirGap * 10000.0;
 
   heartbeat.TelemetryNode_NodeState = 5;

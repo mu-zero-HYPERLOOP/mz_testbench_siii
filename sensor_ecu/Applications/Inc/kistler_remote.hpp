@@ -13,6 +13,8 @@ void init();
 
 void update();
 
+void normalize();
+
 void enable();
 
 void disable();

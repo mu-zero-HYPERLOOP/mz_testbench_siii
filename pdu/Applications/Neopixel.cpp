@@ -75,6 +75,12 @@ void setAll(color_t color){
 	}
 }
 
+void snapshot(color_t* snapshot){
+	for(size_t i = 0; i < m_numberOfLeds; i++){
+		snapshot[i] = m_colorBuffer[i];
+	}
+}
+
 
 
 

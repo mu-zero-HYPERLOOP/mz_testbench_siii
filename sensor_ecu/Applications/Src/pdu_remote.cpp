@@ -56,16 +56,16 @@ struct LpChannelConfig {
 
 static LpChannelConfig s_lpChannelConfig = {
 		.m_status = {
-				false,  //kistler
-				false,
-				true,  //ebox microcontrollers
-				false,
-				false, //brake (over relay)
-				false,
-				true, // telemetry atena.
-				false,
-				false,
-				true //sdc.
+				true,  //1 (SDC)
+				true,  //2 (Telemetry)
+				true,  //3 (FAN)
+				false,  //4 (Brakes)
+				true,  //5 (ebox microcontroller).
+				false, //6
+				false,  //7
+				false, //8
+				false, //9 brakes (requires rewire! important)
+				false  //10 fans
 		}
 };
 static LpChannelConfig s_confirmed_lpChannelConfig;
@@ -87,9 +87,9 @@ struct HpChannelConfig {
 
 static HpChannelConfig s_hpChannelConfig = {
 		.m_status = {
-				false, //kistler
-				true,
 				false,
+				false,
+				true,
 				false,
 		}
 };

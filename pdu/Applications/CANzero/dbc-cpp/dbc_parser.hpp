@@ -1,6 +1,6 @@
 /* DO NOT MODIFY. THIS FILE WAS GENERATED AUTOMATICALLY BY DBC2CPP V1.7.7.
  * 
- * This header file was generated from 'pod2023_gen.dbc' on 03:09:42 22.06.2023.
+ * This header file was generated from 'pod2023_gen.dbc' on 10:03:55 17.07.2023.
  * It contains all messages and signals as well as value tables and attributes of the DBC file.
  * Only messages and signals received or sent from node 'PDU' were parsed.
  * The STM32 template was used to generate code for STM32 microcontrollers.
@@ -60,7 +60,7 @@ namespace can {
             0x7FF,            0x7FF,            0x7FF,            0x7FF 
         };
         constexpr uint32_t id_std[16] = {     // Filter ID for standard (11-bit) ID messages
-            0x10A,            0x002,            0x181,            0x441, 
+            0x20B,            0x002,            0x181,            0x441, 
             0x481,            0x202,            0x282,            0x482, 
             0x582,            0x1DA,            0x25A,            0x2DA, 
             0x35A,            0x5DA,            0x61A,            0x79A 
@@ -463,7 +463,7 @@ namespace can {
     ***********************************************************************************************/
     constexpr char CANzero_NMTMasterName[] = "Master";
     constexpr char CANzero_SDOClientName[] = "TelemetryNode";
-    constexpr uint32_t CANzero_DBCVersion = 251;
+    constexpr uint32_t CANzero_DBCVersion = 260;
     constexpr char CANzero_ProtocolVersion[] = "V1.0";
     constexpr char BusType[] = "CAN";
     constexpr char DBName[] = "pod2022";
@@ -490,7 +490,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x10A };
+            constexpr static uint32_t ids[] = { 0x20B };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue)) & 0x1ull;
@@ -504,7 +504,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x10A };
+            constexpr static uint32_t ids[] = { 0x20B };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 1) & 0x2ull;
@@ -518,7 +518,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x10A };
+            constexpr static uint32_t ids[] = { 0x20B };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 2) & 0x4ull;
@@ -532,7 +532,7 @@ namespace can {
             public:
             using dataType = bool;
             constexpr static uint8_t numIds = 1;
-            constexpr static uint32_t ids[] = { 0x10A };
+            constexpr static uint32_t ids[] = { 0x20B };
             constexpr static inline void set(uint64_t& intel, uint64_t& motorola, uint8_t& dlc, bool value) noexcept {
                 bool rawValue = value;
                 intel |= (static_cast<uint64_t>(rawValue) << 3) & 0x8ull;
@@ -8514,7 +8514,7 @@ namespace can {
         };
         class PDU_RX_LP_Enable {
             public:
-            constexpr static uint32_t id = 0x10A;
+            constexpr static uint32_t id = 0x20B;
             constexpr static uint8_t dlc = 1;
             constexpr static bool isExtendedId = false;
 

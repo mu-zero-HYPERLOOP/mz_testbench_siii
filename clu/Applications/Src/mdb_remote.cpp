@@ -64,12 +64,48 @@ void mdbStatusReceiver(RxMessage& raw){
 
 template<uint8_t MDB_ID>
 void mdbAirGapReceiver(RxMessage& raw){
-	m_airGap[MDB_ID] = *reinterpret_cast<float*>(raw.rxBuf);
+	if(MDB_ID == 0){
+		can::Message<can::messages::MDB1_TX_AirGap> msg{raw};
+		m_airGap[MDB_ID] = msg.get<can::signals::MDB1_AirGap>();
+	}else if(MDB_ID == 1){
+		can::Message<can::messages::MDB2_TX_AirGap> msg{raw};
+		m_airGap[MDB_ID] = msg.get<can::signals::MDB2_AirGap>();
+	}else if(MDB_ID == 2){
+		can::Message<can::messages::MDB3_TX_AirGap> msg{raw};
+		m_airGap[MDB_ID] = msg.get<can::signals::MDB3_AirGap>();
+	}else if(MDB_ID == 3){
+		can::Message<can::messages::MDB4_TX_AirGap> msg{raw};
+		m_airGap[MDB_ID] = msg.get<can::signals::MDB4_AirGap>();
+	}else if(MDB_ID == 4){
+		can::Message<can::messages::MDB5_TX_AirGap> msg{raw};
+		m_airGap[MDB_ID] = msg.get<can::signals::MDB5_AirGap>();
+	}else if(MDB_ID == 5){
+		can::Message<can::messages::MDB6_TX_AirGap> msg{raw};
+		m_airGap[MDB_ID] = msg.get<can::signals::MDB6_AirGap>();
+	}
 }
 
 template<uint8_t MDB_ID>
 void mdbTempReceiver(RxMessage& raw){
-	m_temp[MDB_ID] = *reinterpret_cast<float*>(raw.rxBuf);
+	if(MDB_ID == 0){
+		can::Message<can::messages::MDB1_TX_Temperature> msg{raw};
+		m_temp[MDB_ID] = msg.get<can::signals::MDB1_Temperature>();
+	}else if(MDB_ID == 1){
+		can::Message<can::messages::MDB2_TX_Temperature> msg{raw};
+		m_temp[MDB_ID] = msg.get<can::signals::MDB2_Temperature>();
+	}else if(MDB_ID == 2){
+		can::Message<can::messages::MDB3_TX_Temperature> msg{raw};
+		m_temp[MDB_ID] = msg.get<can::signals::MDB3_Temperature>();
+	}else if(MDB_ID == 3){
+		can::Message<can::messages::MDB4_TX_Temperature> msg{raw};
+		m_temp[MDB_ID] = msg.get<can::signals::MDB4_Temperature>();
+	}else if(MDB_ID == 4){
+		can::Message<can::messages::MDB5_TX_Temperature> msg{raw};
+		m_temp[MDB_ID] = msg.get<can::signals::MDB5_Temperature>();
+	}else if(MDB_ID == 5){
+		can::Message<can::messages::MDB6_TX_Temperature> msg{raw};
+		m_temp[MDB_ID] = msg.get<can::signals::MDB6_Temperature>();
+	}
 }
 
 void mdbActionRequestReceiver(RxMessage& raw){
